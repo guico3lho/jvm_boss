@@ -1,0 +1,1 @@
+./jvm_boss.exe -e test/$1.class

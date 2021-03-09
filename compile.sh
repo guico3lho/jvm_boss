@@ -1,15 +1,33 @@
-mkdir -p build
+windows="-w"
+linux="-l"
 
+mkdir -p build 
 cd build
 
 echo "##### Creating Makefile ######"
 
-cmake .. 
+if [[ $1 == ${windows} ]]
+then 
+  cmake .. -G "Unix Makefiles"
+fi
+
+if [[ $1 == ${linux} ]]
+then 
+  cmake .. 
+fi
 
 echo "#### Compiling ####"
-
 make
-
 cd ..
 
-echo "Finished build! Execute calling ./jvm_boss"
+if [[ $1 == ${windows} ]]
+then 
+  echo "Finished build! Execute calling ./jvm_boss.exe"
+fi
+
+if [[ $1 == ${linux} ]]
+then 
+  echo "Finished build! Execute calling ./jvm_boss" 
+fi
+
+

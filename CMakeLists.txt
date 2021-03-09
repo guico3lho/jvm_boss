@@ -11,13 +11,16 @@ set(INCLUDE_DIR include)
 
 set(HEADER_FILES
     ${INCLUDE_DIR}/begin.hpp
-    ${INCLUDE_DIR}/end.hpp
+    ${INCLUDE_DIR}/file_reader.hpp
+    ${INCLUDE_DIR}/read_bytes.hpp
+    ${INCLUDE_DIR}/types.hpp
 )
 
 set(SOURCE_FILES
-    ${SOURCE_DIR}/begin.cpp
-    ${SOURCE_DIR}/end.cpp
     ${SOURCE_DIR}/main.cpp
+    ${SOURCE_DIR}/begin.cpp
+    ${SOURCE_DIR}/file_reader.cpp
+    ${SOURCE_DIR}/read_bytes.cpp
 )
 
 # Executable name

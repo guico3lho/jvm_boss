@@ -1,40 +1,67 @@
 # Projeto JVM - Software Basico
 
-## Leitor e Exibidor
-
 ## Compilação e informações com javac/javap
 
 Converter arquivo ``.java`` para ``.class``
 
 ``` bash
-$ javac HelloWorld.java
+$ javac HelloJava.java
 ```
 
 Mostra informações do arquivo ``.class``
 
 ``` bash
-$ javap HelloWorld.class
+$ javap HelloJava.class
 
 # para mais info, flags -c, -verbose ou -v
-$ javap -v HelloWorld.class
+$ javap -v HelloJava.class
 ```
+
+# Compilando
+
+``` bash
+# Linux
+$ ./compile.sh -l
+
+# Windows
+$ ./compile.sh -w
+```
+
+# Executando
+
+## Leitor e Exibidor
+
+``` bash
+$ ./jvm_boss.exe -e test/HelloJava.class
+
+# ou utilizar bash script
+$ ./leitor.sh HelloJava
+```
+
 # Configurações
+
+## Versão Java SE 8
 
 ## Analisadores 
 
 ## [Cppcheck 1.83](http://cppcheck.sourceforge.net) como analisador estático
 
 Instalação no Linux
+
 ```
 $ sudo apt-get install cppcheck
 ```
 
-## Valgrind
+## [Valgrind](https://www.valgrind.org/) como analisador dinâmico
+
 Instalação no Linux
+
 ```
 $ sudo apt-get install valgrind
 ```
-Exceutando com mais detalhes sobre vazamento de memória
+
+Executando com mais detalhes sobre vazamento de memória
+
 ``` bash
 $ valgrind –leak-check=full ./prog
 ```
