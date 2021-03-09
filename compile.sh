@@ -4,7 +4,7 @@ cd build
 
 echo "##### Creating Makefile ######"
 
-cmake ..
+cmake .. 
 
 echo "#### Compiling ####"
 
