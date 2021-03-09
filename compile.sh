@@ -12,4 +12,4 @@ make
 
 cd ..
 
-echo "Finished build! Execute calling ./sim-camada-fisica"
+echo "Finished build! Execute calling ./jvm_boss"
