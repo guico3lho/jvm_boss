@@ -1,0 +1,1 @@
+javac test/java/$1.java

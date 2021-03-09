@@ -1,0 +1,1 @@
+javap -c test/$1.class
