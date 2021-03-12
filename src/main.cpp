@@ -1,9 +1,8 @@
-#include <stdio.h>
-#include <iostream>
-#include "begin.hpp"
 #include "file_reader.hpp"
 
 int main(int argc, char* argv[]) {
+
+  Class_file_format class_file;
 
   if (argc != 3) {
     std::cout 
@@ -14,7 +13,7 @@ int main(int argc, char* argv[]) {
 
     // leitor/exibidor
     if(command == "-e") {
-      read_class_file(filename);
+      class_file = read_class_file(filename);
 
     }
   }

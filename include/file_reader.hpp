@@ -1,20 +1,17 @@
 #ifndef __FILE_READER_H__
 #define __FILE_READER_H__
 
-#include <iostream>
 #include "read_bytes.hpp"
+#include "cp_info.hpp"
 
-void read_class_file(std::string filename);
-
-struct class_File_Format {
+typedef struct {
   u4 magic_number;
 
   u2 minor_version;   
   u2 major_version;
 
   u2 constant_pool_count;   
-
-  // cp_info* constant_pool;
+  Cp_Info* constant_pool;
 
   u2 access_flags;
 
@@ -22,7 +19,6 @@ struct class_File_Format {
   u2 super_class;
 
   u2 interfaces_count;   
-  
   // u2 interfaces[interfaces_count];
 
   u2 fields_count;   
@@ -33,6 +29,9 @@ struct class_File_Format {
 
   u2 attributes_count;   
   // attribute_info attributes[attributes_count];
-};
+} Class_file_format;
+
+Class_file_format read_class_file(std::string filename);
+void read_cp_info(FILE *file, Class_file_format *class_file_format);
 
 #endif 

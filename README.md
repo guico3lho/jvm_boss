@@ -32,10 +32,11 @@ $ ./compile.sh -w
 ## Leitor e Exibidor
 
 ``` bash
-$ ./jvm_boss.exe -e test/HelloJava.class
+# Linux e Windows
+$ ./jvm_boss -e test/HelloJava.class
 
 # ou utilizar bash script
-$ ./leitor.sh HelloJava
+$ ./exec.sh HelloJava
 ```
 
 # Configurações
