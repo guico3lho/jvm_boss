@@ -1,3 +1,4 @@
+#!/bin/bash
 windows="-w"
 linux="-l"
 

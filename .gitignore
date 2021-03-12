@@ -32,3 +32,4 @@
 *.app
 
 build/*
+jvm_boss
