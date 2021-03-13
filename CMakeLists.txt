@@ -11,8 +11,7 @@ set(INCLUDE_DIR include)
 
 set(HEADER_FILES
     ${INCLUDE_DIR}/types.hpp
-    ${INCLUDE_DIR}/cp_info.hpp
-    ${INCLUDE_DIR}/attribute_info.hpp
+
 )
 
 set(SOURCE_FILES
