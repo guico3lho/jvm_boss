@@ -1,7 +1,7 @@
 #ifndef __ATTRIBUTE_INFO_H__
 #define __ATTRIBUTE_INFO_H__
 
-#include "read_bytes.hpp"
+#include "types.hpp"
 
 typedef struct {
 
