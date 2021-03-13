@@ -7,7 +7,7 @@ int main(int argc, char* argv[]) {
   if (argc != 3) {
     std::cout 
       << "Comando incorreto!\n"
-      << "Comando para leitor/exibidor : -e arquivo.class\n";
+      << "Comando leitor/exibidor: -e arquivo.class\n";
   } else {
     std::string command = argv[1], filename = argv[2];
 

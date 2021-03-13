@@ -29,7 +29,7 @@ Class_File_Format read_class_file(std::string filename) {
   std::cout << "Major Version:        " << class_file.major_version << std::endl;
 
   if (class_file.major_version > 52){
-    printf( "\n\nArquivo com versao invalida, Versão máxima: Java SE 8.\n");
+    printf( "\n\nArquivo com versao invalida - Versão máxima: Java SE 8.\n");
     printf("Encerrando programa. \n");
     exit(1);
   }
@@ -37,7 +37,7 @@ Class_File_Format read_class_file(std::string filename) {
   // Constant Pool Count
   // Count should actually be interpreted as the maximum index plus one
   class_file.constant_pool_count = read_2_bytes(file);
-  std::cout << "Constant_pool_count:  " <<class_file.constant_pool_count << std::endl;
+  std::cout << "Constant Pool Count:  " <<class_file.constant_pool_count << std::endl;
 
   class_file.constant_pool = (Cp_Info*) malloc ((class_file.constant_pool_count - 1) * sizeof(Cp_Info));
 
@@ -55,11 +55,11 @@ Class_File_Format read_class_file(std::string filename) {
 
   // Adiciona a extensão '.class' ao nome da classe
   class_name += ".class";
-  if (DEBUG) std::cout << "CLASS NAME:         " << class_name << std::endl;
+  if (DEBUG) std::cout << "CLASS NAME:           " << class_name << std::endl;
 
   std::size_t backslash_index = filename.find_last_of("/\\");
   std::string class_filename = filename.substr(backslash_index + 1);
-  if (DEBUG) std::cout << "Filename:           " << class_filename << std::endl;
+  if (DEBUG) std::cout << "Filename:             " << class_filename << std::endl;
 
   // Se o nome do arquivo é diferente do nome da classe
   if (class_filename != class_name) {
@@ -74,11 +74,10 @@ Class_File_Format read_class_file(std::string filename) {
   read_interface_info(file, &class_file);
   if (DEBUG) std::cout << "interface read\n";
 
-  // class_file.fields_count = read_2_bytes(file);
-  // class_file.fields = (FieldInfo*)malloc(
-  //                               class_file.fields_count * sizeof(FieldInfo));
-  // field_info->read(class_file, file);
-  // if (DEBUG) std::cout << "field read\n";
+  class_file.fields_count = read_2_bytes(file);
+  class_file.fields = (Field_Info*) malloc(class_file.fields_count * sizeof(Field_Info));
+  read_field_info(file, &class_file);
+  if (DEBUG) std::cout << "field read\n";
 
   // class_file.methods_count = read_2_bytes(file);
   // if (DEBUG) std::cout << "\nmethods count " << class_file.methods_count << std::endl;
