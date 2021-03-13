@@ -42,5 +42,4 @@ typedef struct {
 
 std::string get_utf8_constant_pool(Cp_Info *cp_info, u2 pos_info);
 
-
 #endif

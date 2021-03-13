@@ -2,7 +2,7 @@
 
 int main(int argc, char* argv[]) {
 
-  Class_file_format class_file;
+  Class_File_Format class_file;
 
   if (argc != 3) {
     std::cout 

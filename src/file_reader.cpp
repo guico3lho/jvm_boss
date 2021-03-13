@@ -1,6 +1,6 @@
 #include "file_reader.hpp"
 
-Class_file_format read_class_file(std::string filename) {
+Class_File_Format read_class_file(std::string filename) {
   FILE *file = fopen(filename.c_str(), "rb");
 
   // fecha o programa de leitor/exibidor caso o arquivo .class não exista
@@ -9,7 +9,7 @@ Class_file_format read_class_file(std::string filename) {
     exit(1);
   } 
 
-  Class_file_format class_file;
+  Class_File_Format class_file;
 
   class_file.magic_number = read_4_bytes(file); 
 
@@ -39,10 +39,6 @@ Class_file_format read_class_file(std::string filename) {
   class_file.constant_pool_count = read_2_bytes(file);
   std::cout << "Constant_pool_count:  " <<class_file.constant_pool_count << std::endl;
 
-  // Constant Pool Table
-  // All indexes are 16-bit - 2 bytes
-  // Index 1 refers to first constant in the table (index 0 is invalid)
-  // The number of constants in the constant pool table is not actually the same as the constant pool count
   class_file.constant_pool = (Cp_Info*) malloc ((class_file.constant_pool_count - 1) * sizeof(Cp_Info));
 
   read_cp_info(file, &class_file);
@@ -59,7 +55,43 @@ Class_file_format read_class_file(std::string filename) {
 
   // Adiciona a extensão '.class' ao nome da classe
   class_name += ".class";
-  if (DEBUG) std::cout << "Class File: " << class_name << std::endl;
+  if (DEBUG) std::cout << "CLASS NAME:         " << class_name << std::endl;
+
+  std::size_t backslash_index = filename.find_last_of("/\\");
+  std::string class_filename = filename.substr(backslash_index + 1);
+  if (DEBUG) std::cout << "Filename:           " << class_filename << std::endl;
+
+  // Se o nome do arquivo é diferente do nome da classe
+  if (class_filename != class_name) {
+    printf("O nome do arquivo nao corresponde ao da classe!\n");
+    exit(1);
+  }
+
+  class_file.super_class = read_2_bytes(file);
+
+  class_file.interfaces_count = read_2_bytes(file);
+  class_file.interfaces = (Interface_Info*) malloc(class_file.interfaces_count * sizeof(Interface_Info));
+  read_interface_info(file, &class_file);
+  if (DEBUG) std::cout << "interface read\n";
+
+  // class_file.fields_count = read_2_bytes(file);
+  // class_file.fields = (FieldInfo*)malloc(
+  //                               class_file.fields_count * sizeof(FieldInfo));
+  // field_info->read(class_file, file);
+  // if (DEBUG) std::cout << "field read\n";
+
+  // class_file.methods_count = read_2_bytes(file);
+  // if (DEBUG) std::cout << "\nmethods count " << class_file.methods_count << std::endl;
+  // class_file.methods = (MethodInfo*) malloc(
+  //                             class_file.methods_count * sizeof(MethodInfo));
+  // method_info->read(class_file, file);
+  // if (DEBUG) std::cout << "method read\n";
+
+  // class_file.attributes_count = read_2_bytes(file);
+  // class_file.attributes = (AttributeInfo*)malloc(
+  //                       class_file.attributes_count * sizeof(AttributeInfo));
+  // attribute_info->read(class_file, file);
+  // if (DEBUG) std::cout << "attribute read\n";
 
   fclose(file);
 

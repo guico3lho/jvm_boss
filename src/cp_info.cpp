@@ -1,54 +1,58 @@
 #include "file_reader.hpp"
 
-void read_cp_info(FILE *file, Class_file_format *class_file_format) {
+void read_cp_info(FILE *file, Class_File_Format *class_file) {
+  // Constant Pool Table
+  // All indexes are 16-bit - 2 bytes
+  // Index 1 refers to first constant in the table (index 0 is invalid)
+  // The number of constants in the constant pool table is not actually the same as the constant pool count
 
-  for(int i = 0; i < class_file_format->constant_pool_count - 1; i++) {
-    class_file_format->constant_pool[i].tag = read_1_byte(file);  
+  for(int i = 0; i < class_file->constant_pool_count - 1; i++) {
+    class_file->constant_pool[i].tag = read_1_byte(file);  
 
-    switch (class_file_format->constant_pool[i].tag) {
+    switch (class_file->constant_pool[i].tag) {
       case CONSTANT_CLASS:
-        class_file_format->constant_pool[i].class_name = read_2_bytes(file);
+        class_file->constant_pool[i].class_name = read_2_bytes(file);
         break;
       case CONSTANT_FIELD_REF:
-        class_file_format->constant_pool[i].field_ref_class_ref = read_2_bytes(file);
-        class_file_format->constant_pool[i].field_ref_name_type_descriptor = read_2_bytes(file);
+        class_file->constant_pool[i].field_ref_class_ref = read_2_bytes(file);
+        class_file->constant_pool[i].field_ref_name_type_descriptor = read_2_bytes(file);
         break;
       case CONSTANT_METHOD_REF:
-        class_file_format->constant_pool[i].method_ref_index = read_2_bytes(file);
-        class_file_format->constant_pool[i].method_ref_name_and_type = read_2_bytes(file);
+        class_file->constant_pool[i].method_ref_index = read_2_bytes(file);
+        class_file->constant_pool[i].method_ref_name_and_type = read_2_bytes(file);
         break;
       case CONSTANT_INTERFACE_METHOD_REF:
-        class_file_format->constant_pool[i].interface_method_ref_index = read_2_bytes(file);
-        class_file_format->constant_pool[i].interface_method_ref_name_type = read_2_bytes(file);
+        class_file->constant_pool[i].interface_method_ref_index = read_2_bytes(file);
+        class_file->constant_pool[i].interface_method_ref_name_type = read_2_bytes(file);
         break;
       case CONSTANT_STRING:
-        class_file_format->constant_pool[i].string_bytes = read_2_bytes(file);
+        class_file->constant_pool[i].string_bytes = read_2_bytes(file);
         break;
       case CONSTANT_INT:
-        class_file_format->constant_pool[i].int_bytes = read_4_bytes(file);
+        class_file->constant_pool[i].int_bytes = read_4_bytes(file);
         break;
       case CONSTANT_FLOAT:
-        class_file_format->constant_pool[i].float_bytes = read_4_bytes(file);
+        class_file->constant_pool[i].float_bytes = read_4_bytes(file);
         break;
       case CONSTANT_LONG:
-        class_file_format->constant_pool[i].long_high_bytes = read_4_bytes(file);
-        class_file_format->constant_pool[i].long_low_bytes = read_4_bytes(file);
+        class_file->constant_pool[i].long_high_bytes = read_4_bytes(file);
+        class_file->constant_pool[i].long_low_bytes = read_4_bytes(file);
         i++;
         break;
       case CONSTANT_DOUBLE:
-        class_file_format->constant_pool[i].double_high_bytes = read_4_bytes(file);
-        class_file_format->constant_pool[i].double_low_bytes = read_4_bytes(file);
+        class_file->constant_pool[i].double_high_bytes = read_4_bytes(file);
+        class_file->constant_pool[i].double_low_bytes = read_4_bytes(file);
         i++;
         break;
       case CONSTANT_NAME_TYPE:
-        class_file_format->constant_pool[i].name_type_index = read_2_bytes(file);
-        class_file_format->constant_pool[i].name_type_descriptor_index = read_2_bytes(file);
+        class_file->constant_pool[i].name_type_index = read_2_bytes(file);
+        class_file->constant_pool[i].name_type_descriptor_index = read_2_bytes(file);
         break;
       case CONSTANT_UTF8:
-          class_file_format->constant_pool[i].UTF8_size = read_2_bytes(file);
-          class_file_format->constant_pool[i].UTF8_bytes = (u1*) calloc((class_file_format->constant_pool[i].UTF8_size) + 1, sizeof(u1));
-          fread(class_file_format->constant_pool[i].UTF8_bytes, 1, class_file_format->constant_pool[i].UTF8_size, file);
-          class_file_format->constant_pool[i].UTF8_bytes[class_file_format->constant_pool[i].UTF8_size] = '\0';
+          class_file->constant_pool[i].UTF8_size = read_2_bytes(file);
+          class_file->constant_pool[i].UTF8_bytes = (u1*) calloc((class_file->constant_pool[i].UTF8_size) + 1, sizeof(u1));
+          fread(class_file->constant_pool[i].UTF8_bytes, 1, class_file->constant_pool[i].UTF8_size, file);
+          class_file->constant_pool[i].UTF8_bytes[class_file->constant_pool[i].UTF8_size] = '\0';
         break;
     }
   }
@@ -62,8 +66,8 @@ std::string get_utf8_constant_pool(Cp_Info *cp_info, u2 pos_info) {
     // caso tag seja 1
     case CONSTANT_UTF8:
       // representa valores strings constantes, inclusive unicode
-      // UTF8.length indica o número de bytes no array bytes
-      // UTF8.bytes contêm os bytes da string
+      // UTF8_size indica o número de bytes no array bytes
+      // UTF8_bytes contêm os bytes da string
       // @TODO checar se nenhum byte tem valor 0 ou está no intervalo
       //  0xf0 ou 0xff, i.e. [240, 255]
       utf8_const = (char*) cp_info[pos_info].UTF8_bytes;
