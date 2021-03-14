@@ -1,0 +1,1 @@
+java -classpath test $1

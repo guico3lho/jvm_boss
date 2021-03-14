@@ -19,7 +19,7 @@ Class_File_Format read_class_file(std::string filename) {
     exit(1);
   }
 
-  std::cout << "Filename:             " << filename << std::endl;
+  std::cout << "\n\nFilename:             " << filename << std::endl;
   printf("Magic Number:         0x%0X\n", class_file.magic_number);
 
   class_file.minor_version = read_2_bytes(file);
@@ -28,21 +28,19 @@ Class_File_Format read_class_file(std::string filename) {
   class_file.major_version = read_2_bytes(file);
   std::cout << "Major Version:        " << class_file.major_version << std::endl;
 
-  if (class_file.major_version > 52){
+  if (class_file.major_version > 52) {
     printf( "\n\nArquivo com versao invalida - Versão máxima: Java SE 8.\n");
     printf("Encerrando programa. \n");
     exit(1);
   }
 
-  // Constant Pool Count
+  //* Constant Pool Count
   // Count should actually be interpreted as the maximum index plus one
   class_file.constant_pool_count = read_2_bytes(file);
-  std::cout << "Constant Pool Count:  " <<class_file.constant_pool_count << std::endl;
+  std::cout << "\n\nConstant Pool Count:  " <<class_file.constant_pool_count << std::endl;
 
   class_file.constant_pool = (Cp_Info*) malloc ((class_file.constant_pool_count - 1) * sizeof(Cp_Info));
-
   read_cp_info(file, &class_file);
-  if (DEBUG) std::cout << "Constant Pool info read -------\n";
 
   class_file.access_flags = read_2_bytes(file);
   printf("Access Flags:         0x%0X\n", class_file.access_flags);
@@ -50,42 +48,32 @@ Class_File_Format read_class_file(std::string filename) {
   class_file.this_class = read_2_bytes(file);
   std::cout << "This Class:           " << class_file.this_class << std::endl;
 
-  // Lê o nome da classe no CP e converte pra String
-  std::string class_name = get_utf8_constant_pool(class_file.constant_pool, class_file.this_class - 1);
-
-  // Adiciona a extensão '.class' ao nome da classe
-  class_name += ".class";
-  if (DEBUG) std::cout << "CLASS NAME:           " << class_name << std::endl;
-
-  std::size_t backslash_index = filename.find_last_of("/\\");
-  std::string class_filename = filename.substr(backslash_index + 1);
-  if (DEBUG) std::cout << "Filename:             " << class_filename << std::endl;
-
-  // Se o nome do arquivo é diferente do nome da classe
-  if (class_filename != class_name) {
-    printf("O nome do arquivo nao corresponde ao da classe!\n");
-    exit(1);
-  }
+  get_cp_info_class_name(filename, &class_file);
 
   class_file.super_class = read_2_bytes(file);
+  std::cout << "Super Class:          " << class_file.super_class << std::endl;
 
+  //* Interfaces
   class_file.interfaces_count = read_2_bytes(file);
+  std::cout << "Interfaces Count:     " << class_file.interfaces_count << std::endl;
+
   class_file.interfaces = (Interface_Info*) malloc(class_file.interfaces_count * sizeof(Interface_Info));
   read_interface_info(file, &class_file);
-  if (DEBUG) std::cout << "interface read\n";
 
+  //* Fields
   class_file.fields_count = read_2_bytes(file);
+  std::cout << "Fields Count:         " << class_file.fields_count << std::endl;
   class_file.fields = (Field_Info*) malloc(class_file.fields_count * sizeof(Field_Info));
   read_field_info(file, &class_file);
-  if (DEBUG) std::cout << "field read\n";
 
+  //* Methods
   // class_file.methods_count = read_2_bytes(file);
   // if (DEBUG) std::cout << "\nmethods count " << class_file.methods_count << std::endl;
-  // class_file.methods = (MethodInfo*) malloc(
-  //                             class_file.methods_count * sizeof(MethodInfo));
+  // class_file.methods = (MethodInfo*) malloc(class_file.methods_count * sizeof(MethodInfo));
   // method_info->read(class_file, file);
   // if (DEBUG) std::cout << "method read\n";
 
+  //* Attributes
   // class_file.attributes_count = read_2_bytes(file);
   // class_file.attributes = (AttributeInfo*)malloc(
   //                       class_file.attributes_count * sizeof(AttributeInfo));
@@ -96,3 +84,5 @@ Class_File_Format read_class_file(std::string filename) {
 
   return class_file;
 }
+
+

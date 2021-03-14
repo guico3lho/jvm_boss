@@ -5,7 +5,13 @@
 
 typedef struct {
 
-  u2 attribute_name_index;
+} Code_Attribute;
+
+typedef struct {
+
+  
+
+  u2 attribute_name_index; // valid unsigned 16-bit index into the constant pool of the class
   u4 attribute_length;
 
 

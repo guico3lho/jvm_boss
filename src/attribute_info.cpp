@@ -5,7 +5,7 @@ Attribute_Info get_attribute_info(FILE *fp, Class_File_Format *class_file, Attri
     attribute_info.attribute_name_index = read_2_bytes(fp);
     attribute_info.attribute_length = read_4_bytes(fp);
 
-    std::string attribute_name =get_utf8_constant_pool(class_file->constant_pool, attribute_info.attribute_name_index - 1);
+    std::string attribute_name =get_cp_info_utf8(class_file->constant_pool, attribute_info.attribute_name_index - 1);
     if (DEBUG) std::cout << "read basic info\n";
     if (DEBUG) std::cout << "attribute_name: " << attribute_name << std::endl;
 

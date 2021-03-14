@@ -16,6 +16,7 @@ set(HEADER_FILES
     ${INCLUDE_DIR}/cp_info.hpp
     ${INCLUDE_DIR}/interface_info.hpp
     ${INCLUDE_DIR}/field_info.hpp
+    ${INCLUDE_DIR}/method_info.hpp
     ${INCLUDE_DIR}/attribute_info.hpp
 )
 
@@ -26,6 +27,7 @@ set(SOURCE_FILES
     ${SOURCE_DIR}/cp_info.cpp
     ${SOURCE_DIR}/interface_info.cpp
     ${SOURCE_DIR}/field_info.cpp
+    ${SOURCE_DIR}/method_info.cpp
     ${SOURCE_DIR}/attribute_info.cpp
 )
 

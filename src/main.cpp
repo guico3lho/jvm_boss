@@ -14,7 +14,6 @@ int main(int argc, char* argv[]) {
     // leitor/exibidor
     if(command == "-e") {
       class_file = read_class_file(filename);
-
     }
   }
 
