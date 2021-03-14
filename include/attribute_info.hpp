@@ -19,7 +19,7 @@ typedef struct {
   u2 catch_type;
 } Code_Exception;
 
-typedef struct Code_Attribute{
+typedef struct Code_Attribute {
   u2 max_stack;
   u2 max_locals;
   u4 code_length;
@@ -32,6 +32,21 @@ typedef struct Code_Attribute{
   Attribute_Info* attributes;
 } Code_Attribute;
 
+typedef struct Exception{
+  u2 number_exceptions;
+  u2 *exception_index_table;
+
+} Exception;
+
+typedef struct Inner_Class_Attribute {
+  u2 attribute_name_index;
+  u4 attribute_length;
+  u2 number_of_classes;
+
+  Inner_Class_Attribute *inner_class_data;
+
+} Inner_Class_Attribute;
+
 typedef struct Attribute_Info{
 
   u2 attribute_name_index; // valid unsigned 16-bit index into the constant pool of the class
@@ -39,13 +54,18 @@ typedef struct Attribute_Info{
 
   Const_Value_Attribute *const_value;
   Code_Attribute *code;
-  u1* info;
+  Exception* exception;
+  Inner_Class_Attribute* inner_class;
 
+  u1 *info;
 } Attribute_Info;
 
 /* ATTRIBUTE_INFO */
 Attribute_Info get_attribute_info(FILE *file, Class_File_Format *class_file, Attribute_Info attribute_info);
 void read_const_value_attribute(FILE *file, Class_File_Format *class_file, Attribute_Info *attribute_info);
 void read_code_attribute(FILE *file, Class_File_Format *class_file, Attribute_Info *attribute_info);
+void read_exception_attribute(FILE *file, Attribute_Info *attribute_info);
+void read_inner_class_attribute(FILE *file, Attribute_Info *attribute_info);
+Inner_Class_Attribute read_inner_class_attributes(FILE *file, Attribute_Info *attribute_info);
 
 #endif

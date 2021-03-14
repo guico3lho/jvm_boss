@@ -35,6 +35,36 @@ void read_code_attribute(FILE *file, Class_File_Format *class_file, Attribute_In
   }
 }
 
+void read_exception_attribute(FILE *file, Attribute_Info *attribute_info) {
+  attribute_info->exception->number_exceptions = read_2_bytes(file);
+
+  for (int i = 0; i < attribute_info->exception->number_exceptions; i++)
+    attribute_info->exception->exception_index_table[i] = read_2_bytes(file);
+}
+
+void read_inner_class_attribute(FILE *file, Attribute_Info *attribute_info) {
+  attribute_info->inner_class->number_of_classes = read_2_bytes(file);
+  attribute_info->inner_class->inner_class_data = (Inner_Class_Attribute*) malloc(attribute_info->inner_class->number_of_classes * sizeof(Inner_Class_Attribute));
+
+  for (int i = 0; i < attribute_info->inner_class->number_of_classes; i++){
+    attribute_info->inner_class->inner_class_data[i] = read_inner_class_attributes(file, attribute_info);
+  }
+}
+
+Inner_Class_Attribute read_inner_class_attributes(FILE *file, Attribute_Info *attribute_info) {
+  Inner_Class_Attribute inner_class;
+
+  inner_class.number_of_classes = read_2_bytes(file);
+  inner_class.inner_class_data = (Inner_Class_Attribute*) malloc(inner_class.number_of_classes * sizeof(Inner_Class_Attribute));
+
+  for (int i = 0; i < inner_class.number_of_classes; i++){
+    inner_class.inner_class_data[i] = read_inner_class_attributes(file, attribute_info); 
+  }
+
+  return inner_class;
+}
+
+
 Attribute_Info get_attribute_info(FILE *file, Class_File_Format *class_file, Attribute_Info attribute_info) {
   if (PRINT) std::cout << "reading basic attribute info\n";
   attribute_info.attribute_name_index = read_2_bytes(file);
@@ -53,18 +83,18 @@ Attribute_Info get_attribute_info(FILE *file, Class_File_Format *class_file, Att
     if (PRINT) std::cout << "Reading constant value\n";
     read_const_value_attribute(file, class_file ,&attribute_info);
   }
-  // else if (attribute_name == "Exceptions") {
-  //   if (PRINT) std::cout << "exception\n";
-  //   attribute_info.execptions = exp_info->read(file, attribute_info);
-  // }
-  // else if (attribute_name =="InnerClasses") {
-  //   if (PRINT) std::cout << "Reading inner classes\n";
-  //   attribute_info.inner_class = inner_info->read(file, attribute_info);
-  // }
-  // else if (attribute_name == "Synthetic") {
-  //   if (PRINT) std::cout << "Reading Synthetic\n";
-  //   // fazer nada
-  // }
+  else if (attribute_name == "Exceptions") {
+    if (PRINT) std::cout << "exception\n";
+    read_exception_attribute(file, &attribute_info);
+  }
+  else if (attribute_name =="InnerClasses") {
+    if (PRINT) std::cout << "Reading inner classes\n";
+    read_inner_class_attribute(file, &attribute_info);
+  } 
+  else if (attribute_name == "Synthetic") {
+    if (PRINT) std::cout << "Reading Synthetic\n";
+    // fazer nada -> eh pra implementar
+  }
   // else if (attribute_name =="SourceFile") {
   //   if (PRINT) std::cout << "Reading source file\n";
   //   attribute_info.source_file = source_info->read(file, attribute_info);
