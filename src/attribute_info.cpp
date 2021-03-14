@@ -47,23 +47,44 @@ void read_inner_class_attribute(FILE *file, Attribute_Info *attribute_info) {
   attribute_info->inner_class->inner_class_data = (Inner_Class_Attribute*) malloc(attribute_info->inner_class->number_of_classes * sizeof(Inner_Class_Attribute));
 
   for (int i = 0; i < attribute_info->inner_class->number_of_classes; i++){
-    attribute_info->inner_class->inner_class_data[i] = read_inner_class_attributes(file, attribute_info);
+    attribute_info->inner_class->inner_class_data[i] = read_inner_class_attributes(file);
   }
 }
 
-Inner_Class_Attribute read_inner_class_attributes(FILE *file, Attribute_Info *attribute_info) {
+Inner_Class_Attribute read_inner_class_attributes(FILE *file) {
   Inner_Class_Attribute inner_class;
 
   inner_class.number_of_classes = read_2_bytes(file);
   inner_class.inner_class_data = (Inner_Class_Attribute*) malloc(inner_class.number_of_classes * sizeof(Inner_Class_Attribute));
 
   for (int i = 0; i < inner_class.number_of_classes; i++){
-    inner_class.inner_class_data[i] = read_inner_class_attributes(file, attribute_info); 
+    inner_class.inner_class_data[i] = read_inner_class_attributes(file); 
   }
 
   return inner_class;
 }
 
+void read_source_file_attribute(FILE *file, Attribute_Info *attribute_info) {
+  attribute_info->source_file->source_file_index = read_2_bytes(file);
+}
+
+void read_line_number_table_attribute(FILE *file, Attribute_Info *attribute_info) {
+
+  attribute_info->line_number_table->line_number_table_length = read_2_bytes(file);
+  attribute_info->line_number_table->table = (Line_Number_Table_Data*) malloc(attribute_info->line_number_table->line_number_table_length * sizeof(Line_Number_Table_Data));
+
+  for (int i = 0; i < attribute_info->line_number_table->line_number_table_length; i++)
+    attribute_info->line_number_table->table[i] = read_line_number_table_data(file);
+}
+
+Line_Number_Table_Data read_line_number_table_data(FILE *file) {
+  Line_Number_Table_Data line_number_table_data;
+
+  line_number_table_data.start_pc = read_2_bytes(file);
+  line_number_table_data.line_number = read_2_bytes(file);
+
+  return line_number_table_data;
+}
 
 Attribute_Info get_attribute_info(FILE *file, Class_File_Format *class_file, Attribute_Info attribute_info) {
   if (PRINT) std::cout << "reading basic attribute info\n";
@@ -95,14 +116,14 @@ Attribute_Info get_attribute_info(FILE *file, Class_File_Format *class_file, Att
     if (PRINT) std::cout << "Reading Synthetic\n";
     // fazer nada -> eh pra implementar
   }
-  // else if (attribute_name =="SourceFile") {
-  //   if (PRINT) std::cout << "Reading source file\n";
-  //   attribute_info.source_file = source_info->read(file, attribute_info);
-  // }
-  // else if (attribute_name == "LineNumberTable") {
-  //   if (PRINT) std::cout << "line number table\n";
-  //   attribute_info.line_number_table = line_number_info->read(file, attribute_info);
-  // }
+  else if (attribute_name =="SourceFile") {
+    if (PRINT) std::cout << "Reading source file\n";
+    read_source_file_attribute(file, &attribute_info);
+  }
+  else if (attribute_name == "LineNumberTable") {
+    if (PRINT) std::cout << "Line Number table\n";
+    read_line_number_table_attribute(file, &attribute_info);
+  }
   // else if (attribute_name == "LocalVariableTable") {
   //   if (PRINT) std::cout << "LocalVariableTable \n";
   //   attribute_info.local_variable_table = local_info->read(file, attribute_info);
