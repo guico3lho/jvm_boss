@@ -1,10 +1,14 @@
 #ifndef __METHOD_INFO_H__
 #define __METHOD_INFO_H__
 
-#include "read_bytes.hpp"
 #include "attribute_info.hpp"
+#include "file_reader.hpp"
 
-typedef struct {
+struct Class_File_Format;
+struct Attribute_Info;
+
+
+typedef struct Method_Info{
 	u2 access_flags;
   u2 name_index;
   u2 descriptor_index;

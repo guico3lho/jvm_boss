@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-#define DEBUG true
+#define PRINT true
 
 /* CONSTANT POOL */
 #define CONSTANT_EMPTY                 0

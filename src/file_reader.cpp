@@ -68,17 +68,17 @@ Class_File_Format read_class_file(std::string filename) {
 
   //* Methods
   // class_file.methods_count = read_2_bytes(file);
-  // if (DEBUG) std::cout << "\nmethods count " << class_file.methods_count << std::endl;
+  // if (PRINT) std::cout << "\nmethods count " << class_file.methods_count << std::endl;
   // class_file.methods = (MethodInfo*) malloc(class_file.methods_count * sizeof(MethodInfo));
   // method_info->read(class_file, file);
-  // if (DEBUG) std::cout << "method read\n";
+  // if (PRINT) std::cout << "method read\n";
 
   //* Attributes
   // class_file.attributes_count = read_2_bytes(file);
   // class_file.attributes = (AttributeInfo*)malloc(
   //                       class_file.attributes_count * sizeof(AttributeInfo));
   // attribute_info->read(class_file, file);
-  // if (DEBUG) std::cout << "attribute read\n";
+  // if (PRINT) std::cout << "attribute read\n";
 
   fclose(file);
 
