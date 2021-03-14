@@ -30,9 +30,8 @@ void read_code_attribute(FILE *file, Class_File_Format *class_file, Attribute_In
   attribute_info->code->attributes_count = read_2_bytes(file);
   attribute_info->code->attributes = (Attribute_Info*) malloc(sizeof(Attribute_Info) * attribute_info->code->attributes_count);
 
-  for (int k = 0; k < attribute_info->code->attributes_count; k++){
+  for (int k = 0; k < attribute_info->code->attributes_count; k++)
     attribute_info->code->attributes[k] = get_attribute_info(file, class_file,  attribute_info->code->attributes[k]);
-  }
 }
 
 void read_exception_attribute(FILE *file, Attribute_Info *attribute_info) {
@@ -46,9 +45,8 @@ void read_inner_class_attribute(FILE *file, Attribute_Info *attribute_info) {
   attribute_info->inner_class->number_of_classes = read_2_bytes(file);
   attribute_info->inner_class->inner_class_data = (Inner_Class_Attribute*) malloc(attribute_info->inner_class->number_of_classes * sizeof(Inner_Class_Attribute));
 
-  for (int i = 0; i < attribute_info->inner_class->number_of_classes; i++){
+  for (int i = 0; i < attribute_info->inner_class->number_of_classes; i++)
     attribute_info->inner_class->inner_class_data[i] = read_inner_class_attributes(file);
-  }
 }
 
 Inner_Class_Attribute read_inner_class_attributes(FILE *file) {
@@ -57,9 +55,8 @@ Inner_Class_Attribute read_inner_class_attributes(FILE *file) {
   inner_class.number_of_classes = read_2_bytes(file);
   inner_class.inner_class_data = (Inner_Class_Attribute*) malloc(inner_class.number_of_classes * sizeof(Inner_Class_Attribute));
 
-  for (int i = 0; i < inner_class.number_of_classes; i++){
+  for (int i = 0; i < inner_class.number_of_classes; i++)
     inner_class.inner_class_data[i] = read_inner_class_attributes(file); 
-  }
 
   return inner_class;
 }
@@ -84,6 +81,29 @@ Line_Number_Table_Data read_line_number_table_data(FILE *file) {
   line_number_table_data.line_number = read_2_bytes(file);
 
   return line_number_table_data;
+}
+
+void read_local_variable_table_attribute(FILE *file, Attribute_Info *attribute_info) {
+
+  attribute_info->local_variable_table->local_variable_table_length = read_2_bytes(file);
+
+  attribute_info->local_variable_table->table = (Local_Variable_Table_Data*) 
+    malloc(attribute_info->local_variable_table->local_variable_table_length * sizeof(Local_Variable_Table_Data));
+
+  for (int i = 0;i < attribute_info->local_variable_table->local_variable_table_length; i++)
+    attribute_info->local_variable_table->table[i] = read_local_variable_table_data(file);
+}
+
+Local_Variable_Table_Data read_local_variable_table_data(FILE *file) {
+    Local_Variable_Table_Data local_variable_table_data;
+
+    local_variable_table_data.start_pc = read_2_bytes(file);
+    local_variable_table_data.length = read_2_bytes(file);
+    local_variable_table_data.name_index = read_2_bytes(file);
+    local_variable_table_data.descriptor_index = read_2_bytes(file);
+    local_variable_table_data.index = read_2_bytes(file);
+
+    return local_variable_table_data;
 }
 
 Attribute_Info get_attribute_info(FILE *file, Class_File_Format *class_file, Attribute_Info attribute_info) {
@@ -113,8 +133,7 @@ Attribute_Info get_attribute_info(FILE *file, Class_File_Format *class_file, Att
     read_inner_class_attribute(file, &attribute_info);
   } 
   else if (attribute_name == "Synthetic") {
-    if (PRINT) std::cout << "Reading Synthetic\n";
-    // fazer nada -> eh pra implementar
+    if (PRINT) std::cout << "Reading Synthetic\n"; // Fazer nada?
   }
   else if (attribute_name =="SourceFile") {
     if (PRINT) std::cout << "Reading source file\n";
@@ -124,10 +143,10 @@ Attribute_Info get_attribute_info(FILE *file, Class_File_Format *class_file, Att
     if (PRINT) std::cout << "Line Number table\n";
     read_line_number_table_attribute(file, &attribute_info);
   }
-  // else if (attribute_name == "LocalVariableTable") {
-  //   if (PRINT) std::cout << "LocalVariableTable \n";
-  //   attribute_info.local_variable_table = local_info->read(file, attribute_info);
-  // }
+  else if (attribute_name == "LocalVariableTable") {
+    if (PRINT) std::cout << "LocalVariableTable \n";
+    read_local_variable_table_attribute(file, &attribute_info);
+  }
   else {
     if (PRINT) std::cout << "Attributo Desconhecido...\n";
     if (PRINT) std::cout << "Attribute Lenght: " << attribute_info.attribute_length << "\n" ;

@@ -64,6 +64,20 @@ typedef struct Line_Number_Table_Attribute {
 
 } Line_Number_Table_Attribute;
 
+typedef struct Local_Variable_Table_Data {
+  u2 start_pc;
+  u2 length;
+  u2 name_index;
+  u2 descriptor_index;
+  u2 index;
+} Local_Variable_Table_Data;
+
+typedef struct Local_Variable_Table_Attribute {
+  u2 local_variable_table_length;
+  Local_Variable_Table_Data *table;
+
+} Local_Variable_Table_Attribute;
+
 typedef struct Attribute_Info{
 
   u2 attribute_name_index; // valid unsigned 16-bit index into the constant pool of the class
@@ -75,8 +89,9 @@ typedef struct Attribute_Info{
   Inner_Class_Attribute *inner_class;
   Source_File_Attribute *source_file;
   Line_Number_Table_Attribute *line_number_table;
-
+  Local_Variable_Table_Attribute *local_variable_table;
   u1 *info;
+
 } Attribute_Info;
 
 /* ATTRIBUTE_INFO */
@@ -92,5 +107,8 @@ void read_source_file_attribute(FILE *file, Attribute_Info *attribute_info);
 
 void read_line_number_table_attribute(FILE *file, Attribute_Info *attribute_info);
 Line_Number_Table_Data read_line_number_table_data(FILE *file);
+
+void read_local_variable_table_attribute(FILE *file, Attribute_Info *attribute_info);
+Local_Variable_Table_Data read_local_variable_table_data(FILE *file);
 
 #endif
