@@ -9,7 +9,7 @@
         "type": "cppdbg",
         "request": "launch",
         "program": "${workspaceFolder}/jvm_boss",
-        "args": [],
+        "args": ["-e", "test/HelloJava.class"],
         "stopAtEntry": false,
         "cwd": "${workspaceFolder}",
         "environment": [],

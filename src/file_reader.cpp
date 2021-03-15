@@ -47,6 +47,7 @@ Class_File_Format read_class_file(std::string filename) {
 
   class_file.this_class = read_2_bytes(file);
   std::cout << "This Class:           " << class_file.this_class << std::endl;
+  
 
   get_cp_info_class_name(filename, &class_file);
 
@@ -56,7 +57,7 @@ Class_File_Format read_class_file(std::string filename) {
   //* Interfaces
   class_file.interfaces_count = read_2_bytes(file);
   std::cout << "Interfaces Count:     " << class_file.interfaces_count << std::endl;
-
+  
   class_file.interfaces = (Interface_Info*) malloc(class_file.interfaces_count * sizeof(Interface_Info));
   read_interface_info(file, &class_file);
 
