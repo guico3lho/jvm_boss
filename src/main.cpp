@@ -9,10 +9,10 @@ int main(int argc, char* argv[]) {
       << "Comando incorreto!\n"
       << "Comando leitor/exibidor: -e arquivo.class\n";
   } else {
-    std::string command = argv[1], filename = argv[2];
+    std::string option = argv[1], filename = argv[2];
 
     // leitor/exibidor
-    if(command == "-e") {
+    if(option == "-e") {
       class_file = read_class_file(filename);
     }
   }

@@ -11,6 +11,7 @@ set(INCLUDE_DIR include)
 
 set(HEADER_FILES
     ${INCLUDE_DIR}/types.hpp
+    ${INCLUDE_DIR}/utils.hpp
     ${INCLUDE_DIR}/read_bytes.hpp
     ${INCLUDE_DIR}/file_reader.hpp
     ${INCLUDE_DIR}/cp_info.hpp
@@ -22,6 +23,7 @@ set(HEADER_FILES
 
 set(SOURCE_FILES
     ${SOURCE_DIR}/main.cpp
+    ${SOURCE_DIR}/utils.cpp
     ${SOURCE_DIR}/read_bytes.cpp
     ${SOURCE_DIR}/file_reader.cpp
     ${SOURCE_DIR}/cp_info.cpp

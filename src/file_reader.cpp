@@ -1,16 +1,16 @@
 #include "file_reader.hpp"
+#include "utils.hpp"
 
 Class_File_Format read_class_file(std::string filename) {
   FILE *file = fopen(filename.c_str(), "rb");
 
-  // fecha o programa de leitor/exibidor caso o arquivo .class não exista
+  // Terminando execucao caso arquivo .class nao exista
   if (file == NULL) {
     printf("Arquivo nao encontrado! Terminando execucao..\n");
     exit(1);
   } 
 
   Class_File_Format class_file;
-
   class_file.magic_number = read_4_bytes(file); 
 
   if(class_file.magic_number != 0xCAFEBABE){
@@ -48,7 +48,6 @@ Class_File_Format read_class_file(std::string filename) {
   class_file.this_class = read_2_bytes(file);
   std::cout << "This Class:           " << class_file.this_class << std::endl;
   
-
   get_cp_info_class_name(filename, &class_file);
 
   class_file.super_class = read_2_bytes(file);
