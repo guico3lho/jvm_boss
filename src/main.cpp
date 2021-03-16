@@ -1,4 +1,7 @@
-#include "../include/types.hpp"
+#include "../include/Class_File.h"
+#include "../include/FileDealer.h"
+
+
 int main(int argc, char* argv[]) {
 
  
@@ -13,6 +16,8 @@ int main(int argc, char* argv[]) {
     // leitor/exibidor
     if(command == "-e") {
       std::cout << "Modo leitor e exibidor!" << std::endl;
+      Class_File classFile(filename);
+      std::cout << classFile;
 
     }
   }

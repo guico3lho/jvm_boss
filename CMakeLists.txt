@@ -11,12 +11,18 @@ set(INCLUDE_DIR include)
 
 set(HEADER_FILES
     ${INCLUDE_DIR}/types.hpp
-
+    ${INCLUDE_DIR}/Types.h
+    ${INCLUDE_DIR}/Class_File.h
+    ${INCLUDE_DIR}/Cp_Info.h
+    ${INCLUDE_DIR}/FileDealer.h
+    
 )
 
 set(SOURCE_FILES
     ${SOURCE_DIR}/main.cpp
-  
+    ${SOURCE_DIR}/Class_File.cpp
+    ${SOURCE_DIR}/ConstantClasses.cpp
+    ${SOURCE_DIR}/FileDealer.cpp
 )
 
 # Executable name
