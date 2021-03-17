@@ -17,4 +17,6 @@ typedef struct Method_Info{
   Attribute_Info *attributes;
 } Method_Info;
 
+void read_method_info(FILE *file, Class_File_Format *class_file);
+
 #endif

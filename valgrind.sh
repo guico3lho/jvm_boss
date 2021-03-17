@@ -1,0 +1,1 @@
+valgrind --leak-check=full --track-origins=yes ./jvm_boss -e test/$1.class

@@ -6,14 +6,15 @@ void read_const_value_attribute(FILE *file, Class_File_Format *class_file, Attri
 
 void read_code_attribute(FILE *file, Class_File_Format *class_file, Attribute_Info *attribute_info) {
 
-  // Attribute_Info *code_attribute_info;
+  Attribute_Info *code_attribute_info;
+
   attribute_info->code->max_stack = read_2_bytes(file);
   attribute_info->code->max_locals = read_2_bytes(file);
   attribute_info->code->code_length = read_4_bytes(file);
 
   attribute_info->code->code = (u1*) malloc(sizeof(u1) *attribute_info->code->code_length);
 
-  for (int i = 0; (unsigned)i < attribute_info->code->code_length; i++) {
+  for (int i = 0; i < attribute_info->code->code_length; i++) {
     attribute_info->code->code[i] = read_1_byte(file);
   }
 
@@ -116,7 +117,7 @@ Attribute_Info get_attribute_info(FILE *file, Class_File_Format *class_file, Att
   if (PRINT) std::cout << "Attribute_name: " << attribute_name << std::endl;
 
   if (attribute_name == "Code") {
-    if (PRINT) std::cout << "Reading code\n";
+    if (PRINT) std::cout << "Reading Code\n";
     read_code_attribute(file, class_file ,&attribute_info);
     return attribute_info;
   }

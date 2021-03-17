@@ -48,7 +48,7 @@ Class_File_Format read_class_file(std::string filename) {
   class_file.this_class = read_2_bytes(file);
   std::cout << "This Class:           " << class_file.this_class << std::endl;
   
-  get_cp_info_class_name(filename, &class_file);
+  get_cp_info_class_name(filename, &class_file); // 
 
   class_file.super_class = read_2_bytes(file);
   std::cout << "Super Class:          " << class_file.super_class << std::endl;
@@ -67,11 +67,10 @@ Class_File_Format read_class_file(std::string filename) {
   read_field_info(file, &class_file);
 
   //* Methods
-  // class_file.methods_count = read_2_bytes(file);
-  // if (PRINT) std::cout << "\nmethods count " << class_file.methods_count << std::endl;
-  // class_file.methods = (MethodInfo*) malloc(class_file.methods_count * sizeof(MethodInfo));
-  // method_info->read(class_file, file);
-  // if (PRINT) std::cout << "method read\n";
+  class_file.methods_count = read_2_bytes(file);
+  if (PRINT) std::cout << "\nMethods count:         " << class_file.methods_count << std::endl;
+  class_file.methods = (Method_Info*) malloc(class_file.methods_count * sizeof(Method_Info));
+  read_method_info(file, &class_file);
 
   //* Attributes
   // class_file.attributes_count = read_2_bytes(file);
