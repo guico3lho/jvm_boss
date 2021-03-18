@@ -19,14 +19,14 @@ Class_File_Format read_class_file(std::string filename) {
     exit(1);
   }
 
-  std::cout << "\n\nFilename:             " << filename << std::endl;
-  printf("Magic Number:         0x%0X\n", class_file.magic_number);
+  if (PRINT) std::cout << "\n\nFilename:             " << filename << std::endl;
+  if (PRINT) printf("Magic Number:         0x%0X\n", class_file.magic_number);
 
   class_file.minor_version = read_2_bytes(file);
-  printf("Minor Version:        %0X\n", class_file.minor_version);
+  if (PRINT) printf("Minor Version:        %0X\n", class_file.minor_version);
 
   class_file.major_version = read_2_bytes(file);
-  std::cout << "Major Version:        " << class_file.major_version << std::endl;
+  if (PRINT) std::cout << "Major Version:        " << class_file.major_version << std::endl;
 
   if (class_file.major_version > 52) {
     printf( "\n\nArquivo com versao invalida - Versão máxima: Java SE 8.\n");
@@ -36,31 +36,31 @@ Class_File_Format read_class_file(std::string filename) {
 
   //* Constant Pool Count = max_index + 1
   class_file.constant_pool_count = read_2_bytes(file);
-  std::cout << "\nConstant Pool Count:  " << class_file.constant_pool_count << std::endl;
+  if (PRINT) std::cout << "\nConstant Pool Count:  " << class_file.constant_pool_count << std::endl;
 
   class_file.constant_pool = (Cp_Info*) malloc ((class_file.constant_pool_count - 1) * sizeof(Cp_Info));
   read_cp_info(file, &class_file);
 
   class_file.access_flags = read_2_bytes(file);
-  printf("Access Flags:         0x%0X\n", class_file.access_flags);
+  if (PRINT) printf("Access Flags:         0x%0X\n", class_file.access_flags);
 
   class_file.this_class = read_2_bytes(file);
-  std::cout << "This Class:           " << class_file.this_class << std::endl;
+  if (PRINT) std::cout << "This Class:           " << class_file.this_class << std::endl;
   
   get_cp_info_class_name(filename, &class_file); // checa se nome 
 
   class_file.super_class = read_2_bytes(file);
-  std::cout << "Super Class:          " << class_file.super_class << std::endl;
+  if (PRINT) std::cout << "Super Class:          " << class_file.super_class << std::endl;
 
   //* Interfaces
   class_file.interfaces_count = read_2_bytes(file);
-  std::cout << "Interfaces Count:     " << class_file.interfaces_count << std::endl;
+  if (PRINT) std::cout << "Interfaces Count:     " << class_file.interfaces_count << std::endl;
   class_file.interfaces = (Interface_Info*) malloc(class_file.interfaces_count * sizeof(Interface_Info));
   read_interface_info(file, &class_file);
 
   //* Fields
   class_file.fields_count = read_2_bytes(file);
-  std::cout << "Fields Count:         " << class_file.fields_count << std::endl;
+  if (PRINT) std::cout << "Fields Count:         " << class_file.fields_count << std::endl;
   class_file.fields = (Field_Info*) malloc(class_file.fields_count * sizeof(Field_Info));
   read_field_info(file, &class_file);
 

@@ -6,13 +6,13 @@
 struct Attribute_Info;
 struct Class_File_Format;
 
-typedef struct {
+typedef struct Const_Value_Attribute{
   u2 attribute_name_index;
   u4 attribute_length;
   u2 const_value_index;
 } Const_Value_Attribute;
 
-typedef struct {
+typedef struct Code_Exception{
   u2 start_pc;
   u2 end_pc;
   u2 handler_pc;
@@ -102,10 +102,10 @@ Attribute_Info read_code_attribute(FILE *file, Attribute_Info attribute_info);
 Attribute_Info read_exception_attribute(FILE *file, Attribute_Info attribute_info);
 Attribute_Info read_source_file_attribute(FILE *file, Attribute_Info attribute_info);
 
-void read_inner_class_attribute(FILE *file, Attribute_Info *attribute_info);
+Attribute_Info read_inner_class_attribute(FILE *file, Attribute_Info attribute_info);
 Inner_Class_Attribute read_inner_class_attributes(FILE *file);
 
-void read_line_number_table_attribute(FILE *file, Attribute_Info *attribute_info);
+Attribute_Info read_line_number_table_attribute(FILE *file, Attribute_Info attribute_info);
 Line_Number_Table_Data read_line_number_table_data(FILE *file);
 
 void read_local_variable_table_attribute(FILE *file, Attribute_Info *attribute_info);
