@@ -102,11 +102,11 @@ std::string get_cp_info_utf8(Cp_Info *cp_info, u2 pos_info) {
   return utf8_const;
 }
 
-//* Pega nome da classe no CP e converte pra String
+//* Verifica se o this_class é igual ao nome do arquivo fonte
 void get_cp_info_class_name(std::string filename, Class_File_Format *class_file) {
   std::string class_name = get_cp_info_utf8(class_file->constant_pool, class_file->this_class - 1);
   class_name += ".class";
-  if (PRINT) std::cout << "CLASS NAME:           " << class_name << std::endl;
+  if (PRINT) std::cout << "This Class:           " << class_name << std::endl;
 
   std::size_t backslash_index = filename.find_last_of("/\\");
   std::string class_filename = filename.substr(backslash_index + 1);

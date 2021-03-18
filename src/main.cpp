@@ -17,6 +17,6 @@ int main(int argc, char* argv[]) {
     }
   }
 
-  std::cout << "\n\nTerminou execucao";
+  std::cout << "\n\nTerminou execucao\n";
   return 0;
 }

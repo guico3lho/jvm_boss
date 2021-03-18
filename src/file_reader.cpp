@@ -47,7 +47,7 @@ Class_File_Format read_class_file(std::string filename) {
   class_file.this_class = read_2_bytes(file);
   std::cout << "This Class:           " << class_file.this_class << std::endl;
   
-  get_cp_info_class_name(filename, &class_file); // 
+  get_cp_info_class_name(filename, &class_file); // checa se nome 
 
   class_file.super_class = read_2_bytes(file);
   std::cout << "Super Class:          " << class_file.super_class << std::endl;
@@ -55,7 +55,6 @@ Class_File_Format read_class_file(std::string filename) {
   //* Interfaces
   class_file.interfaces_count = read_2_bytes(file);
   std::cout << "Interfaces Count:     " << class_file.interfaces_count << std::endl;
-  
   class_file.interfaces = (Interface_Info*) malloc(class_file.interfaces_count * sizeof(Interface_Info));
   read_interface_info(file, &class_file);
 
@@ -72,11 +71,10 @@ Class_File_Format read_class_file(std::string filename) {
   read_method_info(file, &class_file);
 
   //* Attributes
-  // class_file.attributes_count = read_2_bytes(file);
-  // class_file.attributes = (AttributeInfo*)malloc(
-  //                       class_file.attributes_count * sizeof(AttributeInfo));
-  // attribute_info->read(class_file, file);
-  // if (PRINT) std::cout << "attribute read\n";
+  class_file.attributes_count = read_2_bytes(file);
+  if (PRINT) std::cout << "Attributes count:        " << class_file.attributes_count << std::endl;
+  class_file.attributes = (Attribute_Info*) malloc(class_file.attributes_count * sizeof(Attribute_Info));
+  read_attribute_info(file, &class_file);
 
   fclose(file);
 

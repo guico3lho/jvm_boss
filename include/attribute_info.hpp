@@ -94,17 +94,16 @@ typedef struct Attribute_Info{
 
 } Attribute_Info;
 
-/* ATTRIBUTE_INFO */
+void read_attribute_info(FILE *file, Class_File_Format *class_file);
 Attribute_Info get_attribute_info(FILE *file, Class_File_Format *class_file);
 
-void read_const_value_attribute(FILE *file, Class_File_Format *class_file, Attribute_Info *attribute_info);
-Attribute_Info read_code_attribute(FILE *file, Class_File_Format *class_file, Attribute_Info attribute_info);
-void read_exception_attribute(FILE *file, Attribute_Info *attribute_info);
+Attribute_Info read_const_value_attribute(FILE *file, Attribute_Info attribute_info);
+Attribute_Info read_code_attribute(FILE *file, Attribute_Info attribute_info);
+Attribute_Info read_exception_attribute(FILE *file, Attribute_Info attribute_info);
+Attribute_Info read_source_file_attribute(FILE *file, Attribute_Info attribute_info);
 
 void read_inner_class_attribute(FILE *file, Attribute_Info *attribute_info);
 Inner_Class_Attribute read_inner_class_attributes(FILE *file);
-
-void read_source_file_attribute(FILE *file, Attribute_Info *attribute_info);
 
 void read_line_number_table_attribute(FILE *file, Attribute_Info *attribute_info);
 Line_Number_Table_Data read_line_number_table_data(FILE *file);

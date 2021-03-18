@@ -24,7 +24,6 @@ typedef struct Class_File_Format{
   Cp_Info *constant_pool;
 
   u2 access_flags;
-
   u2 this_class;
   u2 super_class;
 
