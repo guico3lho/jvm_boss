@@ -12,7 +12,7 @@ void read_field_info(FILE *file, Class_File_Format *class_file) {
     class_file->fields[i].attributes = (Attribute_Info*) malloc((class_file->fields[i].atributes_count) * sizeof(Attribute_Info));
 
     for (int j = 0;  j < class_file->fields[i].atributes_count; j++) {
-      class_file->fields[i].attributes[j] = get_attribute_info(file, class_file, class_file->fields[i].attributes[j]);
+      class_file->fields[i].attributes[j] = get_attribute_info(file, class_file);
     }
   }
 }

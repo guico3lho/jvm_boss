@@ -34,10 +34,9 @@ Class_File_Format read_class_file(std::string filename) {
     exit(1);
   }
 
-  //* Constant Pool Count
-  // Count should actually be interpreted as the maximum index plus one
+  //* Constant Pool Count = max_index + 1
   class_file.constant_pool_count = read_2_bytes(file);
-  std::cout << "\n\nConstant Pool Count:  " <<class_file.constant_pool_count << std::endl;
+  std::cout << "\nConstant Pool Count:  " << class_file.constant_pool_count << std::endl;
 
   class_file.constant_pool = (Cp_Info*) malloc ((class_file.constant_pool_count - 1) * sizeof(Cp_Info));
   read_cp_info(file, &class_file);
@@ -68,7 +67,7 @@ Class_File_Format read_class_file(std::string filename) {
 
   //* Methods
   class_file.methods_count = read_2_bytes(file);
-  if (PRINT) std::cout << "\nMethods count:         " << class_file.methods_count << std::endl;
+  if (PRINT) std::cout << "Methods count:        " << class_file.methods_count << std::endl;
   class_file.methods = (Method_Info*) malloc(class_file.methods_count * sizeof(Method_Info));
   read_method_info(file, &class_file);
 

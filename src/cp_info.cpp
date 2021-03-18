@@ -106,11 +106,11 @@ std::string get_cp_info_utf8(Cp_Info *cp_info, u2 pos_info) {
 void get_cp_info_class_name(std::string filename, Class_File_Format *class_file) {
   std::string class_name = get_cp_info_utf8(class_file->constant_pool, class_file->this_class - 1);
   class_name += ".class";
-  // if (PRINT) std::cout << "CLASS NAME:           " << class_name << std::endl;
+  if (PRINT) std::cout << "CLASS NAME:           " << class_name << std::endl;
 
   std::size_t backslash_index = filename.find_last_of("/\\");
   std::string class_filename = filename.substr(backslash_index + 1);
-  // if (PRINT) std::cout << "Filename:             " << class_filename << std::endl;
+  if (PRINT) std::cout << "Source File Name:     " << class_filename << std::endl;
 
   if (class_filename != class_name) {
     printf("O nome do arquivo nao corresponde ao da classe!\n");

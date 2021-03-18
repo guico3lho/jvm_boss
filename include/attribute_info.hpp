@@ -95,9 +95,10 @@ typedef struct Attribute_Info{
 } Attribute_Info;
 
 /* ATTRIBUTE_INFO */
-Attribute_Info get_attribute_info(FILE *file, Class_File_Format *class_file, Attribute_Info attribute_info);
+Attribute_Info get_attribute_info(FILE *file, Class_File_Format *class_file);
+
 void read_const_value_attribute(FILE *file, Class_File_Format *class_file, Attribute_Info *attribute_info);
-void read_code_attribute(FILE *file, Class_File_Format *class_file, Attribute_Info *attribute_info);
+Attribute_Info read_code_attribute(FILE *file, Class_File_Format *class_file, Attribute_Info attribute_info);
 void read_exception_attribute(FILE *file, Attribute_Info *attribute_info);
 
 void read_inner_class_attribute(FILE *file, Attribute_Info *attribute_info);
