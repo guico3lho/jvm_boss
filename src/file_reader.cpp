@@ -15,7 +15,7 @@ Class_File_Format read_class_file(std::string filename) {
 
   if(class_file.magic_number != 0xCAFEBABE){
     printf("Arquivo com magic numebr invalido. \n");
-    printf("Encerrando programa. \n");
+    printf("Encerrando programa.\n");
     exit(1);
   }
 
@@ -30,7 +30,7 @@ Class_File_Format read_class_file(std::string filename) {
 
   if (class_file.major_version > 52) {
     printf( "\n\nArquivo com versao invalida - Versão máxima: Java SE 8.\n");
-    printf("Encerrando programa. \n");
+    printf("Encerrando programa.\n");
     exit(1);
   }
 

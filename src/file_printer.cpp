@@ -177,10 +177,10 @@ void print_constant_pool_info(Class_File_Format class_file) {
         print_cp_info_name_type(class_file, current_cp_info);
         break;
       case CONSTANT_EMPTY:
-        std::cout << "\tLarge numeric continued / empty item"<< std::endl;
+        std::cout << "\tEmpty Constant"<< std::endl;
         break;
       default:
-        printf("Tag %d. Wrong tag number. Shutting down.\n", current_cp_info.tag);
+        printf("Invalid tag number: %d\nEncerrando programa.\n", current_cp_info.tag);
         exit(1);
     }
     printf("\n");
