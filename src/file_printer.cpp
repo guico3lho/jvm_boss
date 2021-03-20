@@ -185,3 +185,15 @@ void print_constant_pool_info(Class_File_Format class_file) {
     }
   }
 }
+
+void print_interfaces(Class_File_Format class_file){
+  std::cout << std::endl << "--------------- Interfaces Info ---------------"<< std::endl;
+
+  for (int i = 0; i < class_file.interfaces_count; i++) {
+    std::cout << "Interfaces"<< std::endl;
+
+    std::cout << "\tInterface #"<< std::dec << class_file.interfaces[i].interface_table;
+    std::cout << "\t" << get_cp_info_utf8(class_file.constant_pool, 
+      (class_file.interfaces->interface_table + i) - 1) << std::endl;
+  }
+}
