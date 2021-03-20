@@ -79,6 +79,13 @@ void print_cp_info_class(Class_File_Format class_file, Cp_Info cp_info) {
   std::cout << "\tClass name:\t" << get_cp_info_utf8(class_file.constant_pool, cp_info.class_name - 1) << std::endl;
 }
 
+void print_cp_info_string(Class_File_Format class_file, Cp_Info cp_info) {
+   std::cout << "CONSTANT_STRING" << std::endl;
+  // Array de chars onde o objeto String será iniciado
+  std::cout << "\tString:\t#" << std::dec << cp_info.string_bytes;
+  std::cout << "\t" << get_cp_info_utf8(class_file.constant_pool, cp_info.string_bytes - 1) << std::endl;
+}
+
 void print_constant_pool_info(Class_File_Format class_file) {
   std::cout << "\n\n------- Constant Pool -------\n\n";
 
@@ -103,15 +110,10 @@ void print_constant_pool_info(Class_File_Format class_file) {
         break;
       case CONSTANT_CLASS :
         print_cp_info_class(class_file, class_file.constant_pool[i]);
-        
-      break;
+        break;
       case CONSTANT_STRING:
-        std::cout << "CONSTANT_STRING" << std::endl;
-
-        // representa sequência de caracteres com a qual o objeto String será iniciado
-        std::cout << "\tString:\t#" << std::dec << class_file.constant_pool[i].string_bytes;
-        std::cout << "\t" << get_cp_info_utf8(class_file.constant_pool,
-                              class_file.constant_pool[i].string_bytes - 1) << std::endl;
+        print_cp_info_string(class_file, class_file.constant_pool[i]);
+       
         break;
       case CONSTANT_FIELD_REF:
         std::cout << "CONSTANT_FIELD_REF" << std::endl;
