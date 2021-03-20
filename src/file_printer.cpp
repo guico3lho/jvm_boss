@@ -47,14 +47,14 @@ void print_cp_info_float(Cp_Info cp_info) {
 
 void print_cp_info_long(Cp_Info cp_info) {
   printf("CONSTANT_LONG\n");
-  // representa uma constante inteira de 8 bytes em big-endian unsigned
-  std::cout << "\tHigh:\t0x" << std::hex << cp_info.long_high_bytes << std::endl;
-  // printf("\tHigh: 0x%0x\n", cp_info.long_high_bytes);
-  printf("\tLow: 0x%0x\n", cp_info.long_low_bytes);
   long read_long_value;
+
+  // Constante Int de 8 bytes em big-endian unsigned
+  std::cout << "\tHigh:\t0x" << std::hex << cp_info.long_high_bytes << std::endl;
+  std::cout << "\tLow:\t0x" << std::hex << cp_info.long_low_bytes << std::endl;
+
   memcpy(&read_long_value, &(cp_info.long_high_bytes), sizeof(long));
   memcpy(&read_long_value, &(cp_info.long_low_bytes), sizeof(long));
-  // ((long) high_bytes << 32) + low_bytes
   printf("\tLong Value: %ld\n", read_long_value);
 }
 
@@ -136,13 +136,13 @@ void print_cp_info_name_type(Class_File_Format class_file, Cp_Info cp_info) {
 
 void print_constant_pool_info(Class_File_Format class_file) {
   std::cout << "\n\n------- Constant Pool -------\n\n";
+  Cp_Info current_cp_info;
 
   for (int i = 0; i < class_file.constant_pool_count - 1; i++) {
     std::cout << "\nCP_INFO[" << std::dec << i + 1 << "]" << std::endl;
+    current_cp_info = class_file.constant_pool[i];
 
-    Cp_Info current_cp_info = class_file.constant_pool[i];
-
-    switch (class_file.constant_pool[i].tag) {
+    switch (current_cp_info.tag) {
       case CONSTANT_UTF8:
         print_cp_info_utf8(current_cp_info);
         break;
@@ -183,6 +183,5 @@ void print_constant_pool_info(Class_File_Format class_file) {
         printf("Invalid tag number: %d\nEncerrando programa.\n", current_cp_info.tag);
         exit(1);
     }
-    printf("\n");
   }
 }
