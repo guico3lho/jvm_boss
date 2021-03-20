@@ -113,15 +113,25 @@ void print_cp_info_method(Class_File_Format class_file, Cp_Info cp_info) {
 }
 
 void print_cp_info_interface_method(Class_File_Format class_file, Cp_Info cp_info) {
-  std::cout << "CONSTANT_INTERFACE_METHOD_REF"<< std::endl;
+  std::cout << "CONSTANT_INTERFACE_METHOD_REF" << std::endl;
 
   // Nome da interface que contem a declaração do metodo
-  std::cout << "Index:"<< std::endl;
-  std::cout << get_cp_info_utf8(class_file.constant_pool, cp_info.interface_method_ref_index - 1)<< std::endl;
+  std::cout << "\tIndex:\t#" << std::endl;
+  std::cout << get_cp_info_utf8(class_file.constant_pool, cp_info.interface_method_ref_index - 1) << std::endl;
 
   // Nome e tipo do método
   std::cout << "Name and Type:"<< std::endl;
   std::cout << get_cp_info_utf8(class_file.constant_pool, cp_info.interface_method_ref_name_type - 1);
+}
+
+void print_cp_info_name_type(Class_File_Format class_file, Cp_Info cp_info) {
+  std::cout << "CONSTANT_NAME_TYPE:"<< std::endl;
+
+  std::cout << "\tName:\t\t#"<< cp_info.name_type_index;
+  std::cout << "\t" << get_cp_info_utf8(class_file.constant_pool, cp_info.name_type_index - 1) << std::endl;
+
+  std::cout << "\tDescriptor:\t#"<< cp_info.name_type_descriptor_index;
+  std::cout << "\t" << get_cp_info_utf8(class_file.constant_pool, cp_info.name_type_descriptor_index - 1) << std::endl;
 }
 
 void print_constant_pool_info(Class_File_Format class_file) {
@@ -130,55 +140,47 @@ void print_constant_pool_info(Class_File_Format class_file) {
   for (int i = 0; i < class_file.constant_pool_count - 1; i++) {
     std::cout << "\nCP_INFO[" << std::dec << i + 1 << "]" << std::endl;
 
+    Cp_Info current_cp_info = class_file.constant_pool[i];
+
     switch (class_file.constant_pool[i].tag) {
       case CONSTANT_UTF8:
-        print_cp_info_utf8(class_file.constant_pool[i]);
+        print_cp_info_utf8(current_cp_info);
         break;
       case CONSTANT_INT:
-        print_cp_info_int(class_file.constant_pool[i]);
+        print_cp_info_int(current_cp_info);
         break;
       case CONSTANT_FLOAT:
-        print_cp_info_float(class_file.constant_pool[i]);
+        print_cp_info_float(current_cp_info);
         break;
       case CONSTANT_LONG:
-        print_cp_info_long(class_file.constant_pool[i]);
+        print_cp_info_long(current_cp_info);
         break;
       case CONSTANT_DOUBLE:
-        print_cp_info_double(class_file.constant_pool[i]);
+        print_cp_info_double(current_cp_info);
         break;
       case CONSTANT_CLASS :
-        print_cp_info_class(class_file, class_file.constant_pool[i]);
+        print_cp_info_class(class_file, current_cp_info);
         break;
       case CONSTANT_STRING:
-        print_cp_info_string(class_file, class_file.constant_pool[i]);
+        print_cp_info_string(class_file, current_cp_info);
         break;
       case CONSTANT_FIELD_REF:
-        print_cp_info_field(class_file, class_file.constant_pool[i]);
+        print_cp_info_field(class_file, current_cp_info);
         break;
       case CONSTANT_METHOD_REF:
-        print_cp_info_method(class_file, class_file.constant_pool[i]);
+        print_cp_info_method(class_file, current_cp_info);
         break;
       case CONSTANT_INTERFACE_METHOD_REF:
-        print_cp_info_interface_method(class_file, class_file.constant_pool[i]);
+        print_cp_info_interface_method(class_file, current_cp_info);
         break;
       case CONSTANT_NAME_TYPE:
-        std::cout << "CONSTANT_NAME_TYPE:"<< std::endl;
-
-        // printf("Name index: ");
-        std::cout << "\tName:\t\t#"<< class_file.constant_pool[i].name_type_index;
-        std::cout << "\t" << get_cp_info_utf8(class_file.constant_pool,
-                        class_file.constant_pool[i].name_type_index - 1) << std::endl;
-        // printf("\nDescriptor index: ");
-        std::cout << "\tDescriptor:\t#"<< class_file.constant_pool[i].name_type_descriptor_index;
-        std::cout << "\t" << get_cp_info_utf8(class_file.constant_pool,
-                  class_file.constant_pool[i].name_type_descriptor_index - 1) << std::endl;
+        print_cp_info_name_type(class_file, current_cp_info);
         break;
       case CONSTANT_EMPTY:
         std::cout << "\tLarge numeric continued / empty item"<< std::endl;
         break;
       default:
-        printf("Tag %d. Wrong tag number. Shutting down.\n",
-                class_file.constant_pool[i].tag);
+        printf("Tag %d. Wrong tag number. Shutting down.\n", current_cp_info.tag);
         exit(1);
     }
     printf("\n");
