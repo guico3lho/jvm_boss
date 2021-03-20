@@ -34,7 +34,7 @@ void print_cp_info_utf8(Cp_Info cp_info) {
 void print_cp_info_int(Cp_Info cp_info) {
   // Valor da constante int, em big-endian
   printf("CONSTANT_INT\n");
-  printf("Valor: %d\n", cp_info.int_bytes);
+  printf("Int Value: %d\n", cp_info.int_bytes);
 }
 
 void print_cp_info_float(Cp_Info cp_info) {
@@ -42,7 +42,41 @@ void print_cp_info_float(Cp_Info cp_info) {
   float float_value;
   memcpy(&float_value, &(cp_info.float_bytes), sizeof(float));
   // representa o valor da constante float em big-endian, no formato IEEE-754
-  printf("Float: %lf\n", float_value);
+  printf("Float Value: %lf\n", float_value);
+}
+
+void print_cp_info_long(Cp_Info cp_info) {
+  printf("CONSTANT_LONG\n");
+  // representa uma constante inteira de 8 bytes em big-endian unsigned
+  std::cout << "\tHigh:\t0x" << std::hex << cp_info.long_high_bytes << std::endl;
+  // printf("\tHigh: 0x%0x\n", cp_info.long_high_bytes);
+  printf("\tLow: 0x%0x\n", cp_info.long_low_bytes);
+  long read_long_value;
+  memcpy(&read_long_value, &(cp_info.long_high_bytes), sizeof(long));
+  memcpy(&read_long_value, &(cp_info.long_low_bytes), sizeof(long));
+  // ((long) high_bytes << 32) + low_bytes
+  printf("\tLong Value: %ld\n", read_long_value);
+}
+
+void print_cp_info_double(Cp_Info cp_info) {
+  double read_double_value;
+  u8 aux;
+
+  printf("CONSTANT_DOUBLE\n");
+  std::cout << "\tHigh:\t0x"<< std::hex << cp_info.double_high_bytes << std::endl;
+  std::cout << "\tLow:\t0x"<< std::hex << cp_info.double_low_bytes << std::endl;
+
+  // Constante double de 8 bytes em big-endian no formato IEEE-754
+  aux = ((u8)cp_info.double_high_bytes << 32) | cp_info.double_low_bytes;
+  memcpy(&read_double_value, &aux, sizeof(double));
+  std::cout << "\tDouble Value:\t"<< read_double_value << std::endl;
+}
+
+void print_cp_info_class(Class_File_Format class_file, Cp_Info cp_info) {
+  std::cout << "CONSTANT_CLASS" << std::endl;
+  std::cout << "\tName index:\t#" << std::dec << cp_info.class_name << std::endl;
+  // exibe nome de uma classe ou interface
+  std::cout << "\tClass name:\t" << get_cp_info_utf8(class_file.constant_pool, cp_info.class_name - 1) << std::endl;
 }
 
 void print_constant_pool_info(Class_File_Format class_file) {
@@ -62,37 +96,14 @@ void print_constant_pool_info(Class_File_Format class_file) {
         print_cp_info_float(class_file.constant_pool[i]);
         break;
       case CONSTANT_LONG:
-        printf("CONSTANT_LONG\n");
-        // representa uma constante inteira de 8 bytes em big-endian unsigned
-        std::cout << "\tHigh:\t0x" << std::hex << class_file.constant_pool[i].long_high_bytes << std::endl;
-        // printf("\tHigh: 0x%0x\n", class_file.constant_pool[i].long_high_bytes);
-        printf("\tLow: 0x%0x\n", class_file.constant_pool[i].long_low_bytes);
-        long read_long_value;
-        memcpy(&read_long_value, &(class_file.constant_pool[i].long_high_bytes), sizeof(long));
-        memcpy(&read_long_value, &(class_file.constant_pool[i].long_low_bytes), sizeof(long));
-        // ((long) high_bytes << 32) + low_bytes
-        printf("\tLong Value: %ld\n", read_long_value);
+        print_cp_info_long(class_file.constant_pool[i]);
         break;
       case CONSTANT_DOUBLE:
-        printf("CONSTANT_DOUBLE\n");
-
-        std::cout << "\tHigh:\t0x"<< std::hex << class_file.constant_pool[i].double_high_bytes << std::endl;
-        std::cout << "\tLow:\t0x"<< std::hex << class_file.constant_pool[i].double_low_bytes << std::endl;
-
-        double read_double_value;
-        u8 aux;
-        // representa uma constante de ponto flutuante de 8 bytes em big-endian no formato IEEE-754
-        aux = ((u8)class_file.constant_pool[i].double_high_bytes << 32) | class_file.constant_pool[i].double_low_bytes;
-        memcpy(&read_double_value, &aux, sizeof(double));
-
-        std::cout << "\tDouble Value:\t"<< read_double_value << std::endl;
+        print_cp_info_double(class_file.constant_pool[i]);
         break;
       case CONSTANT_CLASS :
-        std::cout << "CONSTANT_CLASS" << std::endl;
-        std::cout << "\tName index:\t#" << std::dec << class_file.constant_pool[i].class_name << std::endl;
-        // exibe nome de uma classe ou interface
-        std::cout << "\tClass name:\t" << get_cp_info_utf8(class_file.constant_pool,
-                            class_file.constant_pool[i].class_name - 1) << std::endl;
+        print_cp_info_class(class_file, class_file.constant_pool[i]);
+        
       break;
       case CONSTANT_STRING:
         std::cout << "CONSTANT_STRING" << std::endl;
