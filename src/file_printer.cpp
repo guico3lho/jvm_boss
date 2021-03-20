@@ -86,10 +86,36 @@ void print_cp_info_string(Class_File_Format class_file, Cp_Info cp_info) {
   std::cout << "\t" << get_cp_info_utf8(class_file.constant_pool, cp_info.string_bytes - 1) << std::endl;
 }
 
+void print_cp_info_field(Class_File_Format class_file, Cp_Info cp_info) {
+  std::cout << "CONSTANT_FIELD_REF" << std::endl;
+
+  // Nome completo da classe ou interface que contem a declaração desse field
+  std::cout << "\tClass index:\t#" << std::dec << cp_info.field_ref_class_index ;
+  std::cout << "\t" << get_cp_info_utf8(class_file.constant_pool, cp_info.field_ref_class_index - 1) << std::endl;
+
+  // Field ou método sem indicar classe ou interface a que pertence
+  std::cout << "\tName and Type:\t#" << std::dec << cp_info.field_ref_name_type_index;
+  std::cout << "\t" << get_cp_info_utf8(class_file.constant_pool, cp_info.field_ref_name_type_index - 1) << std::endl;
+}
+
+void print_cp_info_method(Class_File_Format class_file, Cp_Info cp_info) {
+  std::cout << "CONSTANT_METHOD_REF"<< std::endl;
+
+  // Indice da Classe no Constant Pool
+  std::cout << "\tClass index:\t#"<< cp_info.method_ref_index;
+
+  // Nome da classe que contem a declaração desse método
+  std::cout << " \t" << get_cp_info_utf8(class_file.constant_pool, cp_info.method_ref_index - 1) << std::endl;
+
+  // Nome e tipo do método
+  std::cout << "\tName and Type:\t#"<< cp_info.method_ref_name_and_type;
+  std::cout << "\t" << get_cp_info_utf8(class_file.constant_pool, cp_info.method_ref_name_and_type - 1) << std::endl;
+}
+
 void print_constant_pool_info(Class_File_Format class_file) {
   std::cout << "\n\n------- Constant Pool -------\n\n";
 
-  for (int i = 0; i < class_file.constant_pool_count-1; i++) {
+  for (int i = 0; i < class_file.constant_pool_count - 1; i++) {
     std::cout << "\nCP_INFO[" << std::dec << i + 1 << "]" << std::endl;
 
     switch (class_file.constant_pool[i].tag) {
@@ -113,36 +139,12 @@ void print_constant_pool_info(Class_File_Format class_file) {
         break;
       case CONSTANT_STRING:
         print_cp_info_string(class_file, class_file.constant_pool[i]);
-       
         break;
       case CONSTANT_FIELD_REF:
-        std::cout << "CONSTANT_FIELD_REF" << std::endl;
-
-        // representa nome completo da classe ou interface que contem a declaração desse field
-        std::cout << "\tClass index:\t#" << std::dec << class_file.constant_pool[i].field_ref_class_index ;
-        std::cout << "\t" << get_cp_info_utf8(class_file.constant_pool,
-                          class_file.constant_pool[i].field_ref_class_index - 1) << std::endl;
-
-        // representa um field ou método sem indicar classe ou interface a que pertence
-        std::cout << "\tName and Type:\t#" << std::dec << class_file.constant_pool[i].field_ref_name_type_index;
-        std::cout << "\t" << get_cp_info_utf8(class_file.constant_pool,
-                  class_file.constant_pool[i].field_ref_name_type_index - 1) << std::endl;
+        print_cp_info_field(class_file, class_file.constant_pool[i]);
         break;
       case CONSTANT_METHOD_REF:
-        std::cout << "CONSTANT_METHOD_REF"<< std::endl;
-
-        // representa um método
-        std::cout << "\tClass index:\t#"<< class_file.constant_pool[i].method_ref_index;
-        // representa nome completo classe que contem a declaração desse método
-        std::cout << " \t" << get_cp_info_utf8(class_file.constant_pool,
-                              class_file.constant_pool[i].method_ref_index - 1);
-        std::cout << std::endl;
-
-        std::cout << "\tName and Type:\t#"<< class_file.constant_pool[i].method_ref_name_and_type;
-        // indica nome e descritor do método
-        std::cout << "\t" << get_cp_info_utf8(class_file.constant_pool,
-                        class_file.constant_pool[i].method_ref_name_and_type - 1);
-        std::cout << std::endl;
+        print_cp_info_method(class_file, class_file.constant_pool[i]);
         break;
       case CONSTANT_INTERFACE_METHOD_REF:
         std::cout << "CONSTANT_INTERFACE_METHOD_REF"<< std::endl;
