@@ -112,6 +112,18 @@ void print_cp_info_method(Class_File_Format class_file, Cp_Info cp_info) {
   std::cout << "\t" << get_cp_info_utf8(class_file.constant_pool, cp_info.method_ref_name_and_type - 1) << std::endl;
 }
 
+void print_cp_info_interface_method(Class_File_Format class_file, Cp_Info cp_info) {
+  std::cout << "CONSTANT_INTERFACE_METHOD_REF"<< std::endl;
+
+  // Nome da interface que contem a declaração do metodo
+  std::cout << "Index:"<< std::endl;
+  std::cout << get_cp_info_utf8(class_file.constant_pool, cp_info.interface_method_ref_index - 1)<< std::endl;
+
+  // Nome e tipo do método
+  std::cout << "Name and Type:"<< std::endl;
+  std::cout << get_cp_info_utf8(class_file.constant_pool, cp_info.interface_method_ref_name_type - 1);
+}
+
 void print_constant_pool_info(Class_File_Format class_file) {
   std::cout << "\n\n------- Constant Pool -------\n\n";
 
@@ -147,17 +159,7 @@ void print_constant_pool_info(Class_File_Format class_file) {
         print_cp_info_method(class_file, class_file.constant_pool[i]);
         break;
       case CONSTANT_INTERFACE_METHOD_REF:
-        std::cout << "CONSTANT_INTERFACE_METHOD_REF"<< std::endl;
-
-        // representa nome completo da interface que contem a declaração desse método
-        std::cout << "Index:"<< std::endl;
-        std::cout << get_cp_info_utf8(class_file.constant_pool,
-                      class_file.constant_pool[i].interface_method_ref_index - 1)<< std::endl;
-
-        // indica nome e descritor do método
-        std::cout << "Name and Type:"<< std::endl;
-        std::cout << get_cp_info_utf8(class_file.constant_pool,
-              class_file.constant_pool[i].interface_method_ref_name_type - 1);
+        print_cp_info_interface_method(class_file, class_file.constant_pool[i]);
         break;
       case CONSTANT_NAME_TYPE:
         std::cout << "CONSTANT_NAME_TYPE:"<< std::endl;
