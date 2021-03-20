@@ -25,6 +25,12 @@ void print_basic_info(std::string filename, Class_File_Format class_file) {
   printf("Attributes count:     %d\n", class_file.attributes_count);
 }
 
+void print_cp_info_utf8(Cp_Info cp_info) {
+  std::cout << "CONSTANT_UTF8_info\n";
+  std::cout << "\tLength:\t"<< std::dec << cp_info.UTF8_size << std::endl;
+  std::cout << "\tBytes:\t"<< cp_info.UTF8_bytes << std::endl;
+}
+
 void print_constant_pool_info(Class_File_Format class_file) {
   std::cout << "\n\n------- Constant Pool -------\n\n";
 
@@ -33,9 +39,7 @@ void print_constant_pool_info(Class_File_Format class_file) {
 
     switch (class_file.constant_pool[i].tag) {
       case CONSTANT_UTF8:
-        std::cout << "CONSTANT_UTF8_info\n";
-        std::cout << "\tLength:\t"<< std::dec << class_file.constant_pool[i].UTF8_size << std::endl;
-        std::cout << "\tBytes:\t"<< class_file.constant_pool[i].UTF8_bytes << std::endl;
+        print_cp_info_utf8(class_file.constant_pool[i]);
         break;
       case CONSTANT_INT:
         // representa o valor da constante int, em big-endian
