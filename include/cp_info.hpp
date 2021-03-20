@@ -10,8 +10,8 @@ typedef struct Cp_Info{
 
   u2 class_name; // big-endian
 
-  u2 field_ref_class_ref;
-  u2 field_ref_name_type_descriptor;
+  u2 field_ref_class_index;
+  u2 field_ref_name_type_index;
 
   u2 method_ref_index;
   u2 method_ref_name_and_type;

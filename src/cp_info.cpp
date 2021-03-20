@@ -13,8 +13,8 @@ void read_cp_info(FILE *file, Class_File_Format *class_file) {
         class_file->constant_pool[i].class_name = read_2_bytes(file);
         break;
       case CONSTANT_FIELD_REF:
-        class_file->constant_pool[i].field_ref_class_ref = read_2_bytes(file);
-        class_file->constant_pool[i].field_ref_name_type_descriptor = read_2_bytes(file);
+        class_file->constant_pool[i].field_ref_class_index = read_2_bytes(file);
+        class_file->constant_pool[i].field_ref_name_type_index = read_2_bytes(file);
         break;
       case CONSTANT_METHOD_REF:
         class_file->constant_pool[i].method_ref_index = read_2_bytes(file);
@@ -62,22 +62,18 @@ std::string get_cp_info_utf8(Cp_Info *cp_info, u2 pos_info) {
   u2 tag = cp_info[pos_info].tag;
 
   switch (tag) {
-    case CONSTANT_UTF8: // caso tag seja 1
+    case CONSTANT_UTF8: 
       // representa valores strings constantes, inclusive unicode
-      // UTF8_size indica o número de bytes no array bytes
-      // UTF8_bytes contêm os bytes da string
-      // @TODO checar se nenhum byte tem valor 0 ou está no intervalo
-      //  0xf0 ou 0xff, i.e. [240, 255]
+      // checar se nenhum byte tem valor 0 ou está no intervalo 0xf0 ou 0xff, i.e. [240, 255]
       utf8_const = (char*) cp_info[pos_info].UTF8_bytes;
       break;
     case CONSTANT_CLASS:
       utf8_const = get_cp_info_utf8(cp_info, cp_info[pos_info].class_name - 1);
       break;
     case CONSTANT_FIELD_REF:
-      utf8_const = get_cp_info_utf8(cp_info, cp_info[pos_info].field_ref_class_ref - 1);
-      utf8_const += get_cp_info_utf8(cp_info, cp_info[pos_info].field_ref_name_type_descriptor - 1);
+      utf8_const = get_cp_info_utf8(cp_info, cp_info[pos_info].field_ref_class_index - 1);
+      utf8_const += get_cp_info_utf8(cp_info, cp_info[pos_info].field_ref_name_type_index - 1);
       break;
-    // caso tag seja 12
     case CONSTANT_NAME_TYPE:
       // representa um nome simples de field ou método ou ainda o nome do método especial <init>
       utf8_const = get_cp_info_utf8(cp_info, cp_info[pos_info].name_type_index - 1);
