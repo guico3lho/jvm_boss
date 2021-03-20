@@ -31,6 +31,20 @@ void print_cp_info_utf8(Cp_Info cp_info) {
   std::cout << "\tBytes:\t"<< cp_info.UTF8_bytes << std::endl;
 }
 
+void print_cp_info_int(Cp_Info cp_info) {
+  // Valor da constante int, em big-endian
+  printf("CONSTANT_INT\n");
+  printf("Valor: %d\n", cp_info.int_bytes);
+}
+
+void print_cp_info_float(Cp_Info cp_info) {
+  printf("CONSTANT_FLOAT\n");
+  float float_value;
+  memcpy(&float_value, &(cp_info.float_bytes), sizeof(float));
+  // representa o valor da constante float em big-endian, no formato IEEE-754
+  printf("Float: %lf\n", float_value);
+}
+
 void print_constant_pool_info(Class_File_Format class_file) {
   std::cout << "\n\n------- Constant Pool -------\n\n";
 
@@ -42,16 +56,10 @@ void print_constant_pool_info(Class_File_Format class_file) {
         print_cp_info_utf8(class_file.constant_pool[i]);
         break;
       case CONSTANT_INT:
-        // representa o valor da constante int, em big-endian
-        printf("CONSTANT_INT\n");
-        printf("Valor: %d\n", class_file.constant_pool[i].int_bytes);
+        print_cp_info_int(class_file.constant_pool[i]);
         break;
       case CONSTANT_FLOAT:
-        printf("CONSTANT_FLOAT\n");
-        float float_value;
-        memcpy(&float_value, &(class_file.constant_pool[i].float_bytes), sizeof(float));
-        // representa o valor da constante float em big-endian, no formato IEEE-754
-        printf("Float: %lf\n", float_value);
+        print_cp_info_float(class_file.constant_pool[i]);
         break;
       case CONSTANT_LONG:
         printf("CONSTANT_LONG\n");
