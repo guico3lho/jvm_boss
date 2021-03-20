@@ -41,7 +41,7 @@ typedef struct Cp_Info{
 } Cp_Info;
 
 void read_cp_info(FILE *file, Class_File_Format *class_file);
-std::string get_cp_info_utf8(Cp_Info *cp_info, u2 pos_info);
+std::string get_cp_info_utf8(Cp_Info *cp_info, u2 index);
 void get_cp_info_class_name(std::string filename, Class_File_Format *class_file);
 
 #endif

@@ -57,39 +57,39 @@ void read_cp_info(FILE *file, Class_File_Format *class_file) {
   }
 }
 
-std::string get_cp_info_utf8(Cp_Info *cp_info, u2 pos_info) {
+std::string get_cp_info_utf8(Cp_Info *cp_info, u2 index) {
   std::string utf8_const;
-  u2 tag = cp_info[pos_info].tag;
+  u2 tag = cp_info[index].tag;
 
   switch (tag) {
     case CONSTANT_UTF8: 
       // representa valores strings constantes, inclusive unicode
       // checar se nenhum byte tem valor 0 ou está no intervalo 0xf0 ou 0xff, i.e. [240, 255]
-      utf8_const = (char*) cp_info[pos_info].UTF8_bytes;
+      utf8_const = (char*) cp_info[index].UTF8_bytes;
       break;
     case CONSTANT_CLASS:
-      utf8_const = get_cp_info_utf8(cp_info, cp_info[pos_info].class_name - 1);
+      utf8_const = get_cp_info_utf8(cp_info, cp_info[index].class_name - 1);
       break;
     case CONSTANT_FIELD_REF:
-      utf8_const = get_cp_info_utf8(cp_info, cp_info[pos_info].field_ref_class_index - 1);
-      utf8_const += get_cp_info_utf8(cp_info, cp_info[pos_info].field_ref_name_type_index - 1);
+      utf8_const = get_cp_info_utf8(cp_info, cp_info[index].field_ref_class_index - 1);
+      utf8_const += get_cp_info_utf8(cp_info, cp_info[index].field_ref_name_type_index - 1);
       break;
     case CONSTANT_NAME_TYPE:
       // representa um nome simples de field ou método ou ainda o nome do método especial <init>
-      utf8_const = get_cp_info_utf8(cp_info, cp_info[pos_info].name_type_index - 1);
+      utf8_const = get_cp_info_utf8(cp_info, cp_info[index].name_type_index - 1);
       // representa um descritor válido de field ou de método
-      utf8_const += get_cp_info_utf8(cp_info, cp_info[pos_info].name_type_descriptor_index - 1);
+      utf8_const += get_cp_info_utf8(cp_info, cp_info[index].name_type_descriptor_index - 1);
       break;
     case CONSTANT_METHOD_REF:
-      utf8_const = get_cp_info_utf8(cp_info, cp_info[pos_info].method_ref_index - 1);
-      utf8_const += get_cp_info_utf8(cp_info, cp_info[pos_info].method_ref_name_and_type - 1);
+      utf8_const = get_cp_info_utf8(cp_info, cp_info[index].method_ref_index - 1);
+      utf8_const += get_cp_info_utf8(cp_info, cp_info[index].method_ref_name_and_type - 1);
       break;
     case CONSTANT_INTERFACE_METHOD_REF:
-      utf8_const = get_cp_info_utf8(cp_info, cp_info[pos_info].interface_method_ref_index - 1);
-      utf8_const += get_cp_info_utf8(cp_info, cp_info[pos_info].interface_method_ref_name_type - 1);
+      utf8_const = get_cp_info_utf8(cp_info, cp_info[index].interface_method_ref_index - 1);
+      utf8_const += get_cp_info_utf8(cp_info, cp_info[index].interface_method_ref_name_type - 1);
       break;
     case CONSTANT_STRING:
-      utf8_const += get_cp_info_utf8(cp_info, cp_info[pos_info].string_bytes - 1);
+      utf8_const += get_cp_info_utf8(cp_info, cp_info[index].string_bytes - 1);
       break;
     default:
       return "";
