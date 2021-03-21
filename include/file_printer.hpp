@@ -19,7 +19,7 @@ void print_cp_info_method(Class_File_Format class_file, Cp_Info cp_info);
 void print_cp_info_interface_method(Class_File_Format class_file, Cp_Info cp_info);
 void print_cp_info_name_type(Class_File_Format class_file, Cp_Info cp_info);
 
-void print_constant_pool_info(Class_File_Format class_file);
+void print_constant_pool(Class_File_Format class_file);
 
 /* INTERFACES */
 void print_interfaces(Class_File_Format class_file);
@@ -33,5 +33,6 @@ void print_methods_attributes(Class_File_Format class_file, Attribute_Info attri
 
 void print_fields(Class_File_Format class_file);
 void print_methods(Class_File_Format class_file);
+void print_attributes(Class_File_Format class_file);
 
 #endif

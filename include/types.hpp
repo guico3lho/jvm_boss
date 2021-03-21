@@ -42,6 +42,16 @@
 #define ACC_NATIVE        0x0100 // native, implemented in language not in Java (C, C++, Assembly)
 #define ACC_STRICT        0x0800 // strictfp, float point mode FP-strict (not normalized)
 
+/* ATYPE OF EACH NEWARRAY */
+#define T_BOOLEAN 0x4
+#define T_CHAR    0x5
+#define T_FLOAT	  0x6
+#define T_DOUBLE	0x7
+#define T_BYTE    0x8
+#define T_SHORT	  0x9
+#define T_INT     0x10
+#define T_LONG    0x11
+
 typedef uint8_t u1;
 typedef uint16_t u2;
 typedef uint32_t u4;

@@ -16,10 +16,11 @@ int main(int argc, char* argv[]) {
     if(option == "-e") {
       class_file = read_class_file(filename);
       print_basic_info(filename, class_file);
-      print_constant_pool_info(class_file);
+      print_constant_pool(class_file);
       print_interfaces(class_file);
       print_fields(class_file);
       print_methods(class_file);
+      print_attributes(class_file);
     }
   }
 

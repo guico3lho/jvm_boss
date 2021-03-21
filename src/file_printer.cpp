@@ -106,7 +106,7 @@ void print_cp_info_name_type(Class_File_Format class_file, Cp_Info cp_info) {
   std::cout << ":" << get_cp_info_utf8(class_file.constant_pool, cp_info.name_type_descriptor_index - 1);
 }
 
-void print_constant_pool_info(Class_File_Format class_file) {
+void print_constant_pool(Class_File_Format class_file) {
   std::cout << "\n------------ Constant Pool ------------\n";
   Cp_Info current_cp_info;
 
@@ -161,7 +161,7 @@ void print_constant_pool_info(Class_File_Format class_file) {
 }
 
 void print_interfaces(Class_File_Format class_file){
-  std::cout << std::endl << "--------------- Interfaces Info ---------------"<< std::endl;
+  std::cout << std::endl << "------------ Interfaces ------------"<< std::endl;
   std::cout << "Interfaces Count: " << class_file.interfaces_count << std::endl;
 
   for (int i = 0; i < class_file.interfaces_count; i++) {
@@ -173,11 +173,11 @@ void print_interfaces(Class_File_Format class_file){
 }
 
 void print_code_attribute(Class_File_Format class_file, Code_Attribute *code_attribute) {
-  printf("stack=%d, locals=%d \n", code_attribute->max_stack, code_attribute->max_locals);
   printf("Code length: %d\n", code_attribute->code_length);
   printf("Exception table length: %d\n", code_attribute->exception_table_length);
 
   printf("Code: \n");
+  printf("  stack=%d, locals=%d \n", code_attribute->max_stack, code_attribute->max_locals);
   // print_instructions(class_file, code_attribute);
 
   printf("Attributes count: %d\n", code_attribute->attributes_count);
@@ -199,12 +199,11 @@ void print_number_table_attribute(Class_File_Format class_file, Line_Number_Tabl
 }
 
 void print_source_file_attribute(Class_File_Format class_file, Source_File_Attribute *source_file) {
-  printf("Sourcefile index: cp info #%d ", source_file->source_file_index);
+  printf("Sourcefile index: #%d\n", source_file->source_file_index);
   std::cout << get_cp_info_utf8(class_file.constant_pool, source_file->source_file_index - 1);
 }
 
 void print_methods_attributes(Class_File_Format class_file, Attribute_Info attribute_info) {
-  std::cout << "\n------------- Attributtes Info -------------" << std::endl;
   printf("Attribute length: %d\n", attribute_info.attribute_length) ;
 
   printf("Attribute name index: cp info #%d ", attribute_info.attribute_name_index);
@@ -227,7 +226,7 @@ void print_methods_attributes(Class_File_Format class_file, Attribute_Info attri
 }
 
 void print_fields(Class_File_Format class_file) {
-  std::cout << "\n------------- Fields Info:  -------------\n";
+  std::cout << "\n------------ Fields  ------------\n";
   std::cout << "Fields Count: " << class_file.fields_count << std::endl;
 
   if (class_file.fields_count != 0) {
@@ -255,26 +254,49 @@ void print_fields(Class_File_Format class_file) {
 }
 
 void print_methods(Class_File_Format class_file) {
-  printf("\n------------- Methods Info:  -------------\n");
+  printf("\n------------ Methods  ------------\n");
   std::cout << "Methods Count: " << class_file.methods_count << std::endl;
 
   for (int i = 0; i < class_file.methods_count; i++) {
-    printf("\n>>> METHOD INFO[%d] <<<\n\n", i);
+    printf("\n>METHOD INFO[%d]\n\n", i);
     Method_Info *method_info = class_file.methods + i;
 
-    printf("Name Index: cp info #%d ",method_info->name_index);
+    printf("Name Index: #%d ",method_info->name_index);
     std::cout << get_cp_info_utf8(class_file.constant_pool, method_info->name_index - 1) << std::endl;
 
-    printf("Descriptor Index: cp info #%d ",method_info->descriptor_index);
+    printf("Descriptor Index: #%d ",method_info->descriptor_index);
     std::cout << get_cp_info_utf8(class_file.constant_pool, method_info->descriptor_index - 1) << std::endl;
 
     printf("Access Flag: 0x%04x\n", method_info->access_flags);
     printf("Attributes Count: %d\n",method_info->attributes_count);
-    printf("\nATTRIBUTES:\n");
+    printf("\nMETHOD ATTRIBUTES:\n");
 
     for (int j = 0; j < method_info->attributes_count; j++) {
-      printf("\nATTRIBUTE[%d]\n", j);
+      printf("\n------------- Method Attributte[%d] -------------\n", j);
       print_methods_attributes(class_file, method_info->attributes[j]);
     }
+  }
+}
+
+void print_attributes(Class_File_Format class_file) {
+  std::cout << "\n------------- Attributtes Info -------------" << std::endl;
+  printf("Attribute length: %d\n", class_file.attributes->attribute_length) ;
+
+  printf("#%d\t", class_file.attributes[0].attribute_name_index);
+  std::string attribute_type = get_cp_info_utf8(class_file.constant_pool, class_file.attributes->attribute_name_index - 1);
+  std::cout << attribute_type << std::endl;
+
+  if(!attribute_type.compare("Code")) {
+    print_code_attribute(class_file, class_file.attributes->code);
+  }
+  else if(attribute_type == "ConstantValue"){
+    print_constant_value_attribute(class_file, class_file.attributes->const_value);
+  }
+  else if (!attribute_type.compare("LineNumberTable"))   {
+    print_number_table_attribute(class_file, class_file.attributes->line_number_table);
+  }
+  else if (!attribute_type.compare("SourceFile")) {
+    printf("#%d\t", class_file.attributes->source_file->source_file_index);
+    std::cout << get_cp_info_utf8(class_file.constant_pool, class_file.attributes->source_file->source_file_index - 1);
   }
 }

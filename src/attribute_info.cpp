@@ -21,7 +21,7 @@ Attribute_Info read_code_attribute(FILE *file, Class_File_Format *class_file, At
   attribute_info.code->code_length = read_4_bytes(file);
   attribute_info.code->code = (u1*) malloc(sizeof(u1) *attribute_info.code->code_length);
 
-  for (int i = 0; i < attribute_info.code->code_length; i++) 
+  for (int i = 0; i < (int) attribute_info.code->code_length; i++) 
     attribute_info.code->code[i] = read_1_byte(file);
 
   attribute_info.code->exception_table_length = read_2_bytes(file);
