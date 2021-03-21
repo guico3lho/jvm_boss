@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.16.0)
-set (CMAKE_CXX_STANDARD 11)
-set (CMAKE_BUILD_TYPE Debug)
-set (EXECUTABLE_OUTPUT_PATH "..")
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_FLAGS "-Wall")
+set(CMAKE_BUILD_TYPE Debug)
+set(EXECUTABLE_OUTPUT_PATH "..")
 
 # Project name
 project(jvm_boss)

@@ -18,6 +18,7 @@ int main(int argc, char* argv[]) {
       print_basic_info(filename, class_file);
       print_constant_pool_info(class_file);
       print_interfaces(class_file);
+      print_fields(class_file);
     }
   }
 

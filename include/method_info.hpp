@@ -7,7 +7,6 @@
 struct Class_File_Format;
 struct Attribute_Info;
 
-
 typedef struct Method_Info{
 	u2 access_flags;
   u2 name_index;

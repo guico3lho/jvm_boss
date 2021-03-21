@@ -1,7 +1,6 @@
 #include "field_info.hpp"
 
 void read_field_info(FILE *file, Class_File_Format *class_file) {
-  Attribute_Info *attribute_info;
 
   for (int i = 0; i < class_file->fields_count; i++) {
     class_file->fields[i].access_flag = read_2_bytes(file);

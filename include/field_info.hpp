@@ -9,11 +9,10 @@ struct Attribute_Info;
 
 typedef struct Field_Info{
 	u2  access_flag;      // CONSTANT_UTF8, field name
-  u2  name_index;       // CONSTANT_UTF8, field valid descriptor
-  u2  descriptor_index; // number of field attributes
+  u2  name_index;       
+  u2  descriptor_index; // CONSTANT_UTF8, field valid descriptor
 
-  //* JVM implementation should ignore in silence each unrecognized attribute 
-  u2  atributes_count;
+  u2  atributes_count;  // number of field attributes
   Attribute_Info  *attributes;
 
 } Field_Info;
