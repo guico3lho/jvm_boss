@@ -25,20 +25,14 @@ void print_basic_info(std::string filename, Class_File_Format class_file) {
   printf("Attributes count:     %d\n", class_file.attributes_count);
 }
 
-void print_cp_info_utf8(Cp_Info cp_info) {
-  std::cout << "CONSTANT_UTF8_info\n";
-  std::cout << "\tLength:\t"<< std::dec << cp_info.UTF8_size << std::endl;
-  std::cout << "\tBytes:\t"<< cp_info.UTF8_bytes << std::endl;
-}
-
 void print_cp_info_int(Cp_Info cp_info) {
   // Valor da constante int, em big-endian
-  printf("CONSTANT_INT\n");
+  printf("Int\n");
   printf("Int Value: %d\n", cp_info.int_bytes);
 }
 
 void print_cp_info_float(Cp_Info cp_info) {
-  printf("CONSTANT_FLOAT\n");
+  printf("Float\n");
   float float_value;
   memcpy(&float_value, &(cp_info.float_bytes), sizeof(float));
   // representa o valor da constante float em big-endian, no formato IEEE-754
@@ -46,7 +40,7 @@ void print_cp_info_float(Cp_Info cp_info) {
 }
 
 void print_cp_info_long(Cp_Info cp_info) {
-  printf("CONSTANT_LONG\n");
+  printf("Long\n");
   long read_long_value;
 
   // Constante Int de 8 bytes em big-endian unsigned
@@ -62,7 +56,7 @@ void print_cp_info_double(Cp_Info cp_info) {
   double read_double_value;
   u8 aux;
 
-  printf("CONSTANT_DOUBLE\n");
+  printf("Double\n");
   std::cout << "\tHigh:\t0x"<< std::hex << cp_info.double_high_bytes << std::endl;
   std::cout << "\tLow:\t0x"<< std::hex << cp_info.double_low_bytes << std::endl;
 
@@ -73,43 +67,25 @@ void print_cp_info_double(Cp_Info cp_info) {
 }
 
 void print_cp_info_class(Class_File_Format class_file, Cp_Info cp_info) {
-  std::cout << "CONSTANT_CLASS" << std::endl;
-  std::cout << "\tName index:\t#" << std::dec << cp_info.class_name << std::endl;
-  // exibe nome de uma classe ou interface
-  std::cout << "\tClass name:\t" << get_cp_info_utf8(class_file.constant_pool, cp_info.class_name - 1) << std::endl;
+  std::cout << "Class" << "\t\t#" << std::dec << cp_info.class_name;
+  std::cout << "\t\t\t" << get_cp_info_utf8(class_file.constant_pool, cp_info.class_name - 1);
 }
 
 void print_cp_info_string(Class_File_Format class_file, Cp_Info cp_info) {
-   std::cout << "CONSTANT_STRING" << std::endl;
-  // Array de chars onde o objeto String será iniciado
-  std::cout << "\tString:\t#" << std::dec << cp_info.string_bytes;
-  std::cout << "\t" << get_cp_info_utf8(class_file.constant_pool, cp_info.string_bytes - 1) << std::endl;
+  printf("String\t\t#%d\t\t\t", cp_info.string_bytes);
+  std::cout << get_cp_info_utf8(class_file.constant_pool, cp_info.string_bytes - 1);
 }
 
 void print_cp_info_field(Class_File_Format class_file, Cp_Info cp_info) {
-  std::cout << "CONSTANT_FIELD_REF" << std::endl;
-
-  // Nome completo da classe ou interface que contem a declaração desse field
-  std::cout << "\tClass index:\t#" << std::dec << cp_info.field_ref_class_index ;
-  std::cout << "\t" << get_cp_info_utf8(class_file.constant_pool, cp_info.field_ref_class_index - 1) << std::endl;
-
-  // Field ou método sem indicar classe ou interface a que pertence
-  std::cout << "\tName and Type:\t#" << std::dec << cp_info.field_ref_name_type_index;
-  std::cout << "\t" << get_cp_info_utf8(class_file.constant_pool, cp_info.field_ref_name_type_index - 1) << std::endl;
+  printf("Fieldref\t\t#%d.#%d\t\t\t", cp_info.field_ref_class_index, cp_info.field_ref_name_type_index);
+  std::cout << get_cp_info_utf8(class_file.constant_pool, cp_info.field_ref_class_index - 1);
+  std::cout << "." << get_cp_info_utf8(class_file.constant_pool, cp_info.field_ref_name_type_index - 1);
 }
 
 void print_cp_info_method(Class_File_Format class_file, Cp_Info cp_info) {
-  std::cout << "CONSTANT_METHOD_REF"<< std::endl;
-
-  // Indice da Classe no Constant Pool
-  std::cout << "\tClass index:\t#"<< cp_info.method_ref_index;
-
-  // Nome da classe que contem a declaração desse método
-  std::cout << " \t" << get_cp_info_utf8(class_file.constant_pool, cp_info.method_ref_index - 1) << std::endl;
-
-  // Nome e tipo do método
-  std::cout << "\tName and Type:\t#"<< cp_info.method_ref_name_and_type;
-  std::cout << "\t" << get_cp_info_utf8(class_file.constant_pool, cp_info.method_ref_name_and_type - 1) << std::endl;
+  printf("Methodref\t\t#%d.#%d\t\t\t", cp_info.method_ref_index, cp_info.method_ref_name_and_type);
+  std::cout << get_cp_info_utf8(class_file.constant_pool, cp_info.method_ref_index - 1);
+  std::cout << "." << get_cp_info_utf8(class_file.constant_pool, cp_info.method_ref_name_and_type - 1);
 }
 
 void print_cp_info_interface_method(Class_File_Format class_file, Cp_Info cp_info) {
@@ -125,26 +101,24 @@ void print_cp_info_interface_method(Class_File_Format class_file, Cp_Info cp_inf
 }
 
 void print_cp_info_name_type(Class_File_Format class_file, Cp_Info cp_info) {
-  std::cout << "CONSTANT_NAME_TYPE:"<< std::endl;
-
-  std::cout << "\tName:\t\t#"<< cp_info.name_type_index;
-  std::cout << "\t" << get_cp_info_utf8(class_file.constant_pool, cp_info.name_type_index - 1) << std::endl;
-
-  std::cout << "\tDescriptor:\t#"<< cp_info.name_type_descriptor_index;
-  std::cout << "\t" << get_cp_info_utf8(class_file.constant_pool, cp_info.name_type_descriptor_index - 1) << std::endl;
+  printf("NameAndType\t#%d:#%d\t\t\t", cp_info.name_type_index, cp_info.name_type_descriptor_index);
+  std::cout << get_cp_info_utf8(class_file.constant_pool, cp_info.name_type_index - 1);
+  std::cout << ":" << get_cp_info_utf8(class_file.constant_pool, cp_info.name_type_descriptor_index - 1);
 }
 
 void print_constant_pool_info(Class_File_Format class_file) {
-  std::cout << "\n\n------- Constant Pool -------\n\n";
+  std::cout << "\n------------ Constant Pool ------------\n";
   Cp_Info current_cp_info;
 
   for (int i = 0; i < class_file.constant_pool_count - 1; i++) {
-    std::cout << "\nCP_INFO[" << std::dec << i + 1 << "]" << std::endl;
+    // std::cout << "\n#" << std::dec << i + 1 << std::endl;
+    printf("\n#%d = ", i + 1);
     current_cp_info = class_file.constant_pool[i];
 
     switch (current_cp_info.tag) {
       case CONSTANT_UTF8:
-        print_cp_info_utf8(current_cp_info);
+        std::cout << "Utf8\t\t" << current_cp_info.UTF8_bytes;
+        // std::cout << "\tLength: " << current_cp_info.UTF8_size;
         break;
       case CONSTANT_INT:
         print_cp_info_int(current_cp_info);
@@ -188,19 +162,18 @@ void print_constant_pool_info(Class_File_Format class_file) {
 
 void print_interfaces(Class_File_Format class_file){
   std::cout << std::endl << "--------------- Interfaces Info ---------------"<< std::endl;
+  std::cout << "Interfaces Count: " << class_file.interfaces_count << std::endl;
 
   for (int i = 0; i < class_file.interfaces_count; i++) {
     std::cout << "Interfaces"<< std::endl;
 
     std::cout << "\tInterface #"<< std::dec << class_file.interfaces[i].interface_table;
-    std::cout << "\t" << get_cp_info_utf8(class_file.constant_pool, 
-      (class_file.interfaces->interface_table + i) - 1) << std::endl;
+    std::cout << "\t" << get_cp_info_utf8(class_file.constant_pool, (class_file.interfaces->interface_table + i) - 1) << std::endl;
   }
 }
 
 void print_code_attribute(Class_File_Format class_file, Code_Attribute *code_attribute) {
-  printf("Max stack: %d\n", code_attribute->max_stack);
-  printf("Max locals: %d\n", code_attribute->max_locals);
+  printf("stack=%d, locals=%d \n", code_attribute->max_stack, code_attribute->max_locals);
   printf("Code length: %d\n", code_attribute->code_length);
   printf("Exception table length: %d\n", code_attribute->exception_table_length);
 
@@ -221,8 +194,7 @@ void print_number_table_attribute(Class_File_Format class_file, Line_Number_Tabl
   printf("Line number table length: %d\n", line_number_table->line_number_table_length);
 
   for (int i = 0; i < line_number_table->line_number_table_length; i++) {
-    printf("Start PC: %d\n", line_number_table->table[i].start_pc);
-    printf("Line Number: %d\n", line_number_table->table[i].line_number);
+    printf("\tline: %d: %d\n", line_number_table->table[i].line_number, line_number_table->table[i].start_pc);
   }
 }
 
@@ -233,12 +205,12 @@ void print_source_file_attribute(Class_File_Format class_file, Source_File_Attri
 
 void print_methods_attributes(Class_File_Format class_file, Attribute_Info attribute_info) {
   std::cout << "\n------------- Attributtes Info -------------" << std::endl;
+  printf("Attribute length: %d\n", attribute_info.attribute_length) ;
 
-  printf("Attribute_name_index: cp info #%d ", attribute_info.attribute_name_index);
+  printf("Attribute name index: cp info #%d ", attribute_info.attribute_name_index);
   std::string attribute_type = get_cp_info_utf8(class_file.constant_pool, attribute_info.attribute_name_index - 1);
   std::cout << attribute_type << std::endl;
 
-  printf("Attribute length: %d\n", attribute_info.attribute_length) ;
 
   if (!attribute_type.compare("Code"))   {
     print_code_attribute(class_file, attribute_info.code);
@@ -278,6 +250,31 @@ void print_fields(Class_File_Format class_file) {
       for (int j = 0; j < field_info.atributes_count; j++) {
         print_methods_attributes(class_file, field_info.attributes[j]);
       }
+    }
+  }
+}
+
+void print_methods(Class_File_Format class_file) {
+  printf("\n------------- Methods Info:  -------------\n");
+  std::cout << "Methods Count: " << class_file.methods_count << std::endl;
+
+  for (int i = 0; i < class_file.methods_count; i++) {
+    printf("\n>>> METHOD INFO[%d] <<<\n\n", i);
+    Method_Info *method_info = class_file.methods + i;
+
+    printf("Name Index: cp info #%d ",method_info->name_index);
+    std::cout << get_cp_info_utf8(class_file.constant_pool, method_info->name_index - 1) << std::endl;
+
+    printf("Descriptor Index: cp info #%d ",method_info->descriptor_index);
+    std::cout << get_cp_info_utf8(class_file.constant_pool, method_info->descriptor_index - 1) << std::endl;
+
+    printf("Access Flag: 0x%04x\n", method_info->access_flags);
+    printf("Attributes Count: %d\n",method_info->attributes_count);
+    printf("\nATTRIBUTES:\n");
+
+    for (int j = 0; j < method_info->attributes_count; j++) {
+      printf("\nATTRIBUTE[%d]\n", j);
+      print_methods_attributes(class_file, method_info->attributes[j]);
     }
   }
 }

@@ -19,6 +19,7 @@ int main(int argc, char* argv[]) {
       print_constant_pool_info(class_file);
       print_interfaces(class_file);
       print_fields(class_file);
+      print_methods(class_file);
     }
   }
 
