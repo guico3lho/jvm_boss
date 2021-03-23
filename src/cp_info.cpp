@@ -1,6 +1,6 @@
 #include "../include/cp_info.hpp"
 
-std::string Cp_Info::get_utf8(Class_File class_file, u2 index)
+std::string get_utf8(Class_File class_file, u2 index)
 {
 
     std::string utf8_text;
@@ -67,7 +67,7 @@ std::string Cp_Info::get_utf8(Class_File class_file, u2 index)
     }
     return utf8_text;
 }
-void Cp_Info::cp_info_printer(Class_File class_file)
+void cp_info_printer(Class_File class_file)
 {
     // 2 bugs
     // FIXME: índice ficando 0
@@ -201,7 +201,7 @@ void Cp_Info::cp_info_printer(Class_File class_file)
         }
     }
 }
-void Cp_Info::cp_info_reader(Class_File class_file, FILE *file)
+void cp_info_reader(Class_File class_file, FILE *file)
 {
     int count = class_file.constant_pool_count;
     for (int i = 1; i < count; i++)

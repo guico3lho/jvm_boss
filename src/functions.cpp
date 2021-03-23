@@ -1,5 +1,5 @@
 #include "../include/functions.hpp"
-#include "../include/class_file.hpp"
+
 
 char *intToHex(int inteiro)
 {   

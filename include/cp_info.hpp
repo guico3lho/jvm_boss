@@ -2,13 +2,13 @@
 #define __CP_INFO_H__
 
 #include "types.hpp"
-#include "class_file.hpp"
+#include "file_reader.hpp"
 #include <string.h>
 #include "functions.hpp"
 
-class Cp_Info
+struct Class_File;
+ struct Cp_Info
 {
-public:
   u2 tag;
 
   union
@@ -114,15 +114,12 @@ public:
       u2 invoke_dynamic_name_type_index;
     } InvokeDynamic_Info; // 18
   };
-  //     void IncrementReference(int& value){
-  //     value++;
-
-  // }
-  void cp_info_reader(Class_File class_file, FILE *file);
-  void cp_info_printer(Class_File class_file);
-  void get_cp_info_class_name(std::string filename, Class_File *class_file);
-  std::string get_utf8(Class_File class_file, u2 index);
-  // std::string get_cp_info_utf8(Cp_Info *cp_info, int ref_idx);
+  //
 };
 
+void cp_info_reader(Class_File class_file, FILE *file);
+void cp_info_printer(Class_File class_file);
+void get_cp_info_class_name(std::string filename, Class_File *class_file);
+std::string get_utf8(Class_File class_file, u2 index);
+// std::string get_cp_info_utf8(Cp_Info *cp_info, int ref_idx);
 #endif //__CP_INFO_H__

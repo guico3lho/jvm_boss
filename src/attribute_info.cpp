@@ -129,7 +129,7 @@ Attribute_Info get_attribute_info(FILE *file, Class_File *class_file) {
   attribute_info.attribute_name_index = read_2_bytes(file);
   attribute_info.attribute_length = read_4_bytes(file);
 
-  std::string attribute_name = get_cp_info_utf8(class_file->constant_pool, attribute_info.attribute_name_index - 1);
+  std::string attribute_name = get_utf8(*class_file, attribute_info.attribute_name_index );
   if (DEBUG) std::cout << "Attribute_name: " << attribute_name << std::endl;
 
   if (attribute_name == "Code") {
