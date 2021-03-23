@@ -1,0 +1,390 @@
+Leitor e exibidor!
+0  46  58
+
+-------------------------------------------------------------------
+
+CP_INFO[1]
+CONSTANT_METHOD_REF
+Class name index: #27           java/lang/Object
+Name and Type: #36              <init>()V
+
+-------------------------------------------------------------------
+
+CP_INFO[2]
+CONSTANT_DOUBLE
+High: 0x40000000
+Low: 0x0
+Double value:2
+
+-------------------------------------------------------------------
+
+CP_INFO[3]
+(large numeric continued)
+
+-------------------------------------------------------------------
+
+CP_INFO[4]
+CONSTANT_DOUBLE
+High: 0x40080000
+Low: 0x0
+Double value:3
+
+-------------------------------------------------------------------
+
+CP_INFO[5]
+(large numeric continued)
+
+-------------------------------------------------------------------
+
+CP_INFO[6]
+CONSTANT_DOUBLE
+High: 0xC0140000
+Low: 0x0
+Double value:-5
+
+-------------------------------------------------------------------
+
+CP_INFO[7]
+(large numeric continued)
+
+-------------------------------------------------------------------
+
+CP_INFO[8]
+CONSTANT_LONG
+High: 0xFFFFFFFF
+Low: 0xFFFFFFFB
+Long value:-5
+
+-------------------------------------------------------------------
+
+CP_INFO[9]
+(large numeric continued)
+
+-------------------------------------------------------------------
+
+CP_INFO[10]
+CONSTANT_LONG
+High: 0x0
+Low: 0x3
+Long value:3
+
+-------------------------------------------------------------------
+
+CP_INFO[11]
+(large numeric continued)
+
+-------------------------------------------------------------------
+
+CP_INFO[12]
+CONSTANT_LONG
+High: 0x0
+Low: 0x620E86
+Long value:6426246
+
+-------------------------------------------------------------------
+
+CP_INFO[13]
+(large numeric continued)
+
+-------------------------------------------------------------------
+
+CP_INFO[14]
+CONSTANT_LONG
+High: 0xFFFFFFFF
+Low: 0xFFF963A6
+Long value:-433242
+
+-------------------------------------------------------------------
+
+CP_INFO[15]
+(large numeric continued)
+
+-------------------------------------------------------------------
+
+CP_INFO[16]
+CONSTANT_FLOAT
+Bytes: 0x40400000
+Float: 3
+
+-------------------------------------------------------------------
+
+CP_INFO[17]
+CONSTANT_FLOAT
+Bytes: 0xC0A00000
+Float: -5
+
+-------------------------------------------------------------------
+
+CP_INFO[18]
+CONSTANT_INT
+Bytes: 0x186A0
+Integer: 100000
+
+-------------------------------------------------------------------
+
+CP_INFO[19]
+CONSTANT_FIELD_REF
+Class index: #37                java/lang/System
+Name and Type: #38              outLjava/io/PrintStream;
+
+-------------------------------------------------------------------
+
+CP_INFO[20]
+CONSTANT_METHOD_REF
+Class name index: #39           java/io/PrintStream
+Name and Type: #40              println(I)V
+
+-------------------------------------------------------------------
+
+CP_INFO[21]
+CONSTANT_METHOD_REF
+Class name index: #39           java/io/PrintStream
+Name and Type: #41              println()V
+
+-------------------------------------------------------------------
+
+CP_INFO[22]
+CONSTANT_METHOD_REF
+Class name index: #39           java/io/PrintStream
+Name and Type: #42              println(D)V
+
+-------------------------------------------------------------------
+
+CP_INFO[23]
+CONSTANT_METHOD_REF
+Class name index: #39           java/io/PrintStream
+Name and Type: #43              println(J)V
+
+-------------------------------------------------------------------
+
+CP_INFO[24]
+CONSTANT_METHOD_REF
+Class name index: #39           java/io/PrintStream
+Name and Type: #44              println(F)V
+
+-------------------------------------------------------------------
+
+CP_INFO[25]
+CONSTANT_METHOD_REF
+Class name index: #39           java/io/PrintStream
+Name and Type: #45              println(C)V
+
+-------------------------------------------------------------------
+
+CP_INFO[26]
+CONSTANT_CLASS
+Class index: #46                vetor
+
+-------------------------------------------------------------------
+
+CP_INFO[27]
+CONSTANT_CLASS
+Class index: #47                java/lang/Object
+
+-------------------------------------------------------------------
+
+CP_INFO[28]
+CONSTANT_UTF8
+Length:  6
+String: <init>
+
+-------------------------------------------------------------------
+
+CP_INFO[29]
+CONSTANT_UTF8
+Length:  3
+String: ()V
+
+-------------------------------------------------------------------
+
+CP_INFO[30]
+CONSTANT_UTF8
+Length:  4
+String: Code
+
+-------------------------------------------------------------------
+
+CP_INFO[31]
+CONSTANT_UTF8
+Length:  15
+String: LineNumberTable
+
+-------------------------------------------------------------------
+
+CP_INFO[32]
+CONSTANT_UTF8
+Length:  4
+String: main
+
+-------------------------------------------------------------------
+
+CP_INFO[33]
+CONSTANT_UTF8
+Length:  22
+String: ([Ljava/lang/String;)V
+
+-------------------------------------------------------------------
+
+CP_INFO[34]
+CONSTANT_UTF8
+Length:  10
+String: SourceFile
+
+-------------------------------------------------------------------
+
+CP_INFO[35]
+CONSTANT_UTF8
+Length:  10
+String: vetor.java
+
+-------------------------------------------------------------------
+
+CP_INFO[36]
+CONSTANT_NAME_TYPE
+Name:  28               <init>
+Descriptor:  29         ()V
+
+-------------------------------------------------------------------
+
+CP_INFO[37]
+CONSTANT_CLASS
+Class index: #48                java/lang/System
+
+-------------------------------------------------------------------
+
+CP_INFO[38]
+CONSTANT_NAME_TYPE
+Name:  49               out
+Descriptor:  50         Ljava/io/PrintStream;
+
+-------------------------------------------------------------------
+
+CP_INFO[39]
+CONSTANT_CLASS
+Class index: #51                java/io/PrintStream
+
+-------------------------------------------------------------------
+
+CP_INFO[40]
+CONSTANT_NAME_TYPE
+Name:  52               println
+Descriptor:  53         (I)V
+
+-------------------------------------------------------------------
+
+CP_INFO[41]
+CONSTANT_NAME_TYPE
+Name:  52               println
+Descriptor:  29         ()V
+
+-------------------------------------------------------------------
+
+CP_INFO[42]
+CONSTANT_NAME_TYPE
+Name:  52               println
+Descriptor:  54         (D)V
+
+-------------------------------------------------------------------
+
+CP_INFO[43]
+CONSTANT_NAME_TYPE
+Name:  52               println
+Descriptor:  55         (J)V
+
+-------------------------------------------------------------------
+
+CP_INFO[44]
+CONSTANT_NAME_TYPE
+Name:  52               println
+Descriptor:  56         (F)V
+
+-------------------------------------------------------------------
+
+CP_INFO[45]
+CONSTANT_NAME_TYPE
+Name:  52               println
+Descriptor:  57         (C)V
+
+-------------------------------------------------------------------
+
+CP_INFO[46]
+CONSTANT_UTF8
+Length:  5
+String: vetor
+
+-------------------------------------------------------------------
+
+CP_INFO[47]
+CONSTANT_UTF8
+Length:  16
+String: java/lang/Object
+
+-------------------------------------------------------------------
+
+CP_INFO[48]
+CONSTANT_UTF8
+Length:  16
+String: java/lang/System
+
+-------------------------------------------------------------------
+
+CP_INFO[49]
+CONSTANT_UTF8
+Length:  3
+String: out
+
+-------------------------------------------------------------------
+
+CP_INFO[50]
+CONSTANT_UTF8
+Length:  21
+String: Ljava/io/PrintStream;
+
+-------------------------------------------------------------------
+
+CP_INFO[51]
+CONSTANT_UTF8
+Length:  19
+String: java/io/PrintStream
+
+-------------------------------------------------------------------
+
+CP_INFO[52]
+CONSTANT_UTF8
+Length:  7
+String: println
+
+-------------------------------------------------------------------
+
+CP_INFO[53]
+CONSTANT_UTF8
+Length:  4
+String: (I)V
+
+-------------------------------------------------------------------
+
+CP_INFO[54]
+CONSTANT_UTF8
+Length:  4
+String: (D)V
+
+-------------------------------------------------------------------
+
+CP_INFO[55]
+CONSTANT_UTF8
+Length:  4
+String: (J)V
+
+-------------------------------------------------------------------
+
+CP_INFO[56]
+CONSTANT_UTF8
+Length:  4
+String: (F)V
+
+-------------------------------------------------------------------
+
+CP_INFO[57]
+CONSTANT_UTF8
+Length:  4
+String: (C)V 

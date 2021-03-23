@@ -1,9 +1,10 @@
 #include "file_reader.hpp"
-#include "file_printer.hpp"
+// #include "file_printer.hpp"
 
 int main(int argc, char* argv[]) {
 
   Class_File class_file;
+  Class_File_Reader reader;
 
   if (argc != 3) {
     std::cout 
@@ -13,14 +14,15 @@ int main(int argc, char* argv[]) {
     std::string option = argv[1], filename = argv[2];
 
     // leitor/exibidor
-    if(option == "-e") {
-      class_file = read_class_file(filename);
-      print_basic_info(filename, class_file);
-      print_constant_pool(class_file);
-      print_interfaces(class_file);
-      print_fields(class_file);
-      print_methods(class_file);
-      print_attributes(class_file);
+    if(option == "-l") {
+      PRINT("aaaa");
+      class_file = reader.read_class_file(filename);
+      // print_basic_info(filename, class_file);
+      // print_constant_pool(class_file);
+      // print_interfaces(class_file);
+      // print_fields(class_file);
+      // print_methods(class_file);
+      // print_attributes(class_file);
     }
   }
 
