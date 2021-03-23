@@ -22,6 +22,7 @@ set(HEADER_FILES
     ${INCLUDE_DIR}/method_info.hpp
     ${INCLUDE_DIR}/attribute_info.hpp
     ${INCLUDE_DIR}/stack_map_table.hpp
+    ${INCLUDE_DIR}/instruction.hpp
 )
 
 set(SOURCE_FILES
@@ -35,6 +36,7 @@ set(SOURCE_FILES
     ${SOURCE_DIR}/field_info.cpp
     ${SOURCE_DIR}/method_info.cpp
     ${SOURCE_DIR}/attribute_info.cpp
+    ${SOURCE_DIR}/instruction.cpp
 )
 
 # Executable name

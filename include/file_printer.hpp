@@ -2,6 +2,7 @@
 #define __FILE_PRINTER_H__
 
 #include "file_reader.hpp"
+#include "instruction.hpp"
 #include <cstring>
 
 
@@ -34,5 +35,9 @@ void print_methods_attributes(Class_File class_file, Attribute_Info attribute_in
 void print_fields(Class_File class_file);
 void print_methods(Class_File class_file);
 void print_attributes(Class_File class_file);
+
+/* INSTRUCTIONS */
+void print_newarray(u1 code);
+void print_instructions(Class_File class_file, Code_Attribute *code_attribute);
 
 #endif

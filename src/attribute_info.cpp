@@ -12,7 +12,6 @@ Attribute_Info read_const_value_attribute(FILE *file, Attribute_Info attribute_i
 }
 
 Attribute_Info read_code_attribute(FILE *file, Class_File *class_file, Attribute_Info attribute_info) {
-
   attribute_info.code = (Code_Attribute*) malloc(sizeof(Code_Attribute));
 
   attribute_info.code->max_stack = read_2_bytes(file);

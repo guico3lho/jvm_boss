@@ -25,6 +25,8 @@ void print_basic_info(std::string filename, Class_File class_file) {
   printf("Attributes count:     %d\n", class_file.attributes_count);
 }
 
+/* CONSTANT POOL */
+
 void print_cp_info_int(Cp_Info cp_info) {
   // Valor da constante int, em big-endian
   printf("Integer\t\t%d", cp_info.int_bytes);
@@ -159,6 +161,8 @@ void print_constant_pool(Class_File class_file) {
   }
 }
 
+/* INTERFACES */
+
 void print_interfaces(Class_File class_file){
   std::cout << std::endl << "------------ Interfaces ------------"<< std::endl;
   std::cout << "Interfaces Count: " << class_file.interfaces_count << std::endl;
@@ -178,13 +182,15 @@ void print_code_attribute(Class_File class_file, Code_Attribute *code_attribute)
 
   printf("Code: \n");
   printf("  stack=%d, locals=%d \n", code_attribute->max_stack, code_attribute->max_locals);
-  // print_instructions(class_file, code_attribute);
+  print_instructions(class_file, code_attribute);
 
   for (int i = 0; i < code_attribute->attributes_count; ++i) {
     printf("\n##### Code Attribute[%d] info ######\n", i);
     print_methods_attributes(class_file, code_attribute->attributes[i]);
   }
 }
+
+/* ATTRIBUTES */
 
 void print_constant_value_attribute(Class_File class_file, Const_Value_Attribute *const_value) {
   printf("Constant value index: %d\n", const_value->const_value_index);
@@ -199,7 +205,7 @@ void print_number_table_attribute(Class_File class_file, Line_Number_Table_Attri
 }
 
 void print_source_file_attribute(Class_File class_file, Source_File_Attribute *source_file) {
-  printf("Sourcefile index: #%d\n", source_file->source_file_index);
+  printf("#%d\t", source_file->source_file_index);
   std::cout << get_cp_info_utf8(class_file.constant_pool, source_file->source_file_index - 1);
 }
 
@@ -294,7 +300,116 @@ void print_attributes(Class_File class_file) {
     print_number_table_attribute(class_file, class_file.attributes->line_number_table);
   }
   else if (!attribute_type.compare("SourceFile")) {
-    printf("#%d\t", class_file.attributes->source_file->source_file_index);
-    std::cout << get_cp_info_utf8(class_file.constant_pool, class_file.attributes->source_file->source_file_index - 1);
+    print_source_file_attribute(class_file, class_file.attributes->source_file);
   }
+}
+
+void print_newarray(u1 code) {
+  printf(" 0x%x = %d", code, code);
+  switch (code) {
+    case T_BOOLEAN: 
+      std::cout << " (bool)"; 
+      break;
+    case T_CHAR: 
+      std::cout << " (char)"; 
+      break;
+    case T_FLOAT: 
+      std::cout << " (float)"; 
+      break;
+    case T_DOUBLE: 
+      std::cout << " (double)"; 
+      break;
+    case T_BYTE: 
+      std::cout << " (byte)"; 
+      break;
+    case T_SHORT: 
+      std::cout << " (short)"; 
+      break;
+    case T_INT: 
+      std::cout << " (int)"; 
+      break;
+    case T_LONG: 
+      std::cout << " (long)"; 
+      break;
+  }
+}
+
+void print_instructions(Class_File class_file, Code_Attribute *code_attribute) {
+  Instruction *instructions = set_instructions();
+
+  std::string str;
+
+  for (int i = 0; i < (int) code_attribute->code_length; i++) {
+
+    int op_code = (int) code_attribute->code[i];
+    std::cout << i << ": " << instructions[op_code].name;
+
+    for (int j = 0; j < (int) instructions[op_code].bytes; j++) {
+        ++i;
+        switch(op_code) {
+          case ldc:
+            {
+              u1 index = code_attribute->code[i];
+              u2 index_utf8 = 0x00 | index;
+              std::cout << " #" << (int)index << " " << get_cp_info_utf8(class_file.constant_pool, index_utf8 - 1);
+              j++;
+            }break;
+          case newarray:
+            print_newarray(code_attribute->code[j]);
+            j++;
+            break;
+          case multianewarray:
+            {
+              u1 byte1 = code_attribute->code[i];
+              u1 byte2 = code_attribute->code[i+1];
+              u1 dim = code_attribute->code[i + 2];
+              u2 index = (byte1 << 8) | byte2;
+              str = get_cp_info_utf8(class_file.constant_pool, index - 1);
+
+              if (!str.empty()) {
+                std::cout << " #" << std::dec << index << " " << str;
+                std::cout << " dim " << (int) dim;
+              }
+              j++;
+            }break;
+          case anewarray:
+          case checkcast: 
+          case getfield: 
+          case getstatic:
+          case instanceof: 
+          case invokespecial: 
+          case invokestatic:
+          case invokevirtual:
+          case ldc_w: 
+          case ldc2_w: 
+          case putfield:
+          case putstatic:
+            {
+              u1 byte1 = code_attribute->code[i];
+              u1 byte2 = code_attribute->code[i + 1];
+              u2 index = (byte1 << 8) | byte2;
+              std::cout << " #" << std::dec << index << " " << get_cp_info_utf8(class_file.constant_pool, index - 1);
+
+              i++;
+              j++;
+            }break;
+          case GOTO: case if_acmpeq:  case if_acmpne:  case if_icmpeq: case if_icmpne: 
+          case if_icmplt: case if_icmpge: case if_icmpgt: case if_icmple: case iifeq: case ifne:
+          case iflt: case ifge: case ifgt: case ifle: case ifnonull: case ifnull: case jsr:
+            {
+              u1 branchbyte1 = code_attribute->code[i];
+              u1 branchbyte2 = code_attribute->code[i + 1];
+              u2 address = (branchbyte1 << 8) | branchbyte2;
+              printf("\t%d", address);
+              i++;
+              j++;
+            }break;
+          default:
+            printf(" 0x%x", code_attribute->code[j]);
+            break;
+        }
+    }
+    printf("\n");
+  }
+  printf("\n");
 }
