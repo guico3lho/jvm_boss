@@ -2,9 +2,8 @@
 
 void read_cp_info(FILE *file, Class_File *class_file) {
   // Constant Pool Table
-  // All indexes are 16-bit - 2 bytes
-  // Index 1 refers to first constant in the table (index 0 is invalid)
-  // The number of constants in the constant pool table is not actually the same as the constant pool count
+  // All indexes are 16 bits = 2 bytes
+  // Number of constants in the constant pool table is constant_pool_count - 1
   for(int i = 0; i < class_file->constant_pool_count - 1; i++) {
     class_file->constant_pool[i].tag = read_1_byte(file);  
 
@@ -64,7 +63,7 @@ std::string get_cp_info_utf8(Cp_Info *cp_info, u2 index) {
   switch (tag) {
     case CONSTANT_UTF8: 
       // representa valores strings constantes, inclusive unicode
-      // checar se nenhum byte tem valor 0 ou está no intervalo 0xf0 ou 0xff, i.e. [240, 255]
+      // checar se nenhum byte tem valor 0 ou está no intervalo 0xf0 a 0xff -> [240, 255]
       utf8_const = (char*) cp_info[index].UTF8_bytes;
       break;
     case CONSTANT_CLASS:

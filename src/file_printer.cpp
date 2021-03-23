@@ -8,13 +8,13 @@ void print_basic_info(std::string filename, Class_File class_file) {
   printf("Major version:        %d\n", class_file.major_version);
   printf("Contanst pool count:  %d\n", class_file.constant_pool_count);
   printf("Access flags:         0x%.4x\n", class_file.access_flags);
-  printf("This class:           cp_info #%d <", class_file.this_class);
+  printf("This class:           #%d <", class_file.this_class);
 
   std::cout << get_cp_info_utf8(class_file.constant_pool,
   class_file.constant_pool[class_file.this_class - 1].class_name - 1)
   << ">";
 
-  printf("\nSuper class:          cp_info #%d <", class_file.super_class);
+  printf("\nSuper class:          #%d <", class_file.super_class);
   std::cout << get_cp_info_utf8(class_file.constant_pool, 
   class_file.constant_pool[class_file.super_class - 1].class_name - 1)
   << ">";
@@ -27,16 +27,15 @@ void print_basic_info(std::string filename, Class_File class_file) {
 
 void print_cp_info_int(Cp_Info cp_info) {
   // Valor da constante int, em big-endian
-  printf("Int\n");
-  printf("Int Value: %d\n", cp_info.int_bytes);
+  printf("Integer\t\t%d", cp_info.int_bytes);
 }
 
 void print_cp_info_float(Cp_Info cp_info) {
-  printf("Float\n");
   float float_value;
+  printf("Float\t\t");
   memcpy(&float_value, &(cp_info.float_bytes), sizeof(float));
-  // representa o valor da constante float em big-endian, no formato IEEE-754
-  printf("Float Value: %lf\n", float_value);
+  // Valor Float em big-endian, no formato IEEE-754
+  printf("%.1f", float_value);
 }
 
 void print_cp_info_long(Cp_Info cp_info) {
@@ -174,14 +173,15 @@ void print_interfaces(Class_File class_file){
 
 void print_code_attribute(Class_File class_file, Code_Attribute *code_attribute) {
   printf("Code length: %d\n", code_attribute->code_length);
+  printf("Code Attributes count: %d\n", code_attribute->attributes_count);
   printf("Exception table length: %d\n", code_attribute->exception_table_length);
 
   printf("Code: \n");
   printf("  stack=%d, locals=%d \n", code_attribute->max_stack, code_attribute->max_locals);
   // print_instructions(class_file, code_attribute);
 
-  printf("Attributes count: %d\n", code_attribute->attributes_count);
   for (int i = 0; i < code_attribute->attributes_count; ++i) {
+    printf("\n##### Code Attribute[%d] info ######\n", i);
     print_methods_attributes(class_file, code_attribute->attributes[i]);
   }
 }
@@ -191,10 +191,10 @@ void print_constant_value_attribute(Class_File class_file, Const_Value_Attribute
 }
 
 void print_number_table_attribute(Class_File class_file, Line_Number_Table_Attribute *line_number_table) {
-  printf("Line number table length: %d\n", line_number_table->line_number_table_length);
+  printf("Line number table - length: %d\n\n", line_number_table->line_number_table_length);
 
   for (int i = 0; i < line_number_table->line_number_table_length; i++) {
-    printf("\tline: %d: %d\n", line_number_table->table[i].line_number, line_number_table->table[i].start_pc);
+    printf("line %d: %d\n", line_number_table->table[i].line_number, line_number_table->table[i].start_pc);
   }
 }
 
@@ -204,12 +204,10 @@ void print_source_file_attribute(Class_File class_file, Source_File_Attribute *s
 }
 
 void print_methods_attributes(Class_File class_file, Attribute_Info attribute_info) {
-  printf("Attribute length: %d\n", attribute_info.attribute_length) ;
-
-  printf("Attribute name index: cp info #%d ", attribute_info.attribute_name_index);
   std::string attribute_type = get_cp_info_utf8(class_file.constant_pool, attribute_info.attribute_name_index - 1);
-  std::cout << attribute_type << std::endl;
-
+  std::cout << "Attribute Name: " << attribute_type << std::endl;
+  printf("Attribute Index: #%d\n", attribute_info.attribute_name_index);
+  printf("Attribute length: %d\n", attribute_info.attribute_length) ;
 
   if (!attribute_type.compare("Code"))   {
     print_code_attribute(class_file, attribute_info.code);
@@ -258,7 +256,7 @@ void print_methods(Class_File class_file) {
   std::cout << "Methods Count: " << class_file.methods_count << std::endl;
 
   for (int i = 0; i < class_file.methods_count; i++) {
-    printf("\n>METHOD INFO[%d]\n\n", i);
+    printf("\n========== METHOD INFO[%d] ==========\n\n", i);
     Method_Info *method_info = class_file.methods + i;
 
     printf("Name Index: #%d ",method_info->name_index);

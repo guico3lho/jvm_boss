@@ -64,12 +64,12 @@ u2 number_of_stack_items;
 verification_type_info *stack;
 } full_frame;
 
-typedef struct StackMapTable_attribute {
+typedef struct Stack_Map_Table_Attribute {
   u2 attribute_name_index;
   u4 attribute_length;
   u2 number_of_entries;
   stack_map_frame* entries;
-} StackMapTable_attribute;
+} Stack_Map_Table_Attribute;
 
 union stack_map_frame {
   same_frame same_frame;

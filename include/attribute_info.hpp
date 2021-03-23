@@ -35,7 +35,6 @@ typedef struct Code_Attribute {
 typedef struct Exception{
   u2 number_exceptions;
   u2 *exception_index_table;
-
 } Exception;
 
 typedef struct Inner_Class_Attribute {
@@ -44,12 +43,10 @@ typedef struct Inner_Class_Attribute {
 
   u2 number_of_classes;
   Inner_Class_Attribute *inner_class_data;
-
 } Inner_Class_Attribute;
 
 typedef struct Source_File_Attribute {
   u2 source_file_index;
-
 } Source_File_Attribute;
 
 typedef struct Line_Number_Table_Data {
@@ -58,10 +55,8 @@ typedef struct Line_Number_Table_Data {
 } Line_Number_Table_Data;
 
 typedef struct Line_Number_Table_Attribute {
-  
   u2 line_number_table_length;
   Line_Number_Table_Data *table;
-
 } Line_Number_Table_Attribute;
 
 typedef struct Local_Variable_Table_Data {
@@ -75,11 +70,9 @@ typedef struct Local_Variable_Table_Data {
 typedef struct Local_Variable_Table_Attribute {
   u2 local_variable_table_length;
   Local_Variable_Table_Data *table;
-
 } Local_Variable_Table_Attribute;
 
 typedef struct Attribute_Info{
-
   u2 attribute_name_index; // Unsigned 16-bit index into the constant pool of the class
   u4 attribute_length;
 
@@ -91,7 +84,6 @@ typedef struct Attribute_Info{
   Line_Number_Table_Attribute *line_number_table;
   Local_Variable_Table_Attribute *local_variable_table;
   u1 *info;
-
 } Attribute_Info;
 
 void read_attribute_info(FILE *file, Class_File *class_file);
