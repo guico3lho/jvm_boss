@@ -3,7 +3,7 @@
 
 #include "file_reader.hpp"
 
-struct Class_File_Format;
+struct Class_File;
 
 typedef struct Cp_Info{
   u1 tag;
@@ -40,8 +40,8 @@ typedef struct Cp_Info{
 
 } Cp_Info;
 
-void read_cp_info(FILE *file, Class_File_Format *class_file);
+void read_cp_info(FILE *file, Class_File *class_file);
 std::string get_cp_info_utf8(Cp_Info *cp_info, u2 index);
-void get_cp_info_class_name(std::string filename, Class_File_Format *class_file);
+void get_cp_info_class_name(std::string filename, Class_File *class_file);
 
 #endif

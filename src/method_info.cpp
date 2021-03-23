@@ -1,6 +1,6 @@
 #include "method_info.hpp"
 
-void read_method_info(FILE *file, Class_File_Format *class_file) {
+void read_method_info(FILE *file, Class_File *class_file) {
 
   for (int i = 0; i < class_file->methods_count; i++) {
     if (PRINT) printf("\nMethod: %d\n", i);

@@ -1,6 +1,6 @@
 #include "cp_info.hpp"
 
-void read_cp_info(FILE *file, Class_File_Format *class_file) {
+void read_cp_info(FILE *file, Class_File *class_file) {
   // Constant Pool Table
   // All indexes are 16-bit - 2 bytes
   // Index 1 refers to first constant in the table (index 0 is invalid)
@@ -99,7 +99,7 @@ std::string get_cp_info_utf8(Cp_Info *cp_info, u2 index) {
 }
 
 //* Verifica se o this_class é igual ao nome do arquivo fonte
-void get_cp_info_class_name(std::string filename, Class_File_Format *class_file) {
+void get_cp_info_class_name(std::string filename, Class_File *class_file) {
   std::string class_name = get_cp_info_utf8(class_file->constant_pool, class_file->this_class - 1);
   class_name += ".class";
   if (PRINT) std::cout << "This Class:           " << class_name << std::endl;

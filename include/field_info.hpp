@@ -4,7 +4,7 @@
 #include "attribute_info.hpp"
 #include "file_reader.hpp"
 
-struct Class_File_Format;
+struct Class_File;
 struct Attribute_Info;
 
 typedef struct Field_Info{
@@ -18,6 +18,6 @@ typedef struct Field_Info{
 } Field_Info;
 
 /* FIELD_INFO */
-void read_field_info(FILE *file, Class_File_Format *class_file);
+void read_field_info(FILE *file, Class_File *class_file);
 
 #endif

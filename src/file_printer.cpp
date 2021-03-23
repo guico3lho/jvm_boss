@@ -1,6 +1,6 @@
 #include "file_printer.hpp"
 
-void print_basic_info(std::string filename, Class_File_Format class_file) {
+void print_basic_info(std::string filename, Class_File class_file) {
   std::cout << "------------ Basic Info ------------" << std::endl;
   std::cout << "Filename:             " << filename << std::endl;
   printf("Magic Number:         0x%0X\n", class_file.magic_number);
@@ -66,29 +66,29 @@ void print_cp_info_double(Cp_Info cp_info) {
   std::cout << "\tDouble Value:\t"<< read_double_value << std::endl;
 }
 
-void print_cp_info_class(Class_File_Format class_file, Cp_Info cp_info) {
+void print_cp_info_class(Class_File class_file, Cp_Info cp_info) {
   std::cout << "Class" << "\t\t#" << std::dec << cp_info.class_name;
   std::cout << "\t\t\t" << get_cp_info_utf8(class_file.constant_pool, cp_info.class_name - 1);
 }
 
-void print_cp_info_string(Class_File_Format class_file, Cp_Info cp_info) {
+void print_cp_info_string(Class_File class_file, Cp_Info cp_info) {
   printf("String\t\t#%d\t\t\t", cp_info.string_bytes);
   std::cout << get_cp_info_utf8(class_file.constant_pool, cp_info.string_bytes - 1);
 }
 
-void print_cp_info_field(Class_File_Format class_file, Cp_Info cp_info) {
+void print_cp_info_field(Class_File class_file, Cp_Info cp_info) {
   printf("Fieldref\t\t#%d.#%d\t\t\t", cp_info.field_ref_class_index, cp_info.field_ref_name_type_index);
   std::cout << get_cp_info_utf8(class_file.constant_pool, cp_info.field_ref_class_index - 1);
   std::cout << "." << get_cp_info_utf8(class_file.constant_pool, cp_info.field_ref_name_type_index - 1);
 }
 
-void print_cp_info_method(Class_File_Format class_file, Cp_Info cp_info) {
+void print_cp_info_method(Class_File class_file, Cp_Info cp_info) {
   printf("Methodref\t\t#%d.#%d\t\t\t", cp_info.method_ref_index, cp_info.method_ref_name_and_type);
   std::cout << get_cp_info_utf8(class_file.constant_pool, cp_info.method_ref_index - 1);
   std::cout << "." << get_cp_info_utf8(class_file.constant_pool, cp_info.method_ref_name_and_type - 1);
 }
 
-void print_cp_info_interface_method(Class_File_Format class_file, Cp_Info cp_info) {
+void print_cp_info_interface_method(Class_File class_file, Cp_Info cp_info) {
   std::cout << "CONSTANT_INTERFACE_METHOD_REF" << std::endl;
 
   // Nome da interface que contem a declaração do metodo
@@ -100,13 +100,13 @@ void print_cp_info_interface_method(Class_File_Format class_file, Cp_Info cp_inf
   std::cout << get_cp_info_utf8(class_file.constant_pool, cp_info.interface_method_ref_name_type - 1);
 }
 
-void print_cp_info_name_type(Class_File_Format class_file, Cp_Info cp_info) {
+void print_cp_info_name_type(Class_File class_file, Cp_Info cp_info) {
   printf("NameAndType\t#%d:#%d\t\t\t", cp_info.name_type_index, cp_info.name_type_descriptor_index);
   std::cout << get_cp_info_utf8(class_file.constant_pool, cp_info.name_type_index - 1);
   std::cout << ":" << get_cp_info_utf8(class_file.constant_pool, cp_info.name_type_descriptor_index - 1);
 }
 
-void print_constant_pool(Class_File_Format class_file) {
+void print_constant_pool(Class_File class_file) {
   std::cout << "\n------------ Constant Pool ------------\n";
   Cp_Info current_cp_info;
 
@@ -160,7 +160,7 @@ void print_constant_pool(Class_File_Format class_file) {
   }
 }
 
-void print_interfaces(Class_File_Format class_file){
+void print_interfaces(Class_File class_file){
   std::cout << std::endl << "------------ Interfaces ------------"<< std::endl;
   std::cout << "Interfaces Count: " << class_file.interfaces_count << std::endl;
 
@@ -172,7 +172,7 @@ void print_interfaces(Class_File_Format class_file){
   }
 }
 
-void print_code_attribute(Class_File_Format class_file, Code_Attribute *code_attribute) {
+void print_code_attribute(Class_File class_file, Code_Attribute *code_attribute) {
   printf("Code length: %d\n", code_attribute->code_length);
   printf("Exception table length: %d\n", code_attribute->exception_table_length);
 
@@ -186,11 +186,11 @@ void print_code_attribute(Class_File_Format class_file, Code_Attribute *code_att
   }
 }
 
-void print_constant_value_attribute(Class_File_Format class_file, Const_Value_Attribute *const_value) {
+void print_constant_value_attribute(Class_File class_file, Const_Value_Attribute *const_value) {
   printf("Constant value index: %d\n", const_value->const_value_index);
 }
 
-void print_number_table_attribute(Class_File_Format class_file, Line_Number_Table_Attribute *line_number_table) {
+void print_number_table_attribute(Class_File class_file, Line_Number_Table_Attribute *line_number_table) {
   printf("Line number table length: %d\n", line_number_table->line_number_table_length);
 
   for (int i = 0; i < line_number_table->line_number_table_length; i++) {
@@ -198,12 +198,12 @@ void print_number_table_attribute(Class_File_Format class_file, Line_Number_Tabl
   }
 }
 
-void print_source_file_attribute(Class_File_Format class_file, Source_File_Attribute *source_file) {
+void print_source_file_attribute(Class_File class_file, Source_File_Attribute *source_file) {
   printf("Sourcefile index: #%d\n", source_file->source_file_index);
   std::cout << get_cp_info_utf8(class_file.constant_pool, source_file->source_file_index - 1);
 }
 
-void print_methods_attributes(Class_File_Format class_file, Attribute_Info attribute_info) {
+void print_methods_attributes(Class_File class_file, Attribute_Info attribute_info) {
   printf("Attribute length: %d\n", attribute_info.attribute_length) ;
 
   printf("Attribute name index: cp info #%d ", attribute_info.attribute_name_index);
@@ -225,7 +225,7 @@ void print_methods_attributes(Class_File_Format class_file, Attribute_Info attri
   }
 }
 
-void print_fields(Class_File_Format class_file) {
+void print_fields(Class_File class_file) {
   std::cout << "\n------------ Fields  ------------\n";
   std::cout << "Fields Count: " << class_file.fields_count << std::endl;
 
@@ -253,7 +253,7 @@ void print_fields(Class_File_Format class_file) {
   }
 }
 
-void print_methods(Class_File_Format class_file) {
+void print_methods(Class_File class_file) {
   printf("\n------------ Methods  ------------\n");
   std::cout << "Methods Count: " << class_file.methods_count << std::endl;
 
@@ -278,7 +278,7 @@ void print_methods(Class_File_Format class_file) {
   }
 }
 
-void print_attributes(Class_File_Format class_file) {
+void print_attributes(Class_File class_file) {
   std::cout << "\n------------- Attributtes Info -------------" << std::endl;
   printf("Attribute length: %d\n", class_file.attributes->attribute_length) ;
 

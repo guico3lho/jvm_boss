@@ -14,7 +14,7 @@ struct Field_Info;
 struct Attribute_Info;
 struct Method_Info;
 
-typedef struct Class_File_Format{
+typedef struct Class_File{
   u4 magic_number;
 
   u2 minor_version;   
@@ -38,8 +38,8 @@ typedef struct Class_File_Format{
 
   u2 attributes_count;   
   Attribute_Info *attributes;
-} Class_File_Format;
+} Class_File;
 
-Class_File_Format read_class_file(std::string filename);
+Class_File read_class_file(std::string filename);
 
 #endif 

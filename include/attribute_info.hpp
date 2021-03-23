@@ -4,7 +4,7 @@
 #include "file_reader.hpp"
 
 struct Attribute_Info;
-struct Class_File_Format;
+struct Class_File;
 
 typedef struct Const_Value_Attribute{
   u2 attribute_name_index;
@@ -94,8 +94,8 @@ typedef struct Attribute_Info{
 
 } Attribute_Info;
 
-void read_attribute_info(FILE *file, Class_File_Format *class_file);
-Attribute_Info get_attribute_info(FILE *file, Class_File_Format *class_file);
+void read_attribute_info(FILE *file, Class_File *class_file);
+Attribute_Info get_attribute_info(FILE *file, Class_File *class_file);
 
 Attribute_Info read_const_value_attribute(FILE *file, Attribute_Info attribute_info);
 Attribute_Info read_code_attribute(FILE *file, Attribute_Info attribute_info);

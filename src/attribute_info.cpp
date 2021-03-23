@@ -1,6 +1,6 @@
 #include "attribute_info.hpp"
 
-void read_attribute_info(FILE *file, Class_File_Format *class_file) {
+void read_attribute_info(FILE *file, Class_File *class_file) {
   for (int i = 0; i < class_file->attributes_count ; i++)
     class_file->attributes[i] = get_attribute_info(file, class_file);
 }
@@ -11,7 +11,7 @@ Attribute_Info read_const_value_attribute(FILE *file, Attribute_Info attribute_i
   return attribute_info;
 }
 
-Attribute_Info read_code_attribute(FILE *file, Class_File_Format *class_file, Attribute_Info attribute_info) {
+Attribute_Info read_code_attribute(FILE *file, Class_File *class_file, Attribute_Info attribute_info) {
 
   attribute_info.code = (Code_Attribute*) malloc(sizeof(Code_Attribute));
 
@@ -125,7 +125,7 @@ Local_Variable_Table_Data read_local_variable_table_data(FILE *file) {
     return local_variable_table_data;
 }
 
-Attribute_Info get_attribute_info(FILE *file, Class_File_Format *class_file) {
+Attribute_Info get_attribute_info(FILE *file, Class_File *class_file) {
   Attribute_Info attribute_info;
   attribute_info.attribute_name_index = read_2_bytes(file);
   attribute_info.attribute_length = read_4_bytes(file);

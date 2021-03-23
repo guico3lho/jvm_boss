@@ -3,14 +3,14 @@
 
 #include "file_reader.hpp"
 
-struct Class_File_Format;
+struct Class_File;
 
 typedef struct Interface_Info{
 	u2 interface_table;
 } Interface_Info;
 
 /* INTERFACE_INFO */
-void read_interface_info(FILE *file, Class_File_Format *class_file);
-Interface_Info get_interface_info(FILE *file, Class_File_Format *class_file, Interface_Info interface_info);
+void read_interface_info(FILE *file, Class_File *class_file);
+Interface_Info get_interface_info(FILE *file, Class_File *class_file, Interface_Info interface_info);
 
 #endif
