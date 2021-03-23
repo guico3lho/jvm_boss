@@ -41,7 +41,7 @@ $ ./exec.sh HelloJava
 
 # Configurações
 
-## Versão [Java SE 8] (https://docs.oracle.com/javase/specs/jvms/se8/html/index.html)
+## Versão [Java SE 8](https://docs.oracle.com/javase/specs/jvms/se8/html/index.html)
 
 ## Analisadores 
 
