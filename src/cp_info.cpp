@@ -139,7 +139,7 @@ void cp_info_printer(Class_File class_file)
             std::cout << "Bytes: 0x" << intToHex(class_file.constant_pool[i].Float_Info.float_bytes) << std::endl;
             float float_num;
             memcpy(&float_num, &class_file.constant_pool[i].Float_Info.float_bytes, sizeof(float));
-            std::cout << "Float: "<< float_num << std::endl;
+            std::cout << "Float: " << float_num << std::endl;
             break;
 
         case CONSTANT_LONG:
@@ -209,8 +209,6 @@ void cp_info_reader(Class_File class_file, FILE *file)
         // tenho o constant pool count, quero ler de cada um, pra isso preciso ler o próximo?
         u2 tag = read_1_byte(file);
         class_file.constant_pool[i].tag = tag;
-        {
-        }
 
         switch (tag)
         {
@@ -274,18 +272,22 @@ void cp_info_reader(Class_File class_file, FILE *file)
         }
     }
 }
-//* Verifica se o this_class é igual ao nome do arquivo fonte
-// void get_cp_info_class_name(std::string filename, Class_File *class_file) {
-//   std::string class_name = get_cp_info_utf8(class_file->constant_pool, class_file->this_class - 1);
-//   class_name += ".class";
-//   if (DEBUG) std::cout << "This Class:           " << class_name << std::endl;
+// * Verifica se o this_class é igual ao nome do arquivo fonte
+void get_cp_info_class_name(std::string filename, Class_File class_file)
+{
+    std::string class_name = get_utf8(class_file, class_file.this_class);
+    class_name += ".class";
+    if (DEBUG)
+        std::cout << "This Class:           " << class_name << std::endl;
 
-//   std::size_t backslash_index = filename.find_last_of("/\\");
-//   std::string class_filename = filename.substr(backslash_index + 1);
-//   if (DEBUG) std::cout << "Source File Name:     " << class_filename << std::endl;
+    std::size_t backslash_index = filename.find_last_of("/\\");
+    std::string class_filename = filename.substr(backslash_index + 1);
+    if (DEBUG)
+        std::cout << "Source File Name:     " << class_filename << std::endl;
 
-//   if (class_filename != class_name) {
-//     printf("O nome do arquivo nao corresponde ao da classe!\n");
-//     exit(1);
-//   }
-// }
+    if (class_filename != class_name)
+    {
+        printf("O nome do arquivo nao corresponde ao da classe!\n");
+        exit(1);
+    }
+}

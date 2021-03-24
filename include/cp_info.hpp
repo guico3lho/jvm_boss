@@ -119,7 +119,7 @@ struct Class_File;
 
 void cp_info_reader(Class_File class_file, FILE *file);
 void cp_info_printer(Class_File class_file);
-void get_cp_info_class_name(std::string filename, Class_File *class_file);
+void get_cp_info_class_name(std::string filename, Class_File class_file);
 std::string get_utf8(Class_File class_file, u2 index);
 // std::string get_cp_info_utf8(Cp_Info *cp_info, int ref_idx);
 #endif //__CP_INFO_H__
