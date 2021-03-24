@@ -27,110 +27,129 @@ void print_basic_info(std::string filename, Class_File class_file) {
 
 /* CONSTANT POOL */
 
-void print_cp_info(Class_File class_file){
-  std::cout << "------------ Constant Pool Info ------------" << std::endl;
+void print_cp_info_int(Cp_Info cp_info) {
+  printf("Integer\t\t%d\t\tHex: 0x%x",  cp_info.Integer_Info.int_bytes, cp_info.Integer_Info.int_bytes);
+}
+
+void print_cp_info_float(Cp_Info cp_info) {
+  float float_value;
+  printf("Float\t\t");
+  memcpy(&float_value, &(cp_info.Float_Info.float_bytes), sizeof(float));
+  // Valor Float em big-endian, no formato IEEE-754
+  printf("%.2f", float_value);
+}
+
+void print_cp_info_long(Cp_Info cp_info) {
+  u8 long_info;
+  long long_value;
+  long_info = ((u8) cp_info.Long_Info.long_high_bytes << 32) | cp_info.Long_Info.long_low_bytes;
+  memcpy(&long_value, &long_info, sizeof(long));
+
+  printf("Long\t\t%.ldl\t\t", long_value);
+  printf("High: 0x%x | Low: 0x%x", cp_info.Long_Info.long_high_bytes, cp_info.Long_Info.long_low_bytes);
+}
+
+void print_cp_info_double(Cp_Info cp_info) {
+  double double_value;
+  u8 aux;
+  aux = ((u8)cp_info.Double_Info.double_high_bytes << 32) | cp_info.Double_Info.double_low_bytes;
+  memcpy(&double_value, &aux, sizeof(double));
+
+  printf("Double\t\t%.2fd\t\t", double_value);
+  printf("High: 0x%x | Low: 0x%x", cp_info.Double_Info.double_high_bytes, cp_info.Double_Info.double_low_bytes);
+}
+
+void print_cp_info_class(Class_File class_file, Cp_Info cp_info) {
+  std::cout << "Class" << "\t\t#" << std::dec << cp_info.Class_Info.class_name;
+  std::cout << "\t\t" << get_cp_info_utf8(class_file, cp_info.Class_Info.class_name);
+}
+
+void print_cp_info_string(Class_File class_file, Cp_Info cp_info) {
+  printf("String\t\t#%d\t\t", cp_info.String_Info.string_index);
+  std::cout << get_cp_info_utf8(class_file, cp_info.String_Info.string_index);
+}
+
+void print_cp_info_field(Class_File class_file, Cp_Info cp_info) {
+  printf("Fieldref\t\t#%d.#%d\t\t", cp_info.Fieldref_Info.field_ref_class_ref, cp_info.Fieldref_Info.field_ref_name_type_descriptor);
+  std::cout << get_cp_info_utf8(class_file, cp_info.Fieldref_Info.field_ref_class_ref);
+  std::cout << "." << get_cp_info_utf8(class_file, cp_info.Fieldref_Info.field_ref_name_type_descriptor);
+}
+
+void print_cp_info_method(Class_File class_file, Cp_Info cp_info) {
+  printf("Methodref\t\t#%d.#%d\t\t", cp_info.Methodref_Info.method_ref_index, cp_info.Methodref_Info.method_ref_name_and_type);
+  std::cout << get_cp_info_utf8(class_file, cp_info.Methodref_Info.method_ref_index);
+  std::cout << "." << get_cp_info_utf8(class_file, cp_info.Methodref_Info.method_ref_name_and_type);
+}
+
+void print_cp_info_interface_method(Class_File class_file, Cp_Info cp_info) {
+  std::cout << "CONSTANT_INTERFACE_METHOD_REF" << std::endl;
+
+  // Nome da interface que contem a declaração do metodo
+  std::cout << "\tIndex:\t#" << std::endl;
+  std::cout << get_cp_info_utf8(class_file, cp_info.InterfaceMethodref_Info.interface_method_ref_index) << std::endl;
+
+  // Nome e tipo do método
+  std::cout << "Name and Type:"<< std::endl;
+  std::cout << get_cp_info_utf8(class_file, cp_info.InterfaceMethodref_Info.interface_method_ref_name_type);
+}
+
+void print_cp_info_name_type(Class_File class_file, Cp_Info cp_info) {
+  printf("NameAndType\t#%d:#%d\t\t", cp_info.NameAndType_Info.name_type_index, cp_info.NameAndType_Info.name_type_descriptor_index);
+  std::cout << get_cp_info_utf8(class_file, cp_info.NameAndType_Info.name_type_index);
+  std::cout << ":" << get_cp_info_utf8(class_file, cp_info.NameAndType_Info.name_type_descriptor_index);
+}
+
+void print_constant_pool(Class_File class_file) {
+  std::cout << "\n------------ Constant Pool ------------\n";
+  Cp_Info current_cp_info;
 
   for (int i = 1; i < class_file.constant_pool_count; i++) {
+    printf("\n#%d = ", i + 1);
+    current_cp_info = class_file.constant_pool[i];
 
-    std::string utf8_text;
-    PRINT("-------------------------------------------------------------------");
-    std::cout << "CP_INFO[" << i << "]" << std::endl;
-    switch (class_file.constant_pool[i].tag) {
-    case CONSTANT_CLASS:
-      PRINT("CONSTANT_CLASS");
-      std::cout << "Class index: #" << class_file.constant_pool[i].Class_Info.class_name << "\t\t"; 
-      PRINT(get_cp_info_utf8(class_file, class_file.constant_pool[i].Class_Info.class_name));               
-      break;
-    case CONSTANT_FIELD_REF:
-      PRINT("CONSTANT_FIELD_REF");
-      std::cout << "Class index: #" << class_file.constant_pool[i].Fieldref_Info.field_ref_class_ref << "\t\t"; 
-      PRINT(get_cp_info_utf8(class_file, class_file.constant_pool[i].Fieldref_Info.field_ref_class_ref));
-
-      std::cout << "Name and Type: #" << class_file.constant_pool[i].Fieldref_Info.field_ref_name_type_descriptor << "\t\t";
-      PRINT(get_cp_info_utf8(class_file, class_file.constant_pool[i].Fieldref_Info.field_ref_name_type_descriptor));
-      break;
-    case CONSTANT_METHOD_REF:
-      PRINT("CONSTANT_METHOD_REF");
-      std::cout << "Class name index: #" << class_file.constant_pool[i].Methodref_Info.method_ref_index << "\t\t"; 
-      PRINT(get_cp_info_utf8(class_file, class_file.constant_pool[i].Methodref_Info.method_ref_index));                    
-      std::cout << "Name and Type: #" << class_file.constant_pool[i].Methodref_Info.method_ref_name_and_type << "\t\t"; 
-      PRINT(get_cp_info_utf8(class_file, class_file.constant_pool[i].Methodref_Info.method_ref_name_and_type));                 
-      break;
-    case CONSTANT_INTERFACE_METHOD_REF:
-      PRINT("CONSTANT_METHOD_REF");
-      break;
-
-    case CONSTANT_STRING:
-      PRINT("CONSTANT_STRING");
-      std::cout << "String: #" << class_file.constant_pool[i].String_Info.string_index << "\t\t"; // #18
-      PRINT(get_cp_info_utf8(class_file, class_file.constant_pool[i].String_Info.string_index));          // # Hello Java!
-      break;
-
-    case CONSTANT_INT:
-      PRINT("CONSTANT_INT");
-
-      std::cout << "Bytes: 0x" << std::uppercase <<std::hex << class_file.constant_pool[i].Integer_Info.int_bytes << std::endl;
-      std::cout << std::nouppercase << std::dec;
-      std::cout << "Integer: " << class_file.constant_pool[i].Integer_Info.int_bytes << std::endl;
-      break;
-
-    case CONSTANT_FLOAT:
-      PRINT("CONSTANT_FLOAT");
-      std::cout << "Bytes: 0x"  << std::uppercase << std::hex << class_file.constant_pool[i].Float_Info.float_bytes << std::endl;
-      std::cout << std::nouppercase << std::dec;
-      float float_num;
-      memcpy(&float_num, &class_file.constant_pool[i].Float_Info.float_bytes, sizeof(float));
-      std::cout << "Float: " << float_num << std::endl;
-      break;
-
-    case CONSTANT_LONG:
-      PRINT("CONSTANT_LONG");
-      std::cout << "High: 0x"  << std::uppercase  << std::hex << class_file.constant_pool[i].Long_Info.long_high_bytes << std::endl;
-      std::cout << "Low: 0x"  << std::uppercase  << std::hex << class_file.constant_pool[i].Long_Info.long_low_bytes << std::endl;
-      std::cout << std::nouppercase << std::dec;
-
-      u8 long_value;
-      long_value =
-        ((u8)class_file.constant_pool[i].Long_Info.long_high_bytes << 32) |
-        class_file.constant_pool[i].Long_Info.long_low_bytes;
-
-      long long_info;
-      memcpy(&long_info, &long_value, sizeof(long));
-      std::cout << "Long value:" << long_info << std::endl;
-      break;
-
-    case CONSTANT_DOUBLE:
-      PRINT("CONSTANT_DOUBLE");
-      std::cout << "High: 0x"   << std::uppercase  << std::hex << class_file.constant_pool[i].Double_Info.double_high_bytes << std::endl;
-      std::cout << "Low: 0x"   << std::uppercase  << std::hex << class_file.constant_pool[i].Double_Info.double_low_bytes << std::endl;
-      std::cout << std::nouppercase << std::dec;
-      u8 double_value;
-      double double_info;
-
-      double_value = ((u8)class_file.constant_pool[i].Double_Info.double_high_bytes << 32) |
-                          class_file.constant_pool[i].Double_Info.double_low_bytes;
-      memcpy(&double_info, &double_value, sizeof(double));
-      std::cout << "Double value:" << double_info << std::endl;
-      break;
-    case CONSTANT_NAME_TYPE:
-      PRINT("CONSTANT_NAME_TYPE");
-
-      std::cout << "Name:  " << class_file.constant_pool[i].NameAndType_Info.name_type_index << "\t\t"; // Name: #7
-      PRINT(get_cp_info_utf8(class_file, class_file.constant_pool[i].NameAndType_Info.name_type_index));
-
-      std::cout << "Descriptor:  " << class_file.constant_pool[i].NameAndType_Info.name_type_descriptor_index << "\t\t"; // Descriptor: #8
-      PRINT(get_cp_info_utf8(class_file, class_file.constant_pool[i].NameAndType_Info.name_type_descriptor_index));
-
-      break;
-    case CONSTANT_UTF8:
-      PRINT("CONSTANT_UTF8");
-      std::cout << "Length:  " << class_file.constant_pool[i].Utf8_Info.UTF8_size << std::endl; // #6
-      std::cout << "String: " << class_file.constant_pool[i].Utf8_Info.UTF8_bytes << std::endl; // #6
-      break;
-
-    default:
-      PRINT("(large numeric continued)");
-      break;
+    switch (current_cp_info.tag) {
+      case CONSTANT_UTF8:
+        std::cout << "Utf8\t\t" << current_cp_info.Utf8_Info.UTF8_bytes;
+        // std::cout << "\tLength: " << current_cp_info.Utf8_Info.UTF8_size;
+        break;
+      case CONSTANT_INT:
+        print_cp_info_int(current_cp_info);
+        break;
+      case CONSTANT_FLOAT:
+        print_cp_info_float(current_cp_info);
+        break;
+      case CONSTANT_LONG:
+        print_cp_info_long(current_cp_info);
+        i++;
+        break;
+      case CONSTANT_DOUBLE:
+        print_cp_info_double(current_cp_info);
+        i++;
+        break;
+      case CONSTANT_CLASS :
+        print_cp_info_class(class_file, current_cp_info);
+        break;
+      case CONSTANT_STRING:
+        print_cp_info_string(class_file, current_cp_info);
+        break;
+      case CONSTANT_FIELD_REF:
+        print_cp_info_field(class_file, current_cp_info);
+        break;
+      case CONSTANT_METHOD_REF:
+        print_cp_info_method(class_file, current_cp_info);
+        break;
+      case CONSTANT_INTERFACE_METHOD_REF:
+        print_cp_info_interface_method(class_file, current_cp_info);
+        break;
+      case CONSTANT_NAME_TYPE:
+        print_cp_info_name_type(class_file, current_cp_info);
+        break;
+      case CONSTANT_EMPTY:
+        std::cout << "\tEmpty Constant"<< std::endl;
+        break;
+      default:
+        printf("Invalid tag number: %d\nEncerrando programa.\n", current_cp_info.tag);
+        exit(1);
     }
   }
 }

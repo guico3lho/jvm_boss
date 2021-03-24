@@ -1,5 +1,64 @@
 #include "cp_info.hpp"
 
+
+
+void read_cp_info(Class_File class_file, FILE *file) {
+  int count = class_file.constant_pool_count;
+  for (int i = 1; i < count; i++) {
+    // tenho o constant pool count, quero ler de cada um, pra isso preciso ler o próximo?
+    u2 tag = read_1_byte(file);
+    class_file.constant_pool[i].tag = tag;
+
+    switch (tag) {
+    case CONSTANT_CLASS:
+      class_file.constant_pool[i].Class_Info.class_name = read_2_bytes(file);
+      break;
+    case CONSTANT_FIELD_REF:
+      class_file.constant_pool[i].Fieldref_Info.field_ref_class_ref = read_2_bytes(file);
+      class_file.constant_pool[i].Fieldref_Info.field_ref_name_type_descriptor = read_2_bytes(file);
+      break;
+    case CONSTANT_METHOD_REF:
+      class_file.constant_pool[i].Methodref_Info.method_ref_index = read_2_bytes(file);
+      class_file.constant_pool[i].Methodref_Info.method_ref_name_and_type = read_2_bytes(file);
+      break;
+    case CONSTANT_INTERFACE_METHOD_REF:
+      class_file.constant_pool[i].InterfaceMethodref_Info.interface_method_ref_index = read_2_bytes(file);
+      class_file.constant_pool[i].InterfaceMethodref_Info.interface_method_ref_name_type = read_2_bytes(file);
+      break;
+    case CONSTANT_STRING:
+      class_file.constant_pool[i].String_Info.string_index = read_2_bytes(file);
+      break;
+    case CONSTANT_INT:
+      class_file.constant_pool[i].Integer_Info.int_bytes = read_4_bytes(file);
+      break;
+    case CONSTANT_FLOAT:
+      class_file.constant_pool[i].Float_Info.float_bytes = read_4_bytes(file);
+      break;
+    case CONSTANT_LONG:
+      class_file.constant_pool[i].Long_Info.long_high_bytes = read_4_bytes(file);
+      class_file.constant_pool[i].Long_Info.long_low_bytes = read_4_bytes(file);
+      i++;
+      break;
+    case CONSTANT_DOUBLE:
+      class_file.constant_pool[i].Double_Info.double_high_bytes = read_4_bytes(file);
+      class_file.constant_pool[i].Double_Info.double_low_bytes = read_4_bytes(file);
+      i++;
+      break;
+    case CONSTANT_NAME_TYPE:
+      class_file.constant_pool[i].NameAndType_Info.name_type_index = read_2_bytes(file);
+      class_file.constant_pool[i].NameAndType_Info.name_type_descriptor_index = read_2_bytes(file);
+      break;
+    case CONSTANT_UTF8:
+      // Talvez precise de '/0' no final e o +1 no size do malloc
+      class_file.constant_pool[i].Utf8_Info.UTF8_size = read_2_bytes(file);
+      class_file.constant_pool[i].Utf8_Info.UTF8_bytes = (u1 *)malloc((class_file.constant_pool[i].Utf8_Info.UTF8_size + 1) * sizeof(u1));
+      fread(class_file.constant_pool[i].Utf8_Info.UTF8_bytes, 1, class_file.constant_pool[i].Utf8_Info.UTF8_size, file);
+      class_file.constant_pool[i].Utf8_Info.UTF8_bytes[class_file.constant_pool[i].Utf8_Info.UTF8_size] = '\0';
+      break;
+    }
+  }
+}
+
 std::string get_cp_info_utf8(Class_File class_file, u2 index){
   std::string utf8_text;
   u2 index_aux;
@@ -39,64 +98,6 @@ std::string get_cp_info_utf8(Class_File class_file, u2 index){
       break;
   }
   return utf8_text;
-}
-
-void read_cp_info(Class_File class_file, FILE *file) {
-  int count = class_file.constant_pool_count;
-  for (int i = 1; i < count; i++) {
-    // tenho o constant pool count, quero ler de cada um, pra isso preciso ler o próximo?
-    u2 tag = read_1_byte(file);
-    class_file.constant_pool[i].tag = tag;
-
-    switch (tag) {
-    case CONSTANT_CLASS:
-      class_file.constant_pool[i].Class_Info.class_name = read_2_bytes(file);
-      break;
-    case CONSTANT_FIELD_REF:
-      class_file.constant_pool[i].Fieldref_Info.field_ref_class_ref = read_2_bytes(file);
-      class_file.constant_pool[i].Fieldref_Info.field_ref_name_type_descriptor = read_2_bytes(file);
-      break;
-    case CONSTANT_METHOD_REF:
-      class_file.constant_pool[i].Methodref_Info.method_ref_index = read_2_bytes(file);
-
-      class_file.constant_pool[i].Methodref_Info.method_ref_name_and_type = read_2_bytes(file);
-      break;
-    case CONSTANT_INTERFACE_METHOD_REF:
-      class_file.constant_pool[i].InterfaceMethodref_Info.interface_method_ref_index = read_2_bytes(file);
-      class_file.constant_pool[i].InterfaceMethodref_Info.interface_method_ref_name_type = read_2_bytes(file);
-      break;
-    case CONSTANT_STRING:
-      class_file.constant_pool[i].String_Info.string_index = read_2_bytes(file);
-      break;
-    case CONSTANT_INT:
-      class_file.constant_pool[i].Integer_Info.int_bytes = read_4_bytes(file);
-      break;
-    case CONSTANT_FLOAT:
-      class_file.constant_pool[i].Float_Info.float_bytes = read_4_bytes(file);
-      break;
-    case CONSTANT_LONG:
-      class_file.constant_pool[i].Long_Info.long_high_bytes = read_4_bytes(file);
-      class_file.constant_pool[i].Long_Info.long_low_bytes = read_4_bytes(file);
-      i++;
-      break;
-    case CONSTANT_DOUBLE:
-      class_file.constant_pool[i].Double_Info.double_high_bytes = read_4_bytes(file);
-      class_file.constant_pool[i].Double_Info.double_low_bytes = read_4_bytes(file);
-      i++;
-      break;
-    case CONSTANT_NAME_TYPE:
-      class_file.constant_pool[i].NameAndType_Info.name_type_index = read_2_bytes(file);
-      class_file.constant_pool[i].NameAndType_Info.name_type_descriptor_index = read_2_bytes(file);
-      break;
-    case CONSTANT_UTF8:
-      // Talvez precise de '/0' no final e o +1 no size do malloc
-      class_file.constant_pool[i].Utf8_Info.UTF8_size = read_2_bytes(file);
-      class_file.constant_pool[i].Utf8_Info.UTF8_bytes = (u1 *)malloc((class_file.constant_pool[i].Utf8_Info.UTF8_size + 1) * sizeof(u1));
-      fread(class_file.constant_pool[i].Utf8_Info.UTF8_bytes, 1, class_file.constant_pool[i].Utf8_Info.UTF8_size, file);
-      class_file.constant_pool[i].Utf8_Info.UTF8_bytes[class_file.constant_pool[i].Utf8_Info.UTF8_size] = '\0';
-      break;
-    }
-  }
 }
 
 // * Verifica se o this_class é igual ao nome do arquivo fonte

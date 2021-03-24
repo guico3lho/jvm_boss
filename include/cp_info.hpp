@@ -110,7 +110,6 @@ struct Cp_Info {
 };
 
 void read_cp_info(Class_File class_file, FILE *file);
-void print_cp_info(Class_File class_file);
 void get_cp_info_class_name(std::string filename, Class_File class_file);
 std::string get_cp_info_utf8(Class_File class_file, u2 index);
 
