@@ -106,7 +106,7 @@ void print_cp_info(Class_File class_file){
 
       double_value = ((u8)class_file.constant_pool[i].Double_Info.double_high_bytes << 32) |
                           class_file.constant_pool[i].Double_Info.double_low_bytes;
-      memcpy(&double_info, &double_value, sizeof(long));
+      memcpy(&double_info, &double_value, sizeof(double));
       std::cout << "Double value:" << double_info << std::endl;
       break;
     case CONSTANT_NAME_TYPE:
