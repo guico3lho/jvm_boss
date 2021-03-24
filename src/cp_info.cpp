@@ -19,7 +19,7 @@ std::string get_utf8(Class_File class_file, u2 index)
 
         break;
 
-    case CONSTANT_METHOD_REF:
+    case CONSTANT_METHOD_REF:gi
 
         break;
 
@@ -48,13 +48,10 @@ std::string get_utf8(Class_File class_file, u2 index)
         break;
 
     case CONSTANT_NAME_TYPE:
-        index_aux = class_file.constant_pool[index].NameAndType_Info.name_type_index;            // # 7
-        utf8_text = get_utf8(class_file, index_aux);                                             // # <Ljava/io/PrintStream;>
-        index_aux = class_file.constant_pool[index].NameAndType_Info.name_type_descriptor_index; // # 28 //0?? index = 0??
+        index_aux = class_file.constant_pool[index].NameAndType_Info.name_type_index;            
+        utf8_text = get_utf8(class_file, index_aux);                                             
+        index_aux = class_file.constant_pool[index].NameAndType_Info.name_type_descriptor_index; 
         utf8_text += get_utf8(class_file, index_aux);                                            // # <Ljava/io/PrintStream;>
-        // utf8_concat = (u1*)malloc(strlen(utf8_text) + strlen(utf8_text2));
-        // strcpy(utf8_concat, utf8_text);
-        // strcat(utf8_concat, utf8_text2);
 
         break;
 

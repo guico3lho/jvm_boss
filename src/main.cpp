@@ -15,7 +15,7 @@ int main(int argc, char* argv[]) {
     std::string option = argv[1], filename = argv[2];
 
     // leitor/exibidor
-    if(option == "-l") {
+    if(option == "-e") {
       class_file = read_class_file(filename);
       print_basic_info(filename, class_file);
       print_cp_info(class_file);
