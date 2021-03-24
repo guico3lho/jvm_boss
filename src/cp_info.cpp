@@ -19,7 +19,7 @@ std::string get_utf8(Class_File class_file, u2 index)
 
         break;
 
-    case CONSTANT_METHOD_REF:gi
+    case CONSTANT_METHOD_REF:
 
         break;
 
