@@ -10,9 +10,9 @@ void print_basic_info(std::string filename, Class_File class_file) {
   printf("Access flags:         0x%.4x\n", class_file.access_flags);
   printf("This class:           #%d <", class_file.this_class);
 
-  // std::cout << get_utf8(class_file,
-  // class_file.constant_pool[class_file.this_class].class_name)
-  // << ">";
+  std::cout << get_utf8(class_file,
+  class_file.constant_pool[class_file.this_class].Class_Info.class_name)
+  << ">";
 
   printf("\nSuper class:          #%d <", class_file.super_class);
   std::cout << get_utf8(class_file, 
