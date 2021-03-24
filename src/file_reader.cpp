@@ -14,7 +14,7 @@ Class_File read_class_file(std::string filename) {
   class_file.magic_number = read_4_bytes(file); 
 
   if(class_file.magic_number != 0xCAFEBABE){
-    printf("Arquivo com magic_number numebr invalido. \n");
+    printf("Arquivo com magic_number number invalido. \n");
     printf("Encerrando programa.\n");
     exit(1);
   }

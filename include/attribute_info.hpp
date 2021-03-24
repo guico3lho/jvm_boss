@@ -73,7 +73,7 @@ typedef struct Local_Variable_Table_Attribute {
 } Local_Variable_Table_Attribute;
 
 typedef struct Attribute_Info{
-  u2 attribute_name_index; // Unsigned 16-bit index into the constant pool of the class
+  u2 attribute_name_index;
   u4 attribute_length;
 
   Const_Value_Attribute *const_value;
