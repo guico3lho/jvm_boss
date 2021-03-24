@@ -3,6 +3,7 @@
 #define JVM_CPP_INSTRUCTION_H
 
 #include <string>
+#include <vector>
 #include "read_bytes.hpp"
 
 /* INSTRUCTIONS */
@@ -69,6 +70,6 @@ typedef struct Instruction {
   u4 constant_pool_flag;
 } Instruction;
 
-Instruction *set_instructions();
+std::vector<Instruction> set_instructions();
 
 #endif

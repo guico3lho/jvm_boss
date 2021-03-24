@@ -69,13 +69,15 @@ void print_cp_info(Class_File class_file){
     case CONSTANT_INT:
       PRINT("CONSTANT_INT");
 
-      std::cout << "Bytes: 0x" << std::hex << class_file.constant_pool[i].Integer_Info.int_bytes << std::endl;
+      std::cout << "Bytes: 0x" << std::uppercase <<std::hex << class_file.constant_pool[i].Integer_Info.int_bytes << std::endl;
+      std::cout << std::nouppercase << std::dec;
       std::cout << "Integer: " << class_file.constant_pool[i].Integer_Info.int_bytes << std::endl;
       break;
 
     case CONSTANT_FLOAT:
       PRINT("CONSTANT_FLOAT");
-      std::cout << "Bytes: 0x" << std::hex << class_file.constant_pool[i].Float_Info.float_bytes << std::endl;
+      std::cout << "Bytes: 0x"  << std::uppercase << std::hex << class_file.constant_pool[i].Float_Info.float_bytes << std::endl;
+      std::cout << std::nouppercase << std::dec;
       float float_num;
       memcpy(&float_num, &class_file.constant_pool[i].Float_Info.float_bytes, sizeof(float));
       std::cout << "Float: " << float_num << std::endl;
@@ -83,8 +85,9 @@ void print_cp_info(Class_File class_file){
 
     case CONSTANT_LONG:
       PRINT("CONSTANT_LONG");
-      std::cout << "High: 0x" << std::hex << class_file.constant_pool[i].Long_Info.long_high_bytes << std::endl;
-      std::cout << "Low: 0x" << std::hex << class_file.constant_pool[i].Long_Info.long_low_bytes << std::endl;
+      std::cout << "High: 0x"  << std::uppercase  << std::hex << class_file.constant_pool[i].Long_Info.long_high_bytes << std::endl;
+      std::cout << "Low: 0x"  << std::uppercase  << std::hex << class_file.constant_pool[i].Long_Info.long_low_bytes << std::endl;
+      std::cout << std::nouppercase << std::dec;
 
       u8 long_value;
       long_value =
@@ -98,9 +101,9 @@ void print_cp_info(Class_File class_file){
 
     case CONSTANT_DOUBLE:
       PRINT("CONSTANT_DOUBLE");
-      std::cout << "High: 0x" << std::hex << class_file.constant_pool[i].Double_Info.double_high_bytes << std::endl;
-      std::cout << "Low: 0x" << std::hex << class_file.constant_pool[i].Double_Info.double_low_bytes << std::endl;
-
+      std::cout << "High: 0x"   << std::uppercase  << std::hex << class_file.constant_pool[i].Double_Info.double_high_bytes << std::endl;
+      std::cout << "Low: 0x"   << std::uppercase  << std::hex << class_file.constant_pool[i].Double_Info.double_low_bytes << std::endl;
+      std::cout << std::nouppercase << std::dec;
       u8 double_value;
       double double_info;
 
@@ -306,7 +309,7 @@ void print_newarray(u1 code) {
 }
 
 void print_instructions(Class_File class_file, Code_Attribute *code_attribute) {
-  Instruction *instructions = set_instructions();
+  std::vector<Instruction> instructions = set_instructions();
 
   std::string str;
 

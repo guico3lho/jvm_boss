@@ -1,8 +1,8 @@
 #include "instruction.hpp"
 
 // each instruction has 8-bit = 1 byte
-Instruction *set_instructions() {
-  Instruction *instructions = (Instruction*) malloc(sizeof(Instruction) * 256);
+std::vector<Instruction> set_instructions() {
+  std::vector<Instruction> instructions = std::vector<Instruction>(256);
 
   instructions[0].name = "nop";
   instructions[0].bytes = 0;

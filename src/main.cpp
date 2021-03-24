@@ -3,7 +3,6 @@
 
 int main(int argc, char* argv[]) {
 
-  Class_File class_file;
 
   if (argc != 3) {
     std::cout 
@@ -14,6 +13,7 @@ int main(int argc, char* argv[]) {
 
     // leitor/exibidor
     if(option == "-e") {
+      Class_File class_file;
       class_file = read_class_file(filename);
       print_basic_info(filename, class_file);
       print_cp_info(class_file);
@@ -21,6 +21,7 @@ int main(int argc, char* argv[]) {
       print_fields(class_file);
       print_methods(class_file);
       print_attributes(class_file);
+      freeClass(class_file);
     }
   }
 
