@@ -38,7 +38,7 @@ Class_File read_class_file(std::string filename) {
   class_file.constant_pool_count = read_2_bytes(file);
   if (DEBUG) std::cout << "\nConstant Pool Count:  " << class_file.constant_pool_count << std::endl;
 
-  class_file.constant_pool = (Cp_Info*) malloc ((class_file.constant_pool_count - 1) * sizeof(Cp_Info));
+  class_file.constant_pool = (Cp_Info*) malloc ((class_file.constant_pool_count) * sizeof(Cp_Info));
   
   cp_info_reader(class_file,file);
   // cp_info_printer(class_file);

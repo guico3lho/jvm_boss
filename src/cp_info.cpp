@@ -67,7 +67,7 @@ std::string get_utf8(Class_File class_file, u2 index)
     }
     return utf8_text;
 }
-void cp_info_printer(Class_File class_file)
+void print_cp_info(Class_File class_file)
 {
     // 2 bugs
     // FIXME: índice ficando 0
