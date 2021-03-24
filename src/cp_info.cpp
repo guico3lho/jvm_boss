@@ -1,7 +1,6 @@
 #include "cp_info.hpp"
 
 
-
 void read_cp_info(Class_File class_file, FILE *file) {
   int count = class_file.constant_pool_count;
   for (int i = 1; i < count; i++) {
