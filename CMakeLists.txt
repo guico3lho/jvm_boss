@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.16.0)
-set (CMAKE_CXX_STANDARD 11)
-set (CMAKE_BUILD_TYPE Debug)
-set (EXECUTABLE_OUTPUT_PATH "..")
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_FLAGS "-Wall")
+set(CMAKE_BUILD_TYPE Debug)
+set(EXECUTABLE_OUTPUT_PATH "..")
 
 # Project name
 project(jvm_boss)
@@ -11,12 +12,31 @@ set(INCLUDE_DIR include)
 
 set(HEADER_FILES
     ${INCLUDE_DIR}/types.hpp
-
+    ${INCLUDE_DIR}/read_bytes.hpp
+    ${INCLUDE_DIR}/file_reader.hpp
+    ${INCLUDE_DIR}/file_printer.hpp
+    ${INCLUDE_DIR}/cp_info.hpp
+    ${INCLUDE_DIR}/interface_info.hpp
+    ${INCLUDE_DIR}/field_info.hpp
+    ${INCLUDE_DIR}/method_info.hpp
+    ${INCLUDE_DIR}/attribute_info.hpp
+    ${INCLUDE_DIR}/stack_map_table.hpp
+    ${INCLUDE_DIR}/instruction.hpp
+    ${INCLUDE_DIR}/utils.hpp
 )
 
 set(SOURCE_FILES
     ${SOURCE_DIR}/main.cpp
-  
+    ${SOURCE_DIR}/read_bytes.cpp
+    ${SOURCE_DIR}/file_reader.cpp
+    ${SOURCE_DIR}/file_printer.cpp
+    ${SOURCE_DIR}/cp_info.cpp
+    ${SOURCE_DIR}/interface_info.cpp
+    ${SOURCE_DIR}/field_info.cpp
+    ${SOURCE_DIR}/method_info.cpp
+    ${SOURCE_DIR}/attribute_info.cpp
+    ${SOURCE_DIR}/instruction.cpp
+    ${SOURCE_DIR}/utils.cpp
 )
 
 # Executable name

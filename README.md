@@ -13,7 +13,7 @@ Mostra informações do arquivo ``.class``
 ``` bash
 $ javap HelloJava.class
 
-# para mais info, flags -c, -verbose ou -v
+# para mais info, flags: -c, -verbose ou -v
 $ javap -v HelloJava.class
 ```
 
@@ -41,7 +41,7 @@ $ ./exec.sh HelloJava
 
 # Configurações
 
-## Versão Java SE 8
+## Versão [Java SE 8](https://docs.oracle.com/javase/specs/jvms/se8/html/index.html)
 
 ## Analisadores 
 
@@ -49,20 +49,41 @@ $ ./exec.sh HelloJava
 
 Instalação no Linux
 
-```
+``` bash
 $ sudo apt-get install cppcheck
+```
+
+Executando CppCheck
+
+``` bash
+# arquivos especificos
+$ cppcheck --verbose ./src/main.cpp
+$ cppcheck --enable=warning ./src/main.cpp
+
+# todos arquivos .cpp dentro de src
+$ cppcheck --verbose --enable=warning ./src/*.cpp
+
+# ou com bash script
+$ ./check.sh -v main
+$ ./check.sh -w main
+$ ./check.sh -all
+
 ```
 
 ## [Valgrind](https://www.valgrind.org/) como analisador dinâmico
 
 Instalação no Linux
 
-```
+``` bash
 $ sudo apt-get install valgrind
 ```
 
-Executando com mais detalhes sobre vazamento de memória
+Executando
 
 ``` bash
-$ valgrind –leak-check=full ./prog
+# com mais detalhes sobre vazamento de memória
+$ valgrind –leak-check=full ./jvm_boss -e test/HelloJava.class
+
+# bash script
+$ ./valgrind.sh HelloJava
 ```

@@ -1,22 +1,30 @@
-#include "../include/types.hpp"
+#include "file_reader.hpp"
+#include "file_printer.hpp"
+
 int main(int argc, char* argv[]) {
 
- 
 
   if (argc != 3) {
     std::cout 
       << "Comando incorreto!\n"
       << "Comando leitor/exibidor: -e arquivo.class\n";
   } else {
-    std::string command = argv[1], filename = argv[2];
-
+    std::string option = argv[1], filename = argv[2];
+    
     // leitor/exibidor
-    if(command == "-e") {
-      std::cout << "Modo leitor e exibidor!" << std::endl;
-
+    if(option == "-e") {
+      Class_File class_file;
+      class_file = read_class_file(filename);
+      print_basic_info(filename, class_file);
+      print_constant_pool(class_file);
+      print_interfaces(class_file);
+      print_fields(class_file);
+      print_methods(class_file);
+      print_attributes(class_file);
+      freeClass(class_file);
     }
   }
 
-  std::cout << "\n\nTerminou execucao";
+  std::cout << "\n\nTerminou execucao\n";
   return 0;
 }
