@@ -28,7 +28,8 @@ std::string get_utf8(Class_File class_file, u2 index)
         break;
 
     case CONSTANT_STRING:
-
+        index = class_file.constant_pool[index].String_Info.string_index; // 16
+        utf8_text = get_utf8(class_file, index);   
         break;
 
     case CONSTANT_INT:
@@ -121,8 +122,8 @@ void print_cp_info(Class_File class_file)
 
         case CONSTANT_STRING:
             PRINT("CONSTANT_STRING");
-            std::cout << "String: #" << class_file.constant_pool[i].String_Info.string_bytes << "\t\t"; // #18
-            PRINT(get_utf8(class_file, class_file.constant_pool[i].String_Info.string_bytes));          // # Hello Java!
+            std::cout << "String: #" << class_file.constant_pool[i].String_Info.string_index << "\t\t"; // #18
+            PRINT(get_utf8(class_file, class_file.constant_pool[i].String_Info.string_index));          // # Hello Java!
 
             break;
 
@@ -233,7 +234,7 @@ void cp_info_reader(Class_File class_file, FILE *file)
             break;
 
         case CONSTANT_STRING:
-            class_file.constant_pool[i].String_Info.string_bytes = read_2_bytes(file);
+            class_file.constant_pool[i].String_Info.string_index = read_2_bytes(file);
             break;
 
         case CONSTANT_INT:
