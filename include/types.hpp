@@ -29,7 +29,6 @@
 #define ACC_PROTECTED     0x0004 // protected declaration, can be used on class and subclasses
 #define ACC_STATIC        0x0008 // static declaration, class variable, not instance variable
 #define ACC_FINAL         0x0010 // final declaration, cannot have subclass
-#define ACC_SYNCHRONIZED  0x0020 // Declared synchronized; invocation is wrapped by a monitor use.
 #define ACC_VOLATILE      0x0040 // volatile declaration, cannot be in cache
 #define ACC_TRANSIENT     0x0080 // transient declaration, cannot be read or write from an object persistent manager
 #define ACC_SYNTHETIC     0x1000 // Declared synthetic; not present in the source code.

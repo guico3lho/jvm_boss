@@ -1,5 +1,41 @@
 #include "file_printer.hpp"
 
+void check_flag(u2 access_flags, int constant_access_flag, std::string flag) {
+  int set_flag = access_flags & constant_access_flag;
+  // printf("SET FLAG: %d\n", set_flag);
+  if(set_flag == constant_access_flag) {
+    std::cout << flag << " ";
+  }
+}
+
+void print_access_flags(u2 access_flags) {
+  printf("0x%.4x - ", access_flags);
+
+  std::string flags[16] = {
+    "ACC_PUBLIC", "ACC_SUPER", "ACC_PROTECTED", "ACC_STATIC", "ACC_FINAL",
+    "ACC_VOLATILE", "ACC_TRANSIENT", "ACC_SYNTHETIC", "ACC_ENUM", "ACC_SUPER", "ACC_INTERFACE"
+    "ACC_ABSTRACT", "ACC_ANNOTATION", "ACC_NATIVE", "ACC_STRICT"
+  };
+
+  check_flag(access_flags, ACC_PUBLIC, flags[0]);
+  check_flag(access_flags, ACC_PRIVATE, flags[1]);
+  check_flag(access_flags, ACC_PROTECTED, flags[2]);
+  check_flag(access_flags, ACC_STATIC, flags[3]);
+  check_flag(access_flags, ACC_FINAL, flags[4]);
+  check_flag(access_flags, ACC_VOLATILE, flags[5]);
+  check_flag(access_flags, ACC_TRANSIENT, flags[6]);
+  check_flag(access_flags, ACC_SYNTHETIC, flags[7]);
+  check_flag(access_flags, ACC_ENUM, flags[8]);
+  check_flag(access_flags, ACC_SUPER, flags[9]);
+  check_flag(access_flags, ACC_INTERFACE, flags[10]);
+  check_flag(access_flags, ACC_ABSTRACT, flags[11]);
+  check_flag(access_flags, ACC_ANNOTATION, flags[12]);
+  check_flag(access_flags, ACC_NATIVE, flags[13]);
+  check_flag(access_flags, ACC_STRICT, flags[14]);
+
+  printf("\n");
+}
+
 void print_basic_info(std::string filename, Class_File class_file) {
   std::cout << "------------ Basic Info ------------" << std::endl;
   std::cout << "Filename:             " << filename << std::endl;
@@ -7,7 +43,8 @@ void print_basic_info(std::string filename, Class_File class_file) {
   printf("Minor Version:        %d\n", class_file.minor_version);
   printf("Major version:        %d\n", class_file.major_version);
   printf("Contanst pool count:  %d\n", class_file.constant_pool_count);
-  printf("Access flags:         0x%.4x\n", class_file.access_flags);
+  printf("Access flags:         ");
+  print_access_flags(class_file.access_flags);
   printf("This class:           #%d <", class_file.this_class);
 
   std::cout << get_cp_info_utf8(class_file,
@@ -264,7 +301,9 @@ void print_methods(Class_File class_file) {
     printf("Descriptor Index: #%d ",method_info->descriptor_index);
     std::cout << get_cp_info_utf8(class_file, method_info->descriptor_index) << std::endl;
 
-    printf("Access Flag: 0x%04x\n", method_info->access_flags);
+    printf("Access flags: ");
+    print_access_flags(method_info->access_flags);
+
     printf("Attributes Count: %d\n",method_info->attributes_count);
     printf("\nMETHOD ATTRIBUTES:\n");
 
