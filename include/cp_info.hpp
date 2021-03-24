@@ -43,7 +43,7 @@ struct Class_File;
     /* String: represents constant objects of the type String */
     struct
     {
-      u2 string_bytes;
+        u2 string_index;
     } String_Info; // 8
 
     /* Int: represents 4-byte numeric int constants */
