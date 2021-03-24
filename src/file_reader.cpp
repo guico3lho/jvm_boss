@@ -1,6 +1,5 @@
 #include "file_reader.hpp"
 
-
 Class_File read_class_file(std::string filename) {
   FILE *file = fopen(filename.c_str(), "rb");
 

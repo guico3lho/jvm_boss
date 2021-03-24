@@ -1,8 +1,6 @@
 windows="-w"
 linux="-l"
 
-clear 
-
 mkdir -p build 
 cd build
 
