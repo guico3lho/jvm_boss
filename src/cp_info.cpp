@@ -3,7 +3,6 @@
 std::string get_utf8(Class_File class_file, u2 index){
     std::string utf8_text;
     u2 index_aux;
-
     switch (class_file.constant_pool[index].tag) {
         case CONSTANT_CLASS:
             index = class_file.constant_pool[index].Class_Info.class_name; 
