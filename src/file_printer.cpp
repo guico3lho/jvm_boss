@@ -1,5 +1,37 @@
 #include "file_printer.hpp"
 
+
+void print_major_version(u2 major_version) {
+
+  switch(major_version) {
+    case 52:
+      printf("Java SE 8");
+      break;
+    case 51:
+      printf("Java SE 7");
+      break;
+    case 50:
+      printf("Java SE 6.0");
+      break;
+    case 49:
+      printf("Java SE 5.0");
+      break;
+    case 48:
+      printf("JDK 1.4");
+      break;
+    case 47:
+      printf("JDK 1.3");
+      break;
+    case 46:
+      printf("JDK 1.2");
+      break;
+    case 45:
+      printf("JDK 1.1");
+      break;
+  }
+  printf("\n");
+}
+
 void check_flag(u2 access_flags, int constant_access_flag, std::string flag) {
   int set_flag = access_flags & constant_access_flag;
   // printf("SET FLAG: %d\n", set_flag);
@@ -9,7 +41,7 @@ void check_flag(u2 access_flags, int constant_access_flag, std::string flag) {
 }
 
 void print_access_flags(u2 access_flags) {
-  printf("0x%.4x - ", access_flags);
+  printf("0x%.4x: ", access_flags);
 
   std::string flags[16] = {
     "ACC_PUBLIC", "ACC_SUPER", "ACC_PROTECTED", "ACC_STATIC", "ACC_FINAL",
@@ -41,7 +73,8 @@ void print_basic_info(std::string filename, Class_File class_file) {
   std::cout << "Filename:             " << filename << std::endl;
   printf("Magic Number:         0x%0X\n", class_file.magic_number);
   printf("Minor Version:        %d\n", class_file.minor_version);
-  printf("Major version:        %d\n", class_file.major_version);
+  printf("Major version:        %d: ", class_file.major_version);
+  print_major_version(class_file.major_version);
   printf("Contanst pool count:  %d\n", class_file.constant_pool_count);
   printf("Access flags:         ");
   print_access_flags(class_file.access_flags);
@@ -70,10 +103,8 @@ void print_cp_info_int(Cp_Info cp_info) {
 
 void print_cp_info_float(Cp_Info cp_info) {
   float float_value;
-  printf("Float\t\t");
   memcpy(&float_value, &(cp_info.Float_Info.float_bytes), sizeof(float));
-  // Valor Float em big-endian, no formato IEEE-754
-  printf("%.2f", float_value);
+  printf("Float\t\t%f", float_value);
 }
 
 void print_cp_info_long(Cp_Info cp_info) {
@@ -82,7 +113,7 @@ void print_cp_info_long(Cp_Info cp_info) {
   long_info = ((u8) cp_info.Long_Info.long_high_bytes << 32) | cp_info.Long_Info.long_low_bytes;
   memcpy(&long_value, &long_info, sizeof(long));
 
-  printf("Long\t\t%.ldl\t\t", long_value);
+  printf("Long\t\t%ld\t\t", long_value);
   printf("High: 0x%x | Low: 0x%x", cp_info.Long_Info.long_high_bytes, cp_info.Long_Info.long_low_bytes);
 }
 
@@ -92,7 +123,7 @@ void print_cp_info_double(Cp_Info cp_info) {
   aux = ((u8)cp_info.Double_Info.double_high_bytes << 32) | cp_info.Double_Info.double_low_bytes;
   memcpy(&double_value, &aux, sizeof(double));
 
-  printf("Double\t\t%.2fd\t\t", double_value);
+  printf("Double\t\t%f\t", double_value);
   printf("High: 0x%x | Low: 0x%x", cp_info.Double_Info.double_high_bytes, cp_info.Double_Info.double_low_bytes);
 }
 
