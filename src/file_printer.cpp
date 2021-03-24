@@ -310,11 +310,9 @@ void print_newarray(u1 code) {
 
 void print_instructions(Class_File class_file, Code_Attribute *code_attribute) {
   std::vector<Instruction> instructions = set_instructions();
-
   std::string str;
 
   for (int i = 0; i < (int) code_attribute->code_length; i++) {
-
     int op_code = (int) code_attribute->code[i];
     std::cout << i << ": " << instructions[op_code].name;
 
@@ -322,30 +320,32 @@ void print_instructions(Class_File class_file, Code_Attribute *code_attribute) {
         ++i;
         switch(op_code) {
           case ldc:
-            {
-              u1 index = code_attribute->code[i];
-              u2 index_utf8 = 0x00 | index;
-              std::cout << " #" << (int)index << " " << get_cp_info_utf8(class_file, index_utf8);
-              j++;
-            }break;
+            // {
+            //   u1 index = code_attribute->code[i];
+            //   u2 index_utf8 = 0x00 | index;
+            //   std::cout << " #" << (int)index << " " << get_cp_info_utf8(class_file, index_utf8);
+            //   j++;
+            // }
+            break;
           case newarray:
             print_newarray(code_attribute->code[j]);
             j++;
             break;
           case multianewarray:
-            {
-              u1 byte1 = code_attribute->code[i];
-              u1 byte2 = code_attribute->code[i+1];
-              u1 dim = code_attribute->code[i + 2];
-              u2 index = (byte1 << 8) | byte2;
-              str = get_cp_info_utf8(class_file, index);
+            // {
+            //   u1 byte1 = code_attribute->code[i];
+            //   u1 byte2 = code_attribute->code[i+1];
+            //   u1 dim = code_attribute->code[i + 2];
+            //   u2 index = (byte1 << 8) | byte2;
+            //   str = get_cp_info_utf8(class_file, index);
 
-              if (!str.empty()) {
-                std::cout << " #" << std::dec << index << " " << str;
-                std::cout << " dim " << (int) dim;
-              }
-              j++;
-            }break;
+            //   if (!str.empty()) {
+            //     std::cout << " #" << std::dec << index << " " << str;
+            //     std::cout << " dim " << (int) dim;
+            //   }
+            //   j++;
+            // }
+            break;
           case anewarray:
           case checkcast: 
           case getfield: 
@@ -358,26 +358,28 @@ void print_instructions(Class_File class_file, Code_Attribute *code_attribute) {
           case ldc2_w: 
           case putfield:
           case putstatic:
-            {
-              u1 byte1 = code_attribute->code[i];
-              u1 byte2 = code_attribute->code[i + 1];
-              u2 index = (byte1 << 8) | byte2;
-              std::cout << " #" << std::dec << index << " " << get_cp_info_utf8(class_file, index);
+            // {
+            //   u1 byte1 = code_attribute->code[i];
+            //   u1 byte2 = code_attribute->code[i + 1];
+            //   u2 index = (byte1 << 8) | byte2;
+            //   std::cout << " #" << std::dec << index << " " << get_cp_info_utf8(class_file, index);
 
-              i++;
-              j++;
-            }break;
+            //   i++;
+            //   j++;
+            // }
+            break;
           case GOTO: case if_acmpeq:  case if_acmpne:  case if_icmpeq: case if_icmpne: 
           case if_icmplt: case if_icmpge: case if_icmpgt: case if_icmple: case iifeq: case ifne:
           case iflt: case ifge: case ifgt: case ifle: case ifnonull: case ifnull: case jsr:
-            {
-              u1 branchbyte1 = code_attribute->code[i];
-              u1 branchbyte2 = code_attribute->code[i + 1];
-              u2 address = (branchbyte1 << 8) | branchbyte2;
-              printf("\t%d", address);
-              i++;
-              j++;
-            }break;
+            // {
+            //   u1 branchbyte1 = code_attribute->code[i];
+            //   u1 branchbyte2 = code_attribute->code[i + 1];
+            //   u2 address = (branchbyte1 << 8) | branchbyte2;
+            //   printf("\t%d", address);
+            //   i++;
+            //   j++;
+            // }
+            break;
           default:
             printf(" 0x%x", code_attribute->code[j]);
             break;

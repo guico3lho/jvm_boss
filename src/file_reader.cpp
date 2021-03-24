@@ -113,7 +113,7 @@ void freeClass(Class_File class_file){
 }
 
 void freeAttribute(Attribute_Info* attr,u4 size){
-    for (int i = 0; i < size; ++i) {
+    for (int i = 0; i < (int) size; ++i) {
         if(attr[i].source_file){
             free(attr[i].source_file);
         }
@@ -149,7 +149,7 @@ void freeAttribute(Attribute_Info* attr,u4 size){
 }
 
 void freeInner(Inner_Class_Attribute* inner,u4 size){
-    for (int i = 0; i < size; ++i) {
+    for (int i = 0; i < (int)size; ++i) {
         if(inner[i].inner_class_data){
             freeInner(inner[i].inner_class_data,inner[i].number_of_classes);
         }
