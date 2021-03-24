@@ -36,12 +36,8 @@ Class_File read_class_file(std::string filename) {
   //* Constant Pool Count = max_index + 1
   class_file.constant_pool_count = read_2_bytes(file);
   if (DEBUG) std::cout << "\nConstant Pool Count:  " << class_file.constant_pool_count << std::endl;
-
   class_file.constant_pool = (Cp_Info*) malloc ((class_file.constant_pool_count) * sizeof(Cp_Info));
-  
-  cp_info_reader(class_file,file);
-  // cp_info_printer(class_file);
-  
+  read_cp_info(class_file,file);  
   
   class_file.access_flags = read_2_bytes(file);
   if (DEBUG) printf("Access Flags:         0x%0X\n", class_file.access_flags);

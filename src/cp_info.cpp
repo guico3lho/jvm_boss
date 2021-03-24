@@ -1,16 +1,16 @@
 #include "cp_info.hpp"
 
-std::string get_utf8(Class_File class_file, u2 index){
+std::string get_cp_info_utf8(Class_File class_file, u2 index){
   std::string utf8_text;
   u2 index_aux;
   switch (class_file.constant_pool[index].tag) {
     case CONSTANT_CLASS:
       index = class_file.constant_pool[index].Class_Info.class_name; 
-      utf8_text = get_utf8(class_file, index);                       
+      utf8_text = get_cp_info_utf8(class_file, index);                       
       break;
     case CONSTANT_FIELD_REF:
       index = class_file.constant_pool[index].Fieldref_Info.field_ref_class_ref; 
-      utf8_text = get_utf8(class_file, index);                                   
+      utf8_text = get_cp_info_utf8(class_file, index);                                   
       break;
     case CONSTANT_METHOD_REF:
       break;
@@ -18,7 +18,7 @@ std::string get_utf8(Class_File class_file, u2 index){
       break;
     case CONSTANT_STRING:
       index = class_file.constant_pool[index].String_Info.string_index; 
-      utf8_text = get_utf8(class_file, index);   
+      utf8_text = get_cp_info_utf8(class_file, index);   
       break;
     case CONSTANT_INT:
       break;
@@ -30,9 +30,9 @@ std::string get_utf8(Class_File class_file, u2 index){
       break;
     case CONSTANT_NAME_TYPE:
       index_aux = class_file.constant_pool[index].NameAndType_Info.name_type_index;            
-      utf8_text = get_utf8(class_file, index_aux);                                             
+      utf8_text = get_cp_info_utf8(class_file, index_aux);                                             
       index_aux = class_file.constant_pool[index].NameAndType_Info.name_type_descriptor_index; 
-      utf8_text += get_utf8(class_file, index_aux);
+      utf8_text += get_cp_info_utf8(class_file, index_aux);
       break;
     case CONSTANT_UTF8:
       utf8_text = (char *)class_file.constant_pool[index].Utf8_Info.UTF8_bytes; 
@@ -41,113 +41,7 @@ std::string get_utf8(Class_File class_file, u2 index){
   return utf8_text;
 }
 
-void print_cp_info(Class_File class_file){
-  int count = class_file.constant_pool_count;
-  for (int i = 1; i < count; i++) {
-
-    std::string utf8_text;
-    PRINT("\n-------------------------------------------------------------------\n");
-    std::cout << "CP_INFO[" << i << "]" << std::endl;
-    switch (class_file.constant_pool[i].tag) {
-    case CONSTANT_CLASS:
-      PRINT("CONSTANT_CLASS");
-      std::cout << "Class index: #" << class_file.constant_pool[i].Class_Info.class_name << "\t\t"; 
-      PRINT(get_utf8(class_file, class_file.constant_pool[i].Class_Info.class_name));               
-      break;
-    case CONSTANT_FIELD_REF:
-      PRINT("CONSTANT_FIELD_REF");
-      std::cout << "Class index: #" << class_file.constant_pool[i].Fieldref_Info.field_ref_class_ref << "\t\t"; 
-      PRINT(get_utf8(class_file, class_file.constant_pool[i].Fieldref_Info.field_ref_class_ref));
-
-      std::cout << "Name and Type: #" << class_file.constant_pool[i].Fieldref_Info.field_ref_name_type_descriptor << "\t\t";
-      PRINT(get_utf8(class_file, class_file.constant_pool[i].Fieldref_Info.field_ref_name_type_descriptor));
-      break;
-    case CONSTANT_METHOD_REF:
-      PRINT("CONSTANT_METHOD_REF");
-      std::cout << "Class name index: #" << class_file.constant_pool[i].Methodref_Info.method_ref_index << "\t\t"; 
-      PRINT(get_utf8(class_file, class_file.constant_pool[i].Methodref_Info.method_ref_index));                    
-      std::cout << "Name and Type: #" << class_file.constant_pool[i].Methodref_Info.method_ref_name_and_type << "\t\t"; 
-      PRINT(get_utf8(class_file, class_file.constant_pool[i].Methodref_Info.method_ref_name_and_type));                 
-      break;
-    case CONSTANT_INTERFACE_METHOD_REF:
-      PRINT("CONSTANT_METHOD_REF");
-      break;
-
-    case CONSTANT_STRING:
-      PRINT("CONSTANT_STRING");
-      std::cout << "String: #" << class_file.constant_pool[i].String_Info.string_index << "\t\t"; // #18
-      PRINT(get_utf8(class_file, class_file.constant_pool[i].String_Info.string_index));          // # Hello Java!
-      break;
-
-    case CONSTANT_INT:
-      PRINT("CONSTANT_INT");
-
-      std::cout << "Bytes: 0x" << intToHex(class_file.constant_pool[i].Integer_Info.int_bytes) << std::endl;
-      std::cout << "Integer: " << class_file.constant_pool[i].Integer_Info.int_bytes << std::endl;
-      break;
-
-    case CONSTANT_FLOAT:
-      PRINT("CONSTANT_FLOAT");
-      std::cout << "Bytes: 0x" << intToHex(class_file.constant_pool[i].Float_Info.float_bytes) << std::endl;
-      float float_num;
-      memcpy(&float_num, &class_file.constant_pool[i].Float_Info.float_bytes, sizeof(float));
-      std::cout << "Float: " << float_num << std::endl;
-      break;
-
-    case CONSTANT_LONG:
-      PRINT("CONSTANT_LONG");
-      std::cout << "High: 0x" << intToHex(class_file.constant_pool[i].Long_Info.long_high_bytes) << std::endl;
-      std::cout << "Low: 0x" << intToHex(class_file.constant_pool[i].Long_Info.long_low_bytes) << std::endl;
-
-      u8 long_value;
-      long_value =
-        ((u8)class_file.constant_pool[i].Long_Info.long_high_bytes << 32) |
-        class_file.constant_pool[i].Long_Info.long_low_bytes;
-
-      long long_info;
-      memcpy(&long_info, &long_value, sizeof(long));
-      std::cout << "Long value:" << long_info << std::endl;
-      break;
-
-    case CONSTANT_DOUBLE:
-      PRINT("CONSTANT_DOUBLE");
-      std::cout << "High: 0x" << intToHex(class_file.constant_pool[i].Double_Info.double_high_bytes) << std::endl;
-      std::cout << "Low: 0x" << intToHex(class_file.constant_pool[i].Double_Info.double_low_bytes) << std::endl;
-      uint64_t double_value;
-      double_value = ((uint64_t)class_file.constant_pool[i].Double_Info.double_high_bytes << 32) |
-                           class_file.constant_pool[i].Double_Info.double_low_bytes;
-      double double_info;
-      memcpy(&double_info, &double_value, sizeof(long));
-
-      std::cout << "Double value:" << double_info << std::endl;
-      break;
-
-    case CONSTANT_NAME_TYPE:
-      PRINT("CONSTANT_NAME_TYPE");
-
-      std::cout << "Name:  " << class_file.constant_pool[i].NameAndType_Info.name_type_index << "\t\t"; // Name: #7
-      PRINT(get_utf8(class_file, class_file.constant_pool[i].NameAndType_Info.name_type_index));
-
-      std::cout << "Descriptor:  " << class_file.constant_pool[i].NameAndType_Info.name_type_descriptor_index << "\t\t"; // Descriptor: #8
-      PRINT(get_utf8(class_file, class_file.constant_pool[i].NameAndType_Info.name_type_descriptor_index));
-
-      break;
-
-    case CONSTANT_UTF8:
-      PRINT("CONSTANT_UTF8");
-      std::cout << "Length:  " << class_file.constant_pool[i].Utf8_Info.UTF8_size << std::endl; // #6
-      std::cout << "String: " << class_file.constant_pool[i].Utf8_Info.UTF8_bytes << std::endl; // #6
-      break;
-
-    default:
-      PRINT("(large numeric continued)");
-
-      break;
-    }
-  }
-}
-
-void cp_info_reader(Class_File class_file, FILE *file) {
+void read_cp_info(Class_File class_file, FILE *file) {
   int count = class_file.constant_pool_count;
   for (int i = 1; i < count; i++) {
     // tenho o constant pool count, quero ler de cada um, pra isso preciso ler o próximo?
@@ -207,7 +101,7 @@ void cp_info_reader(Class_File class_file, FILE *file) {
 
 // * Verifica se o this_class é igual ao nome do arquivo fonte
 void get_cp_info_class_name(std::string filename, Class_File class_file) {
-  std::string class_name = get_utf8(class_file, class_file.this_class);
+  std::string class_name = get_cp_info_utf8(class_file, class_file.this_class);
   class_name += ".class";
   if (DEBUG) std::cout << "This Class:           " << class_name << std::endl;
 

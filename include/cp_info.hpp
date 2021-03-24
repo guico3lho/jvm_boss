@@ -3,8 +3,8 @@
 
 #include "types.hpp"
 #include "file_reader.hpp"
-#include <string.h>
-#include "functions.hpp"
+#include "utils.hpp"
+#include <cstring>
 
 struct Class_File;
 
@@ -37,12 +37,12 @@ struct Cp_Info {
 
     /* String: represents constant objects of the type String */
     struct {
-        u2 string_index;
+      u2 string_index;
     } String_Info; 
 
     /* Int: represents 4-byte numeric int constants */
     struct {
-      u4 int_bytes;
+        u4 int_bytes;
     } Integer_Info; 
 
     /* Float: represents 4-byte numeric float constants */
@@ -50,33 +50,41 @@ struct Cp_Info {
       u4 float_bytes;
     } Float_Info; 
 
-    /* Long: represents 8-byte numeric long constants
-            Big-endian
-            Occupies 2 indexes in pool table */
+    /* 
+      Long: represents 8-byte numeric long constants
+      Big-endian
+      Occupies 2 indexes in pool table 
+    */
     struct {
       u4 long_high_bytes;
       u4 long_low_bytes;
     } Long_Info; 
 
-    /* Double: represents 8-byte numeric double constants
-            Big-endian, IEEE-754
-            Occupies 2 indexes in pool table */
+    /* 
+      Double: represents 8-byte numeric double constants
+      Big-endian, IEEE-754
+      Occupies 2 indexes in pool table 
+    */
     struct {
-      u4 double_high_bytes;
-      u4 double_low_bytes;
+        u4 double_high_bytes;
+        u4 double_low_bytes;
     } Double_Info; 
 
-    /* NameAndType: represents a field or method, without indicating which class or interface type it belongs to
-            Name_type_index/name_type_descriptor_index items must be valid indexes into the pool table */
+    /* 
+      NameAndType: represents a field or method, without indicating which class or interface type it belongs to
+      Name_type_index/name_type_descriptor_index items must be valid indexes into the pool table 
+    */
     struct {
-      u2 name_type_index;
-      u2 name_type_descriptor_index;
+        u2 name_type_index;
+        u2 name_type_descriptor_index;
     } NameAndType_Info; 
 
-    /* Utf8: represents a field or method
-            Length tem gives the number of bytes in the bytes array
-            Bytes array contains the bytes of the string
-            Not allowed zero values or value between the interval 0xf0 to 0xff -> [240, 255] */
+    /* 
+      Utf8: represents a field or method
+      Length tem gives the number of bytes in the bytes array
+      Bytes array contains the bytes of the string
+      Not allowed zero values or value between the interval 0xf0 to 0xff -> [240, 255] 
+    */
     struct {
       u2 UTF8_size;
       u1 *UTF8_bytes;
@@ -101,9 +109,9 @@ struct Cp_Info {
   };
 };
 
-void cp_info_reader(Class_File class_file, FILE *file);
+void read_cp_info(Class_File class_file, FILE *file);
 void print_cp_info(Class_File class_file);
 void get_cp_info_class_name(std::string filename, Class_File class_file);
-std::string get_utf8(Class_File class_file, u2 index);
+std::string get_cp_info_utf8(Class_File class_file, u2 index);
 
 #endif //__CP_INFO_H__

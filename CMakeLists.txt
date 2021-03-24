@@ -12,7 +12,6 @@ set(INCLUDE_DIR include)
 
 set(HEADER_FILES
     ${INCLUDE_DIR}/types.hpp
-    # ${INCLUDE_DIR}/utils.hpp
     ${INCLUDE_DIR}/read_bytes.hpp
     ${INCLUDE_DIR}/file_reader.hpp
     ${INCLUDE_DIR}/file_printer.hpp
@@ -23,12 +22,11 @@ set(HEADER_FILES
     ${INCLUDE_DIR}/attribute_info.hpp
     ${INCLUDE_DIR}/stack_map_table.hpp
     ${INCLUDE_DIR}/instruction.hpp
-    ${INCLUDE_DIR}/functions.hpp
+    ${INCLUDE_DIR}/utils.hpp
 )
 
 set(SOURCE_FILES
     ${SOURCE_DIR}/main.cpp
-    # ${SOURCE_DIR}/utils.cpp
     ${SOURCE_DIR}/read_bytes.cpp
     ${SOURCE_DIR}/file_reader.cpp
     ${SOURCE_DIR}/file_printer.cpp
@@ -38,7 +36,7 @@ set(SOURCE_FILES
     ${SOURCE_DIR}/method_info.cpp
     ${SOURCE_DIR}/attribute_info.cpp
     ${SOURCE_DIR}/instruction.cpp
-    ${SOURCE_DIR}/functions.cpp
+    ${SOURCE_DIR}/utils.cpp
 )
 
 # Executable name
