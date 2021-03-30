@@ -172,7 +172,7 @@ void print_constant_pool(Class_File class_file) {
   Cp_Info current_cp_info;
 
   for (int i = 1; i < class_file.constant_pool_count; i++) {
-    printf("\n#%d = ", i + 1);
+    printf("\n#%d = ", i);
     current_cp_info = class_file.constant_pool[i];
 
     switch (current_cp_info.tag) {
