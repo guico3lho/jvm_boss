@@ -18,7 +18,6 @@
         std::cout  << (a) << std::endl; \
     } while (false)
 
-char * intToHex(int inteiro);
-
+void print_command_error();
 
 #endif 

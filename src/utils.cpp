@@ -1,9 +1,11 @@
 #include "utils.hpp"
 
 
-char *intToHex(int inteiro) {   
-    char *hex_string;
-    hex_string = (char *)malloc(sizeof(30 * sizeof(char)));
-    sprintf(hex_string, "%X", inteiro); //convert number to hex
-    return hex_string;
+void print_command_error() {
+  std::cout 
+    << "\nComando incorreto!\n"
+    << "Comando leitor/exibidor: -e test/arquivo.class\n"
+    << "Comando para interpretador: -i test/arquivo.class\n"
+    << "Encerrando programa.\n";
+    exit(1);
 }
