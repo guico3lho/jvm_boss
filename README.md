@@ -50,7 +50,7 @@ Interpreta e executa o arquivo .class
 $ ./jvm_boss -i test/HelloJava.class
 
 # Bash script
-$ ./exec.sh HelloJava
+$ ./jvm.sh HelloJava
 ```
 
 # Configurações
