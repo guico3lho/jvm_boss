@@ -4,108 +4,109 @@ void read_cp_info(FILE *file, Class_File *class_file) {
   // Constant Pool Table
   // All indexes are 16 bits = 2 bytes
   // Number of constants in the constant pool table is constant_pool_count - 1
-  for(int i = 0; i < class_file->constant_pool_count - 1; i++) {
+  for(int i = 1; i < class_file->constant_pool_count; i++) {
     class_file->constant_pool[i].tag = read_1_byte(file);  
 
     switch (class_file->constant_pool[i].tag) {
       case CONSTANT_CLASS:
-        class_file->constant_pool[i].class_name = read_2_bytes(file);
+        class_file->constant_pool[i].Class.class_name = read_2_bytes(file);
         break;
       case CONSTANT_FIELD_REF:
-        class_file->constant_pool[i].field_ref_class_index = read_2_bytes(file);
-        class_file->constant_pool[i].field_ref_name_type_index = read_2_bytes(file);
+        class_file->constant_pool[i].Fieldref.class_index = read_2_bytes(file);
+        class_file->constant_pool[i].Fieldref.name_and_type_index = read_2_bytes(file);
         break;
       case CONSTANT_METHOD_REF:
-        class_file->constant_pool[i].method_ref_index = read_2_bytes(file);
-        class_file->constant_pool[i].method_ref_name_and_type = read_2_bytes(file);
+        class_file->constant_pool[i].Methodref.class_index = read_2_bytes(file);
+        class_file->constant_pool[i].Methodref.name_and_type_index = read_2_bytes(file);
         break;
       case CONSTANT_INTERFACE_METHOD_REF:
-        class_file->constant_pool[i].interface_method_ref_index = read_2_bytes(file);
-        class_file->constant_pool[i].interface_method_ref_name_type = read_2_bytes(file);
+        class_file->constant_pool[i].InterfaceMethodref.class_index = read_2_bytes(file);
+        class_file->constant_pool[i].InterfaceMethodref.name_and_type_index = read_2_bytes(file);
         break;
       case CONSTANT_STRING:
-        class_file->constant_pool[i].string_bytes = read_2_bytes(file);
+        class_file->constant_pool[i].String.string_index = read_2_bytes(file);
         break;
       case CONSTANT_INT:
-        class_file->constant_pool[i].int_bytes = read_4_bytes(file);
+        class_file->constant_pool[i].Integer.bytes = read_4_bytes(file);
         break;
       case CONSTANT_FLOAT:
-        class_file->constant_pool[i].float_bytes = read_4_bytes(file);
+        class_file->constant_pool[i].Float.bytes = read_4_bytes(file);
         break;
       case CONSTANT_LONG:
-        class_file->constant_pool[i].long_high_bytes = read_4_bytes(file);
-        class_file->constant_pool[i].long_low_bytes = read_4_bytes(file);
+        class_file->constant_pool[i].Long.high_bytes = read_4_bytes(file);
+        class_file->constant_pool[i].Long.low_bytes = read_4_bytes(file);
         i++;
         break;
       case CONSTANT_DOUBLE:
-        class_file->constant_pool[i].double_high_bytes = read_4_bytes(file);
-        class_file->constant_pool[i].double_low_bytes = read_4_bytes(file);
+        class_file->constant_pool[i].Double.high_bytes = read_4_bytes(file);
+        class_file->constant_pool[i].Double.low_bytes = read_4_bytes(file);
         i++;
         break;
       case CONSTANT_NAME_TYPE:
-        class_file->constant_pool[i].name_type_index = read_2_bytes(file);
-        class_file->constant_pool[i].name_type_descriptor_index = read_2_bytes(file);
+        class_file->constant_pool[i].NameAndType.name_index = read_2_bytes(file);
+        class_file->constant_pool[i].NameAndType.descriptor_index = read_2_bytes(file);
         break;
       case CONSTANT_UTF8:
-          class_file->constant_pool[i].UTF8_size = read_2_bytes(file);
-          class_file->constant_pool[i].UTF8_bytes = (u1*) calloc((class_file->constant_pool[i].UTF8_size) + 1, sizeof(u1));
-          fread(class_file->constant_pool[i].UTF8_bytes, 1, class_file->constant_pool[i].UTF8_size, file);
-          class_file->constant_pool[i].UTF8_bytes[class_file->constant_pool[i].UTF8_size] = '\0';
+        class_file->constant_pool[i].Utf8.length = read_2_bytes(file);
+        class_file->constant_pool[i].Utf8.bytes = (u1*) calloc((class_file->constant_pool[i].Utf8.length) + 1, sizeof(u1));
+        fread(class_file->constant_pool[i].Utf8.bytes, 1, class_file->constant_pool[i].Utf8.length, file);
+        class_file->constant_pool[i].Utf8.bytes[class_file->constant_pool[i].Utf8.length] = '\0';
         break;
     }
   }
 }
 
-std::string get_cp_info_utf8(Cp_Info *cp_info, u2 index) {
-  std::string utf8_const;
-  u2 tag = cp_info[index].tag;
-
-  switch (tag) {
-    case CONSTANT_UTF8: 
-      // representa valores strings constantes, inclusive unicode
-      // checar se nenhum byte tem valor 0 ou está no intervalo 0xf0 a 0xff -> [240, 255]
-      utf8_const = (char*) cp_info[index].UTF8_bytes;
-      break;
+std::string get_cp_info_utf8(Class_File class_file, u2 index){
+  std::string utf8_text;
+  u2 index_aux;
+  switch (class_file.constant_pool[index].tag) {
     case CONSTANT_CLASS:
-      utf8_const = get_cp_info_utf8(cp_info, cp_info[index].class_name - 1);
+      index = class_file.constant_pool[index].Class.class_name; 
+      utf8_text = get_cp_info_utf8(class_file, index);                       
       break;
     case CONSTANT_FIELD_REF:
-      utf8_const = get_cp_info_utf8(cp_info, cp_info[index].field_ref_class_index - 1);
-      utf8_const += get_cp_info_utf8(cp_info, cp_info[index].field_ref_name_type_index - 1);
-      break;
-    case CONSTANT_NAME_TYPE:
-      // representa um nome simples de field ou método ou ainda o nome do método especial <init>
-      utf8_const = get_cp_info_utf8(cp_info, cp_info[index].name_type_index - 1);
-      // representa um descritor válido de field ou de método
-      utf8_const += get_cp_info_utf8(cp_info, cp_info[index].name_type_descriptor_index - 1);
+      index = class_file.constant_pool[index].Fieldref.class_index; 
+      utf8_text = get_cp_info_utf8(class_file, index);                                   
       break;
     case CONSTANT_METHOD_REF:
-      utf8_const = get_cp_info_utf8(cp_info, cp_info[index].method_ref_index - 1);
-      utf8_const += get_cp_info_utf8(cp_info, cp_info[index].method_ref_name_and_type - 1);
       break;
     case CONSTANT_INTERFACE_METHOD_REF:
-      utf8_const = get_cp_info_utf8(cp_info, cp_info[index].interface_method_ref_index - 1);
-      utf8_const += get_cp_info_utf8(cp_info, cp_info[index].interface_method_ref_name_type - 1);
       break;
     case CONSTANT_STRING:
-      utf8_const += get_cp_info_utf8(cp_info, cp_info[index].string_bytes - 1);
+      index = class_file.constant_pool[index].String.string_index; 
+      utf8_text = get_cp_info_utf8(class_file, index);   
       break;
-    default:
-      return "";
+    case CONSTANT_INT:
+      break;
+    case CONSTANT_FLOAT:
+      break;
+    case CONSTANT_LONG:
+      break;
+    case CONSTANT_DOUBLE:
+      break;
+    case CONSTANT_NAME_TYPE:
+      index_aux = class_file.constant_pool[index].NameAndType.name_index;            
+      utf8_text = get_cp_info_utf8(class_file, index_aux);                                             
+      index_aux = class_file.constant_pool[index].NameAndType.descriptor_index; 
+      utf8_text += get_cp_info_utf8(class_file, index_aux);
+      break;
+    case CONSTANT_UTF8:
+      utf8_text = (char *)class_file.constant_pool[index].Utf8.bytes; 
+      break;
   }
-
-  return utf8_const;
+  return utf8_text;
 }
 
-//* Verifica se o this_class é igual ao nome do arquivo fonte
-void get_cp_info_class_name(std::string filename, Class_File *class_file) {
-  std::string class_name = get_cp_info_utf8(class_file->constant_pool, class_file->this_class - 1);
+// * Verifica se o this_class é igual ao nome do arquivo fonte
+void get_cp_info_class_name(std::string filename, Class_File class_file) {
+  std::string class_name = get_cp_info_utf8(class_file, class_file.this_class);
   class_name += ".class";
-  if (PRINT) std::cout << "This Class:           " << class_name << std::endl;
+  if (DEBUG) std::cout << "This Class:           " << class_name << std::endl;
 
   std::size_t backslash_index = filename.find_last_of("/\\");
   std::string class_filename = filename.substr(backslash_index + 1);
-  if (PRINT) std::cout << "Source File Name:     " << class_filename << std::endl;
+  if (DEBUG)
+    std::cout << "Source File Name:     " << class_filename << std::endl;
 
   if (class_filename != class_name) {
     printf("O nome do arquivo nao corresponde ao da classe!\n");

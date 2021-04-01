@@ -1,6 +1,4 @@
 #include "interpreter.hpp"
-#include "class_loader.hpp"
-#include "instruction.hpp"
 
 std::map<std::string, Class_Loader*> loaded_classes;
 std::map<std::string, Class_Loader*> static_classes;
@@ -85,6 +83,15 @@ Operand* get_static_field_of_class(std::string class_name, std::string field_nam
     return NULL;
 }
 
+/**
+ * @brief Retorna a classe estática
+ * @param std::string nome da classe a ser retornada a referencia
+ * @return ClassInstance* ponteiro da referencia da classe
+ */
+Class_Loader* get_static_class(std::string class_name){
+  return static_classes[class_name];
+}
+
 void push_frame(Frame *frame) {
   frame_stack.push(frame);
 }
@@ -96,13 +103,4 @@ void pop_frame() {
 Frame* top_frame() {
   Frame *frame = frame_stack.top();
   return frame;
-}
-
-/**
- * @brief Retorna a classe estática
- * @param std::string nome da classe a ser retornada a referencia
- * @return ClassInstance* ponteiro da referencia da classe
- */
-Class_Loader* get_static_class(std::string class_name){
-  return static_classes[class_name];
 }

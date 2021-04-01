@@ -1,5 +1,6 @@
 #include "file_printer.hpp"
 #include "interpreter.hpp"
+#include "utils.hpp"
 
 int main(int argc, char* argv[]) {
 

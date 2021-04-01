@@ -3,10 +3,10 @@
  *  @brief Declaração das funções de cada instrução de opcode 
  * 
  */
-#ifndef INSTRUCTIONS_FUNC_H
-#define INSTRUCTIONS_FUNC_H
+#ifndef __INSTRUCTIONS_FUNC_H__
+#define __INSTRUCTIONS_FUNC_H__
 
-#include "interpreter.hpp"
+#include "frame.hpp"
 
 void nop(Frame *curr_frame);
 void ldc(Frame *curr_frame);

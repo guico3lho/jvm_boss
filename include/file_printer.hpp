@@ -5,6 +5,9 @@
 #include "instruction.hpp"
 #include <cstring>
 
+void print_major_version(u2 major_version);
+void check_flag(u2 access_flags, int constant_access_flag, std::string flag_name);
+void print_access_flags(u2 access_flags);
 
 void print_basic_info(std::string filename, Class_File class_file);
 

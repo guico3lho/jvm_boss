@@ -1,5 +1,4 @@
 #include "class_loader.hpp"
-#include "frame.hpp"
 
 /**
  * @brief Carrega variáveis com informações do .class
@@ -12,7 +11,7 @@ void load_class_var(Class_Loader *class_loader) {
   Class_File current_class = class_loader->class_file;
   Cp_Info &super_class = current_class.constant_pool[current_class.super_class];
 
-  std::string super_class_name = get_cp_info_utf8(current_class, super_class.Class_Info.class_name);
+  std::string super_class_name = get_cp_info_utf8(current_class, super_class.Class.class_name);
   if (DEBUG) std::cout << "Super Classe " << super_class_name << " carregada na memoria!\n";
 
   do {

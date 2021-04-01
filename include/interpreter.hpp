@@ -7,8 +7,14 @@
 
 #include <sstream>
 #include <cmath>
+
 #include "class_file.hpp"
-#include "frame.hpp"
+#include "class_loader.hpp"
+#include "instruction.hpp"
+
+struct Class_Loader;
+struct Instruction;
+struct Operand;
 
 void execute(Class_File class_file);
 
@@ -19,8 +25,6 @@ Class_File get_class_info_and_load_not_exists(std::string class_path);
 
 Operand* get_static_field_of_class(std::string class_name, std::string field_name);
 
-Frame* top_frame();
-void push_frame(Frame *frame);
-void pop_frame();
+
 
 #endif

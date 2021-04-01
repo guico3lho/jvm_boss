@@ -8,6 +8,7 @@
 #include <stack>
 #include <vector>
 #include "class_loader.hpp"
+#include "interpreter.hpp"
 
 struct Class_Loader;
 struct Array_Type;
@@ -65,5 +66,9 @@ Operand* check_string_create_type(std::string string_tipo);
 
 Method_Info* find_method(Class_File class_file, std::string method_name, std::string method_desc);
 Method_Info* find_main(Class_File class_file);
+
+Frame* top_frame();
+void push_frame(Frame *frame);
+void pop_frame();
 
 #endif

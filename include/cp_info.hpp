@@ -3,48 +3,109 @@
 
 #include "types.hpp"
 #include "class_file.hpp"
-#include "utils.hpp"
 #include <cstring>
 
 struct Class_File;
 
-typedef struct Cp_Info{
-  u1 tag;
+struct Cp_Info {
+  u2 tag;
 
-  u2 class_name; // big-endian
+  union {
+    struct {
+      u2 class_name; 
+    } Class;    
 
-  u2 field_ref_class_index;
-  u2 field_ref_name_type_index;
+    /* Field: represents a class or an interface */
+    struct {
+      u2 class_index;
+      u2 name_and_type_index;
+    } Fieldref; 
 
     /* Method: represents a class or an interface */
     struct {
-      u2 method_ref_index; 
-      u2 method_ref_name_and_type;
-    } Methodref_Info; 
+      u2 class_index; 
+      u2 name_and_type_index;
+    } Methodref; 
 
-  u2 string_bytes;
-  u4 int_bytes;
-  u4 float_bytes;
+    /* 
+      NameAndType: represents a field or method, without indicating which class or interface type it belongs to
+      name_index/descriptor_index items must be valid indexes into the pool table 
+    */
+    struct {
+      u2 name_index;
+      u2 descriptor_index;
+    } NameAndType; 
 
-  // Long - integer constant of 8 bytes (big-endian), occupies 2 indexes in constant_pool table
-  u4 long_high_bytes;
-  u4 long_low_bytes;
+    /* InterfaceMethod: represents constant objects of the type String) */
+    struct {
+      u2 class_index;
+      u2 name_and_type_index;
+    } InterfaceMethodref; 
 
-  // Double - float constant of 8 bytes (big-endian, IEEE-754), occupies 2 indexes in constant_pool table
-  u4 double_high_bytes;
-  u4 double_low_bytes;
+    /* String: represents constant objects of the type String */
+    struct {
+      u2 string_index;
+    } String; 
 
-  u2 name_type_index;
-  u2 name_type_descriptor_index;
+    /* Int: represents 4-byte numeric int constants */
+    struct {
+      u4 bytes;
+    } Integer; 
 
-  //* Not allowed zero values or value between the interval 0xf0 to 0xff -> [240, 255]
-  u2 UTF8_size;
-  u1 *UTF8_bytes;
+    /* Float: represents 4-byte numeric float constants */
+    struct {
+      u4 bytes;
+    } Float; 
 
-} Cp_Info;
+    /* 
+      Long: represents 8-byte numeric long constants
+      Big-endian
+      Occupies 2 indexes in pool table 
+    */
+    struct {
+      u4 high_bytes;
+      u4 low_bytes;
+    } Long; 
 
-void read_cp_info(FILE *file, Class_File *class_file);
-std::string get_cp_info_utf8(Cp_Info *cp_info, u2 index);
-void get_cp_info_class_name(std::string filename, Class_File *class_file);
+    /* 
+      Double: represents 8-byte numeric double constants
+      Big-endian, IEEE-754
+      Occupies 2 indexes in pool table 
+    */
+    struct {
+      u4 high_bytes;
+      u4 low_bytes;
+    } Double; 
 
-#endif
+    /* 
+      Utf8: represents a field or method
+      Length tem gives the number of bytes in the bytes array
+      Bytes array contains the bytes of the string
+      Not allowed zero values or value between the interval 0xf0 to 0xff -> [240, 255] 
+    */
+    struct {
+      u2 length;
+      u1 *bytes;
+    } Utf8; 
+
+    struct {
+      u1 reference_kind;
+      u2 reference_index;
+    } MethodHandle; 
+
+    struct {
+      u2 descriptor_index;
+    } MethodType; 
+
+    struct {
+      u2 bootstrap_method_attr_index;
+      u2 name_and_type_index;
+    } InvokeDynamic; 
+  };
+};
+
+void read_cp_info(FILE *file, Class_File* class_file);
+void get_cp_info_class_name(std::string filename, Class_File* class_file);
+std::string get_cp_info_utf8(Class_File class_file, u2 index);
+
+#endif //__CP_INFO_H__

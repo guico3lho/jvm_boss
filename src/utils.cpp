@@ -1,8 +1,5 @@
 #include "utils.hpp"
 
-char *intToHex(int integer) {
-    char *hex_string;
-    hex_string = (char*) malloc(30 * sizeof(char));
 
 void print_command_error() {
   std::cout 
@@ -18,7 +15,7 @@ void freeClass(Class_File class_file){
   if(class_file.constant_pool) {
     for(int i = 1;i<class_file.constant_pool_count;++i){
       if(class_file.constant_pool[i].tag == CONSTANT_UTF8){
-      free(class_file.constant_pool[i].Utf8_Info.UTF8_bytes);
+      free(class_file.constant_pool[i].Utf8.bytes);
       }
     }
     free(class_file.constant_pool);

@@ -129,51 +129,51 @@ Attribute_Info get_attribute_info(FILE *file, Class_File *class_file) {
   attribute_info.attribute_name_index = read_2_bytes(file);
   attribute_info.attribute_length = read_4_bytes(file);
 
-  std::string attribute_name = get_cp_info_utf8(class_file->constant_pool, attribute_info.attribute_name_index - 1);
-  if (PRINT) std::cout << "Attribute_name: " << attribute_name << std::endl;
+  std::string attribute_name = get_cp_info_utf8(*class_file, attribute_info.attribute_name_index);
+  if (DEBUG) std::cout << "Attribute_name: " << attribute_name << std::endl;
 
   if (attribute_name == "Code") {
-    if (PRINT) std::cout << "Reading Code\n";
+    if (DEBUG) std::cout << "Reading Code\n";
     attribute_info = read_code_attribute(file, class_file, attribute_info);
   }
   else if (attribute_name == "ConstantValue") {
-    if (PRINT) std::cout << "Reading constant value\n";
+    if (DEBUG) std::cout << "Reading constant value\n";
     attribute_info = read_const_value_attribute(file, attribute_info);
   }
   else if (attribute_name == "Exceptions") {
-    if (PRINT) std::cout << "Reading exception\n";
+    if (DEBUG) std::cout << "Reading exception\n";
     attribute_info = read_exception_attribute(file, attribute_info);
   }
   else if (attribute_name == "InnerClasses") {
-    if (PRINT) std::cout << "Reading inner classes\n";
+    if (DEBUG) std::cout << "Reading inner classes\n";
     attribute_info = read_inner_class_attribute(file, attribute_info);
   } 
   else if (attribute_name == "Synthetic") {
-    if (PRINT) std::cout << "Reading Synthetic\n"; // Fazer nada?
+    if (DEBUG) std::cout << "Reading Synthetic\n"; // Fazer nada?
   }
   else if (attribute_name == "SourceFile") {
-    if (PRINT) std::cout << "Reading Source File\n";
+    if (DEBUG) std::cout << "Reading Source File\n";
     attribute_info = read_source_file_attribute(file, attribute_info);
   }
   else if (attribute_name == "LineNumberTable") {
-    if (PRINT) std::cout << "Reading Line Number Table\n";
+    if (DEBUG) std::cout << "Reading Line Number Table\n";
     attribute_info = read_line_number_table_attribute(file, attribute_info);
   }
   else if (attribute_name == "LocalVariableTable") {
-    if (PRINT) std::cout << "Reading Local Variable Table \n";
+    if (DEBUG) std::cout << "Reading Local Variable Table \n";
     read_local_variable_table_attribute(file, &attribute_info);
   }
   else {
-    if (PRINT) std::cout << "Attributo Desconhecido...\n";
-    if (PRINT) std::cout << "Attribute Lenght: " << attribute_info.attribute_length << "\n" ;
+    if (DEBUG) std::cout << "Attributo Desconhecido...\n";
+    if (DEBUG) std::cout << "Attribute Lenght: " << attribute_info.attribute_length << "\n" ;
 
     // ignora atributos desconhecidos silenciosamente
     attribute_info.info = (u1*) malloc(attribute_info.attribute_length * sizeof(u1));
 
     for (int j = 0; (unsigned)j < attribute_info.attribute_length; j++) {
-      if (PRINT) std::cout << "reading byte " << j << std::endl;
+      if (DEBUG) std::cout << "reading byte " << j << std::endl;
       attribute_info.info[j] = read_1_byte(file);
-      if (PRINT) std::cout << "read byte\n";
+      if (DEBUG) std::cout << "read byte\n";
     }
   }
 

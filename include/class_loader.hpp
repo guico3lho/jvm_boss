@@ -7,6 +7,7 @@
 
 #include <map>
 #include "class_file.hpp"
+#include "frame.hpp"
 
 struct Operand;
 

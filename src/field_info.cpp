@@ -3,7 +3,7 @@
 void read_field_info(FILE *file, Class_File *class_file) {
 
   for (int i = 0; i < class_file->fields_count; i++) {
-    class_file->fields[i].access_flag = read_2_bytes(file);
+    class_file->fields[i].access_flags = read_2_bytes(file);
     class_file->fields[i].name_index = read_2_bytes(file);
     class_file->fields[i].descriptor_index = read_2_bytes(file);
 
