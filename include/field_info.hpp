@@ -2,7 +2,7 @@
 #define __FIELD_INFO_H__
 
 #include "attribute_info.hpp"
-#include "file_reader.hpp"
+#include "class_file.hpp"
 
 struct Class_File;
 struct Attribute_Info;

@@ -2,8 +2,7 @@
 #define __CP_INFO_H__
 
 #include "types.hpp"
-#include "file_reader.hpp"
-#include "utils.hpp"
+#include "class_file.hpp"
 #include <cstring>
 
 struct Class_File;

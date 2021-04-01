@@ -1,5 +1,5 @@
-#ifndef __FILE_READER_H__
-#define __FILE_READER_H__
+#ifndef __CLASS_FILE_H__
+#define __CLASS_FILE_H__
 
 #include "read_bytes.hpp"
 #include "cp_info.hpp"
@@ -43,10 +43,5 @@ typedef struct Class_File{
 } Class_File;
 
 Class_File read_class_file(std::string filename);
-
-void freeClass(Class_File class_file);
-void freeAttribute(Attribute_Info* attr,u4 size);
-void freeInner(Inner_Class_Attribute* inner,u4 size);
-
 
 #endif 
