@@ -1,5 +1,5 @@
-#ifndef __FILE_READER_H__
-#define __FILE_READER_H__
+#ifndef __CLASS_FILE_H__
+#define __CLASS_FILE_H__
 
 #include "read_bytes.hpp"
 #include "cp_info.hpp"

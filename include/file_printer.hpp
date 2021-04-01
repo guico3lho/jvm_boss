@@ -1,7 +1,7 @@
 #ifndef __FILE_PRINTER_H__
 #define __FILE_PRINTER_H__
 
-#include "file_reader.hpp"
+#include "class_file.hpp"
 #include "instruction.hpp"
 #include <cstring>
 

@@ -1,5 +1,4 @@
-#include "file_reader.hpp"
-#include "utils.hpp"
+#include "class_file.hpp"
 
 Class_File read_class_file(std::string filename) {
   FILE *file = fopen(filename.c_str(), "rb");
@@ -50,7 +49,7 @@ Class_File read_class_file(std::string filename) {
   get_cp_info_class_name(filename, &class_file); // checa se nome 
 
   class_file.super_class = read_2_bytes(file);
-  if (PRINT) std::cout << "Super Class:          " << class_file.super_class << std::endl;
+  if (DEBUG) std::cout << "Super Class:          " << get_cp_info_utf8(class_file, class_file.super_class) << std::endl;
 
   //* Interfaces
   class_file.interfaces_count = read_2_bytes(file);
@@ -80,5 +79,3 @@ Class_File read_class_file(std::string filename) {
 
   return class_file;
 }
-
-

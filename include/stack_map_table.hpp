@@ -1,7 +1,7 @@
 #ifndef __ATTRIBUTE_INFO_H__
 #define __ATTRIBUTE_INFO_H__
 
-#include "file_reader.hpp"
+#include "class_file.hpp"
 
 #define SAME 0
 #define SAME_LOCALS_1_STACK_ITEM 64

@@ -8,50 +8,50 @@
 /* INSTRUCTIONS */
 
 /* CONSTANTS */
-#define ldc 18
-#define ldc_w 19
-#define ldc2_w 20
+#define CONSTANT_ldc 18
+#define CONSTANT_ldc_w 19
+#define CONSTANT_ldc2_w 20
 
 /* COMPARISONS */
-#define iifeq 153
-#define ifne 154
-#define iflt 155
-#define ifge 156
-#define ifgt 157
-#define ifle 158
-#define if_icmpeq 159
-#define if_icmpne 160
-#define if_icmplt 161
-#define if_icmpge 162
-#define if_icmpgt 163
-#define if_icmple 164
-#define if_acmpeq 165
-#define if_acmpne 166
+#define CONSTANT_iifeq 153
+#define CONSTANT_ifne 154
+#define CONSTANT_iflt 155
+#define CONSTANT_ifge 156
+#define CONSTANT_ifgt 157
+#define CONSTANT_ifle 158
+#define CONSTANT_if_icmpeq 159
+#define CONSTANT_if_icmpne 160
+#define CONSTANT_if_icmplt 161
+#define CONSTANT_if_icmpge 162
+#define CONSTANT_if_icmpgt 163
+#define CONSTANT_if_icmple 164
+#define CONSTANT_if_acmpeq 165
+#define CONSTANT_if_acmpne 166
 
 /* CONTROL */
-#define GOTO 167
-#define jsr 168
+#define CONSTANT_GOTO 167
+#define CONSTANT_jsr 168
 
 /* REFERENCES */
-#define getstatic 178
-#define putstatic 179
-#define getfield 180
-#define putfield 181
-#define invokevirtual 182
-#define invokespecial 183
-#define invokestatic 184
-#define invokeinterface 185
-#define invokedynamic 186
-#define NEW 187
-#define newarray 188
-#define anewarray 189
-#define checkcast 192
-#define instanceof 193
+#define CONSTANT_getstatic 178
+#define CONSTANT_putstatic 179
+#define CONSTANT_getfield 180
+#define CONSTANT_putfield 181
+#define CONSTANT_invokevirtual 182
+#define CONSTANT_invokespecial 183
+#define CONSTANT_invokestatic 184
+#define CONSTANT_invokeinterface 185
+#define CONSTANT_invokedynamic 186
+#define CONSTANT_NEW 187
+#define CONSTANT_newarray 188
+#define CONSTANT_anewarray 189
+#define CONSTANT_checkcast 192
+#define CONSTANT_instanceof 193
 
 /* EXTENDED */
-#define multianewarray 197
-#define ifnull 198
-#define ifnonull 199
+#define CONSTANT_multianewarray 197
+#define CONSTANT_ifnull 198
+#define CONSTANT_ifnonull 199
 
 /* ATYPE OF EACH NEWARRAY */
 #define T_BOOLEAN 0x4

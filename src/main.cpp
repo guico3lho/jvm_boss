@@ -1,5 +1,5 @@
-#include "file_reader.hpp"
 #include "file_printer.hpp"
+#include "interpreter.hpp"
 
 int main(int argc, char* argv[]) {
 
@@ -21,6 +21,13 @@ int main(int argc, char* argv[]) {
       print_fields(class_file);
       print_methods(class_file);
       print_attributes(class_file);
+      freeClass(class_file);
+    }
+
+    // interpretador
+    if(option == "-i") {
+      std::cout << "\n----------Modo Interpretador----------\n\n";
+      execute(class_file);
     }
   }
 

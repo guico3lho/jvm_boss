@@ -622,3 +622,4 @@ Instruction *set_instructions() {
 
   return instructions;
 }
+

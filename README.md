@@ -35,8 +35,20 @@ $ ./compile.sh -w
 # Linux e Windows
 $ ./jvm_boss -e test/HelloJava.class
 
-# ou utilizar bash script
-$ ./exec.sh HelloJava
+# Bash script
+$ ./read.sh HelloJava
+```
+
+## Interpretador JVM
+
+Interpreta e executa o arquivo .class
+
+``` bash
+# Linux e Windows
+$ ./jvm_boss -i test/HelloJava.class
+
+# Bash script
+$ ./jvm.sh HelloJava
 ```
 
 # Configurações

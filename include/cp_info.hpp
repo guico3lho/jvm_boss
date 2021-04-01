@@ -1,7 +1,10 @@
 #ifndef __CP_INFO_H__
 #define __CP_INFO_H__
 
-#include "file_reader.hpp"
+#include "types.hpp"
+#include "class_file.hpp"
+#include "utils.hpp"
+#include <cstring>
 
 struct Class_File;
 
@@ -13,11 +16,11 @@ typedef struct Cp_Info{
   u2 field_ref_class_index;
   u2 field_ref_name_type_index;
 
-  u2 method_ref_index;
-  u2 method_ref_name_and_type;
-
-  u2 interface_method_ref_index;
-  u2 interface_method_ref_name_type;
+    /* Method: represents a class or an interface */
+    struct {
+      u2 method_ref_index; 
+      u2 method_ref_name_and_type;
+    } Methodref_Info; 
 
   u2 string_bytes;
   u4 int_bytes;

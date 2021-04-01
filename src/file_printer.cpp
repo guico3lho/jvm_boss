@@ -1,5 +1,71 @@
 #include "file_printer.hpp"
 
+
+void print_major_version(u2 major_version) {
+
+  switch(major_version) {
+    case 52:
+      printf("Java SE 8");
+      break;
+    case 51:
+      printf("Java SE 7");
+      break;
+    case 50:
+      printf("Java SE 6.0");
+      break;
+    case 49:
+      printf("Java SE 5.0");
+      break;
+    case 48:
+      printf("JDK 1.4");
+      break;
+    case 47:
+      printf("JDK 1.3");
+      break;
+    case 46:
+      printf("JDK 1.2");
+      break;
+    case 45:
+      printf("JDK 1.1");
+      break;
+  }
+  printf("\n");
+}
+
+void check_flag(u2 access_flags, int constant_access_flag, std::string flag_name) {
+  if(access_flags & constant_access_flag) {
+    std::cout << flag_name << " ";
+  }
+}
+
+void print_access_flags(u2 access_flags) {
+  printf("0x%.4x: ", access_flags);
+
+  std::string flags[15] = {
+    "ACC_PUBLIC", "ACC_SUPER", "ACC_PROTECTED", "ACC_STATIC", "ACC_FINAL",
+    "ACC_VOLATILE", "ACC_TRANSIENT", "ACC_SYNTHETIC", "ACC_ENUM", "ACC_SUPER", "ACC_INTERFACE"
+    "ACC_ABSTRACT", "ACC_ANNOTATION", "ACC_NATIVE", "ACC_STRICT"
+  };
+
+  check_flag(access_flags, ACC_PUBLIC, flags[0]);
+  check_flag(access_flags, ACC_PRIVATE, flags[1]);
+  check_flag(access_flags, ACC_PROTECTED, flags[2]);
+  check_flag(access_flags, ACC_STATIC, flags[3]);
+  check_flag(access_flags, ACC_FINAL, flags[4]);
+  check_flag(access_flags, ACC_VOLATILE, flags[5]);
+  check_flag(access_flags, ACC_TRANSIENT, flags[6]);
+  check_flag(access_flags, ACC_SYNTHETIC, flags[7]);
+  check_flag(access_flags, ACC_ENUM, flags[8]);
+  check_flag(access_flags, ACC_SUPER, flags[9]);
+  check_flag(access_flags, ACC_INTERFACE, flags[10]);
+  check_flag(access_flags, ACC_ABSTRACT, flags[11]);
+  check_flag(access_flags, ACC_ANNOTATION, flags[12]);
+  check_flag(access_flags, ACC_NATIVE, flags[13]);
+  check_flag(access_flags, ACC_STRICT, flags[14]);
+
+  printf("\n");
+}
+
 void print_basic_info(std::string filename, Class_File class_file) {
   std::cout << "------------ Basic Info ------------" << std::endl;
   std::cout << "Filename:             " << filename << std::endl;
@@ -347,18 +413,19 @@ void print_instructions(Class_File class_file, Code_Attribute *code_attribute) {
     for (int j = 0; j < (int) instructions[op_code].bytes; j++) {
         ++i;
         switch(op_code) {
-          case ldc:
+          case CONSTANT_ldc:
             {
               u1 index = code_attribute->code[i];
               u2 index_utf8 = 0x00 | index;
               std::cout << " #" << (int)index << " " << get_cp_info_utf8(class_file.constant_pool, index_utf8 - 1);
               j++;
-            }break;
-          case newarray:
+            }
+            break;
+          case CONSTANT_newarray:
             print_newarray(code_attribute->code[j]);
             j++;
             break;
-          case multianewarray:
+          case CONSTANT_multianewarray:
             {
               u1 byte1 = code_attribute->code[i];
               u1 byte2 = code_attribute->code[i+1];
@@ -372,30 +439,45 @@ void print_instructions(Class_File class_file, Code_Attribute *code_attribute) {
               }
               j++;
             }break;
-          case anewarray:
-          case checkcast: 
-          case getfield: 
-          case getstatic:
-          case instanceof: 
-          case invokespecial: 
-          case invokestatic:
-          case invokevirtual:
-          case ldc_w: 
-          case ldc2_w: 
-          case putfield:
-          case putstatic:
+          case CONSTANT_anewarray:
+          case CONSTANT_checkcast: 
+          case CONSTANT_getfield: 
+          case CONSTANT_getstatic:
+          case CONSTANT_instanceof: 
+          case CONSTANT_invokespecial: 
+          case CONSTANT_invokestatic:
+          case CONSTANT_invokevirtual:
+          case CONSTANT_ldc_w: 
+          case CONSTANT_ldc2_w: 
+          case CONSTANT_putfield:
+          case CONSTANT_putstatic:
             {
               u1 byte1 = code_attribute->code[i];
               u1 byte2 = code_attribute->code[i + 1];
               u2 index = (byte1 << 8) | byte2;
-              std::cout << " #" << std::dec << index << " " << get_cp_info_utf8(class_file.constant_pool, index - 1);
 
               i++;
               j++;
-            }break;
-          case GOTO: case if_acmpeq:  case if_acmpne:  case if_icmpeq: case if_icmpne: 
-          case if_icmplt: case if_icmpge: case if_icmpgt: case if_icmple: case iifeq: case ifne:
-          case iflt: case ifge: case ifgt: case ifle: case ifnonull: case ifnull: case jsr:
+            }
+            break;
+          case CONSTANT_GOTO: 
+          case CONSTANT_if_acmpeq:  
+          case CONSTANT_if_acmpne:  
+          case CONSTANT_if_icmpeq: 
+          case CONSTANT_if_icmpne: 
+          case CONSTANT_if_icmplt: 
+          case CONSTANT_if_icmpge: 
+          case CONSTANT_if_icmpgt: 
+          case CONSTANT_if_icmple: 
+          case CONSTANT_iifeq: 
+          case CONSTANT_ifne:
+          case CONSTANT_iflt: 
+          case CONSTANT_ifge: 
+          case CONSTANT_ifgt: 
+          case CONSTANT_ifle: 
+          case CONSTANT_ifnonull: 
+          case CONSTANT_ifnull: 
+          case CONSTANT_jsr:
             {
               u1 branchbyte1 = code_attribute->code[i];
               u1 branchbyte2 = code_attribute->code[i + 1];
