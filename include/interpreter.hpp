@@ -4,13 +4,14 @@
 #include "class_file.hpp"
 #include "class_loader.hpp"
 #include "instruction.hpp"
+
 #include <vector>
 
 struct Class_Loader;
 struct Operand;
 
 void execute(Class_File class_file);
-Class_Loader * load_class_memory(Class_File class_file);
+
 
 
 #endif // !_INTERPRETER_H_
