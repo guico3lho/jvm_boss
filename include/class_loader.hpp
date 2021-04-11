@@ -6,6 +6,7 @@
 #include <string>
 #include <map>
 
+struct Operand;
 typedef struct Class_Loader
 {
     std::string *class_name;

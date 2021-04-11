@@ -41,6 +41,7 @@ set(SOURCE_FILES
     ${SOURCE_DIR}/instruction.cpp
     ${SOURCE_DIR}/interpreter.cpp
     ${SOURCE_DIR}/class_loader.cpp
+    ${SOURCE_DIR}/frame.cpp
 
     ${SOURCE_DIR}/utils.cpp
 )

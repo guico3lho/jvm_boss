@@ -2,6 +2,10 @@
 #define __FRAME_H__
 
 #include <vector>
+#include <string>
+#include "types.hpp"
+
+#include "class_loader.hpp"
 
 struct Class_Loader;
 struct Array_Type;
@@ -22,6 +26,8 @@ typedef struct Operand {
     Array_Type *array_type;
   };
 } Operand;
+
+Operand* check_string_create_type(std::string type_string);
 
 typedef struct Array_Type{  
   std::vector<Operand*> *array;
