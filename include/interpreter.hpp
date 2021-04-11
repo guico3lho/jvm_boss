@@ -3,6 +3,8 @@
 
 #include "class_file.hpp"
 #include "class_loader.hpp"
+#include "instruction.hpp"
+#include <vector>
 
 struct Class_Loader;
 struct Operand;
