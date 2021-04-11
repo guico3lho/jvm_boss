@@ -1,6 +1,7 @@
 #include "utils.hpp"
 #include "class_file.hpp"
 #include "file_printer.hpp"
+#include "interpreter.hpp"
 
 
 int main(int argc, char* argv[]) {
@@ -32,6 +33,14 @@ int main(int argc, char* argv[]) {
     // interpretador
     if(option == "-i") {
       std::cout << "\n----------Modo Interpretador----------\n\n";
+      
+      execute(class_file);
+
+      // Por enquanto fazer igual no luis
+      // TODO: Minha classe já consegue ser lida, quero agora carregar todas as classes acima dela no method area
+      // TODO: Gostaria de criar um Class_Loader.cpp para colocar as funções que fazem o carregamento de classes na method area
+      // TODO: Criar também um MethodArea.cpp que vai chamar o Class_Loader.cpp
+    // "HelloJava" - TODO: transformar class_loader->class_name sem ponteiro
 
     }
     

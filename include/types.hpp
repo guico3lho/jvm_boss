@@ -23,6 +23,13 @@
 #define CONSTANT_METHOD_TYPE           16
 #define CONSTANT_INVOKE_DYNAMIC        18
 
+/* PRIMITIVE TYPES */
+#define CONSTANT_BOOL     90
+#define CONSTANT_BYTE     91
+#define CONSTANT_CHAR     92
+#define CONSTANT_SHORT    93
+#define CONSTANT_ARRAY    94
+
 /* ACCESS FLAGS */
 #define ACC_PUBLIC        0x0001 // public declaration, can be accessed outside the package
 #define ACC_PRIVATE       0x0002 // private declaration, restrict context to class definition

@@ -22,7 +22,10 @@ set(HEADER_FILES
     ${INCLUDE_DIR}/attribute_info.hpp
     ${INCLUDE_DIR}/stack_map_table.hpp
     ${INCLUDE_DIR}/instruction.hpp
+    ${INCLUDE_DIR}/interpreter.hpp
+    ${INCLUDE_DIR}/frame.hpp
     ${INCLUDE_DIR}/utils.hpp
+    ${INCLUDE_DIR}/class_loader.hpp
 )
 
 set(SOURCE_FILES
@@ -36,6 +39,9 @@ set(SOURCE_FILES
     ${SOURCE_DIR}/method_info.cpp
     ${SOURCE_DIR}/attribute_info.cpp
     ${SOURCE_DIR}/instruction.cpp
+    ${SOURCE_DIR}/interpreter.cpp
+    ${SOURCE_DIR}/class_loader.cpp
+
     ${SOURCE_DIR}/utils.cpp
 )
 
