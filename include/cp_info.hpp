@@ -7,6 +7,10 @@
 
 struct Class_File;
 
+/**
+ * @brief Cp_Info - estrutura de dados da constant pool
+ * 
+ */
 struct Cp_Info {
   u2 tag;
 
@@ -104,8 +108,29 @@ struct Cp_Info {
   };
 };
 
+/**
+ * @brief 
+ * 
+ * @param file 
+ * @param class_file 
+ */
 void read_cp_info(FILE *file, Class_File* class_file);
-void get_cp_info_class_name(std::string filename, Class_File* class_file);
+
+/**
+ * @brief Checa se nome da classe é igual ao do arquivo
+ * 
+ * @param filename 
+ * @param class_file 
+ */
+void get_cp_info_class_name(std::string filename, Class_File class_file);
+
+/**
+ * @brief retorna string de caracteres no formato UTF-8 a partir de um indice do constant pool
+ * 
+ * @param class_file 
+ * @param index 
+ * @return std::string 
+ */
 std::string get_cp_info_utf8(Class_File class_file, u2 index);
 
 #endif //__CP_INFO_H__

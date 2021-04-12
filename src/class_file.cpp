@@ -46,7 +46,7 @@ Class_File read_class_file(std::string filename) {
   class_file.this_class = read_2_bytes(file);
   if (DEBUG) std::cout << "This Class:           " << class_file.this_class << std::endl;
   
-  get_cp_info_class_name(filename, &class_file); // checa se nome 
+  get_cp_info_class_name(filename, class_file); 
 
   class_file.super_class = read_2_bytes(file);
   if (DEBUG) std::cout << "Super Class:          " << get_cp_info_utf8(class_file, class_file.super_class) << std::endl;

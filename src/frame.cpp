@@ -42,6 +42,28 @@ void Frame::execute_frame() {
 }
 
 /**
+* @brief Retira um elemento do topo da pilha
+* @return Operand* ponteiro para operando retirado
+*/
+Operand* Frame::pop_operand() {
+    Operand *op = operand_stack.top();
+    // printf("[operand popped]: %d\n", curr_frame->operand_stack.top()->type_int);
+    operand_stack.pop();
+    return op;
+}
+
+/**
+* @brief Empilha um elemento na pilha de operandos
+* @return Operand* ponteiro para elemento a ser inserido
+* @return void
+*/
+void Frame::push_operand(Operand* op) {
+    operand_stack.push(op);
+    // printf("[operand pushed]: %d\n", curr_frame->operand_stack.top()->type_int);
+
+}
+
+/**
  * @brief Cria um ponteiro de Operand e o tipo é decidido pela string recebida
  * @param type_string string que varia de acordo com o tipo
  * @return Operand* novo ponteiro para Operand
@@ -141,6 +163,88 @@ Method_Info* find_main(Class_File class_file) {
 
   std::cout << "Erro: Class File inserido nao possui metodo main." << std::endl;
   exit(1);
+}
+
+/**
+* @brief Encontra um método pelo nome e descrição.
+* @param class_file ponteiro para o classfile atual
+* @param method_name string do nome do método a ser buscado
+* @param method_desc string da descrição do método
+* @return MethodInfo* ponteiro para as informações relacionadas ao método
+*/
+Method_Info *find_method(Class_File class_file, std::string method_name, std::string method_desc) {
+  for (int i = 0; i < class_file.methods_count; i++) {
+    Method_Info *method_info = class_file.methods + i;
+
+    std::string m_name = get_cp_info_utf8(class_file, method_info->name_index);
+    if (m_name == method_name) {
+      std::string d_name = get_cp_info_utf8(class_file, method_info->descriptor_index);
+      if (d_name == method_desc) return method_info;
+    }
+  }
+
+  printf("Método não encontrado\n");
+  getchar();
+  exit(5);
+}
+
+/**
+* @brief Cria um ponteiro de cópia do mesmo tipo que ele está recebendo para
+* não utilizar a mesma instância.
+* @param original_type ponteiro para tipo de entrada
+* @return Operand* ponteiro para cópia do tipo de entrada
+*/
+Operand* copy_operand(Operand* original_type) {
+  // TODO - Refazer essa função
+  Operand* copy_type = (Operand*)malloc(sizeof(Operand));
+  copy_type->tag = original_type->tag;
+
+  switch (original_type->tag) {
+    case CONSTANT_BYTE:
+      copy_type->type_byte = original_type->type_byte;
+      break;
+    case CONSTANT_CHAR:
+      copy_type->type_char = original_type->type_char;
+      break;
+    case CONSTANT_SHORT:
+      copy_type->type_short = original_type->type_short;
+      break;
+    case CONSTANT_INT:
+      // if(DEBUG)printf("Entered integer\n");
+      copy_type->type_int = original_type->type_int;
+      break;
+    case CONSTANT_FLOAT:
+      copy_type->type_float = original_type->type_float;
+      break;
+    case CONSTANT_LONG:
+      copy_type->type_long = original_type->type_long;
+      break;
+    case CONSTANT_DOUBLE:
+      copy_type->type_double = original_type->type_double;
+      break;
+    case CONSTANT_STRING:
+      copy_type->type_string = new std::string(*original_type->type_string);
+      break;
+  case CONSTANT_CLASS:
+    // TODO - Fazer as alterações necessarias - class_instance para class_file?
+    // copy_type->c_instance = (ClassInstance*) malloc(sizeof(ClassInstance));
+    // copy_type->c_instance->name_class = original_type->c_instance->name_class;
+    // copy_type->c_instance->info_class = original_type->c_instance->info_class;
+    // copy_type->c_instance->fields_class = new std::map<std::string, Operand*>();
+    // copy_type->c_instance->fields_class = original_type->c_instance->fields_class;
+    break;
+  case CONSTANT_ARRAY:
+    copy_type->array_type = (Array_Type*)malloc(sizeof(Array_Type));
+    copy_type->array_type->array = new std::vector<Operand*>();
+
+      for (int i=0; (unsigned)i < original_type->array_type->array->size(); i++) {
+        Operand* aux = original_type->array_type->array->at(i);
+        Operand *value = copy_operand(aux);
+        copy_type->array_type->array->emplace_back(value);
+      }
+    break;
+  }
+  return copy_type;
 }
 
 /** @brief Inicia vetor de funções das instruções assembly.

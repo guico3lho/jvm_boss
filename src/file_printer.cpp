@@ -172,7 +172,7 @@ void print_constant_pool(Class_File class_file) {
   std::cout << "\n------------ Constant Pool ------------\n";
   Cp_Info current_cp_info;
 
-  for (int i = 0; i < class_file.constant_pool_count - 1; i++) {
+  for (int i = 1; i < class_file.constant_pool_count; i++) {
     // std::cout << "\n#" << std::dec << i + 1 << std::endl;
     printf("\n#%d = ", i + 1);
     current_cp_info = class_file.constant_pool[i];

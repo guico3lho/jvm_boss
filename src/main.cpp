@@ -1,21 +1,25 @@
-#include "file_printer.hpp"
-#include "interpreter.hpp"
 #include "utils.hpp"
+#include "interpreter.hpp"
+#include "file_printer.hpp"
+
 
 int main(int argc, char* argv[]) {
 
-  Class_File class_file;
-
   if (argc != 3) {
-    std::cout 
-      << "Comando incorreto!\n"
-      << "Comando leitor/exibidor: -e arquivo.class\n";
+    print_command_error();
   } else {
     std::string option = argv[1], filename = argv[2];
 
+    if(option != "-e" && option != "-i") {
+      print_command_error();
+    }
+
+    Class_File class_file;
+    class_file = read_class_file(filename);
+
     // leitor/exibidor
     if(option == "-e") {
-      class_file = read_class_file(filename);
+      std::cout << "----------Modo Leitor/Exibidor----------\n\n";
       print_basic_info(filename, class_file);
       print_constant_pool(class_file);
       print_interfaces(class_file);
@@ -30,6 +34,7 @@ int main(int argc, char* argv[]) {
       std::cout << "\n----------Modo Interpretador----------\n\n";
       execute(class_file);
     }
+    
   }
 
   std::cout << "\n\nTerminou execucao\n";

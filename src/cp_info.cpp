@@ -1,9 +1,7 @@
 #include "cp_info.hpp"
 
+// leitura do constant pool 
 void read_cp_info(FILE *file, Class_File *class_file) {
-  // Constant Pool Table
-  // All indexes are 16 bits = 2 bytes
-  // Number of constants in the constant pool table is constant_pool_count - 1
   for(int i = 1; i < class_file->constant_pool_count; i++) {
     class_file->constant_pool[i].tag = read_1_byte(file);  
 
