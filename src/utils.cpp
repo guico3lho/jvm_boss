@@ -13,15 +13,18 @@ void print_command_error() {
 void freeClass(Class_File class_file){
 
   if(class_file.constant_pool) {
-    for(int i = 1;i<class_file.constant_pool_count;++i){
+    for(int i = 1; i < class_file.constant_pool_count; i++){
       if(class_file.constant_pool[i].tag == CONSTANT_UTF8){
-      free(class_file.constant_pool[i].Utf8.bytes);
+        printf("\nUTF8 - indice: %d, tag:%d\n", i, class_file.constant_pool[i].tag);
+        free(class_file.constant_pool[i].Utf8.bytes); //! ta causando segmentation fault.. ?
       }
     }
     free(class_file.constant_pool);
   }
-  if(class_file.interfaces)
+
+  if(class_file.interfaces) {
     free(class_file.interfaces);
+  }
 
   if(class_file.fields) {
     for (int i = 0; i < class_file.fields_count; ++i) {
@@ -29,20 +32,22 @@ void freeClass(Class_File class_file){
     }
     free(class_file.fields);
   }
+
   if(class_file.methods) {
     for (int i = 0; i < class_file.methods_count; ++i) {
       freeAttribute(class_file.methods[i].attributes, class_file.methods[i].attributes_count);
     }
     free(class_file.methods);
   }
+
   if(class_file.attributes) {
     freeAttribute(class_file.attributes, class_file.attributes_count);
   }
   //free(class_file.attributes);
-  //free(class_file);
+  // free(class_file);
 }
 
-void freeAttribute(Attribute_Info* attr,u4 size){
+void freeAttribute(Attribute_Info* attr, u4 size){
   for (int i = 0; i < (int) size; ++i) {
     if(attr[i].source_file){
       free(attr[i].source_file);
@@ -59,7 +64,7 @@ void freeAttribute(Attribute_Info* attr,u4 size){
       free(attr[i].info);
     }
     if(attr[i].inner_class){
-      freeInnerClass(attr[i].inner_class,1);
+      freeInnerClass(attr[i].inner_class, 1);
     }
     if(attr[i].exception){
       free(attr[i].exception->exception_index_table);
@@ -78,11 +83,11 @@ void freeAttribute(Attribute_Info* attr,u4 size){
   free(attr);
 }
 
-void freeInnerClass(Inner_Class_Attribute* inner,u4 size){
+void freeInnerClass(Inner_Class_Attribute* inner, u4 size){
   for (int i = 0; i < (int)size; ++i) {
-  if(inner[i].inner_class_data){
-    freeInnerClass(inner[i].inner_class_data,inner[i].number_of_classes);
-  }
+    if(inner[i].inner_class_data){
+      freeInnerClass(inner[i].inner_class_data,inner[i].number_of_classes);
+    }
   }
   free(inner);
 }

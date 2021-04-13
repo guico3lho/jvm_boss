@@ -15,7 +15,7 @@ struct Operand;
  * @brief Estrutura para instanciar a classe
  */
 typedef struct Class_Loader{
-    std::string *class_name;
+    std::string *class_name = nullptr;
 
     Class_File class_file;
 

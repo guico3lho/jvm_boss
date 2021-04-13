@@ -56,41 +56,34 @@ void read_cp_info(FILE *file, Class_File *class_file) {
 
 std::string get_cp_info_utf8(Class_File class_file, u2 index){
   std::string utf8_text;
-  u2 index_aux;
   switch (class_file.constant_pool[index].tag) {
     case CONSTANT_CLASS:
-      index = class_file.constant_pool[index].Class.class_name; 
-      utf8_text = get_cp_info_utf8(class_file, index);                       
+      utf8_text = get_cp_info_utf8(class_file, class_file.constant_pool[index].Class.class_name);                       
       break;
     case CONSTANT_FIELD_REF:
-      index = class_file.constant_pool[index].Fieldref.class_index; 
-      utf8_text = get_cp_info_utf8(class_file, index);                                   
+      utf8_text = get_cp_info_utf8(class_file, class_file.constant_pool[index].Fieldref.class_index);                                   
+      utf8_text += get_cp_info_utf8(class_file, class_file.constant_pool[index].Fieldref.name_and_type_index);                                   
       break;
     case CONSTANT_METHOD_REF:
+      utf8_text = get_cp_info_utf8(class_file, class_file.constant_pool[index].Methodref.class_index);                                   
+      utf8_text += get_cp_info_utf8(class_file, class_file.constant_pool[index].Methodref.name_and_type_index);                                   
       break;
     case CONSTANT_INTERFACE_METHOD_REF:
+      utf8_text = get_cp_info_utf8(class_file, class_file.constant_pool[index].InterfaceMethodref.class_index);                                   
+      utf8_text += get_cp_info_utf8(class_file, class_file.constant_pool[index].InterfaceMethodref.name_and_type_index);                                   
       break;
     case CONSTANT_STRING:
-      index = class_file.constant_pool[index].String.string_index; 
-      utf8_text = get_cp_info_utf8(class_file, index);   
-      break;
-    case CONSTANT_INT:
-      break;
-    case CONSTANT_FLOAT:
-      break;
-    case CONSTANT_LONG:
-      break;
-    case CONSTANT_DOUBLE:
+      utf8_text += get_cp_info_utf8(class_file, class_file.constant_pool[index].String.string_index);   
       break;
     case CONSTANT_NAME_TYPE:
-      index_aux = class_file.constant_pool[index].NameAndType.name_index;            
-      utf8_text = get_cp_info_utf8(class_file, index_aux);                                             
-      index_aux = class_file.constant_pool[index].NameAndType.descriptor_index; 
-      utf8_text += get_cp_info_utf8(class_file, index_aux);
+      utf8_text = get_cp_info_utf8(class_file, class_file.constant_pool[index].NameAndType.name_index);                                             
+      utf8_text += get_cp_info_utf8(class_file, class_file.constant_pool[index].NameAndType.descriptor_index);
       break;
     case CONSTANT_UTF8:
-      utf8_text = (char *)class_file.constant_pool[index].Utf8.bytes; 
+      utf8_text = (char*) class_file.constant_pool[index].Utf8.bytes; 
       break;
+    default: 
+      return "";
   }
   return utf8_text;
 }

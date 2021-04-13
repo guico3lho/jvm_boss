@@ -81,12 +81,12 @@ struct Cp_Info {
       u4 low_bytes;
     } Double; 
 
-    /* 
-      Utf8: represents a field or method
-      Length tem gives the number of bytes in the bytes array
-      Bytes array contains the bytes of the string
-      Not allowed zero values or value between the interval 0xf0 to 0xff -> [240, 255] 
-    */
+    /** 
+     * @brief struct Utf8: represents a field or method Length tem gives the number of bytes 
+     * in the bytes array Bytes array contains the bytes of the string 
+     * Not allowed zero values or value between the interval 0xf0 to 0xff -> [240, 255] 
+     *
+     */
     struct {
       u2 length;
       u1 *bytes;

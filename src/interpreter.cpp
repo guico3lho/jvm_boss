@@ -21,13 +21,12 @@ void execute(Class_File class_file) {
 
   if (DEBUG) std::cout << "INICIA FRAME\n";
   printf("---------------------------------");
-  printf("\n\nIniciando Execução\n");
+  printf("\n\nIniciando Execucao\n");
   printf("---------------------------------\n");
 
   while (!(frame_stack.empty())) {
     frame_stack.top()->execute_frame(); // executa stack frame do topo para baixo
   }
-
 }
 
 /**

@@ -173,8 +173,7 @@ void print_constant_pool(Class_File class_file) {
   Cp_Info current_cp_info;
 
   for (int i = 1; i < class_file.constant_pool_count; i++) {
-    // std::cout << "\n#" << std::dec << i + 1 << std::endl;
-    printf("\n#%d = ", i + 1);
+    printf("\n#%d = ", i);
     current_cp_info = class_file.constant_pool[i];
 
     switch (current_cp_info.tag) {
@@ -190,9 +189,11 @@ void print_constant_pool(Class_File class_file) {
         break;
       case CONSTANT_LONG:
         print_cp_info_long(current_cp_info);
+        i++;
         break;
       case CONSTANT_DOUBLE:
         print_cp_info_double(current_cp_info);
+        i++;
         break;
       case CONSTANT_CLASS :
         print_cp_info_class(class_file, current_cp_info);
@@ -236,6 +237,8 @@ void print_interfaces(Class_File class_file){
   }
 }
 
+/* ATTRIBUTES */
+
 void print_code_attribute(Class_File class_file, Code_Attribute *code_attribute) {
   printf("Code length: %d\n", code_attribute->code_length);
   printf("Code Attributes count: %d\n", code_attribute->attributes_count);
@@ -250,8 +253,6 @@ void print_code_attribute(Class_File class_file, Code_Attribute *code_attribute)
     print_methods_attributes(class_file, code_attribute->attributes[i]);
   }
 }
-
-/* ATTRIBUTES */
 
 void print_constant_value_attribute(Class_File class_file, Const_Value_Attribute *const_value) {
   printf("Constant value index: %d\n", const_value->const_value_index);
@@ -329,7 +330,7 @@ void print_methods(Class_File class_file) {
     printf("Name Index: #%d ",method_info->name_index);
     std::cout << get_cp_info_utf8(class_file, method_info->name_index) << std::endl;
 
-    printf("Descriptor Index: #%d ",method_info->descriptor_index);
+    printf("Descriptor Index: #%d ", method_info->descriptor_index);
     std::cout << get_cp_info_utf8(class_file, method_info->descriptor_index) << std::endl;
 
     printf("Access Flag: 0x%04x\n", method_info->access_flags);
