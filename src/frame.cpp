@@ -25,11 +25,11 @@ Frame::Frame(Method_Info *method, Class_File class_file) {
 
   // Faz referencia para o codigo do metodo
   for (int i = 0; i < method_info->attributes_count; ++i) {
-  Attribute_Info attribute_info = method_info->attributes[i];
+    Attribute_Info attribute_info = method_info->attributes[i];
 
-  std::string class_string = get_cp_info_utf8(*class_file_ref, attribute_info.attribute_name_index);
+    std::string class_string = get_cp_info_utf8(*class_file_ref, attribute_info.attribute_name_index);
 
-  if (class_string == "Code") 
+    if (class_string == "Code") 
       method_code = attribute_info.code;
   }
 
@@ -38,6 +38,7 @@ Frame::Frame(Method_Info *method, Class_File class_file) {
 
 void Frame::execute_frame() {
   u1 op_code = method_code->code[pc]; 
+  if (DEBUG) printf("op_code: %d\n", op_code);
   func[op_code](this); // chama a funcao do respectivo indice opcode
 }
 
@@ -60,7 +61,6 @@ Operand* Frame::pop_operand() {
 void Frame::push_operand(Operand* op) {
     operand_stack.push(op);
     // printf("[operand pushed]: %d\n", curr_frame->operand_stack.top()->type_int);
-
 }
 
 /**
@@ -126,6 +126,8 @@ Operand* check_string_create_type(std::string type_string) {
         new_type->class_loader = (Class_Loader*) malloc(sizeof(Class_Loader));
 
         std::string class_realname = type_string.substr(1, type_string.size());
+
+        if (DEBUG) std::cout << "Escopo de check_string_create_type!!" << "\n";
         Class_File info_class = get_class_info_and_load_not_exists(class_realname);
 
         new_type->class_loader->class_file = info_class;
@@ -146,19 +148,20 @@ Method_Info* find_main(Class_File class_file) {
 
   for (int i = 0; i < class_file.methods_count; i++) {
 
-  Method_Info *method = class_file.methods + i;
-  std::string method_name = get_cp_info_utf8(class_file, method->name_index);
-  if (DEBUG) std::cout << "Nome do metodo: " << method_name << " carregado na memoria\n";
+    Method_Info *method = class_file.methods + i;
+    std::string method_name = get_cp_info_utf8(class_file, method->name_index);
+    if (DEBUG) std::cout << "Nome do metodo: " << method_name << " carregado na memoria\n";
 
-  if (method_name == "main") {
-    std::string method_descriptor = get_cp_info_utf8(class_file,method->descriptor_index);
-    if (DEBUG) std::cout << "Descricao do metodo main econtrado: " << method_descriptor << std::endl;
+    if (method_name == "main") {
+      std::string method_descriptor = get_cp_info_utf8(class_file,method->descriptor_index);
+      if (DEBUG) std::cout << "Descricao do metodo main econtrado: " << method_descriptor << std::endl;
 
-    if (method_descriptor == "([Ljava/lang/String;)V") {
-      if (DEBUG) std::cout << "METHOD MAIN ENCONTRADO!\n";
-      return method;
+      if (method_descriptor == "([Ljava/lang/String;)V") {
+        if (DEBUG) std::cout << "METHOD MAIN ENCONTRADO!\n";
+        return method;
+      }
     }
-  }
+
   }
 
   std::cout << "Erro: Class File inserido nao possui metodo main." << std::endl;
@@ -195,8 +198,9 @@ Method_Info *find_method(Class_File class_file, std::string method_name, std::st
 * @return Operand* ponteiro para cópia do tipo de entrada
 */
 Operand* copy_operand(Operand* original_type) {
-  // TODO - Refazer essa função
-  Operand* copy_type = (Operand*)malloc(sizeof(Operand));
+  // TODO - Entender essa função
+
+  Operand* copy_type = (Operand*) malloc(sizeof(Operand));
   copy_type->tag = original_type->tag;
 
   switch (original_type->tag) {
@@ -210,7 +214,6 @@ Operand* copy_operand(Operand* original_type) {
       copy_type->type_short = original_type->type_short;
       break;
     case CONSTANT_INT:
-      // if(DEBUG)printf("Entered integer\n");
       copy_type->type_int = original_type->type_int;
       break;
     case CONSTANT_FLOAT:
@@ -226,12 +229,11 @@ Operand* copy_operand(Operand* original_type) {
       copy_type->type_string = new std::string(*original_type->type_string);
       break;
   case CONSTANT_CLASS:
-    // TODO - Fazer as alterações necessarias - class_instance para class_file?
-    // copy_type->c_instance = (ClassInstance*) malloc(sizeof(ClassInstance));
-    // copy_type->c_instance->name_class = original_type->c_instance->name_class;
-    // copy_type->c_instance->info_class = original_type->c_instance->info_class;
-    // copy_type->c_instance->fields_class = new std::map<std::string, Operand*>();
-    // copy_type->c_instance->fields_class = original_type->c_instance->fields_class;
+    copy_type->class_loader = (Class_Loader*) malloc(sizeof(Class_Loader));
+    copy_type->class_loader->class_name = original_type->class_loader->class_name;
+    copy_type->class_loader->class_file = original_type->class_loader->class_file;
+    copy_type->class_loader->class_fields = new std::map<std::string, Operand*>();
+    copy_type->class_loader->class_fields = original_type->class_loader->class_fields;
     break;
   case CONSTANT_ARRAY:
     copy_type->array_type = (Array_Type*)malloc(sizeof(Array_Type));

@@ -30,9 +30,9 @@ void ldc(Frame *curr_frame) {
   Operand *op = (Operand*)malloc(sizeof(Operand));
 
   u1 index = curr_frame->method_code->code[curr_frame->pc++];
-  if (DEBUG) std::cout << "ldc index : " << (int)index << std::endl;
+  if (DEBUG) std::cout << "ldc index: " << (int)index << std::endl;
 
-  Cp_Info &cp_info = curr_frame->constant_pool_reference[((int)index)-1];
+  Cp_Info &cp_info = curr_frame->constant_pool_reference[((int)index)];
   op->tag = cp_info.tag;
 
   switch (op->tag) {
@@ -41,17 +41,16 @@ void ldc(Frame *curr_frame) {
         break;
     case CONSTANT_FLOAT:
       op->type_float = (float) cp_info.Float.bytes;
-      if (DEBUG) std::cout << "ldc value : " << (float) op->type_float << std::endl;
+      if (DEBUG) std::cout << "ldc value: " << (float) op->type_float << std::endl;
       break;
     case CONSTANT_STRING: {
-
         std::string utf8_s = get_cp_info_utf8(*(curr_frame->class_file_ref), cp_info.String.string_index);
         op->type_string = new std::string(utf8_s); }
         break;
     case CONSTANT_CLASS:
         break;
     default:
-        // Constant_Method_Handle
+        // Constant_Method_Handler
         // Constant_Method_Ref
         break;
     }
@@ -215,26 +214,28 @@ void getfield(Frame *curr_frame) {
  * @return void
  */
 void getstatic(Frame *curr_frame) {
+    if (DEBUG) std::cout << "getstatic\n";
+
     curr_frame->pc++;
 
     u2 index = curr_frame->method_code->code[curr_frame->pc++];
     index = (index << 8) + curr_frame->method_code->code[curr_frame->pc++];
 
-    Cp_Info &field_info = curr_frame->constant_pool_reference[index-1];
+    Cp_Info &field_info = curr_frame->constant_pool_reference[index];
     Cp_Info &name_and_type = curr_frame->constant_pool_reference[field_info.Fieldref.name_and_type_index];
     std::string class_name = get_cp_info_utf8(*(curr_frame->class_file_ref), field_info.Fieldref.class_index);
 
+    // se for a classe default do Java: System -> nao empilhar
     if (class_name == "java/lang/System") {
-        // se for a classe System (default java) não coloca na pilha
-        return;
+      if (DEBUG) std::cout << "Java Default Class: java/lang/System" << "\n";
+      return;
     }
+
     Class_File class_file = get_class_info_and_load_not_exists(class_name);
     std::string var_name = get_cp_info_utf8(class_file, name_and_type.NameAndType.name_index);
     Operand *static_field = get_static_field_of_class(class_name, var_name);
 
     curr_frame->push_operand(static_field);
-
-    if (DEBUG) std::cout << "getstatic\n";
 }
 
 /** @brief Coloca na pilha de operandos a variável da posição 0 do vetor de
@@ -291,7 +292,7 @@ void invokevirtual(Frame *curr_frame) {
     index += curr_frame->method_code->code[++curr_frame->pc];
     curr_frame->pc++;
 
-    Cp_Info &method_ref = curr_frame->constant_pool_reference[index-1];
+    Cp_Info &method_ref = curr_frame->constant_pool_reference[index];
     Cp_Info &name_and_type = curr_frame->constant_pool_reference[method_ref.Methodref.name_and_type_index];
 
     std::string class_name = get_cp_info_utf8(
@@ -479,7 +480,7 @@ void invokespecial(Frame *curr_frame) {
 	u2 index_method = curr_frame->method_code->code[curr_frame->pc];
 	index_method = (index_method << 8) + curr_frame->method_code->code[++curr_frame->pc];
 
-	Cp_Info &ref_method = curr_frame->constant_pool_reference[index_method-1];
+	Cp_Info &ref_method = curr_frame->constant_pool_reference[index_method];
 	Cp_Info &name_and_type = curr_frame->constant_pool_reference[ref_method.Methodref.name_and_type_index];
 
 	std::string class_name = get_cp_info_utf8(*(curr_frame->class_file_ref), ref_method.Methodref.class_index);
@@ -2072,7 +2073,7 @@ void invokestatic(Frame *curr_frame) {
                                       *(curr_frame->class_file_ref),
                                       name_and_type.NameAndType.name_index);
 
-    if (DEBUG) std::cout << "nome do método a ser chamado: " << method_name << std::endl;
+    if (DEBUG) std::cout << "nome do metodo a ser chamado: " << method_name << std::endl;
 
     std::string method_descriptor = get_cp_info_utf8(
                                   *(curr_frame->class_file_ref),
@@ -2100,8 +2101,7 @@ void invokestatic(Frame *curr_frame) {
         counter++;
     }
 
-    if (DEBUG) std::cout << "método possui " << count_arguments
-                        << " argumentos\n";
+    if (DEBUG) std::cout << "metodo possui " << count_arguments << " argumentos\n";
 
     // não precisa criar frame para definir tipo float
     if (class_name.find("Float") != std::string::npos &&
@@ -2111,7 +2111,7 @@ void invokestatic(Frame *curr_frame) {
     } else {
       std::vector<Operand*> arguments;
 
-      if (DEBUG) std::cout << "passando argumentos para o método estático\n";
+      if (DEBUG) std::cout << "passando argumentos para o metodo estatico\n";
       for (int i = 0; i < count_arguments; ++i) {
           Operand *argument = curr_frame->pop_operand();
           if (DEBUG) std::cout << "operando do tipo: " <<  (int)argument->tag << std::endl;
@@ -2123,9 +2123,7 @@ void invokestatic(Frame *curr_frame) {
       }
 
       Class_Loader *class_loader = get_static_class(class_name);
-
       Method_Info *method_finded = find_method(class_loader->class_file, method_name, method_descriptor);
-
       Frame *new_frame = new Frame(method_finded, class_loader->class_file);
 
       // vetor das variáveis locais

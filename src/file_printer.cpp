@@ -413,7 +413,7 @@ void print_instructions(Class_File class_file, Code_Attribute *code_attribute) {
             {
               u1 index = code_attribute->code[i];
               u2 index_utf8 = 0x00 | index;
-              std::cout << " #" << (int)index << " " << get_cp_info_utf8(class_file, index_utf8);
+              std::cout << "\t#" << (int)index << " " << get_cp_info_utf8(class_file, index_utf8);
               j++;
             }
             break;
@@ -430,7 +430,7 @@ void print_instructions(Class_File class_file, Code_Attribute *code_attribute) {
               str = get_cp_info_utf8(class_file, index);
 
               if (!str.empty()) {
-                std::cout << " #" << std::dec << index << " " << str;
+                std::cout << "\t#" << std::dec << index << " " << str;
                 std::cout << " dim " << (int) dim;
               }
               j++;
@@ -452,7 +452,7 @@ void print_instructions(Class_File class_file, Code_Attribute *code_attribute) {
               u1 byte1 = code_attribute->code[i];
               u1 byte2 = code_attribute->code[i + 1];
               u2 index = (byte1 << 8) | byte2;
-              std::cout << " #" << std::dec << index << " " << get_cp_info_utf8(class_file, index);
+              std::cout << "\t#" << std::dec << index << " " << get_cp_info_utf8(class_file, index);
               i++;
               j++;
             }
