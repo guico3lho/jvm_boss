@@ -333,7 +333,9 @@ void print_methods(Class_File class_file) {
     printf("Descriptor Index: #%d ", method_info->descriptor_index);
     std::cout << get_cp_info_utf8(class_file, method_info->descriptor_index) << std::endl;
 
-    printf("Access Flag: 0x%04x\n", method_info->access_flags);
+    printf("Access flags: ");
+    print_access_flags(method_info->access_flags);
+
     printf("Attributes Count: %d\n",method_info->attributes_count);
     printf("\nMETHOD ATTRIBUTES:\n");
 

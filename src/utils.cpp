@@ -15,8 +15,7 @@ void freeClass(Class_File class_file){
   if(class_file.constant_pool) {
     for(int i = 1; i < class_file.constant_pool_count; i++){
       if(class_file.constant_pool[i].tag == CONSTANT_UTF8){
-        printf("\nUTF8 - indice: %d, tag:%d\n", i, class_file.constant_pool[i].tag);
-        free(class_file.constant_pool[i].Utf8.bytes); //! ta causando segmentation fault.. ?
+        free(class_file.constant_pool[i].Utf8.bytes); 
       }
     }
     free(class_file.constant_pool);

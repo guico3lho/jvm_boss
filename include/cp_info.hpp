@@ -114,7 +114,7 @@ struct Cp_Info {
  * @param file 
  * @param class_file 
  */
-void read_cp_info(FILE *file, Class_File* class_file);
+void read_cp_info(FILE *file, Class_File class_file);
 
 /**
  * @brief Checa se nome da classe é igual ao do arquivo
