@@ -33,6 +33,5 @@ void pop_frame() {
 }
 
 Frame* top_frame() {
-  Frame *frame = frame_stack.top();
-  return frame;
+  return frame_stack.top();
 }

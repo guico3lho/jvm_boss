@@ -5,11 +5,21 @@
     "version": "0.2.0",
     "configurations": [
       {
+        "type": "java",
+        "name": "Launch Teste",
+        "request": "launch",
+        "mainClass": "Teste",
+        "projectName": "jvm_boss_27d629db"
+      },
+      {
         "name": "(gdb) Launch",
         "type": "cppdbg",
         "request": "launch",
         "program": "${workspaceFolder}/jvm_boss",
-        "args": ["-e", "test/HelloJava.class"],
+        "args": [
+          "-e",
+          "test/HelloJava.class"
+        ],
         "stopAtEntry": false,
         "cwd": "${workspaceFolder}",
         "environment": [],

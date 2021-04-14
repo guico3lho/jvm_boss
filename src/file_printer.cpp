@@ -81,8 +81,7 @@ void print_basic_info(std::string filename, Class_File class_file) {
   << ">";
 
   printf("\nSuper class:          #%d <", class_file.super_class);
-  std::cout << get_cp_info_utf8(class_file, 
-  class_file.constant_pool[class_file.super_class].Class.class_name)
+  std::cout << get_cp_info_utf8(class_file, class_file.constant_pool[class_file.super_class].Class.class_name)
   << ">";
 
   printf("\nInterface count:      %d\n", class_file.interfaces_count);

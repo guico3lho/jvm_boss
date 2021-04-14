@@ -14,7 +14,7 @@ struct Class_Loader;
 struct Array_Type;
 
 typedef struct Operand {
-  u1 tag; // CONSTANT_Integer, CONSTANT_Float, etc
+  u1 tag; 
   union{
     u4 type_bool;
     u4 type_byte;
@@ -49,10 +49,10 @@ public:
   std::vector<Operand*> local_variables_array;
   std::stack<Operand*> operand_stack;
 
-  Cp_Info* constant_pool_reference;
-  Class_File* class_file_ref;
-  Code_Attribute* method_code;
-  Method_Info* method_info;
+  Class_File* class_file_ref = nullptr;
+  Cp_Info* constant_pool_reference = nullptr;
+  Code_Attribute* method_code = nullptr;
+  Method_Info* method_info = nullptr;
   u4 pc;
 
   void execute_frame();
