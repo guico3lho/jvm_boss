@@ -51,6 +51,18 @@ $ ./jvm_boss -i test/HelloJava.class
 $ ./jvm.sh HelloJava
 ```
 
+## Classes Java (``.class``) de Teste
+
+- [x] cafebabe
+- [x] HelloJava
+- [x] Teste
+- [x] double_aritmetica
+- [x] tableswitch
+- [ ] multi
+- [ ] vetor_8
+- [ ] vetor2
+- [ ] vetor
+
 # Configurações
 
 ## Versão [Java SE 8](https://docs.oracle.com/javase/specs/jvms/se8/html/index.html)

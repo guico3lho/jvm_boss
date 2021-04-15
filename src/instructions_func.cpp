@@ -5,6 +5,7 @@
 #include "interpreter.hpp"
 #include "instructions_func.hpp"
 
+//? ???
 namespace patch {
   template < typename T > std::string to_string( const T& n ) {
     std::ostringstream stm ;
@@ -13,8 +14,9 @@ namespace patch {
   }
 }
 
-/** @brief Não faz nada, só incrementa pc.
- * param *curr_frame ponteiro para o frame atual
+/** 
+ * @brief Não faz nada, só incrementa pc.
+ * @param *curr_frame ponteiro para o frame atual
  * @return void
  */
 void nop(Frame *curr_frame) {
@@ -47,12 +49,11 @@ void ldc(Frame *curr_frame) {
       if (DEBUG) std::cout << "ldc value: " << (float) op->type_float << std::endl;
       break;
     case CONSTANT_STRING: {
-
       if (DEBUG) printf("Magic Number: 0x%0X\n", curr_frame->class_file_ref->magic_number);
+      // std::string utf8_s = get_cp_info_utf8(*(curr_frame->class_file_ref), cp_info.String.string_index);
 
-      std::string utf8_s = get_cp_info_utf8(*(curr_frame->class_file_ref), cp_info.String.string_index);
+      std::string utf8_s = get_utf8_constant_pool(curr_frame->constant_pool_reference, cp_info.String.string_index);
       if (DEBUG) std::cout << "utf8_s: " << utf8_s << std::endl;
-
       op->type_string = new std::string(utf8_s); 
     }
       break;
@@ -100,7 +101,6 @@ void iconst_1(Frame* curr_frame) {
     curr_frame->push_operand(op);
 
     curr_frame->pc++;
-
 }
 
 /** @brief Empurra o valor NULL na pilha de operandos
@@ -305,9 +305,10 @@ void invokevirtual(Frame *curr_frame) {
   Cp_Info &method_ref = curr_frame->constant_pool_reference[index];
   Cp_Info &name_and_type = curr_frame->constant_pool_reference[method_ref.Methodref.name_and_type_index];
 
-  std::string class_name = get_cp_info_utf8(*(curr_frame->class_file_ref), method_ref.Methodref.class_index);
-  std::string method_name = get_cp_info_utf8(*(curr_frame->class_file_ref),name_and_type.NameAndType.name_index);
-  std::string method_desc = get_cp_info_utf8(*(curr_frame->class_file_ref),name_and_type.NameAndType.descriptor_index);
+  // * Utilizando o Cp_Info
+  std::string class_name = get_utf8_constant_pool(curr_frame->constant_pool_reference, method_ref.Methodref.class_index);
+  std::string method_name = get_utf8_constant_pool(curr_frame->constant_pool_reference, name_and_type.NameAndType.name_index);
+  std::string method_desc = get_utf8_constant_pool(curr_frame->constant_pool_reference, name_and_type.NameAndType.descriptor_index);
 
   if (strstr(class_name.c_str(), "java/")) {
     if (class_name == "java/io/PrintStream" && (method_name == "println" || method_name == "print")) {
@@ -362,8 +363,8 @@ void invokevirtual(Frame *curr_frame) {
           case CONSTANT_CLASS: {
               Class_Loader *class_loader = op->class_loader;
               Class_File class_file = class_loader->class_file;
-              std::string t_class_name = get_cp_info_utf8(class_file, class_file.this_class);
-              std::cout << t_class_name << "@" << class_loader;
+              std::string this_class_name = get_cp_info_utf8(class_file, class_file.this_class);
+              std::cout << this_class_name << "@" << class_loader;
           }
           break;
         }
@@ -2182,7 +2183,7 @@ void new_obj(Frame *curr_frame) {
     u2 index = curr_frame->method_code->code[curr_frame->pc];
     index = (index << 8)+curr_frame->method_code->code[++curr_frame->pc];
 
-    Cp_Info &class_info = curr_frame->constant_pool_reference[index - 1];
+    Cp_Info &class_info = curr_frame->constant_pool_reference[index];
     std::string utf8_constant = get_cp_info_utf8(*(curr_frame->class_file_ref), class_info.Class.class_name);
 
     if (utf8_constant == "java/lang/StringBuilder") {
@@ -2512,7 +2513,7 @@ void ldc_w(Frame *curr_frame) {
 
     u2 index = (index_1 << 8) + index_2;
 
-    Cp_Info *cp_info = curr_frame->constant_pool_reference + (int)index - 1;
+    Cp_Info *cp_info = curr_frame->constant_pool_reference + (int)index;
     Operand* operands = nullptr;
 
     switch(cp_info->tag) {
@@ -2552,44 +2553,41 @@ void ldc_w(Frame *curr_frame) {
  * @return void
  */
 void ldc2_w(Frame *curr_frame) {
-    curr_frame->pc++;
+  if (DEBUG) std::cout << "\n----------ldc2_w----------\n";
+  curr_frame->pc++;
 
-    u1 index_1 = curr_frame->method_code->code[curr_frame->pc++];
-    u1 index_2 = curr_frame->method_code->code[curr_frame->pc++];
+  u1 index_1 = curr_frame->method_code->code[curr_frame->pc++];
+  u1 index_2 = curr_frame->method_code->code[curr_frame->pc++];
 
-    u2 index = (index_1 << 8) + index_2;
+  u2 index = (index_1 << 8) + index_2;
 
-    if (DEBUG) std::cout << "ldc2_w index : " << (int)index << std::endl;
-    Cp_Info *cp_info = curr_frame->constant_pool_reference + (int)index - 1;
-    Operand* operands;
+  if (DEBUG) std::cout << "ldc2_w index : " << (int)index << std::endl;
+  Cp_Info *cp_info = curr_frame->constant_pool_reference + (int)index;
+  Operand* operands;
 
-    if (cp_info->tag == CONSTANT_DOUBLE) { // double
-        operands = (Operand*)malloc(sizeof(Operand));
-        operands->tag = CONSTANT_DOUBLE;
-        operands->type_double = cp_info->Double.high_bytes;
-        operands->type_double = (operands->type_double << 32) + cp_info->Double.low_bytes;
+  if (cp_info->tag == CONSTANT_DOUBLE) { // double
+    operands = (Operand*)malloc(sizeof(Operand));
+    operands->tag = CONSTANT_DOUBLE;
+    operands->type_double = cp_info->Double.high_bytes;
+    operands->type_double = (operands->type_double << 32) + cp_info->Double.low_bytes;
 
-        if (DEBUG) {
-          double double_v;
-          memcpy(&double_v, &operands->type_double, sizeof(double));
-          printf("double value  %.15lf\n", double_v);
-        }
-    } else { // long
-        operands = (Operand*)malloc(sizeof(Operand));
-        operands->tag = CONSTANT_LONG;
-
-        long read_long_value;
-        memcpy(&read_long_value, &(cp_info->Long.high_bytes),
-              sizeof(long));
-        memcpy(&read_long_value, &(cp_info->Long.low_bytes),
-              sizeof(long));
-
-        operands->type_long = read_long_value;
-        if (DEBUG) std::cout << "long value : " << operands->type_double << std::endl;
+    if (DEBUG) {
+      double double_v;
+      memcpy(&double_v, &operands->type_double, sizeof(double));
+      printf("double value: %.15lf\n", double_v);
     }
-    curr_frame->push_operand(operands);
+  } else { // long
+    operands = (Operand*) malloc(sizeof(Operand));
+    operands->tag = CONSTANT_LONG;
 
-    if (DEBUG) std::cout << "ldc2_w\n";
+    long read_long_value;
+    memcpy(&read_long_value, &(cp_info->Long.high_bytes),sizeof(long));
+    memcpy(&read_long_value, &(cp_info->Long.low_bytes),sizeof(long));
+
+    operands->type_long = read_long_value;
+    if (DEBUG) std::cout << "long value: " << operands->type_double << std::endl;
+  }
+  curr_frame->push_operand(operands);
 }
 
 

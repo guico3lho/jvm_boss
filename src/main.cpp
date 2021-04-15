@@ -26,7 +26,6 @@ int main(int argc, char* argv[]) {
       print_fields(class_file);
       print_methods(class_file);
       print_attributes(class_file);
-      freeClass(class_file);
     }
 
     // interpretador
@@ -35,6 +34,8 @@ int main(int argc, char* argv[]) {
       execute(class_file);
     }
   }
+
+  freeClass(class_file);
 
   std::cout << "\n\nTerminou execucao\n";
   return 0;

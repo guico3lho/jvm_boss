@@ -133,4 +133,6 @@ void get_cp_info_class_name(std::string filename, Class_File class_file);
  */
 std::string get_cp_info_utf8(Class_File class_file, u2 index);
 
+std::string get_utf8_constant_pool(Cp_Info* cp_info, u2 index);
+
 #endif //__CP_INFO_H__

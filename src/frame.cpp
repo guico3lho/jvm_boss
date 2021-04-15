@@ -19,10 +19,8 @@ void (*func[256])(Frame *curr_frame);
 */
 Frame::Frame(Method_Info *method, Class_File class_file) {
   constant_pool_reference = class_file.constant_pool;
-  // Class_File* class_file_ref =  (Class_File*) malloc(sizeof(Class_File));
   class_file_ref = &class_file;
   if (DEBUG) printf("Frame::Frame - Magic Number: 0x%0X\n", class_file_ref->magic_number);
-
   method_info = method;
   pc = 0;
 
