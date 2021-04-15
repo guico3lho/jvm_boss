@@ -65,11 +65,11 @@ $ ./jvm.sh HelloJava
 
 # Configurações
 
-## Versão [Java SE 8](https://docs.oracle.com/javase/specs/jvms/se8/html/index.html)
+### Versão [Java SE 8](https://docs.oracle.com/javase/specs/jvms/se8/html/index.html)
 
 ## Analisadores 
 
-## [Cppcheck 1.83](http://cppcheck.sourceforge.net) como analisador estático
+### Analisador estático: [Cppcheck 1.83](http://cppcheck.sourceforge.net) 
 
 Instalação no Linux
 
@@ -94,7 +94,7 @@ $ ./check.sh -all
 
 ```
 
-## [Valgrind](https://www.valgrind.org/) como analisador dinâmico
+## Analisador dinâmico: [Valgrind](https://www.valgrind.org/) como 
 
 Instalação no Linux
 
