@@ -33,9 +33,9 @@ int main(int argc, char* argv[]) {
       std::cout << "\n----------Modo Interpretador----------\n\n";
       execute(class_file);
     }
-  }
 
-  freeClass(class_file);
+    freeClass(class_file);
+  }
 
   std::cout << "\n\nTerminou execucao\n";
   return 0;
