@@ -65,7 +65,7 @@ $ ./jvm.sh HelloJava
 
 # Configurações
 
-### Versão [Java SE 8](https://docs.oracle.com/javase/specs/jvms/se8/html/index.html)
+### Até a versão [Java SE 8](https://docs.oracle.com/javase/specs/jvms/se8/html/index.html)
 
 ## Analisadores 
 
@@ -94,7 +94,7 @@ $ ./check.sh -all
 
 ```
 
-## Analisador dinâmico: [Valgrind](https://www.valgrind.org/) como 
+### Analisador dinâmico: [Valgrind](https://www.valgrind.org/) 
 
 Instalação no Linux
 
