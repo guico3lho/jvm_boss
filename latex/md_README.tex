@@ -1,0 +1,162 @@
+\hypertarget{md_README_autotoc_md1}{}\doxysection{Compilação e informações com javac/javap}\label{md_README_autotoc_md1}
+Converter arquivo {\ttfamily .java} para {\ttfamily .class}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$ javac HelloJava.java}
+
+\end{DoxyCode}
+
+
+Mostra informações do arquivo {\ttfamily .class}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$ javap HelloJava.class}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# para mais info, flags: -\/c, -\/verbose ou -\/v}
+\DoxyCodeLine{\$ javap -\/v HelloJava.class}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md2}{}\doxysection{Compilando}\label{md_README_autotoc_md2}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# Linux}
+\DoxyCodeLine{\$ ./compile.sh -\/l}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# Windows}
+\DoxyCodeLine{\$ ./compile.sh -\/w}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md3}{}\doxysection{Executando}\label{md_README_autotoc_md3}
+\hypertarget{md_README_autotoc_md4}{}\doxysubsection{Leitor e Exibidor}\label{md_README_autotoc_md4}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# Linux e Windows}
+\DoxyCodeLine{\$ ./jvm\_boss -\/e test/HelloJava.class}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# Bash script}
+\DoxyCodeLine{\$ ./read.sh HelloJava}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md5}{}\doxysubsection{Interpretador JVM}\label{md_README_autotoc_md5}
+Interpreta e executa o arquivo .class
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# Linux e Windows}
+\DoxyCodeLine{\$ ./jvm\_boss -\/i test/HelloJava.class}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# Bash script}
+\DoxyCodeLine{\$ ./jvm.sh HelloJava}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md6}{}\doxysubsection{Classes Java ($<$tt$>$.\+class$<$/tt$>$) de Teste}\label{md_README_autotoc_md6}
+
+\begin{DoxyItemize}
+\item \mbox{[}x\mbox{]} cafebabe
+\item \mbox{[}x\mbox{]} \mbox{\hyperlink{classHelloJava}{Hello\+Java}}
+\item \mbox{[}x\mbox{]} Teste
+\item \mbox{[}x\mbox{]} double\+\_\+aritmetica
+\item \mbox{[}x\mbox{]} tableswitch
+\item \mbox{[} \mbox{]} multi
+\item \mbox{[} \mbox{]} vetor\+\_\+8
+\item \mbox{[} \mbox{]} vetor2
+\item \mbox{[} \mbox{]} vetor
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md7}{}\doxysection{Configurações}\label{md_README_autotoc_md7}
+\hypertarget{md_README_autotoc_md8}{}\doxysubsubsection{Até a versão $<$a href=\char`\"{}https\+://docs.\+oracle.\+com/javase/specs/jvms/se8/html/index.\+html\char`\"{}$>$\+Java SE 8$<$/a$>$}\label{md_README_autotoc_md8}
+\hypertarget{md_README_autotoc_md9}{}\doxysubsection{Analisadores}\label{md_README_autotoc_md9}
+\hypertarget{md_README_autotoc_md10}{}\doxysubsubsection{Analisador estático\+: $<$a href=\char`\"{}http\+://cppcheck.\+sourceforge.\+net\char`\"{}$>$\+Cppcheck 1.\+83$<$/a$>$}\label{md_README_autotoc_md10}
+Instalação no Linux
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$ sudo apt-\/get install cppcheck}
+
+\end{DoxyCode}
+
+
+Executando Cpp\+Check
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# arquivos especificos}
+\DoxyCodeLine{\$ cppcheck -\/-\/verbose ./src/main.cpp}
+\DoxyCodeLine{\$ cppcheck -\/-\/enable=warning ./src/main.cpp}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# todos arquivos .cpp dentro de src}
+\DoxyCodeLine{\$ cppcheck -\/-\/verbose -\/-\/enable=warning ./src/*.cpp}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# ou com bash script}
+\DoxyCodeLine{\$ ./check.sh -\/v main}
+\DoxyCodeLine{\$ ./check.sh -\/w main}
+\DoxyCodeLine{\$ ./check.sh -\/all}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md11}{}\doxysubsubsection{Analisador dinâmico\+: $<$a href=\char`\"{}https\+://www.\+valgrind.\+org/\char`\"{}$>$\+Valgrind$<$/a$>$}\label{md_README_autotoc_md11}
+Instalação no Linux
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$ sudo apt-\/get install valgrind}
+
+\end{DoxyCode}
+
+
+Executando
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# com mais detalhes sobre vazamento de memória}
+\DoxyCodeLine{\$ valgrind –leak-\/check=full ./jvm\_boss -\/e test/HelloJava.class}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# bash script}
+\DoxyCodeLine{\$ ./valgrind.sh HelloJava}
+
+\end{DoxyCode}
+ \hypertarget{md_README_autotoc_md12}{}\doxysubsection{Documentação}\label{md_README_autotoc_md12}
+\hypertarget{md_README_autotoc_md13}{}\doxysubsubsection{$<$a href=\char`\"{}https\+://www.\+doxygen.\+nl/index.\+html\char`\"{}$>$\+Doxygen$<$/a$>$}\label{md_README_autotoc_md13}
+Instalação no Linux
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$ git clone https://github.com/doxygen/doxygen.git}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$ cd doxygen}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$ mkdir build}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$ cd build}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$ cmake -\/G "{}Unix Makefiles"{} ..}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$ make}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$ make install}
+
+\end{DoxyCode}
+
+
+Criando arquivo de configuração do Doxygen
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# Cria um arquivo de configuração do doxygen com o nome "{}doxygen\_config"{}}
+\DoxyCodeLine{\$ doxygen -\/g doxygen\_config}
+
+\end{DoxyCode}
+
+
+No arquivo \char`\"{}doxygen\+\_\+config\char`\"{}, foi necessário modificar a configuração \char`\"{}\+RECURSIVE = YES\char`\"{} para gerar a documentação.
+
+Executando
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# Gera ou atualiza a pasta "{}html"{} do projeto. Deve-\/se rodar este comando sempre que o código for atualizado}
+\DoxyCodeLine{\$ doxygen doxygen\_config}
+
+\end{DoxyCode}
+
+
+Para visualizar a documentação gerada, basta abrir a pasta \char`\"{}html\char`\"{} do projeto e abrir o arquivo \char`\"{}index.\+html\char`\"{} com o navegador. 

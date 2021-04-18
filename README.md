@@ -111,3 +111,42 @@ $ valgrind –leak-check=full ./jvm_boss -e test/HelloJava.class
 # bash script
 $ ./valgrind.sh HelloJava
 ```
+## Documentação
+
+### [Doxygen](https://www.doxygen.nl/index.html) 
+
+Instalação no Linux
+
+``` bash
+$ git clone https://github.com/doxygen/doxygen.git
+
+$ cd doxygen
+
+$ mkdir build
+
+$ cd build
+
+$ cmake -G "Unix Makefiles" ..
+
+$ make
+
+$ make install
+```
+
+Criando arquivo de configuração do Doxygen
+
+``` bash
+# Cria um arquivo de configuração do doxygen com o nome "doxygen_config"
+$ doxygen -g doxygen_config
+```
+
+No arquivo "doxygen_config", foi necessário modificar a configuração "RECURSIVE = YES" para gerar a documentação.
+
+Executando
+
+``` bash
+# Gera ou atualiza a pasta "html" do projeto. Deve-se rodar este comando sempre que o código for atualizado
+$ doxygen doxygen_config
+```
+
+Para visualizar a documentação gerada, basta abrir a pasta "html" do projeto e abrir o arquivo "index.html" com o navegador.
