@@ -1,3 +1,26 @@
+/** 
+ * @file main.cpp
+ * @brief Arquivo principal do programa leitor/exibidor.
+ *
+ * Universidade de Brasília
+ *
+ * Software Básico - 2020/2
+ * Professor Macelo Ladeira
+ *
+ * Projeto JVM
+ *
+ * Executável: ./jvm_boss.exe
+ * Comando Leitor/Exibidor: -e nomedoarquivo.class
+ * Comando Interpretador: -i nomedoarquivo.class
+ *
+ * @author Ariel
+ * @author Guilherme
+ * @author Gustavo
+ * @author Luís Vinicius Capelletto          16/0134544
+ * @author Mayara
+ *
+ * @bug No know bugs.
+ */
 #include "utils.hpp"
 #include "interpreter.hpp"
 #include "file_printer.hpp"
