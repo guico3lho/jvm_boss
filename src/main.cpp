@@ -1,6 +1,6 @@
 /** 
  * @file main.cpp
- * @brief Arquivo principal do programa leitor/exibidor.
+ * @brief Arquivo principal do programa JVM.
  *
  * Universidade de Brasília
  *
