@@ -67,7 +67,6 @@
 typedef struct Instruction {
   std::string name;
   u4 bytes;
-  u4 constant_pool_flag;
 } Instruction;
 
 std::vector<Instruction> set_instructions();

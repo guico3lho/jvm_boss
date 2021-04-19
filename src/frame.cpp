@@ -37,6 +37,10 @@ Frame::Frame(Method_Info *method, Class_File class_file) {
   local_variables_array.resize(method_code->max_locals);
 }
 
+/**
+ * @brief Executa Frame atual a partir do opcode armazanado no atributo de código na posição do pc do Frame
+ * @param void
+ */
 void Frame::execute_frame() {
   u1 op_code = method_code->code[pc]; 
   if (DEBUG) printf("op_code: %d\n", op_code);
@@ -62,83 +66,6 @@ Operand* Frame::pop_operand() {
 void Frame::push_operand(Operand* op) {
     operand_stack.push(op);
     // printf("[operand pushed]: %d\n", curr_frame->operand_stack.top()->type_int);
-}
-
-/**
- * @brief Cria um ponteiro de Operand e o tipo é decidido pela string recebida
- * @param type_string string que varia de acordo com o tipo
- * @return Operand* novo ponteiro para Operand
- */
-Operand* check_string_create_type(std::string type_string) {
-  Operand *new_type = (Operand*)malloc(sizeof(Operand));
-
-  switch (type_string.c_str()[0]) {
-    case 'I':
-      new_type->tag = CONSTANT_INT;
-      new_type->type_int = 0;
-      break;
-    case 'F':
-      new_type->tag = CONSTANT_FLOAT;
-      new_type->type_float = 0;
-      break;
-    case 'J':
-      new_type->tag = CONSTANT_LONG;
-      new_type->type_long = 0;
-      break;
-    case 'D':
-      new_type->tag = CONSTANT_DOUBLE;
-      new_type->type_double = 0;
-      break;
-    case 'Z':
-      new_type->tag = CONSTANT_BOOL;
-      new_type->type_bool = 0;
-      break;
-    case 'B':
-      new_type->tag = CONSTANT_BYTE;
-      new_type->type_byte = 0;
-      break;
-    case 'C':
-      new_type->tag = CONSTANT_CHAR;
-      new_type->type_char = 0;
-      break;
-    case 'S':
-      new_type->tag = CONSTANT_SHORT;
-      new_type->type_short = 0;
-      break;
-    case '[':
-    // if (DEBUG) printf("Entered [ case\n");
-      new_type->tag = CONSTANT_ARRAY;
-      new_type->array_type = (Array_Type*) malloc(sizeof(Array_Type));
-      new_type->array_type->array = new std::vector<Operand*>();
-      break;
-    case 'P':
-      new_type->tag = CONSTANT_EMPTY;
-      break;
-    case CONSTANT_STRING:
-      new_type->tag = CONSTANT_STRING;
-      new_type->type_string = new std::string("");
-      break;
-    case 'L':
-      if (type_string == "Ljava/lang/String;") {
-        new_type->tag = CONSTANT_STRING;
-        new_type->type_string = new std::string("");
-      } else {
-        new_type->tag = CONSTANT_CLASS;
-        new_type->class_loader = (Class_Loader*) malloc(sizeof(Class_Loader));
-
-        std::string class_realname = type_string.substr(1, type_string.size());
-
-        if (DEBUG) std::cout << "Escopo de check_string_create_type!!" << "\n";
-        Class_File info_class = get_class_info_and_load_not_exists(class_realname);
-
-        new_type->class_loader->class_file = info_class;
-        new_type->class_loader->class_name = &class_realname;
-
-        load_class_var(new_type->class_loader);
-      }
-      break;
-  }
-  return new_type;
 }
 
 /** @brief Encontra metodo main da super classe final
@@ -167,29 +94,6 @@ Method_Info* find_main(Class_File class_file) {
 
   std::cout << "Erro: Class File inserido nao possui metodo main." << std::endl;
   exit(1);
-}
-
-/**
-* @brief Encontra um método pelo nome e descrição.
-* @param class_file ponteiro para o classfile atual
-* @param method_name string do nome do método a ser buscado
-* @param method_desc string da descrição do método
-* @return MethodInfo* ponteiro para as informações relacionadas ao método
-*/
-Method_Info *find_method(Class_File class_file, std::string method_name, std::string method_desc) {
-  for (int i = 0; i < class_file.methods_count; i++) {
-    Method_Info *method_info = class_file.methods + i;
-
-    std::string m_name = get_cp_info_utf8(class_file, method_info->name_index);
-    if (m_name == method_name) {
-      std::string d_name = get_cp_info_utf8(class_file, method_info->descriptor_index);
-      if (d_name == method_desc) return method_info;
-    }
-  }
-
-  printf("Método não encontrado\n");
-  getchar();
-  exit(5);
 }
 
 /**

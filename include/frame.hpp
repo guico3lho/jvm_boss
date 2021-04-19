@@ -51,8 +51,8 @@ public:
 
   Class_File* class_file_ref = nullptr;
   Cp_Info* cp_reference = nullptr;
-  Code_Attribute* method_code = nullptr;
   Method_Info* method_info = nullptr;
+  Code_Attribute* method_code = nullptr;
   u4 pc;
 
   void execute_frame();
