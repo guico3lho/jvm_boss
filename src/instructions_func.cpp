@@ -2530,7 +2530,8 @@ void ldc_w(Frame *curr_frame) {
         case CONSTANT_STRING:{
             operands = (Operand*)malloc(sizeof(Operand));
             operands->tag = CONSTANT_STRING;
-            std::string utf8_cp = get_cp_info_utf8(*(curr_frame->class_file_ref), cp_info->String.string_index);
+            std::string utf8_cp = get_utf8_constant_pool(curr_frame->constant_pool_reference, cp_info->String.string_index);
+
             operands->type_string = new std::string(utf8_cp);
             break;
         }
