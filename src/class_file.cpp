@@ -1,5 +1,17 @@
+/**
+ * @file class_file.cpp
+ * @brief Arquivo de funções relacionados com a leitura de dados do arquivo bytecode (.class)
+ * 
+ *  @bug No know bugs.
+ */
 #include "class_file.hpp"
 
+/**
+ * @brief Função de leitura dos dados do arquivo .class 
+ * 
+ * @param filename 
+ * @return Class_File 
+ */
 Class_File read_class_file(std::string filename) {
   FILE *file = fopen(filename.c_str(), "rb");
 

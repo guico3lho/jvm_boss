@@ -1,0 +1,127 @@
+\hypertarget{classFrame}{}\doxysection{Referência à classe Frame}
+\label{classFrame}\index{Frame@{Frame}}
+
+
+O \mbox{\hyperlink{classFrame}{Frame}} armazena dados e resultados parciais, para executar ligação dinâmica,retornar valores para métodos e disparar exceções.  
+
+
+
+
+{\ttfamily \#include $<$frame.\+hpp$>$}
+
+\doxysubsection*{Membros públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFrame_a43d79ebd88b68d8aa6d088addfbe857b}{Frame}} (\mbox{\hyperlink{structMethod__Info}{Method\+\_\+\+Info}} $\ast$, \mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}})
+\begin{DoxyCompactList}\small\item\em Construtor do \mbox{\hyperlink{classFrame}{Frame}}. Constrói o \mbox{\hyperlink{classFrame}{Frame}} com as informações gerais da classe (constant\+\_\+pool\+\_\+reference), informações de método (method\+\_\+info), código do método (method\+\_\+code), inica PC com 0 e dimensiona o vetor de variáveis locais. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFrame_af6d58ab5a9c0ed4082a0875b3d90e3fa}\label{classFrame_af6d58ab5a9c0ed4082a0875b3d90e3fa}} 
+void {\bfseries execute\+\_\+frame} ()
+\item 
+\mbox{\hyperlink{structOperand}{Operand}} $\ast$ \mbox{\hyperlink{classFrame_a347de73ebe7eef1e4d73cdc0a887ead9}{pop\+\_\+operand}} ()
+\begin{DoxyCompactList}\small\item\em Retira um elemento do topo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFrame_a1fc31610af8beaebb612c43c0fe4b3fe}{push\+\_\+operand}} (\mbox{\hyperlink{structOperand}{Operand}} $\ast$op)
+\begin{DoxyCompactList}\small\item\em Empilha um elemento na pilha de operandos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Membros públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classFrame_a30bcba97f9655ef8f6f2de934df089c7}{setup\+\_\+instructions\+\_\+func}} ()
+\begin{DoxyCompactList}\small\item\em Inicia vetor de funções das instruções assembly. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFrame_a27197ea368062b546dcf995ac98ff7e8}\label{classFrame_a27197ea368062b546dcf995ac98ff7e8}} 
+std\+::vector$<$ \mbox{\hyperlink{structOperand}{Operand}} $\ast$ $>$ {\bfseries local\+\_\+variables\+\_\+array}
+\item 
+\mbox{\Hypertarget{classFrame_a8a192c6bb92d389c99a60dea618f0b71}\label{classFrame_a8a192c6bb92d389c99a60dea618f0b71}} 
+std\+::stack$<$ \mbox{\hyperlink{structOperand}{Operand}} $\ast$ $>$ {\bfseries operand\+\_\+stack}
+\item 
+\mbox{\Hypertarget{classFrame_ac1a0e72da6de79d413084d7b89946161}\label{classFrame_ac1a0e72da6de79d413084d7b89946161}} 
+\mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} $\ast$ {\bfseries class\+\_\+file\+\_\+ref} = nullptr
+\item 
+\mbox{\Hypertarget{classFrame_a3c44f097c67007ae056025fb979eec1a}\label{classFrame_a3c44f097c67007ae056025fb979eec1a}} 
+\mbox{\hyperlink{structCp__Info}{Cp\+\_\+\+Info}} $\ast$ {\bfseries constant\+\_\+pool\+\_\+reference} = nullptr
+\item 
+\mbox{\Hypertarget{classFrame_af7aebb9fe1195b2920f37b2728c246fa}\label{classFrame_af7aebb9fe1195b2920f37b2728c246fa}} 
+\mbox{\hyperlink{structCode__Attribute}{Code\+\_\+\+Attribute}} $\ast$ {\bfseries method\+\_\+code} = nullptr
+\item 
+\mbox{\Hypertarget{classFrame_a0e4c69af6bd7ac80225f443e53e129d4}\label{classFrame_a0e4c69af6bd7ac80225f443e53e129d4}} 
+\mbox{\hyperlink{structMethod__Info}{Method\+\_\+\+Info}} $\ast$ {\bfseries method\+\_\+info} = nullptr
+\item 
+\mbox{\Hypertarget{classFrame_ada6a6cf76d00cbadf43a86a686dd026c}\label{classFrame_ada6a6cf76d00cbadf43a86a686dd026c}} 
+u4 {\bfseries pc}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+O \mbox{\hyperlink{classFrame}{Frame}} armazena dados e resultados parciais, para executar ligação dinâmica,retornar valores para métodos e disparar exceções. 
+
+Cada frame possui seu próprio array de variáveis locais, sua pilha de operandos e uma referência para o pool de constantes da classe do método corrente. 
+
+\doxysubsection{Documentação dos Construtores \& Destrutor}
+\mbox{\Hypertarget{classFrame_a43d79ebd88b68d8aa6d088addfbe857b}\label{classFrame_a43d79ebd88b68d8aa6d088addfbe857b}} 
+\index{Frame@{Frame}!Frame@{Frame}}
+\index{Frame@{Frame}!Frame@{Frame}}
+\doxysubsubsection{\texorpdfstring{Frame()}{Frame()}}
+{\footnotesize\ttfamily Frame\+::\+Frame (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMethod__Info}{Method\+\_\+\+Info}} $\ast$}]{method,  }\item[{\mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}}}]{class\+\_\+file }\end{DoxyParamCaption})}
+
+
+
+Construtor do \mbox{\hyperlink{classFrame}{Frame}}. Constrói o \mbox{\hyperlink{classFrame}{Frame}} com as informações gerais da classe (constant\+\_\+pool\+\_\+reference), informações de método (method\+\_\+info), código do método (method\+\_\+code), inica PC com 0 e dimensiona o vetor de variáveis locais. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$method} & ponteiro para informações do método \\
+\hline
+{\em $\ast$cp\+\_\+info} & ponteiro para a pool de constantes \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentação dos métodos}
+\mbox{\Hypertarget{classFrame_a347de73ebe7eef1e4d73cdc0a887ead9}\label{classFrame_a347de73ebe7eef1e4d73cdc0a887ead9}} 
+\index{Frame@{Frame}!pop\_operand@{pop\_operand}}
+\index{pop\_operand@{pop\_operand}!Frame@{Frame}}
+\doxysubsubsection{\texorpdfstring{pop\_operand()}{pop\_operand()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOperand}{Operand}} $\ast$ Frame\+::pop\+\_\+operand (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retira um elemento do topo da pilha. 
+
+\begin{DoxyReturn}{Retorna}
+Operand$\ast$ ponteiro para operando retirado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFrame_a1fc31610af8beaebb612c43c0fe4b3fe}\label{classFrame_a1fc31610af8beaebb612c43c0fe4b3fe}} 
+\index{Frame@{Frame}!push\_operand@{push\_operand}}
+\index{push\_operand@{push\_operand}!Frame@{Frame}}
+\doxysubsubsection{\texorpdfstring{push\_operand()}{push\_operand()}}
+{\footnotesize\ttfamily void Frame\+::push\+\_\+operand (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOperand}{Operand}} $\ast$}]{op }\end{DoxyParamCaption})}
+
+
+
+Empilha um elemento na pilha de operandos. 
+
+\begin{DoxyReturn}{Retorna}
+Operand$\ast$ ponteiro para elemento a ser inserido 
+
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFrame_a30bcba97f9655ef8f6f2de934df089c7}\label{classFrame_a30bcba97f9655ef8f6f2de934df089c7}} 
+\index{Frame@{Frame}!setup\_instructions\_func@{setup\_instructions\_func}}
+\index{setup\_instructions\_func@{setup\_instructions\_func}!Frame@{Frame}}
+\doxysubsubsection{\texorpdfstring{setup\_instructions\_func()}{setup\_instructions\_func()}}
+{\footnotesize\ttfamily void Frame\+::setup\+\_\+instructions\+\_\+func (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Inicia vetor de funções das instruções assembly. 
+
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+
+
+A documentação para esta classe foi gerada a partir dos seguintes ficheiros\+:\begin{DoxyCompactItemize}
+\item 
+include/frame.\+hpp\item 
+src/frame.\+cpp\end{DoxyCompactItemize}
