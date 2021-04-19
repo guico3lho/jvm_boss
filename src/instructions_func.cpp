@@ -2595,19 +2595,19 @@ void ldc2_w(Frame *curr_frame) {
 void invokeinterface(Frame *curr_frame) {
   if (DEBUG) std::cout << "----------invokeinterface----------\n";
 
-    curr_frame->pc++;
+  curr_frame->pc++;
 
-    u2 method_index = curr_frame->method_code->code[curr_frame->pc++];
-    method_index = (method_index << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  u2 method_index = curr_frame->method_code->code[curr_frame->pc++];
+  method_index = (method_index << 8) + curr_frame->method_code->code[curr_frame->pc++];
 
-    Cp_Info &method_info = curr_frame->constant_pool_reference[method_index];
+  Cp_Info &method_info = curr_frame->constant_pool_reference[method_index];
 
-    Cp_Info &class_info = curr_frame->constant_pool_reference[method_info.Methodref.class_index];
-    std::string class_name = get_cp_info_utf8(*(curr_frame->class_file_ref), class_info.Class.class_name);
+  Cp_Info &class_info = curr_frame->constant_pool_reference[method_info.Methodref.class_index];
+  std::string class_name = get_utf8_constant_pool(curr_frame->constant_pool_reference, class_info.Class.class_name);
 
-    Cp_Info &name_and_type = curr_frame->constant_pool_reference[method_info.Methodref.name_and_type_index];
-    std::string method_name = get_cp_info_utf8(*(curr_frame->class_file_ref), name_and_type.NameAndType.name_index);
-    std::string method_descriptor = get_cp_info_utf8(*(curr_frame->class_file_ref), name_and_type.NameAndType.descriptor_index);
+  Cp_Info &name_and_type = curr_frame->constant_pool_reference[method_info.Methodref.name_and_type_index];
+  std::string method_name = get_utf8_constant_pool(curr_frame->constant_pool_reference, name_and_type.NameAndType.name_index);
+  std::string method_descriptor = get_utf8_constant_pool(curr_frame->constant_pool_reference, name_and_type.NameAndType.descriptor_index);
 }
 
 /**
