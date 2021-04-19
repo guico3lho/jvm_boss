@@ -232,7 +232,8 @@ void getstatic(Frame *curr_frame) {
 
     Cp_Info &field_info = curr_frame->constant_pool_reference[index];
     Cp_Info &name_and_type = curr_frame->constant_pool_reference[field_info.Fieldref.name_and_type_index];
-    std::string class_name = get_cp_info_utf8(*(curr_frame->class_file_ref), field_info.Fieldref.class_index);
+    // std::string class_name = get_cp_info_utf8(*(curr_frame->class_file_ref), field_info.Fieldref.class_index);
+    std::string class_name = get_utf8_constant_pool(curr_frame->constant_pool_reference, field_info.Fieldref.class_index);
 
     // se for a classe default do Java: System -> nao empilhar
     if (class_name == "java/lang/System") {
