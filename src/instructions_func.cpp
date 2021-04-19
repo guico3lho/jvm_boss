@@ -500,9 +500,9 @@ void invokespecial(Frame *curr_frame) {
 	Cp_Info &ref_method = curr_frame->constant_pool_reference[index_method];
 	Cp_Info &name_and_type = curr_frame->constant_pool_reference[ref_method.Methodref.name_and_type_index];
 
-	std::string class_name = get_cp_info_utf8(*(curr_frame->class_file_ref), ref_method.Methodref.class_index);
-	std::string method_name = get_cp_info_utf8(*(curr_frame->class_file_ref), name_and_type.NameAndType.name_index);
-	std::string method_descriptor = get_cp_info_utf8(*(curr_frame->class_file_ref), name_and_type.NameAndType.descriptor_index);
+  std::string class_name = get_utf8_constant_pool(curr_frame->constant_pool_reference, ref_method.Methodref.class_index);
+	std::string method_name = get_utf8_constant_pool(curr_frame->constant_pool_reference, name_and_type.NameAndType.name_index);
+	std::string method_descriptor = get_utf8_constant_pool(curr_frame->constant_pool_reference, name_and_type.NameAndType.descriptor_index);
 
   //incrementa pc
 	curr_frame->pc++;
@@ -2179,7 +2179,8 @@ void new_obj(Frame *curr_frame) {
     index = (index << 8)+curr_frame->method_code->code[++curr_frame->pc];
 
     Cp_Info &class_info = curr_frame->constant_pool_reference[index];
-    std::string utf8_constant = get_cp_info_utf8(*(curr_frame->class_file_ref), class_info.Class.class_name);
+    std::string utf8_constant = get_utf8_constant_pool(curr_frame->constant_pool_reference, class_info.Class.class_name);
+
 
     if (utf8_constant == "java/lang/StringBuilder") {
         Operand* string_builder = (Operand*)malloc(sizeof(Operand));
