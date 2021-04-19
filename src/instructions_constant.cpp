@@ -3,7 +3,7 @@
  *  @bug No know bugs.
  */
 #include "interpreter.hpp"
-#include "instructions_constants.hpp"
+#include "instructions_constant.hpp"
 
 /*************************** CONSTANTS ***************************/
 /** 

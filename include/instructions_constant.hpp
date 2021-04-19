@@ -1,10 +1,10 @@
 /** 
- *  @file instructions_constants.hpp
+ *  @file instructions_constant.hpp
  *  @brief Declaração das funções de instruções de opcode de tipos de constantes da JVM
  * 
  */
-#ifndef __INSTRUCTIONS_CONSTANTS_H__
-#define __INSTRUCTIONS_CONSTANTS_H__
+#ifndef __INSTRUCTIONS_CONSTANT_H__
+#define __INSTRUCTIONS_CONSTANT_H__
 
 #include "frame.hpp"
 
