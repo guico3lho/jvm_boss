@@ -50,7 +50,7 @@ public:
   std::stack<Operand*> operand_stack;
 
   Class_File* class_file_ref = nullptr;
-  Cp_Info* constant_pool_reference = nullptr;
+  Cp_Info* cp_reference = nullptr;
   Code_Attribute* method_code = nullptr;
   Method_Info* method_info = nullptr;
   u4 pc;

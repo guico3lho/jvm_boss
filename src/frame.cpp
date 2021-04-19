@@ -11,14 +11,14 @@ void (*func[256])(Frame *curr_frame);
 
 /** @brief Construtor do Frame.
 *   Constrói o Frame com as informações gerais da classe
-*   (constant_pool_reference), informações de método (method_info),
+*   (cp_reference), informações de método (method_info),
 *   código do método (method_code), inica PC com 0 e dimensiona o vetor de
 *   variáveis locais.
 *  @param *method ponteiro para informações do método
 *  @param *cp_info ponteiro para a pool de constantes
 */
 Frame::Frame(Method_Info *method, Class_File class_file) {
-  constant_pool_reference = class_file.constant_pool;
+  cp_reference = class_file.constant_pool;
   class_file_ref = &class_file;
   if (DEBUG) printf("Frame::Frame - Magic Number: 0x%0X\n", class_file_ref->magic_number);
   method_info = method;

@@ -5,12 +5,16 @@
 #include "interpreter.hpp"
 #include "instructions_func.hpp"
 
-//? ???
+/**
+ * @brief ??? 
+ * 
+ * 
+ */
 namespace patch {
-  template < typename T > std::string to_string( const T& n ) {
-    std::ostringstream stm ;
-    stm << n ;
-    return stm.str() ;
+  template <typename T> std::string to_string(const T& n) {
+    std::ostringstream stm;
+    stm << n;
+    return stm.str();
   }
 }
 
@@ -36,7 +40,7 @@ void ldc(Frame *curr_frame) {
   u1 index = curr_frame->method_code->code[curr_frame->pc++];
   if (DEBUG) std::cout << "ldc index: " << (int) index << std::endl;
 
-  Cp_Info &cp_info = curr_frame->constant_pool_reference[((int)index)];
+  Cp_Info &cp_info = curr_frame->cp_reference[((int)index)];
   op->tag = cp_info.tag;
   if (DEBUG) std::cout << "op->tag: " << (int) op->tag << std::endl;
 
@@ -50,11 +54,12 @@ void ldc(Frame *curr_frame) {
       break;
     case CONSTANT_STRING: {
       if (DEBUG) printf("Magic Number: 0x%0X\n", curr_frame->class_file_ref->magic_number);
-      // std::string utf8_s = get_cp_info_utf8(*(curr_frame->class_file_ref), cp_info.String.string_index);
+      // std::string string_utf8 = get_cp_info_utf8(*(curr_frame->class_file_ref), cp_info.String.string_index);
 
-      std::string utf8_s = get_utf8_constant_pool(curr_frame->constant_pool_reference, cp_info.String.string_index);
-      if (DEBUG) std::cout << "utf8_s: " << utf8_s << std::endl;
-      op->type_string = new std::string(utf8_s); 
+      std::string string_utf8 = get_utf8_constant_pool(curr_frame->cp_reference, cp_info.String.string_index);
+      if (DEBUG) std::cout << "string_utf8: " << string_utf8 << std::endl;
+
+      op->type_string = new std::string(string_utf8); 
     }
       break;
     case CONSTANT_CLASS: // TODO
@@ -63,7 +68,7 @@ void ldc(Frame *curr_frame) {
       // CONSTANT_METHOD_HANDLE
       // CONSTANT_METHOD_REF
       break;
-    }
+  }
 
     curr_frame->push_operand(op);
 }
@@ -206,11 +211,11 @@ void getfield(Frame *curr_frame) {
 
   u2 index = (byte1 << 8) | byte2;
 
-  Cp_Info field_ref = curr_frame->constant_pool_reference[index];
-  Cp_Info name_and_type = curr_frame->constant_pool_reference[field_ref.Fieldref.class_index];
+  Cp_Info field_ref = curr_frame->cp_reference[index];
+  Cp_Info name_and_type = curr_frame->cp_reference[field_ref.Fieldref.class_index];
 
-  std::string class_name = get_utf8_constant_pool(curr_frame->constant_pool_reference, field_ref.Fieldref.class_index);
-  std::string field_name = get_utf8_constant_pool(curr_frame->constant_pool_reference, name_and_type.NameAndType.name_index);
+  std::string class_name = get_utf8_constant_pool(curr_frame->cp_reference, field_ref.Fieldref.class_index);
+  std::string field_name = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.name_index);
 
   curr_frame->operand_stack.pop();
 
@@ -230,10 +235,10 @@ void getstatic(Frame *curr_frame) {
     u2 index = curr_frame->method_code->code[curr_frame->pc++];
     index = (index << 8) + curr_frame->method_code->code[curr_frame->pc++];
 
-    Cp_Info &field_info = curr_frame->constant_pool_reference[index];
-    Cp_Info &name_and_type = curr_frame->constant_pool_reference[field_info.Fieldref.name_and_type_index];
+    Cp_Info &field_info = curr_frame->cp_reference[index];
+    Cp_Info &name_and_type = curr_frame->cp_reference[field_info.Fieldref.name_and_type_index];
     // std::string class_name = get_cp_info_utf8(*(curr_frame->class_file_ref), field_info.Fieldref.class_index);
-    std::string class_name = get_utf8_constant_pool(curr_frame->constant_pool_reference, field_info.Fieldref.class_index);
+    std::string class_name = get_utf8_constant_pool(curr_frame->cp_reference, field_info.Fieldref.class_index);
 
     // se for a classe default do Java: System -> nao empilhar
     if (class_name == "java/lang/System") {
@@ -303,13 +308,13 @@ void invokevirtual(Frame *curr_frame) {
   index += curr_frame->method_code->code[++curr_frame->pc];
   curr_frame->pc++;
 
-  Cp_Info &method_ref = curr_frame->constant_pool_reference[index];
-  Cp_Info &name_and_type = curr_frame->constant_pool_reference[method_ref.Methodref.name_and_type_index];
+  Cp_Info &method_ref = curr_frame->cp_reference[index];
+  Cp_Info &name_and_type = curr_frame->cp_reference[method_ref.Methodref.name_and_type_index];
 
   // * Utilizando o Cp_Info
-  std::string class_name = get_utf8_constant_pool(curr_frame->constant_pool_reference, method_ref.Methodref.class_index);
-  std::string method_name = get_utf8_constant_pool(curr_frame->constant_pool_reference, name_and_type.NameAndType.name_index);
-  std::string method_desc = get_utf8_constant_pool(curr_frame->constant_pool_reference, name_and_type.NameAndType.descriptor_index);
+  std::string class_name = get_utf8_constant_pool(curr_frame->cp_reference, method_ref.Methodref.class_index);
+  std::string method_name = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.name_index);
+  std::string method_desc = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.descriptor_index);
 
   if (strstr(class_name.c_str(), "java/")) {
     if (class_name == "java/io/PrintStream" && (method_name == "println" || method_name == "print")) {
@@ -497,12 +502,12 @@ void invokespecial(Frame *curr_frame) {
 	u2 index_method = curr_frame->method_code->code[curr_frame->pc];
 	index_method = (index_method << 8) + curr_frame->method_code->code[++curr_frame->pc];
 
-	Cp_Info &ref_method = curr_frame->constant_pool_reference[index_method];
-	Cp_Info &name_and_type = curr_frame->constant_pool_reference[ref_method.Methodref.name_and_type_index];
+	Cp_Info &ref_method = curr_frame->cp_reference[index_method];
+	Cp_Info &name_and_type = curr_frame->cp_reference[ref_method.Methodref.name_and_type_index];
 
-  std::string class_name = get_utf8_constant_pool(curr_frame->constant_pool_reference, ref_method.Methodref.class_index);
-	std::string method_name = get_utf8_constant_pool(curr_frame->constant_pool_reference, name_and_type.NameAndType.name_index);
-	std::string method_descriptor = get_utf8_constant_pool(curr_frame->constant_pool_reference, name_and_type.NameAndType.descriptor_index);
+  std::string class_name = get_utf8_constant_pool(curr_frame->cp_reference, ref_method.Methodref.class_index);
+	std::string method_name = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.name_index);
+	std::string method_descriptor = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.descriptor_index);
 
   //incrementa pc
 	curr_frame->pc++;
@@ -2081,19 +2086,19 @@ void invokestatic(Frame *curr_frame) {
   u2 method_index = curr_frame->method_code->code[curr_frame->pc++];
   method_index = (method_index << 8) + curr_frame->method_code->code[curr_frame->pc++];
 
-  Cp_Info &method_info = curr_frame->constant_pool_reference[method_index];
-  Cp_Info &class_info = curr_frame->constant_pool_reference[method_info.Methodref.class_index];
+  Cp_Info &method_info = curr_frame->cp_reference[method_index];
+  Cp_Info &class_info = curr_frame->cp_reference[method_info.Methodref.class_index];
 
-  std::string class_name = get_utf8_constant_pool(curr_frame->constant_pool_reference, class_info.Class.class_name);
+  std::string class_name = get_utf8_constant_pool(curr_frame->cp_reference, class_info.Class.class_name);
 
-  Cp_Info &name_and_type = curr_frame->constant_pool_reference[
+  Cp_Info &name_and_type = curr_frame->cp_reference[
                                   method_info.Methodref.name_and_type_index];
 
-  std::string method_name = get_utf8_constant_pool(curr_frame->constant_pool_reference, name_and_type.NameAndType.name_index);
+  std::string method_name = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.name_index);
 
   if (DEBUG) std::cout << "nome do metodo a ser chamado: " << method_name << std::endl;
 
-  std::string method_descriptor = get_utf8_constant_pool(curr_frame->constant_pool_reference,name_and_type.NameAndType.descriptor_index);
+  std::string method_descriptor = get_utf8_constant_pool(curr_frame->cp_reference,name_and_type.NameAndType.descriptor_index);
 
   if (DEBUG) std::cout << "nome da classe: " << class_name << std::endl;
   if (class_name == "java/lang/Object" && method_name == "registerNatives") {
@@ -2178,8 +2183,8 @@ void new_obj(Frame *curr_frame) {
     u2 index = curr_frame->method_code->code[curr_frame->pc];
     index = (index << 8)+curr_frame->method_code->code[++curr_frame->pc];
 
-    Cp_Info &class_info = curr_frame->constant_pool_reference[index];
-    std::string utf8_constant = get_utf8_constant_pool(curr_frame->constant_pool_reference, class_info.Class.class_name);
+    Cp_Info &class_info = curr_frame->cp_reference[index];
+    std::string utf8_constant = get_utf8_constant_pool(curr_frame->cp_reference, class_info.Class.class_name);
 
 
     if (utf8_constant == "java/lang/StringBuilder") {
@@ -2399,12 +2404,12 @@ void putfield(Frame *curr_frame) {
 
     u2 index = curr_frame->method_code->code[curr_frame->pc++];
     index = (index<<8) + curr_frame->method_code->code[curr_frame->pc++];
-    Cp_Info field_reference = curr_frame->constant_pool_reference[index];
+    Cp_Info field_reference = curr_frame->cp_reference[index];
 
-    Cp_Info name_and_type = curr_frame->constant_pool_reference[field_reference.Fieldref.class_index];
+    Cp_Info name_and_type = curr_frame->cp_reference[field_reference.Fieldref.class_index];
 
-    std::string class_name = get_utf8_constant_pool(curr_frame->constant_pool_reference, field_reference.Fieldref.class_index);
-    std::string var_name = get_utf8_constant_pool(curr_frame->constant_pool_reference, name_and_type.NameAndType.name_index);
+    std::string class_name = get_utf8_constant_pool(curr_frame->cp_reference, field_reference.Fieldref.class_index);
+    std::string var_name = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.name_index);
 
     Operand *var_operand = curr_frame->pop_operand();
     Operand *class_instance = curr_frame->pop_operand();
@@ -2509,7 +2514,7 @@ void ldc_w(Frame *curr_frame) {
 
     u2 index = (index_1 << 8) + index_2;
 
-    Cp_Info *cp_info = curr_frame->constant_pool_reference + (int)index;
+    Cp_Info *cp_info = curr_frame->cp_reference + (int)index;
     Operand* operands = nullptr;
 
     switch(cp_info->tag) {
@@ -2530,7 +2535,7 @@ void ldc_w(Frame *curr_frame) {
         case CONSTANT_STRING:{
             operands = (Operand*)malloc(sizeof(Operand));
             operands->tag = CONSTANT_STRING;
-            std::string utf8_cp = get_utf8_constant_pool(curr_frame->constant_pool_reference, cp_info->String.string_index);
+            std::string utf8_cp = get_utf8_constant_pool(curr_frame->cp_reference, cp_info->String.string_index);
 
             operands->type_string = new std::string(utf8_cp);
             break;
@@ -2559,7 +2564,7 @@ void ldc2_w(Frame *curr_frame) {
   u2 index = (index_1 << 8) + index_2;
 
   if (DEBUG) std::cout << "ldc2_w index : " << (int)index << std::endl;
-  Cp_Info *cp_info = curr_frame->constant_pool_reference + (int)index;
+  Cp_Info *cp_info = curr_frame->cp_reference + (int)index;
   Operand* operands;
 
   if (cp_info->tag == CONSTANT_DOUBLE) { // double
@@ -2600,14 +2605,14 @@ void invokeinterface(Frame *curr_frame) {
   u2 method_index = curr_frame->method_code->code[curr_frame->pc++];
   method_index = (method_index << 8) + curr_frame->method_code->code[curr_frame->pc++];
 
-  Cp_Info &method_info = curr_frame->constant_pool_reference[method_index];
+  Cp_Info &method_info = curr_frame->cp_reference[method_index];
 
-  Cp_Info &class_info = curr_frame->constant_pool_reference[method_info.Methodref.class_index];
-  std::string class_name = get_utf8_constant_pool(curr_frame->constant_pool_reference, class_info.Class.class_name);
+  Cp_Info &class_info = curr_frame->cp_reference[method_info.Methodref.class_index];
+  std::string class_name = get_utf8_constant_pool(curr_frame->cp_reference, class_info.Class.class_name);
 
-  Cp_Info &name_and_type = curr_frame->constant_pool_reference[method_info.Methodref.name_and_type_index];
-  std::string method_name = get_utf8_constant_pool(curr_frame->constant_pool_reference, name_and_type.NameAndType.name_index);
-  std::string method_descriptor = get_utf8_constant_pool(curr_frame->constant_pool_reference, name_and_type.NameAndType.descriptor_index);
+  Cp_Info &name_and_type = curr_frame->cp_reference[method_info.Methodref.name_and_type_index];
+  std::string method_name = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.name_index);
+  std::string method_descriptor = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.descriptor_index);
 }
 
 /**
