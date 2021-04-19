@@ -130,6 +130,8 @@ Operand* copy_operand(Operand* original_type) {
 *  @return void
 */
 void Frame::setup_instructions_func() {
+
+  /* CONSTANTS */
   func[0] = nop;
   func[1] = aconst_null;
   func[2] = iconst_m1;
@@ -151,6 +153,8 @@ void Frame::setup_instructions_func() {
   func[18] = ldc;
   func[19] = ldc_w;
   func[20] = ldc2_w;
+
+  /* LOADS */
   func[21] = iload;
   func[22] = lload;
   func[23] = fload;
@@ -184,6 +188,8 @@ void Frame::setup_instructions_func() {
   func[51] = baload;
   func[52] = caload;
   func[53] = saload;
+
+  /* STORES */
   func[54] = istore;
   func[55] = lstore;
   func[56] = fstore;
@@ -217,6 +223,8 @@ void Frame::setup_instructions_func() {
   func[84] = bastore;
   func[85] = castore;
   func[86] = sastore;
+
+  /* STACK */
   func[87] = pop;
   func[88] = pop2;
   func[89] = dup;
@@ -226,6 +234,8 @@ void Frame::setup_instructions_func() {
   func[93] = dup2_x1;
   func[94] = dup2_x2;
   func[95] = swap;
+
+  /* MATH */
   func[96] = iadd;
   func[97] = ladd;
   func[98] = fadd;
@@ -262,6 +272,8 @@ void Frame::setup_instructions_func() {
   func[129] = lor;
   func[130] = ixor;
   func[131] = lxor;
+
+  /* CONVERSIONS */
   func[132] = iinc;
   func[133] = i2l;
   func[134] = i2f;
@@ -278,6 +290,8 @@ void Frame::setup_instructions_func() {
   // func[145] = i2b;
   // func[146] = i2c;
   func[147] = i2s;
+
+  /* COMPARISONS */
   // func[148] = lcmp;
   // func[149] = fcmpl;
   // func[150] = fcmpg;
@@ -297,6 +311,8 @@ void Frame::setup_instructions_func() {
   func[164] = if_icmple;
   func[165] = if_acmpeq;
   func[166] = if_acmpne;
+
+  /* CONTROL */
   func[167] = ins_goto;
   // func[168] = jsr;
   func[169] = ret;
@@ -308,6 +324,8 @@ void Frame::setup_instructions_func() {
   func[175] = dreturn;
   func[176] = areturn;
   func[177] = void_return;
+
+  /* REFERENCES */
   func[178] = getstatic;
   // func[179] = putstatic;
   func[180] = getfield;
@@ -316,16 +334,18 @@ void Frame::setup_instructions_func() {
   func[183] = invokespecial;
   func[184] = invokestatic;
   func[185] = invokeinterface;
-  //
-  func[187] = new_obj;
+  //func[186] = invokedynamic;
+  func[187] = new_obj;  //* new
   func[188] = newarray;
-  // func[189] = anewarray;
+  // func[189] = anewarray; // TODO
   func[190] = arraylength;
-  //
+  //func[191] = athrow;
   // func[192] = checkcast;
   // func[193] = instanceof;
-  //
-  //
+  //func[194] = monitorenter;
+  //func[195] = monitorexit;
+
+  /* EXTENDED */
   // func[196] = wide;
   // func[197] = multianewarray;
   func[198] = ifnull;
