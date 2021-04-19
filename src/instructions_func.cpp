@@ -11,7 +11,7 @@
  * 
  */
 namespace patch {
-  template <typename T> std::string to_string(const T& n) {
+  template <typename T> string to_string(const T& n) {
     std::ostringstream stm;
     stm << n;
     return stm.str();
@@ -32,17 +32,17 @@ void nop(Frame *curr_frame) {
  * @return void
  */
 void ldc(Frame *curr_frame) {
-  if (DEBUG) std::cout << "\n----------ldc----------\n";
+  if (DEBUG) cout << "\n----------ldc----------\n";
 
   curr_frame->pc++;
   Operand *op = (Operand*) malloc(sizeof(Operand));
 
   u1 index = curr_frame->method_code->code[curr_frame->pc++];
-  if (DEBUG) std::cout << "ldc index: " << (int) index << std::endl;
+  if (DEBUG) cout << "ldc index: " << (int) index << "\n";
 
   Cp_Info &cp_info = curr_frame->cp_reference[((int)index)];
   op->tag = cp_info.tag;
-  if (DEBUG) std::cout << "op->tag: " << (int) op->tag << std::endl;
+  if (DEBUG) cout << "op->tag: " << (int) op->tag << "\n";
 
   switch (op->tag) {
     case CONSTANT_INT:
@@ -50,16 +50,16 @@ void ldc(Frame *curr_frame) {
       break;
     case CONSTANT_FLOAT:
       op->type_float = (float) cp_info.Float.bytes;
-      if (DEBUG) std::cout << "ldc value: " << (float) op->type_float << std::endl;
+      if (DEBUG) cout << "ldc value: " << (float) op->type_float << "\n";
       break;
     case CONSTANT_STRING: {
       if (DEBUG) printf("Magic Number: 0x%0X\n", curr_frame->class_file_ref->magic_number);
-      // std::string string_utf8 = get_cp_info_utf8(*(curr_frame->class_file_ref), cp_info.String.string_index);
+      // string string_utf8 = get_cp_info_utf8(*(curr_frame->class_file_ref), cp_info.String.string_index);
 
-      std::string string_utf8 = get_utf8_constant_pool(curr_frame->cp_reference, cp_info.String.string_index);
-      if (DEBUG) std::cout << "string_utf8: " << string_utf8 << std::endl;
+      string string_utf8 = get_utf8_constant_pool(curr_frame->cp_reference, cp_info.String.string_index);
+      if (DEBUG) cout << "string_utf8: " << string_utf8 << "\n";
 
-      op->type_string = new std::string(string_utf8); 
+      op->type_string = new string(string_utf8); 
     }
       break;
     case CONSTANT_CLASS: // TODO
@@ -98,7 +98,7 @@ void astore_1(Frame *curr_frame) {
  * @return void
  */
 void iconst_1(Frame* curr_frame) {
-  if (DEBUG) std::cout << "\n----------iconst_1----------\n";
+  if (DEBUG) cout << "\n----------iconst_1----------\n";
 
     Operand *op = (Operand*)malloc(sizeof(Operand));
     op->tag = CONSTANT_INT;
@@ -142,7 +142,7 @@ void iconst_0(Frame* curr_frame) {
   curr_frame->push_operand(op);
   curr_frame->pc++;
 
-  if (DEBUG) std::cout << "iconst_0\n";
+  if (DEBUG) cout << "iconst_0\n";
 }
 
 /** @brief Empurra int na pilha de operandos
@@ -156,7 +156,7 @@ void iconst_2(Frame* curr_frame) {
     curr_frame->push_operand(op);
     curr_frame->pc++;
 
-    if (DEBUG) std::cout << "iconst_2\n";
+    if (DEBUG) cout << "iconst_2\n";
 }
 
 /** @brief Empurra int na pilha de operandos
@@ -170,7 +170,7 @@ void iconst_3(Frame* curr_frame) {
     curr_frame->push_operand(op);
     curr_frame->pc++;
 
-    if (DEBUG) std::cout << "iconst_3\n";
+    if (DEBUG) cout << "iconst_3\n";
 }
 
 /** @brief Empurra int na pilha de operandos
@@ -184,7 +184,7 @@ void iconst_4(Frame* curr_frame) {
   curr_frame->push_operand(op);
   curr_frame->pc++;
 
-  if (DEBUG) std::cout << "iconst_4\n";
+  if (DEBUG) cout << "iconst_4\n";
 }
 
 /** @brief Empurra int na pilha de operandos
@@ -198,7 +198,7 @@ void iconst_5(Frame* curr_frame) {
   curr_frame->push_operand(op);
   curr_frame->pc++;
 
-  if (DEBUG) std::cout << "iconst_5\n";
+  if (DEBUG) cout << "iconst_5\n";
 }
 
 /** @brief ...
@@ -214,8 +214,8 @@ void getfield(Frame *curr_frame) {
   Cp_Info field_ref = curr_frame->cp_reference[index];
   Cp_Info name_and_type = curr_frame->cp_reference[field_ref.Fieldref.class_index];
 
-  std::string class_name = get_utf8_constant_pool(curr_frame->cp_reference, field_ref.Fieldref.class_index);
-  std::string field_name = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.name_index);
+  string class_name = get_utf8_constant_pool(curr_frame->cp_reference, field_ref.Fieldref.class_index);
+  string field_name = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.name_index);
 
   curr_frame->operand_stack.pop();
 
@@ -228,7 +228,7 @@ void getfield(Frame *curr_frame) {
  * @return void
  */
 void getstatic(Frame *curr_frame) {
-    if (DEBUG) std::cout << "----------getstatic----------\n";
+    if (DEBUG) cout << "----------getstatic----------\n";
 
     curr_frame->pc++;
 
@@ -237,17 +237,17 @@ void getstatic(Frame *curr_frame) {
 
     Cp_Info &field_info = curr_frame->cp_reference[index];
     Cp_Info &name_and_type = curr_frame->cp_reference[field_info.Fieldref.name_and_type_index];
-    // std::string class_name = get_cp_info_utf8(*(curr_frame->class_file_ref), field_info.Fieldref.class_index);
-    std::string class_name = get_utf8_constant_pool(curr_frame->cp_reference, field_info.Fieldref.class_index);
+    // string class_name = get_cp_info_utf8(*(curr_frame->class_file_ref), field_info.Fieldref.class_index);
+    string class_name = get_utf8_constant_pool(curr_frame->cp_reference, field_info.Fieldref.class_index);
 
     // se for a classe default do Java: System -> nao empilhar
     if (class_name == "java/lang/System") {
-      if (DEBUG) std::cout << "Java Default Class: java/lang/System" << "\n";
+      if (DEBUG) cout << "Java Default Class: java/lang/System" << "\n";
       return;
     }
 
     Class_File class_file = get_class_info_and_load_not_exists(class_name);
-    std::string var_name = get_cp_info_utf8(class_file, name_and_type.NameAndType.name_index);
+    string var_name = get_cp_info_utf8(class_file, name_and_type.NameAndType.name_index);
     Operand *static_field = get_static_field_of_class(class_name, var_name);
 
     curr_frame->push_operand(static_field);
@@ -272,7 +272,7 @@ void aload_1(Frame *curr_frame) {
   curr_frame->pc++;
   curr_frame->push_operand(curr_frame->local_variables_array.at(1));
 
-  if (DEBUG) std::cout << "aload_1\n";
+  if (DEBUG) cout << "aload_1\n";
 }
 
 /** @brief Coloca na pilha de operandos a variável da posição 2 do vetor de
@@ -301,7 +301,7 @@ void aload_3(Frame *curr_frame) {
  * @return void
  */
 void invokevirtual(Frame *curr_frame) {
-  if (DEBUG) std::cout << "----------invokevirtual----------\n";
+  if (DEBUG) cout << "----------invokevirtual----------\n";
   curr_frame->pc++;
 
   u2 index = curr_frame->method_code->code[curr_frame->pc] << 16;
@@ -312,55 +312,55 @@ void invokevirtual(Frame *curr_frame) {
   Cp_Info &name_and_type = curr_frame->cp_reference[method_ref.Methodref.name_and_type_index];
 
   // * Utilizando o Cp_Info
-  std::string class_name = get_utf8_constant_pool(curr_frame->cp_reference, method_ref.Methodref.class_index);
-  std::string method_name = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.name_index);
-  std::string method_desc = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.descriptor_index);
+  string class_name = get_utf8_constant_pool(curr_frame->cp_reference, method_ref.Methodref.class_index);
+  string method_name = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.name_index);
+  string method_desc = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.descriptor_index);
 
   if (strstr(class_name.c_str(), "java/")) {
     if (class_name == "java/io/PrintStream" && (method_name == "println" || method_name == "print")) {
       if (method_desc != "()V") {
-        if (DEBUG) std::cout << "CHEGOU AQUI - java/io/PrintStream\n";
+        if (DEBUG) cout << "CHEGOU AQUI - java/io/PrintStream\n";
         Operand *op = curr_frame->pop_operand();
 
         switch(op->tag) {
           case CONSTANT_BYTE:
-              if (DEBUG) std::cout << "CONSTANT_BYTE: ";
-              std::cout << (int) op->type_byte;
+              if (DEBUG) cout << "CONSTANT_BYTE: ";
+              cout << (int) op->type_byte;
               break;
           case CONSTANT_CHAR:
-              if (DEBUG) std::cout << "CONSTANT_CHAR: ";
-              std::cout << (char) op->type_char;
+              if (DEBUG) cout << "CONSTANT_CHAR: ";
+              cout << (char) op->type_char;
               break;
           case CONSTANT_SHORT:
-              if (DEBUG) std::cout << "CONSTANT_SHORT: ";
-              std::cout << (short) op->type_short;
+              if (DEBUG) cout << "CONSTANT_SHORT: ";
+              cout << (short) op->type_short;
               break;
           case CONSTANT_BOOL:
-              if (DEBUG) std::cout << "CONSTANT_BOOL: ";
-              std::cout << (bool) op->type_bool;
+              if (DEBUG) cout << "CONSTANT_BOOL: ";
+              cout << (bool) op->type_bool;
               break;
           case CONSTANT_STRING:
-              if (DEBUG) std::cout << "CONSTANT_STRING: ";
-              std::cout << *op->type_string;
+              if (DEBUG) cout << "CONSTANT_STRING: ";
+              cout << *op->type_string;
               break;
           case CONSTANT_INT:
-              if (DEBUG) std::cout << "CONSTANT_INT: ";
-              std::cout << (u4) op->type_int;
+              if (DEBUG) cout << "CONSTANT_INT: ";
+              cout << (u4) op->type_int;
               break;
           case CONSTANT_FLOAT: {
               float float_v;
               memcpy(&float_v, &op->type_float, sizeof(float));
-              if (DEBUG) std::cout << "CONSTANT_FLOAT: ";
+              if (DEBUG) cout << "CONSTANT_FLOAT: ";
               printf("%f", float_v); }
               break;
           case CONSTANT_LONG:
-              if (DEBUG) std::cout << "CONSTANT_LONG: ";
-              std::cout << (long) op->type_long;
+              if (DEBUG) cout << "CONSTANT_LONG: ";
+              cout << (long) op->type_long;
               break;
           case CONSTANT_DOUBLE: {
               double double_v;
               memcpy(&double_v, &op->type_double, sizeof(double));
-              if (DEBUG) std::cout << "CONSTANT_DOUBLE: ";
+              if (DEBUG) cout << "CONSTANT_DOUBLE: ";
               printf("%.15lf", double_v); }
               break;
           case CONSTANT_EMPTY:
@@ -369,8 +369,8 @@ void invokevirtual(Frame *curr_frame) {
           case CONSTANT_CLASS: {
               Class_Loader *class_loader = op->class_loader;
               Class_File class_file = class_loader->class_file;
-              std::string this_class_name = get_cp_info_utf8(class_file, class_file.this_class);
-              std::cout << this_class_name << "@" << class_loader;
+              string this_class_name = get_cp_info_utf8(class_file, class_file.this_class);
+              cout << this_class_name << "@" << class_loader;
           }
           break;
         }
@@ -379,7 +379,7 @@ void invokevirtual(Frame *curr_frame) {
         }
       }
     } else if (class_name == "java/lang/String" && method_name == "length") {
-        if (DEBUG) std::cout << "CHEGOU AQUI - java/lang/String\n";
+        if (DEBUG) cout << "CHEGOU AQUI - java/lang/String\n";
 
         Operand *str_ref = curr_frame->pop_operand();
 
@@ -389,7 +389,7 @@ void invokevirtual(Frame *curr_frame) {
         curr_frame->push_operand(str_len);
 
     } else if (class_name == "java/lang/StringBuilder" && method_name == "append") {
-        if (DEBUG) std::cout << "CHEGOU AQUI - java/lang/StringBuilder\n";
+        if (DEBUG) cout << "CHEGOU AQUI - java/lang/StringBuilder\n";
 
         Operand *t_append = curr_frame->pop_operand();
         Operand *str_append = copy_operand(curr_frame->pop_operand());
@@ -494,7 +494,7 @@ void invokevirtual(Frame *curr_frame) {
 * @return void
 */
 void invokespecial(Frame *curr_frame) {
-  if (DEBUG) std::cout << "----------invokespecial----------\n";
+  if (DEBUG) cout << "----------invokespecial----------\n";
 
 	//incrementa pc
 	curr_frame->pc++;
@@ -505,9 +505,9 @@ void invokespecial(Frame *curr_frame) {
 	Cp_Info &ref_method = curr_frame->cp_reference[index_method];
 	Cp_Info &name_and_type = curr_frame->cp_reference[ref_method.Methodref.name_and_type_index];
 
-  std::string class_name = get_utf8_constant_pool(curr_frame->cp_reference, ref_method.Methodref.class_index);
-	std::string method_name = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.name_index);
-	std::string method_descriptor = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.descriptor_index);
+  string class_name = get_utf8_constant_pool(curr_frame->cp_reference, ref_method.Methodref.class_index);
+	string method_name = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.name_index);
+	string method_descriptor = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.descriptor_index);
 
   //incrementa pc
 	curr_frame->pc++;
@@ -525,7 +525,7 @@ void invokespecial(Frame *curr_frame) {
 		}
 		return;
 
-    } else if (class_name.find("java/") != std::string::npos) {
+    } else if (class_name.find("java/") != string::npos) {
         printf("Classe java nao implementada.");
         getchar();
         exit(1); // caso seja algum outro tipo de classe java nao implementada
@@ -603,10 +603,10 @@ void iload(Frame *curr_frame) {
   curr_frame->pc++;
 
   u1 index = curr_frame->method_code->code[curr_frame->pc++];
-  if (DEBUG) std::cout << "iload index " << (int)index << std::endl;
+  if (DEBUG) cout << "iload index " << (int)index << "\n";
   curr_frame->push_operand(curr_frame->local_variables_array.at((int)index));
 
-  if (DEBUG) std::cout << "iload\n";
+  if (DEBUG) cout << "iload\n";
 }
 
 /**
@@ -628,7 +628,7 @@ void iload_1(Frame *curr_frame) {
     curr_frame->push_operand(curr_frame->local_variables_array.at(1));
     curr_frame->pc++;
 
-    if (DEBUG) std::cout << "iload_1\n";
+    if (DEBUG) cout << "iload_1\n";
 }
 
 /**
@@ -640,7 +640,7 @@ void iload_2(Frame *curr_frame) {
     curr_frame->push_operand(curr_frame->local_variables_array.at(2));
     curr_frame->pc++;
 
-    if (DEBUG) std::cout << "iload_2\n";
+    if (DEBUG) cout << "iload_2\n";
 }
 
 /**
@@ -652,7 +652,7 @@ void iload_3(Frame *curr_frame) {
     curr_frame->push_operand(curr_frame->local_variables_array.at(3));
     curr_frame->pc++;
 
-    if (DEBUG) std::cout << "iload_3\n";
+    if (DEBUG) cout << "iload_3\n";
 }
 
 /**
@@ -680,7 +680,7 @@ void lconst_1(Frame *curr_frame) {
   curr_frame->push_operand(op);
   curr_frame->pc++;
 
-  if (DEBUG) std::cout << "lconst_1\n";
+  if (DEBUG) cout << "lconst_1\n";
 }
 
 /**
@@ -708,7 +708,7 @@ void fconst_1(Frame *curr_frame) {
     curr_frame->operand_stack.push(op);
     curr_frame->pc++;
 
-    if (DEBUG) std::cout << "fconst_1\n";
+    if (DEBUG) cout << "fconst_1\n";
 }
 
 /**
@@ -751,7 +751,7 @@ void dconst_1(Frame *curr_frame) {
   curr_frame->operand_stack.push(op);
   curr_frame->pc++;
 
-  if (DEBUG) std::cout << "dconst_1\n";
+  if (DEBUG) cout << "dconst_1\n";
 }
 
 /**
@@ -760,13 +760,13 @@ void dconst_1(Frame *curr_frame) {
  * @return void
  */
 void bipush(Frame *curr_frame) {
-  if (DEBUG) std::cout << "\n----------bipush----------\n";
+  if (DEBUG) cout << "\n----------bipush----------\n";
 
   curr_frame->pc++;
 
   Operand *op = (Operand*)malloc(sizeof(Operand));
   u1 byte = curr_frame->method_code->code[curr_frame->pc++];
-  if (DEBUG) std::cout << "bipush byte " << byte << std::endl;
+  if (DEBUG) cout << "bipush byte " << byte << "\n";
 
   op->tag = CONSTANT_INT;
   op->type_int = (int8_t) byte;
@@ -808,7 +808,7 @@ void lload_1(Frame *curr_frame) {
   curr_frame->operand_stack.push(curr_frame->local_variables_array[1]);
   curr_frame->pc++;
 
-  if (DEBUG) std::cout << "lload_1\n";
+  if (DEBUG) cout << "lload_1\n";
 }
 
 /**
@@ -829,7 +829,7 @@ void lload_2(Frame *curr_frame) {
 void lload_3(Frame *curr_frame) {
   curr_frame->operand_stack.push(curr_frame->local_variables_array[3]);
   curr_frame->pc++;
-  if (DEBUG) std::cout << "lload_3\n";
+  if (DEBUG) cout << "lload_3\n";
 
 }
 
@@ -843,10 +843,10 @@ void fload(Frame *curr_frame) {
   curr_frame->pc++;
 
   u1 index = curr_frame->method_code->code[curr_frame->pc++];
-  if (DEBUG) std::cout << "fload index " << (int)index << std::endl;
+  if (DEBUG) cout << "fload index " << (int)index << "\n";
   curr_frame->push_operand(curr_frame->local_variables_array[(int)index]);
 
-  if (DEBUG) std::cout << "fload\n";
+  if (DEBUG) cout << "fload\n";
 }
 
 /**
@@ -868,7 +868,7 @@ void fload_1  (Frame *curr_frame) {
   curr_frame->operand_stack.push(curr_frame->local_variables_array[1]);
   curr_frame->pc++;
 
-  if (DEBUG) std::cout << "float_1\n";
+  if (DEBUG) cout << "float_1\n";
 }
 
 /**
@@ -880,7 +880,7 @@ void fload_2 (Frame *curr_frame) {
   curr_frame->operand_stack.push(curr_frame->local_variables_array[2]);
   curr_frame->pc++;
 
-  if (DEBUG) std::cout << "float_2\n";
+  if (DEBUG) cout << "float_2\n";
 }
 
 /**
@@ -905,7 +905,7 @@ void lload(Frame *curr_frame) {
   int index = curr_frame->method_code->code[curr_frame->pc++];
   curr_frame->push_operand(curr_frame->local_variables_array[(int)index]);
 
-  if (DEBUG) std::cout << "lload\n";
+  if (DEBUG) cout << "lload\n";
 }
 
 /** @brief Dá push em um valor de preciso dupla de uma variável local para a
@@ -917,10 +917,10 @@ void dload(Frame *curr_frame) {
   curr_frame->pc++;
 
   u1 index = curr_frame->method_code->code[curr_frame->pc++];
-  if (DEBUG) std::cout << "dload index " << (int)index << std::endl;
+  if (DEBUG) cout << "dload index " << (int)index << "\n";
   curr_frame->push_operand(curr_frame->local_variables_array.at((int)index));
 
-  if (DEBUG) std::cout << "dload\n";
+  if (DEBUG) cout << "dload\n";
 }
 
 /**
@@ -942,7 +942,7 @@ void dload_1(Frame *curr_frame) {
   curr_frame->operand_stack.push(curr_frame->local_variables_array[1]);
   curr_frame->pc++;
 
-  if (DEBUG) std::cout << "dload_1\n";
+  if (DEBUG) cout << "dload_1\n";
 }
 
 /**
@@ -964,7 +964,7 @@ void dload_3(Frame *curr_frame) {
   curr_frame->operand_stack.push(curr_frame->local_variables_array[3]);
   curr_frame->pc++;
 
-  if (DEBUG) std::cout << "dload_3\n";
+  if (DEBUG) cout << "dload_3\n";
 }
 
 /**
@@ -977,12 +977,12 @@ void dstore(Frame* curr_frame) {
   curr_frame->pc++;
 
   u1 index = curr_frame->method_code->code[curr_frame->pc++];
-  if (DEBUG) std::cout << "dstore index " << (int)index << std::endl;
+  if (DEBUG) cout << "dstore index " << (int)index << "\n";
   Operand *op = curr_frame->pop_operand();
 
   curr_frame->local_variables_array.at((int)index) = op;
 
-  if (DEBUG) std::cout << "dstore\n";
+  if (DEBUG) cout << "dstore\n";
 }
 
 /**
@@ -1009,7 +1009,7 @@ void dstore_1(Frame* curr_frame) {
   curr_frame->local_variables_array[1] = op;
   curr_frame->pc++;
 
-  if (DEBUG) std::cout << "dstore_1\n";
+  if (DEBUG) cout << "dstore_1\n";
 }
 
 /**
@@ -1049,12 +1049,12 @@ void fstore(Frame* curr_frame) {
   curr_frame->pc++;
 
   u1 index = curr_frame->method_code->code[curr_frame->pc++];
-  if (DEBUG) std::cout << "fstore index " << (int)index << std::endl;
+  if (DEBUG) cout << "fstore index " << (int)index << "\n";
   Operand *op = curr_frame->pop_operand();
 
   curr_frame->local_variables_array[(int)index] = op;
 
-  if (DEBUG) std::cout << "fstore\n";
+  if (DEBUG) cout << "fstore\n";
 }
 
 /**
@@ -1082,7 +1082,7 @@ void fstore_1(Frame* curr_frame) {
   curr_frame->local_variables_array[1] = op;
   curr_frame->pc++;
 
-  if (DEBUG) std::cout << "fstore_1\n" << std::endl;
+  if (DEBUG) cout << "fstore_1\n" << "\n";
 }
 
 /**
@@ -1110,7 +1110,7 @@ void fstore_3(Frame* curr_frame) {
    curr_frame->local_variables_array[3] = op;
    curr_frame->pc++;
 
-   if (DEBUG) std::cout << "fstore_3\n";
+   if (DEBUG) cout << "fstore_3\n";
  }
 
 /**
@@ -1159,23 +1159,23 @@ void newarray(Frame *curr_frame) {
       }
       break;
     case 10:
-      if (DEBUG) std::cout << "array type int\n";
+      if (DEBUG) cout << "array type int\n";
       for (int i = 0; i < (int) index; i++)
         operand_2->array_type->array->emplace_back(check_string_create_type("I"));
       break;
     case 11:
-      if (DEBUG) std::cout << "array type long\n";
+      if (DEBUG) cout << "array type long\n";
       for (int i = 0; i < (int) index; i++)
         operand_2->array_type->array->emplace_back(check_string_create_type("J"));
       break;
   }
 
-  if (DEBUG) std::cout << "array size "
-                      << operand_2->array_type->array->size() << std::endl;
+  if (DEBUG) cout << "array size "
+                      << operand_2->array_type->array->size() << "\n";
 
   curr_frame->push_operand(operand_2);
 
-  if (DEBUG) std::cout << "newarray\n";
+  if (DEBUG) cout << "newarray\n";
 }
 
 /**
@@ -1205,7 +1205,7 @@ void iadd(Frame *curr_frame) {
 
   curr_frame->push_operand(result);
 
-  if (DEBUG) std::cout << "iadd\n";
+  if (DEBUG) cout << "iadd\n";
 }
 
 
@@ -1225,7 +1225,7 @@ void ladd(Frame *curr_frame) {
   result->type_long = operand_1->type_long + operand_2->type_long;
 
   curr_frame->push_operand(result);
-  if (DEBUG) std::cout << "ladd\n";
+  if (DEBUG) cout << "ladd\n";
 
 }
 
@@ -1252,7 +1252,7 @@ void fadd(Frame *curr_frame) {
 
   curr_frame->push_operand(result);
 
-  if (DEBUG) std::cout << "fadd\n";
+  if (DEBUG) cout << "fadd\n";
 }
 
 
@@ -1272,7 +1272,7 @@ void fadd(Frame *curr_frame) {
    memcpy(&value_1, &operand_1->type_double, sizeof(double));
    memcpy(&value_2, &operand_2->type_double, sizeof(double));
    value_1 += value_2;
-   if (DEBUG) std::cout << "dadd value " << value_1 << std::endl;
+   if (DEBUG) cout << "dadd value " << value_1 << "\n";
 
    Operand *result = (Operand *) malloc(sizeof(Operand));
    result->tag = CONSTANT_DOUBLE;
@@ -1280,7 +1280,7 @@ void fadd(Frame *curr_frame) {
 
    curr_frame->push_operand(result);
 
-   if (DEBUG) std::cout << "dadd\n";
+   if (DEBUG) cout << "dadd\n";
  }
 
 
@@ -1301,7 +1301,7 @@ void isub(Frame *curr_frame) {
 
   curr_frame->push_operand(result);
 
-  if (DEBUG) std::cout << "isub\n";
+  if (DEBUG) cout << "isub\n";
 }
 
 /**
@@ -1320,7 +1320,7 @@ void lsub(Frame *curr_frame) {
   result->type_long = operand_2->type_long - operand_1->type_long;
 
   curr_frame->push_operand(result);
-  if (DEBUG) std::cout << "lsub\n";
+  if (DEBUG) cout << "lsub\n";
 
 }
 
@@ -1347,7 +1347,7 @@ void fsub(Frame *curr_frame) {
 
   curr_frame->push_operand(result);
 
-  if (DEBUG) std::cout << "fsub\n";
+  if (DEBUG) cout << "fsub\n";
 }
 
 
@@ -1374,7 +1374,7 @@ void dsub(Frame *curr_frame) {
 
   curr_frame->push_operand(result);
 
-  if (DEBUG) std::cout << "dsub\n";
+  if (DEBUG) cout << "dsub\n";
 }
 
 /**
@@ -1395,7 +1395,7 @@ void imul(Frame *curr_frame) {
 
   curr_frame->push_operand(result);
 
-  if (DEBUG) std::cout << "imul\n";
+  if (DEBUG) cout << "imul\n";
 }
 
 /**
@@ -1415,7 +1415,7 @@ void lmul(Frame *curr_frame) {
   result->type_long = (operand_1->type_long) * (operand_2->type_long);
 
   curr_frame->push_operand(result);
-  if (DEBUG) std::cout << "lmul\n";
+  if (DEBUG) cout << "lmul\n";
 
 }
 
@@ -1442,7 +1442,7 @@ void fmul(Frame *curr_frame) {
 
   curr_frame->push_operand(result);
 
-  if (DEBUG) std::cout << "fmul\n";
+  if (DEBUG) cout << "fmul\n";
 }
 
 /**
@@ -1468,7 +1468,7 @@ void dmul(Frame *curr_frame) {
 
   curr_frame->push_operand(result);
 
-  if (DEBUG) std::cout << "dmul\n";
+  if (DEBUG) cout << "dmul\n";
 }
 
 /**
@@ -1489,7 +1489,7 @@ void idiv(Frame *curr_frame) {
 
   curr_frame->push_operand(result);
 
-  if (DEBUG) std::cout << "idiv\n";
+  if (DEBUG) cout << "idiv\n";
 }
 
 
@@ -1510,7 +1510,7 @@ void ldiv(Frame *curr_frame) {
   result->type_long = (operand_2->type_long) / (operand_1->type_long);
 
   curr_frame->push_operand(result);
-  if (DEBUG) std::cout << "ldiv\n";
+  if (DEBUG) cout << "ldiv\n";
 }
 
 
@@ -1559,11 +1559,11 @@ void ddiv(Frame *curr_frame) {
   Operand *result = (Operand *) malloc(sizeof(Operand));
   result->tag = CONSTANT_DOUBLE;
   memcpy(&result->type_double, &value_2, sizeof(u8));
-  if (DEBUG) std::cout << "ddiv result : " << result->type_double << std::endl;
+  if (DEBUG) cout << "ddiv result : " << result->type_double << "\n";
 
   curr_frame->push_operand(result);
 
-  if (DEBUG) std::cout << "ddiv\n";
+  if (DEBUG) cout << "ddiv\n";
 }
 
 
@@ -1577,12 +1577,12 @@ void lstore(Frame* curr_frame) {
   curr_frame->pc++;
 
   u1 index = curr_frame->method_code->code[curr_frame->pc++];
-  if (DEBUG) std::cout << "lstore index " << (int)index << std::endl;
+  if (DEBUG) cout << "lstore index " << (int)index << "\n";
   Operand *op = curr_frame->pop_operand();
 
   curr_frame->local_variables_array.at((int)index) = op;
 
-  if (DEBUG) std::cout << "lstore\n";
+  if (DEBUG) cout << "lstore\n";
 }
 
 
@@ -1610,7 +1610,7 @@ void lstore_1(Frame* curr_frame) {
 
   curr_frame->local_variables_array[1] = op;
   curr_frame->pc++;
-  if (DEBUG) std::cout << "lstore_1\n";
+  if (DEBUG) cout << "lstore_1\n";
 
 }
 
@@ -1638,7 +1638,7 @@ void lstore_3(Frame* curr_frame) {
 
   curr_frame->local_variables_array[3] = op;
   curr_frame->pc++;
-  if (DEBUG) std::cout << "lstore_3\n";
+  if (DEBUG) cout << "lstore_3\n";
 
 }
 
@@ -1666,7 +1666,7 @@ void irem(Frame *curr_frame) {
 
   curr_frame->push_operand(result);
 
-  if (DEBUG) std::cout << "irem\n";
+  if (DEBUG) cout << "irem\n";
 }
 
 /**
@@ -1926,11 +1926,11 @@ void lshr(Frame *curr_frame) {
 * @return void
 */
 void istore(Frame *curr_frame) {
-  if (DEBUG) std::cout << "\n----------istore----------\n";  
+  if (DEBUG) cout << "\n----------istore----------\n";  
   curr_frame->pc++;
 
   u1 index = curr_frame->method_code->code[curr_frame->pc++];
-  if (DEBUG) std::cout << "istore index " << (int)index << std::endl;
+  if (DEBUG) cout << "istore index " << (int)index << "\n";
 
   Operand *value = curr_frame->pop_operand();
   curr_frame->local_variables_array.at((int)index) = value;
@@ -1944,7 +1944,7 @@ void istore(Frame *curr_frame) {
  * @return void
  */
 void istore_0(Frame *curr_frame) {
-  if (DEBUG) std::cout << "\n----------istore_0----------\n";  
+  if (DEBUG) cout << "\n----------istore_0----------\n";  
 
   Operand *value = curr_frame->pop_operand();
   curr_frame->local_variables_array.at(0) = value;
@@ -1958,7 +1958,7 @@ void istore_0(Frame *curr_frame) {
  * @return void
  */
 void istore_1(Frame *curr_frame) {
-  if (DEBUG) std::cout << "\n----------istore_1----------\n";  
+  if (DEBUG) cout << "\n----------istore_1----------\n";  
 
   Operand *value = curr_frame->pop_operand();
   curr_frame->local_variables_array.at(1) = value;
@@ -1972,7 +1972,7 @@ void istore_1(Frame *curr_frame) {
  * @return void
  */
 void istore_2(Frame *curr_frame) {
-  if (DEBUG) std::cout << "\n----------istore_2----------\n";  
+  if (DEBUG) cout << "\n----------istore_2----------\n";  
 
   Operand *value = curr_frame->pop_operand();
   curr_frame->local_variables_array.at(2) = value;
@@ -1986,7 +1986,7 @@ void istore_2(Frame *curr_frame) {
  * @return void
  */
 void istore_3(Frame *curr_frame) {
-  if (DEBUG) std::cout << "\n----------istore_3----------\n";  
+  if (DEBUG) cout << "\n----------istore_3----------\n";  
 
   Operand *value = curr_frame->pop_operand();
   curr_frame->local_variables_array.at(3) = value;
@@ -2013,7 +2013,7 @@ void i2l(Frame *curr_frame) {
 
     curr_frame->pc++;
     curr_frame->push_operand(value_converted);
-    if (DEBUG) std::cout << "i2l\n";
+    if (DEBUG) cout << "i2l\n";
 }
 
 /**
@@ -2025,17 +2025,17 @@ void i2d(Frame *curr_frame) {
   int stack_value;
   Operand *int_type = curr_frame->pop_operand();
   stack_value = int_type->type_int;
-  if (DEBUG) std::cout << "i2d int value " << stack_value << std::endl;
+  if (DEBUG) cout << "i2d int value " << stack_value << "\n";
 
   double d_value_cast = (double)stack_value;
-  if (DEBUG) std::cout << "i2d double value " << d_value_cast << std::endl;
+  if (DEBUG) cout << "i2d double value " << d_value_cast << "\n";
   Operand *d_value_cast_type = check_string_create_type("D");
   memcpy(&d_value_cast_type->type_double, &d_value_cast, sizeof(u8));
 
   curr_frame->pc++;
   curr_frame->push_operand(d_value_cast_type);
 
-  if (DEBUG) std::cout << "i2d\n";
+  if (DEBUG) cout << "i2d\n";
 }
 
 
@@ -2057,7 +2057,7 @@ void i2s(Frame *curr_frame) {
 
   curr_frame->push_operand(op_from_type);
 
-  if (DEBUG) std::cout << "i2s\n";
+  if (DEBUG) cout << "i2s\n";
 }
 
 
@@ -2079,7 +2079,7 @@ void ins_goto(Frame *curr_frame) {
  * @return void
  */
 void invokestatic(Frame *curr_frame) {
-  if (DEBUG) std::cout << "----------invokestatic----------\n";
+  if (DEBUG) cout << "----------invokestatic----------\n";
 
   curr_frame->pc++;
 
@@ -2089,18 +2089,18 @@ void invokestatic(Frame *curr_frame) {
   Cp_Info &method_info = curr_frame->cp_reference[method_index];
   Cp_Info &class_info = curr_frame->cp_reference[method_info.Methodref.class_index];
 
-  std::string class_name = get_utf8_constant_pool(curr_frame->cp_reference, class_info.Class.class_name);
+  string class_name = get_utf8_constant_pool(curr_frame->cp_reference, class_info.Class.class_name);
 
   Cp_Info &name_and_type = curr_frame->cp_reference[
                                   method_info.Methodref.name_and_type_index];
 
-  std::string method_name = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.name_index);
+  string method_name = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.name_index);
 
-  if (DEBUG) std::cout << "nome do metodo a ser chamado: " << method_name << std::endl;
+  if (DEBUG) cout << "nome do metodo a ser chamado: " << method_name << "\n";
 
-  std::string method_descriptor = get_utf8_constant_pool(curr_frame->cp_reference,name_and_type.NameAndType.descriptor_index);
+  string method_descriptor = get_utf8_constant_pool(curr_frame->cp_reference,name_and_type.NameAndType.descriptor_index);
 
-  if (DEBUG) std::cout << "nome da classe: " << class_name << std::endl;
+  if (DEBUG) cout << "nome da classe: " << class_name << "\n";
   if (class_name == "java/lang/Object" && method_name == "registerNatives") {
     printf("JVM não suporta método nativo.");
     return;
@@ -2123,20 +2123,20 @@ void invokestatic(Frame *curr_frame) {
       counter++;
   }
 
-  if (DEBUG) std::cout << "metodo possui " << count_arguments << " argumentos\n";
+  if (DEBUG) cout << "metodo possui " << count_arguments << " argumentos\n";
 
   // não precisa criar frame para definir tipo float
-  if (class_name.find("Float") != std::string::npos &&
-      method_name.find("valueOf") != std::string::npos) {
-        if (DEBUG) std::cout << "ignorar Float.valueOf\n";
+  if (class_name.find("Float") != string::npos &&
+      method_name.find("valueOf") != string::npos) {
+        if (DEBUG) cout << "ignorar Float.valueOf\n";
         return;
   } else {
     std::vector<Operand*> arguments;
 
-    if (DEBUG) std::cout << "passando argumentos para o metodo estatico\n";
+    if (DEBUG) cout << "passando argumentos para o metodo estatico\n";
     for (int i = 0; i < count_arguments; ++i) {
         Operand *argument = curr_frame->pop_operand();
-        if (DEBUG) std::cout << "operando do tipo: " <<  (int)argument->tag << std::endl;
+        if (DEBUG) cout << "operando do tipo: " <<  (int)argument->tag << "\n";
 
         // passa argumento para a função
         arguments.insert(arguments.begin(), argument);
@@ -2184,13 +2184,13 @@ void new_obj(Frame *curr_frame) {
     index = (index << 8)+curr_frame->method_code->code[++curr_frame->pc];
 
     Cp_Info &class_info = curr_frame->cp_reference[index];
-    std::string utf8_constant = get_utf8_constant_pool(curr_frame->cp_reference, class_info.Class.class_name);
+    string utf8_constant = get_utf8_constant_pool(curr_frame->cp_reference, class_info.Class.class_name);
 
 
     if (utf8_constant == "java/lang/StringBuilder") {
         Operand* string_builder = (Operand*)malloc(sizeof(Operand));
         string_builder->tag = CONSTANT_STRING;
-        string_builder->type_string = new std::string("");
+        string_builder->type_string = new string("");
         curr_frame->push_operand(string_builder);
     }else{
         Operand *instance = check_string_create_type("L" + utf8_constant);
@@ -2211,13 +2211,13 @@ void dup(Frame *curr_frame) {
 
   Operand *copy_1 = copy_operand(curr_frame->operand_stack.top());
 
-  if (DEBUG) std::cout << "top array size "
+  if (DEBUG) cout << "top array size "
                       << copy_1->array_type->array->size()
-                      << std::endl;
+                      << "\n";
 
   curr_frame->push_operand(copy_1);
 
-  if (DEBUG) std::cout << "dup\n";
+  if (DEBUG) cout << "dup\n";
 }
 
 
@@ -2230,17 +2230,17 @@ void f2d(Frame *curr_frame) {
   float float_value;
   Operand *float_type = curr_frame->pop_operand();
   float_value = float_type->type_float;
-  if (DEBUG) std::cout << "f2d float value " << float_value << std::endl;
+  if (DEBUG) cout << "f2d float value " << float_value << "\n";
 
   double double_value = (double)float_value;
-  if (DEBUG) std::cout << "f2d double value " << double_value << std::endl;
+  if (DEBUG) cout << "f2d double value " << double_value << "\n";
   Operand *new_double = check_string_create_type("D");
   memcpy(&new_double->type_double, &double_value, sizeof(u8));
 
   curr_frame->push_operand(new_double);
   curr_frame->pc++;
 
-  if (DEBUG) std::cout << "f2d\n";
+  if (DEBUG) cout << "f2d\n";
 }
 
 
@@ -2253,17 +2253,17 @@ void f2i(Frame *curr_frame) {
   float float_value;
   Operand *float_type = curr_frame->pop_operand();
   float_value = float_type->type_float;
-  if (DEBUG) std::cout << "f2i float " << float_value << std::endl;
+  if (DEBUG) cout << "f2i float " << float_value << "\n";
 
   int int_value = (int)float_value;
   Operand *new_int = check_string_create_type("I");
   memcpy(&new_int->type_int, &int_value, sizeof(u4));
-  if (DEBUG) std::cout << "f2i int " << int_value << std::endl;
+  if (DEBUG) cout << "f2i int " << int_value << "\n";
 
   curr_frame->push_operand(new_int);
   curr_frame->pc++;
 
-  if (DEBUG) std::cout << "f2i\n";
+  if (DEBUG) cout << "f2i\n";
 }
 
 
@@ -2284,7 +2284,7 @@ void l2d(Frame *curr_frame) {
     curr_frame->push_operand(new_double);
     curr_frame->pc++;
 
-    if (DEBUG) std::cout << "l2d\n";
+    if (DEBUG) cout << "l2d\n";
 }
 
 /**
@@ -2337,18 +2337,18 @@ void d2i(Frame *curr_frame) {
   Operand *double_type = curr_frame->pop_operand();
   memcpy(&stack_value, &double_type->type_double, sizeof(int64_t));
 
-  if (DEBUG) std::cout << "d2i double value : " << stack_value << std::endl;
+  if (DEBUG) cout << "d2i double value : " << stack_value << "\n";
 
   int int_value = (int)stack_value;
   Operand *new_int = check_string_create_type("I");
   memcpy(&new_int->type_int, &int_value, sizeof(u4));
 
-  if (DEBUG) std::cout << "d2i int value : " << new_int->type_int << std::endl;
+  if (DEBUG) cout << "d2i int value : " << new_int->type_int << "\n";
 
   curr_frame->push_operand(new_int);
   curr_frame->pc++;
 
-  if (DEBUG) std::cout << "d2i\n";
+  if (DEBUG) cout << "d2i\n";
 }
 
 
@@ -2380,17 +2380,17 @@ void d2f(Frame *curr_frame) {
   u8 stack_value;
   Operand *double_type = curr_frame->pop_operand();
   memcpy(&stack_value, &double_type->type_double, sizeof(u8));
-  if (DEBUG) std::cout << "d2f double value : " << stack_value << std::endl;
+  if (DEBUG) cout << "d2f double value : " << stack_value << "\n";
 
   float float_value = (float)stack_value;
   Operand *new_float = check_string_create_type("F");
   memcpy(&new_float->type_float, &float_value, sizeof(u4));
-  if (DEBUG) std::cout << "d2f float value : " << new_float->type_float << std::endl;
+  if (DEBUG) cout << "d2f float value : " << new_float->type_float << "\n";
 
   curr_frame->push_operand(new_float);
   curr_frame->pc++;
 
-  if (DEBUG) std::cout << "d2f\n";
+  if (DEBUG) cout << "d2f\n";
 }
 
 
@@ -2408,8 +2408,8 @@ void putfield(Frame *curr_frame) {
 
     Cp_Info name_and_type = curr_frame->cp_reference[field_reference.Fieldref.class_index];
 
-    std::string class_name = get_utf8_constant_pool(curr_frame->cp_reference, field_reference.Fieldref.class_index);
-    std::string var_name = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.name_index);
+    string class_name = get_utf8_constant_pool(curr_frame->cp_reference, field_reference.Fieldref.class_index);
+    string var_name = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.name_index);
 
     Operand *var_operand = curr_frame->pop_operand();
     Operand *class_instance = curr_frame->pop_operand();
@@ -2487,7 +2487,7 @@ void astore_2(Frame *curr_frame) {
   curr_frame->pc++;
   Operand *op = curr_frame->pop_operand();
   curr_frame->local_variables_array.at(2) = op;
-  if (DEBUG) std::cout << "astore_2\n";
+  if (DEBUG) cout << "astore_2\n";
 }
 
 
@@ -2535,9 +2535,9 @@ void ldc_w(Frame *curr_frame) {
         case CONSTANT_STRING:{
             operands = (Operand*)malloc(sizeof(Operand));
             operands->tag = CONSTANT_STRING;
-            std::string utf8_cp = get_utf8_constant_pool(curr_frame->cp_reference, cp_info->String.string_index);
+            string utf8_cp = get_utf8_constant_pool(curr_frame->cp_reference, cp_info->String.string_index);
 
-            operands->type_string = new std::string(utf8_cp);
+            operands->type_string = new string(utf8_cp);
             break;
         }
         default:
@@ -2555,7 +2555,7 @@ void ldc_w(Frame *curr_frame) {
  * @return void
  */
 void ldc2_w(Frame *curr_frame) {
-  if (DEBUG) std::cout << "\n----------ldc2_w----------\n";
+  if (DEBUG) cout << "\n----------ldc2_w----------\n";
   curr_frame->pc++;
 
   u1 index_1 = curr_frame->method_code->code[curr_frame->pc++];
@@ -2563,7 +2563,7 @@ void ldc2_w(Frame *curr_frame) {
 
   u2 index = (index_1 << 8) + index_2;
 
-  if (DEBUG) std::cout << "ldc2_w index : " << (int)index << std::endl;
+  if (DEBUG) cout << "ldc2_w index : " << (int)index << "\n";
   Cp_Info *cp_info = curr_frame->cp_reference + (int)index;
   Operand* operands;
 
@@ -2587,7 +2587,7 @@ void ldc2_w(Frame *curr_frame) {
     memcpy(&read_long_value, &(cp_info->Long.low_bytes),sizeof(long));
 
     operands->type_long = read_long_value;
-    if (DEBUG) std::cout << "long value: " << operands->type_double << std::endl;
+    if (DEBUG) cout << "long value: " << operands->type_double << "\n";
   }
   curr_frame->push_operand(operands);
 }
@@ -2598,7 +2598,7 @@ void ldc2_w(Frame *curr_frame) {
 @return void
 */
 void invokeinterface(Frame *curr_frame) {
-  if (DEBUG) std::cout << "----------invokeinterface----------\n";
+  if (DEBUG) cout << "----------invokeinterface----------\n";
 
   curr_frame->pc++;
 
@@ -2608,11 +2608,11 @@ void invokeinterface(Frame *curr_frame) {
   Cp_Info &method_info = curr_frame->cp_reference[method_index];
 
   Cp_Info &class_info = curr_frame->cp_reference[method_info.Methodref.class_index];
-  std::string class_name = get_utf8_constant_pool(curr_frame->cp_reference, class_info.Class.class_name);
+  string class_name = get_utf8_constant_pool(curr_frame->cp_reference, class_info.Class.class_name);
 
   Cp_Info &name_and_type = curr_frame->cp_reference[method_info.Methodref.name_and_type_index];
-  std::string method_name = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.name_index);
-  std::string method_descriptor = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.descriptor_index);
+  string method_name = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.name_index);
+  string method_descriptor = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.descriptor_index);
 }
 
 /**
@@ -2978,17 +2978,17 @@ void f2l(Frame *curr_frame) {
   float stack_value;
   Operand *floatType = curr_frame->pop_operand();
   stack_value = floatType->type_float;
-  if (DEBUG) std::cout << "f2l float value " << stack_value << std::endl;
+  if (DEBUG) cout << "f2l float value " << stack_value << "\n";
 
   long conv_value = (long)stack_value;
   Operand *longConvertidoType = check_string_create_type("J");
   memcpy(&longConvertidoType->type_long, &conv_value, sizeof(uint64_t));
-  if (DEBUG) std::cout << "f2l long value " << longConvertidoType->type_long << std::endl;
+  if (DEBUG) cout << "f2l long value " << longConvertidoType->type_long << "\n";
 
   curr_frame->pc++;
   curr_frame->push_operand(longConvertidoType);
 
-  if (DEBUG) std::cout << "f2l\n";
+  if (DEBUG) cout << "f2l\n";
 }
 
 
@@ -3004,17 +3004,17 @@ void iastore(Frame* curr_frame) {
 
   ((*array->array_type->array)[(int)index->type_int])->type_int = value->type_int;
 
-  if (DEBUG) std::cout << "iastore value : " << value->type_int << std::endl;
+  if (DEBUG) cout << "iastore value : " << value->type_int << "\n";
   if (DEBUG)
     for (int j=0; (unsigned)j < array->array_type->array->size(); ++j) {
       int value = (array->array_type->array->at(j))->type_int;
-      if (DEBUG) std::cout << "array item : " << value << std::endl;
+      if (DEBUG) cout << "array item : " << value << "\n";
     }
 
   curr_frame->push_operand(array);
   curr_frame->pc++;
 
-  if (DEBUG) std::cout << "iastore\n";
+  if (DEBUG) cout << "iastore\n";
 }
 
 
@@ -3282,19 +3282,19 @@ void iaload(Frame *curr_frame) {
   Operand* index = curr_frame->pop_operand();
   Operand* array = curr_frame->pop_operand();
 
-  if (DEBUG) std::cout << "array size : " << array->array_type->array->size()
-                        << std::endl;
+  if (DEBUG) cout << "array size : " << array->array_type->array->size()
+                        << "\n";
   Operand* op = array->array_type->array->at(index->type_int);
-  if (DEBUG) std::cout << "array index : " << (int)index->type_int << std::endl;
+  if (DEBUG) cout << "array index : " << (int)index->type_int << "\n";
   if (DEBUG)
      for (int j=0; (unsigned)j < array->array_type->array->size(); ++j) {
        int value = (array->array_type->array->at(j))->type_int;
-       std::cout << "array item : " << value << std::endl;
+       cout << "array item : " << value << "\n";
      }
   curr_frame->push_operand(op);
 
   curr_frame->pc++;
-  if (DEBUG) std::cout << "iaload\n";
+  if (DEBUG) cout << "iaload\n";
 }
 
 
@@ -3307,19 +3307,19 @@ void laload(Frame *curr_frame) {
   Operand* index = curr_frame->pop_operand();
   Operand* array = curr_frame->pop_operand();
 
-  if (DEBUG) std::cout << "array size : " << array->array_type->array->size()
-                        << std::endl;
+  if (DEBUG) cout << "array size : " << array->array_type->array->size()
+                        << "\n";
   Operand* op = array->array_type->array->at(index->type_int);
-  if (DEBUG) std::cout << "array index : " << (int)index->type_int << std::endl;
+  if (DEBUG) cout << "array index : " << (int)index->type_int << "\n";
   if (DEBUG)
      for (int j=0; (unsigned)j < array->array_type->array->size(); ++j) {
        int value = (array->array_type->array->at(j))->type_long;
-       std::cout << "array item : " << value << std::endl;
+       cout << "array item : " << value << "\n";
      }
   curr_frame->push_operand(op);
 
   curr_frame->pc++;
-  if (DEBUG) std::cout << "laload\n";
+  if (DEBUG) cout << "laload\n";
 }
 
 
@@ -3332,21 +3332,21 @@ void faload(Frame *curr_frame) {
   Operand* index = curr_frame->pop_operand();
   Operand* array = curr_frame->pop_operand();
 
-  if (DEBUG) std::cout << "array size : " << array->array_type->array->size()
-                        << std::endl;
+  if (DEBUG) cout << "array size : " << array->array_type->array->size()
+                        << "\n";
   Operand* op = array->array_type->array->at(index->type_int);
 
-  if (DEBUG) std::cout << "array index : " << (int)index->type_int << std::endl;
-  if (DEBUG) std::cout << "array index value : " << op->type_float << std::endl;
+  if (DEBUG) cout << "array index : " << (int)index->type_int << "\n";
+  if (DEBUG) cout << "array index value : " << op->type_float << "\n";
   if (DEBUG)
      for (int j=0; (unsigned)j < array->array_type->array->size(); ++j) {
        int value = (array->array_type->array->at(j))->type_float;
-       std::cout << "array item : " << value << std::endl;
+       cout << "array item : " << value << "\n";
      }
   curr_frame->push_operand(op);
 
   curr_frame->pc++;
-  if (DEBUG) std::cout << "faload\n";
+  if (DEBUG) cout << "faload\n";
 }
 
 
@@ -3359,19 +3359,19 @@ void daload(Frame *curr_frame) {
   Operand* index = curr_frame->pop_operand();
   Operand* array = curr_frame->pop_operand();
 
-  if (DEBUG) std::cout << "array size : " << array->array_type->array->size()
-                        << std::endl;
+  if (DEBUG) cout << "array size : " << array->array_type->array->size()
+                        << "\n";
   Operand* op = array->array_type->array->at(index->type_int);
-  if (DEBUG) std::cout << "array index : " << (int)index->type_int << std::endl;
+  if (DEBUG) cout << "array index : " << (int)index->type_int << "\n";
   if (DEBUG)
      for (int j=0; (unsigned)j < array->array_type->array->size(); ++j) {
        int value = (array->array_type->array->at(j))->type_double;
-       std::cout << "array item : " << value << std::endl;
+       cout << "array item : " << value << "\n";
      }
   curr_frame->push_operand(op);
 
   curr_frame->pc++;
-  if (DEBUG) std::cout << "daload\n";
+  if (DEBUG) cout << "daload\n";
 }
 
 
@@ -3384,17 +3384,17 @@ void aaload(Frame *curr_frame) {
   Operand* index = curr_frame->pop_operand();
   Operand* array = curr_frame->pop_operand();
 
-  if (DEBUG) std::cout << "array size : " << array->array_type->array->size()
-                        << std::endl;
+  if (DEBUG) cout << "array size : " << array->array_type->array->size()
+                        << "\n";
   Operand* op = array->array_type->array->at(index->type_int);
-  if (DEBUG) std::cout << "array index : " << (int)index->type_int << std::endl;
+  if (DEBUG) cout << "array index : " << (int)index->type_int << "\n";
   if (DEBUG)
      for (int j=0; (unsigned)j < array->array_type->array->size(); ++j)
-       std::cout << "sub array size : " << (array->array_type->array->at(j))->array_type->array->size() << std::endl;
+       cout << "sub array size : " << (array->array_type->array->at(j))->array_type->array->size() << "\n";
   curr_frame->push_operand(op);
 
   curr_frame->pc++;
-  if (DEBUG) std::cout << "aaload\n";
+  if (DEBUG) cout << "aaload\n";
 }
 
 
@@ -3407,19 +3407,19 @@ void baload(Frame *curr_frame) {
   Operand* index = curr_frame->pop_operand();
   Operand* array = curr_frame->pop_operand();
 
-  if (DEBUG) std::cout << "array size : " << array->array_type->array->size()
-                        << std::endl;
+  if (DEBUG) cout << "array size : " << array->array_type->array->size()
+                        << "\n";
   Operand* op = array->array_type->array->at(index->type_int);
-  if (DEBUG) std::cout << "array index : " << (int)index->type_int << std::endl;
+  if (DEBUG) cout << "array index : " << (int)index->type_int << "\n";
   if (DEBUG)
     for (int j=0; (unsigned)j < array->array_type->array->size(); ++j) {
       int value = (array->array_type->array->at(j))->type_bool;
-      std::cout << "array item : " << value << std::endl;
+      cout << "array item : " << value << "\n";
     }
   curr_frame->push_operand(op);
 
   curr_frame->pc++;
-  if (DEBUG) std::cout << "baload\n";
+  if (DEBUG) cout << "baload\n";
 }
 
 
@@ -3432,19 +3432,19 @@ void caload(Frame *curr_frame) {
   Operand* index = curr_frame->pop_operand();
   Operand* array = curr_frame->pop_operand();
 
-  if (DEBUG) std::cout << "array size : " << array->array_type->array->size()
-                        << std::endl;
+  if (DEBUG) cout << "array size : " << array->array_type->array->size()
+                        << "\n";
   Operand* op = array->array_type->array->at(index->type_int);
-  if (DEBUG) std::cout << "array index : " << (int)index->type_int << std::endl;
+  if (DEBUG) cout << "array index : " << (int)index->type_int << "\n";
   if (DEBUG)
     for (int j=0; (unsigned)j < array->array_type->array->size(); ++j) {
       int value = (array->array_type->array->at(j))->type_char;
-      std::cout << "array item : " << value << std::endl;
+      cout << "array item : " << value << "\n";
     }
   curr_frame->push_operand(op);
 
   curr_frame->pc++;
-  if (DEBUG) std::cout << "caload\n";
+  if (DEBUG) cout << "caload\n";
 }
 
 
@@ -3457,19 +3457,19 @@ void saload(Frame *curr_frame) {
   Operand* index = curr_frame->pop_operand();
   Operand* array = curr_frame->pop_operand();
 
-  if (DEBUG) std::cout << "array size : " << array->array_type->array->size()
-                        << std::endl;
+  if (DEBUG) cout << "array size : " << array->array_type->array->size()
+                        << "\n";
   Operand* op = array->array_type->array->at(index->type_int);
-  if (DEBUG) std::cout << "array index : " << (int)index->type_int << std::endl;
+  if (DEBUG) cout << "array index : " << (int)index->type_int << "\n";
   if (DEBUG)
     for (int j=0; (unsigned)j < array->array_type->array->size(); ++j) {
       int value = (array->array_type->array->at(j))->type_short;
-      std::cout << "array item : " << value << std::endl;
+      cout << "array item : " << value << "\n";
     }
   curr_frame->push_operand(op);
 
   curr_frame->pc++;
-  if (DEBUG) std::cout << "saload\n";
+  if (DEBUG) cout << "saload\n";
 }
 
 
@@ -3500,17 +3500,17 @@ void lastore(Frame* curr_frame) {
 
   ((*array->array_type->array)[(int)index->type_int])->type_long = value->type_long;
 
-  if (DEBUG) std::cout << "lastore value : " << value->type_long << std::endl;
+  if (DEBUG) cout << "lastore value : " << value->type_long << "\n";
   if (DEBUG)
     for (int j=0; (unsigned)j < array->array_type->array->size(); ++j) {
       int value = (array->array_type->array->at(j))->type_long;
-      if (DEBUG) std::cout << "array item : " << value << std::endl;
+      if (DEBUG) cout << "array item : " << value << "\n";
     }
 
   curr_frame->push_operand(array);
   curr_frame->pc++;
 
-  if (DEBUG) std::cout << "lastore\n";
+  if (DEBUG) cout << "lastore\n";
 }
 
 
@@ -3526,17 +3526,17 @@ void fastore(Frame* curr_frame) {
 
   ((*array->array_type->array)[(int)index->type_int])->type_float = value->type_float;
 
-  if (DEBUG) std::cout << "fastore value : " << value->type_float << std::endl;
+  if (DEBUG) cout << "fastore value : " << value->type_float << "\n";
   if (DEBUG)
     for (int j=0; (unsigned)j < array->array_type->array->size(); ++j) {
       int value = (array->array_type->array->at(j))->type_float;
-      if (DEBUG) std::cout << "array item : " << value << std::endl;
+      if (DEBUG) cout << "array item : " << value << "\n";
     }
 
   curr_frame->push_operand(array);
   curr_frame->pc++;
 
-  if (DEBUG) std::cout << "fastore\n";
+  if (DEBUG) cout << "fastore\n";
 }
 
 
@@ -3552,17 +3552,17 @@ void dastore(Frame* curr_frame) {
 
   ((*array->array_type->array)[(int)index->type_int])->type_double = value->type_double;
 
-  if (DEBUG) std::cout << "dastore value : " << value->type_double << std::endl;
+  if (DEBUG) cout << "dastore value : " << value->type_double << "\n";
   if (DEBUG)
     for (int j=0; (unsigned)j < array->array_type->array->size(); ++j) {
       int value = (array->array_type->array->at(j))->type_double;
-      if (DEBUG) std::cout << "array item : " << value << std::endl;
+      if (DEBUG) cout << "array item : " << value << "\n";
     }
 
   curr_frame->push_operand(array);
   curr_frame->pc++;
 
-  if (DEBUG) std::cout << "dastore\n";
+  if (DEBUG) cout << "dastore\n";
 }
 
 
@@ -3578,17 +3578,17 @@ void aastore(Frame* curr_frame) {
 
   ((*array->array_type->array)[(int)index->type_int])->array_type = value->array_type;
 
-  if (DEBUG) std::cout << "aastore value : " << value->array_type << std::endl;
+  if (DEBUG) cout << "aastore value : " << value->array_type << "\n";
   if (DEBUG)
     for (int j=0; (unsigned)j < array->array_type->array->size(); ++j) {
       int value = (array->array_type->array->at(j))->array_type->array->size();
-      if (DEBUG) std::cout << "sub array size : " << value << std::endl;
+      if (DEBUG) cout << "sub array size : " << value << "\n";
     }
 
   curr_frame->push_operand(array);
   curr_frame->pc++;
 
-  if (DEBUG) std::cout << "aastore\n";
+  if (DEBUG) cout << "aastore\n";
 }
 
 
@@ -3604,17 +3604,17 @@ void bastore(Frame* curr_frame) {
 
   ((*array->array_type->array)[(int)index->type_int])->type_bool = value->type_bool;
 
-  if (DEBUG) std::cout << "bastore value : " << value->type_bool << std::endl;
+  if (DEBUG) cout << "bastore value : " << value->type_bool << "\n";
   if (DEBUG)
     for (int j=0; (unsigned)j < array->array_type->array->size(); ++j) {
       int value = (array->array_type->array->at(j))->type_bool;
-      if (DEBUG) std::cout << "array item : " << value << std::endl;
+      if (DEBUG) cout << "array item : " << value << "\n";
     }
 
   curr_frame->push_operand(array);
   curr_frame->pc++;
 
-  if (DEBUG) std::cout << "bastore\n";
+  if (DEBUG) cout << "bastore\n";
 }
 
 
@@ -3631,17 +3631,17 @@ void castore(Frame* curr_frame) {
 
   ((*array->array_type->array)[(int)index->type_int])->type_char = value->type_char;
 
-  if (DEBUG) std::cout << "castore value : " << value->type_char << std::endl;
+  if (DEBUG) cout << "castore value : " << value->type_char << "\n";
   if (DEBUG)
     for (int j=0; (unsigned)j < array->array_type->array->size(); ++j) {
       int value = (array->array_type->array->at(j))->type_char;
-      if (DEBUG) std::cout << "array item : " << value << std::endl;
+      if (DEBUG) cout << "array item : " << value << "\n";
     }
 
   curr_frame->push_operand(array);
   curr_frame->pc++;
 
-  if (DEBUG) std::cout << "castore\n";
+  if (DEBUG) cout << "castore\n";
 }
 
 
@@ -3657,17 +3657,17 @@ void sastore(Frame* curr_frame) {
 
   ((*array->array_type->array)[(int)index->type_int])->type_short = value->type_short;
 
-  if (DEBUG) std::cout << "sastore value : " << value->type_short << std::endl;
+  if (DEBUG) cout << "sastore value : " << value->type_short << "\n";
   if (DEBUG)
     for (int j=0; (unsigned)j < array->array_type->array->size(); ++j) {
       int value = (array->array_type->array->at(j))->type_short;
-      if (DEBUG) std::cout << "array item : " << value << std::endl;
+      if (DEBUG) cout << "array item : " << value << "\n";
     }
 
   curr_frame->push_operand(array);
   curr_frame->pc++;
 
-  if (DEBUG) std::cout << "sastore\n";
+  if (DEBUG) cout << "sastore\n";
 }
 
 
@@ -3803,7 +3803,7 @@ void lxor(Frame *curr_frame) {
  */
 
 void tableswitch(Frame *curr_frame){
-    if (DEBUG) std::cout << "tableswitch\n";
+    if (DEBUG) cout << "tableswitch\n";
     uint32_t dftByte = 0;
     uint32_t byteL = 0;
     uint32_t byteH = 0;
@@ -3850,5 +3850,5 @@ void tableswitch(Frame *curr_frame){
     }
 
     free(jpOffset);
-    if (DEBUG) std::cout << "tableswitch\n";
+    if (DEBUG) cout << "tableswitch\n";
 }

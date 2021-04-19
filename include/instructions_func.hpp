@@ -8,6 +8,9 @@
 
 #include "frame.hpp"
 
+using std::cout;
+using std::string;
+
 void nop(Frame *curr_frame);
 void ldc(Frame *curr_frame);
 void invokespecial(Frame *curr_frame);
