@@ -10,7 +10,7 @@ std::stack<Frame*> frame_stack;
 void execute(Class_File class_file) {
 
   load_class_memory(class_file);
-  std::vector<Instruction> instructions = set_instructions();
+  // std::vector<Instruction> instructions = set_instructions();
   Frame::setup_instructions_func();
 
   if (DEBUG) std::cout << "INICIA FRAME\n";
