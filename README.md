@@ -63,6 +63,18 @@ $ ./jvm.sh HelloJava
 - [ ] vetor2
 - [ ] vetor
 
+<!-- 1- Fazer vetor e multi funcionar -->
+<!-- Fazer os .java de multi e vetor-->
+<!-- 1- Refatorar o class_loader -->
+<!-- Frame teria que pegar dentro do Method area.  -->
+<!-- 1- Ver as funções de Cp_Info. Existem 2 funções -->
+ 
+<!-- Frame -->
+<!-- Class Loader -->
+<!-- Cp_Info  -->
+<!-- Arquivos que usam super class -->
+<!-- Testar vetor -->
+<!--  -->
 # Configurações
 
 ### Até a versão [Java SE 8](https://docs.oracle.com/javase/specs/jvms/se8/html/index.html)
