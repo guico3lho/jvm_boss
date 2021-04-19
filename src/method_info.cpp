@@ -20,6 +20,32 @@ void read_method_info(FILE *file, Class_File *class_file) {
   }
 }
 
+/** @brief Encontra metodo main da super classe final
+ *  @param class_file 
+ *  @return MethodInfo*
+ */
+Method_Info* find_main(Class_File class_file) {
+
+  for (int i = 0; i < class_file.methods_count; i++) {
+    Method_Info *method = class_file.methods + i;
+    std::string method_name = get_cp_info_utf8(class_file, method->name_index);
+    if (DEBUG) std::cout << "Nome do metodo: " << method_name << " carregado na memoria\n";
+
+    if (method_name == "main") {
+      std::string method_descriptor = get_cp_info_utf8(class_file, method->descriptor_index);
+      if (DEBUG) std::cout << "Descricao do metodo main econtrado: " << method_descriptor << std::endl;
+
+      if (method_descriptor == "([Ljava/lang/String;)V") {
+        if (DEBUG) std::cout << "METHOD MAIN ENCONTRADO!\n";
+        return method;
+      }
+    }
+  }
+
+  std::cout << "Erro: Class File inserido nao possui metodo main." << std::endl;
+  exit(1);
+}
+
 /**
 * @brief Encontra um método pelo nome e descrição.
 * @param class_file ponteiro para o classfile atual

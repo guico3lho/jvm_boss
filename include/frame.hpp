@@ -65,9 +65,6 @@ Frame* top_frame();
 void push_frame(Frame *frame);
 void pop_frame();
 
-Method_Info* find_main(Class_File class_file);
-Method_Info* find_method(Class_File class_file, std::string method_name, std::string method_desc);
-
 Operand* copy_operand(Operand* original_operand);
 Operand* check_string_create_type(std::string string_tipo);
 
