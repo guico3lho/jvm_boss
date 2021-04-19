@@ -209,8 +209,8 @@ void getfield(Frame *curr_frame) {
   Cp_Info field_ref = curr_frame->constant_pool_reference[index];
   Cp_Info name_and_type = curr_frame->constant_pool_reference[field_ref.Fieldref.class_index];
 
-  std::string class_name = get_cp_info_utf8(*(curr_frame->class_file_ref), field_ref.Fieldref.class_index);
-  std::string field_name = get_cp_info_utf8(*(curr_frame->class_file_ref), name_and_type.NameAndType.name_index);
+  std::string class_name = get_utf8_constant_pool(curr_frame->constant_pool_reference, field_ref.Fieldref.class_index);
+  std::string field_name = get_utf8_constant_pool(curr_frame->constant_pool_reference, name_and_type.NameAndType.name_index);
 
   curr_frame->operand_stack.pop();
 
@@ -2082,24 +2082,18 @@ void invokestatic(Frame *curr_frame) {
   method_index = (method_index << 8) + curr_frame->method_code->code[curr_frame->pc++];
 
   Cp_Info &method_info = curr_frame->constant_pool_reference[method_index];
+  Cp_Info &class_info = curr_frame->constant_pool_reference[method_info.Methodref.class_index];
 
-  Cp_Info &cp_info = curr_frame->constant_pool_reference[
-                                          method_info.Methodref.class_index];
-
-  std::string class_name = get_cp_info_utf8(*(curr_frame->class_file_ref), cp_info.Class.class_name);
+  std::string class_name = get_utf8_constant_pool(curr_frame->constant_pool_reference, class_info.Class.class_name);
 
   Cp_Info &name_and_type = curr_frame->constant_pool_reference[
                                   method_info.Methodref.name_and_type_index];
 
-  std::string method_name = get_cp_info_utf8(
-                                    *(curr_frame->class_file_ref),
-                                    name_and_type.NameAndType.name_index);
+  std::string method_name = get_utf8_constant_pool(curr_frame->constant_pool_reference, name_and_type.NameAndType.name_index);
 
   if (DEBUG) std::cout << "nome do metodo a ser chamado: " << method_name << std::endl;
 
-  std::string method_descriptor = get_cp_info_utf8(
-                                *(curr_frame->class_file_ref),
-                                name_and_type.NameAndType.descriptor_index);
+  std::string method_descriptor = get_utf8_constant_pool(curr_frame->constant_pool_reference,name_and_type.NameAndType.descriptor_index);
 
   if (DEBUG) std::cout << "nome da classe: " << class_name << std::endl;
   if (class_name == "java/lang/Object" && method_name == "registerNatives") {
@@ -2408,8 +2402,8 @@ void putfield(Frame *curr_frame) {
 
     Cp_Info name_and_type = curr_frame->constant_pool_reference[field_reference.Fieldref.class_index];
 
-    std::string class_name = get_cp_info_utf8(*(curr_frame->class_file_ref), field_reference.Fieldref.class_index);
-    std::string var_name = get_cp_info_utf8(*(curr_frame->class_file_ref), name_and_type.NameAndType.name_index);
+    std::string class_name = get_utf8_constant_pool(curr_frame->constant_pool_reference, field_reference.Fieldref.class_index);
+    std::string var_name = get_utf8_constant_pool(curr_frame->constant_pool_reference, name_and_type.NameAndType.name_index);
 
     Operand *var_operand = curr_frame->pop_operand();
     Operand *class_instance = curr_frame->pop_operand();

@@ -27,6 +27,12 @@ $ ./compile.sh -l
 $ ./compile.sh -w
 ```
 
+Caso apresente erro de formatação de arquivos bash ``.sh`` no Linux, usar o comando 
+
+```bash
+$ sed -i 's/\r$//' scriptname.sh
+```
+
 # Executando
 
 ## Leitor e Exibidor
