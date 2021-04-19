@@ -8,12 +8,6 @@
 
 #include "frame.hpp"
 
-using std::cout;
-using std::string;
-
-void nop(Frame*);
-void aconst_null(Frame*);
-void ldc(Frame*);
 void invokespecial(Frame*);
 void invokevirtual(Frame*);
 void astore_1(Frame*);
@@ -21,13 +15,6 @@ void astore_2(Frame*);
 void astore_3(Frame*);
 void getstatic(Frame*);
 void aaload(Frame*);
-void iconst_m1(Frame*);
-void iconst_0(Frame*);
-void iconst_1(Frame*);
-void iconst_2(Frame*);
-void iconst_3(Frame*);
-void iconst_4(Frame*);
-void iconst_5(Frame*);
 void getfield(Frame*);
 void aload(Frame*);
 void aload_0(Frame*);
@@ -41,15 +28,7 @@ void iload_0(Frame*);
 void iload_1(Frame*);
 void iload_2(Frame*);
 void iload_3(Frame*);
-void lconst_0(Frame*);
-void lconst_1(Frame*);
-void fconst_0(Frame*);
-void fconst_1(Frame*);
-void fconst_2(Frame*);
-void dconst_0(Frame*);
-void dconst_1(Frame*);
-void bipush(Frame*);
-void sipush(Frame*);
+
 void lload_0(Frame*);
 void lload_1(Frame*);
 void lload_2(Frame*);
@@ -121,7 +100,6 @@ void aaload(Frame*);
 void baload(Frame*);
 void caload(Frame*);
 void saload(Frame*);
-
 void lastore(Frame*);
 void fastore(Frame*);
 void dastore(Frame*);
@@ -147,9 +125,7 @@ void dup(Frame*);
 
 void putfield(Frame*);
 
-void ldc(Frame*);
-void ldc_w(Frame*);
-void ldc2_w(Frame*);
+
 
 void isub(Frame*);
 void invokeinterface(Frame*);

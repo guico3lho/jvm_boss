@@ -28,6 +28,7 @@ set(HEADER_FILES
     ${INCLUDE_DIR}/class_loader.hpp
     ${INCLUDE_DIR}/frame.hpp
     ${INCLUDE_DIR}/instructions_func.hpp
+    ${INCLUDE_DIR}/instructions_constants.hpp
 )
 
 set(SOURCE_FILES
@@ -47,6 +48,7 @@ set(SOURCE_FILES
     ${SOURCE_DIR}/class_loader.cpp
     ${SOURCE_DIR}/frame.cpp
     ${SOURCE_DIR}/instructions_func.cpp
+    ${SOURCE_DIR}/instructions_constants.cpp
 )
 
 # Executable name

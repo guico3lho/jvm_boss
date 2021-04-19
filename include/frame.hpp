@@ -10,6 +10,9 @@
 #include "class_loader.hpp"
 #include "interpreter.hpp"
 
+using std::cout;
+using std::string;
+
 struct Class_Loader;
 struct Array_Type;
 

@@ -5,6 +5,7 @@
  */
 #include "frame.hpp"
 #include "instructions_func.hpp"
+#include "instructions_constants.hpp"
 #include "interpreter.hpp"
 
 void (*func[256])(Frame *curr_frame);
