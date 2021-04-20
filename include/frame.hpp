@@ -30,7 +30,7 @@ typedef struct Operand {
     u4 type_float;
     u8 type_long;
     u8 type_double;
-    std::string  *type_string;
+    string       *type_string;
     Class_Loader *class_loader;
     Array_Type   *array_type;
   };
@@ -72,6 +72,5 @@ void push_frame(Frame *frame);
 void pop_frame();
 
 Operand* copy_operand(Operand* original_operand);
-Operand* check_string_create_type(std::string string_tipo);
 
 #endif

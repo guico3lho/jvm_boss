@@ -87,6 +87,15 @@ Class_File get_class_info_and_load_not_exists(std::string class_path) {
 }
 
 /**
+ * @brief Retorna a classe estática
+ * @param std::string nome da classe a ser retornada a referencia
+ * @return ClassInstance* ponteiro da referencia da classe
+ */
+Class_Loader* get_static_class(std::string class_name){
+  return static_classes[class_name];
+}
+
+/**
  * @brief Get the static field of class object
  * 
  * @param class_name 
@@ -97,15 +106,6 @@ Operand* get_static_field_of_class(std::string class_name, std::string field_nam
     Class_Loader *class_loader = static_classes.at(class_name);
     if (class_loader != NULL) return class_loader->class_fields->at(field_name);
     return NULL;
-}
-
-/**
- * @brief Retorna a classe estática
- * @param std::string nome da classe a ser retornada a referencia
- * @return ClassInstance* ponteiro da referencia da classe
- */
-Class_Loader* get_static_class(std::string class_name){
-  return static_classes[class_name];
 }
 
 /**

@@ -38,7 +38,7 @@ void getstatic(Frame *curr_frame) {
 
     // se for a classe default do Java: System -> nao empilhar
     if (class_name == "java/lang/System") {
-      if (DEBUG) cout << "Java Default Class: java/lang/System" << "\n";
+      if (DEBUG) cout << "Classe Default Java: java/lang/System" << "\n";
       return;
     }
 
