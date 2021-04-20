@@ -9,7 +9,6 @@
 #include "frame.hpp"
 
 
-
 /* REFERENCES */
 void getstatic(Frame*);
 void getfield(Frame*);
@@ -37,22 +36,7 @@ void dreturn(Frame*);
 void areturn(Frame*);
 void void_return(Frame*);
 
-/* COMPARISONS */
-void ifeq(Frame*);
-void ifne(Frame*);
-void iflt(Frame*);
-void ifge(Frame*);
-void ifgt(Frame*);
-void ifle(Frame*);
 
-void if_icmpeq(Frame*);
-void if_icmpne(Frame*);
-void if_icmplt(Frame*);
-void if_icmpge(Frame*);
-void if_icmpgt(Frame*);
-void if_icmple(Frame*);
-void if_acmpeq(Frame*);
-void if_acmpne(Frame*);
 
 /* EXTENDED */
 void ifnull(Frame*);
