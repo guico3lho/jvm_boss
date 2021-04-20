@@ -1,6 +1,6 @@
 /** 
  *  @file instructions_load.hpp
- *  @brief Declaração das funções de instruções de opcode de tipos de constantes da JVM
+ *  @brief Declaração das funções de instruções de opcode do tipo load da JVM
  * 
  */
 #ifndef __INSTRUCTIONS_LOAD_H__
@@ -8,7 +8,7 @@
 
 #include "frame.hpp"
 
-/* LOADS */
+/* LOAD */
 void iload(Frame*);
 void iload_0(Frame*);
 void iload_1(Frame*);

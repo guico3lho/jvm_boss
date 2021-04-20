@@ -1,6 +1,6 @@
 /** 
  *  @file instructions_constant.hpp
- *  @brief Declaração das funções de instruções de opcode de tipos de constantes da JVM
+ *  @brief Declaração das funções de instruções de opcode do tipo constante da JVM
  * 
  */
 #ifndef __INSTRUCTIONS_CONSTANT_H__
@@ -8,7 +8,7 @@
 
 #include "frame.hpp"
 
-/* CONSTANTS */
+/* CONSTANT */
 void nop(Frame*);
 void aconst_null(Frame*);
 

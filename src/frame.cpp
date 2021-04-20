@@ -7,6 +7,7 @@
 #include "instructions_func.hpp"
 #include "instructions_constant.hpp"
 #include "instructions_load.hpp"
+#include "instructions_store.hpp"
 #include "interpreter.hpp"
 
 void (*func[256])(Frame *curr_frame);
