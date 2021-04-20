@@ -796,3 +796,15 @@ void lxor(Frame *curr_frame) {
 
   curr_frame->push_operand(result);
 }
+
+/**
+ * @brief Incrementa uma variavel local em uma constante
+ * @param *curr_frame Ponteiro para o frame atual
+ * @return void
+ */
+void iinc(Frame *curr_frame) {
+    u1 index = curr_frame->method_code->code[curr_frame->pc++];
+    u1 constant_value = curr_frame->method_code->code[curr_frame->pc++];
+    curr_frame->local_variables_array.at(index) += constant_value;
+    curr_frame->pc++;
+}

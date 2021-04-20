@@ -32,6 +32,7 @@ set(HEADER_FILES
     ${INCLUDE_DIR}/instructions_load.hpp
     ${INCLUDE_DIR}/instructions_store.hpp
     ${INCLUDE_DIR}/instructions_math.hpp
+    ${INCLUDE_DIR}/instructions_stack.hpp
 )
 
 set(SOURCE_FILES
@@ -55,6 +56,7 @@ set(SOURCE_FILES
     ${SOURCE_DIR}/instructions_load.cpp
     ${SOURCE_DIR}/instructions_store.cpp
     ${SOURCE_DIR}/instructions_math.cpp
+    ${SOURCE_DIR}/instructions_stack.cpp
 )
 
 # Executable name
