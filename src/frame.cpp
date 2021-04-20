@@ -1,19 +1,19 @@
-/** @file Frame.cpp
+/** @file frame.cpp
  *  @brief Inicia o Frame de execução com vetor de variáveis locais, operandos,
  *        contador de programa e ponteiro para pool de constantes.
- *  @bug No know bugs.
  */
+
 #include "frame.hpp"
-#include "instructions_constant.hpp"
-#include "instructions_load.hpp"
-#include "instructions_store.hpp"
-#include "instructions_math.hpp"
-#include "instructions_stack.hpp"
-#include "instructions_conversion.hpp"
-#include "instructions_comparison.hpp"
-#include "instructions_reference.hpp"
-#include "instructions_control.hpp"
-#include "instructions_extended.hpp"
+#include "instructions/instructions_constant.hpp"
+#include "instructions/instructions_load.hpp"
+#include "instructions/instructions_store.hpp"
+#include "instructions/instructions_math.hpp"
+#include "instructions/instructions_stack.hpp"
+#include "instructions/instructions_conversion.hpp"
+#include "instructions/instructions_comparison.hpp"
+#include "instructions/instructions_reference.hpp"
+#include "instructions/instructions_control.hpp"
+#include "instructions/instructions_extended.hpp"
 #include "interpreter.hpp"
 
 void (*func[256])(Frame *curr_frame);

@@ -1,3 +1,8 @@
+/** 
+ *  @file interface_info.hpp
+ *  @brief 
+ */
+
 #ifndef __INTERFACE_INFO_H__
 #define __INTERFACE_INFO_H__
 

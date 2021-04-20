@@ -1,3 +1,8 @@
+/**
+ * @file attribute_info.cpp
+ * @brief 
+*/
+
 #include "attribute_info.hpp"
 
 void read_attribute_info(FILE *file, Class_File *class_file) {

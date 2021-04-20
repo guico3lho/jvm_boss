@@ -1,3 +1,8 @@
+/**
+ * @file instruction.cpp
+ * @brief 
+*/
+
 #include "instruction.hpp"
 
 // each instruction has 8-bit = 1 byte

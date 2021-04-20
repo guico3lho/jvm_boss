@@ -1,3 +1,8 @@
+/**
+ * @file method_info.cpp
+ * @brief 
+ */
+
 #include "method_info.hpp"
 
 void read_method_info(FILE *file, Class_File *class_file) {

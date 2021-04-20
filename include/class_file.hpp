@@ -1,3 +1,8 @@
+/** 
+ *  @file class_file.hpp
+ *  @brief 
+*/
+
 #ifndef __CLASS_FILE_H__
 #define __CLASS_FILE_H__
 

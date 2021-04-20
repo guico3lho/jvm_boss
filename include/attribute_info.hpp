@@ -1,3 +1,8 @@
+/** 
+ *  @file attribute_info.hpp
+ *  @brief 
+*/
+
 #ifndef __ATTRIBUTE_INFO_H__
 #define __ATTRIBUTE_INFO_H__
 
@@ -6,11 +11,19 @@
 struct Attribute_Info;
 struct Class_File;
 
+/** 
+ *  @brief Const_Value_Attribute - Estrutura de dados
+ */
+
 typedef struct Const_Value_Attribute{
   u2 attribute_name_index;
   u4 attribute_length;
   u2 const_value_index;
 } Const_Value_Attribute;
+
+/** 
+ *  @brief Code_Exception - Estrutura de dados que armazena uma exceção
+ */
 
 typedef struct Code_Exception{
   u2 start_pc;
@@ -18,6 +31,10 @@ typedef struct Code_Exception{
   u2 handler_pc;
   u2 catch_type;
 } Code_Exception;
+
+/** 
+ *  @brief Code_Attribute - Estrutura de dados
+ */
 
 typedef struct Code_Attribute {
   u2 max_stack;
@@ -32,10 +49,19 @@ typedef struct Code_Attribute {
   Attribute_Info* attributes = nullptr;
 } Code_Attribute;
 
+/** 
+ *  @brief Exception - Estrutura de dados que armazena o número de instruções 
+ *  e um ponteiro para cada uma delas
+ */
+
 typedef struct Exception{
   u2 number_exceptions;
   u2 *exception_index_table;
 } Exception;
+
+/** 
+ *  @brief Inner_Class_Attribute - Estrutura de dados
+ */
 
 typedef struct Inner_Class_Attribute {
   u2 attribute_name_index;
@@ -45,19 +71,35 @@ typedef struct Inner_Class_Attribute {
   Inner_Class_Attribute *inner_class_data = nullptr;
 } Inner_Class_Attribute;
 
+/** 
+ *  @brief Source_File_Attribute - Estrutura de dados
+ */
+
 typedef struct Source_File_Attribute {
   u2 source_file_index;
 } Source_File_Attribute;
+
+/** 
+ *  @brief Line_Number_Table_Data - Estrutura de dados
+ */
 
 typedef struct Line_Number_Table_Data {
   u2 start_pc;
   u2 line_number;
 } Line_Number_Table_Data;
 
+/** 
+ *  @brief Line_Number_Table_Attribute - Estrutura de dados
+ */
+
 typedef struct Line_Number_Table_Attribute {
   u2 line_number_table_length;
   Line_Number_Table_Data *table = nullptr;
 } Line_Number_Table_Attribute;
+
+/** 
+ *  @brief Local_Variable_Table_Data - Estrutura de dados
+ */
 
 typedef struct Local_Variable_Table_Data {
   u2 start_pc;
@@ -67,10 +109,18 @@ typedef struct Local_Variable_Table_Data {
   u2 index;
 } Local_Variable_Table_Data;
 
+/** 
+ *  @brief Local_Variable_Table_Attribute - Estrutura de dados
+ */
+
 typedef struct Local_Variable_Table_Attribute {
   u2 local_variable_table_length;
   Local_Variable_Table_Data *table = nullptr;
 } Local_Variable_Table_Attribute;
+
+/** 
+ *  @brief Attribute_Info - Estrutura de dados
+ */
 
 typedef struct Attribute_Info{
   u2 attribute_name_index;

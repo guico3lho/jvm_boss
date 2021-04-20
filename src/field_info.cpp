@@ -1,3 +1,8 @@
+/**
+ * @file field_info.cpp
+ * @brief 
+*/
+
 #include "field_info.hpp"
 
 void read_field_info(FILE *file, Class_File *class_file) {

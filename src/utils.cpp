@@ -1,5 +1,9 @@
-#include "utils.hpp"
+/**
+ * @file utils.cpp
+ * @brief Arquivo com funções de impressão de erros no terminal e liberação de memória.
+ */
 
+#include "utils.hpp"
 
 void print_command_error() {
   std::cout 

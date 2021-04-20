@@ -1,3 +1,8 @@
+/** 
+ *  @file field_info.hpp
+ *  @brief 
+*/
+
 #ifndef __FIELD_INFO_H__
 #define __FIELD_INFO_H__
 
@@ -6,6 +11,10 @@
 
 struct Class_File;
 struct Attribute_Info;
+
+/**
+ * @brief Field_Info - estrutura de dados que armazena os Fields
+ */
 
 typedef struct Field_Info{
 	u2  access_flags;     //  mask of flags to denote access permission

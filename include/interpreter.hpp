@@ -1,7 +1,8 @@
-/** @file interpreter.h
+/** 
+ *  @file interpreter.hpp
  *  @brief Estruturas e declarações de funções do interpretador da JVM.
- *  @bug No know bugs.
  */
+
 #ifndef __INTERPRETER_H__
 #define __INTERPRETER_H__
 

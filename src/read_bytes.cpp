@@ -1,3 +1,8 @@
+/**
+ * @file read_bytes.cpp
+ * @brief Arquivo que contém as funções para ler bytes.
+ */
+
 #include "read_bytes.hpp"
 
 u1 read_1_byte(FILE* fp) {
