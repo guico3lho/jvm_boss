@@ -1,13 +1,12 @@
 /** 
- *  @file instructions_func.h
- *  @brief Declaração das funções de cada instrução de opcode 
+ *  @file instructions_controle.hpp
+ *  @brief Declaração das funções de instruções de opcode do tipo controle da JVM
  * 
  */
-#ifndef __INSTRUCTIONS_FUNC_H__
-#define __INSTRUCTIONS_FUNC_H__
+#ifndef __INSTRUCTIONS_CONSTROL_H__
+#define __INSTRUCTIONS_CONSTROL_H__
 
 #include "frame.hpp"
-
 
 /* CONTROL */
 void ins_goto(Frame*);
@@ -21,12 +20,5 @@ void freturn(Frame*);
 void dreturn(Frame*);
 void areturn(Frame*);
 void void_return(Frame*);
-
-
-
-/* EXTENDED */
-void ifnull(Frame*);
-void ifnonnull(Frame*);
-
 
 #endif

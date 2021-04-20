@@ -1,10 +1,8 @@
-/** @file instructions_func.cpp
- *  @brief Módulo que contém todas as instruções da JVM.
+/** @file instructions_control.cpp
+ *  @brief Módulo que contém as instruções de opcode do tipo controle da JVM.
  *  @bug No know bugs.
  */
 #include "interpreter.hpp"
-#include "instructions_func.hpp"
-
 
 /*************************** CONTROL ***************************/
 
@@ -212,32 +210,4 @@ void areturn(Frame *curr_frame) {
 void void_return(Frame *curr_frame) {
     curr_frame->pc++;
     pop_frame();
-}
-
-/*************************** EXTENDED ***************************/
-
-void ifnull(Frame *curr_frame) {
-    Operand *operand = curr_frame->pop_operand();
-
-    if (!(operand->type_int)) {
-        int shift;
-        shift = curr_frame->method_code->code[curr_frame->pc + 1];
-        shift = (shift << 8 ) | curr_frame->method_code->code[curr_frame->pc + 2];
-        curr_frame->pc += shift;
-    } else {
-        curr_frame->pc +=3;
-    }
-}
-
-void ifnonnull(Frame *curr_frame) {
-    Operand *operand = curr_frame->pop_operand();
-
-    if (operand->type_int) {
-        int shift;
-        shift = curr_frame->method_code->code[curr_frame->pc + 1];
-        shift = (shift << 8 ) | curr_frame->method_code->code[curr_frame->pc + 2];
-        curr_frame->pc += shift;
-    } else {
-        curr_frame->pc +=3;
-    }
 }

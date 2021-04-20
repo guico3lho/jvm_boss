@@ -27,7 +27,6 @@ set(HEADER_FILES
     ${INCLUDE_DIR}/interpreter.hpp
     ${INCLUDE_DIR}/class_loader.hpp
     ${INCLUDE_DIR}/frame.hpp
-    ${INCLUDE_DIR}/instructions_func.hpp
     ${INCLUDE_DIR}/instructions_constant.hpp
     ${INCLUDE_DIR}/instructions_load.hpp
     ${INCLUDE_DIR}/instructions_store.hpp
@@ -36,6 +35,8 @@ set(HEADER_FILES
     ${INCLUDE_DIR}/instructions_conversion.hpp
     ${INCLUDE_DIR}/instructions_comparison.hpp
     ${INCLUDE_DIR}/instructions_reference.hpp
+    ${INCLUDE_DIR}/instructions_control.hpp
+    ${INCLUDE_DIR}/instructions_extended.hpp
 )
 
 set(SOURCE_FILES
@@ -54,7 +55,6 @@ set(SOURCE_FILES
     ${SOURCE_DIR}/interpreter.cpp
     ${SOURCE_DIR}/class_loader.cpp
     ${SOURCE_DIR}/frame.cpp
-    ${SOURCE_DIR}/instructions_func.cpp
     ${SOURCE_DIR}/instructions_constant.cpp
     ${SOURCE_DIR}/instructions_load.cpp
     ${SOURCE_DIR}/instructions_store.cpp
@@ -63,6 +63,8 @@ set(SOURCE_FILES
     ${SOURCE_DIR}/instructions_conversion.cpp
     ${SOURCE_DIR}/instructions_comparison.cpp
     ${SOURCE_DIR}/instructions_reference.cpp
+    ${SOURCE_DIR}/instructions_control.cpp
+    ${SOURCE_DIR}/instructions_extended.cpp
 )
 
 # Executable name
