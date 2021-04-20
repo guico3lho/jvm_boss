@@ -9,20 +9,6 @@
 #include "frame.hpp"
 
 
-/* REFERENCES */
-void getstatic(Frame*);
-void getfield(Frame*);
-void putfield(Frame*);
-
-void invokevirtual(Frame*);
-void invokespecial(Frame*);
-void invokestatic(Frame*);
-void invokeinterface(Frame*);
-
-void new_obj(Frame*);
-void newarray(Frame*);
-void arraylength(Frame* );
-
 /* CONTROL */
 void ins_goto(Frame*);
 void ret(Frame*);

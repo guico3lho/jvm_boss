@@ -35,6 +35,7 @@ set(HEADER_FILES
     ${INCLUDE_DIR}/instructions_stack.hpp
     ${INCLUDE_DIR}/instructions_conversion.hpp
     ${INCLUDE_DIR}/instructions_comparison.hpp
+    ${INCLUDE_DIR}/instructions_reference.hpp
 )
 
 set(SOURCE_FILES
@@ -61,6 +62,7 @@ set(SOURCE_FILES
     ${SOURCE_DIR}/instructions_stack.cpp
     ${SOURCE_DIR}/instructions_conversion.cpp
     ${SOURCE_DIR}/instructions_comparison.cpp
+    ${SOURCE_DIR}/instructions_reference.cpp
 )
 
 # Executable name

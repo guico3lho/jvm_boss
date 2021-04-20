@@ -12,6 +12,7 @@
 #include "instructions_stack.hpp"
 #include "instructions_conversion.hpp"
 #include "instructions_comparison.hpp"
+#include "instructions_reference.hpp"
 #include "interpreter.hpp"
 
 void (*func[256])(Frame *curr_frame);
