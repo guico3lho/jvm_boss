@@ -12,10 +12,6 @@
 #include "class_loader.hpp"
 #include "instruction.hpp"
 
-struct Class_Loader;
-struct Instruction;
-struct Operand;
-
 void execute(Class_File class_file);
 
 #endif
