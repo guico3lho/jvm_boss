@@ -14,7 +14,7 @@
  * Comando Interpretador: -i nomedoarquivo.class
  *
  * @author Ariel
- * @author Guilherme
+ * @author Guilherme Coelho Minervino        16/0123046
  * @author Gustavo Antonio Souza de Barros   18/0064487
  * @author Luís Vinicius Capelletto          16/0134544
  * @author Mayara Chew Marinho               18/0025210
