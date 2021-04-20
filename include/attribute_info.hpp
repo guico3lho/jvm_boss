@@ -1,6 +1,6 @@
 /** 
  *  @file attribute_info.hpp
- *  @brief 
+ *  @brief Estruturas e declarações de funções relacionadas a Atributos
 */
 
 #ifndef __ATTRIBUTE_INFO_H__
@@ -12,9 +12,8 @@ struct Attribute_Info;
 struct Class_File;
 
 /** 
- *  @brief Const_Value_Attribute - Estrutura de dados
+ *  @brief Estrutura de dados que armazena valores principais do Attribute
  */
-
 typedef struct Const_Value_Attribute{
   u2 attribute_name_index;
   u4 attribute_length;
@@ -22,9 +21,8 @@ typedef struct Const_Value_Attribute{
 } Const_Value_Attribute;
 
 /** 
- *  @brief Code_Exception - Estrutura de dados que armazena uma exceção
+ *  @brief Estrutura de dados que armazena uma exceção
  */
-
 typedef struct Code_Exception{
   u2 start_pc;
   u2 end_pc;
@@ -33,9 +31,8 @@ typedef struct Code_Exception{
 } Code_Exception;
 
 /** 
- *  @brief Code_Attribute - Estrutura de dados
+ *  @brief Estrutura de dados que armazena o código do Attribute
  */
-
 typedef struct Code_Attribute {
   u2 max_stack;
   u2 max_locals;
@@ -50,19 +47,17 @@ typedef struct Code_Attribute {
 } Code_Attribute;
 
 /** 
- *  @brief Exception - Estrutura de dados que armazena o número de instruções 
+ *  @brief Estrutura de dados que armazena o número de exceções 
  *  e um ponteiro para cada uma delas
  */
-
 typedef struct Exception{
   u2 number_exceptions;
   u2 *exception_index_table;
 } Exception;
 
 /** 
- *  @brief Inner_Class_Attribute - Estrutura de dados
+ *  @brief Estrutura de dados de uma Inner Class de um Attribute
  */
-
 typedef struct Inner_Class_Attribute {
   u2 attribute_name_index;
   u4 attribute_length;
@@ -72,26 +67,23 @@ typedef struct Inner_Class_Attribute {
 } Inner_Class_Attribute;
 
 /** 
- *  @brief Source_File_Attribute - Estrutura de dados
+ *  @brief Estrutura de dados que armazena o código do Attribute
  */
-
 typedef struct Source_File_Attribute {
   u2 source_file_index;
 } Source_File_Attribute;
 
 /** 
- *  @brief Line_Number_Table_Data - Estrutura de dados
+ *  @brief Estrutura de dados que armazena o PC e o número da linha da tabela
  */
-
 typedef struct Line_Number_Table_Data {
   u2 start_pc;
   u2 line_number;
 } Line_Number_Table_Data;
 
 /** 
- *  @brief Line_Number_Table_Attribute - Estrutura de dados
+ *  @brief Estrutura de dados
  */
-
 typedef struct Line_Number_Table_Attribute {
   u2 line_number_table_length;
   Line_Number_Table_Data *table = nullptr;
@@ -100,7 +92,6 @@ typedef struct Line_Number_Table_Attribute {
 /** 
  *  @brief Local_Variable_Table_Data - Estrutura de dados
  */
-
 typedef struct Local_Variable_Table_Data {
   u2 start_pc;
   u2 length;
@@ -112,7 +103,6 @@ typedef struct Local_Variable_Table_Data {
 /** 
  *  @brief Local_Variable_Table_Attribute - Estrutura de dados
  */
-
 typedef struct Local_Variable_Table_Attribute {
   u2 local_variable_table_length;
   Local_Variable_Table_Data *table = nullptr;
@@ -121,7 +111,6 @@ typedef struct Local_Variable_Table_Attribute {
 /** 
  *  @brief Attribute_Info - Estrutura de dados
  */
-
 typedef struct Attribute_Info{
   u2 attribute_name_index;
   u4 attribute_length;

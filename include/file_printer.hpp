@@ -1,6 +1,6 @@
 /** 
  *  @file file_printer.hpp
- *  @brief 
+ *  @brief Declarações de funções que imprimem informações para o usuário
 */
 
 #ifndef __FILE_PRINTER_H__

@@ -1,5 +1,5 @@
 /** @file frame.hpp
- *  @brief
+ *  @brief Estruturas e classes de Frames e Operandos
  */
 
 #ifndef __FRAME_H__
@@ -17,7 +17,7 @@ struct Class_Loader;
 struct Array_Type;
 
 /** 
- *  @brief Operand - 
+ *  @brief Operand - Estrutura de dados que armazena um operando
  */
 typedef struct Operand {
   u1 tag; 
@@ -36,6 +36,9 @@ typedef struct Operand {
   };
 } Operand;
 
+/** 
+ *  @brief Array_Type - Estrutura de dados que armazena o tipo do operando
+ */
 typedef struct Array_Type{  
   std::vector<Operand*> *array;
 } Array_Type;

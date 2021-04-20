@@ -1,6 +1,6 @@
 /**
  * @file instruction.cpp
- * @brief 
+ * @brief Arquivo com o nome e os bytes de todas as instruções
 */
 
 #include "instruction.hpp"

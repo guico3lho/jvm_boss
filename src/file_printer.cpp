@@ -1,6 +1,6 @@
 /**
  * @file file_printer.cpp
- * @brief 
+ * @brief Arquivo com funções que imprimem informações para o usuário
 */
 
 #include "file_printer.hpp"

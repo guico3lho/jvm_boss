@@ -73,6 +73,9 @@ $(function() {
 <div class="title">Referência ao ficheiro frame.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Estruturas e classes de Frames e Operandos.  
+<a href="#details">Mais...</a></p>
 <div class="textblock"><code>#include &lt;stack&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &quot;<a class="el" href="class__loader_8hpp_source.html">class_loader.hpp</a>&quot;</code><br />
@@ -83,9 +86,10 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Componentes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structOperand.html">Operand</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structOperand.html" title="Operand -.">Operand</a> -.  <a href="structOperand.html#details">Mais...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structOperand.html" title="Operand - Estrutura de dados que armazena um operando.">Operand</a> - Estrutura de dados que armazena um operando.  <a href="structOperand.html#details">Mais...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structArray__Type.html">Array_Type</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structArray__Type.html" title="Array_Type - Estrutura de dados que armazena o tipo do operando.">Array_Type</a> - Estrutura de dados que armazena o tipo do operando.  <a href="structArray__Type.html#details">Mais...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrame.html">Frame</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">O <a class="el" href="classFrame.html" title="O Frame armazena dados e resultados parciais, para executar ligação dinâmica,retornar valores para mé...">Frame</a> armazena dados e resultados parciais, para executar ligação dinâmica,retornar valores para métodos e disparar exceções.  <a href="classFrame.html#details">Mais...</a><br /></td></tr>
@@ -95,10 +99,11 @@ Componentes</h2></td></tr>
 Definições de tipos</h2></td></tr>
 <tr class="memitem:a4fb9f7773235006151182b29febd8be7"><td class="memItemLeft" align="right" valign="top"><a id="a4fb9f7773235006151182b29febd8be7"></a>
 typedef struct <a class="el" href="structOperand.html">Operand</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="frame_8hpp.html#a4fb9f7773235006151182b29febd8be7">Operand</a></td></tr>
-<tr class="memdesc:a4fb9f7773235006151182b29febd8be7"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structOperand.html" title="Operand -.">Operand</a> -. <br /></td></tr>
+<tr class="memdesc:a4fb9f7773235006151182b29febd8be7"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structOperand.html" title="Operand - Estrutura de dados que armazena um operando.">Operand</a> - Estrutura de dados que armazena um operando. <br /></td></tr>
 <tr class="separator:a4fb9f7773235006151182b29febd8be7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49625761a16c51cce597d9c716d44b7d"><td class="memItemLeft" align="right" valign="top"><a id="a49625761a16c51cce597d9c716d44b7d"></a>
-typedef struct <a class="el" href="structArray__Type.html">Array_Type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Array_Type</b></td></tr>
+typedef struct <a class="el" href="structArray__Type.html">Array_Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="frame_8hpp.html#a49625761a16c51cce597d9c716d44b7d">Array_Type</a></td></tr>
+<tr class="memdesc:a49625761a16c51cce597d9c716d44b7d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structArray__Type.html" title="Array_Type - Estrutura de dados que armazena o tipo do operando.">Array_Type</a> - Estrutura de dados que armazena o tipo do operando. <br /></td></tr>
 <tr class="separator:a49625761a16c51cce597d9c716d44b7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -115,38 +120,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>pop_frame</b> ()</td>
 <tr class="memitem:ae91e72720ce477c772e82c05e2055f92"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOperand.html">Operand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="frame_8hpp.html#ae91e72720ce477c772e82c05e2055f92">copy_operand</a> (<a class="el" href="structOperand.html">Operand</a> *original_operand)</td></tr>
 <tr class="memdesc:ae91e72720ce477c772e82c05e2055f92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria um ponteiro de cópia do mesmo tipo que ele está recebendo para não utilizar a mesma instância.  <a href="frame_8hpp.html#ae91e72720ce477c772e82c05e2055f92">Mais...</a><br /></td></tr>
 <tr class="separator:ae91e72720ce477c772e82c05e2055f92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb23dc87cd7ed3251dbf1f3f071e6f93"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOperand.html">Operand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="frame_8hpp.html#acb23dc87cd7ed3251dbf1f3f071e6f93">check_string_create_type</a> (std::string string_tipo)</td></tr>
-<tr class="memdesc:acb23dc87cd7ed3251dbf1f3f071e6f93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria um ponteiro de <a class="el" href="structOperand.html" title="Operand -.">Operand</a> e o tipo é decidido pela string recebida.  <a href="frame_8hpp.html#acb23dc87cd7ed3251dbf1f3f071e6f93">Mais...</a><br /></td></tr>
-<tr class="separator:acb23dc87cd7ed3251dbf1f3f071e6f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentação das funções</h2>
-<a id="acb23dc87cd7ed3251dbf1f3f071e6f93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb23dc87cd7ed3251dbf1f3f071e6f93">&#9670;&nbsp;</a></span>check_string_create_type()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structOperand.html">Operand</a>* check_string_create_type </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>type_string</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Cria um ponteiro de <a class="el" href="structOperand.html" title="Operand -.">Operand</a> e o tipo é decidido pela string recebida. </p>
-<dl class="params"><dt>Parâmetros</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">type_string</td><td>string que varia de acordo com o tipo </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Retorna</dt><dd>Operand* novo ponteiro para <a class="el" href="structOperand.html" title="Operand -.">Operand</a> </dd></dl>
-
-</div>
-</div>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Estruturas e classes de Frames e Operandos. </p>
+</div><h2 class="groupheader">Documentação das funções</h2>
 <a id="ae91e72720ce477c772e82c05e2055f92"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae91e72720ce477c772e82c05e2055f92">&#9670;&nbsp;</a></span>copy_operand()</h2>
 

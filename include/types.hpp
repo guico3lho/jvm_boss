@@ -1,6 +1,6 @@
 /** 
  *  @file types.hpp
- *  @brief 
+ *  @brief Definições das constantes de tipo.
  */
 
 #ifndef __TYPES_H__

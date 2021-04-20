@@ -1,6 +1,6 @@
 /**
  * @file class_loader.cpp
- * @brief 
+ * @brief Arquivo com funções do Class Loader da JVM
 */
 
 #include "class_loader.hpp"

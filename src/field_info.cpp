@@ -1,6 +1,6 @@
 /**
  * @file field_info.cpp
- * @brief 
+ * @brief Arquivo com funções relacionadas a Field
 */
 
 #include "field_info.hpp"

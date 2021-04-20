@@ -1,6 +1,6 @@
 /** 
  *  @file instruction.hpp
- *  @brief 
+ *  @brief Estruturas, declaração de funções e definições de constanstes relacionadas a instruções
  */
 
 #ifndef __INSTRUCTION_H__

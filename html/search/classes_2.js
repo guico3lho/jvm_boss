@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['determineos_253',['DetermineOS',['../classDetermineOS.html',1,'']]]
+  ['exception_267',['Exception',['../structException.html',1,'']]]
 ];

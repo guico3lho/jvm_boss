@@ -1,5 +1,5 @@
 /** 
- *  @file instructions_controle.hpp
+ *  @file instructions_control.hpp
  *  @brief Declaração das funções de instruções de opcode do tipo controle da JVM
  */
 

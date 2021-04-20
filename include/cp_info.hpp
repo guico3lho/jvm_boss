@@ -1,6 +1,6 @@
 /** 
  *  @file cp_info.hpp
- *  @brief 
+ *  @brief Estruturas e declarações de funções relacionadas a Constant Pool
  */
 
 #ifndef __CP_INFO_H__
@@ -10,14 +10,10 @@
 #include "class_file.hpp"
 #include <cstring>
 
-/**
- * @brief Class_File
- */
-
 struct Class_File;
 
 /**
- * @brief Cp_Info - estrutura de dados da constant pool
+ * @brief Cp_Info - Estrutura de dados que armazena a Constant Pool
  */
 struct Cp_Info {
   u2 tag;

@@ -1,12 +1,16 @@
 \hypertarget{attribute__info_8cpp}{}\doxysection{Referência ao ficheiro src/attribute\+\_\+info.cpp}
 \label{attribute__info_8cpp}\index{src/attribute\_info.cpp@{src/attribute\_info.cpp}}
+
+
+Arquivo com as funções relacionadas a Atributos.  
+
+
 {\ttfamily \#include \char`\"{}attribute\+\_\+info.\+hpp\char`\"{}}\newline
 \doxysubsection*{Funções}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{attribute__info_8cpp_abc7aeed386080a807df623989568d2b6}\label{attribute__info_8cpp_abc7aeed386080a807df623989568d2b6}} 
-void {\bfseries read\+\_\+attribute\+\_\+info} (FILE $\ast$file, \mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} $\ast$class\+\_\+file)
-\item 
+void \mbox{\hyperlink{attribute__info_8cpp_abc7aeed386080a807df623989568d2b6}{read\+\_\+attribute\+\_\+info}} (FILE $\ast$file, \mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} $\ast$class\+\_\+file)
+\begin{DoxyCompactList}\small\item\em Lê e armazena as informações dos atributos no class file. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{attribute__info_8cpp_a8c89708ac2871ae677475544a8425ebe}\label{attribute__info_8cpp_a8c89708ac2871ae677475544a8425ebe}} 
 \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} {\bfseries read\+\_\+const\+\_\+value\+\_\+attribute} (FILE $\ast$file, \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} attribute\+\_\+info)
 \item 
@@ -40,3 +44,31 @@ void {\bfseries read\+\_\+local\+\_\+variable\+\_\+table\+\_\+attribute} (FILE $
 \mbox{\Hypertarget{attribute__info_8cpp_a1716d08c74d75fd1aed15d2ae582a092}\label{attribute__info_8cpp_a1716d08c74d75fd1aed15d2ae582a092}} 
 \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} {\bfseries get\+\_\+attribute\+\_\+info} (FILE $\ast$file, \mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} $\ast$class\+\_\+file)
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Arquivo com as funções relacionadas a Atributos. 
+
+
+
+\doxysubsection{Documentação das funções}
+\mbox{\Hypertarget{attribute__info_8cpp_abc7aeed386080a807df623989568d2b6}\label{attribute__info_8cpp_abc7aeed386080a807df623989568d2b6}} 
+\index{attribute\_info.cpp@{attribute\_info.cpp}!read\_attribute\_info@{read\_attribute\_info}}
+\index{read\_attribute\_info@{read\_attribute\_info}!attribute\_info.cpp@{attribute\_info.cpp}}
+\doxysubsubsection{\texorpdfstring{read\_attribute\_info()}{read\_attribute\_info()}}
+{\footnotesize\ttfamily void read\+\_\+attribute\+\_\+info (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{file,  }\item[{\mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} $\ast$}]{class\+\_\+file }\end{DoxyParamCaption})}
+
+
+
+Lê e armazena as informações dos atributos no class file. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em FILE} & $\ast$file \\
+\hline
+{\em \mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}}} & $\ast$class\+\_\+file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}

@@ -97,9 +97,6 @@ typedef struct <a class="el" href="structClass__Loader.html">Class_Loader</a>&#1
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funções</h2></td></tr>
-<tr class="memitem:a3f44bb23df638c0fdbb316c3f473a37d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structClass__Loader.html">Class_Loader</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__loader_8hpp.html#a3f44bb23df638c0fdbb316c3f473a37d">get_static_class</a> (std::string class_name)</td></tr>
-<tr class="memdesc:a3f44bb23df638c0fdbb316c3f473a37d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna a classe estática.  <a href="class__loader_8hpp.html#a3f44bb23df638c0fdbb316c3f473a37d">Mais...</a><br /></td></tr>
-<tr class="separator:a3f44bb23df638c0fdbb316c3f473a37d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87c7e79848a9f6a564fea3692f0e817a"><td class="memItemLeft" align="right" valign="top"><a id="a87c7e79848a9f6a564fea3692f0e817a"></a>
 <a class="el" href="structClass__Loader.html">Class_Loader</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__loader_8hpp.html#a87c7e79848a9f6a564fea3692f0e817a">load_class_memory</a> (<a class="el" href="structClass__File.html">Class_File</a> class_file)</td></tr>
 <tr class="memdesc:a87c7e79848a9f6a564fea3692f0e817a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carrega classes para a memória. <br /></td></tr>
@@ -110,13 +107,46 @@ Funções</h2></td></tr>
 <tr class="memitem:aa66441f987dddc0eeed8efc18f2d4c42"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structClass__File.html">Class_File</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__loader_8hpp.html#aa66441f987dddc0eeed8efc18f2d4c42">get_class_info_and_load_not_exists</a> (std::string c_path)</td></tr>
 <tr class="memdesc:aa66441f987dddc0eeed8efc18f2d4c42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carrega outro .class se o arquivo estiver no mesmo diretório.  <a href="class__loader_8hpp.html#aa66441f987dddc0eeed8efc18f2d4c42">Mais...</a><br /></td></tr>
 <tr class="separator:aa66441f987dddc0eeed8efc18f2d4c42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f44bb23df638c0fdbb316c3f473a37d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structClass__Loader.html">Class_Loader</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__loader_8hpp.html#a3f44bb23df638c0fdbb316c3f473a37d">get_static_class</a> (std::string class_name)</td></tr>
+<tr class="memdesc:a3f44bb23df638c0fdbb316c3f473a37d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna a classe estática.  <a href="class__loader_8hpp.html#a3f44bb23df638c0fdbb316c3f473a37d">Mais...</a><br /></td></tr>
+<tr class="separator:a3f44bb23df638c0fdbb316c3f473a37d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08ce18411266b1bd10a057129730d615"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOperand.html">Operand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__loader_8hpp.html#a08ce18411266b1bd10a057129730d615">get_static_field_of_class</a> (std::string class_name, std::string field_name)</td></tr>
 <tr class="memdesc:a08ce18411266b1bd10a057129730d615"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the static field of class object.  <a href="class__loader_8hpp.html#a08ce18411266b1bd10a057129730d615">Mais...</a><br /></td></tr>
 <tr class="separator:a08ce18411266b1bd10a057129730d615"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb23dc87cd7ed3251dbf1f3f071e6f93"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOperand.html">Operand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__loader_8hpp.html#acb23dc87cd7ed3251dbf1f3f071e6f93">check_string_create_type</a> (std::string string_tipo)</td></tr>
+<tr class="memdesc:acb23dc87cd7ed3251dbf1f3f071e6f93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria um ponteiro de <a class="el" href="structOperand.html" title="Operand - Estrutura de dados que armazena um operando.">Operand</a> e o tipo é decidido pela string recebida.  <a href="class__loader_8hpp.html#acb23dc87cd7ed3251dbf1f3f071e6f93">Mais...</a><br /></td></tr>
+<tr class="separator:acb23dc87cd7ed3251dbf1f3f071e6f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
 <div class="textblock"><p>Estruturas e declarações de funções do Class Loader da JVM. </p>
 </div><h2 class="groupheader">Documentação das funções</h2>
+<a id="acb23dc87cd7ed3251dbf1f3f071e6f93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb23dc87cd7ed3251dbf1f3f071e6f93">&#9670;&nbsp;</a></span>check_string_create_type()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structOperand.html">Operand</a>* check_string_create_type </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>type_string</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cria um ponteiro de <a class="el" href="structOperand.html" title="Operand - Estrutura de dados que armazena um operando.">Operand</a> e o tipo é decidido pela string recebida. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type_string</td><td>string que varia de acordo com o tipo </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Operand* novo ponteiro para <a class="el" href="structOperand.html" title="Operand - Estrutura de dados que armazena um operando.">Operand</a> </dd></dl>
+
+</div>
+</div>
 <a id="aa66441f987dddc0eeed8efc18f2d4c42"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa66441f987dddc0eeed8efc18f2d4c42">&#9670;&nbsp;</a></span>get_class_info_and_load_not_exists()</h2>
 

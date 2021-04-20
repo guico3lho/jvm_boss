@@ -1,6 +1,6 @@
-/** 
+/**
  *  @file interface_info.hpp
- *  @brief 
+ *  @brief Estruturas e declarações de funções que leem as interfaces do arquivo e as armazenam no class_file
  */
 
 #ifndef __INTERFACE_INFO_H__
@@ -10,6 +10,9 @@
 
 struct Class_File;
 
+/**
+ *  @brief Interface_Info - Estrutura de dados que armazena a tabela de interfaces
+ */
 typedef struct Interface_Info{
 	u2 interface_table;
 } Interface_Info;

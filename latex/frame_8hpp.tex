@@ -1,5 +1,10 @@
 \hypertarget{frame_8hpp}{}\doxysection{Referência ao ficheiro include/frame.hpp}
 \label{frame_8hpp}\index{include/frame.hpp@{include/frame.hpp}}
+
+
+Estruturas e classes de Frames e Operandos.  
+
+
 {\ttfamily \#include $<$stack$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
 {\ttfamily \#include \char`\"{}class\+\_\+loader.\+hpp\char`\"{}}\newline
@@ -8,9 +13,9 @@
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structOperand}{Operand}}
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structOperand}{Operand}} -\/. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structOperand}{Operand}} -\/ Estrutura de dados que armazena um operando. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structArray__Type}{Array\+\_\+\+Type}}
-\item 
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structArray__Type}{Array\+\_\+\+Type}} -\/ Estrutura de dados que armazena o tipo do operando. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classFrame}{Frame}}
 \begin{DoxyCompactList}\small\item\em O \mbox{\hyperlink{classFrame}{Frame}} armazena dados e resultados parciais, para executar ligação dinâmica,retornar valores para métodos e disparar exceções. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Definições de tipos}
@@ -18,10 +23,10 @@ class \mbox{\hyperlink{classFrame}{Frame}}
 \item 
 \mbox{\Hypertarget{frame_8hpp_a4fb9f7773235006151182b29febd8be7}\label{frame_8hpp_a4fb9f7773235006151182b29febd8be7}} 
 typedef struct \mbox{\hyperlink{structOperand}{Operand}} \mbox{\hyperlink{frame_8hpp_a4fb9f7773235006151182b29febd8be7}{Operand}}
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structOperand}{Operand}} -\/. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structOperand}{Operand}} -\/ Estrutura de dados que armazena um operando. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{frame_8hpp_a49625761a16c51cce597d9c716d44b7d}\label{frame_8hpp_a49625761a16c51cce597d9c716d44b7d}} 
-typedef struct \mbox{\hyperlink{structArray__Type}{Array\+\_\+\+Type}} {\bfseries Array\+\_\+\+Type}
-\end{DoxyCompactItemize}
+typedef struct \mbox{\hyperlink{structArray__Type}{Array\+\_\+\+Type}} \mbox{\hyperlink{frame_8hpp_a49625761a16c51cce597d9c716d44b7d}{Array\+\_\+\+Type}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structArray__Type}{Array\+\_\+\+Type}} -\/ Estrutura de dados que armazena o tipo do operando. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Funções}
 \begin{DoxyCompactItemize}
 \item 
@@ -35,30 +40,15 @@ void {\bfseries push\+\_\+frame} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$fra
 void {\bfseries pop\+\_\+frame} ()
 \item 
 \mbox{\hyperlink{structOperand}{Operand}} $\ast$ \mbox{\hyperlink{frame_8hpp_ae91e72720ce477c772e82c05e2055f92}{copy\+\_\+operand}} (\mbox{\hyperlink{structOperand}{Operand}} $\ast$original\+\_\+operand)
-\begin{DoxyCompactList}\small\item\em Cria um ponteiro de cópia do mesmo tipo que ele está recebendo para não utilizar a mesma instância. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{structOperand}{Operand}} $\ast$ \mbox{\hyperlink{frame_8hpp_acb23dc87cd7ed3251dbf1f3f071e6f93}{check\+\_\+string\+\_\+create\+\_\+type}} (std\+::string string\+\_\+tipo)
-\begin{DoxyCompactList}\small\item\em Cria um ponteiro de \mbox{\hyperlink{structOperand}{Operand}} e o tipo é decidido pela string recebida. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Cria um ponteiro de cópia do mesmo tipo que ele está recebendo para não utilizar a mesma instância. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Estruturas e classes de Frames e Operandos. 
+
 
 
 \doxysubsection{Documentação das funções}
-\mbox{\Hypertarget{frame_8hpp_acb23dc87cd7ed3251dbf1f3f071e6f93}\label{frame_8hpp_acb23dc87cd7ed3251dbf1f3f071e6f93}} 
-\index{frame.hpp@{frame.hpp}!check\_string\_create\_type@{check\_string\_create\_type}}
-\index{check\_string\_create\_type@{check\_string\_create\_type}!frame.hpp@{frame.hpp}}
-\doxysubsubsection{\texorpdfstring{check\_string\_create\_type()}{check\_string\_create\_type()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structOperand}{Operand}}$\ast$ check\+\_\+string\+\_\+create\+\_\+type (\begin{DoxyParamCaption}\item[{std\+::string}]{type\+\_\+string }\end{DoxyParamCaption})}
-
-
-
-Cria um ponteiro de \mbox{\hyperlink{structOperand}{Operand}} e o tipo é decidido pela string recebida. 
-
-
-\begin{DoxyParams}{Parâmetros}
-{\em type\+\_\+string} & string que varia de acordo com o tipo \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Retorna}
-Operand$\ast$ novo ponteiro para \mbox{\hyperlink{structOperand}{Operand}} 
-\end{DoxyReturn}
 \mbox{\Hypertarget{frame_8hpp_ae91e72720ce477c772e82c05e2055f92}\label{frame_8hpp_ae91e72720ce477c772e82c05e2055f92}} 
 \index{frame.hpp@{frame.hpp}!copy\_operand@{copy\_operand}}
 \index{copy\_operand@{copy\_operand}!frame.hpp@{frame.hpp}}

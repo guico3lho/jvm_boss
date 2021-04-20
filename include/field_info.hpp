@@ -1,6 +1,6 @@
 /** 
  *  @file field_info.hpp
- *  @brief 
+ *  @brief Estruturas e declarações de funções relacionadas a Field
 */
 
 #ifndef __FIELD_INFO_H__
@@ -15,7 +15,6 @@ struct Attribute_Info;
 /**
  * @brief Field_Info - estrutura de dados que armazena os Fields
  */
-
 typedef struct Field_Info{
 	u2  access_flags;     //  mask of flags to denote access permission
   u2  name_index;       // CONSTANT_UTF8, field name
