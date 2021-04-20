@@ -1,8 +1,8 @@
 /** 
  *  @file instructions_load.hpp
  *  @brief Declaração das funções de instruções de opcode do tipo load da JVM
- * 
  */
+
 #ifndef __INSTRUCTIONS_LOAD_H__
 #define __INSTRUCTIONS_LOAD_H__
 

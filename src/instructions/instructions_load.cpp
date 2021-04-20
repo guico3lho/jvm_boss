@@ -1,7 +1,7 @@
 /** @file instructions_load.cpp
  *  @brief Módulo que contém as instruções de opcode do tipo load da JVM.
- *  @bug No know bugs.
- */
+*/
+
 #include "interpreter.hpp"
 
 /*************************** LOADS ***************************/

@@ -1,8 +1,8 @@
 /** 
  *  @file instructions_conversion.hpp
  *  @brief Declaração das funções de instruções de opcode do tipo conversione da JVM
- * 
  */
+
 #ifndef __INSTRUCTIONS_CONVERSION_H__
 #define __INSTRUCTIONS_CONVERSION_H__
 

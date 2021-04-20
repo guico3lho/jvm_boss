@@ -1,14 +1,13 @@
 /** @file instructions_reference.cpp
  *  @brief Módulo que contém as instruções de opcode do tipo referência da JVM.
- *  @bug No know bugs.
- */
+*/
+
 #include "interpreter.hpp"
 
 /**
- * @brief ??? 
- * 
- * 
+ * @brief 
  */
+
 namespace patch {
   template <typename T> string to_string(const T& n) {
     std::ostringstream stm;

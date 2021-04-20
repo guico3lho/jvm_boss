@@ -1,8 +1,8 @@
 /** 
  *  @file instructions_constant.hpp
  *  @brief Declaração das funções de instruções de opcode do tipo constante da JVM
- * 
  */
+
 #ifndef __INSTRUCTIONS_CONSTANT_H__
 #define __INSTRUCTIONS_CONSTANT_H__
 

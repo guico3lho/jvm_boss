@@ -1,8 +1,8 @@
 /** 
  *  @file instructions_stack.hpp
  *  @brief Declaração das funções de instruções de opcode do tipo stack da JVM
- * 
  */
+
 #ifndef __INSTRUCTIONS_STACK_H__
 #define __INSTRUCTIONS_STACK_H__
 

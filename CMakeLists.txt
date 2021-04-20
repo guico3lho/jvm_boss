@@ -9,6 +9,7 @@ project(jvm_boss)
 
 set(SOURCE_DIR src)
 set(INCLUDE_DIR include)
+set(INSTRUCTIONS_DIR instructions)
 
 set(HEADER_FILES
     ${INCLUDE_DIR}/types.hpp
@@ -27,16 +28,16 @@ set(HEADER_FILES
     ${INCLUDE_DIR}/interpreter.hpp
     ${INCLUDE_DIR}/class_loader.hpp
     ${INCLUDE_DIR}/frame.hpp
-    ${INCLUDE_DIR}/instructions_constant.hpp
-    ${INCLUDE_DIR}/instructions_load.hpp
-    ${INCLUDE_DIR}/instructions_store.hpp
-    ${INCLUDE_DIR}/instructions_math.hpp
-    ${INCLUDE_DIR}/instructions_stack.hpp
-    ${INCLUDE_DIR}/instructions_conversion.hpp
-    ${INCLUDE_DIR}/instructions_comparison.hpp
-    ${INCLUDE_DIR}/instructions_reference.hpp
-    ${INCLUDE_DIR}/instructions_control.hpp
-    ${INCLUDE_DIR}/instructions_extended.hpp
+    ${INCLUDE_DIR}/${INSTRUCTIONS_DIR}/instructions_constant.hpp
+    ${INCLUDE_DIR}/${INSTRUCTIONS_DIR}/instructions_load.hpp
+    ${INCLUDE_DIR}/${INSTRUCTIONS_DIR}/instructions_store.hpp
+    ${INCLUDE_DIR}/${INSTRUCTIONS_DIR}/instructions_math.hpp
+    ${INCLUDE_DIR}/${INSTRUCTIONS_DIR}/instructions_stack.hpp
+    ${INCLUDE_DIR}/${INSTRUCTIONS_DIR}/instructions_conversion.hpp
+    ${INCLUDE_DIR}/${INSTRUCTIONS_DIR}/instructions_comparison.hpp
+    ${INCLUDE_DIR}/${INSTRUCTIONS_DIR}/instructions_reference.hpp
+    ${INCLUDE_DIR}/${INSTRUCTIONS_DIR}/instructions_control.hpp
+    ${INCLUDE_DIR}/${INSTRUCTIONS_DIR}/instructions_extended.hpp
 )
 
 set(SOURCE_FILES
@@ -55,16 +56,16 @@ set(SOURCE_FILES
     ${SOURCE_DIR}/interpreter.cpp
     ${SOURCE_DIR}/class_loader.cpp
     ${SOURCE_DIR}/frame.cpp
-    ${SOURCE_DIR}/instructions_constant.cpp
-    ${SOURCE_DIR}/instructions_load.cpp
-    ${SOURCE_DIR}/instructions_store.cpp
-    ${SOURCE_DIR}/instructions_math.cpp
-    ${SOURCE_DIR}/instructions_stack.cpp
-    ${SOURCE_DIR}/instructions_conversion.cpp
-    ${SOURCE_DIR}/instructions_comparison.cpp
-    ${SOURCE_DIR}/instructions_reference.cpp
-    ${SOURCE_DIR}/instructions_control.cpp
-    ${SOURCE_DIR}/instructions_extended.cpp
+    ${SOURCE_DIR}/${INSTRUCTIONS_DIR}/instructions_constant.cpp
+    ${SOURCE_DIR}/${INSTRUCTIONS_DIR}/instructions_load.cpp
+    ${SOURCE_DIR}/${INSTRUCTIONS_DIR}/instructions_store.cpp
+    ${SOURCE_DIR}/${INSTRUCTIONS_DIR}/instructions_math.cpp
+    ${SOURCE_DIR}/${INSTRUCTIONS_DIR}/instructions_stack.cpp
+    ${SOURCE_DIR}/${INSTRUCTIONS_DIR}/instructions_conversion.cpp
+    ${SOURCE_DIR}/${INSTRUCTIONS_DIR}/instructions_comparison.cpp
+    ${SOURCE_DIR}/${INSTRUCTIONS_DIR}/instructions_reference.cpp
+    ${SOURCE_DIR}/${INSTRUCTIONS_DIR}/instructions_control.cpp
+    ${SOURCE_DIR}/${INSTRUCTIONS_DIR}/instructions_extended.cpp
 )
 
 # Executable name

@@ -1,7 +1,7 @@
 /** @file instructions_math.cpp
  *  @brief Módulo que contém as instruções de opcode do tipo math da JVM.
- *  @bug No know bugs.
- */
+*/
+
 #include "interpreter.hpp"
 
 

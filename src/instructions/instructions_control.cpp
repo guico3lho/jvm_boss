@@ -1,7 +1,7 @@
 /** @file instructions_control.cpp
  *  @brief Módulo que contém as instruções de opcode do tipo controle da JVM.
- *  @bug No know bugs.
- */
+*/
+
 #include "interpreter.hpp"
 
 /*************************** CONTROL ***************************/

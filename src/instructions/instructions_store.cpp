@@ -1,7 +1,8 @@
-/** @file instructions_store.cpp
+/** 
+ *  @file instructions_store.cpp
  *  @brief Módulo que contém as instruções de opcode do tipo store da JVM.
- *  @bug No know bugs.
- */
+*/
+
 #include "interpreter.hpp"
 
 /*************************** STORES ***************************/

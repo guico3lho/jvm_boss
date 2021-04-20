@@ -1,7 +1,7 @@
 /** @file instructions_stack.cpp
  *  @brief Módulo que contém as instruções de opcode do tipo stack da JVM.
- *  @bug No know bugs.
- */
+*/
+
 #include "interpreter.hpp"
 
 

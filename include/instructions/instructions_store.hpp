@@ -1,8 +1,8 @@
 /** 
- *  @file instructions_STORE.hpp
+ *  @file instructions_store.hpp
  *  @brief Declaração das funções de instruções de opcode do tipo store da JVM
- * 
  */
+
 #ifndef __INSTRUCTIONS_STORE_H__
 #define __INSTRUCTIONS_STORE_H__
 

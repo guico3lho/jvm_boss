@@ -1,7 +1,7 @@
 /** @file instructions_extended.cpp
  *  @brief Módulo que contém as instruções tipo extendidas da JVM.
- *  @bug No know bugs.
- */
+*/
+
 #include "interpreter.hpp"
 
 /*************************** EXTENDED ***************************/

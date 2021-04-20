@@ -1,8 +1,8 @@
 /** 
  *  @file instructions_reference.hpp
  *  @brief Declaração das funções de instruções de opcode do tipo referência da JVM
- * 
  */
+
 #ifndef __INSTRUCTIONS_REFERENCE_H__
 #define __INSTRUCTIONS_REFERENCE_H__
 

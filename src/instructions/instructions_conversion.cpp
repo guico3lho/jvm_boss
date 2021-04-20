@@ -1,7 +1,7 @@
 /** @file instructions_conversions.cpp
  *  @brief Módulo que contém as instruções de opcode do tipo conversion da JVM.
- *  @bug No know bugs.
- */
+*/
+
 #include "interpreter.hpp"
 
 /*************************** CONVERSIONS ***************************/

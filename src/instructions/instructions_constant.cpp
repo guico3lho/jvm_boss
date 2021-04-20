@@ -1,7 +1,7 @@
 /** @file instructions_constants.cpp
  *  @brief Módulo que contém as instruções de opcode do tipo constante da JVM.
- *  @bug No know bugs.
  */
+
 #include "interpreter.hpp"
 
 /*************************** CONSTANTS ***************************/

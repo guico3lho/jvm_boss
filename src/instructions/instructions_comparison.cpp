@@ -1,7 +1,7 @@
 /** @file instructions_comparison.cpp
  *  @brief Módulo que contém as instruções de opcode do tipo comparison da JVM.
- *  @bug No know bugs.
  */
+
 #include "interpreter.hpp"
 
 /*************************** COMPARISONS ***************************/

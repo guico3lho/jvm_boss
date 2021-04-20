@@ -1,8 +1,8 @@
 /** 
  *  @file instructions_comparison.hpp
  *  @brief Declaração das funções de instruções de opcode do tipo comparação da JVM
- * 
  */
+
 #ifndef __INSTRUCTIONS_COMPARISON_H__
 #define __INSTRUCTIONS_COMPARISON_H__
 
