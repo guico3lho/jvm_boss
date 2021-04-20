@@ -23,11 +23,12 @@ typedef struct Class_Loader{
     std::map<std::string, Operand*> *class_fields;
 } Class_Loader; 
 
-Class_Loader* get_static_class(std::string class_name);
 Class_Loader* load_class_memory(Class_File class_file);
 void load_class_var(Class_Loader *class_loader);
 Class_File get_class_info_and_load_not_exists(std::string c_path);
+Class_Loader* get_static_class(std::string class_name);
 
 Operand* get_static_field_of_class(std::string class_name, std::string field_name);
+Operand* check_string_create_type(std::string string_tipo);
 
 #endif

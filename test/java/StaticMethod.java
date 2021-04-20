@@ -1,4 +1,4 @@
-class Teste {
+class StaticMethod {
 
   static void foo(){
     System.out.println("foo");
@@ -13,6 +13,7 @@ class Teste {
     System.out.println(c); // 25
     int d = b - a + 2; 
     System.out.println(d); // 21
-    foo();
+
+    foo(); // chama metodo estatico
   }
 }

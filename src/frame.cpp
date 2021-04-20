@@ -14,7 +14,6 @@
 #include "instructions_reference.hpp"
 #include "instructions_control.hpp"
 #include "instructions_extended.hpp"
-#include "interpreter.hpp"
 
 void (*func[256])(Frame *curr_frame);
 
@@ -36,7 +35,6 @@ Frame::Frame(Method_Info *method, Class_File class_file) {
   // Faz referencia para o codigo do metodo
   for (int i = 0; i < method_info->attributes_count; ++i) {
     Attribute_Info attribute_info = method_info->attributes[i];
-
     std::string class_string = get_cp_info_utf8(*class_file_ref, attribute_info.attribute_name_index);
 
     if (class_string == "Code") 
