@@ -3,6 +3,7 @@
 */
 
 #include "interpreter.hpp"
+#include "instructions/instructions_reference.hpp"
 
 /**
  * @brief 
@@ -24,29 +25,29 @@ namespace patch {
  * @return void
  */
 void getstatic(Frame *curr_frame) {
-    if (DEBUG) cout << "----------getstatic----------\n";
+  if (DEBUG) cout << "----------getstatic----------\n";
 
-    curr_frame->pc++;
+  curr_frame->pc++;
 
-    u2 index = curr_frame->method_code->code[curr_frame->pc++];
-    index = (index << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  u2 index = curr_frame->method_code->code[curr_frame->pc++];
+  index = (index << 8) + curr_frame->method_code->code[curr_frame->pc++];
 
-    Cp_Info &field_info = curr_frame->cp_reference[index];
-    Cp_Info &name_and_type = curr_frame->cp_reference[field_info.Fieldref.name_and_type_index];
-    // string class_name = get_cp_info_utf8(*(curr_frame->class_file_ref), field_info.Fieldref.class_index);
-    string class_name = get_utf8_constant_pool(curr_frame->cp_reference, field_info.Fieldref.class_index);
+  Cp_Info &field_info = curr_frame->cp_reference[index];
+  Cp_Info &name_and_type = curr_frame->cp_reference[field_info.Fieldref.name_and_type_index];
+  // string class_name = get_cp_info_utf8(*(curr_frame->class_file_ref), field_info.Fieldref.class_index);
+  string class_name = get_utf8_constant_pool(curr_frame->cp_reference, field_info.Fieldref.class_index);
 
-    // se for a classe default do Java: System -> nao empilhar
-    if (class_name == "java/lang/System") {
-      if (DEBUG) cout << "Classe Default Java: java/lang/System" << "\n";
-      return;
-    }
+  // se for a classe default do Java: System -> nao empilhar
+  if (class_name == "java/lang/System") {
+    if (DEBUG) cout << "Classe Default Java: java/lang/System" << "\n";
+    return;
+  }
 
-    Class_File class_file = get_class_info_and_load_not_exists(class_name);
-    string var_name = get_cp_info_utf8(class_file, name_and_type.NameAndType.name_index);
-    Operand *static_field = get_static_field_of_class(class_name, var_name);
+  Class_File class_file = get_class_info_and_load_not_exists(class_name);
+  string var_name = get_cp_info_utf8(class_file, name_and_type.NameAndType.name_index);
+  Operand *static_field = get_static_field_of_class(class_name, var_name);
 
-    curr_frame->push_operand(static_field);
+  curr_frame->push_operand(static_field);
 }
 
 /** @brief ...
@@ -54,6 +55,7 @@ void getstatic(Frame *curr_frame) {
  * @return void
  */
 void getfield(Frame *curr_frame) {
+  if (DEBUG) cout << "----------getfield----------\n";
   u1 byte1 = curr_frame->method_code->code[curr_frame->pc++];
   u1 byte2 = curr_frame->method_code->code[curr_frame->pc++];
 
@@ -76,57 +78,58 @@ void getfield(Frame *curr_frame) {
  * @return void
  */
 void putfield(Frame *curr_frame) {
-    curr_frame->pc++;
+  if (DEBUG) cout << "----------putfield----------\n";
+  curr_frame->pc++;
 
-    u2 index = curr_frame->method_code->code[curr_frame->pc++];
-    index = (index<<8) + curr_frame->method_code->code[curr_frame->pc++];
-    Cp_Info field_reference = curr_frame->cp_reference[index];
+  u2 index = curr_frame->method_code->code[curr_frame->pc++];
+  index = (index<<8) + curr_frame->method_code->code[curr_frame->pc++];
+  Cp_Info field_reference = curr_frame->cp_reference[index];
 
-    Cp_Info name_and_type = curr_frame->cp_reference[field_reference.Fieldref.class_index];
+  Cp_Info name_and_type = curr_frame->cp_reference[field_reference.Fieldref.class_index];
 
-    string class_name = get_utf8_constant_pool(curr_frame->cp_reference, field_reference.Fieldref.class_index);
-    string var_name = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.name_index);
+  string class_name = get_utf8_constant_pool(curr_frame->cp_reference, field_reference.Fieldref.class_index);
+  string var_name = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.name_index);
 
-    Operand *var_operand = curr_frame->pop_operand();
-    Operand *class_instance = curr_frame->pop_operand();
+  Operand *var_operand = curr_frame->pop_operand();
+  Operand *class_instance = curr_frame->pop_operand();
 
-    Operand *class_variable = class_instance->class_loader->class_fields->at(var_name);
+  Operand *class_variable = class_instance->class_loader->class_fields->at(var_name);
 
-    switch (var_operand->tag) {
-        case CONSTANT_INT:
-            class_variable->type_int = var_operand->type_int;
-            break;
-        case CONSTANT_LONG:
-            class_variable->type_long = var_operand->type_long;
-            break;
-        case CONSTANT_BOOL:
-            class_variable->type_bool = var_operand->type_bool;
-            break;
-        case CONSTANT_CHAR:
-            class_variable->type_char = var_operand->type_char;
-            break;
-        case CONSTANT_SHORT:
-            class_variable->type_short = var_operand->type_short;
-            break;
-        case CONSTANT_BYTE:
-            class_variable->type_byte = var_operand->type_byte;
-            break;
-        case CONSTANT_FLOAT:
-            class_variable->type_float = var_operand->type_float;
-            break;
-        case CONSTANT_DOUBLE:
-            class_variable->type_double = var_operand->type_double;
-            break;
-        case CONSTANT_STRING:
-            class_variable->type_string = var_operand->type_string;
-            break;
-        case CONSTANT_CLASS:
-            class_variable->class_loader = var_operand->class_loader;
-            break;
-        case CONSTANT_ARRAY:
-            class_variable->array_type = var_operand->array_type;
-            break;
-    }
+  switch (var_operand->tag) {
+    case CONSTANT_INT:
+      class_variable->type_int = var_operand->type_int;
+      break;
+    case CONSTANT_LONG:
+      class_variable->type_long = var_operand->type_long;
+      break;
+    case CONSTANT_BOOL:
+      class_variable->type_bool = var_operand->type_bool;
+      break;
+    case CONSTANT_CHAR:
+      class_variable->type_char = var_operand->type_char;
+      break;
+    case CONSTANT_SHORT:
+      class_variable->type_short = var_operand->type_short;
+      break;
+    case CONSTANT_BYTE:
+      class_variable->type_byte = var_operand->type_byte;
+      break;
+    case CONSTANT_FLOAT:
+      class_variable->type_float = var_operand->type_float;
+      break;
+    case CONSTANT_DOUBLE:
+      class_variable->type_double = var_operand->type_double;
+      break;
+    case CONSTANT_STRING:
+      class_variable->type_string = var_operand->type_string;
+      break;
+    case CONSTANT_CLASS:
+      class_variable->class_loader = var_operand->class_loader;
+      break;
+    case CONSTANT_ARRAY:
+      class_variable->array_type = var_operand->array_type;
+      break;
+  }
 }
 
 /**
@@ -496,7 +499,6 @@ void invokestatic(Frame *curr_frame) {
 */
 void invokeinterface(Frame *curr_frame) {
   if (DEBUG) cout << "----------invokeinterface----------\n";
-
   curr_frame->pc++;
 
   u2 method_index = curr_frame->method_code->code[curr_frame->pc++];
@@ -518,24 +520,24 @@ void invokeinterface(Frame *curr_frame) {
  * @return void
  */
 void new_obj(Frame *curr_frame) {
-    curr_frame->pc++;
-    u2 index = curr_frame->method_code->code[curr_frame->pc];
-    index = (index << 8)+curr_frame->method_code->code[++curr_frame->pc];
+  if (DEBUG) cout << "----------new----------\n";
+  curr_frame->pc++;
+  u2 index = curr_frame->method_code->code[curr_frame->pc];
+  index = (index << 8)+curr_frame->method_code->code[++curr_frame->pc];
 
-    Cp_Info &class_info = curr_frame->cp_reference[index];
-    string utf8_constant = get_utf8_constant_pool(curr_frame->cp_reference, class_info.Class.class_name);
+  Cp_Info &class_info = curr_frame->cp_reference[index];
+  string utf8_constant = get_utf8_constant_pool(curr_frame->cp_reference, class_info.Class.class_name);
 
-
-    if (utf8_constant == "java/lang/StringBuilder") {
-        Operand* string_builder = (Operand*)malloc(sizeof(Operand));
-        string_builder->tag = CONSTANT_STRING;
-        string_builder->type_string = new string("");
-        curr_frame->push_operand(string_builder);
-    }else{
-        Operand *instance = check_string_create_type("L" + utf8_constant);
-        curr_frame->push_operand(instance);
-    }
-    curr_frame->pc++;
+  if (utf8_constant == "java/lang/StringBuilder") {
+      Operand* string_builder = (Operand*)malloc(sizeof(Operand));
+      string_builder->tag = CONSTANT_STRING;
+      string_builder->type_string = new string("");
+      curr_frame->push_operand(string_builder);
+  }else{
+      Operand *instance = check_string_create_type("L" + utf8_constant);
+      curr_frame->push_operand(instance);
+  }
+  curr_frame->pc++;
 }
 
 /**
@@ -544,6 +546,7 @@ void new_obj(Frame *curr_frame) {
  * @return void
  */
 void newarray(Frame *curr_frame) {
+  if (DEBUG) cout << "----------newarray----------\n";
   curr_frame->pc++;
 
   Operand *operand_1 = curr_frame->pop_operand();
@@ -552,55 +555,56 @@ void newarray(Frame *curr_frame) {
   Operand *operand_2 = check_string_create_type("[");
   u1 array_type = curr_frame->method_code->code[curr_frame->pc++];
 
-  switch ((int)array_type) {
+  switch ((int) array_type) {
     case 4:
-      for (int i = 0; i < (int) index; i++) {
-        operand_2->array_type->array->emplace_back(check_string_create_type("Z"));
-      }
+      if (DEBUG) cout << "array type bool\n";
+      set_newarray_type(operand_2, index, "Z");
       break;
     case 5:
-      for (int i = 0; i < (int) index; i++) {
-        operand_2->array_type->array->emplace_back(check_string_create_type("C"));
-      }
+      if (DEBUG) cout << "array type char\n";
+      set_newarray_type(operand_2, index, "C");
       break;
     case 6:
-      for (int i = 0; i < (int) index; i++) {
-        operand_2->array_type->array->emplace_back(check_string_create_type("F"));
-      }
+      if (DEBUG) cout << "array type float\n";
+      set_newarray_type(operand_2, index, "F");
       break;
     case 7:
-      for (int i = 0; i < (int) index; i++) {
-        operand_2->array_type->array->emplace_back(check_string_create_type("D"));
-      }
+      if (DEBUG) cout << "array type double\n";
+      set_newarray_type(operand_2, index, "D");
       break;
     case 8:
-      for (int i = 0; i < (int) index; i++) {
-        operand_2->array_type->array->emplace_back(check_string_create_type("B"));
-      }
+      if (DEBUG) cout << "array type byte\n";
+      set_newarray_type(operand_2, index, "B");
       break;
     case 9:
-      for (int i = 0; i < (int) index; i++) {
-        operand_2->array_type->array->emplace_back(check_string_create_type("S"));
-      }
+      if (DEBUG) cout << "array type short\n";
+      set_newarray_type(operand_2, index, "S");
       break;
     case 10:
       if (DEBUG) cout << "array type int\n";
-      for (int i = 0; i < (int) index; i++)
-        operand_2->array_type->array->emplace_back(check_string_create_type("I"));
+      set_newarray_type(operand_2, index, "I");
       break;
     case 11:
       if (DEBUG) cout << "array type long\n";
-      for (int i = 0; i < (int) index; i++)
-        operand_2->array_type->array->emplace_back(check_string_create_type("J"));
+      set_newarray_type(operand_2, index, "J");
       break;
   }
 
-  if (DEBUG) cout << "array size "
-                      << operand_2->array_type->array->size() << "\n";
+  if (DEBUG) cout << "array size " << operand_2->array_type->array->size() << "\n";
 
   curr_frame->push_operand(operand_2);
+}
 
-  if (DEBUG) cout << "newarray\n";
+/**
+ * @brief Define o tipo de dado dos operandos do newarray 
+ * 
+ * @param operand_2 
+ * @param index 
+ */
+void set_newarray_type(Operand *operand, u4 index, string array_type) {
+  for (int i = 0; i < (int) index; i++) {
+    operand->array_type->array->emplace_back(check_string_create_type(array_type));
+  }
 }
 
 /**
@@ -611,6 +615,7 @@ void newarray(Frame *curr_frame) {
 void anewarray(Frame *curr_frame) {}
 
 void arraylength(Frame* curr_frame) {
+  if (DEBUG) cout << "----------arraylength----------\n";
   curr_frame->pc++;
 
   Operand *array = curr_frame->pop_operand();
