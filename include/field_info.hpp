@@ -13,7 +13,7 @@ struct Class_File;
 struct Attribute_Info;
 
 /**
- * @brief Field_Info - estrutura de dados que armazena os Fields
+ * @brief Estrutura de dados que armazena os Fields
  */
 typedef struct Field_Info{
 	u2  access_flags;     //  mask of flags to denote access permission

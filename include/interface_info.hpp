@@ -11,7 +11,7 @@
 struct Class_File;
 
 /**
- *  @brief Interface_Info - Estrutura de dados que armazena a tabela de interfaces
+ *  @brief Estrutura de dados que armazena a tabela de Interfaces
  */
 typedef struct Interface_Info{
 	u2 interface_table;

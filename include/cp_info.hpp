@@ -13,7 +13,7 @@
 struct Class_File;
 
 /**
- * @brief Cp_Info - Estrutura de dados que armazena a Constant Pool
+ * @brief Estrutura de dados que armazena a Constant Pool
  */
 struct Cp_Info {
   u2 tag;

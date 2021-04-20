@@ -16,21 +16,21 @@ struct \mbox{\hyperlink{structCode__Exception}{Code\+\_\+\+Exception}}
 struct \mbox{\hyperlink{structCode__Attribute}{Code\+\_\+\+Attribute}}
 \begin{DoxyCompactList}\small\item\em Estrutura de dados que armazena o código do Attribute. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structException}{Exception}}
-\begin{DoxyCompactList}\small\item\em Estrutura de dados que armazena o número de exceções e um ponteiro para cada uma delas. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Estrutura de dados que armazena o número de exceções de um Attribute e um ponteiro para cada uma delas. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structInner__Class__Attribute}{Inner\+\_\+\+Class\+\_\+\+Attribute}}
 \begin{DoxyCompactList}\small\item\em Estrutura de dados de uma Inner Class de um Attribute. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structSource__File__Attribute}{Source\+\_\+\+File\+\_\+\+Attribute}}
-\begin{DoxyCompactList}\small\item\em Estrutura de dados que armazena o código do Attribute. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Estrutura de dados que armazena o código de um Attribute. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structLine__Number__Table__Data}{Line\+\_\+\+Number\+\_\+\+Table\+\_\+\+Data}}
-\begin{DoxyCompactList}\small\item\em Estrutura de dados que armazena o PC e o número da linha da tabela. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Estrutura de dados que armazena o pointer counter e o número da linha de início da tabela de um Attribute. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structLine__Number__Table__Attribute}{Line\+\_\+\+Number\+\_\+\+Table\+\_\+\+Attribute}}
-\begin{DoxyCompactList}\small\item\em Estrutura de dados. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Estrutura de dados que armazena a quantidade de linhas da tabela de um Attribute e contém um ponteiro para uma das linhas. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structLocal__Variable__Table__Data}{Local\+\_\+\+Variable\+\_\+\+Table\+\_\+\+Data}}
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structLocal__Variable__Table__Data}{Local\+\_\+\+Variable\+\_\+\+Table\+\_\+\+Data}} -\/ Estrutura de dados. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Estrutura de dados com variáveis locais da tabela de um Attribute. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structLocal__Variable__Table__Attribute}{Local\+\_\+\+Variable\+\_\+\+Table\+\_\+\+Attribute}}
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structLocal__Variable__Table__Attribute}{Local\+\_\+\+Variable\+\_\+\+Table\+\_\+\+Attribute}} -\/ Estrutura de dados. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Estrutura de dados que armazena a tabela de um Attribute. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}}
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} -\/ Estrutura de dados. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados de um Attribute. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Definições de tipos}
 \begin{DoxyCompactItemize}
 \item 
@@ -45,28 +45,28 @@ typedef struct \mbox{\hyperlink{structCode__Attribute}{Code\+\_\+\+Attribute}} \
 \begin{DoxyCompactList}\small\item\em Estrutura de dados que armazena o código do Attribute. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{attribute__info_8hpp_ab5f8dc9f763fc06015a7eb5f5c0fd5a4}\label{attribute__info_8hpp_ab5f8dc9f763fc06015a7eb5f5c0fd5a4}} 
 typedef struct \mbox{\hyperlink{structException}{Exception}} \mbox{\hyperlink{attribute__info_8hpp_ab5f8dc9f763fc06015a7eb5f5c0fd5a4}{Exception}}
-\begin{DoxyCompactList}\small\item\em Estrutura de dados que armazena o número de exceções e um ponteiro para cada uma delas. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Estrutura de dados que armazena o número de exceções de um Attribute e um ponteiro para cada uma delas. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{attribute__info_8hpp_a3fc860ccca2710bab687b4d1ea3a35b9}\label{attribute__info_8hpp_a3fc860ccca2710bab687b4d1ea3a35b9}} 
 typedef struct \mbox{\hyperlink{structInner__Class__Attribute}{Inner\+\_\+\+Class\+\_\+\+Attribute}} \mbox{\hyperlink{attribute__info_8hpp_a3fc860ccca2710bab687b4d1ea3a35b9}{Inner\+\_\+\+Class\+\_\+\+Attribute}}
 \begin{DoxyCompactList}\small\item\em Estrutura de dados de uma Inner Class de um Attribute. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{attribute__info_8hpp_a437f7f2e08b57085dbdbbc48b7ebc0a6}\label{attribute__info_8hpp_a437f7f2e08b57085dbdbbc48b7ebc0a6}} 
 typedef struct \mbox{\hyperlink{structSource__File__Attribute}{Source\+\_\+\+File\+\_\+\+Attribute}} \mbox{\hyperlink{attribute__info_8hpp_a437f7f2e08b57085dbdbbc48b7ebc0a6}{Source\+\_\+\+File\+\_\+\+Attribute}}
-\begin{DoxyCompactList}\small\item\em Estrutura de dados que armazena o código do Attribute. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Estrutura de dados que armazena o código de um Attribute. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{attribute__info_8hpp_aa1244f7c7736f255da161d6843146331}\label{attribute__info_8hpp_aa1244f7c7736f255da161d6843146331}} 
 typedef struct \mbox{\hyperlink{structLine__Number__Table__Data}{Line\+\_\+\+Number\+\_\+\+Table\+\_\+\+Data}} \mbox{\hyperlink{attribute__info_8hpp_aa1244f7c7736f255da161d6843146331}{Line\+\_\+\+Number\+\_\+\+Table\+\_\+\+Data}}
-\begin{DoxyCompactList}\small\item\em Estrutura de dados que armazena o PC e o número da linha da tabela. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Estrutura de dados que armazena o pointer counter e o número da linha de início da tabela de um Attribute. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{attribute__info_8hpp_a4dcd770103a2292604a4ac44aab747f4}\label{attribute__info_8hpp_a4dcd770103a2292604a4ac44aab747f4}} 
 typedef struct \mbox{\hyperlink{structLine__Number__Table__Attribute}{Line\+\_\+\+Number\+\_\+\+Table\+\_\+\+Attribute}} \mbox{\hyperlink{attribute__info_8hpp_a4dcd770103a2292604a4ac44aab747f4}{Line\+\_\+\+Number\+\_\+\+Table\+\_\+\+Attribute}}
-\begin{DoxyCompactList}\small\item\em Estrutura de dados. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Estrutura de dados que armazena a quantidade de linhas da tabela de um Attribute e contém um ponteiro para uma das linhas. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{attribute__info_8hpp_aa78dca934797ef543adbc382f2a5de6e}\label{attribute__info_8hpp_aa78dca934797ef543adbc382f2a5de6e}} 
 typedef struct \mbox{\hyperlink{structLocal__Variable__Table__Data}{Local\+\_\+\+Variable\+\_\+\+Table\+\_\+\+Data}} \mbox{\hyperlink{attribute__info_8hpp_aa78dca934797ef543adbc382f2a5de6e}{Local\+\_\+\+Variable\+\_\+\+Table\+\_\+\+Data}}
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structLocal__Variable__Table__Data}{Local\+\_\+\+Variable\+\_\+\+Table\+\_\+\+Data}} -\/ Estrutura de dados. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Estrutura de dados com variáveis locais da tabela de um Attribute. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{attribute__info_8hpp_a9aa519238e1eb1c98b3574e8052cf7fc}\label{attribute__info_8hpp_a9aa519238e1eb1c98b3574e8052cf7fc}} 
 typedef struct \mbox{\hyperlink{structLocal__Variable__Table__Attribute}{Local\+\_\+\+Variable\+\_\+\+Table\+\_\+\+Attribute}} \mbox{\hyperlink{attribute__info_8hpp_a9aa519238e1eb1c98b3574e8052cf7fc}{Local\+\_\+\+Variable\+\_\+\+Table\+\_\+\+Attribute}}
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structLocal__Variable__Table__Attribute}{Local\+\_\+\+Variable\+\_\+\+Table\+\_\+\+Attribute}} -\/ Estrutura de dados. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Estrutura de dados que armazena a tabela de um Attribute. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{attribute__info_8hpp_ad81e4bde1fc1151277a9c56cc751518d}\label{attribute__info_8hpp_ad81e4bde1fc1151277a9c56cc751518d}} 
 typedef struct \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} \mbox{\hyperlink{attribute__info_8hpp_ad81e4bde1fc1151277a9c56cc751518d}{Attribute\+\_\+\+Info}}
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} -\/ Estrutura de dados. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados de um Attribute. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Funções}
 \begin{DoxyCompactItemize}
 \item 

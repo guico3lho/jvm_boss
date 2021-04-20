@@ -17,7 +17,7 @@ struct Class_Loader;
 struct Array_Type;
 
 /** 
- *  @brief Operand - Estrutura de dados que armazena um operando
+ *  @brief Estrutura de dados que armazena um operando
  */
 typedef struct Operand {
   u1 tag; 
@@ -37,14 +37,14 @@ typedef struct Operand {
 } Operand;
 
 /** 
- *  @brief Array_Type - Estrutura de dados que armazena o tipo do operando
+ *  @brief Estrutura de dados que armazena o tipo do operando
  */
 typedef struct Array_Type{  
   std::vector<Operand*> *array;
 } Array_Type;
 
 /**
-  * @brief O Frame armazena dados e resultados parciais, para executar
+  * @brief Estrutura de dados que armazena informações e resultados parciais, para executar
   *  ligação dinâmica,retornar valores para métodos e disparar exceções.
   * 
   *  Cada frame possui seu próprio array de variáveis locais, sua pilha de

@@ -47,7 +47,7 @@ typedef struct Code_Attribute {
 } Code_Attribute;
 
 /** 
- *  @brief Estrutura de dados que armazena o número de exceções 
+ *  @brief Estrutura de dados que armazena o número de exceções de um Attribute 
  *  e um ponteiro para cada uma delas
  */
 typedef struct Exception{
@@ -67,14 +67,15 @@ typedef struct Inner_Class_Attribute {
 } Inner_Class_Attribute;
 
 /** 
- *  @brief Estrutura de dados que armazena o código do Attribute
+ *  @brief Estrutura de dados que armazena o código de um Attribute
  */
 typedef struct Source_File_Attribute {
   u2 source_file_index;
 } Source_File_Attribute;
 
 /** 
- *  @brief Estrutura de dados que armazena o PC e o número da linha da tabela
+ *  @brief Estrutura de dados que armazena o pointer counter e o número da linha de
+ * início da tabela de um Attribute
  */
 typedef struct Line_Number_Table_Data {
   u2 start_pc;
@@ -82,7 +83,8 @@ typedef struct Line_Number_Table_Data {
 } Line_Number_Table_Data;
 
 /** 
- *  @brief Estrutura de dados
+ *  @brief Estrutura de dados que armazena a quantidade de linhas da tabela de um
+ * Attribute e contém um ponteiro para uma das linhas
  */
 typedef struct Line_Number_Table_Attribute {
   u2 line_number_table_length;
@@ -90,7 +92,7 @@ typedef struct Line_Number_Table_Attribute {
 } Line_Number_Table_Attribute;
 
 /** 
- *  @brief Local_Variable_Table_Data - Estrutura de dados
+ *  @brief Estrutura de dados com variáveis locais da tabela de um Attribute
  */
 typedef struct Local_Variable_Table_Data {
   u2 start_pc;
@@ -101,7 +103,7 @@ typedef struct Local_Variable_Table_Data {
 } Local_Variable_Table_Data;
 
 /** 
- *  @brief Local_Variable_Table_Attribute - Estrutura de dados
+ *  @brief Estrutura de dados que armazena a tabela de um Attribute
  */
 typedef struct Local_Variable_Table_Attribute {
   u2 local_variable_table_length;
@@ -109,7 +111,7 @@ typedef struct Local_Variable_Table_Attribute {
 } Local_Variable_Table_Attribute;
 
 /** 
- *  @brief Attribute_Info - Estrutura de dados
+ *  @brief Estrutura de dados de um Attribute
  */
 typedef struct Attribute_Info{
   u2 attribute_name_index;

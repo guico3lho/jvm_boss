@@ -20,7 +20,7 @@ struct Attribute_Info;
 struct Method_Info;
 
 /** 
- *  @brief Class_File - Estrutura de dados que armazena as principais informações do bytecode (.class)
+ *  @brief Estrutura de dados que armazena as principais informações do bytecode (.class)
  */
 typedef struct Class_File{
   u4 magic_number;

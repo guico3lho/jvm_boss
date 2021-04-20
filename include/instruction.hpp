@@ -69,7 +69,7 @@
 #define T_LONG    0x11
 
 /** 
- *  @brief Instruction - Estrutura de dados que armazena uma Instruction
+ *  @brief Estrutura de dados que armazena uma Instruction
  */
 typedef struct Instruction {
   std::string name;

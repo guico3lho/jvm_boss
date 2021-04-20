@@ -13,7 +13,7 @@ struct Class_File;
 struct Attribute_Info;
 
 /** 
- *  @brief Method_Info - Estrutura que armazena o Method
+ *  @brief Estrutura que armazena o Method
  */
 typedef struct Method_Info{
   u2 name_index;
