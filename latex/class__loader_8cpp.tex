@@ -1,0 +1,133 @@
+\hypertarget{class__loader_8cpp}{}\doxysection{Referência ao ficheiro src/class\+\_\+loader.cpp}
+\label{class__loader_8cpp}\index{src/class\_loader.cpp@{src/class\_loader.cpp}}
+
+
+Arquivo com funções do Class Loader da JVM.  
+
+
+{\ttfamily \#include \char`\"{}class\+\_\+loader.\+hpp\char`\"{}}\newline
+\doxysubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class__loader_8cpp_a87c7e79848a9f6a564fea3692f0e817a}\label{class__loader_8cpp_a87c7e79848a9f6a564fea3692f0e817a}} 
+\mbox{\hyperlink{structClass__Loader}{Class\+\_\+\+Loader}} $\ast$ \mbox{\hyperlink{class__loader_8cpp_a87c7e79848a9f6a564fea3692f0e817a}{load\+\_\+class\+\_\+memory}} (\mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} class\+\_\+file)
+\begin{DoxyCompactList}\small\item\em Carrega classes para a memória. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class__loader_8cpp_af98cf4c15ad14999ac7c9da6739e0b47}{load\+\_\+class\+\_\+var}} (\mbox{\hyperlink{structClass__Loader}{Class\+\_\+\+Loader}} $\ast$class\+\_\+loader)
+\begin{DoxyCompactList}\small\item\em Carrega variáveis com informações do .class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} \mbox{\hyperlink{class__loader_8cpp_a92d775f6d270ea7eac189bce3f7248e1}{get\+\_\+class\+\_\+info\+\_\+and\+\_\+load\+\_\+not\+\_\+exists}} (std\+::string class\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Carrega outro .class se o arquivo estiver no mesmo diretório. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structClass__Loader}{Class\+\_\+\+Loader}} $\ast$ \mbox{\hyperlink{class__loader_8cpp_a3f44bb23df638c0fdbb316c3f473a37d}{get\+\_\+static\+\_\+class}} (std\+::string class\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Retorna a classe estática. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structOperand}{Operand}} $\ast$ \mbox{\hyperlink{class__loader_8cpp_a08ce18411266b1bd10a057129730d615}{get\+\_\+static\+\_\+field\+\_\+of\+\_\+class}} (std\+::string class\+\_\+name, std\+::string field\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Get the static field of class object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structOperand}{Operand}} $\ast$ \mbox{\hyperlink{class__loader_8cpp_a0b908aa08468e15838f1b9d8d0562c64}{check\+\_\+string\+\_\+create\+\_\+type}} (std\+::string type\+\_\+string)
+\begin{DoxyCompactList}\small\item\em Cria um ponteiro de \mbox{\hyperlink{structOperand}{Operand}} e o tipo é decidido pela string recebida. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variáveis}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class__loader_8cpp_aab36be9cf59bbde7d6039b83464a259d}\label{class__loader_8cpp_aab36be9cf59bbde7d6039b83464a259d}} 
+std\+::map$<$ std\+::string, \mbox{\hyperlink{structClass__Loader}{Class\+\_\+\+Loader}} $\ast$ $>$ {\bfseries loaded\+\_\+classes}
+\item 
+\mbox{\Hypertarget{class__loader_8cpp_ae6394f0fea4b092dcf8d3d3243844fd0}\label{class__loader_8cpp_ae6394f0fea4b092dcf8d3d3243844fd0}} 
+std\+::map$<$ std\+::string, \mbox{\hyperlink{structClass__Loader}{Class\+\_\+\+Loader}} $\ast$ $>$ {\bfseries static\+\_\+classes}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Arquivo com funções do Class Loader da JVM. 
+
+
+
+\doxysubsection{Documentação das funções}
+\mbox{\Hypertarget{class__loader_8cpp_a0b908aa08468e15838f1b9d8d0562c64}\label{class__loader_8cpp_a0b908aa08468e15838f1b9d8d0562c64}} 
+\index{class\_loader.cpp@{class\_loader.cpp}!check\_string\_create\_type@{check\_string\_create\_type}}
+\index{check\_string\_create\_type@{check\_string\_create\_type}!class\_loader.cpp@{class\_loader.cpp}}
+\doxysubsubsection{\texorpdfstring{check\_string\_create\_type()}{check\_string\_create\_type()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOperand}{Operand}}$\ast$ check\+\_\+string\+\_\+create\+\_\+type (\begin{DoxyParamCaption}\item[{std\+::string}]{type\+\_\+string }\end{DoxyParamCaption})}
+
+
+
+Cria um ponteiro de \mbox{\hyperlink{structOperand}{Operand}} e o tipo é decidido pela string recebida. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em type\+\_\+string} & string que varia de acordo com o tipo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Operand$\ast$ novo ponteiro para \mbox{\hyperlink{structOperand}{Operand}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class__loader_8cpp_a92d775f6d270ea7eac189bce3f7248e1}\label{class__loader_8cpp_a92d775f6d270ea7eac189bce3f7248e1}} 
+\index{class\_loader.cpp@{class\_loader.cpp}!get\_class\_info\_and\_load\_not\_exists@{get\_class\_info\_and\_load\_not\_exists}}
+\index{get\_class\_info\_and\_load\_not\_exists@{get\_class\_info\_and\_load\_not\_exists}!class\_loader.cpp@{class\_loader.cpp}}
+\doxysubsubsection{\texorpdfstring{get\_class\_info\_and\_load\_not\_exists()}{get\_class\_info\_and\_load\_not\_exists()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} get\+\_\+class\+\_\+info\+\_\+and\+\_\+load\+\_\+not\+\_\+exists (\begin{DoxyParamCaption}\item[{std\+::string}]{class\+\_\+path }\end{DoxyParamCaption})}
+
+
+
+Carrega outro .class se o arquivo estiver no mesmo diretório. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em c\+\_\+path} & nome do próximo arquivo .class a ser carregado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Java\+Class estrutura de dados do arquivo .class a ser carregado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class__loader_8cpp_a3f44bb23df638c0fdbb316c3f473a37d}\label{class__loader_8cpp_a3f44bb23df638c0fdbb316c3f473a37d}} 
+\index{class\_loader.cpp@{class\_loader.cpp}!get\_static\_class@{get\_static\_class}}
+\index{get\_static\_class@{get\_static\_class}!class\_loader.cpp@{class\_loader.cpp}}
+\doxysubsubsection{\texorpdfstring{get\_static\_class()}{get\_static\_class()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structClass__Loader}{Class\+\_\+\+Loader}}$\ast$ get\+\_\+static\+\_\+class (\begin{DoxyParamCaption}\item[{std\+::string}]{class\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Retorna a classe estática. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em std\+::string} & nome da classe a ser retornada a referencia \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Class\+Instance$\ast$ ponteiro da referencia da classe 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class__loader_8cpp_a08ce18411266b1bd10a057129730d615}\label{class__loader_8cpp_a08ce18411266b1bd10a057129730d615}} 
+\index{class\_loader.cpp@{class\_loader.cpp}!get\_static\_field\_of\_class@{get\_static\_field\_of\_class}}
+\index{get\_static\_field\_of\_class@{get\_static\_field\_of\_class}!class\_loader.cpp@{class\_loader.cpp}}
+\doxysubsubsection{\texorpdfstring{get\_static\_field\_of\_class()}{get\_static\_field\_of\_class()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOperand}{Operand}}$\ast$ get\+\_\+static\+\_\+field\+\_\+of\+\_\+class (\begin{DoxyParamCaption}\item[{std\+::string}]{class\+\_\+name,  }\item[{std\+::string}]{field\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Get the static field of class object. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em class\+\_\+name} & \\
+\hline
+{\em field\+\_\+name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Operand$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class__loader_8cpp_af98cf4c15ad14999ac7c9da6739e0b47}\label{class__loader_8cpp_af98cf4c15ad14999ac7c9da6739e0b47}} 
+\index{class\_loader.cpp@{class\_loader.cpp}!load\_class\_var@{load\_class\_var}}
+\index{load\_class\_var@{load\_class\_var}!class\_loader.cpp@{class\_loader.cpp}}
+\doxysubsubsection{\texorpdfstring{load\_class\_var()}{load\_class\_var()}}
+{\footnotesize\ttfamily void load\+\_\+class\+\_\+var (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structClass__Loader}{Class\+\_\+\+Loader}} $\ast$}]{class\+\_\+loader }\end{DoxyParamCaption})}
+
+
+
+Carrega variáveis com informações do .class. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$\+Class\+\_\+\+Loader} & ponteiro para classes carregadas em memoria \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}

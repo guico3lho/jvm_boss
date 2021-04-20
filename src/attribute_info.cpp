@@ -1,5 +1,16 @@
+/**
+ * @file attribute_info.cpp
+ * @brief Arquivo com as funções relacionadas a Atributos
+*/
+
 #include "attribute_info.hpp"
 
+/** 
+ * @brief Lê e armazena as informações dos atributos no class file
+ * @param FILE *file
+ * @param Class_File *class_file
+ * @return void
+ */
 void read_attribute_info(FILE *file, Class_File *class_file) {
   for (int i = 0; i < class_file->attributes_count ; i++)
     class_file->attributes[i] = get_attribute_info(file, class_file);

@@ -15,12 +15,13 @@
  *
  * @author Ariel
  * @author Guilherme
- * @author Gustavo
+ * @author Gustavo Antonio Souza de Barros   18/0064487
  * @author Luís Vinicius Capelletto          16/0134544
- * @author Mayara
+ * @author Mayara Chew Marinho               18/0025210
  *
  * @bug No know bugs.
  */
+
 #include "utils.hpp"
 #include "interpreter.hpp"
 #include "file_printer.hpp"

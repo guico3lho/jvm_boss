@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['saload_400',['saload',['../instructions__func_8cpp.html#addf67f11d894db010ad209c9357b8c2a',1,'instructions_func.cpp']]],
-  ['sastore_401',['sastore',['../instructions__func_8cpp.html#a60fea30e836a983777ea809d4542b053',1,'instructions_func.cpp']]],
-  ['setup_5finstructions_5ffunc_402',['setup_instructions_func',['../classFrame.html#a30bcba97f9655ef8f6f2de934df089c7',1,'Frame']]],
-  ['sipush_403',['sipush',['../instructions__func_8cpp.html#a43b1a40e277cccce195df0336486e4f2',1,'instructions_func.cpp']]]
+  ['pop_5foperand_495',['pop_operand',['../classFrame.html#a347de73ebe7eef1e4d73cdc0a887ead9',1,'Frame']]],
+  ['print_5fcommand_5ferror_496',['print_command_error',['../utils_8hpp.html#a3d1da22fdd0500f36b985c34e220cc69',1,'print_command_error():&#160;utils.cpp'],['../utils_8cpp.html#a3d1da22fdd0500f36b985c34e220cc69',1,'print_command_error():&#160;utils.cpp']]],
+  ['push_5foperand_497',['push_operand',['../classFrame.html#a1fc31610af8beaebb612c43c0fe4b3fe',1,'Frame']]],
+  ['putfield_498',['putfield',['../instructions__reference_8hpp.html#a9335c5cf6a952a1f0fd283eb080799be',1,'putfield(Frame *):&#160;instructions_reference.cpp'],['../instructions__reference_8cpp.html#a3fef2c89fe88ead9d517c1d6707ad7f8',1,'putfield(Frame *curr_frame):&#160;instructions_reference.cpp']]]
 ];

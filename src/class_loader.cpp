@@ -1,3 +1,8 @@
+/**
+ * @file class_loader.cpp
+ * @brief Arquivo com funções do Class Loader da JVM
+*/
+
 #include "class_loader.hpp"
 
 std::map<std::string, Class_Loader*> loaded_classes;
@@ -5,9 +10,8 @@ std::map<std::string, Class_Loader*> static_classes;
 
 /**
  * @brief Carrega classes para a memória.
- * @param class_file informações do arquivo .class.
- * @return Class_Loader ponteiro para estrutura de dados de uma classe
  */
+
 Class_Loader* load_class_memory(Class_File class_file) {
   Class_Loader *class_loader = (Class_Loader*) malloc(sizeof(Class_Loader));
   class_loader->class_file = class_file;

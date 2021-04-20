@@ -1,3 +1,8 @@
+/** 
+ *  @file attribute_info.hpp
+ *  @brief Estruturas e declarações de funções relacionadas a Atributos
+*/
+
 #ifndef __ATTRIBUTE_INFO_H__
 #define __ATTRIBUTE_INFO_H__
 
@@ -6,12 +11,18 @@
 struct Attribute_Info;
 struct Class_File;
 
+/** 
+ *  @brief Estrutura de dados que armazena valores principais do Attribute
+ */
 typedef struct Const_Value_Attribute{
   u2 attribute_name_index;
   u4 attribute_length;
   u2 const_value_index;
 } Const_Value_Attribute;
 
+/** 
+ *  @brief Estrutura de dados que armazena uma exceção
+ */
 typedef struct Code_Exception{
   u2 start_pc;
   u2 end_pc;
@@ -19,6 +30,9 @@ typedef struct Code_Exception{
   u2 catch_type;
 } Code_Exception;
 
+/** 
+ *  @brief Estrutura de dados que armazena o código do Attribute
+ */
 typedef struct Code_Attribute {
   u2 max_stack;
   u2 max_locals;
@@ -32,11 +46,18 @@ typedef struct Code_Attribute {
   Attribute_Info* attributes = nullptr;
 } Code_Attribute;
 
+/** 
+ *  @brief Estrutura de dados que armazena o número de exceções de um Attribute 
+ *  e um ponteiro para cada uma delas
+ */
 typedef struct Exception{
   u2 number_exceptions;
   u2 *exception_index_table;
 } Exception;
 
+/** 
+ *  @brief Estrutura de dados de uma Inner Class de um Attribute
+ */
 typedef struct Inner_Class_Attribute {
   u2 attribute_name_index;
   u4 attribute_length;
@@ -45,20 +66,34 @@ typedef struct Inner_Class_Attribute {
   Inner_Class_Attribute *inner_class_data = nullptr;
 } Inner_Class_Attribute;
 
+/** 
+ *  @brief Estrutura de dados que armazena o código de um Attribute
+ */
 typedef struct Source_File_Attribute {
   u2 source_file_index;
 } Source_File_Attribute;
 
+/** 
+ *  @brief Estrutura de dados que armazena o pointer counter e o número da linha de
+ * início da tabela de um Attribute
+ */
 typedef struct Line_Number_Table_Data {
   u2 start_pc;
   u2 line_number;
 } Line_Number_Table_Data;
 
+/** 
+ *  @brief Estrutura de dados que armazena a quantidade de linhas da tabela de um
+ * Attribute e contém um ponteiro para uma das linhas
+ */
 typedef struct Line_Number_Table_Attribute {
   u2 line_number_table_length;
   Line_Number_Table_Data *table = nullptr;
 } Line_Number_Table_Attribute;
 
+/** 
+ *  @brief Estrutura de dados com variáveis locais da tabela de um Attribute
+ */
 typedef struct Local_Variable_Table_Data {
   u2 start_pc;
   u2 length;
@@ -67,11 +102,17 @@ typedef struct Local_Variable_Table_Data {
   u2 index;
 } Local_Variable_Table_Data;
 
+/** 
+ *  @brief Estrutura de dados que armazena a tabela de um Attribute
+ */
 typedef struct Local_Variable_Table_Attribute {
   u2 local_variable_table_length;
   Local_Variable_Table_Data *table = nullptr;
 } Local_Variable_Table_Attribute;
 
+/** 
+ *  @brief Estrutura de dados de um Attribute
+ */
 typedef struct Attribute_Info{
   u2 attribute_name_index;
   u4 attribute_length;

@@ -1,3 +1,8 @@
+/**
+ * @file file_printer.cpp
+ * @brief Arquivo com funções que imprimem informações para o usuário
+*/
+
 #include "file_printer.hpp"
 
 void print_major_version(u2 major_version) {

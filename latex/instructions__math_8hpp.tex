@@ -1,0 +1,640 @@
+\hypertarget{instructions__math_8hpp}{}\doxysection{Referência ao ficheiro include/instructions/instructions\+\_\+math.hpp}
+\label{instructions__math_8hpp}\index{include/instructions/instructions\_math.hpp@{include/instructions/instructions\_math.hpp}}
+
+
+Declaração das funções de instruções de opcode do tipo math da JVM.  
+
+
+{\ttfamily \#include \char`\"{}frame.\+hpp\char`\"{}}\newline
+\doxysubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{instructions__math_8hpp_a43480740903e85d6d584e3549bac2449}{iadd}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Soma de inteiros. Retira os dois operando do topo da pilha, soma-\/os e coloca o resultado no topo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_a1b87357609e40b278b11cb3a210c93ec}{ladd}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Soma do tipo long. Retira os dois operando do topo da pilha, soma-\/os e coloca o resultado no topo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_a9ba80fa5175029141a3ad9f9ab2a2f99}{fadd}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Soma do tipo float. Retira os dois operando do topo da pilha, soma-\/os e coloca o resultado no topo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_a78d1844c0e14b0c2dd7afd146ef01ce3}{dadd}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Soma do tipo double. Retira os dois operando do topo da pilha, soma-\/os e coloca o resultado no topo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_ab3847c23224b5f1b5a248708db5b82da}{isub}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Subtração do tipo inteiro. Retira os dois operando do topo da pilha, subtraí-\/os e coloca o resultado no topo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_a20f1c4a060585fed14359944123b0b78}{lsub}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Subtração do tipo long. Retira os dois operando do topo da pilha, subtraí-\/os e coloca o resultado no topo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_aea4a8bd823211d2ff1806e5c638adec5}{fsub}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Subtração do tipo float. Retira os dois operando do topo da pilha, subtraí-\/os e coloca o resultado no topo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_a632c249248569c4782db523b50e4c1b6}{dsub}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Subtração do tipo double. Retira os dois operando do topo da pilha, subtraí-\/os e coloca o resultado no topo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_a679dfac87cff4fae5efb50eed3317c94}{idiv}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Divisão de inteiro. Retira os dois operandos do topo da pilha, divide-\/os e coloca o resultado no topo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_ac79de2c2a50eada2974e77e3f18a1a51}{ldiv}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Divisão de long. Retira os dois operandos do topo da pilha, divide-\/os e coloca o resultado no topo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_a06d91eb464e70c3db032a589d3bf949a}{fdiv}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Divisão de float. Retira os dois operandos do topo da pilha, divide-\/os e coloca o resultado no topo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_a8bf7b888ebe5f16ac2c3eee4f8ee7ca2}{ddiv}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Divisão de double. Retira os dois operandos do topo da pilha, divide-\/os e coloca o resultado no topo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_a9790b13bec95a08dd91556ecada99370}{imul}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Multiplicação de inteiros. Retira os dois operando do topo da pilha, multiplica-\/os e coloca o resultado no topo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_a0134f25036f5bd2e16db019d2738242b}{lmul}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Multiplicação de long. Retira os dois operando do topo da pilha, multiplica-\/os e coloca o resultado no topo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_ad2dfe67711ef5d84075b0c4647c81902}{fmul}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Multiplicação de float. Retira os dois operando do topo da pilha, multiplica-\/os e coloca o resultado no topo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_a7794cf4a22f447eef533abdb4c905803}{dmul}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Multiplicação de double. Retira os dois operando do topo da pilha, multiplica-\/os e coloca o resultado no topo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_a6b313c300641b6fc19bb5628bf9d196b}{irem}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Calcula o resto da divisão entre dois inteiros. Retira os dois operandos do topo da pilha, calcula o resto da divisão e coloca no topo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_a87f77e14ee5b019b4c1ebd11232dd252}{lrem}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Calcula o resto da divisão entre dois long. Retira os dois operandos do topo da pilha, calcula o resto da divisão e coloca no topo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_a3aa1e638f86eabe330718134e7d7cec1}{frem}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Calcula o resto da divisão entre dois floats. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_a62f914b8a49259529339f7a59034f88b}{drem}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Calcula o resto da divisão entre dois double. Retira os dois operandos do topo da pilha, calcula o resto da divisão e coloca no topo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_a7abf8df132e6bdf07ed31b6aec751277}{ineg}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Calcula o valor negativo de int. Retira o operando do topo da pilha, nega o valor do operando e o salva o resultado no topo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_ae5d97f771033bfbc1c6ce8fb1650a015}{lneg}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Calcula o valor negativo de long. Retira o operando do topo da pilha, nega o valor do operando e o salva o resultado no topo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_a6630cc14cfa9e55b7ed0035e50ab27dc}{fneg}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Calcula o valor negativo de float. Retira o operando do topo da pilha, nega o valor do operando e o salva o resultado no topo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_a25a5391fc72f4e950c19fcf154b61647}{dneg}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Calcula o valor negativo de double. Retira o operando do topo da pilha, nega o valor do operando e o salva o resultado no topo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_adff314443524e894f57894acec6ec756}{ishl}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Calcula o valor do shift left lógico para inteiro. Retira dois operandos do topo da pilha e faz o shift left do primeiro operando por s posições, onde s são os 5 bits menos significativos do segundo operando. O resultado é colocado no topo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_a601a5e8f334c983d9879304f57882dc9}{lshl}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Calcula o valor do shift left lógico para long. Retira dois operandos do topo da pilha e faz o shift left do primeiro operando por s posições, onde s são os 5 bits menos significativos do segundo operando. O resultado é colocado no topo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_a4ca00b7870eb12695688462f22f97f10}{ishr}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Calcula o valor do shift right lógico para inteiro. Retira dois operandos do topo da pilha e faz o shift right do primeiro operando por s posições, onde s são os 5 bits menos significativos do segundo operando. O resultado é colocado no topo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__math_8hpp_a677d455f02ef4fed37eecfb38dbdca1e}{lshr}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Calcula o valor do shift right lógico para long. Retira dois operandos do topo da pilha e faz o shift right do primeiro operando por s posições, onde s são os 5 bits menos significativos do segundo operando. O resultado é colocado no topo da pilha. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{instructions__math_8hpp_a62d5205f482f3f0256359f67eedf4cc8}\label{instructions__math_8hpp_a62d5205f482f3f0256359f67eedf4cc8}} 
+void {\bfseries iushr} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\item 
+\mbox{\Hypertarget{instructions__math_8hpp_a0be897267411dd7acbc033edda655a55}\label{instructions__math_8hpp_a0be897267411dd7acbc033edda655a55}} 
+void {\bfseries lushr} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\item 
+\mbox{\Hypertarget{instructions__math_8hpp_a4c93135c6f34a1e6074acd65b20dafc6}\label{instructions__math_8hpp_a4c93135c6f34a1e6074acd65b20dafc6}} 
+void {\bfseries iand} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\item 
+\mbox{\Hypertarget{instructions__math_8hpp_a1ee300c02d5b8e004b3a28bf0c8b1bd4}\label{instructions__math_8hpp_a1ee300c02d5b8e004b3a28bf0c8b1bd4}} 
+void {\bfseries land} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\item 
+void \mbox{\hyperlink{instructions__math_8hpp_a1c8e5be4f196b07ab525d52af815daff}{ior}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Realiza a operacao de OR entre dois operandos e empilha o resultado. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{instructions__math_8hpp_a4a39ee0a33ddae38f066759ac4b9d794}\label{instructions__math_8hpp_a4a39ee0a33ddae38f066759ac4b9d794}} 
+void {\bfseries lor} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\item 
+\mbox{\Hypertarget{instructions__math_8hpp_ad5c4717f0a7861674050ae5c13fc36f9}\label{instructions__math_8hpp_ad5c4717f0a7861674050ae5c13fc36f9}} 
+void {\bfseries ixor} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\item 
+\mbox{\Hypertarget{instructions__math_8hpp_a99ad62db6cb098c51313d9ea95be2698}\label{instructions__math_8hpp_a99ad62db6cb098c51313d9ea95be2698}} 
+void {\bfseries lxor} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\item 
+void \mbox{\hyperlink{instructions__math_8hpp_a0af451c04c933cd70dd37af67528b941}{iinc}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Incrementa uma variavel local em uma constante. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Declaração das funções de instruções de opcode do tipo math da JVM. 
+
+
+
+\doxysubsection{Documentação das funções}
+\mbox{\Hypertarget{instructions__math_8hpp_a78d1844c0e14b0c2dd7afd146ef01ce3}\label{instructions__math_8hpp_a78d1844c0e14b0c2dd7afd146ef01ce3}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!dadd@{dadd}}
+\index{dadd@{dadd}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{dadd()}{dadd()}}
+{\footnotesize\ttfamily void dadd (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Soma do tipo double. Retira os dois operando do topo da pilha, soma-\/os e coloca o resultado no topo da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_a8bf7b888ebe5f16ac2c3eee4f8ee7ca2}\label{instructions__math_8hpp_a8bf7b888ebe5f16ac2c3eee4f8ee7ca2}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!ddiv@{ddiv}}
+\index{ddiv@{ddiv}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{ddiv()}{ddiv()}}
+{\footnotesize\ttfamily void ddiv (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Divisão de double. Retira os dois operandos do topo da pilha, divide-\/os e coloca o resultado no topo da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_a7794cf4a22f447eef533abdb4c905803}\label{instructions__math_8hpp_a7794cf4a22f447eef533abdb4c905803}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!dmul@{dmul}}
+\index{dmul@{dmul}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{dmul()}{dmul()}}
+{\footnotesize\ttfamily void dmul (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Multiplicação de double. Retira os dois operando do topo da pilha, multiplica-\/os e coloca o resultado no topo da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_a25a5391fc72f4e950c19fcf154b61647}\label{instructions__math_8hpp_a25a5391fc72f4e950c19fcf154b61647}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!dneg@{dneg}}
+\index{dneg@{dneg}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{dneg()}{dneg()}}
+{\footnotesize\ttfamily void dneg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Calcula o valor negativo de double. Retira o operando do topo da pilha, nega o valor do operando e o salva o resultado no topo da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_a62f914b8a49259529339f7a59034f88b}\label{instructions__math_8hpp_a62f914b8a49259529339f7a59034f88b}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!drem@{drem}}
+\index{drem@{drem}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{drem()}{drem()}}
+{\footnotesize\ttfamily void drem (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Calcula o resto da divisão entre dois double. Retira os dois operandos do topo da pilha, calcula o resto da divisão e coloca no topo. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_a632c249248569c4782db523b50e4c1b6}\label{instructions__math_8hpp_a632c249248569c4782db523b50e4c1b6}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!dsub@{dsub}}
+\index{dsub@{dsub}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{dsub()}{dsub()}}
+{\footnotesize\ttfamily void dsub (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Subtração do tipo double. Retira os dois operando do topo da pilha, subtraí-\/os e coloca o resultado no topo da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_a9ba80fa5175029141a3ad9f9ab2a2f99}\label{instructions__math_8hpp_a9ba80fa5175029141a3ad9f9ab2a2f99}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!fadd@{fadd}}
+\index{fadd@{fadd}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{fadd()}{fadd()}}
+{\footnotesize\ttfamily void fadd (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Soma do tipo float. Retira os dois operando do topo da pilha, soma-\/os e coloca o resultado no topo da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_a06d91eb464e70c3db032a589d3bf949a}\label{instructions__math_8hpp_a06d91eb464e70c3db032a589d3bf949a}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!fdiv@{fdiv}}
+\index{fdiv@{fdiv}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{fdiv()}{fdiv()}}
+{\footnotesize\ttfamily void fdiv (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Divisão de float. Retira os dois operandos do topo da pilha, divide-\/os e coloca o resultado no topo da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_ad2dfe67711ef5d84075b0c4647c81902}\label{instructions__math_8hpp_ad2dfe67711ef5d84075b0c4647c81902}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!fmul@{fmul}}
+\index{fmul@{fmul}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{fmul()}{fmul()}}
+{\footnotesize\ttfamily void fmul (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Multiplicação de float. Retira os dois operando do topo da pilha, multiplica-\/os e coloca o resultado no topo da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_a6630cc14cfa9e55b7ed0035e50ab27dc}\label{instructions__math_8hpp_a6630cc14cfa9e55b7ed0035e50ab27dc}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!fneg@{fneg}}
+\index{fneg@{fneg}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{fneg()}{fneg()}}
+{\footnotesize\ttfamily void fneg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Calcula o valor negativo de float. Retira o operando do topo da pilha, nega o valor do operando e o salva o resultado no topo da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_a3aa1e638f86eabe330718134e7d7cec1}\label{instructions__math_8hpp_a3aa1e638f86eabe330718134e7d7cec1}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!frem@{frem}}
+\index{frem@{frem}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{frem()}{frem()}}
+{\footnotesize\ttfamily void frem (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Calcula o resto da divisão entre dois floats. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_aea4a8bd823211d2ff1806e5c638adec5}\label{instructions__math_8hpp_aea4a8bd823211d2ff1806e5c638adec5}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!fsub@{fsub}}
+\index{fsub@{fsub}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{fsub()}{fsub()}}
+{\footnotesize\ttfamily void fsub (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Subtração do tipo float. Retira os dois operando do topo da pilha, subtraí-\/os e coloca o resultado no topo da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_a43480740903e85d6d584e3549bac2449}\label{instructions__math_8hpp_a43480740903e85d6d584e3549bac2449}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!iadd@{iadd}}
+\index{iadd@{iadd}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{iadd()}{iadd()}}
+{\footnotesize\ttfamily void iadd (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Soma de inteiros. Retira os dois operando do topo da pilha, soma-\/os e coloca o resultado no topo da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_a679dfac87cff4fae5efb50eed3317c94}\label{instructions__math_8hpp_a679dfac87cff4fae5efb50eed3317c94}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!idiv@{idiv}}
+\index{idiv@{idiv}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{idiv()}{idiv()}}
+{\footnotesize\ttfamily void idiv (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Divisão de inteiro. Retira os dois operandos do topo da pilha, divide-\/os e coloca o resultado no topo da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_a0af451c04c933cd70dd37af67528b941}\label{instructions__math_8hpp_a0af451c04c933cd70dd37af67528b941}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!iinc@{iinc}}
+\index{iinc@{iinc}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{iinc()}{iinc()}}
+{\footnotesize\ttfamily void iinc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Incrementa uma variavel local em uma constante. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_a9790b13bec95a08dd91556ecada99370}\label{instructions__math_8hpp_a9790b13bec95a08dd91556ecada99370}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!imul@{imul}}
+\index{imul@{imul}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{imul()}{imul()}}
+{\footnotesize\ttfamily void imul (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Multiplicação de inteiros. Retira os dois operando do topo da pilha, multiplica-\/os e coloca o resultado no topo da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_a7abf8df132e6bdf07ed31b6aec751277}\label{instructions__math_8hpp_a7abf8df132e6bdf07ed31b6aec751277}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!ineg@{ineg}}
+\index{ineg@{ineg}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{ineg()}{ineg()}}
+{\footnotesize\ttfamily void ineg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Calcula o valor negativo de int. Retira o operando do topo da pilha, nega o valor do operando e o salva o resultado no topo da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_a1c8e5be4f196b07ab525d52af815daff}\label{instructions__math_8hpp_a1c8e5be4f196b07ab525d52af815daff}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!ior@{ior}}
+\index{ior@{ior}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{ior()}{ior()}}
+{\footnotesize\ttfamily void ior (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Realiza a operacao de OR entre dois operandos e empilha o resultado. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_a6b313c300641b6fc19bb5628bf9d196b}\label{instructions__math_8hpp_a6b313c300641b6fc19bb5628bf9d196b}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!irem@{irem}}
+\index{irem@{irem}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{irem()}{irem()}}
+{\footnotesize\ttfamily void irem (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Calcula o resto da divisão entre dois inteiros. Retira os dois operandos do topo da pilha, calcula o resto da divisão e coloca no topo. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_adff314443524e894f57894acec6ec756}\label{instructions__math_8hpp_adff314443524e894f57894acec6ec756}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!ishl@{ishl}}
+\index{ishl@{ishl}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{ishl()}{ishl()}}
+{\footnotesize\ttfamily void ishl (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Calcula o valor do shift left lógico para inteiro. Retira dois operandos do topo da pilha e faz o shift left do primeiro operando por s posições, onde s são os 5 bits menos significativos do segundo operando. O resultado é colocado no topo da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_a4ca00b7870eb12695688462f22f97f10}\label{instructions__math_8hpp_a4ca00b7870eb12695688462f22f97f10}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!ishr@{ishr}}
+\index{ishr@{ishr}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{ishr()}{ishr()}}
+{\footnotesize\ttfamily void ishr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Calcula o valor do shift right lógico para inteiro. Retira dois operandos do topo da pilha e faz o shift right do primeiro operando por s posições, onde s são os 5 bits menos significativos do segundo operando. O resultado é colocado no topo da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_ab3847c23224b5f1b5a248708db5b82da}\label{instructions__math_8hpp_ab3847c23224b5f1b5a248708db5b82da}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!isub@{isub}}
+\index{isub@{isub}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{isub()}{isub()}}
+{\footnotesize\ttfamily void isub (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Subtração do tipo inteiro. Retira os dois operando do topo da pilha, subtraí-\/os e coloca o resultado no topo da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_a1b87357609e40b278b11cb3a210c93ec}\label{instructions__math_8hpp_a1b87357609e40b278b11cb3a210c93ec}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!ladd@{ladd}}
+\index{ladd@{ladd}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{ladd()}{ladd()}}
+{\footnotesize\ttfamily void ladd (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Soma do tipo long. Retira os dois operando do topo da pilha, soma-\/os e coloca o resultado no topo da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_ac79de2c2a50eada2974e77e3f18a1a51}\label{instructions__math_8hpp_ac79de2c2a50eada2974e77e3f18a1a51}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!ldiv@{ldiv}}
+\index{ldiv@{ldiv}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{ldiv()}{ldiv()}}
+{\footnotesize\ttfamily void ldiv (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Divisão de long. Retira os dois operandos do topo da pilha, divide-\/os e coloca o resultado no topo da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_a0134f25036f5bd2e16db019d2738242b}\label{instructions__math_8hpp_a0134f25036f5bd2e16db019d2738242b}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!lmul@{lmul}}
+\index{lmul@{lmul}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{lmul()}{lmul()}}
+{\footnotesize\ttfamily void lmul (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Multiplicação de long. Retira os dois operando do topo da pilha, multiplica-\/os e coloca o resultado no topo da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_ae5d97f771033bfbc1c6ce8fb1650a015}\label{instructions__math_8hpp_ae5d97f771033bfbc1c6ce8fb1650a015}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!lneg@{lneg}}
+\index{lneg@{lneg}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{lneg()}{lneg()}}
+{\footnotesize\ttfamily void lneg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Calcula o valor negativo de long. Retira o operando do topo da pilha, nega o valor do operando e o salva o resultado no topo da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_a87f77e14ee5b019b4c1ebd11232dd252}\label{instructions__math_8hpp_a87f77e14ee5b019b4c1ebd11232dd252}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!lrem@{lrem}}
+\index{lrem@{lrem}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{lrem()}{lrem()}}
+{\footnotesize\ttfamily void lrem (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Calcula o resto da divisão entre dois long. Retira os dois operandos do topo da pilha, calcula o resto da divisão e coloca no topo. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_a601a5e8f334c983d9879304f57882dc9}\label{instructions__math_8hpp_a601a5e8f334c983d9879304f57882dc9}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!lshl@{lshl}}
+\index{lshl@{lshl}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{lshl()}{lshl()}}
+{\footnotesize\ttfamily void lshl (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Calcula o valor do shift left lógico para long. Retira dois operandos do topo da pilha e faz o shift left do primeiro operando por s posições, onde s são os 5 bits menos significativos do segundo operando. O resultado é colocado no topo da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_a677d455f02ef4fed37eecfb38dbdca1e}\label{instructions__math_8hpp_a677d455f02ef4fed37eecfb38dbdca1e}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!lshr@{lshr}}
+\index{lshr@{lshr}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{lshr()}{lshr()}}
+{\footnotesize\ttfamily void lshr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Calcula o valor do shift right lógico para long. Retira dois operandos do topo da pilha e faz o shift right do primeiro operando por s posições, onde s são os 5 bits menos significativos do segundo operando. O resultado é colocado no topo da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__math_8hpp_a20f1c4a060585fed14359944123b0b78}\label{instructions__math_8hpp_a20f1c4a060585fed14359944123b0b78}} 
+\index{instructions\_math.hpp@{instructions\_math.hpp}!lsub@{lsub}}
+\index{lsub@{lsub}!instructions\_math.hpp@{instructions\_math.hpp}}
+\doxysubsubsection{\texorpdfstring{lsub()}{lsub()}}
+{\footnotesize\ttfamily void lsub (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Subtração do tipo long. Retira os dois operando do topo da pilha, subtraí-\/os e coloca o resultado no topo da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}

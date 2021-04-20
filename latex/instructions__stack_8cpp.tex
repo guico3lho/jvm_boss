@@ -1,0 +1,148 @@
+\hypertarget{instructions__stack_8cpp}{}\doxysection{Referência ao ficheiro src/instructions/instructions\+\_\+stack.cpp}
+\label{instructions__stack_8cpp}\index{src/instructions/instructions\_stack.cpp@{src/instructions/instructions\_stack.cpp}}
+
+
+Módulo que contém as instruções de opcode do tipo stack da JVM.  
+
+
+{\ttfamily \#include \char`\"{}interpreter.\+hpp\char`\"{}}\newline
+\doxysubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{instructions__stack_8cpp_aa0326488d0a7f4dbee2029854dcfc586}\label{instructions__stack_8cpp_aa0326488d0a7f4dbee2029854dcfc586}} 
+void {\bfseries pop} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\item 
+\mbox{\Hypertarget{instructions__stack_8cpp_aa2a30aceaa14770b4639eb2345625500}\label{instructions__stack_8cpp_aa2a30aceaa14770b4639eb2345625500}} 
+void {\bfseries pop2} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\item 
+void \mbox{\hyperlink{instructions__stack_8cpp_ae70269ec3cef99169f6c15ebc48154e4}{dup}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Faz uma cópia do item que está no topo da pilha e o adiciona ao topo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__stack_8cpp_a223470121b9ddbe45726430ab3ca2218}{dup\+\_\+x1}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Duplica o item no topo da pilha e pusha depois do segundo elemento da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__stack_8cpp_a9e5ac94949cbdf7b2594c87381efa84a}{dup\+\_\+x2}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Duplica o item no topo da pilha e pusha depois do terceiro elemento da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__stack_8cpp_aa556e430a60e6a537e74198279377fc9}{dup2}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Faz uma cópia de dois itens que estao no topo da pilha e o(s) adiciona ao topo da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__stack_8cpp_a4055784998629e30cf1efef2d5176a45}{dup2\+\_\+x1}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Duplica um ou dois valores da pilha de operandos e insere os valores duplicados na ordem original. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__stack_8cpp_ab37f50b61574a6e3fb4c82c40612fe36}{dup2\+\_\+x2}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Duplica um ou dois operandos da pilha e insere os valores duplicados na ordem original. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{instructions__stack_8cpp_aad588bfd5842f0d8db2ee604c8301d4b}\label{instructions__stack_8cpp_aad588bfd5842f0d8db2ee604c8301d4b}} 
+void {\bfseries swap} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Módulo que contém as instruções de opcode do tipo stack da JVM. 
+
+
+
+\doxysubsection{Documentação das funções}
+\mbox{\Hypertarget{instructions__stack_8cpp_ae70269ec3cef99169f6c15ebc48154e4}\label{instructions__stack_8cpp_ae70269ec3cef99169f6c15ebc48154e4}} 
+\index{instructions\_stack.cpp@{instructions\_stack.cpp}!dup@{dup}}
+\index{dup@{dup}!instructions\_stack.cpp@{instructions\_stack.cpp}}
+\doxysubsubsection{\texorpdfstring{dup()}{dup()}}
+{\footnotesize\ttfamily void dup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Faz uma cópia do item que está no topo da pilha e o adiciona ao topo da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__stack_8cpp_aa556e430a60e6a537e74198279377fc9}\label{instructions__stack_8cpp_aa556e430a60e6a537e74198279377fc9}} 
+\index{instructions\_stack.cpp@{instructions\_stack.cpp}!dup2@{dup2}}
+\index{dup2@{dup2}!instructions\_stack.cpp@{instructions\_stack.cpp}}
+\doxysubsubsection{\texorpdfstring{dup2()}{dup2()}}
+{\footnotesize\ttfamily void dup2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Faz uma cópia de dois itens que estao no topo da pilha e o(s) adiciona ao topo da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__stack_8cpp_a4055784998629e30cf1efef2d5176a45}\label{instructions__stack_8cpp_a4055784998629e30cf1efef2d5176a45}} 
+\index{instructions\_stack.cpp@{instructions\_stack.cpp}!dup2\_x1@{dup2\_x1}}
+\index{dup2\_x1@{dup2\_x1}!instructions\_stack.cpp@{instructions\_stack.cpp}}
+\doxysubsubsection{\texorpdfstring{dup2\_x1()}{dup2\_x1()}}
+{\footnotesize\ttfamily void dup2\+\_\+x1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Duplica um ou dois valores da pilha de operandos e insere os valores duplicados na ordem original. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__stack_8cpp_ab37f50b61574a6e3fb4c82c40612fe36}\label{instructions__stack_8cpp_ab37f50b61574a6e3fb4c82c40612fe36}} 
+\index{instructions\_stack.cpp@{instructions\_stack.cpp}!dup2\_x2@{dup2\_x2}}
+\index{dup2\_x2@{dup2\_x2}!instructions\_stack.cpp@{instructions\_stack.cpp}}
+\doxysubsubsection{\texorpdfstring{dup2\_x2()}{dup2\_x2()}}
+{\footnotesize\ttfamily void dup2\+\_\+x2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Duplica um ou dois operandos da pilha e insere os valores duplicados na ordem original. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__stack_8cpp_a223470121b9ddbe45726430ab3ca2218}\label{instructions__stack_8cpp_a223470121b9ddbe45726430ab3ca2218}} 
+\index{instructions\_stack.cpp@{instructions\_stack.cpp}!dup\_x1@{dup\_x1}}
+\index{dup\_x1@{dup\_x1}!instructions\_stack.cpp@{instructions\_stack.cpp}}
+\doxysubsubsection{\texorpdfstring{dup\_x1()}{dup\_x1()}}
+{\footnotesize\ttfamily void dup\+\_\+x1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Duplica o item no topo da pilha e pusha depois do segundo elemento da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__stack_8cpp_a9e5ac94949cbdf7b2594c87381efa84a}\label{instructions__stack_8cpp_a9e5ac94949cbdf7b2594c87381efa84a}} 
+\index{instructions\_stack.cpp@{instructions\_stack.cpp}!dup\_x2@{dup\_x2}}
+\index{dup\_x2@{dup\_x2}!instructions\_stack.cpp@{instructions\_stack.cpp}}
+\doxysubsubsection{\texorpdfstring{dup\_x2()}{dup\_x2()}}
+{\footnotesize\ttfamily void dup\+\_\+x2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Duplica o item no topo da pilha e pusha depois do terceiro elemento da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}

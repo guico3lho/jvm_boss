@@ -1,6 +1,15 @@
+/**
+ * @file utils.cpp
+ * @brief Arquivo com funções de impressão de erros no terminal e liberação de memória.
+ */
+
 #include "utils.hpp"
 
-
+/** 
+ * @brief Imprime mensagem de comando incorreto.
+ * @param void
+ * @return void
+ */
 void print_command_error() {
   std::cout 
   << "\nComando incorreto!\n"
@@ -10,6 +19,11 @@ void print_command_error() {
   exit(1);
 }
 
+/** 
+ * @brief Libera a memória alocada para o Class File.
+ * @param class_file a estrutura Class_File que precisa ser liberada
+ * @return void
+ */
 void freeClass(Class_File class_file){
 
   if(class_file.constant_pool) {
@@ -46,6 +60,12 @@ void freeClass(Class_File class_file){
   // free(class_file);
 }
 
+/** 
+ * @brief Libera a memória alocada para um atributo.
+ * @param attr a estrutura Attribute que precisa ser liberada
+ * @param size o tamanho do array de atributos
+ * @return void
+ */
 void freeAttribute(Attribute_Info* attr, u4 size){
   for (int i = 0; i < (int) size; ++i) {
     if(attr[i].source_file){
@@ -82,6 +102,12 @@ void freeAttribute(Attribute_Info* attr, u4 size){
   free(attr);
 }
 
+/** 
+ * @brief Libera a memória de atributos do tipo Inner Class.
+ * @param inner a estrutura Inner_Class_Attribute que precisa ser liberada.
+ * @param size o tamanho do array de classes internas.
+ * @return void
+ */
 void freeInnerClass(Inner_Class_Attribute* inner, u4 size){
   for (int i = 0; i < (int)size; ++i) {
     if(inner[i].inner_class_data){

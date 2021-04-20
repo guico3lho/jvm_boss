@@ -1,7 +1,8 @@
-/** @file class_laoder.hpp
+/** 
+ *  @file class_loader.hpp
  *  @brief Estruturas e declarações de funções do Class Loader da JVM.
- *  @bug No know bugs.
- */
+*/
+
 #ifndef __CLASS_LOADER_H__
 #define __CLASS_LOADER_H__
 

@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projeto JVM: Código-Fonte de include/instructions/instructions_store.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Projeto JVM
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_2843b2c750ff6b39dcfe98bf2554dba0.html">instructions</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">instructions_store.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="instructions__store_8hpp.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef __INSTRUCTIONS_STORE_H__</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define __INSTRUCTIONS_STORE_H__</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="frame_8hpp.html">frame.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/* STORE */</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keywordtype">void</span> istore(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#ab44d7793e84605474a27f863422447e7">istore_0</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#a26a03eb8b355f345274b9f4de905c8a1">istore_1</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#a09c64640c3e7ed8c10519c3cfb1c028e">istore_2</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#a188d38d17233ef9b22d66f8bfc0fd2a7">istore_3</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">void</span> lstore(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#a09e203c2c0ee238c001c45698f3fd558">lstore_0</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#a24bec06fa7a2f0daa81e65f6986d3b92">lstore_1</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#a40a511fec634021346da596026204c75">lstore_2</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#a69501be91d9af07afc615c14ad2e164a">lstore_3</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#a5acbd1764f4a1e99a73bfcf2107a23c7">fstore</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#aaa3514d26d089fb330614fc8cafc40d9">fstore_0</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#aae5c93d718d6ab49f0fc136769073674">fstore_1</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#a8414f31c894115440ef3a09b73b5a591">fstore_2</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#a7f1a3739f871adaad7fcb1049e45bab2">fstore_3</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#a24ff34a44f52cf75d6d50a4b732e6c9b">dstore</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#aecae5d8afce7a09c5a08e53a7bc24f44">dstore_0</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#a8e59ef4012cfa2cc6b3560d72db677e9">dstore_1</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#aa6b5a01ab19bb30406789eda5e1ee225">dstore_2</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#a22b63306ef725bb1caae8a041d4e7fa7">dstore_3</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#a2bfe2f254d286b858340b6b6ff44d3f3">astore</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#a1199f00ae6a514cb8b4d0fc707338e89">astore_0</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#a9da21bfccaaa610b9bb8100ab22fdf98">astore_1</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#aecb24b5df92992f052b152f741615d88">astore_2</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#a5042dfc7e7e7aa144ac250a21eef2687">astore_3</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#a9747e2c7b6f0e224c577d3faa7457163">iastore</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#a648ef4a6b19632249cb74830fb485ede">lastore</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#a2f97b7fede2b6411df9e8dda41dd6402">fastore</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#a6eb05448374c58f9a51b7ee3e96f80b8">dastore</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#a1c5128ed5500d11bddfd8af919236583">aastore</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#abdf79e8afa7b3dace299c54610d8ce27">bastore</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#a4895b07f5dd8a1e6226d4554bd52c5f4">castore</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__store_8hpp.html#a75d462442bef3462ff9f7ba8508f5e79">sastore</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassFrame_html"><div class="ttname"><a href="classFrame.html">Frame</a></div><div class="ttdoc">Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,...</div><div class="ttdef"><b>Definition:</b> frame.hpp:54</div></div>
+<div class="ttc" id="aframe_8hpp_html"><div class="ttname"><a href="frame_8hpp.html">frame.hpp</a></div><div class="ttdoc">Estruturas e classes de Frames e Operandos.</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_a09c64640c3e7ed8c10519c3cfb1c028e"><div class="ttname"><a href="instructions__store_8hpp.html#a09c64640c3e7ed8c10519c3cfb1c028e">istore_2</a></div><div class="ttdeci">void istore_2(Frame *)</div><div class="ttdoc">Armazena um inteiro no array de variaveis locais no indice 2.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:61</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_a09e203c2c0ee238c001c45698f3fd558"><div class="ttname"><a href="instructions__store_8hpp.html#a09e203c2c0ee238c001c45698f3fd558">lstore_0</a></div><div class="ttdeci">void lstore_0(Frame *)</div><div class="ttdoc">Armazena long do topo da pilha de operandos no array de variaveis locais no indice 0.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:309</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_a1199f00ae6a514cb8b4d0fc707338e89"><div class="ttname"><a href="instructions__store_8hpp.html#a1199f00ae6a514cb8b4d0fc707338e89">astore_0</a></div><div class="ttdeci">void astore_0(Frame *)</div><div class="ttdoc">Guarda referência do object ou array do operando na variável local -0.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:103</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_a188d38d17233ef9b22d66f8bfc0fd2a7"><div class="ttname"><a href="instructions__store_8hpp.html#a188d38d17233ef9b22d66f8bfc0fd2a7">istore_3</a></div><div class="ttdeci">void istore_3(Frame *)</div><div class="ttdoc">Armazena um inteiro no array de variaveis locais no indice 0.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:75</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_a1c5128ed5500d11bddfd8af919236583"><div class="ttname"><a href="instructions__store_8hpp.html#a1c5128ed5500d11bddfd8af919236583">aastore</a></div><div class="ttdeci">void aastore(Frame *)</div><div class="ttdoc">Coleta um objeto da pilha de operandos e armazena em um vetor de objetos.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:464</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_a22b63306ef725bb1caae8a041d4e7fa7"><div class="ttname"><a href="instructions__store_8hpp.html#a22b63306ef725bb1caae8a041d4e7fa7">dstore_3</a></div><div class="ttdeci">void dstore_3(Frame *)</div><div class="ttdoc">Armazena valor double da pilha de operandos no array de variaveis locais no indice 3.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:203</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_a24bec06fa7a2f0daa81e65f6986d3b92"><div class="ttname"><a href="instructions__store_8hpp.html#a24bec06fa7a2f0daa81e65f6986d3b92">lstore_1</a></div><div class="ttdeci">void lstore_1(Frame *)</div><div class="ttdoc">Armazena long do topo da pilha de operandos no array de variaveis locais no indice 1.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:322</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_a24ff34a44f52cf75d6d50a4b732e6c9b"><div class="ttname"><a href="instructions__store_8hpp.html#a24ff34a44f52cf75d6d50a4b732e6c9b">dstore</a></div><div class="ttdeci">void dstore(Frame *)</div><div class="ttdoc">Armazena valor double da pilha de operandos no array de variaveis locais no indice index.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:146</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_a26a03eb8b355f345274b9f4de905c8a1"><div class="ttname"><a href="instructions__store_8hpp.html#a26a03eb8b355f345274b9f4de905c8a1">istore_1</a></div><div class="ttdeci">void istore_1(Frame *)</div><div class="ttdoc">Armazena um inteiro no array de variaveis locais no indice 1.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:47</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_a2bfe2f254d286b858340b6b6ff44d3f3"><div class="ttname"><a href="instructions__store_8hpp.html#a2bfe2f254d286b858340b6b6ff44d3f3">astore</a></div><div class="ttdeci">void astore(Frame *)</div><div class="ttdoc">...</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:90</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_a2f97b7fede2b6411df9e8dda41dd6402"><div class="ttname"><a href="instructions__store_8hpp.html#a2f97b7fede2b6411df9e8dda41dd6402">fastore</a></div><div class="ttdeci">void fastore(Frame *)</div><div class="ttdoc">Coleta um float da pilha de operandos e armazena em um vetor de floats.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:414</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_a40a511fec634021346da596026204c75"><div class="ttname"><a href="instructions__store_8hpp.html#a40a511fec634021346da596026204c75">lstore_2</a></div><div class="ttdeci">void lstore_2(Frame *)</div><div class="ttdoc">Armazena long do topo da pilha de operandos no array de variaveis locais no indice 2.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:337</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_a4895b07f5dd8a1e6226d4554bd52c5f4"><div class="ttname"><a href="instructions__store_8hpp.html#a4895b07f5dd8a1e6226d4554bd52c5f4">castore</a></div><div class="ttdeci">void castore(Frame *)</div><div class="ttdoc">Coleta um 32-bit integer da pilha de operandos e armazena em um vetor 16-bit unsigned (char).</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:515</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_a5042dfc7e7e7aa144ac250a21eef2687"><div class="ttname"><a href="instructions__store_8hpp.html#a5042dfc7e7e7aa144ac250a21eef2687">astore_3</a></div><div class="ttdeci">void astore_3(Frame *)</div><div class="ttdoc">Retira o topo da pilha e armazena na variavel local de posição 3.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:134</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_a5acbd1764f4a1e99a73bfcf2107a23c7"><div class="ttname"><a href="instructions__store_8hpp.html#a5acbd1764f4a1e99a73bfcf2107a23c7">fstore</a></div><div class="ttdeci">void fstore(Frame *)</div><div class="ttdoc">Armazena float do topo da pilha de operandos no array de variaveis locais.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:218</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_a648ef4a6b19632249cb74830fb485ede"><div class="ttname"><a href="instructions__store_8hpp.html#a648ef4a6b19632249cb74830fb485ede">lastore</a></div><div class="ttdeci">void lastore(Frame *)</div><div class="ttdoc">Coleta um long da pilha de operandos e armazena em um vetor de longs.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:389</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_a69501be91d9af07afc615c14ad2e164a"><div class="ttname"><a href="instructions__store_8hpp.html#a69501be91d9af07afc615c14ad2e164a">lstore_3</a></div><div class="ttdeci">void lstore_3(Frame *)</div><div class="ttdoc">Armazena long do topo da pilha de operandos no array de variaveis locais no indice 3.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:350</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_a6eb05448374c58f9a51b7ee3e96f80b8"><div class="ttname"><a href="instructions__store_8hpp.html#a6eb05448374c58f9a51b7ee3e96f80b8">dastore</a></div><div class="ttdeci">void dastore(Frame *)</div><div class="ttdoc">Coleta um double da pilha de operandos e armazena em um vetor de doubles.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:439</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_a75d462442bef3462ff9f7ba8508f5e79"><div class="ttname"><a href="instructions__store_8hpp.html#a75d462442bef3462ff9f7ba8508f5e79">sastore</a></div><div class="ttdeci">void sastore(Frame *)</div><div class="ttdoc">Coleta um short da pilha de operandos e armazena em um vetor shorts.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:540</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_a7f1a3739f871adaad7fcb1049e45bab2"><div class="ttname"><a href="instructions__store_8hpp.html#a7f1a3739f871adaad7fcb1049e45bab2">fstore_3</a></div><div class="ttdeci">void fstore_3(Frame *)</div><div class="ttdoc">Armazena float do topo da pilha de operandos no array de variaveis locais no indice 3.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:277</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_a8414f31c894115440ef3a09b73b5a591"><div class="ttname"><a href="instructions__store_8hpp.html#a8414f31c894115440ef3a09b73b5a591">fstore_2</a></div><div class="ttdeci">void fstore_2(Frame *)</div><div class="ttdoc">Armazena float do topo da pilha de operandos no array de variaveis locais no indice 2.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:263</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_a8e59ef4012cfa2cc6b3560d72db677e9"><div class="ttname"><a href="instructions__store_8hpp.html#a8e59ef4012cfa2cc6b3560d72db677e9">dstore_1</a></div><div class="ttdeci">void dstore_1(Frame *)</div><div class="ttdoc">Armazena valor double da pilha de operandos no array de variaveis locais no indice 1.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:176</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_a9747e2c7b6f0e224c577d3faa7457163"><div class="ttname"><a href="instructions__store_8hpp.html#a9747e2c7b6f0e224c577d3faa7457163">iastore</a></div><div class="ttdeci">void iastore(Frame *)</div><div class="ttdoc">Coleta um int da pilha de operandos e armazena em um vetor de ints.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:364</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_a9da21bfccaaa610b9bb8100ab22fdf98"><div class="ttname"><a href="instructions__store_8hpp.html#a9da21bfccaaa610b9bb8100ab22fdf98">astore_1</a></div><div class="ttdeci">void astore_1(Frame *)</div><div class="ttdoc">Guarda referência do object ou array do operando na variável local 1.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:113</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_aa6b5a01ab19bb30406789eda5e1ee225"><div class="ttname"><a href="instructions__store_8hpp.html#aa6b5a01ab19bb30406789eda5e1ee225">dstore_2</a></div><div class="ttdeci">void dstore_2(Frame *)</div><div class="ttdoc">Armazena valor double da pilha de operandos no array de variaveis locais no indice 2.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:190</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_aaa3514d26d089fb330614fc8cafc40d9"><div class="ttname"><a href="instructions__store_8hpp.html#aaa3514d26d089fb330614fc8cafc40d9">fstore_0</a></div><div class="ttdeci">void fstore_0(Frame *)</div><div class="ttdoc">Armazena float do topo da pilha de operandos no array de variaveis locais no indice 0.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:235</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_aae5c93d718d6ab49f0fc136769073674"><div class="ttname"><a href="instructions__store_8hpp.html#aae5c93d718d6ab49f0fc136769073674">fstore_1</a></div><div class="ttdeci">void fstore_1(Frame *)</div><div class="ttdoc">Armazena float do topo da pilha de operandos no array de variaveis locais no indice 1.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:248</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_ab44d7793e84605474a27f863422447e7"><div class="ttname"><a href="instructions__store_8hpp.html#ab44d7793e84605474a27f863422447e7">istore_0</a></div><div class="ttdeci">void istore_0(Frame *)</div><div class="ttdoc">Armazena um inteiro no array de variaveis locais no indice 0.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:33</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_abdf79e8afa7b3dace299c54610d8ce27"><div class="ttname"><a href="instructions__store_8hpp.html#abdf79e8afa7b3dace299c54610d8ce27">bastore</a></div><div class="ttdeci">void bastore(Frame *)</div><div class="ttdoc">Coleta um booleano da pilha de operandos e armazena em um vetor de booleanos.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:489</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_aecae5d8afce7a09c5a08e53a7bc24f44"><div class="ttname"><a href="instructions__store_8hpp.html#aecae5d8afce7a09c5a08e53a7bc24f44">dstore_0</a></div><div class="ttdeci">void dstore_0(Frame *)</div><div class="ttdoc">Armazena valor double da pilha de operandos no array de variaveis locais no indice 0.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:163</div></div>
+<div class="ttc" id="ainstructions__store_8hpp_html_aecb24b5df92992f052b152f741615d88"><div class="ttname"><a href="instructions__store_8hpp.html#aecb24b5df92992f052b152f741615d88">astore_2</a></div><div class="ttdeci">void astore_2(Frame *)</div><div class="ttdoc">Retira o topo da pilha e armazena na variavel local de posição 2.</div><div class="ttdef"><b>Definition:</b> instructions_store.cpp:123</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

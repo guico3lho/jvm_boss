@@ -1,3 +1,8 @@
+/** 
+ *  @file read_bytes.hpp
+ *  @brief Estruturas e declarações das funções para ler bytes.
+ */
+
 #ifndef __READ_BYTES_H__
 #define __READ_BYTES_H__
 

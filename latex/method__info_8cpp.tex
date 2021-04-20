@@ -1,0 +1,85 @@
+\hypertarget{method__info_8cpp}{}\doxysection{Referência ao ficheiro src/method\+\_\+info.cpp}
+\label{method__info_8cpp}\index{src/method\_info.cpp@{src/method\_info.cpp}}
+
+
+Arquivo com funções relacionadas a Method.  
+
+
+{\ttfamily \#include \char`\"{}method\+\_\+info.\+hpp\char`\"{}}\newline
+\doxysubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{method__info_8cpp_ab50bb81305550dc3a1d89a16f9f8149a}{read\+\_\+method\+\_\+info}} (FILE $\ast$file, \mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} $\ast$class\+\_\+file)
+\begin{DoxyCompactList}\small\item\em Lê as informações de method e armazena no \mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structMethod__Info}{Method\+\_\+\+Info}} $\ast$ \mbox{\hyperlink{method__info_8cpp_a642f09aa2996d48a4c4a90e100a84c67}{find\+\_\+main}} (\mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} class\+\_\+file)
+\begin{DoxyCompactList}\small\item\em Encontra metodo main da super classe final. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structMethod__Info}{Method\+\_\+\+Info}} $\ast$ \mbox{\hyperlink{method__info_8cpp_a41212a30d44318dc6e0492035d2eb20c}{find\+\_\+method}} (\mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} class\+\_\+file, std\+::string method\+\_\+name, std\+::string method\+\_\+descriptor)
+\begin{DoxyCompactList}\small\item\em Encontra um método pelo nome e descrição. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Arquivo com funções relacionadas a Method. 
+
+
+
+\doxysubsection{Documentação das funções}
+\mbox{\Hypertarget{method__info_8cpp_a642f09aa2996d48a4c4a90e100a84c67}\label{method__info_8cpp_a642f09aa2996d48a4c4a90e100a84c67}} 
+\index{method\_info.cpp@{method\_info.cpp}!find\_main@{find\_main}}
+\index{find\_main@{find\_main}!method\_info.cpp@{method\_info.cpp}}
+\doxysubsubsection{\texorpdfstring{find\_main()}{find\_main()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structMethod__Info}{Method\+\_\+\+Info}}$\ast$ find\+\_\+main (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}}}]{class\+\_\+file }\end{DoxyParamCaption})}
+
+
+
+Encontra metodo main da super classe final. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em class\+\_\+file} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Method\+Info$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{method__info_8cpp_a41212a30d44318dc6e0492035d2eb20c}\label{method__info_8cpp_a41212a30d44318dc6e0492035d2eb20c}} 
+\index{method\_info.cpp@{method\_info.cpp}!find\_method@{find\_method}}
+\index{find\_method@{find\_method}!method\_info.cpp@{method\_info.cpp}}
+\doxysubsubsection{\texorpdfstring{find\_method()}{find\_method()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structMethod__Info}{Method\+\_\+\+Info}}$\ast$ find\+\_\+method (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}}}]{class\+\_\+file,  }\item[{std\+::string}]{method\+\_\+name,  }\item[{std\+::string}]{method\+\_\+descriptor }\end{DoxyParamCaption})}
+
+
+
+Encontra um método pelo nome e descrição. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em class\+\_\+file} & ponteiro para o classfile atual \\
+\hline
+{\em method\+\_\+name} & string do nome do método a ser buscado \\
+\hline
+{\em method\+\_\+descriptor} & string da descrição do método \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Method\+Info$\ast$ ponteiro para as informações relacionadas ao método 
+\end{DoxyReturn}
+\mbox{\Hypertarget{method__info_8cpp_ab50bb81305550dc3a1d89a16f9f8149a}\label{method__info_8cpp_ab50bb81305550dc3a1d89a16f9f8149a}} 
+\index{method\_info.cpp@{method\_info.cpp}!read\_method\_info@{read\_method\_info}}
+\index{read\_method\_info@{read\_method\_info}!method\_info.cpp@{method\_info.cpp}}
+\doxysubsubsection{\texorpdfstring{read\_method\_info()}{read\_method\_info()}}
+{\footnotesize\ttfamily void read\+\_\+method\+\_\+info (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{file,  }\item[{\mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} $\ast$}]{class\+\_\+file }\end{DoxyParamCaption})}
+
+
+
+Lê as informações de method e armazena no \mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}}. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$file} & ponteiro para o arquivo que vai ser lido. \\
+\hline
+{\em $\ast$class\+\_\+file} & ponteiro para a estrutura \mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} em que as informações vão ser armazenadas. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}

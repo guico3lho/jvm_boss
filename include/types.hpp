@@ -1,3 +1,8 @@
+/** 
+ *  @file types.hpp
+ *  @brief Definições das constantes de tipo.
+ */
+
 #ifndef __TYPES_H__
 #define __TYPES_H__
 

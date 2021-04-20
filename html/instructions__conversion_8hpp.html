@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projeto JVM: Referência ao ficheiro include/instructions/instructions_conversion.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Projeto JVM
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_2843b2c750ff6b39dcfe98bf2554dba0.html">instructions</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência ao ficheiro instructions_conversion.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Declaração das funções de instruções de opcode do tipo conversion da JVM.  
+<a href="#details">Mais...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="frame_8hpp_source.html">frame.hpp</a>&quot;</code><br />
+</div>
+<p><a href="instructions__conversion_8hpp_source.html">Ir para o código fonte deste ficheiro.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:aa95bfec635b093f6000f976da5c0912e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__conversion_8hpp.html#aa95bfec635b093f6000f976da5c0912e">i2l</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:aa95bfec635b093f6000f976da5c0912e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resgata o valor do topo da pilha (que deve ser int), covnerte para long e salva na pilha de operandos.  <a href="instructions__conversion_8hpp.html#aa95bfec635b093f6000f976da5c0912e">Mais...</a><br /></td></tr>
+<tr class="separator:aa95bfec635b093f6000f976da5c0912e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac485456e753e61023ab2a8a8a3b693be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__conversion_8hpp.html#ac485456e753e61023ab2a8a8a3b693be">i2f</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:ac485456e753e61023ab2a8a8a3b693be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converte de inteiro para float.  <a href="instructions__conversion_8hpp.html#ac485456e753e61023ab2a8a8a3b693be">Mais...</a><br /></td></tr>
+<tr class="separator:ac485456e753e61023ab2a8a8a3b693be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a089a4edc8c41e2422eced889500c281e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__conversion_8hpp.html#a089a4edc8c41e2422eced889500c281e">i2d</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:a089a4edc8c41e2422eced889500c281e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converte de int para double.  <a href="instructions__conversion_8hpp.html#a089a4edc8c41e2422eced889500c281e">Mais...</a><br /></td></tr>
+<tr class="separator:a089a4edc8c41e2422eced889500c281e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09346e5c2063b08fd6704d6a6be76b8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__conversion_8hpp.html#a09346e5c2063b08fd6704d6a6be76b8d">l2i</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:a09346e5c2063b08fd6704d6a6be76b8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converte um long para int.  <a href="instructions__conversion_8hpp.html#a09346e5c2063b08fd6704d6a6be76b8d">Mais...</a><br /></td></tr>
+<tr class="separator:a09346e5c2063b08fd6704d6a6be76b8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65512330cc8df6f0d2808734b5ba6f4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__conversion_8hpp.html#a65512330cc8df6f0d2808734b5ba6f4f">l2f</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:a65512330cc8df6f0d2808734b5ba6f4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converte de long para float.  <a href="instructions__conversion_8hpp.html#a65512330cc8df6f0d2808734b5ba6f4f">Mais...</a><br /></td></tr>
+<tr class="separator:a65512330cc8df6f0d2808734b5ba6f4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a034d5710ea00e5cd64f928593d53123d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__conversion_8hpp.html#a034d5710ea00e5cd64f928593d53123d">l2d</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:a034d5710ea00e5cd64f928593d53123d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converte um long para double.  <a href="instructions__conversion_8hpp.html#a034d5710ea00e5cd64f928593d53123d">Mais...</a><br /></td></tr>
+<tr class="separator:a034d5710ea00e5cd64f928593d53123d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae557f152b515f6695312a163a19a9892"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__conversion_8hpp.html#ae557f152b515f6695312a163a19a9892">f2i</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:ae557f152b515f6695312a163a19a9892"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converte de float para inteiro.  <a href="instructions__conversion_8hpp.html#ae557f152b515f6695312a163a19a9892">Mais...</a><br /></td></tr>
+<tr class="separator:ae557f152b515f6695312a163a19a9892"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3157738faa35133817565e6793cb892"><td class="memItemLeft" align="right" valign="top"><a id="af3157738faa35133817565e6793cb892"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>f2l</b> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="separator:af3157738faa35133817565e6793cb892"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89a47bd90ba7aab3359f93e719a24c01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__conversion_8hpp.html#a89a47bd90ba7aab3359f93e719a24c01">f2d</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:a89a47bd90ba7aab3359f93e719a24c01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converte de float para double.  <a href="instructions__conversion_8hpp.html#a89a47bd90ba7aab3359f93e719a24c01">Mais...</a><br /></td></tr>
+<tr class="separator:a89a47bd90ba7aab3359f93e719a24c01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a338cf6f71b9cef09acc8ccc2dd6976ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__conversion_8hpp.html#a338cf6f71b9cef09acc8ccc2dd6976ce">d2i</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:a338cf6f71b9cef09acc8ccc2dd6976ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converte de double para int.  <a href="instructions__conversion_8hpp.html#a338cf6f71b9cef09acc8ccc2dd6976ce">Mais...</a><br /></td></tr>
+<tr class="separator:a338cf6f71b9cef09acc8ccc2dd6976ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c3845cadf5f891fb6720302b84c88bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__conversion_8hpp.html#a5c3845cadf5f891fb6720302b84c88bf">d2l</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:a5c3845cadf5f891fb6720302b84c88bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converte de double para long.  <a href="instructions__conversion_8hpp.html#a5c3845cadf5f891fb6720302b84c88bf">Mais...</a><br /></td></tr>
+<tr class="separator:a5c3845cadf5f891fb6720302b84c88bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a137a8f063051b33b62f29ff3866f569c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__conversion_8hpp.html#a137a8f063051b33b62f29ff3866f569c">d2f</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:a137a8f063051b33b62f29ff3866f569c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converte double para float.  <a href="instructions__conversion_8hpp.html#a137a8f063051b33b62f29ff3866f569c">Mais...</a><br /></td></tr>
+<tr class="separator:a137a8f063051b33b62f29ff3866f569c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cd53aa38cdfb0b6cc1404360b0d8523"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__conversion_8hpp.html#a9cd53aa38cdfb0b6cc1404360b0d8523">i2s</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:a9cd53aa38cdfb0b6cc1404360b0d8523"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converte int para short int.  <a href="instructions__conversion_8hpp.html#a9cd53aa38cdfb0b6cc1404360b0d8523">Mais...</a><br /></td></tr>
+<tr class="separator:a9cd53aa38cdfb0b6cc1404360b0d8523"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Declaração das funções de instruções de opcode do tipo conversion da JVM. </p>
+</div><h2 class="groupheader">Documentação das funções</h2>
+<a id="a137a8f063051b33b62f29ff3866f569c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a137a8f063051b33b62f29ff3866f569c">&#9670;&nbsp;</a></span>d2f()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void d2f </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converte double para float. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a338cf6f71b9cef09acc8ccc2dd6976ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a338cf6f71b9cef09acc8ccc2dd6976ce">&#9670;&nbsp;</a></span>d2i()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void d2i </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converte de double para int. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a5c3845cadf5f891fb6720302b84c88bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c3845cadf5f891fb6720302b84c88bf">&#9670;&nbsp;</a></span>d2l()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void d2l </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converte de double para long. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a89a47bd90ba7aab3359f93e719a24c01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89a47bd90ba7aab3359f93e719a24c01">&#9670;&nbsp;</a></span>f2d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void f2d </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converte de float para double. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="ae557f152b515f6695312a163a19a9892"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae557f152b515f6695312a163a19a9892">&#9670;&nbsp;</a></span>f2i()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void f2i </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converte de float para inteiro. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a089a4edc8c41e2422eced889500c281e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a089a4edc8c41e2422eced889500c281e">&#9670;&nbsp;</a></span>i2d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void i2d </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converte de int para double. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>ponteiro que aponta para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="ac485456e753e61023ab2a8a8a3b693be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac485456e753e61023ab2a8a8a3b693be">&#9670;&nbsp;</a></span>i2f()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void i2f </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converte de inteiro para float. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="aa95bfec635b093f6000f976da5c0912e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa95bfec635b093f6000f976da5c0912e">&#9670;&nbsp;</a></span>i2l()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void i2l </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resgata o valor do topo da pilha (que deve ser int), covnerte para long e salva na pilha de operandos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a9cd53aa38cdfb0b6cc1404360b0d8523"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cd53aa38cdfb0b6cc1404360b0d8523">&#9670;&nbsp;</a></span>i2s()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void i2s </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converte int para short int. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>ponteiro que aponta para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a034d5710ea00e5cd64f928593d53123d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a034d5710ea00e5cd64f928593d53123d">&#9670;&nbsp;</a></span>l2d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void l2d </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converte um long para double. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a65512330cc8df6f0d2808734b5ba6f4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65512330cc8df6f0d2808734b5ba6f4f">&#9670;&nbsp;</a></span>l2f()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void l2f </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converte de long para float. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a09346e5c2063b08fd6704d6a6be76b8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09346e5c2063b08fd6704d6a6be76b8d">&#9670;&nbsp;</a></span>l2i()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void l2i </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converte um long para int. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

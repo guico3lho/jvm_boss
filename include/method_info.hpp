@@ -1,3 +1,8 @@
+/** 
+ *  @file method_info.hpp
+ *  @brief Estruturas e declarações de funções relacionadas a Method
+ */
+
 #ifndef __METHOD_INFO_H__
 #define __METHOD_INFO_H__
 
@@ -7,6 +12,9 @@
 struct Class_File;
 struct Attribute_Info;
 
+/** 
+ *  @brief Estrutura que armazena o Method
+ */
 typedef struct Method_Info{
   u2 name_index;
   u2 descriptor_index;

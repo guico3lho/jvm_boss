@@ -1,0 +1,1012 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projeto JVM: Referência ao ficheiro src/instructions/instructions_math.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Projeto JVM
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_c02f8b95b226e2bee89fa8260cab7e1a.html">instructions</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência ao ficheiro instructions_math.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Módulo que contém as instruções de opcode do tipo math da JVM.  
+<a href="#details">Mais...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="interpreter_8hpp_source.html">interpreter.hpp</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:ab2829aec191a77fb4207e81639bc39ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#ab2829aec191a77fb4207e81639bc39ad">iadd</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:ab2829aec191a77fb4207e81639bc39ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Soma de inteiros. Retira os dois operando do topo da pilha, soma-os e coloca o resultado no topo da pilha.  <a href="instructions__math_8cpp.html#ab2829aec191a77fb4207e81639bc39ad">Mais...</a><br /></td></tr>
+<tr class="separator:ab2829aec191a77fb4207e81639bc39ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3534cc165ad6236ab3b0d7e000342a05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#a3534cc165ad6236ab3b0d7e000342a05">ladd</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:a3534cc165ad6236ab3b0d7e000342a05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Soma do tipo long. Retira os dois operando do topo da pilha, soma-os e coloca o resultado no topo da pilha.  <a href="instructions__math_8cpp.html#a3534cc165ad6236ab3b0d7e000342a05">Mais...</a><br /></td></tr>
+<tr class="separator:a3534cc165ad6236ab3b0d7e000342a05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16c6bc9d7b9898cfc8dea21d7ea3f1b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#a16c6bc9d7b9898cfc8dea21d7ea3f1b0">fadd</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:a16c6bc9d7b9898cfc8dea21d7ea3f1b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Soma do tipo float. Retira os dois operando do topo da pilha, soma-os e coloca o resultado no topo da pilha.  <a href="instructions__math_8cpp.html#a16c6bc9d7b9898cfc8dea21d7ea3f1b0">Mais...</a><br /></td></tr>
+<tr class="separator:a16c6bc9d7b9898cfc8dea21d7ea3f1b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27330eba82c8408e16b74da38b430579"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#a27330eba82c8408e16b74da38b430579">dadd</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:a27330eba82c8408e16b74da38b430579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Soma do tipo double. Retira os dois operando do topo da pilha, soma-os e coloca o resultado no topo da pilha.  <a href="instructions__math_8cpp.html#a27330eba82c8408e16b74da38b430579">Mais...</a><br /></td></tr>
+<tr class="separator:a27330eba82c8408e16b74da38b430579"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11cfa934cdfbeff37b19b839ebda2e02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#a11cfa934cdfbeff37b19b839ebda2e02">isub</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:a11cfa934cdfbeff37b19b839ebda2e02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtração do tipo inteiro. Retira os dois operando do topo da pilha, subtraí-os e coloca o resultado no topo da pilha.  <a href="instructions__math_8cpp.html#a11cfa934cdfbeff37b19b839ebda2e02">Mais...</a><br /></td></tr>
+<tr class="separator:a11cfa934cdfbeff37b19b839ebda2e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac299bc0a2a60444618180320051694c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#ac299bc0a2a60444618180320051694c3">lsub</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:ac299bc0a2a60444618180320051694c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtração do tipo long. Retira os dois operando do topo da pilha, subtraí-os e coloca o resultado no topo da pilha.  <a href="instructions__math_8cpp.html#ac299bc0a2a60444618180320051694c3">Mais...</a><br /></td></tr>
+<tr class="separator:ac299bc0a2a60444618180320051694c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0460ab0993b03ec97b8fe717358e80b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#aa0460ab0993b03ec97b8fe717358e80b">fsub</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:aa0460ab0993b03ec97b8fe717358e80b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtração do tipo float. Retira os dois operando do topo da pilha, subtraí-os e coloca o resultado no topo da pilha.  <a href="instructions__math_8cpp.html#aa0460ab0993b03ec97b8fe717358e80b">Mais...</a><br /></td></tr>
+<tr class="separator:aa0460ab0993b03ec97b8fe717358e80b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab272c822e7c851834bd4c41b35e6d4e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#ab272c822e7c851834bd4c41b35e6d4e1">dsub</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:ab272c822e7c851834bd4c41b35e6d4e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtração do tipo double. Retira os dois operando do topo da pilha, subtraí-os e coloca o resultado no topo da pilha.  <a href="instructions__math_8cpp.html#ab272c822e7c851834bd4c41b35e6d4e1">Mais...</a><br /></td></tr>
+<tr class="separator:ab272c822e7c851834bd4c41b35e6d4e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ccbe6e8a23efb607769479f833bf489"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#a4ccbe6e8a23efb607769479f833bf489">imul</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:a4ccbe6e8a23efb607769479f833bf489"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplicação de inteiros. Retira os dois operando do topo da pilha, multiplica-os e coloca o resultado no topo da pilha.  <a href="instructions__math_8cpp.html#a4ccbe6e8a23efb607769479f833bf489">Mais...</a><br /></td></tr>
+<tr class="separator:a4ccbe6e8a23efb607769479f833bf489"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab693bce036b27705fb704e335c0e4388"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#ab693bce036b27705fb704e335c0e4388">lmul</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:ab693bce036b27705fb704e335c0e4388"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplicação de long. Retira os dois operando do topo da pilha, multiplica-os e coloca o resultado no topo da pilha.  <a href="instructions__math_8cpp.html#ab693bce036b27705fb704e335c0e4388">Mais...</a><br /></td></tr>
+<tr class="separator:ab693bce036b27705fb704e335c0e4388"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93a160cfc13db4555690ef70acd28919"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#a93a160cfc13db4555690ef70acd28919">fmul</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:a93a160cfc13db4555690ef70acd28919"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplicação de float. Retira os dois operando do topo da pilha, multiplica-os e coloca o resultado no topo da pilha.  <a href="instructions__math_8cpp.html#a93a160cfc13db4555690ef70acd28919">Mais...</a><br /></td></tr>
+<tr class="separator:a93a160cfc13db4555690ef70acd28919"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04038ef957ce3bd04ac48ed050dc1920"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#a04038ef957ce3bd04ac48ed050dc1920">dmul</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:a04038ef957ce3bd04ac48ed050dc1920"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplicação de double. Retira os dois operando do topo da pilha, multiplica-os e coloca o resultado no topo da pilha.  <a href="instructions__math_8cpp.html#a04038ef957ce3bd04ac48ed050dc1920">Mais...</a><br /></td></tr>
+<tr class="separator:a04038ef957ce3bd04ac48ed050dc1920"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca6d5eaa782994eacbe3384ef2aef0c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#aca6d5eaa782994eacbe3384ef2aef0c2">idiv</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:aca6d5eaa782994eacbe3384ef2aef0c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divisão de inteiro. Retira os dois operandos do topo da pilha, divide-os e coloca o resultado no topo da pilha.  <a href="instructions__math_8cpp.html#aca6d5eaa782994eacbe3384ef2aef0c2">Mais...</a><br /></td></tr>
+<tr class="separator:aca6d5eaa782994eacbe3384ef2aef0c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a7c23882605e3cefc3db081205e54d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#a3a7c23882605e3cefc3db081205e54d9">ldiv</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:a3a7c23882605e3cefc3db081205e54d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divisão de long. Retira os dois operandos do topo da pilha, divide-os e coloca o resultado no topo da pilha.  <a href="instructions__math_8cpp.html#a3a7c23882605e3cefc3db081205e54d9">Mais...</a><br /></td></tr>
+<tr class="separator:a3a7c23882605e3cefc3db081205e54d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f3203f40ac7313acdad80fdd0bd0d1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#a6f3203f40ac7313acdad80fdd0bd0d1d">fdiv</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:a6f3203f40ac7313acdad80fdd0bd0d1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divisão de float. Retira os dois operandos do topo da pilha, divide-os e coloca o resultado no topo da pilha.  <a href="instructions__math_8cpp.html#a6f3203f40ac7313acdad80fdd0bd0d1d">Mais...</a><br /></td></tr>
+<tr class="separator:a6f3203f40ac7313acdad80fdd0bd0d1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef4ce655502fb6ce538119456bb1cf7c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#aef4ce655502fb6ce538119456bb1cf7c">ddiv</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:aef4ce655502fb6ce538119456bb1cf7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divisão de double. Retira os dois operandos do topo da pilha, divide-os e coloca o resultado no topo da pilha.  <a href="instructions__math_8cpp.html#aef4ce655502fb6ce538119456bb1cf7c">Mais...</a><br /></td></tr>
+<tr class="separator:aef4ce655502fb6ce538119456bb1cf7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada3ca6801c9430b0f8c7927dcfba9746"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#ada3ca6801c9430b0f8c7927dcfba9746">irem</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:ada3ca6801c9430b0f8c7927dcfba9746"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula o resto da divisão entre dois inteiros. Retira os dois operandos do topo da pilha, calcula o resto da divisão e coloca no topo.  <a href="instructions__math_8cpp.html#ada3ca6801c9430b0f8c7927dcfba9746">Mais...</a><br /></td></tr>
+<tr class="separator:ada3ca6801c9430b0f8c7927dcfba9746"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a525fa75d3604ce1d234d9d4dabfe469f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#a525fa75d3604ce1d234d9d4dabfe469f">lrem</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:a525fa75d3604ce1d234d9d4dabfe469f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula o resto da divisão entre dois long. Retira os dois operandos do topo da pilha, calcula o resto da divisão e coloca no topo.  <a href="instructions__math_8cpp.html#a525fa75d3604ce1d234d9d4dabfe469f">Mais...</a><br /></td></tr>
+<tr class="separator:a525fa75d3604ce1d234d9d4dabfe469f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a128a591c394fc0b3af089f427513e622"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#a128a591c394fc0b3af089f427513e622">frem</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:a128a591c394fc0b3af089f427513e622"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula o resto da divisão entre dois floats.  <a href="instructions__math_8cpp.html#a128a591c394fc0b3af089f427513e622">Mais...</a><br /></td></tr>
+<tr class="separator:a128a591c394fc0b3af089f427513e622"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bb367af27b742057277685bc8411a02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#a6bb367af27b742057277685bc8411a02">drem</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:a6bb367af27b742057277685bc8411a02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula o resto da divisão entre dois double. Retira os dois operandos do topo da pilha, calcula o resto da divisão e coloca no topo.  <a href="instructions__math_8cpp.html#a6bb367af27b742057277685bc8411a02">Mais...</a><br /></td></tr>
+<tr class="separator:a6bb367af27b742057277685bc8411a02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affad40699b829587712cb8c579281007"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#affad40699b829587712cb8c579281007">ineg</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:affad40699b829587712cb8c579281007"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula o valor negativo de int. Retira o operando do topo da pilha, nega o valor do operando e o salva o resultado no topo da pilha.  <a href="instructions__math_8cpp.html#affad40699b829587712cb8c579281007">Mais...</a><br /></td></tr>
+<tr class="separator:affad40699b829587712cb8c579281007"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29635e91b69be6bcbf4ba49ce0947d45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#a29635e91b69be6bcbf4ba49ce0947d45">lneg</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:a29635e91b69be6bcbf4ba49ce0947d45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula o valor negativo de long. Retira o operando do topo da pilha, nega o valor do operando e o salva o resultado no topo da pilha.  <a href="instructions__math_8cpp.html#a29635e91b69be6bcbf4ba49ce0947d45">Mais...</a><br /></td></tr>
+<tr class="separator:a29635e91b69be6bcbf4ba49ce0947d45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b32606a76e1f8d4a5866a02bbef4df5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#a6b32606a76e1f8d4a5866a02bbef4df5">fneg</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:a6b32606a76e1f8d4a5866a02bbef4df5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula o valor negativo de float. Retira o operando do topo da pilha, nega o valor do operando e o salva o resultado no topo da pilha.  <a href="instructions__math_8cpp.html#a6b32606a76e1f8d4a5866a02bbef4df5">Mais...</a><br /></td></tr>
+<tr class="separator:a6b32606a76e1f8d4a5866a02bbef4df5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f7a438d82644ac7f79d6a8c078a56c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#a7f7a438d82644ac7f79d6a8c078a56c7">dneg</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:a7f7a438d82644ac7f79d6a8c078a56c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula o valor negativo de double. Retira o operando do topo da pilha, nega o valor do operando e o salva o resultado no topo da pilha.  <a href="instructions__math_8cpp.html#a7f7a438d82644ac7f79d6a8c078a56c7">Mais...</a><br /></td></tr>
+<tr class="separator:a7f7a438d82644ac7f79d6a8c078a56c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c99118ad5e200d6cd2fa8d713d85985"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#a3c99118ad5e200d6cd2fa8d713d85985">ishl</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:a3c99118ad5e200d6cd2fa8d713d85985"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula o valor do shift left lógico para inteiro. Retira dois operandos do topo da pilha e faz o shift left do primeiro operando por s posições, onde s são os 5 bits menos significativos do segundo operando. O resultado é colocado no topo da pilha.  <a href="instructions__math_8cpp.html#a3c99118ad5e200d6cd2fa8d713d85985">Mais...</a><br /></td></tr>
+<tr class="separator:a3c99118ad5e200d6cd2fa8d713d85985"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ae9d0289685307a66d5a9e39adc22cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#a1ae9d0289685307a66d5a9e39adc22cc">lshl</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:a1ae9d0289685307a66d5a9e39adc22cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula o valor do shift left lógico para long. Retira dois operandos do topo da pilha e faz o shift left do primeiro operando por s posições, onde s são os 5 bits menos significativos do segundo operando. O resultado é colocado no topo da pilha.  <a href="instructions__math_8cpp.html#a1ae9d0289685307a66d5a9e39adc22cc">Mais...</a><br /></td></tr>
+<tr class="separator:a1ae9d0289685307a66d5a9e39adc22cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78ce33431c0a8e81b356c269901d1c50"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#a78ce33431c0a8e81b356c269901d1c50">ishr</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:a78ce33431c0a8e81b356c269901d1c50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula o valor do shift right lógico para inteiro. Retira dois operandos do topo da pilha e faz o shift right do primeiro operando por s posições, onde s são os 5 bits menos significativos do segundo operando. O resultado é colocado no topo da pilha.  <a href="instructions__math_8cpp.html#a78ce33431c0a8e81b356c269901d1c50">Mais...</a><br /></td></tr>
+<tr class="separator:a78ce33431c0a8e81b356c269901d1c50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cb915e2e2e1f5f74521b19b461c2002"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#a8cb915e2e2e1f5f74521b19b461c2002">lshr</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:a8cb915e2e2e1f5f74521b19b461c2002"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula o valor do shift right lógico para long. Retira dois operandos do topo da pilha e faz o shift right do primeiro operando por s posições, onde s são os 5 bits menos significativos do segundo operando. O resultado é colocado no topo da pilha.  <a href="instructions__math_8cpp.html#a8cb915e2e2e1f5f74521b19b461c2002">Mais...</a><br /></td></tr>
+<tr class="separator:a8cb915e2e2e1f5f74521b19b461c2002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c484e1ad7dccde4c9095ce35d8022db"><td class="memItemLeft" align="right" valign="top"><a id="a7c484e1ad7dccde4c9095ce35d8022db"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>iushr</b> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="separator:a7c484e1ad7dccde4c9095ce35d8022db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28be5b69e9a8ffef06e3ac821230b97f"><td class="memItemLeft" align="right" valign="top"><a id="a28be5b69e9a8ffef06e3ac821230b97f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>lushr</b> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="separator:a28be5b69e9a8ffef06e3ac821230b97f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0aede60dca8256f999d44a6c1df08657"><td class="memItemLeft" align="right" valign="top"><a id="a0aede60dca8256f999d44a6c1df08657"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>iand</b> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="separator:a0aede60dca8256f999d44a6c1df08657"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e52a9734cfa7089fe198a45700e7dac"><td class="memItemLeft" align="right" valign="top"><a id="a5e52a9734cfa7089fe198a45700e7dac"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>land</b> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="separator:a5e52a9734cfa7089fe198a45700e7dac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6e8b2d46b28c15302526249b7cbadd9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#aa6e8b2d46b28c15302526249b7cbadd9">ior</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:aa6e8b2d46b28c15302526249b7cbadd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Realiza a operacao de OR entre dois operandos e empilha o resultado.  <a href="instructions__math_8cpp.html#aa6e8b2d46b28c15302526249b7cbadd9">Mais...</a><br /></td></tr>
+<tr class="separator:aa6e8b2d46b28c15302526249b7cbadd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a7d4b76345ad3b9257fef4094a7758c"><td class="memItemLeft" align="right" valign="top"><a id="a0a7d4b76345ad3b9257fef4094a7758c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>lor</b> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="separator:a0a7d4b76345ad3b9257fef4094a7758c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e0b8ade27fc5dcf0efd0fcd47536217"><td class="memItemLeft" align="right" valign="top"><a id="a4e0b8ade27fc5dcf0efd0fcd47536217"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ixor</b> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="separator:a4e0b8ade27fc5dcf0efd0fcd47536217"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2189ab81f8ebe354235888ab4e4fcc1"><td class="memItemLeft" align="right" valign="top"><a id="aa2189ab81f8ebe354235888ab4e4fcc1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>lxor</b> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="separator:aa2189ab81f8ebe354235888ab4e4fcc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bf1d8f8d4a5625558466c1657672a84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__math_8cpp.html#a2bf1d8f8d4a5625558466c1657672a84">iinc</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:a2bf1d8f8d4a5625558466c1657672a84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Incrementa uma variavel local em uma constante.  <a href="instructions__math_8cpp.html#a2bf1d8f8d4a5625558466c1657672a84">Mais...</a><br /></td></tr>
+<tr class="separator:a2bf1d8f8d4a5625558466c1657672a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Módulo que contém as instruções de opcode do tipo math da JVM. </p>
+</div><h2 class="groupheader">Documentação das funções</h2>
+<a id="a27330eba82c8408e16b74da38b430579"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27330eba82c8408e16b74da38b430579">&#9670;&nbsp;</a></span>dadd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dadd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Soma do tipo double. Retira os dois operando do topo da pilha, soma-os e coloca o resultado no topo da pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="aef4ce655502fb6ce538119456bb1cf7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef4ce655502fb6ce538119456bb1cf7c">&#9670;&nbsp;</a></span>ddiv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ddiv </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Divisão de double. Retira os dois operandos do topo da pilha, divide-os e coloca o resultado no topo da pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a04038ef957ce3bd04ac48ed050dc1920"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04038ef957ce3bd04ac48ed050dc1920">&#9670;&nbsp;</a></span>dmul()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dmul </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Multiplicação de double. Retira os dois operando do topo da pilha, multiplica-os e coloca o resultado no topo da pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a7f7a438d82644ac7f79d6a8c078a56c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f7a438d82644ac7f79d6a8c078a56c7">&#9670;&nbsp;</a></span>dneg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dneg </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcula o valor negativo de double. Retira o operando do topo da pilha, nega o valor do operando e o salva o resultado no topo da pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a6bb367af27b742057277685bc8411a02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bb367af27b742057277685bc8411a02">&#9670;&nbsp;</a></span>drem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void drem </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcula o resto da divisão entre dois double. Retira os dois operandos do topo da pilha, calcula o resto da divisão e coloca no topo. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="ab272c822e7c851834bd4c41b35e6d4e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab272c822e7c851834bd4c41b35e6d4e1">&#9670;&nbsp;</a></span>dsub()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dsub </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Subtração do tipo double. Retira os dois operando do topo da pilha, subtraí-os e coloca o resultado no topo da pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a16c6bc9d7b9898cfc8dea21d7ea3f1b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16c6bc9d7b9898cfc8dea21d7ea3f1b0">&#9670;&nbsp;</a></span>fadd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fadd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Soma do tipo float. Retira os dois operando do topo da pilha, soma-os e coloca o resultado no topo da pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a6f3203f40ac7313acdad80fdd0bd0d1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f3203f40ac7313acdad80fdd0bd0d1d">&#9670;&nbsp;</a></span>fdiv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fdiv </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Divisão de float. Retira os dois operandos do topo da pilha, divide-os e coloca o resultado no topo da pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a93a160cfc13db4555690ef70acd28919"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93a160cfc13db4555690ef70acd28919">&#9670;&nbsp;</a></span>fmul()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fmul </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Multiplicação de float. Retira os dois operando do topo da pilha, multiplica-os e coloca o resultado no topo da pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a6b32606a76e1f8d4a5866a02bbef4df5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b32606a76e1f8d4a5866a02bbef4df5">&#9670;&nbsp;</a></span>fneg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fneg </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcula o valor negativo de float. Retira o operando do topo da pilha, nega o valor do operando e o salva o resultado no topo da pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a128a591c394fc0b3af089f427513e622"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a128a591c394fc0b3af089f427513e622">&#9670;&nbsp;</a></span>frem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void frem </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcula o resto da divisão entre dois floats. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="aa0460ab0993b03ec97b8fe717358e80b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0460ab0993b03ec97b8fe717358e80b">&#9670;&nbsp;</a></span>fsub()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fsub </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Subtração do tipo float. Retira os dois operando do topo da pilha, subtraí-os e coloca o resultado no topo da pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="ab2829aec191a77fb4207e81639bc39ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2829aec191a77fb4207e81639bc39ad">&#9670;&nbsp;</a></span>iadd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void iadd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Soma de inteiros. Retira os dois operando do topo da pilha, soma-os e coloca o resultado no topo da pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="aca6d5eaa782994eacbe3384ef2aef0c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca6d5eaa782994eacbe3384ef2aef0c2">&#9670;&nbsp;</a></span>idiv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void idiv </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Divisão de inteiro. Retira os dois operandos do topo da pilha, divide-os e coloca o resultado no topo da pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a2bf1d8f8d4a5625558466c1657672a84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bf1d8f8d4a5625558466c1657672a84">&#9670;&nbsp;</a></span>iinc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void iinc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Incrementa uma variavel local em uma constante. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a4ccbe6e8a23efb607769479f833bf489"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ccbe6e8a23efb607769479f833bf489">&#9670;&nbsp;</a></span>imul()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void imul </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Multiplicação de inteiros. Retira os dois operando do topo da pilha, multiplica-os e coloca o resultado no topo da pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="affad40699b829587712cb8c579281007"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affad40699b829587712cb8c579281007">&#9670;&nbsp;</a></span>ineg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ineg </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcula o valor negativo de int. Retira o operando do topo da pilha, nega o valor do operando e o salva o resultado no topo da pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="aa6e8b2d46b28c15302526249b7cbadd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6e8b2d46b28c15302526249b7cbadd9">&#9670;&nbsp;</a></span>ior()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ior </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Realiza a operacao de OR entre dois operandos e empilha o resultado. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="ada3ca6801c9430b0f8c7927dcfba9746"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada3ca6801c9430b0f8c7927dcfba9746">&#9670;&nbsp;</a></span>irem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void irem </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcula o resto da divisão entre dois inteiros. Retira os dois operandos do topo da pilha, calcula o resto da divisão e coloca no topo. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a3c99118ad5e200d6cd2fa8d713d85985"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c99118ad5e200d6cd2fa8d713d85985">&#9670;&nbsp;</a></span>ishl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ishl </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcula o valor do shift left lógico para inteiro. Retira dois operandos do topo da pilha e faz o shift left do primeiro operando por s posições, onde s são os 5 bits menos significativos do segundo operando. O resultado é colocado no topo da pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a78ce33431c0a8e81b356c269901d1c50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78ce33431c0a8e81b356c269901d1c50">&#9670;&nbsp;</a></span>ishr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ishr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcula o valor do shift right lógico para inteiro. Retira dois operandos do topo da pilha e faz o shift right do primeiro operando por s posições, onde s são os 5 bits menos significativos do segundo operando. O resultado é colocado no topo da pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a11cfa934cdfbeff37b19b839ebda2e02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11cfa934cdfbeff37b19b839ebda2e02">&#9670;&nbsp;</a></span>isub()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void isub </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Subtração do tipo inteiro. Retira os dois operando do topo da pilha, subtraí-os e coloca o resultado no topo da pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a3534cc165ad6236ab3b0d7e000342a05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3534cc165ad6236ab3b0d7e000342a05">&#9670;&nbsp;</a></span>ladd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ladd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Soma do tipo long. Retira os dois operando do topo da pilha, soma-os e coloca o resultado no topo da pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a3a7c23882605e3cefc3db081205e54d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a7c23882605e3cefc3db081205e54d9">&#9670;&nbsp;</a></span>ldiv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ldiv </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Divisão de long. Retira os dois operandos do topo da pilha, divide-os e coloca o resultado no topo da pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="ab693bce036b27705fb704e335c0e4388"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab693bce036b27705fb704e335c0e4388">&#9670;&nbsp;</a></span>lmul()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lmul </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Multiplicação de long. Retira os dois operando do topo da pilha, multiplica-os e coloca o resultado no topo da pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a29635e91b69be6bcbf4ba49ce0947d45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29635e91b69be6bcbf4ba49ce0947d45">&#9670;&nbsp;</a></span>lneg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lneg </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcula o valor negativo de long. Retira o operando do topo da pilha, nega o valor do operando e o salva o resultado no topo da pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a525fa75d3604ce1d234d9d4dabfe469f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a525fa75d3604ce1d234d9d4dabfe469f">&#9670;&nbsp;</a></span>lrem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lrem </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcula o resto da divisão entre dois long. Retira os dois operandos do topo da pilha, calcula o resto da divisão e coloca no topo. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a1ae9d0289685307a66d5a9e39adc22cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ae9d0289685307a66d5a9e39adc22cc">&#9670;&nbsp;</a></span>lshl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lshl </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcula o valor do shift left lógico para long. Retira dois operandos do topo da pilha e faz o shift left do primeiro operando por s posições, onde s são os 5 bits menos significativos do segundo operando. O resultado é colocado no topo da pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a8cb915e2e2e1f5f74521b19b461c2002"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cb915e2e2e1f5f74521b19b461c2002">&#9670;&nbsp;</a></span>lshr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lshr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcula o valor do shift right lógico para long. Retira dois operandos do topo da pilha e faz o shift right do primeiro operando por s posições, onde s são os 5 bits menos significativos do segundo operando. O resultado é colocado no topo da pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="ac299bc0a2a60444618180320051694c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac299bc0a2a60444618180320051694c3">&#9670;&nbsp;</a></span>lsub()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lsub </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Subtração do tipo long. Retira os dois operando do topo da pilha, subtraí-os e coloca o resultado no topo da pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

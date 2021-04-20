@@ -1,3 +1,7 @@
+/** 
+ *  @file instruction.hpp
+ *  @brief Estruturas, declaração de funções e definições de constanstes relacionadas a instruções
+ */
 
 #ifndef __INSTRUCTION_H__
 #define __INSTRUCTION_H__
@@ -64,6 +68,9 @@
 #define T_INT     0x10
 #define T_LONG    0x11
 
+/** 
+ *  @brief Estrutura de dados que armazena uma Instruction
+ */
 typedef struct Instruction {
   std::string name;
   u4 bytes;

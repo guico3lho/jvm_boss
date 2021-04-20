@@ -71,7 +71,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>O <a class="el" href="classFrame.html" title="O Frame armazena dados e resultados parciais, para executar ligação dinâmica,retornar valores para mé...">Frame</a> armazena dados e resultados parciais, para executar ligação dinâmica,retornar valores para métodos e disparar exceções.  
+<p>Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,retornar valores para métodos e disparar exceções.  
  <a href="classFrame.html#details">Mais...</a></p>
 
 <p><code>#include &lt;<a class="el" href="frame_8hpp_source.html">frame.hpp</a>&gt;</code></p>
@@ -79,10 +79,10 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Membros públicos</h2></td></tr>
 <tr class="memitem:a43d79ebd88b68d8aa6d088addfbe857b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrame.html#a43d79ebd88b68d8aa6d088addfbe857b">Frame</a> (<a class="el" href="structMethod__Info.html">Method_Info</a> *, <a class="el" href="structClass__File.html">Class_File</a>)</td></tr>
-<tr class="memdesc:a43d79ebd88b68d8aa6d088addfbe857b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor do <a class="el" href="classFrame.html" title="O Frame armazena dados e resultados parciais, para executar ligação dinâmica,retornar valores para mé...">Frame</a>. Constrói o <a class="el" href="classFrame.html" title="O Frame armazena dados e resultados parciais, para executar ligação dinâmica,retornar valores para mé...">Frame</a> com as informações gerais da classe (constant_pool_reference), informações de método (method_info), código do método (method_code), inica PC com 0 e dimensiona o vetor de variáveis locais.  <a href="classFrame.html#a43d79ebd88b68d8aa6d088addfbe857b">Mais...</a><br /></td></tr>
+<tr class="memdesc:a43d79ebd88b68d8aa6d088addfbe857b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor do <a class="el" href="classFrame.html" title="Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,...">Frame</a>. Constrói o <a class="el" href="classFrame.html" title="Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,...">Frame</a> com as informações gerais da classe (cp_reference), informações de método (method_info), código do método (method_code), inica PC com 0 e dimensiona o vetor de variáveis locais.  <a href="classFrame.html#a43d79ebd88b68d8aa6d088addfbe857b">Mais...</a><br /></td></tr>
 <tr class="separator:a43d79ebd88b68d8aa6d088addfbe857b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6d58ab5a9c0ed4082a0875b3d90e3fa"><td class="memItemLeft" align="right" valign="top"><a id="af6d58ab5a9c0ed4082a0875b3d90e3fa"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>execute_frame</b> ()</td></tr>
+<tr class="memitem:af6d58ab5a9c0ed4082a0875b3d90e3fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrame.html#af6d58ab5a9c0ed4082a0875b3d90e3fa">execute_frame</a> ()</td></tr>
+<tr class="memdesc:af6d58ab5a9c0ed4082a0875b3d90e3fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executa <a class="el" href="classFrame.html" title="Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,...">Frame</a> atual a partir do opcode armazanado no atributo de código na posição do pc do <a class="el" href="classFrame.html" title="Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,...">Frame</a>.  <a href="classFrame.html#af6d58ab5a9c0ed4082a0875b3d90e3fa">Mais...</a><br /></td></tr>
 <tr class="separator:af6d58ab5a9c0ed4082a0875b3d90e3fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a347de73ebe7eef1e4d73cdc0a887ead9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOperand.html">Operand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrame.html#a347de73ebe7eef1e4d73cdc0a887ead9">pop_operand</a> ()</td></tr>
 <tr class="memdesc:a347de73ebe7eef1e4d73cdc0a887ead9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retira um elemento do topo da pilha.  <a href="classFrame.html#a347de73ebe7eef1e4d73cdc0a887ead9">Mais...</a><br /></td></tr>
@@ -108,21 +108,21 @@ std::stack&lt; <a class="el" href="structOperand.html">Operand</a> * &gt;&#160;<
 <tr class="memitem:ac1a0e72da6de79d413084d7b89946161"><td class="memItemLeft" align="right" valign="top"><a id="ac1a0e72da6de79d413084d7b89946161"></a>
 <a class="el" href="structClass__File.html">Class_File</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>class_file_ref</b> = nullptr</td></tr>
 <tr class="separator:ac1a0e72da6de79d413084d7b89946161"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c44f097c67007ae056025fb979eec1a"><td class="memItemLeft" align="right" valign="top"><a id="a3c44f097c67007ae056025fb979eec1a"></a>
-<a class="el" href="structCp__Info.html">Cp_Info</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>constant_pool_reference</b> = nullptr</td></tr>
-<tr class="separator:a3c44f097c67007ae056025fb979eec1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7aebb9fe1195b2920f37b2728c246fa"><td class="memItemLeft" align="right" valign="top"><a id="af7aebb9fe1195b2920f37b2728c246fa"></a>
-<a class="el" href="structCode__Attribute.html">Code_Attribute</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>method_code</b> = nullptr</td></tr>
-<tr class="separator:af7aebb9fe1195b2920f37b2728c246fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a338b1219c2ecf89d84a4e8b9b5d44866"><td class="memItemLeft" align="right" valign="top"><a id="a338b1219c2ecf89d84a4e8b9b5d44866"></a>
+<a class="el" href="structCp__Info.html">Cp_Info</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>cp_reference</b> = nullptr</td></tr>
+<tr class="separator:a338b1219c2ecf89d84a4e8b9b5d44866"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e4c69af6bd7ac80225f443e53e129d4"><td class="memItemLeft" align="right" valign="top"><a id="a0e4c69af6bd7ac80225f443e53e129d4"></a>
 <a class="el" href="structMethod__Info.html">Method_Info</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>method_info</b> = nullptr</td></tr>
 <tr class="separator:a0e4c69af6bd7ac80225f443e53e129d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7aebb9fe1195b2920f37b2728c246fa"><td class="memItemLeft" align="right" valign="top"><a id="af7aebb9fe1195b2920f37b2728c246fa"></a>
+<a class="el" href="structCode__Attribute.html">Code_Attribute</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>method_code</b> = nullptr</td></tr>
+<tr class="separator:af7aebb9fe1195b2920f37b2728c246fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada6a6cf76d00cbadf43a86a686dd026c"><td class="memItemLeft" align="right" valign="top"><a id="ada6a6cf76d00cbadf43a86a686dd026c"></a>
 u4&#160;</td><td class="memItemRight" valign="bottom"><b>pc</b></td></tr>
 <tr class="separator:ada6a6cf76d00cbadf43a86a686dd026c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
-<div class="textblock"><p>O <a class="el" href="classFrame.html" title="O Frame armazena dados e resultados parciais, para executar ligação dinâmica,retornar valores para mé...">Frame</a> armazena dados e resultados parciais, para executar ligação dinâmica,retornar valores para métodos e disparar exceções. </p>
+<div class="textblock"><p>Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,retornar valores para métodos e disparar exceções. </p>
 <p>Cada frame possui seu próprio array de variáveis locais, sua pilha de operandos e uma referência para o pool de constantes da classe do método corrente. </p>
 </div><h2 class="groupheader">Documentação dos Construtores &amp; Destrutor</h2>
 <a id="a43d79ebd88b68d8aa6d088addfbe857b"></a>
@@ -151,7 +151,7 @@ u4&#160;</td><td class="memItemRight" valign="bottom"><b>pc</b></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Construtor do <a class="el" href="classFrame.html" title="O Frame armazena dados e resultados parciais, para executar ligação dinâmica,retornar valores para mé...">Frame</a>. Constrói o <a class="el" href="classFrame.html" title="O Frame armazena dados e resultados parciais, para executar ligação dinâmica,retornar valores para mé...">Frame</a> com as informações gerais da classe (constant_pool_reference), informações de método (method_info), código do método (method_code), inica PC com 0 e dimensiona o vetor de variáveis locais. </p>
+<p>Construtor do <a class="el" href="classFrame.html" title="Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,...">Frame</a>. Constrói o <a class="el" href="classFrame.html" title="Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,...">Frame</a> com as informações gerais da classe (cp_reference), informações de método (method_info), código do método (method_code), inica PC com 0 e dimensiona o vetor de variáveis locais. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">*method</td><td>ponteiro para informações do método </td></tr>
@@ -163,6 +163,31 @@ u4&#160;</td><td class="memItemRight" valign="bottom"><b>pc</b></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Documentação dos métodos</h2>
+<a id="af6d58ab5a9c0ed4082a0875b3d90e3fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6d58ab5a9c0ed4082a0875b3d90e3fa">&#9670;&nbsp;</a></span>execute_frame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Frame::execute_frame </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Executa <a class="el" href="classFrame.html" title="Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,...">Frame</a> atual a partir do opcode armazanado no atributo de código na posição do pc do <a class="el" href="classFrame.html" title="Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,...">Frame</a>. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a347de73ebe7eef1e4d73cdc0a887ead9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a347de73ebe7eef1e4d73cdc0a887ead9">&#9670;&nbsp;</a></span>pop_operand()</h2>
 
@@ -236,7 +261,7 @@ void </dd></dl>
 </div>
 <hr/>A documentação para esta classe foi gerada a partir dos seguintes ficheiros:<ul>
 <li>include/<a class="el" href="frame_8hpp_source.html">frame.hpp</a></li>
-<li>src/frame.cpp</li>
+<li>src/<a class="el" href="frame_8cpp.html">frame.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

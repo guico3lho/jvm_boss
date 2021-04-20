@@ -1,7 +1,7 @@
-/** @file Frame.h
- *  @brief ...
- *  @bug No know bugs.
+/** @file frame.hpp
+ *  @brief Estruturas e classes de Frames e Operandos
  */
+
 #ifndef __FRAME_H__
 #define __FRAME_H__
 
@@ -16,6 +16,9 @@ using std::string;
 struct Class_Loader;
 struct Array_Type;
 
+/** 
+ *  @brief Estrutura de dados que armazena um operando
+ */
 typedef struct Operand {
   u1 tag; 
   union{
@@ -27,18 +30,22 @@ typedef struct Operand {
     u4 type_float;
     u8 type_long;
     u8 type_double;
-    string* type_string;
+    
+    string       *type_string;
+    Array_Type   *array_type;
     Class_Loader *class_loader;
-    Array_Type *array_type;
   };
 } Operand;
 
+/** 
+ *  @brief Estrutura de dados que armazena o tipo do operando
+ */
 typedef struct Array_Type{  
   std::vector<Operand*> *array;
 } Array_Type;
 
 /**
-  * @brief O Frame armazena dados e resultados parciais, para executar
+  * @brief Estrutura de dados que armazena informações e resultados parciais, para executar
   *  ligação dinâmica,retornar valores para métodos e disparar exceções.
   * 
   *  Cada frame possui seu próprio array de variáveis locais, sua pilha de

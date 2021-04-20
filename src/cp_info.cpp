@@ -1,3 +1,8 @@
+/**
+ * @file cp_info.cpp
+ * @brief Arquivo com funções relacionadas a Constant Pool
+*/
+
 #include "cp_info.hpp"
 
 // leitura do constant pool 

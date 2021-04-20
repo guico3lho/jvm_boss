@@ -1,3 +1,8 @@
+/** 
+ *  @file utils.hpp
+ *  @brief Declaração de funções auxiliares
+ */
+
 #ifndef __UTILS__
 #define __UTILS__
 

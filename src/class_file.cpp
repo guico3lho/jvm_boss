@@ -1,9 +1,8 @@
 /**
  * @file class_file.cpp
  * @brief Arquivo de funções relacionados com a leitura de dados do arquivo bytecode (.class)
- * 
- *  @bug No know bugs.
- */
+*/
+
 #include "class_file.hpp"
 
 /**

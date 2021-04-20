@@ -1,0 +1,34 @@
+\hypertarget{interpreter_8cpp}{}\doxysection{Referência ao ficheiro src/interpreter.cpp}
+\label{interpreter_8cpp}\index{src/interpreter.cpp@{src/interpreter.cpp}}
+
+
+Arquivo com funções para a execução do bytecode (.class)  
+
+
+{\ttfamily \#include \char`\"{}interpreter.\+hpp\char`\"{}}\newline
+\doxysubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{interpreter_8cpp_a3c23bd7075fa3cbbc83a21c843d6ef32}\label{interpreter_8cpp_a3c23bd7075fa3cbbc83a21c843d6ef32}} 
+void \mbox{\hyperlink{interpreter_8cpp_a3c23bd7075fa3cbbc83a21c843d6ef32}{execute}} (\mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} class\+\_\+file)
+\begin{DoxyCompactList}\small\item\em Função que executa a interpretação do arquivo .class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{interpreter_8cpp_a67f3a7b1f09da300bc98006887d7b996}\label{interpreter_8cpp_a67f3a7b1f09da300bc98006887d7b996}} 
+void {\bfseries push\+\_\+frame} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$frame)
+\item 
+\mbox{\Hypertarget{interpreter_8cpp_a77768fa6433dfd297d4bdab12c9fb90b}\label{interpreter_8cpp_a77768fa6433dfd297d4bdab12c9fb90b}} 
+void {\bfseries pop\+\_\+frame} ()
+\item 
+\mbox{\Hypertarget{interpreter_8cpp_a52b75c00c4f3a08388f17f270530c194}\label{interpreter_8cpp_a52b75c00c4f3a08388f17f270530c194}} 
+\mbox{\hyperlink{classFrame}{Frame}} $\ast$ {\bfseries top\+\_\+frame} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variáveis}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{interpreter_8cpp_a0b4b2a0802d500ad3efc186a601f24ed}\label{interpreter_8cpp_a0b4b2a0802d500ad3efc186a601f24ed}} 
+std\+::stack$<$ \mbox{\hyperlink{classFrame}{Frame}} $\ast$ $>$ {\bfseries frame\+\_\+stack}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Arquivo com funções para a execução do bytecode (.class) 
+
