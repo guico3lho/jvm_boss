@@ -1,0 +1,56 @@
+\hypertarget{frame_8cpp}{}\doxysection{Referência ao ficheiro src/frame.cpp}
+\label{frame_8cpp}\index{src/frame.cpp@{src/frame.cpp}}
+
+
+Inicia o \mbox{\hyperlink{classFrame}{Frame}} de execução com vetor de variáveis locais, operandos, contador de programa e ponteiro para pool de constantes.  
+
+
+{\ttfamily \#include \char`\"{}frame.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}instructions/instructions\+\_\+constant.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}instructions/instructions\+\_\+load.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}instructions/instructions\+\_\+store.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}instructions/instructions\+\_\+math.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}instructions/instructions\+\_\+stack.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}instructions/instructions\+\_\+conversion.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}instructions/instructions\+\_\+comparison.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}instructions/instructions\+\_\+reference.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}instructions/instructions\+\_\+control.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}instructions/instructions\+\_\+extended.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}interpreter.\+hpp\char`\"{}}\newline
+\doxysubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structOperand}{Operand}} $\ast$ \mbox{\hyperlink{frame_8cpp_a399ae1a5857398917c2f947a8501d627}{copy\+\_\+operand}} (\mbox{\hyperlink{structOperand}{Operand}} $\ast$original\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Cria um ponteiro de cópia do mesmo tipo que ele está recebendo para não utilizar a mesma instância. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variáveis}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{frame_8cpp_a6c6658eeea6b6eab8da48e26e4ae81b8}\label{frame_8cpp_a6c6658eeea6b6eab8da48e26e4ae81b8}} 
+void($\ast$ {\bfseries func} \mbox{[}256\mbox{]})(\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Inicia o \mbox{\hyperlink{classFrame}{Frame}} de execução com vetor de variáveis locais, operandos, contador de programa e ponteiro para pool de constantes. 
+
+
+
+\doxysubsection{Documentação das funções}
+\mbox{\Hypertarget{frame_8cpp_a399ae1a5857398917c2f947a8501d627}\label{frame_8cpp_a399ae1a5857398917c2f947a8501d627}} 
+\index{frame.cpp@{frame.cpp}!copy\_operand@{copy\_operand}}
+\index{copy\_operand@{copy\_operand}!frame.cpp@{frame.cpp}}
+\doxysubsubsection{\texorpdfstring{copy\_operand()}{copy\_operand()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOperand}{Operand}}$\ast$ copy\+\_\+operand (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOperand}{Operand}} $\ast$}]{original\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+Cria um ponteiro de cópia do mesmo tipo que ele está recebendo para não utilizar a mesma instância. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em original\+\_\+type} & ponteiro para tipo de entrada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Operand$\ast$ ponteiro para cópia do tipo de entrada 
+\end{DoxyReturn}

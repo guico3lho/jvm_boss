@@ -1,0 +1,129 @@
+\hypertarget{types_8hpp}{}\doxysection{Referência ao ficheiro include/types.hpp}
+\label{types_8hpp}\index{include/types.hpp@{include/types.hpp}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{types_8hpp_ad72dbcf6d0153db1b8d8a58001feed83}\label{types_8hpp_ad72dbcf6d0153db1b8d8a58001feed83}} 
+\#define {\bfseries DEBUG}~true
+\item 
+\mbox{\Hypertarget{types_8hpp_ac6d4fee6d5dd7078795917f3bf80e3e6}\label{types_8hpp_ac6d4fee6d5dd7078795917f3bf80e3e6}} 
+\#define {\bfseries CONSTANT\+\_\+\+EMPTY}~0
+\item 
+\mbox{\Hypertarget{types_8hpp_ae59099cfa3071f06e28a0956420c4fdd}\label{types_8hpp_ae59099cfa3071f06e28a0956420c4fdd}} 
+\#define {\bfseries CONSTANT\+\_\+\+UTF8}~1
+\item 
+\mbox{\Hypertarget{types_8hpp_a05b717eaf79bcafa8d2e7f6505728162}\label{types_8hpp_a05b717eaf79bcafa8d2e7f6505728162}} 
+\#define {\bfseries CONSTANT\+\_\+\+INT}~3
+\item 
+\mbox{\Hypertarget{types_8hpp_a44585b0db5c747c4609e33012ae443ab}\label{types_8hpp_a44585b0db5c747c4609e33012ae443ab}} 
+\#define {\bfseries CONSTANT\+\_\+\+FLOAT}~4
+\item 
+\mbox{\Hypertarget{types_8hpp_a69965d6839efbb4e5c6c76e1981eea08}\label{types_8hpp_a69965d6839efbb4e5c6c76e1981eea08}} 
+\#define {\bfseries CONSTANT\+\_\+\+LONG}~5
+\item 
+\mbox{\Hypertarget{types_8hpp_a716eb110254cfb504cee60aaa3b27e5b}\label{types_8hpp_a716eb110254cfb504cee60aaa3b27e5b}} 
+\#define {\bfseries CONSTANT\+\_\+\+DOUBLE}~6
+\item 
+\mbox{\Hypertarget{types_8hpp_ae6bc52024986da7c2d58e9f87f0ad6fc}\label{types_8hpp_ae6bc52024986da7c2d58e9f87f0ad6fc}} 
+\#define {\bfseries CONSTANT\+\_\+\+CLASS}~7
+\item 
+\mbox{\Hypertarget{types_8hpp_a11e1292ac7d79b0e3665a4dd0a1fc5ea}\label{types_8hpp_a11e1292ac7d79b0e3665a4dd0a1fc5ea}} 
+\#define {\bfseries CONSTANT\+\_\+\+STRING}~8
+\item 
+\mbox{\Hypertarget{types_8hpp_aaa0ceba34e1635d5b3a854ef6d25f393}\label{types_8hpp_aaa0ceba34e1635d5b3a854ef6d25f393}} 
+\#define {\bfseries CONSTANT\+\_\+\+FIELD\+\_\+\+REF}~9
+\item 
+\mbox{\Hypertarget{types_8hpp_af734e13b6fa6cdf4d124fc579a96b093}\label{types_8hpp_af734e13b6fa6cdf4d124fc579a96b093}} 
+\#define {\bfseries CONSTANT\+\_\+\+METHOD\+\_\+\+REF}~10
+\item 
+\mbox{\Hypertarget{types_8hpp_a589dd27622b23fa805907a30b3c6d7d6}\label{types_8hpp_a589dd27622b23fa805907a30b3c6d7d6}} 
+\#define {\bfseries CONSTANT\+\_\+\+INTERFACE\+\_\+\+METHOD\+\_\+\+REF}~11
+\item 
+\mbox{\Hypertarget{types_8hpp_a2d8a2a7ba5c1153168aa012e8278e1e5}\label{types_8hpp_a2d8a2a7ba5c1153168aa012e8278e1e5}} 
+\#define {\bfseries CONSTANT\+\_\+\+NAME\+\_\+\+TYPE}~12
+\item 
+\mbox{\Hypertarget{types_8hpp_acc5e68bf8e2529fcc173c2ec6195292c}\label{types_8hpp_acc5e68bf8e2529fcc173c2ec6195292c}} 
+\#define {\bfseries CONSTANT\+\_\+\+METHOD\+\_\+\+HANDLE}~15
+\item 
+\mbox{\Hypertarget{types_8hpp_ab3165407bb8f05703b8fecf7ea5d5de3}\label{types_8hpp_ab3165407bb8f05703b8fecf7ea5d5de3}} 
+\#define {\bfseries CONSTANT\+\_\+\+METHOD\+\_\+\+TYPE}~16
+\item 
+\mbox{\Hypertarget{types_8hpp_a06fd38c7d3630be4ac77ca7fe3d851ca}\label{types_8hpp_a06fd38c7d3630be4ac77ca7fe3d851ca}} 
+\#define {\bfseries CONSTANT\+\_\+\+INVOKE\+\_\+\+DYNAMIC}~18
+\item 
+\mbox{\Hypertarget{types_8hpp_a24c1b22b24d515c8842ffb9cea61dd4c}\label{types_8hpp_a24c1b22b24d515c8842ffb9cea61dd4c}} 
+\#define {\bfseries CONSTANT\+\_\+\+BOOL}~90
+\item 
+\mbox{\Hypertarget{types_8hpp_a6da2f637f21b23ca1c159d6369223aee}\label{types_8hpp_a6da2f637f21b23ca1c159d6369223aee}} 
+\#define {\bfseries CONSTANT\+\_\+\+BYTE}~91
+\item 
+\mbox{\Hypertarget{types_8hpp_a5fa08106d4dafdd077306d3b0a29c892}\label{types_8hpp_a5fa08106d4dafdd077306d3b0a29c892}} 
+\#define {\bfseries CONSTANT\+\_\+\+CHAR}~92
+\item 
+\mbox{\Hypertarget{types_8hpp_a6b7d0a999e0dc7d0f1829c4416026b00}\label{types_8hpp_a6b7d0a999e0dc7d0f1829c4416026b00}} 
+\#define {\bfseries CONSTANT\+\_\+\+SHORT}~93
+\item 
+\mbox{\Hypertarget{types_8hpp_aecef3634317d2d6ddfe29d42944c8bb9}\label{types_8hpp_aecef3634317d2d6ddfe29d42944c8bb9}} 
+\#define {\bfseries CONSTANT\+\_\+\+ARRAY}~94
+\item 
+\mbox{\Hypertarget{types_8hpp_a0fdbb084daf13068941396db9988bb8d}\label{types_8hpp_a0fdbb084daf13068941396db9988bb8d}} 
+\#define {\bfseries ACC\+\_\+\+PUBLIC}~0x0001
+\item 
+\mbox{\Hypertarget{types_8hpp_ab4a89247b3598c31a5999c76bf168a6a}\label{types_8hpp_ab4a89247b3598c31a5999c76bf168a6a}} 
+\#define {\bfseries ACC\+\_\+\+PRIVATE}~0x0002
+\item 
+\mbox{\Hypertarget{types_8hpp_aab759ad3d0d4d4ed59b7f516f1a4e271}\label{types_8hpp_aab759ad3d0d4d4ed59b7f516f1a4e271}} 
+\#define {\bfseries ACC\+\_\+\+PROTECTED}~0x0004
+\item 
+\mbox{\Hypertarget{types_8hpp_a7980f70a1935dcd3a74bf0e24fd2bce7}\label{types_8hpp_a7980f70a1935dcd3a74bf0e24fd2bce7}} 
+\#define {\bfseries ACC\+\_\+\+STATIC}~0x0008
+\item 
+\mbox{\Hypertarget{types_8hpp_ad170615172fa272627b79f604e3471b9}\label{types_8hpp_ad170615172fa272627b79f604e3471b9}} 
+\#define {\bfseries ACC\+\_\+\+FINAL}~0x0010
+\item 
+\mbox{\Hypertarget{types_8hpp_a64ab0ee48e02f736237394d4580bad5a}\label{types_8hpp_a64ab0ee48e02f736237394d4580bad5a}} 
+\#define {\bfseries ACC\+\_\+\+SUPER}~0x0020
+\item 
+\mbox{\Hypertarget{types_8hpp_afa6aaa9fa8e6b7c139a6f459ab3a42b1}\label{types_8hpp_afa6aaa9fa8e6b7c139a6f459ab3a42b1}} 
+\#define {\bfseries ACC\+\_\+\+VOLATILE}~0x0040
+\item 
+\mbox{\Hypertarget{types_8hpp_a79b164828e45ca7eb81b895b8ee4960e}\label{types_8hpp_a79b164828e45ca7eb81b895b8ee4960e}} 
+\#define {\bfseries ACC\+\_\+\+TRANSIENT}~0x0080
+\item 
+\mbox{\Hypertarget{types_8hpp_a21cd44dc8506e7f393a8e90936a22613}\label{types_8hpp_a21cd44dc8506e7f393a8e90936a22613}} 
+\#define {\bfseries ACC\+\_\+\+NATIVE}~0x0100
+\item 
+\mbox{\Hypertarget{types_8hpp_aca0c3297ae6a71033cf324d99793189a}\label{types_8hpp_aca0c3297ae6a71033cf324d99793189a}} 
+\#define {\bfseries ACC\+\_\+\+INTERFACE}~0x0200
+\item 
+\mbox{\Hypertarget{types_8hpp_a638658b616d4e7c16078f606224dc9ba}\label{types_8hpp_a638658b616d4e7c16078f606224dc9ba}} 
+\#define {\bfseries ACC\+\_\+\+ABSTRACT}~0x0400
+\item 
+\mbox{\Hypertarget{types_8hpp_a896d91d006ed72a57d9ce427f7699555}\label{types_8hpp_a896d91d006ed72a57d9ce427f7699555}} 
+\#define {\bfseries ACC\+\_\+\+STRICT}~0x0800
+\item 
+\mbox{\Hypertarget{types_8hpp_acb5d148f4620c15e9ab7cd8442aeb2ab}\label{types_8hpp_acb5d148f4620c15e9ab7cd8442aeb2ab}} 
+\#define {\bfseries ACC\+\_\+\+SYNTHETIC}~0x1000
+\item 
+\mbox{\Hypertarget{types_8hpp_a6563e8bf591cefcc580202ce9ae35e81}\label{types_8hpp_a6563e8bf591cefcc580202ce9ae35e81}} 
+\#define {\bfseries ACC\+\_\+\+ANNOTATION}~0x2000
+\item 
+\mbox{\Hypertarget{types_8hpp_a29b47bfd79f44107284aee2f6df6c51e}\label{types_8hpp_a29b47bfd79f44107284aee2f6df6c51e}} 
+\#define {\bfseries ACC\+\_\+\+ENUM}~0x4000
+\end{DoxyCompactItemize}
+\doxysubsection*{Definições de tipos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{types_8hpp_ad9f4cdb6757615aae2fad89dab3c5470}\label{types_8hpp_ad9f4cdb6757615aae2fad89dab3c5470}} 
+typedef uint8\+\_\+t {\bfseries u1}
+\item 
+\mbox{\Hypertarget{types_8hpp_a732cde1300aafb73b0ea6c2558a7a54f}\label{types_8hpp_a732cde1300aafb73b0ea6c2558a7a54f}} 
+typedef uint16\+\_\+t {\bfseries u2}
+\item 
+\mbox{\Hypertarget{types_8hpp_ae5be1f726785414dd1b77d60df074c9d}\label{types_8hpp_ae5be1f726785414dd1b77d60df074c9d}} 
+typedef uint32\+\_\+t {\bfseries u4}
+\item 
+\mbox{\Hypertarget{types_8hpp_ae4d1c3d548028e31400378ec81026110}\label{types_8hpp_ae4d1c3d548028e31400378ec81026110}} 
+typedef uint64\+\_\+t {\bfseries u8}
+\end{DoxyCompactItemize}

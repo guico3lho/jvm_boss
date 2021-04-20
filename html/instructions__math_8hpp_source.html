@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projeto JVM: Código-Fonte de include/instructions/instructions_math.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Projeto JVM
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_2843b2c750ff6b39dcfe98bf2554dba0.html">instructions</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">instructions_math.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="instructions__math_8hpp.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef __INSTRUCTIONS_MATH_H__</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define __INSTRUCTIONS_MATH_H__</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="frame_8hpp.html">frame.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/* MATH */</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#a43480740903e85d6d584e3549bac2449">iadd</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#a1b87357609e40b278b11cb3a210c93ec">ladd</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#a9ba80fa5175029141a3ad9f9ab2a2f99">fadd</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#a78d1844c0e14b0c2dd7afd146ef01ce3">dadd</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#ab3847c23224b5f1b5a248708db5b82da">isub</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#a20f1c4a060585fed14359944123b0b78">lsub</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#aea4a8bd823211d2ff1806e5c638adec5">fsub</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#a632c249248569c4782db523b50e4c1b6">dsub</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#a679dfac87cff4fae5efb50eed3317c94">idiv</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#ac79de2c2a50eada2974e77e3f18a1a51">ldiv</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#a06d91eb464e70c3db032a589d3bf949a">fdiv</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#a8bf7b888ebe5f16ac2c3eee4f8ee7ca2">ddiv</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#a9790b13bec95a08dd91556ecada99370">imul</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#a0134f25036f5bd2e16db019d2738242b">lmul</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#ad2dfe67711ef5d84075b0c4647c81902">fmul</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#a7794cf4a22f447eef533abdb4c905803">dmul</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#a6b313c300641b6fc19bb5628bf9d196b">irem</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#a87f77e14ee5b019b4c1ebd11232dd252">lrem</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#a3aa1e638f86eabe330718134e7d7cec1">frem</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#a62f914b8a49259529339f7a59034f88b">drem</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#a7abf8df132e6bdf07ed31b6aec751277">ineg</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#ae5d97f771033bfbc1c6ce8fb1650a015">lneg</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#a6630cc14cfa9e55b7ed0035e50ab27dc">fneg</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#a25a5391fc72f4e950c19fcf154b61647">dneg</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#adff314443524e894f57894acec6ec756">ishl</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#a601a5e8f334c983d9879304f57882dc9">lshl</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#a4ca00b7870eb12695688462f22f97f10">ishr</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#a677d455f02ef4fed37eecfb38dbdca1e">lshr</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">void</span> iushr(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordtype">void</span> lushr(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">void</span> iand(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">void</span> land(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#a1c8e5be4f196b07ab525d52af815daff">ior</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keywordtype">void</span> lor(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordtype">void</span> ixor(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">void</span> lxor(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__math_8hpp.html#a0af451c04c933cd70dd37af67528b941">iinc</a>(<a class="code" href="classFrame.html">Frame</a>*); </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassFrame_html"><div class="ttname"><a href="classFrame.html">Frame</a></div><div class="ttdoc">O Frame armazena dados e resultados parciais, para executar ligação dinâmica,retornar valores para mé...</div><div class="ttdef"><b>Definition:</b> frame.hpp:51</div></div>
+<div class="ttc" id="aframe_8hpp_html"><div class="ttname"><a href="frame_8hpp.html">frame.hpp</a></div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_a0134f25036f5bd2e16db019d2738242b"><div class="ttname"><a href="instructions__math_8hpp.html#a0134f25036f5bd2e16db019d2738242b">lmul</a></div><div class="ttdeci">void lmul(Frame *)</div><div class="ttdoc">Multiplicação de long. Retira os dois operando do topo da pilha, multiplica-os e coloca o resultado n...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:224</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_a06d91eb464e70c3db032a589d3bf949a"><div class="ttname"><a href="instructions__math_8hpp.html#a06d91eb464e70c3db032a589d3bf949a">fdiv</a></div><div class="ttdeci">void fdiv(Frame *)</div><div class="ttdoc">Divisão de float. Retira os dois operandos do topo da pilha, divide-os e coloca o resultado no topo d...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:338</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_a0af451c04c933cd70dd37af67528b941"><div class="ttname"><a href="instructions__math_8hpp.html#a0af451c04c933cd70dd37af67528b941">iinc</a></div><div class="ttdeci">void iinc(Frame *)</div><div class="ttdoc">Incrementa uma variavel local em uma constante.</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:805</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_a1b87357609e40b278b11cb3a210c93ec"><div class="ttname"><a href="instructions__math_8hpp.html#a1b87357609e40b278b11cb3a210c93ec">ladd</a></div><div class="ttdeci">void ladd(Frame *)</div><div class="ttdoc">Soma do tipo long. Retira os dois operando do topo da pilha, soma-os e coloca o resultado no topo da ...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:38</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_a1c8e5be4f196b07ab525d52af815daff"><div class="ttname"><a href="instructions__math_8hpp.html#a1c8e5be4f196b07ab525d52af815daff">ior</a></div><div class="ttdeci">void ior(Frame *)</div><div class="ttdoc">Realiza a operacao de OR entre dois operandos e empilha o resultado.</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:733</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_a20f1c4a060585fed14359944123b0b78"><div class="ttname"><a href="instructions__math_8hpp.html#a20f1c4a060585fed14359944123b0b78">lsub</a></div><div class="ttdeci">void lsub(Frame *)</div><div class="ttdoc">Subtração do tipo long. Retira os dois operando do topo da pilha, subtraí-os e coloca o resultado no ...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:131</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_a25a5391fc72f4e950c19fcf154b61647"><div class="ttname"><a href="instructions__math_8hpp.html#a25a5391fc72f4e950c19fcf154b61647">dneg</a></div><div class="ttdeci">void dneg(Frame *)</div><div class="ttdoc">Calcula o valor negativo de double. Retira o operando do topo da pilha, nega o valor do operando e o ...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:542</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_a3aa1e638f86eabe330718134e7d7cec1"><div class="ttname"><a href="instructions__math_8hpp.html#a3aa1e638f86eabe330718134e7d7cec1">frem</a></div><div class="ttdeci">void frem(Frame *)</div><div class="ttdoc">Calcula o resto da divisão entre dois floats.</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:439</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_a43480740903e85d6d584e3549bac2449"><div class="ttname"><a href="instructions__math_8hpp.html#a43480740903e85d6d584e3549bac2449">iadd</a></div><div class="ttdeci">void iadd(Frame *)</div><div class="ttdoc">Soma de inteiros. Retira os dois operando do topo da pilha, soma-os e coloca o resultado no topo da p...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:16</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_a4ca00b7870eb12695688462f22f97f10"><div class="ttname"><a href="instructions__math_8hpp.html#a4ca00b7870eb12695688462f22f97f10">ishr</a></div><div class="ttdeci">void ishr(Frame *)</div><div class="ttdoc">Calcula o valor do shift right lógico para inteiro. Retira dois operandos do topo da pilha e faz o sh...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:616</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_a601a5e8f334c983d9879304f57882dc9"><div class="ttname"><a href="instructions__math_8hpp.html#a601a5e8f334c983d9879304f57882dc9">lshl</a></div><div class="ttdeci">void lshl(Frame *)</div><div class="ttdoc">Calcula o valor do shift left lógico para long. Retira dois operandos do topo da pilha e faz o shift ...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:589</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_a62f914b8a49259529339f7a59034f88b"><div class="ttname"><a href="instructions__math_8hpp.html#a62f914b8a49259529339f7a59034f88b">drem</a></div><div class="ttdeci">void drem(Frame *)</div><div class="ttdoc">Calcula o resto da divisão entre dois double. Retira os dois operandos do topo da pilha,...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:463</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_a632c249248569c4782db523b50e4c1b6"><div class="ttname"><a href="instructions__math_8hpp.html#a632c249248569c4782db523b50e4c1b6">dsub</a></div><div class="ttdeci">void dsub(Frame *)</div><div class="ttdoc">Subtração do tipo double. Retira os dois operando do topo da pilha, subtraí-os e coloca o resultado n...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:177</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_a6630cc14cfa9e55b7ed0035e50ab27dc"><div class="ttname"><a href="instructions__math_8hpp.html#a6630cc14cfa9e55b7ed0035e50ab27dc">fneg</a></div><div class="ttdeci">void fneg(Frame *)</div><div class="ttdoc">Calcula o valor negativo de float. Retira o operando do topo da pilha, nega o valor do operando e o s...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:521</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_a677d455f02ef4fed37eecfb38dbdca1e"><div class="ttname"><a href="instructions__math_8hpp.html#a677d455f02ef4fed37eecfb38dbdca1e">lshr</a></div><div class="ttdeci">void lshr(Frame *)</div><div class="ttdoc">Calcula o valor do shift right lógico para long. Retira dois operandos do topo da pilha e faz o shift...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:640</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_a679dfac87cff4fae5efb50eed3317c94"><div class="ttname"><a href="instructions__math_8hpp.html#a679dfac87cff4fae5efb50eed3317c94">idiv</a></div><div class="ttdeci">void idiv(Frame *)</div><div class="ttdoc">Divisão de inteiro. Retira os dois operandos do topo da pilha, divide-os e coloca o resultado no topo...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:297</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_a6b313c300641b6fc19bb5628bf9d196b"><div class="ttname"><a href="instructions__math_8hpp.html#a6b313c300641b6fc19bb5628bf9d196b">irem</a></div><div class="ttdeci">void irem(Frame *)</div><div class="ttdoc">Calcula o resto da divisão entre dois inteiros. Retira os dois operandos do topo da pilha,...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:390</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_a7794cf4a22f447eef533abdb4c905803"><div class="ttname"><a href="instructions__math_8hpp.html#a7794cf4a22f447eef533abdb4c905803">dmul</a></div><div class="ttdeci">void dmul(Frame *)</div><div class="ttdoc">Multiplicação de double. Retira os dois operando do topo da pilha, multiplica-os e coloca o resultado...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:271</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_a78d1844c0e14b0c2dd7afd146ef01ce3"><div class="ttname"><a href="instructions__math_8hpp.html#a78d1844c0e14b0c2dd7afd146ef01ce3">dadd</a></div><div class="ttdeci">void dadd(Frame *)</div><div class="ttdoc">Soma do tipo double. Retira os dois operando do topo da pilha, soma-os e coloca o resultado no topo d...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:84</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_a7abf8df132e6bdf07ed31b6aec751277"><div class="ttname"><a href="instructions__math_8hpp.html#a7abf8df132e6bdf07ed31b6aec751277">ineg</a></div><div class="ttdeci">void ineg(Frame *)</div><div class="ttdoc">Calcula o valor negativo de int. Retira o operando do topo da pilha, nega o valor do operando e o sal...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:486</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_a87f77e14ee5b019b4c1ebd11232dd252"><div class="ttname"><a href="instructions__math_8hpp.html#a87f77e14ee5b019b4c1ebd11232dd252">lrem</a></div><div class="ttdeci">void lrem(Frame *)</div><div class="ttdoc">Calcula o resto da divisão entre dois long. Retira os dois operandos do topo da pilha,...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:416</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_a8bf7b888ebe5f16ac2c3eee4f8ee7ca2"><div class="ttname"><a href="instructions__math_8hpp.html#a8bf7b888ebe5f16ac2c3eee4f8ee7ca2">ddiv</a></div><div class="ttdeci">void ddiv(Frame *)</div><div class="ttdoc">Divisão de double. Retira os dois operandos do topo da pilha, divide-os e coloca o resultado no topo ...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:362</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_a9790b13bec95a08dd91556ecada99370"><div class="ttname"><a href="instructions__math_8hpp.html#a9790b13bec95a08dd91556ecada99370">imul</a></div><div class="ttdeci">void imul(Frame *)</div><div class="ttdoc">Multiplicação de inteiros. Retira os dois operando do topo da pilha, multiplica-os e coloca o resulta...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:203</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_a9ba80fa5175029141a3ad9f9ab2a2f99"><div class="ttname"><a href="instructions__math_8hpp.html#a9ba80fa5175029141a3ad9f9ab2a2f99">fadd</a></div><div class="ttdeci">void fadd(Frame *)</div><div class="ttdoc">Soma do tipo float. Retira os dois operando do topo da pilha, soma-os e coloca o resultado no topo da...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:58</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_ab3847c23224b5f1b5a248708db5b82da"><div class="ttname"><a href="instructions__math_8hpp.html#ab3847c23224b5f1b5a248708db5b82da">isub</a></div><div class="ttdeci">void isub(Frame *)</div><div class="ttdoc">Subtração do tipo inteiro. Retira os dois operando do topo da pilha, subtraí-os e coloca o resultado ...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:111</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_ac79de2c2a50eada2974e77e3f18a1a51"><div class="ttname"><a href="instructions__math_8hpp.html#ac79de2c2a50eada2974e77e3f18a1a51">ldiv</a></div><div class="ttdeci">void ldiv(Frame *)</div><div class="ttdoc">Divisão de long. Retira os dois operandos do topo da pilha, divide-os e coloca o resultado no topo da...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:318</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_ad2dfe67711ef5d84075b0c4647c81902"><div class="ttname"><a href="instructions__math_8hpp.html#ad2dfe67711ef5d84075b0c4647c81902">fmul</a></div><div class="ttdeci">void fmul(Frame *)</div><div class="ttdoc">Multiplicação de float. Retira os dois operando do topo da pilha, multiplica-os e coloca o resultado ...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:245</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_adff314443524e894f57894acec6ec756"><div class="ttname"><a href="instructions__math_8hpp.html#adff314443524e894f57894acec6ec756">ishl</a></div><div class="ttdeci">void ishl(Frame *)</div><div class="ttdoc">Calcula o valor do shift left lógico para inteiro. Retira dois operandos do topo da pilha e faz o shi...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:563</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_ae5d97f771033bfbc1c6ce8fb1650a015"><div class="ttname"><a href="instructions__math_8hpp.html#ae5d97f771033bfbc1c6ce8fb1650a015">lneg</a></div><div class="ttdeci">void lneg(Frame *)</div><div class="ttdoc">Calcula o valor negativo de long. Retira o operando do topo da pilha, nega o valor do operando e o sa...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:502</div></div>
+<div class="ttc" id="ainstructions__math_8hpp_html_aea4a8bd823211d2ff1806e5c638adec5"><div class="ttname"><a href="instructions__math_8hpp.html#aea4a8bd823211d2ff1806e5c638adec5">fsub</a></div><div class="ttdeci">void fsub(Frame *)</div><div class="ttdoc">Subtração do tipo float. Retira os dois operando do topo da pilha, subtraí-os e coloca o resultado no...</div><div class="ttdef"><b>Definition:</b> instructions_math.cpp:151</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

@@ -69,30 +69,34 @@ $(function() {
 <div class="title">field_info.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef __FIELD_INFO_H__</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define __FIELD_INFO_H__</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;attribute_info.hpp&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;class_file.hpp&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">struct </span><a class="code" href="structClass__File.html">Class_File</a>;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">struct </span><a class="code" href="structAttribute__Info.html">Attribute_Info</a>;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="structField__Info.html">   10</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structField__Info.html">Field_Info</a>{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    u2  access_flags;     <span class="comment">//  mask of flags to denote access permission</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  u2  name_index;       <span class="comment">// CONSTANT_UTF8, field name</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  u2  descriptor_index; <span class="comment">// CONSTANT_UTF8, field valid descriptor</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  u2  atributes_count;  <span class="comment">// number of field attributes</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <a class="code" href="structAttribute__Info.html">Attribute_Info</a>  *attributes;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;} <a class="code" href="structField__Info.html">Field_Info</a>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">void</span> read_field_info(FILE *file, <a class="code" href="structClass__File.html">Class_File</a> *class_file);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="astructAttribute__Info_html"><div class="ttname"><a href="structAttribute__Info.html">Attribute_Info</a></div><div class="ttdef"><b>Definition:</b> attribute_info.hpp:75</div></div>
-<div class="ttc" id="astructClass__File_html"><div class="ttname"><a href="structClass__File.html">Class_File</a></div><div class="ttdef"><b>Definition:</b> class_file.hpp:17</div></div>
-<div class="ttc" id="astructField__Info_html"><div class="ttname"><a href="structField__Info.html">Field_Info</a></div><div class="ttdef"><b>Definition:</b> field_info.hpp:10</div></div>
+<a href="field__info_8hpp.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef __FIELD_INFO_H__</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define __FIELD_INFO_H__</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="attribute__info_8hpp.html">attribute_info.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="class__file_8hpp.html">class_file.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">struct </span><a class="code" href="structClass__File.html">Class_File</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">struct </span><a class="code" href="structAttribute__Info.html">Attribute_Info</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structField__Info.html">   19</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structField__Info.html">Field_Info</a>{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    u2  access_flags;     <span class="comment">//  mask of flags to denote access permission</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  u2  name_index;       <span class="comment">// CONSTANT_UTF8, field name</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  u2  descriptor_index; <span class="comment">// CONSTANT_UTF8, field valid descriptor</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  u2  atributes_count;  <span class="comment">// number of field attributes</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <a class="code" href="structAttribute__Info.html">Attribute_Info</a>  *attributes;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="field__info_8hpp.html#adcb5800196a8484cc01a20241b54ea9d">   26</a></span>&#160;} <a class="code" href="field__info_8hpp.html#adcb5800196a8484cc01a20241b54ea9d">Field_Info</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">void</span> read_field_info(FILE *file, <a class="code" href="structClass__File.html">Class_File</a> *class_file);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aattribute__info_8hpp_html"><div class="ttname"><a href="attribute__info_8hpp.html">attribute_info.hpp</a></div></div>
+<div class="ttc" id="aclass__file_8hpp_html"><div class="ttname"><a href="class__file_8hpp.html">class_file.hpp</a></div></div>
+<div class="ttc" id="afield__info_8hpp_html_adcb5800196a8484cc01a20241b54ea9d"><div class="ttname"><a href="field__info_8hpp.html#adcb5800196a8484cc01a20241b54ea9d">Field_Info</a></div><div class="ttdeci">struct Field_Info Field_Info</div><div class="ttdoc">Field_Info - estrutura de dados que armazena os Fields.</div></div>
+<div class="ttc" id="astructAttribute__Info_html"><div class="ttname"><a href="structAttribute__Info.html">Attribute_Info</a></div><div class="ttdoc">Attribute_Info - Estrutura de dados.</div><div class="ttdef"><b>Definition:</b> attribute_info.hpp:125</div></div>
+<div class="ttc" id="astructClass__File_html"><div class="ttname"><a href="structClass__File.html">Class_File</a></div><div class="ttdef"><b>Definition:</b> class_file.hpp:22</div></div>
+<div class="ttc" id="astructField__Info_html"><div class="ttname"><a href="structField__Info.html">Field_Info</a></div><div class="ttdoc">Field_Info - estrutura de dados que armazena os Fields.</div><div class="ttdef"><b>Definition:</b> field_info.hpp:19</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -13,10 +13,9 @@ O \mbox{\hyperlink{classFrame}{Frame}} armazena dados e resultados parciais, par
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classFrame_a43d79ebd88b68d8aa6d088addfbe857b}{Frame}} (\mbox{\hyperlink{structMethod__Info}{Method\+\_\+\+Info}} $\ast$, \mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}})
-\begin{DoxyCompactList}\small\item\em Construtor do \mbox{\hyperlink{classFrame}{Frame}}. Constrói o \mbox{\hyperlink{classFrame}{Frame}} com as informações gerais da classe (constant\+\_\+pool\+\_\+reference), informações de método (method\+\_\+info), código do método (method\+\_\+code), inica PC com 0 e dimensiona o vetor de variáveis locais. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classFrame_af6d58ab5a9c0ed4082a0875b3d90e3fa}\label{classFrame_af6d58ab5a9c0ed4082a0875b3d90e3fa}} 
-void {\bfseries execute\+\_\+frame} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Construtor do \mbox{\hyperlink{classFrame}{Frame}}. Constrói o \mbox{\hyperlink{classFrame}{Frame}} com as informações gerais da classe (cp\+\_\+reference), informações de método (method\+\_\+info), código do método (method\+\_\+code), inica PC com 0 e dimensiona o vetor de variáveis locais. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFrame_af6d58ab5a9c0ed4082a0875b3d90e3fa}{execute\+\_\+frame}} ()
+\begin{DoxyCompactList}\small\item\em Executa \mbox{\hyperlink{classFrame}{Frame}} atual a partir do opcode armazanado no atributo de código na posição do pc do \mbox{\hyperlink{classFrame}{Frame}}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structOperand}{Operand}} $\ast$ \mbox{\hyperlink{classFrame_a347de73ebe7eef1e4d73cdc0a887ead9}{pop\+\_\+operand}} ()
 \begin{DoxyCompactList}\small\item\em Retira um elemento do topo da pilha. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classFrame_a1fc31610af8beaebb612c43c0fe4b3fe}{push\+\_\+operand}} (\mbox{\hyperlink{structOperand}{Operand}} $\ast$op)
@@ -38,14 +37,14 @@ std\+::stack$<$ \mbox{\hyperlink{structOperand}{Operand}} $\ast$ $>$ {\bfseries 
 \mbox{\Hypertarget{classFrame_ac1a0e72da6de79d413084d7b89946161}\label{classFrame_ac1a0e72da6de79d413084d7b89946161}} 
 \mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} $\ast$ {\bfseries class\+\_\+file\+\_\+ref} = nullptr
 \item 
-\mbox{\Hypertarget{classFrame_a3c44f097c67007ae056025fb979eec1a}\label{classFrame_a3c44f097c67007ae056025fb979eec1a}} 
-\mbox{\hyperlink{structCp__Info}{Cp\+\_\+\+Info}} $\ast$ {\bfseries constant\+\_\+pool\+\_\+reference} = nullptr
-\item 
-\mbox{\Hypertarget{classFrame_af7aebb9fe1195b2920f37b2728c246fa}\label{classFrame_af7aebb9fe1195b2920f37b2728c246fa}} 
-\mbox{\hyperlink{structCode__Attribute}{Code\+\_\+\+Attribute}} $\ast$ {\bfseries method\+\_\+code} = nullptr
+\mbox{\Hypertarget{classFrame_a338b1219c2ecf89d84a4e8b9b5d44866}\label{classFrame_a338b1219c2ecf89d84a4e8b9b5d44866}} 
+\mbox{\hyperlink{structCp__Info}{Cp\+\_\+\+Info}} $\ast$ {\bfseries cp\+\_\+reference} = nullptr
 \item 
 \mbox{\Hypertarget{classFrame_a0e4c69af6bd7ac80225f443e53e129d4}\label{classFrame_a0e4c69af6bd7ac80225f443e53e129d4}} 
 \mbox{\hyperlink{structMethod__Info}{Method\+\_\+\+Info}} $\ast$ {\bfseries method\+\_\+info} = nullptr
+\item 
+\mbox{\Hypertarget{classFrame_af7aebb9fe1195b2920f37b2728c246fa}\label{classFrame_af7aebb9fe1195b2920f37b2728c246fa}} 
+\mbox{\hyperlink{structCode__Attribute}{Code\+\_\+\+Attribute}} $\ast$ {\bfseries method\+\_\+code} = nullptr
 \item 
 \mbox{\Hypertarget{classFrame_ada6a6cf76d00cbadf43a86a686dd026c}\label{classFrame_ada6a6cf76d00cbadf43a86a686dd026c}} 
 u4 {\bfseries pc}
@@ -66,7 +65,7 @@ Cada frame possui seu próprio array de variáveis locais, sua pilha de operando
 
 
 
-Construtor do \mbox{\hyperlink{classFrame}{Frame}}. Constrói o \mbox{\hyperlink{classFrame}{Frame}} com as informações gerais da classe (constant\+\_\+pool\+\_\+reference), informações de método (method\+\_\+info), código do método (method\+\_\+code), inica PC com 0 e dimensiona o vetor de variáveis locais. 
+Construtor do \mbox{\hyperlink{classFrame}{Frame}}. Constrói o \mbox{\hyperlink{classFrame}{Frame}} com as informações gerais da classe (cp\+\_\+reference), informações de método (method\+\_\+info), código do método (method\+\_\+code), inica PC com 0 e dimensiona o vetor de variáveis locais. 
 
 
 \begin{DoxyParams}{Parâmetros}
@@ -78,6 +77,21 @@ Construtor do \mbox{\hyperlink{classFrame}{Frame}}. Constrói o \mbox{\hyperlink
 
 
 \doxysubsection{Documentação dos métodos}
+\mbox{\Hypertarget{classFrame_af6d58ab5a9c0ed4082a0875b3d90e3fa}\label{classFrame_af6d58ab5a9c0ed4082a0875b3d90e3fa}} 
+\index{Frame@{Frame}!execute\_frame@{execute\_frame}}
+\index{execute\_frame@{execute\_frame}!Frame@{Frame}}
+\doxysubsubsection{\texorpdfstring{execute\_frame()}{execute\_frame()}}
+{\footnotesize\ttfamily void Frame\+::execute\+\_\+frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Executa \mbox{\hyperlink{classFrame}{Frame}} atual a partir do opcode armazanado no atributo de código na posição do pc do \mbox{\hyperlink{classFrame}{Frame}}. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em void} & \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classFrame_a347de73ebe7eef1e4d73cdc0a887ead9}\label{classFrame_a347de73ebe7eef1e4d73cdc0a887ead9}} 
 \index{Frame@{Frame}!pop\_operand@{pop\_operand}}
 \index{pop\_operand@{pop\_operand}!Frame@{Frame}}
@@ -123,5 +137,5 @@ void
 
 A documentação para esta classe foi gerada a partir dos seguintes ficheiros\+:\begin{DoxyCompactItemize}
 \item 
-include/frame.\+hpp\item 
-src/frame.\+cpp\end{DoxyCompactItemize}
+include/\mbox{\hyperlink{frame_8hpp}{frame.\+hpp}}\item 
+src/\mbox{\hyperlink{frame_8cpp}{frame.\+cpp}}\end{DoxyCompactItemize}

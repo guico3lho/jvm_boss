@@ -1,0 +1,679 @@
+\hypertarget{instructions__load_8cpp}{}\doxysection{Referência ao ficheiro src/instructions/instructions\+\_\+load.cpp}
+\label{instructions__load_8cpp}\index{src/instructions/instructions\_load.cpp@{src/instructions/instructions\_load.cpp}}
+
+
+Módulo que contém as instruções de opcode do tipo load da JVM.  
+
+
+{\ttfamily \#include \char`\"{}interpreter.\+hpp\char`\"{}}\newline
+\doxysubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{instructions__load_8cpp_ae2d9e2d4131a9ed581b4a6e320d7cb8d}{iload}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Pusha um inteiro, indicado por um indice, na pilha de operandos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_af113d7aa3695bd1a75b9a43f68c675a8}{lload}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Empilha float indicado no indice index do array de variáveis locais na pilha de operandos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_a7c08e1088c738fe9db20bd09b886e82c}{fload}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Empilha float indicado no indice 0 do array de variáveis locais na pilha de operandos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_a334e3d39ccbbd75a5bf88e93d376cbae}{dload}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Dá push em um valor de preciso dupla de uma variável local para a pilha de operandos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_a9dac95e0ed8b7394e1269ee96c4da936}{aload}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Coloca na pilha de operandos a variável da posição do pc no vetor de variáveis locais. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_ac8bea93d3a46e61b44f5b8c39f7a9119}{iload\+\_\+0}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Pusha o inteiro do indice 0 na pilha de operandos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_abfd05bede094541751344979b5f55a1e}{iload\+\_\+1}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Pusha o inteiro do indice 1 na pilha de operandos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_a9cbd8aab5f2b511cddcaba17582d9837}{iload\+\_\+2}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Pusha o inteiro do indice 2 na pilha de operandos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_a2a39ca6df1e355955d0d3bc99fd420b7}{iload\+\_\+3}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Pusha o inteiro do indice 3 na pilha de operandos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_a2b804eead36a0f4bf1e7cf36fb0d5382}{lload\+\_\+0}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Empilha long indicado no indice 0 do array de variáveis locais na pilha de operandos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_a7761917a6e4fa8e4b132f16b53660f9b}{lload\+\_\+1}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Empilha long indicado no indice 1 do array de variáveis locais na pilha de operandos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_a3e55b89a38bd168061253b0eb009ca7e}{lload\+\_\+2}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Empilha long indicado no indice 2 do array de variáveis locais na pilha de operandos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_ab31d3c6e5ee45fb4f78f7181911cf60c}{lload\+\_\+3}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Empilha long indicado no indice 3 do array de variáveis locais na pilha de operandos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_ae30cd9784569ee0bfc4c69c8cca142ed}{fload\+\_\+0}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Empilha float indicado no indice 0 do array de variáveis locais na pilha de operandos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_acfa8db73aaf1491e7eb2ee450f789621}{fload\+\_\+1}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Empilha float indicado no indice 1 do array de variáveis locais na pilha de operandos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_a5666cffe43be80c3e9334fa177d518a7}{fload\+\_\+2}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Empilha float indicado no indice 2 do array de variáveis locais na pilha de operandos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_a34dbd04a47ed9efb364c5a4c779b7faa}{fload\+\_\+3}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Empilha float indicado no indice 3 do array de variáveis locais na pilha de operandos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_a1f6253b9ca2c59d2593d7b4b62dca141}{dload\+\_\+0}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em empilha double indicado no indice 0 do array de variaveis locais na pilha de operandos \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_a212b918d91cf80f2eff6cd57c029e12f}{dload\+\_\+1}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em empilha double indicado no indice 1 do array de variaveis locais na pilha de operandos \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_a303ff6c93459fea77aab4bf585c197fd}{dload\+\_\+2}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em empilha double indicado no indice 2 do array de variaveis locais na pilha de operandos \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_aca3be59af2f750a41f1f5d064bef998f}{dload\+\_\+3}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em empilha double indicado no indice 3 do array de variaveis locais na pilha de operandos \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_ac36decd64835ec75b5ad285534d4c36c}{aload\+\_\+0}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Coloca na pilha de operandos a variável da posição 0 do vetor de variáveis locais. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_ad75a304ace34487a682fe9d8200f0d88}{aload\+\_\+1}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Coloca na pilha de operandos a variável da posição 1 do vetor de variáveis locais. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_afe22e32bfb0877cedc9accba3819b175}{aload\+\_\+2}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Coloca na pilha de operandos a variável da posição 2 do vetor de variáveis locais. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_a29c23aff472b1c2cd9d5219001da6f28}{aload\+\_\+3}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Coloca na pilha de operandos a variável da posição 3 do vetor de variáveis locais. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_a2c3edcb72f512f5feae57c3799f54ee3}{iaload}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Coleta um inteiro do vetor de referência e coloca na pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_acfa175d8aad7c5c184286a46189e98ab}{laload}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Coleta um long do vetor de referência e coloca na pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_aa0b53bb930749595d5db67f32eed07da}{faload}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Coleta um float do vetor de referência e coloca na pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_a286d441e59cf8e784bf1ca0e1d6059fa}{daload}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Coleta um double do vetor de referência e coloca na pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_a37c5d923652c0788dad13725e6d401b4}{aaload}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Coleta um objeto do vetor de referência e coloca na pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_a080edab5998d87bf2c19e15ddd048ff6}{baload}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Coleta um booleano do vetor de referência e coloca na pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_aeea233e492e039f633f56eb3ba1cca86}{caload}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Coleta um char do vetor de referência e coloca na pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__load_8cpp_addf67f11d894db010ad209c9357b8c2a}{saload}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$curr\+\_\+frame)
+\begin{DoxyCompactList}\small\item\em Coleta um char do vetor de referência e coloca na pilha. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Módulo que contém as instruções de opcode do tipo load da JVM. 
+
+
+
+\doxysubsection{Documentação das funções}
+\mbox{\Hypertarget{instructions__load_8cpp_a37c5d923652c0788dad13725e6d401b4}\label{instructions__load_8cpp_a37c5d923652c0788dad13725e6d401b4}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!aaload@{aaload}}
+\index{aaload@{aaload}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{aaload()}{aaload()}}
+{\footnotesize\ttfamily void aaload (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Coleta um objeto do vetor de referência e coloca na pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_a9dac95e0ed8b7394e1269ee96c4da936}\label{instructions__load_8cpp_a9dac95e0ed8b7394e1269ee96c4da936}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!aload@{aload}}
+\index{aload@{aload}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{aload()}{aload()}}
+{\footnotesize\ttfamily void aload (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Coloca na pilha de operandos a variável da posição do pc no vetor de variáveis locais. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro que aponta para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_ac36decd64835ec75b5ad285534d4c36c}\label{instructions__load_8cpp_ac36decd64835ec75b5ad285534d4c36c}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!aload\_0@{aload\_0}}
+\index{aload\_0@{aload\_0}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{aload\_0()}{aload\_0()}}
+{\footnotesize\ttfamily void aload\+\_\+0 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Coloca na pilha de operandos a variável da posição 0 do vetor de variáveis locais. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro que aponta para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_ad75a304ace34487a682fe9d8200f0d88}\label{instructions__load_8cpp_ad75a304ace34487a682fe9d8200f0d88}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!aload\_1@{aload\_1}}
+\index{aload\_1@{aload\_1}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{aload\_1()}{aload\_1()}}
+{\footnotesize\ttfamily void aload\+\_\+1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Coloca na pilha de operandos a variável da posição 1 do vetor de variáveis locais. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro que aponta para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_afe22e32bfb0877cedc9accba3819b175}\label{instructions__load_8cpp_afe22e32bfb0877cedc9accba3819b175}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!aload\_2@{aload\_2}}
+\index{aload\_2@{aload\_2}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{aload\_2()}{aload\_2()}}
+{\footnotesize\ttfamily void aload\+\_\+2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Coloca na pilha de operandos a variável da posição 2 do vetor de variáveis locais. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro que aponta para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_a29c23aff472b1c2cd9d5219001da6f28}\label{instructions__load_8cpp_a29c23aff472b1c2cd9d5219001da6f28}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!aload\_3@{aload\_3}}
+\index{aload\_3@{aload\_3}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{aload\_3()}{aload\_3()}}
+{\footnotesize\ttfamily void aload\+\_\+3 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Coloca na pilha de operandos a variável da posição 3 do vetor de variáveis locais. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro que aponta para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_a080edab5998d87bf2c19e15ddd048ff6}\label{instructions__load_8cpp_a080edab5998d87bf2c19e15ddd048ff6}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!baload@{baload}}
+\index{baload@{baload}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{baload()}{baload()}}
+{\footnotesize\ttfamily void baload (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Coleta um booleano do vetor de referência e coloca na pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_aeea233e492e039f633f56eb3ba1cca86}\label{instructions__load_8cpp_aeea233e492e039f633f56eb3ba1cca86}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!caload@{caload}}
+\index{caload@{caload}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{caload()}{caload()}}
+{\footnotesize\ttfamily void caload (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Coleta um char do vetor de referência e coloca na pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_a286d441e59cf8e784bf1ca0e1d6059fa}\label{instructions__load_8cpp_a286d441e59cf8e784bf1ca0e1d6059fa}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!daload@{daload}}
+\index{daload@{daload}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{daload()}{daload()}}
+{\footnotesize\ttfamily void daload (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Coleta um double do vetor de referência e coloca na pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_a334e3d39ccbbd75a5bf88e93d376cbae}\label{instructions__load_8cpp_a334e3d39ccbbd75a5bf88e93d376cbae}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!dload@{dload}}
+\index{dload@{dload}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{dload()}{dload()}}
+{\footnotesize\ttfamily void dload (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Dá push em um valor de preciso dupla de uma variável local para a pilha de operandos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro que aponta para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_a1f6253b9ca2c59d2593d7b4b62dca141}\label{instructions__load_8cpp_a1f6253b9ca2c59d2593d7b4b62dca141}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!dload\_0@{dload\_0}}
+\index{dload\_0@{dload\_0}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{dload\_0()}{dload\_0()}}
+{\footnotesize\ttfamily void dload\+\_\+0 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+empilha double indicado no indice 0 do array de variaveis locais na pilha de operandos 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_a212b918d91cf80f2eff6cd57c029e12f}\label{instructions__load_8cpp_a212b918d91cf80f2eff6cd57c029e12f}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!dload\_1@{dload\_1}}
+\index{dload\_1@{dload\_1}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{dload\_1()}{dload\_1()}}
+{\footnotesize\ttfamily void dload\+\_\+1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+empilha double indicado no indice 1 do array de variaveis locais na pilha de operandos 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_a303ff6c93459fea77aab4bf585c197fd}\label{instructions__load_8cpp_a303ff6c93459fea77aab4bf585c197fd}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!dload\_2@{dload\_2}}
+\index{dload\_2@{dload\_2}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{dload\_2()}{dload\_2()}}
+{\footnotesize\ttfamily void dload\+\_\+2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+empilha double indicado no indice 2 do array de variaveis locais na pilha de operandos 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_aca3be59af2f750a41f1f5d064bef998f}\label{instructions__load_8cpp_aca3be59af2f750a41f1f5d064bef998f}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!dload\_3@{dload\_3}}
+\index{dload\_3@{dload\_3}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{dload\_3()}{dload\_3()}}
+{\footnotesize\ttfamily void dload\+\_\+3 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+empilha double indicado no indice 3 do array de variaveis locais na pilha de operandos 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_aa0b53bb930749595d5db67f32eed07da}\label{instructions__load_8cpp_aa0b53bb930749595d5db67f32eed07da}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!faload@{faload}}
+\index{faload@{faload}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{faload()}{faload()}}
+{\footnotesize\ttfamily void faload (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Coleta um float do vetor de referência e coloca na pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_a7c08e1088c738fe9db20bd09b886e82c}\label{instructions__load_8cpp_a7c08e1088c738fe9db20bd09b886e82c}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!fload@{fload}}
+\index{fload@{fload}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{fload()}{fload()}}
+{\footnotesize\ttfamily void fload (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Empilha float indicado no indice 0 do array de variáveis locais na pilha de operandos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_ae30cd9784569ee0bfc4c69c8cca142ed}\label{instructions__load_8cpp_ae30cd9784569ee0bfc4c69c8cca142ed}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!fload\_0@{fload\_0}}
+\index{fload\_0@{fload\_0}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{fload\_0()}{fload\_0()}}
+{\footnotesize\ttfamily void fload\+\_\+0 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Empilha float indicado no indice 0 do array de variáveis locais na pilha de operandos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_acfa8db73aaf1491e7eb2ee450f789621}\label{instructions__load_8cpp_acfa8db73aaf1491e7eb2ee450f789621}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!fload\_1@{fload\_1}}
+\index{fload\_1@{fload\_1}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{fload\_1()}{fload\_1()}}
+{\footnotesize\ttfamily void fload\+\_\+1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Empilha float indicado no indice 1 do array de variáveis locais na pilha de operandos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_a5666cffe43be80c3e9334fa177d518a7}\label{instructions__load_8cpp_a5666cffe43be80c3e9334fa177d518a7}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!fload\_2@{fload\_2}}
+\index{fload\_2@{fload\_2}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{fload\_2()}{fload\_2()}}
+{\footnotesize\ttfamily void fload\+\_\+2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Empilha float indicado no indice 2 do array de variáveis locais na pilha de operandos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_a34dbd04a47ed9efb364c5a4c779b7faa}\label{instructions__load_8cpp_a34dbd04a47ed9efb364c5a4c779b7faa}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!fload\_3@{fload\_3}}
+\index{fload\_3@{fload\_3}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{fload\_3()}{fload\_3()}}
+{\footnotesize\ttfamily void fload\+\_\+3 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Empilha float indicado no indice 3 do array de variáveis locais na pilha de operandos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_a2c3edcb72f512f5feae57c3799f54ee3}\label{instructions__load_8cpp_a2c3edcb72f512f5feae57c3799f54ee3}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!iaload@{iaload}}
+\index{iaload@{iaload}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{iaload()}{iaload()}}
+{\footnotesize\ttfamily void iaload (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Coleta um inteiro do vetor de referência e coloca na pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_ae2d9e2d4131a9ed581b4a6e320d7cb8d}\label{instructions__load_8cpp_ae2d9e2d4131a9ed581b4a6e320d7cb8d}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!iload@{iload}}
+\index{iload@{iload}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{iload()}{iload()}}
+{\footnotesize\ttfamily void iload (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Pusha um inteiro, indicado por um indice, na pilha de operandos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_ac8bea93d3a46e61b44f5b8c39f7a9119}\label{instructions__load_8cpp_ac8bea93d3a46e61b44f5b8c39f7a9119}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!iload\_0@{iload\_0}}
+\index{iload\_0@{iload\_0}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{iload\_0()}{iload\_0()}}
+{\footnotesize\ttfamily void iload\+\_\+0 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Pusha o inteiro do indice 0 na pilha de operandos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_abfd05bede094541751344979b5f55a1e}\label{instructions__load_8cpp_abfd05bede094541751344979b5f55a1e}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!iload\_1@{iload\_1}}
+\index{iload\_1@{iload\_1}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{iload\_1()}{iload\_1()}}
+{\footnotesize\ttfamily void iload\+\_\+1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Pusha o inteiro do indice 1 na pilha de operandos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_a9cbd8aab5f2b511cddcaba17582d9837}\label{instructions__load_8cpp_a9cbd8aab5f2b511cddcaba17582d9837}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!iload\_2@{iload\_2}}
+\index{iload\_2@{iload\_2}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{iload\_2()}{iload\_2()}}
+{\footnotesize\ttfamily void iload\+\_\+2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Pusha o inteiro do indice 2 na pilha de operandos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_a2a39ca6df1e355955d0d3bc99fd420b7}\label{instructions__load_8cpp_a2a39ca6df1e355955d0d3bc99fd420b7}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!iload\_3@{iload\_3}}
+\index{iload\_3@{iload\_3}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{iload\_3()}{iload\_3()}}
+{\footnotesize\ttfamily void iload\+\_\+3 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Pusha o inteiro do indice 3 na pilha de operandos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_acfa175d8aad7c5c184286a46189e98ab}\label{instructions__load_8cpp_acfa175d8aad7c5c184286a46189e98ab}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!laload@{laload}}
+\index{laload@{laload}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{laload()}{laload()}}
+{\footnotesize\ttfamily void laload (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Coleta um long do vetor de referência e coloca na pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_af113d7aa3695bd1a75b9a43f68c675a8}\label{instructions__load_8cpp_af113d7aa3695bd1a75b9a43f68c675a8}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!lload@{lload}}
+\index{lload@{lload}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{lload()}{lload()}}
+{\footnotesize\ttfamily void lload (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Empilha float indicado no indice index do array de variáveis locais na pilha de operandos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_a2b804eead36a0f4bf1e7cf36fb0d5382}\label{instructions__load_8cpp_a2b804eead36a0f4bf1e7cf36fb0d5382}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!lload\_0@{lload\_0}}
+\index{lload\_0@{lload\_0}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{lload\_0()}{lload\_0()}}
+{\footnotesize\ttfamily void lload\+\_\+0 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Empilha long indicado no indice 0 do array de variáveis locais na pilha de operandos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_a7761917a6e4fa8e4b132f16b53660f9b}\label{instructions__load_8cpp_a7761917a6e4fa8e4b132f16b53660f9b}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!lload\_1@{lload\_1}}
+\index{lload\_1@{lload\_1}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{lload\_1()}{lload\_1()}}
+{\footnotesize\ttfamily void lload\+\_\+1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Empilha long indicado no indice 1 do array de variáveis locais na pilha de operandos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_a3e55b89a38bd168061253b0eb009ca7e}\label{instructions__load_8cpp_a3e55b89a38bd168061253b0eb009ca7e}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!lload\_2@{lload\_2}}
+\index{lload\_2@{lload\_2}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{lload\_2()}{lload\_2()}}
+{\footnotesize\ttfamily void lload\+\_\+2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Empilha long indicado no indice 2 do array de variáveis locais na pilha de operandos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_ab31d3c6e5ee45fb4f78f7181911cf60c}\label{instructions__load_8cpp_ab31d3c6e5ee45fb4f78f7181911cf60c}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!lload\_3@{lload\_3}}
+\index{lload\_3@{lload\_3}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{lload\_3()}{lload\_3()}}
+{\footnotesize\ttfamily void lload\+\_\+3 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Empilha long indicado no indice 3 do array de variáveis locais na pilha de operandos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__load_8cpp_addf67f11d894db010ad209c9357b8c2a}\label{instructions__load_8cpp_addf67f11d894db010ad209c9357b8c2a}} 
+\index{instructions\_load.cpp@{instructions\_load.cpp}!saload@{saload}}
+\index{saload@{saload}!instructions\_load.cpp@{instructions\_load.cpp}}
+\doxysubsubsection{\texorpdfstring{saload()}{saload()}}
+{\footnotesize\ttfamily void saload (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Coleta um char do vetor de referência e coloca na pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}

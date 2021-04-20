@@ -1,0 +1,262 @@
+\hypertarget{instructions__conversion_8hpp}{}\doxysection{Referência ao ficheiro include/instructions/instructions\+\_\+conversion.hpp}
+\label{instructions__conversion_8hpp}\index{include/instructions/instructions\_conversion.hpp@{include/instructions/instructions\_conversion.hpp}}
+
+
+Declaração das funções de instruções de opcode do tipo conversione da JVM.  
+
+
+{\ttfamily \#include \char`\"{}frame.\+hpp\char`\"{}}\newline
+\doxysubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{instructions__conversion_8hpp_aa95bfec635b093f6000f976da5c0912e}{i2l}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Resgata o valor do topo da pilha (que deve ser int), covnerte para long e salva na pilha de operandos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__conversion_8hpp_ac485456e753e61023ab2a8a8a3b693be}{i2f}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Converte de inteiro para float. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__conversion_8hpp_a089a4edc8c41e2422eced889500c281e}{i2d}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Converte de int para double. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__conversion_8hpp_a09346e5c2063b08fd6704d6a6be76b8d}{l2i}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Converte um long para int. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__conversion_8hpp_a65512330cc8df6f0d2808734b5ba6f4f}{l2f}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Converte de long para float. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__conversion_8hpp_a034d5710ea00e5cd64f928593d53123d}{l2d}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Converte um long para double. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__conversion_8hpp_ae557f152b515f6695312a163a19a9892}{f2i}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Converte de float para inteiro. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{instructions__conversion_8hpp_af3157738faa35133817565e6793cb892}\label{instructions__conversion_8hpp_af3157738faa35133817565e6793cb892}} 
+void {\bfseries f2l} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\item 
+void \mbox{\hyperlink{instructions__conversion_8hpp_a89a47bd90ba7aab3359f93e719a24c01}{f2d}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Converte de float para double. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__conversion_8hpp_a338cf6f71b9cef09acc8ccc2dd6976ce}{d2i}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Converte de double para int. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__conversion_8hpp_a5c3845cadf5f891fb6720302b84c88bf}{d2l}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Converte de double para long. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__conversion_8hpp_a137a8f063051b33b62f29ff3866f569c}{d2f}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Converte double para float. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__conversion_8hpp_a9cd53aa38cdfb0b6cc1404360b0d8523}{i2s}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Converte int para short int. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Declaração das funções de instruções de opcode do tipo conversione da JVM. 
+
+
+
+\doxysubsection{Documentação das funções}
+\mbox{\Hypertarget{instructions__conversion_8hpp_a137a8f063051b33b62f29ff3866f569c}\label{instructions__conversion_8hpp_a137a8f063051b33b62f29ff3866f569c}} 
+\index{instructions\_conversion.hpp@{instructions\_conversion.hpp}!d2f@{d2f}}
+\index{d2f@{d2f}!instructions\_conversion.hpp@{instructions\_conversion.hpp}}
+\doxysubsubsection{\texorpdfstring{d2f()}{d2f()}}
+{\footnotesize\ttfamily void d2f (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Converte double para float. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__conversion_8hpp_a338cf6f71b9cef09acc8ccc2dd6976ce}\label{instructions__conversion_8hpp_a338cf6f71b9cef09acc8ccc2dd6976ce}} 
+\index{instructions\_conversion.hpp@{instructions\_conversion.hpp}!d2i@{d2i}}
+\index{d2i@{d2i}!instructions\_conversion.hpp@{instructions\_conversion.hpp}}
+\doxysubsubsection{\texorpdfstring{d2i()}{d2i()}}
+{\footnotesize\ttfamily void d2i (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Converte de double para int. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__conversion_8hpp_a5c3845cadf5f891fb6720302b84c88bf}\label{instructions__conversion_8hpp_a5c3845cadf5f891fb6720302b84c88bf}} 
+\index{instructions\_conversion.hpp@{instructions\_conversion.hpp}!d2l@{d2l}}
+\index{d2l@{d2l}!instructions\_conversion.hpp@{instructions\_conversion.hpp}}
+\doxysubsubsection{\texorpdfstring{d2l()}{d2l()}}
+{\footnotesize\ttfamily void d2l (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Converte de double para long. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__conversion_8hpp_a89a47bd90ba7aab3359f93e719a24c01}\label{instructions__conversion_8hpp_a89a47bd90ba7aab3359f93e719a24c01}} 
+\index{instructions\_conversion.hpp@{instructions\_conversion.hpp}!f2d@{f2d}}
+\index{f2d@{f2d}!instructions\_conversion.hpp@{instructions\_conversion.hpp}}
+\doxysubsubsection{\texorpdfstring{f2d()}{f2d()}}
+{\footnotesize\ttfamily void f2d (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Converte de float para double. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__conversion_8hpp_ae557f152b515f6695312a163a19a9892}\label{instructions__conversion_8hpp_ae557f152b515f6695312a163a19a9892}} 
+\index{instructions\_conversion.hpp@{instructions\_conversion.hpp}!f2i@{f2i}}
+\index{f2i@{f2i}!instructions\_conversion.hpp@{instructions\_conversion.hpp}}
+\doxysubsubsection{\texorpdfstring{f2i()}{f2i()}}
+{\footnotesize\ttfamily void f2i (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Converte de float para inteiro. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__conversion_8hpp_a089a4edc8c41e2422eced889500c281e}\label{instructions__conversion_8hpp_a089a4edc8c41e2422eced889500c281e}} 
+\index{instructions\_conversion.hpp@{instructions\_conversion.hpp}!i2d@{i2d}}
+\index{i2d@{i2d}!instructions\_conversion.hpp@{instructions\_conversion.hpp}}
+\doxysubsubsection{\texorpdfstring{i2d()}{i2d()}}
+{\footnotesize\ttfamily void i2d (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Converte de int para double. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro que aponta para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__conversion_8hpp_ac485456e753e61023ab2a8a8a3b693be}\label{instructions__conversion_8hpp_ac485456e753e61023ab2a8a8a3b693be}} 
+\index{instructions\_conversion.hpp@{instructions\_conversion.hpp}!i2f@{i2f}}
+\index{i2f@{i2f}!instructions\_conversion.hpp@{instructions\_conversion.hpp}}
+\doxysubsubsection{\texorpdfstring{i2f()}{i2f()}}
+{\footnotesize\ttfamily void i2f (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Converte de inteiro para float. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__conversion_8hpp_aa95bfec635b093f6000f976da5c0912e}\label{instructions__conversion_8hpp_aa95bfec635b093f6000f976da5c0912e}} 
+\index{instructions\_conversion.hpp@{instructions\_conversion.hpp}!i2l@{i2l}}
+\index{i2l@{i2l}!instructions\_conversion.hpp@{instructions\_conversion.hpp}}
+\doxysubsubsection{\texorpdfstring{i2l()}{i2l()}}
+{\footnotesize\ttfamily void i2l (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Resgata o valor do topo da pilha (que deve ser int), covnerte para long e salva na pilha de operandos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__conversion_8hpp_a9cd53aa38cdfb0b6cc1404360b0d8523}\label{instructions__conversion_8hpp_a9cd53aa38cdfb0b6cc1404360b0d8523}} 
+\index{instructions\_conversion.hpp@{instructions\_conversion.hpp}!i2s@{i2s}}
+\index{i2s@{i2s}!instructions\_conversion.hpp@{instructions\_conversion.hpp}}
+\doxysubsubsection{\texorpdfstring{i2s()}{i2s()}}
+{\footnotesize\ttfamily void i2s (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Converte int para short int. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro que aponta para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__conversion_8hpp_a034d5710ea00e5cd64f928593d53123d}\label{instructions__conversion_8hpp_a034d5710ea00e5cd64f928593d53123d}} 
+\index{instructions\_conversion.hpp@{instructions\_conversion.hpp}!l2d@{l2d}}
+\index{l2d@{l2d}!instructions\_conversion.hpp@{instructions\_conversion.hpp}}
+\doxysubsubsection{\texorpdfstring{l2d()}{l2d()}}
+{\footnotesize\ttfamily void l2d (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Converte um long para double. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__conversion_8hpp_a65512330cc8df6f0d2808734b5ba6f4f}\label{instructions__conversion_8hpp_a65512330cc8df6f0d2808734b5ba6f4f}} 
+\index{instructions\_conversion.hpp@{instructions\_conversion.hpp}!l2f@{l2f}}
+\index{l2f@{l2f}!instructions\_conversion.hpp@{instructions\_conversion.hpp}}
+\doxysubsubsection{\texorpdfstring{l2f()}{l2f()}}
+{\footnotesize\ttfamily void l2f (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Converte de long para float. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__conversion_8hpp_a09346e5c2063b08fd6704d6a6be76b8d}\label{instructions__conversion_8hpp_a09346e5c2063b08fd6704d6a6be76b8d}} 
+\index{instructions\_conversion.hpp@{instructions\_conversion.hpp}!l2i@{l2i}}
+\index{l2i@{l2i}!instructions\_conversion.hpp@{instructions\_conversion.hpp}}
+\doxysubsubsection{\texorpdfstring{l2i()}{l2i()}}
+{\footnotesize\ttfamily void l2i (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Converte um long para int. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}

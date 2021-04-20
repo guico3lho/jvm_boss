@@ -1,0 +1,723 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projeto JVM: Referência ao ficheiro include/instructions/instructions_constant.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Projeto JVM
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_2843b2c750ff6b39dcfe98bf2554dba0.html">instructions</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência ao ficheiro instructions_constant.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Declaração das funções de instruções de opcode do tipo constante da JVM.  
+<a href="#details">Mais...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="frame_8hpp_source.html">frame.hpp</a>&quot;</code><br />
+</div>
+<p><a href="instructions__constant_8hpp_source.html">Ir para o código fonte deste ficheiro.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:a08b94c482bf5daeb5628b8ee6ddb5990"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__constant_8hpp.html#a08b94c482bf5daeb5628b8ee6ddb5990">nop</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:a08b94c482bf5daeb5628b8ee6ddb5990"><td class="mdescLeft">&#160;</td><td class="mdescRight">Não faz nada, só incrementa pc.  <a href="instructions__constant_8hpp.html#a08b94c482bf5daeb5628b8ee6ddb5990">Mais...</a><br /></td></tr>
+<tr class="separator:a08b94c482bf5daeb5628b8ee6ddb5990"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebc52739336ae74d4c23f8b57fb22a34"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__constant_8hpp.html#aebc52739336ae74d4c23f8b57fb22a34">aconst_null</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:aebc52739336ae74d4c23f8b57fb22a34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empurra o valor NULL na pilha de operandos.  <a href="instructions__constant_8hpp.html#aebc52739336ae74d4c23f8b57fb22a34">Mais...</a><br /></td></tr>
+<tr class="separator:aebc52739336ae74d4c23f8b57fb22a34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1731927aa9e2d3ea195bd6193e3b5509"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__constant_8hpp.html#a1731927aa9e2d3ea195bd6193e3b5509">iconst_m1</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:a1731927aa9e2d3ea195bd6193e3b5509"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empurra int na pilha de operandos.  <a href="instructions__constant_8hpp.html#a1731927aa9e2d3ea195bd6193e3b5509">Mais...</a><br /></td></tr>
+<tr class="separator:a1731927aa9e2d3ea195bd6193e3b5509"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a317b0006eeea725dcb019200e41044d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__constant_8hpp.html#a317b0006eeea725dcb019200e41044d7">iconst_0</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:a317b0006eeea725dcb019200e41044d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empurra int na pilha de operandos.  <a href="instructions__constant_8hpp.html#a317b0006eeea725dcb019200e41044d7">Mais...</a><br /></td></tr>
+<tr class="separator:a317b0006eeea725dcb019200e41044d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2cd8e722af4e9fa9ddb0b991c647832"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__constant_8hpp.html#af2cd8e722af4e9fa9ddb0b991c647832">iconst_1</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:af2cd8e722af4e9fa9ddb0b991c647832"><td class="mdescLeft">&#160;</td><td class="mdescRight">...  <a href="instructions__constant_8hpp.html#af2cd8e722af4e9fa9ddb0b991c647832">Mais...</a><br /></td></tr>
+<tr class="separator:af2cd8e722af4e9fa9ddb0b991c647832"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f77e62fa2b32c072187f5b94221ec0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__constant_8hpp.html#a3f77e62fa2b32c072187f5b94221ec0d">iconst_2</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:a3f77e62fa2b32c072187f5b94221ec0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empurra int na pilha de operandos.  <a href="instructions__constant_8hpp.html#a3f77e62fa2b32c072187f5b94221ec0d">Mais...</a><br /></td></tr>
+<tr class="separator:a3f77e62fa2b32c072187f5b94221ec0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76713945e1efd025d882f06229bbb433"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__constant_8hpp.html#a76713945e1efd025d882f06229bbb433">iconst_3</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:a76713945e1efd025d882f06229bbb433"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empurra int na pilha de operandos.  <a href="instructions__constant_8hpp.html#a76713945e1efd025d882f06229bbb433">Mais...</a><br /></td></tr>
+<tr class="separator:a76713945e1efd025d882f06229bbb433"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd34d9892be52b289b1f1928bf3e8001"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__constant_8hpp.html#abd34d9892be52b289b1f1928bf3e8001">iconst_4</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:abd34d9892be52b289b1f1928bf3e8001"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empurra int na pilha de operandos.  <a href="instructions__constant_8hpp.html#abd34d9892be52b289b1f1928bf3e8001">Mais...</a><br /></td></tr>
+<tr class="separator:abd34d9892be52b289b1f1928bf3e8001"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c3483d6c65e778846cbb454d5d8567b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__constant_8hpp.html#a9c3483d6c65e778846cbb454d5d8567b">iconst_5</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:a9c3483d6c65e778846cbb454d5d8567b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empurra int na pilha de operandos.  <a href="instructions__constant_8hpp.html#a9c3483d6c65e778846cbb454d5d8567b">Mais...</a><br /></td></tr>
+<tr class="separator:a9c3483d6c65e778846cbb454d5d8567b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60099c4dc90ef5a5473f6ec1737e17c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__constant_8hpp.html#a60099c4dc90ef5a5473f6ec1737e17c7">lconst_0</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:a60099c4dc90ef5a5473f6ec1737e17c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empilha a constante long 0 na pilha de opreandos.  <a href="instructions__constant_8hpp.html#a60099c4dc90ef5a5473f6ec1737e17c7">Mais...</a><br /></td></tr>
+<tr class="separator:a60099c4dc90ef5a5473f6ec1737e17c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37dc80c88f54d643fd21d7a8f441efe6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__constant_8hpp.html#a37dc80c88f54d643fd21d7a8f441efe6">lconst_1</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:a37dc80c88f54d643fd21d7a8f441efe6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empilha a constante long 1 na pilha de operandos.  <a href="instructions__constant_8hpp.html#a37dc80c88f54d643fd21d7a8f441efe6">Mais...</a><br /></td></tr>
+<tr class="separator:a37dc80c88f54d643fd21d7a8f441efe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac60fae01a9a7ba738e6f44de41d774b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__constant_8hpp.html#ac60fae01a9a7ba738e6f44de41d774b3">fconst_0</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:ac60fae01a9a7ba738e6f44de41d774b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empilha a constante float 0 na pilha de operandos.  <a href="instructions__constant_8hpp.html#ac60fae01a9a7ba738e6f44de41d774b3">Mais...</a><br /></td></tr>
+<tr class="separator:ac60fae01a9a7ba738e6f44de41d774b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35751607085a1154dab4767abebf93b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__constant_8hpp.html#a35751607085a1154dab4767abebf93b9">fconst_1</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:a35751607085a1154dab4767abebf93b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empilha a constante float 1 na pilha de operandos.  <a href="instructions__constant_8hpp.html#a35751607085a1154dab4767abebf93b9">Mais...</a><br /></td></tr>
+<tr class="separator:a35751607085a1154dab4767abebf93b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a070b04fcf3b9e59960c1e204d9416644"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__constant_8hpp.html#a070b04fcf3b9e59960c1e204d9416644">fconst_2</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:a070b04fcf3b9e59960c1e204d9416644"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empilha a constante float 0 na pilha de operandos.  <a href="instructions__constant_8hpp.html#a070b04fcf3b9e59960c1e204d9416644">Mais...</a><br /></td></tr>
+<tr class="separator:a070b04fcf3b9e59960c1e204d9416644"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad48b6b8a2649190616bdfc2cf96d9eac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__constant_8hpp.html#ad48b6b8a2649190616bdfc2cf96d9eac">dconst_0</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:ad48b6b8a2649190616bdfc2cf96d9eac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empilha a constante double 0 na pilha de operandos.  <a href="instructions__constant_8hpp.html#ad48b6b8a2649190616bdfc2cf96d9eac">Mais...</a><br /></td></tr>
+<tr class="separator:ad48b6b8a2649190616bdfc2cf96d9eac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae150b0d94a30d0d95c6b133548f5e584"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__constant_8hpp.html#ae150b0d94a30d0d95c6b133548f5e584">dconst_1</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:ae150b0d94a30d0d95c6b133548f5e584"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empilha a constante double 1 na pilha de operandos.  <a href="instructions__constant_8hpp.html#ae150b0d94a30d0d95c6b133548f5e584">Mais...</a><br /></td></tr>
+<tr class="separator:ae150b0d94a30d0d95c6b133548f5e584"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbe4859d321d987e41d95941f3268e46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__constant_8hpp.html#adbe4859d321d987e41d95941f3268e46">bipush</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:adbe4859d321d987e41d95941f3268e46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empilha int composto por byte de argumento na pilha de operandos.  <a href="instructions__constant_8hpp.html#adbe4859d321d987e41d95941f3268e46">Mais...</a><br /></td></tr>
+<tr class="separator:adbe4859d321d987e41d95941f3268e46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec9b273b55d01f093d62cfb7e8a1d703"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__constant_8hpp.html#aec9b273b55d01f093d62cfb7e8a1d703">sipush</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:aec9b273b55d01f093d62cfb7e8a1d703"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empilha int composto por byte de argumento na pilha de operandos.  <a href="instructions__constant_8hpp.html#aec9b273b55d01f093d62cfb7e8a1d703">Mais...</a><br /></td></tr>
+<tr class="separator:aec9b273b55d01f093d62cfb7e8a1d703"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85f58930960d3cf3f84d6648108fb8d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__constant_8hpp.html#a85f58930960d3cf3f84d6648108fb8d0">ldc_w</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:a85f58930960d3cf3f84d6648108fb8d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dá push de uma word na pilha de operandos.  <a href="instructions__constant_8hpp.html#a85f58930960d3cf3f84d6648108fb8d0">Mais...</a><br /></td></tr>
+<tr class="separator:a85f58930960d3cf3f84d6648108fb8d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc59387e7744b77b7662ca530abaa9b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__constant_8hpp.html#afc59387e7744b77b7662ca530abaa9b6">ldc2_w</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:afc59387e7744b77b7662ca530abaa9b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dá push em duas words na pilha de operandos.  <a href="instructions__constant_8hpp.html#afc59387e7744b77b7662ca530abaa9b6">Mais...</a><br /></td></tr>
+<tr class="separator:afc59387e7744b77b7662ca530abaa9b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ad36bf4ba015c4d1afdf4477a55e08a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__constant_8hpp.html#a8ad36bf4ba015c4d1afdf4477a55e08a">ldc</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
+<tr class="memdesc:a8ad36bf4ba015c4d1afdf4477a55e08a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coloca na pilha de operandos uma constante do tamanho de uma word.  <a href="instructions__constant_8hpp.html#a8ad36bf4ba015c4d1afdf4477a55e08a">Mais...</a><br /></td></tr>
+<tr class="separator:a8ad36bf4ba015c4d1afdf4477a55e08a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Declaração das funções de instruções de opcode do tipo constante da JVM. </p>
+</div><h2 class="groupheader">Documentação das funções</h2>
+<a id="aebc52739336ae74d4c23f8b57fb22a34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebc52739336ae74d4c23f8b57fb22a34">&#9670;&nbsp;</a></span>aconst_null()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void aconst_null </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Empurra o valor NULL na pilha de operandos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="adbe4859d321d987e41d95941f3268e46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbe4859d321d987e41d95941f3268e46">&#9670;&nbsp;</a></span>bipush()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bipush </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Empilha int composto por byte de argumento na pilha de operandos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="ad48b6b8a2649190616bdfc2cf96d9eac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad48b6b8a2649190616bdfc2cf96d9eac">&#9670;&nbsp;</a></span>dconst_0()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dconst_0 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Empilha a constante double 0 na pilha de operandos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="ae150b0d94a30d0d95c6b133548f5e584"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae150b0d94a30d0d95c6b133548f5e584">&#9670;&nbsp;</a></span>dconst_1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dconst_1 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Empilha a constante double 1 na pilha de operandos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="ac60fae01a9a7ba738e6f44de41d774b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac60fae01a9a7ba738e6f44de41d774b3">&#9670;&nbsp;</a></span>fconst_0()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fconst_0 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Empilha a constante float 0 na pilha de operandos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a35751607085a1154dab4767abebf93b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35751607085a1154dab4767abebf93b9">&#9670;&nbsp;</a></span>fconst_1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fconst_1 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Empilha a constante float 1 na pilha de operandos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a070b04fcf3b9e59960c1e204d9416644"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a070b04fcf3b9e59960c1e204d9416644">&#9670;&nbsp;</a></span>fconst_2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fconst_2 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Empilha a constante float 0 na pilha de operandos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a317b0006eeea725dcb019200e41044d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a317b0006eeea725dcb019200e41044d7">&#9670;&nbsp;</a></span>iconst_0()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void iconst_0 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Empurra int na pilha de operandos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atualiconst_2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="af2cd8e722af4e9fa9ddb0b991c647832"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2cd8e722af4e9fa9ddb0b991c647832">&#9670;&nbsp;</a></span>iconst_1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void iconst_1 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>... </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a3f77e62fa2b32c072187f5b94221ec0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f77e62fa2b32c072187f5b94221ec0d">&#9670;&nbsp;</a></span>iconst_2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void iconst_2 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Empurra int na pilha de operandos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a76713945e1efd025d882f06229bbb433"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76713945e1efd025d882f06229bbb433">&#9670;&nbsp;</a></span>iconst_3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void iconst_3 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Empurra int na pilha de operandos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="abd34d9892be52b289b1f1928bf3e8001"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd34d9892be52b289b1f1928bf3e8001">&#9670;&nbsp;</a></span>iconst_4()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void iconst_4 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Empurra int na pilha de operandos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a9c3483d6c65e778846cbb454d5d8567b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c3483d6c65e778846cbb454d5d8567b">&#9670;&nbsp;</a></span>iconst_5()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void iconst_5 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Empurra int na pilha de operandos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a1731927aa9e2d3ea195bd6193e3b5509"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1731927aa9e2d3ea195bd6193e3b5509">&#9670;&nbsp;</a></span>iconst_m1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void iconst_m1 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Empurra int na pilha de operandos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a60099c4dc90ef5a5473f6ec1737e17c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60099c4dc90ef5a5473f6ec1737e17c7">&#9670;&nbsp;</a></span>lconst_0()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lconst_0 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Empilha a constante long 0 na pilha de opreandos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a37dc80c88f54d643fd21d7a8f441efe6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37dc80c88f54d643fd21d7a8f441efe6">&#9670;&nbsp;</a></span>lconst_1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lconst_1 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Empilha a constante long 1 na pilha de operandos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a8ad36bf4ba015c4d1afdf4477a55e08a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ad36bf4ba015c4d1afdf4477a55e08a">&#9670;&nbsp;</a></span>ldc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ldc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Coloca na pilha de operandos uma constante do tamanho de uma word. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="afc59387e7744b77b7662ca530abaa9b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc59387e7744b77b7662ca530abaa9b6">&#9670;&nbsp;</a></span>ldc2_w()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ldc2_w </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dá push em duas words na pilha de operandos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>ponteiro que aponta para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a85f58930960d3cf3f84d6648108fb8d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85f58930960d3cf3f84d6648108fb8d0">&#9670;&nbsp;</a></span>ldc_w()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ldc_w </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dá push de uma word na pilha de operandos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="classFrame.html" title="O Frame armazena dados e resultados parciais, para executar ligação dinâmica,retornar valores para mé...">Frame</a></td><td>*curr_frame ponteiro que aponta para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a08b94c482bf5daeb5628b8ee6ddb5990"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08b94c482bf5daeb5628b8ee6ddb5990">&#9670;&nbsp;</a></span>nop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void nop </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Não faz nada, só incrementa pc. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="aec9b273b55d01f093d62cfb7e8a1d703"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec9b273b55d01f093d62cfb7e8a1d703">&#9670;&nbsp;</a></span>sipush()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sipush </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Empilha int composto por byte de argumento na pilha de operandos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>
