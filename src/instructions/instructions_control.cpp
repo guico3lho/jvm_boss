@@ -12,9 +12,9 @@
  * @return void
  */
 void ins_goto(Frame *curr_frame) {
-    int16_t offset = curr_frame->method_code->code[curr_frame->pc+1];
-    offset = (offset << 8) + curr_frame->method_code->code[curr_frame->pc+2];
-    curr_frame->pc +=offset;
+  int16_t offset = curr_frame->method_code->code[curr_frame->pc+1];
+  offset = (offset << 8) + curr_frame->method_code->code[curr_frame->pc+2];
+  curr_frame->pc +=offset;
 }
 
 void ret(Frame *curr_frame) {
@@ -28,54 +28,53 @@ void ret(Frame *curr_frame) {
  * @return void
  */
 void tableswitch(Frame *curr_frame){
-    if (DEBUG) cout << "tableswitch\n";
-    uint32_t dftByte = 0;
-    uint32_t byteL = 0;
-    uint32_t byteH = 0;
-    uint32_t *jpOffset;
-    uint32_t index;
-    Operand *value1 = curr_frame->pop_operand();
-    index = value1->type_int;
-    uint32_t strt = curr_frame->pc;
+  if (DEBUG) cout << "----------tableswitch----------\n";
+  u4 dftByte = 0;
+  u4 byteL = 0;
+  u4 byteH = 0;
+  u4 *jpOffset;
+  u4 index;
+  Operand *value1 = curr_frame->pop_operand();
+  index = value1->type_int;
+  u4 strt = curr_frame->pc;
+  curr_frame->pc++;
+
+  while (curr_frame->pc % 4 != 0) {
     curr_frame->pc++;
+  }
 
-    while (curr_frame->pc % 4 != 0) {
-        curr_frame->pc++;
-    }
+  dftByte = curr_frame->method_code->code[curr_frame->pc++];
+  dftByte = (dftByte << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  dftByte = (dftByte << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  dftByte = (dftByte << 8) + curr_frame->method_code->code[curr_frame->pc++];
 
-    dftByte = curr_frame->method_code->code[curr_frame->pc++];
-    dftByte = (dftByte << 8) + curr_frame->method_code->code[curr_frame->pc++];
-    dftByte = (dftByte << 8) + curr_frame->method_code->code[curr_frame->pc++];
-    dftByte = (dftByte << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  byteL = curr_frame->method_code->code[curr_frame->pc++];
+  byteL = (byteL << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  byteL = (byteL << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  byteL = (byteL << 8) + curr_frame->method_code->code[curr_frame->pc++];
 
-    byteL = curr_frame->method_code->code[curr_frame->pc++];
-    byteL = (byteL << 8) + curr_frame->method_code->code[curr_frame->pc++];
-    byteL = (byteL << 8) + curr_frame->method_code->code[curr_frame->pc++];
-    byteL = (byteL << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  byteH = curr_frame->method_code->code[curr_frame->pc++];
+  byteH = (byteH << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  byteH = (byteH << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  byteH = (byteH << 8) + curr_frame->method_code->code[curr_frame->pc++];
 
-    byteH = curr_frame->method_code->code[curr_frame->pc++];
-    byteH = (byteH << 8) + curr_frame->method_code->code[curr_frame->pc++];
-    byteH = (byteH << 8) + curr_frame->method_code->code[curr_frame->pc++];
-    byteH = (byteH << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  jpOffset = (u4*)malloc((byteH - byteL + 1) * sizeof(u4));
 
-    jpOffset = (uint32_t*)malloc((byteH - byteL + 1) * sizeof(uint32_t));
+  for (int i = 0; i < (int)(byteH - byteL + 1); i++) {
+    jpOffset[i] = curr_frame->method_code->code[curr_frame->pc++];
+    jpOffset[i] = (jpOffset[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
+    jpOffset[i] = (jpOffset[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
+    jpOffset[i] = (jpOffset[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  }
 
-    for (int i = 0; i < (int)(byteH - byteL + 1); i++) {
-        jpOffset[i] = curr_frame->method_code->code[curr_frame->pc++];
-        jpOffset[i] = (jpOffset[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
-        jpOffset[i] = (jpOffset[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
-        jpOffset[i] = (jpOffset[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
-    }
+  if ((int32_t)index < (int32_t)byteL || (int32_t)index >(int32_t)byteH) {
+    curr_frame->pc = strt + (int32_t)dftByte;
+  }
+  else {
+    curr_frame->pc = strt + (int32_t)jpOffset[index - byteL];
+  }
 
-    if ((int32_t)index < (int32_t)byteL || (int32_t)index >(int32_t)byteH) {
-        curr_frame->pc = strt + (int32_t)dftByte;
-    }
-    else {
-        curr_frame->pc = strt + (int32_t)jpOffset[index - byteL];
-    }
-
-    free(jpOffset);
-    if (DEBUG) cout << "tableswitch\n";
+  free(jpOffset);
 }
 
 /**
@@ -84,57 +83,57 @@ void tableswitch(Frame *curr_frame){
  * @return void
  */
 void lookupswitch(Frame *curr_frame) {
-    u4 dftByte = 0;
-    u4 nPares = 0;
-    u4 *jpKeys;
-    u4 *jpOffset;
-    u4 key;
-    u4 start = curr_frame->pc;
+  u4 dftByte = 0;
+  u4 nPares = 0;
+  u4 *jpKeys;
+  u4 *jpOffset;
+  u4 key;
+  u4 start = curr_frame->pc;
 
-    Operand *value_1 = curr_frame->pop_operand();
-    key = value_1->type_int;
+  Operand *value_1 = curr_frame->pop_operand();
+  key = value_1->type_int;
+  curr_frame->pc++;
+
+  while (curr_frame->pc % 4 != 0) {
     curr_frame->pc++;
+  }
 
-    while (curr_frame->pc % 4 != 0) {
-        curr_frame->pc++;
+  dftByte = curr_frame->method_code->code[curr_frame->pc++];
+  dftByte = (dftByte << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  dftByte = (dftByte << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  dftByte = (dftByte << 8) + curr_frame->method_code->code[curr_frame->pc++];
+
+  nPares = curr_frame->method_code->code[curr_frame->pc++];
+  nPares = (nPares << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  nPares = (nPares << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  nPares = (nPares << 8) + curr_frame->method_code->code[curr_frame->pc++];
+
+  jpKeys = (u4*)malloc(nPares * sizeof(u4));
+  jpOffset = (u4*)malloc(nPares * sizeof(u4));
+  for (int i = 0; i < (int)nPares; i++) {
+    jpKeys[i] = curr_frame->method_code->code[curr_frame->pc++];
+    jpKeys[i] = (jpKeys[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
+    jpKeys[i] = (jpKeys[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
+    jpKeys[i] = (jpKeys[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
+
+    jpOffset[i] = curr_frame->method_code->code[curr_frame->pc++];
+    jpOffset[i] = (jpOffset[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
+    jpOffset[i] = (jpOffset[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
+    jpOffset[i] = (jpOffset[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  }
+
+  int i;
+  for (i = 0; i < (int)nPares; ++i) {
+    if (jpKeys[i] == key) {
+      curr_frame->pc = start + jpOffset[i];
+      break;
     }
+  }
+  if ((unsigned)i == nPares)
+    curr_frame->pc = start + dftByte;
 
-    dftByte = curr_frame->method_code->code[curr_frame->pc++];
-    dftByte = (dftByte << 8) + curr_frame->method_code->code[curr_frame->pc++];
-    dftByte = (dftByte << 8) + curr_frame->method_code->code[curr_frame->pc++];
-    dftByte = (dftByte << 8) + curr_frame->method_code->code[curr_frame->pc++];
-
-    nPares = curr_frame->method_code->code[curr_frame->pc++];
-    nPares = (nPares << 8) + curr_frame->method_code->code[curr_frame->pc++];
-    nPares = (nPares << 8) + curr_frame->method_code->code[curr_frame->pc++];
-    nPares = (nPares << 8) + curr_frame->method_code->code[curr_frame->pc++];
-
-    jpKeys = (u4*)malloc(nPares * sizeof(u4));
-    jpOffset = (u4*)malloc(nPares * sizeof(u4));
-    for (int i = 0; i < (int)nPares; i++) {
-        jpKeys[i] = curr_frame->method_code->code[curr_frame->pc++];
-        jpKeys[i] = (jpKeys[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
-        jpKeys[i] = (jpKeys[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
-        jpKeys[i] = (jpKeys[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
-
-        jpOffset[i] = curr_frame->method_code->code[curr_frame->pc++];
-        jpOffset[i] = (jpOffset[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
-        jpOffset[i] = (jpOffset[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
-        jpOffset[i] = (jpOffset[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
-    }
-
-    int i;
-    for (i = 0; i < (int)nPares; ++i) {
-        if (jpKeys[i] == key) {
-            curr_frame->pc = start + jpOffset[i];
-            break;
-        }
-    }
-    if ((unsigned)i == nPares)
-        curr_frame->pc = start + dftByte;
-
-    free(jpKeys);
-    free(jpOffset);
+  free(jpKeys);
+  free(jpOffset);
 }
 
 /**
@@ -143,11 +142,11 @@ void lookupswitch(Frame *curr_frame) {
  * @return void
  */
 void ireturn(Frame *curr_frame) {
-    curr_frame->pc++;
-    Operand *integer = curr_frame->pop_operand();
-    pop_frame();
-    Frame *called_frame = top_frame();
-    called_frame->push_operand(integer);
+  curr_frame->pc++;
+  Operand *integer = curr_frame->pop_operand();
+  pop_frame();
+  Frame *called_frame = top_frame();
+  called_frame->push_operand(integer);
 }
 
 /**
@@ -156,11 +155,11 @@ void ireturn(Frame *curr_frame) {
  * @return void
  */
 void lreturn(Frame *curr_frame) {
-    curr_frame->pc++;
-    Operand *long_value = curr_frame->pop_operand();
-    pop_frame();
-    Frame *past_frame = top_frame();
-    past_frame->push_operand(long_value);
+  curr_frame->pc++;
+  Operand *long_value = curr_frame->pop_operand();
+  pop_frame();
+  Frame *past_frame = top_frame();
+  past_frame->push_operand(long_value);
 }
 
 /**
@@ -169,11 +168,11 @@ void lreturn(Frame *curr_frame) {
  * @return void
  */
 void freturn(Frame *curr_frame) {
-    curr_frame->pc++;
-    Operand *float_value = curr_frame->pop_operand();
-    pop_frame();
-    Frame *called_frame = top_frame();
-    called_frame->push_operand(float_value);
+  curr_frame->pc++;
+  Operand *float_value = curr_frame->pop_operand();
+  pop_frame();
+  Frame *called_frame = top_frame();
+  called_frame->push_operand(float_value);
 }
 
 /**
@@ -182,11 +181,11 @@ void freturn(Frame *curr_frame) {
  * @return void
  */
 void dreturn(Frame *curr_frame) {
-    curr_frame->pc++;
-    Operand *double_value = curr_frame->pop_operand();
-    pop_frame();
-    Frame *called_frame = top_frame();
-    called_frame->push_operand(double_value);
+  curr_frame->pc++;
+  Operand *double_value = curr_frame->pop_operand();
+  pop_frame();
+  Frame *called_frame = top_frame();
+  called_frame->push_operand(double_value);
 }
 
 /**
@@ -195,11 +194,11 @@ void dreturn(Frame *curr_frame) {
  * @return void
  */
 void areturn(Frame *curr_frame) {
-    curr_frame->pc++;
-    Operand *object = curr_frame->pop_operand();
-    pop_frame();
-    Frame *called_frame = top_frame();
-    called_frame->push_operand(object);
+  curr_frame->pc++;
+  Operand *object = curr_frame->pop_operand();
+  pop_frame();
+  Frame *called_frame = top_frame();
+  called_frame->push_operand(object);
 }
 
 /**
@@ -208,6 +207,7 @@ void areturn(Frame *curr_frame) {
 * @return void
 */
 void void_return(Frame *curr_frame) {
-    curr_frame->pc++;
-    pop_frame();
+  if (DEBUG) cout << "----------void_return----------\n";
+  curr_frame->pc++;
+  pop_frame();
 }

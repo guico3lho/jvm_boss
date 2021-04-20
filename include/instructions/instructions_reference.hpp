@@ -20,6 +20,7 @@ void invokeinterface(Frame*);
 
 void new_obj(Frame*);
 void newarray(Frame*);
+void set_newarray_type(Operand *operand, u4 index, string array_type);
 void arraylength(Frame*);
 
 #endif

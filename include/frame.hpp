@@ -30,9 +30,10 @@ typedef struct Operand {
     u4 type_float;
     u8 type_long;
     u8 type_double;
+    
     string       *type_string;
-    Class_Loader *class_loader;
     Array_Type   *array_type;
+    Class_Loader *class_loader;
   };
 } Operand;
 

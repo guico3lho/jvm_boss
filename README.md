@@ -61,13 +61,19 @@ $ ./jvm.sh HelloJava
 
 - [x] cafebabe
 - [x] HelloJava
-- [x] Teste
 - [x] double_aritmetica
 - [x] tableswitch
 - [ ] multi
 - [ ] vetor_8
 - [ ] vetor2
 - [ ] vetor
+- [x] Prints
+- [x] Sum
+- [x] Switch
+- [x] Vector_1
+- [x] Comparison
+- [x] Conversions
+- [x] StaticMethod
 
 <!-- 1- Fazer vetor e multi funcionar -->
 <!-- Fazer os .java de multi e vetor-->
