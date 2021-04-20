@@ -16,6 +16,7 @@ Class_Loader* load_class_memory(Class_File class_file) {
   class_loader->class_name = &class_name;
   if (DEBUG) std::cout << "Classe estatica " << class_name << " carregada na memoria!\n";
 
+  // NOTE: What the lines above are doing?
   loaded_classes.insert((std::pair<std::string, Class_Loader*>(class_name, class_loader)));
   static_classes.insert((std::pair<std::string, Class_Loader*>(class_name, class_loader)));
 
