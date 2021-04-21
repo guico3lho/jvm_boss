@@ -53,7 +53,7 @@ Frame::Frame(Method_Info *method, Class_File class_file) {
 void Frame::execute_frame() {
   u1 op_code = method_code->code[pc]; 
   if (DEBUG) printf("\n[%d]", op_code);
-  func[op_code](this); // chama a funcao do respectivo indice opcode
+  func[op_code](this); // chama a funcao do respectivo indice opcode // seg fault aqui
 }
 
 /**
