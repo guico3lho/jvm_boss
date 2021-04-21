@@ -15,6 +15,8 @@ public class OurMulti {
     // arrayOfString[0][2] = 3;
     // arrayOfString[9][5] = 4;
 
+
+
     arrayOfString[0] = 1;
     arrayOfString[1] = 2;
     arrayOfString[2] = 3;
@@ -24,6 +26,20 @@ public class OurMulti {
     System.out.println(arrayOfString[1]);
     System.out.println(arrayOfString[2]);
     System.out.println(arrayOfString[5]);
+
+    // int[] arrayOfString = new int[3];
+    // arrayOfString[0] = 1;
+    // arrayOfString[1] = 2;
+    // System.out.println(arrayOfString[0]);
+    // System.out.println(arrayOfString[1]);
+
+      // int[][] arrayOfString = new int[3][3];
+    // arrayOfString[0][2] = 1;
+    // arrayOfString[1][2] = 2;
+    // arrayOfString[2][2] = 10;
+    // System.out.println(arrayOfString[0][2]);
+    // System.out.println(arrayOfString[1][2]);
+    // System.out.println(arrayOfString[2][2]);
 
   }
 }

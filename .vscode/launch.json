@@ -16,7 +16,7 @@
       "type": "cppdbg",
       "request": "launch",
       "program": "${workspaceFolder}/jvm_boss",
-      "args": ["-i", "test/OurMulti.class"],
+      "args": ["-i", "test/multi.class"],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [],
