@@ -26,11 +26,9 @@ namespace patch {
  */
 void getstatic(Frame *curr_frame) {
   if (DEBUG) cout << "----------getstatic----------\n";
-
   curr_frame->pc++;
 
-  u2 index = curr_frame->method_code->code[curr_frame->pc++];
-  index = (index << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  u2 index = get_method_code_index(curr_frame);
 
   Cp_Info field_info = curr_frame->cp_reference[index];
   Cp_Info name_and_type = curr_frame->cp_reference[field_info.Fieldref.name_and_type_index];
@@ -56,10 +54,7 @@ void getstatic(Frame *curr_frame) {
  */
 void getfield(Frame *curr_frame) {
   if (DEBUG) cout << "----------getfield----------\n";
-  u1 byte1 = curr_frame->method_code->code[curr_frame->pc++];
-  u1 byte2 = curr_frame->method_code->code[curr_frame->pc++];
-
-  u2 index = (byte1 << 8) | byte2;
+  u2 index = get_method_code_index(curr_frame);
 
   Cp_Info field_ref = curr_frame->cp_reference[index];
   Cp_Info name_and_type = curr_frame->cp_reference[field_ref.Fieldref.class_index];
@@ -68,7 +63,6 @@ void getfield(Frame *curr_frame) {
   string field_name = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.name_index);
 
   curr_frame->operand_stack.pop();
-
   // curr_frame->push_operand(classVariable);
 }
 
@@ -81,8 +75,7 @@ void putfield(Frame *curr_frame) {
   if (DEBUG) cout << "----------putfield----------\n";
   curr_frame->pc++;
 
-  u2 index = curr_frame->method_code->code[curr_frame->pc++];
-  index = (index << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  u2 index = get_method_code_index(curr_frame);
 
   Cp_Info field_reference = curr_frame->cp_reference[index];
   Cp_Info name_and_type = curr_frame->cp_reference[field_reference.Fieldref.class_index];
@@ -456,13 +449,11 @@ void invokespecial(Frame *curr_frame) {
  */
 void invokestatic(Frame *curr_frame) {
   if (DEBUG) cout << "----------invokestatic----------\n";
-
   curr_frame->pc++;
 
-  u2 method_index = curr_frame->method_code->code[curr_frame->pc++];
-  method_index = (method_index << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  u2 index = get_method_code_index(curr_frame);
 
-  Cp_Info &method_info = curr_frame->cp_reference[method_index];
+  Cp_Info &method_info = curr_frame->cp_reference[index];
   Cp_Info &class_info = curr_frame->cp_reference[method_info.Methodref.class_index];
 
   string class_name = get_utf8_constant_pool(curr_frame->cp_reference, class_info.Class.class_name);
@@ -541,10 +532,9 @@ void invokeinterface(Frame *curr_frame) {
   if (DEBUG) cout << "----------invokeinterface----------\n";
   curr_frame->pc++;
 
-  u2 method_index = curr_frame->method_code->code[curr_frame->pc++];
-  method_index = (method_index << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  u2 index = get_method_code_index(curr_frame);
 
-  Cp_Info &method_info = curr_frame->cp_reference[method_index];
+  Cp_Info &method_info = curr_frame->cp_reference[index];
   Cp_Info &class_info = curr_frame->cp_reference[method_info.Methodref.class_index];
 
   string class_name = get_utf8_constant_pool(curr_frame->cp_reference, class_info.Class.class_name);
@@ -562,8 +552,9 @@ void invokeinterface(Frame *curr_frame) {
 void new_obj(Frame *curr_frame) {
   if (DEBUG) cout << "----------new----------\n";
   curr_frame->pc++;
+
   u2 index = curr_frame->method_code->code[curr_frame->pc];
-  index = (index << 8)+curr_frame->method_code->code[++curr_frame->pc];
+  index = (index << 8) + curr_frame->method_code->code[++curr_frame->pc];
 
   Cp_Info &class_info = curr_frame->cp_reference[index];
   string utf8_constant = get_utf8_constant_pool(curr_frame->cp_reference, class_info.Class.class_name);
