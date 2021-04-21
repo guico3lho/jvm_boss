@@ -72,7 +72,7 @@ void print_access_flags(u2 access_flags) {
 
 void print_basic_info(std::string filename, Class_File class_file) {
   std::cout << "------------ Basic Info ------------" << std::endl;
-  std::cout << "Filename:             " << filename << std::endl;
+  std::cout << "File:             " << filename << std::endl;
   printf("Magic Number:         0x%0X\n", class_file.magic_number);
   printf("Minor Version:        %d\n", class_file.minor_version);
   printf("Major version:        %d: ", class_file.major_version);
