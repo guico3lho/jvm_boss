@@ -12,9 +12,10 @@
  * @return void
  */
 void ins_goto(Frame *curr_frame) {
-  int16_t offset = curr_frame->method_code->code[curr_frame->pc+1];
-  offset = (offset << 8) + curr_frame->method_code->code[curr_frame->pc+2];
-  curr_frame->pc +=offset;
+  if (DEBUG) cout << "----------goto----------\n";
+  int16_t offset = curr_frame->method_code->code[curr_frame->pc + 1];
+  offset = (offset << 8) + curr_frame->method_code->code[curr_frame->pc + 2];
+  curr_frame->pc += offset;
 }
 
 void ret(Frame *curr_frame) {

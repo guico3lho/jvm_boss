@@ -14,8 +14,8 @@ void getfield(Frame*);
 void putfield(Frame*);
 
 void invokevirtual(Frame*);
-void invokevirtual_print(Frame *curr_frame, string method_name);
-void invokevirtual_string_builder_append(Frame *curr_frame);
+void invokevirtual_print(Frame*);
+void invokevirtual_string_builder_append(Frame*);
 
 void invokespecial(Frame*);
 void invokestatic(Frame*);

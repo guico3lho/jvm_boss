@@ -69,8 +69,10 @@ $ ./jvm.sh HelloJava
 - [ ] vetor
 - [x] Prints
 - [x] Sum
+- [x] Loop_for
 - [x] Switch
 - [x] Vector_1
+- [x] Vector_2
 - [x] Comparison
 - [x] Conversions
 - [x] StaticMethod

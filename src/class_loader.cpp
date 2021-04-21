@@ -18,14 +18,14 @@ Class_Loader* load_class_memory(Class_File class_file) {
 
   std::string class_name = get_cp_info_utf8(class_file, class_file.this_class);
   class_loader->class_name = &class_name;
-  if (DEBUG) std::cout << "Classe estatica " << class_name << " carregada na memoria!\n";
+  if (DEBUG) std::cout << "Classe " << class_name << " carregada na memoria!\n";
 
   // NOTE: What the lines above are doing?
   loaded_classes.insert((std::pair<std::string, Class_Loader*>(class_name, class_loader)));
   static_classes.insert((std::pair<std::string, Class_Loader*>(class_name, class_loader)));
 
   class_loader->class_fields = new std::map<std::string, Operand*>();
-  load_class_var(class_loader);
+  load_class_variables(class_loader);
 
   if (DEBUG) std::cout << "Classes carregadas na memoria!\n";
 
@@ -37,9 +37,9 @@ Class_Loader* load_class_memory(Class_File class_file) {
  * @param *Class_Loader ponteiro para classes carregadas em memoria
  * @return void
  */
-void load_class_var(Class_Loader *class_loader) {
+void load_class_variables(Class_Loader *class_loader) {
   Class_File current_class = class_loader->class_file;
-  Cp_Info &super_class = current_class.constant_pool[current_class.super_class];
+  Cp_Info super_class = current_class.constant_pool[current_class.super_class];
 
   std::string super_class_name = get_cp_info_utf8(current_class, super_class.Class.class_name);
   if (DEBUG) std::cout << "Super Classe " << super_class_name << " carregada na memoria!\n";
@@ -48,7 +48,7 @@ void load_class_var(Class_Loader *class_loader) {
     super_class_name = get_cp_info_utf8(current_class, current_class.super_class);
 
     for (int i = 0; i < current_class.fields_count; i++) {
-      Field_Info &field_info = current_class.fields[i];
+      Field_Info field_info = current_class.fields[i];
 
       std::string field_name = get_cp_info_utf8( current_class, field_info.name_index);
       std::string var_type = get_cp_info_utf8(current_class, field_info.descriptor_index);
@@ -57,8 +57,7 @@ void load_class_var(Class_Loader *class_loader) {
     }
 
     if (super_class_name != "java/lang/Object" && super_class_name != "") {
-      if (DEBUG) std::cout << "Escopo de load_class_var!!" << "\n";
-      current_class = get_class_info_and_load_not_exists(super_class_name);
+      current_class = get_class_and_load_not_exists(super_class_name);
     }
 
   } while(super_class_name != "java/lang/Object");
@@ -69,7 +68,7 @@ void load_class_var(Class_Loader *class_loader) {
  * @param c_path nome do próximo arquivo .class a ser carregado
  * @return JavaClass estrutura de dados do arquivo .class a ser carregado
  */
-Class_File get_class_info_and_load_not_exists(std::string class_path) {
+Class_File get_class_and_load_not_exists(std::string class_path) {
   if (DEBUG) std::cout << "Class Path: " << class_path << "\n";
 
   Class_Loader *class_loader = static_classes[class_path];
@@ -173,12 +172,12 @@ Operand* check_string_create_type(std::string type_string) {
 
         std::string class_realname = type_string.substr(1, type_string.size());
         if (DEBUG) std::cout << "Escopo de check_string_create_type!!" << "\n";
-        Class_File info_class = get_class_info_and_load_not_exists(class_realname);
+        Class_File info_class = get_class_and_load_not_exists(class_realname);
 
         new_type->class_loader->class_file = info_class;
         new_type->class_loader->class_name = &class_realname;
 
-        load_class_var(new_type->class_loader);
+        load_class_variables(new_type->class_loader);
       }
       break;
   }
