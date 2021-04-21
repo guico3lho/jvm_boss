@@ -76,6 +76,7 @@ $ ./jvm.sh HelloJava
 - [x] Comparison
 - [x] Conversions
 - [x] StaticMethod
+- [x] OurJava
 
 <!-- 1- Fazer vetor e multi funcionar -->
 <!-- Fazer os .java de multi e vetor-->
