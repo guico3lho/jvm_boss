@@ -83,44 +83,44 @@ void putfield(Frame *curr_frame) {
   string class_name = get_utf8_constant_pool(curr_frame->cp_reference, field_reference.Fieldref.class_index);
   string var_name = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.name_index);
 
-  Operand *var_operand = curr_frame->pop_operand();
+  Operand *operand = curr_frame->pop_operand();
   Operand *class_instance = curr_frame->pop_operand();
 
   Operand *class_variable = class_instance->class_loader->class_fields->at(var_name);
 
-  switch (var_operand->tag) {
+  switch (operand->tag) {
     case CONSTANT_INT:
-      class_variable->type_int = var_operand->type_int;
+      class_variable->type_int = operand->type_int;
       break;
     case CONSTANT_LONG:
-      class_variable->type_long = var_operand->type_long;
+      class_variable->type_long = operand->type_long;
       break;
     case CONSTANT_BOOL:
-      class_variable->type_bool = var_operand->type_bool;
+      class_variable->type_bool = operand->type_bool;
       break;
     case CONSTANT_CHAR:
-      class_variable->type_char = var_operand->type_char;
+      class_variable->type_char = operand->type_char;
       break;
     case CONSTANT_SHORT:
-      class_variable->type_short = var_operand->type_short;
+      class_variable->type_short = operand->type_short;
       break;
     case CONSTANT_BYTE:
-      class_variable->type_byte = var_operand->type_byte;
+      class_variable->type_byte = operand->type_byte;
       break;
     case CONSTANT_FLOAT:
-      class_variable->type_float = var_operand->type_float;
+      class_variable->type_float = operand->type_float;
       break;
     case CONSTANT_DOUBLE:
-      class_variable->type_double = var_operand->type_double;
+      class_variable->type_double = operand->type_double;
       break;
     case CONSTANT_STRING:
-      class_variable->type_string = var_operand->type_string;
+      class_variable->type_string = operand->type_string;
       break;
     case CONSTANT_CLASS:
-      class_variable->class_loader = var_operand->class_loader;
+      class_variable->class_loader = operand->class_loader;
       break;
     case CONSTANT_ARRAY:
-      class_variable->array_type = var_operand->array_type;
+      class_variable->array_type = operand->array_type;
       break;
   }
 }
@@ -168,13 +168,14 @@ void invokevirtual(Frame *curr_frame) {
       curr_frame->push_operand(str_len);
     } 
     
-    // Metodo StringBuilde append
+    // Metodo StringBuilder append
     if (class_name == "java/lang/StringBuilder" && method_name == "append") {
       invokevirtual_string_builder_append(curr_frame);
     } 
 
   } else { // Caso classe nao default Java
-    class_not_default_java(curr_frame, method_name, method_desc);
+    string invoke_type = "virtual";
+    class_not_default_java(curr_frame, class_name, method_name, method_desc, invoke_type);
   }
 }
 
@@ -298,60 +299,89 @@ void invokevirtual_string_builder_append(Frame *curr_frame) {
 }
 
 /**
- * @brief Função de método não default do Java da instrução invokevirtual (opcode 182)
+ * @brief Função de método não default do Java das instruções de invoke 
  * 
  * @param *curr_frame 
+ * @param class_name 
  * @param method_name 
  * @param method_desc 
+ * @param invoke_type 
+ * @return void
  */
-void class_not_default_java(Frame *curr_frame, string method_name, string method_desc) {
-  int count_args = 0;
-  u2 counter = 1;
+void class_not_default_java(
+  Frame *curr_frame, 
+  string class_name, 
+  string method_name, 
+  string method_desc,
+  string invoke_type
+) {
 
-  while (method_desc[counter] != ')') {
-      char found_type = method_desc[counter];
-
-      if (found_type == 'L') { // tipo é um objeto
-        count_args++;
-        while (method_desc[++counter] != ';');
-      } 
-
-      if (found_type == '[') { // tipo é um array?
-        count_args++;
-        while (method_desc[++counter] == '[');
-
-        if (method_desc[counter] == 'L')
-          while (method_desc[++counter] != ';');
-
-      } else {
-        count_args++;
-      }
-
-      counter++;
-  }
+  int count_args = count_method_arguments(method_desc);
+  if (DEBUG) cout << "metodo possui " << count_args << " argumentos\n";
 
   std::vector<Operand*> args;
+  if (DEBUG) cout << "passando argumentos para o metodo " << invoke_type << "\n";
 
   for (int i = 0; i < count_args; ++i) {
     Operand *arg = curr_frame->pop_operand();
-    args.insert(args.begin(), arg);
+    if (DEBUG) cout << "operando do tipo: " <<  (int) arg->tag << "\n";
 
+    args.insert(args.begin(), arg);
     if (arg->tag == CONSTANT_DOUBLE || arg->tag == CONSTANT_LONG)
-      args.insert(args.begin()+1, check_string_create_type("P"));
+      args.insert(args.begin() + 1, check_string_create_type("P"));
   }
 
-  Operand *current_class = curr_frame->pop_operand();
-  args.insert(args.begin(), current_class);
+  Class_Loader *class_loader;
 
-  Class_Loader *class_loader = current_class->class_loader;
+  if(invoke_type == "virtual" || invoke_type == "special") {
+    Operand *current_class = curr_frame->pop_operand();
+    args.insert(args.begin(), current_class);
+    class_loader = current_class->class_loader;
+  }
 
+  if(invoke_type == "static") {
+    class_loader = get_static_class(class_name);
+  }
+
+  // Pega informacoes do metodo
   Method_Info *method_info = find_method(class_loader->class_file, method_name, method_desc);
-  Frame *new_frame = new Frame(method_info, (class_loader->class_file));
+  Frame *new_frame = new Frame(method_info, class_loader->class_file);
 
   for (int j = 0; (unsigned)j < args.size(); ++j)
     new_frame->local_variables_array.at(j) = args.at(j);
 
   push_frame(new_frame);
+}
+
+/**
+ * @brief Conta quantidade de argumentos do metodo chamado
+ * @param string method_descriptor
+ * @return int 
+ */
+int count_method_arguments(string method_descriptor) {
+  int count_args = 0;
+  u2 counter = 1;
+
+  while (method_descriptor[counter] != ')') {
+    char found_type = method_descriptor[counter];
+
+    if (found_type == 'L') { // tipo objeto
+      count_args++;
+      while (method_descriptor[++counter] != ';');
+    } 
+
+    if (found_type == '[') { // tipo array
+      count_args++;
+      while (method_descriptor[++counter] == '[');
+      if (method_descriptor[counter] == 'L')
+        while (method_descriptor[++counter] != ';');
+    } else {
+      count_args++;
+    }
+    counter++;
+  }
+
+  return count_args;
 }
 
 /**
@@ -374,24 +404,32 @@ void invokespecial(Frame *curr_frame) {
 	string method_desc = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.descriptor_index);
 	curr_frame->pc++;
 
-	if ( ( (class_name == "java/lang/Object" || class_name == "java/lang/String") && method_name == "<init>") || 
-      (class_name == "java/lang/StringBuilder" && method_name == "<init>")
+  string class_object = "java/lang/Object";
+  string class_string = "java/lang/String";
+  string class_string_builder = "java/lang/StringBuilder";
+  string method_init = "<init>";
+
+	if ( ((class_name == class_object || class_name == class_string) && method_name == method_init) || 
+      (class_name == class_string_builder && method_name == method_init)
   ) {
-		if (class_name == "java/lang/String" || class_name == "java/lang/StringBuilder") {
+		if (class_name == class_string || class_name == class_string_builder) {
 			curr_frame->pop_operand();
 		}
-		else if (method_name == "<init>") {
+		
+    if (method_name == method_init) {
 			Operand *variable_class = curr_frame->local_variables_array.at(0);
 			load_class_variables(variable_class->class_loader);
 		}
 		return;
-
-  } else if (class_name.find("java/") != string::npos) {
-      printf("Classe java nao implementada!");
-      getchar();
-      exit(1); // caso tipo de classe java nao implementada
   } else {
-    class_not_default_java(curr_frame, method_name, method_desc);
+    string invoke_type = "special";
+    class_not_default_java(curr_frame, class_name, method_name, method_desc, invoke_type);
+  }
+
+  if (class_name.find("java/") != string::npos) {
+    printf("Classe java nao implementada!");
+    getchar();
+    exit(1); // caso tipo de classe java nao implementada
   }
 }
 
@@ -412,7 +450,7 @@ void invokestatic(Frame *curr_frame) {
 
   string class_name = get_utf8_constant_pool(curr_frame->cp_reference, class_info.Class.class_name);
   string method_name = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.name_index);
-  string method_descriptor = get_utf8_constant_pool(curr_frame->cp_reference,name_and_type.NameAndType.descriptor_index);
+  string method_desc = get_utf8_constant_pool(curr_frame->cp_reference,name_and_type.NameAndType.descriptor_index);
 
   if (DEBUG) cout << "Nome do metodo a ser chamado: " << method_name << "\n";
   if (DEBUG) cout << "Nome da classe: " << class_name << "\n";
@@ -421,56 +459,15 @@ void invokestatic(Frame *curr_frame) {
     printf("JVM não suporta método nativo.");
     return;
   }
-  // calcula quantos argumentos o metodo tem
-  int count_arguments = 0;
-  u2 counter = 1;
-  while (method_descriptor[counter] != ')') {
-      char find_type = method_descriptor[counter];
 
-      if (find_type == 'L') { // tipo objeto
-          count_arguments++;
-          while (method_descriptor[++counter] != ';');
-      } else if (find_type == '[') { // tipo array
-          count_arguments++;
-          while (method_descriptor[++counter] == '[');
-          if (method_descriptor[counter] == 'L')
-              while(method_descriptor[++counter] != ';');
-      } else count_arguments++;
-      counter++;
-  }
+   // não precisa criar frame para definir tipo float
+  if (class_name.find("Float") != string::npos && method_name.find("valueOf") != string::npos) {
+    if (DEBUG) cout << "Ignorando Float.valueOf\n";
+    return;
+  } 
 
-  if (DEBUG) cout << "metodo possui " << count_arguments << " argumentos\n";
-
-  // não precisa criar frame para definir tipo float
-  if (class_name.find("Float") != string::npos &&
-    method_name.find("valueOf") != string::npos) {
-      if (DEBUG) cout << "Ignorando Float.valueOf\n";
-      return;
-  } else {
-    std::vector<Operand*> arguments;
-    if (DEBUG) cout << "passando argumentos para o metodo estatico\n";
-
-    for (int i = 0; i < count_arguments; ++i) {
-      Operand *argument = curr_frame->pop_operand();
-
-      if (DEBUG) cout << "operando do tipo: " <<  (int)argument->tag << "\n";
-
-      // passa argumento para a função
-      arguments.insert(arguments.begin(), argument);
-      if (argument->tag == CONSTANT_DOUBLE || argument->tag == CONSTANT_LONG)
-        arguments.insert(arguments.begin() + 1, check_string_create_type("P"));
-    }
-
-    Class_Loader *class_loader = get_static_class(class_name);
-    Method_Info *method_finded = find_method(class_loader->class_file, method_name, method_descriptor);
-    Frame *new_frame = new Frame(method_finded, class_loader->class_file);
-
-    // vetor das variáveis locais
-    for (int j = 0; (unsigned)j < arguments.size(); ++j)
-      new_frame->local_variables_array.at(j) = arguments.at(j);
-
-    push_frame(new_frame);
-  }
+  string invoke_type = "static";
+  class_not_default_java(curr_frame, class_name, method_name, method_desc, invoke_type);
 }
 
 /** @brief Invoca a interface do método.
@@ -483,12 +480,12 @@ void invokeinterface(Frame *curr_frame) {
 
   u2 index = get_method_code_index(curr_frame);
 
-  Cp_Info &method_info = curr_frame->cp_reference[index];
-  Cp_Info &class_info = curr_frame->cp_reference[method_info.Methodref.class_index];
+  Cp_Info method_info = curr_frame->cp_reference[index];
+  Cp_Info class_info = curr_frame->cp_reference[method_info.Methodref.class_index];
 
   string class_name = get_utf8_constant_pool(curr_frame->cp_reference, class_info.Class.class_name);
 
-  Cp_Info &name_and_type = curr_frame->cp_reference[method_info.Methodref.name_and_type_index];
+  Cp_Info name_and_type = curr_frame->cp_reference[method_info.Methodref.name_and_type_index];
   string method_name = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.name_index);
   string method_descriptor = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.descriptor_index);
 }
@@ -505,17 +502,17 @@ void new_obj(Frame *curr_frame) {
   u2 index = curr_frame->method_code->code[curr_frame->pc];
   index = (index << 8) + curr_frame->method_code->code[++curr_frame->pc];
 
-  Cp_Info &class_info = curr_frame->cp_reference[index];
-  string utf8_constant = get_utf8_constant_pool(curr_frame->cp_reference, class_info.Class.class_name);
+  Cp_Info class_info = curr_frame->cp_reference[index];
+  string class_name = get_utf8_constant_pool(curr_frame->cp_reference, class_info.Class.class_name);
 
-  if (utf8_constant == "java/lang/StringBuilder") {
-      Operand* string_builder = (Operand*)malloc(sizeof(Operand));
-      string_builder->tag = CONSTANT_STRING;
-      string_builder->type_string = new string("");
-      curr_frame->push_operand(string_builder);
-  }else{
-      Operand *instance = check_string_create_type("L" + utf8_constant);
-      curr_frame->push_operand(instance);
+  if (class_name == "java/lang/StringBuilder") {
+    Operand* string_builder = (Operand*) malloc(sizeof(Operand));
+    string_builder->tag = CONSTANT_STRING;
+    string_builder->type_string = new string("");
+    curr_frame->push_operand(string_builder);
+  } else {
+    Operand *instance = check_string_create_type("L" + class_name);
+    curr_frame->push_operand(instance);
   }
   curr_frame->pc++;
 }
