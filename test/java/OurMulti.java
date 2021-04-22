@@ -16,16 +16,15 @@ public class OurMulti {
 
 //NOTE: Esse caso NÃO passa
 
-    // Integer[] arrayOfString = new Integer[10];
+    Integer[] arrayInt = new Integer[3];
 
-    // arrayOfString[0] = 1;
-    // arrayOfString[1] = 2;
-    // arrayOfString[2] = 3;
-    // arrayOfString[5] = 4;
+    arrayInt[0] = 1;
+    arrayInt[1] = 2;
+    arrayInt[2] = 3;
 
-    // System.out.println(arrayOfString[0]);
-    // System.out.println(arrayOfString[1]);
-
+    System.out.println(arrayInt[0]);
+    System.out.println(arrayInt[1]);
+    System.out.println(arrayInt[2]);
 
 //NOTE: Esse caso passa
 

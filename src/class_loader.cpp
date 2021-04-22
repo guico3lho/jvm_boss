@@ -163,18 +163,26 @@ Operand* check_string_create_type(std::string type_string) {
       new_type->type_string = new std::string("");
       break;
     case 'L':
+
+      if (type_string == "Ljava/lang/Integer;") {
+        new_type->tag = CONSTANT_INT;
+        new_type->type_int = 0;
+      } 
+
       if (type_string == "Ljava/lang/String;") {
         new_type->tag = CONSTANT_STRING;
         new_type->type_string = new std::string("");
-      } else {
+      } 
+      
+      if (type_string == "Ljava/lang/Object;") {
         new_type->tag = CONSTANT_CLASS;
         new_type->class_loader = (Class_Loader*) malloc(sizeof(Class_Loader));
 
         std::string class_realname = type_string.substr(1, type_string.size());
-        if (DEBUG) std::cout << "Escopo de check_string_create_type!!" << "\n";
-        Class_File info_class = get_class_and_load_not_exists(class_realname);
+        if (DEBUG) std::cout << "Classe java/lang/Object" << class_realname << "\n";
 
-        new_type->class_loader->class_file = info_class;
+        Class_File class_info = get_class_and_load_not_exists(class_realname);
+        new_type->class_loader->class_file = class_info;
         new_type->class_loader->class_name = &class_realname;
 
         load_class_variables(new_type->class_loader);

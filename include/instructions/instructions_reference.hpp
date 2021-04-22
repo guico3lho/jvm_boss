@@ -24,6 +24,7 @@ void invokeinterface(Frame*);
 void new_obj(Frame*);
 void newarray(Frame*);
 void set_newarray_type(Operand*, u4, string);
+void anewarray(Frame*);
 void arraylength(Frame*);
 
 void class_not_default_java(Frame*, string, string, string, string);
