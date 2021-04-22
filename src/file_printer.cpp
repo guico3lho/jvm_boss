@@ -5,30 +5,41 @@
 
 #include "file_printer.hpp"
 
+/**
+ * @brief Imprime no terminal a versão do Java
+ * @param major_version bytes com a constante que indica a versão
+ * @return void
+ */
 void print_major_version(u2 major_version) {
-
   switch(major_version) {
     case 52:
       printf("Java SE 8");
       break;
+
     case 51:
       printf("Java SE 7");
       break;
+
     case 50:
       printf("Java SE 6.0");
       break;
+
     case 49:
       printf("Java SE 5.0");
       break;
+
     case 48:
       printf("JDK 1.4");
       break;
+
     case 47:
       printf("JDK 1.3");
       break;
+
     case 46:
       printf("JDK 1.2");
       break;
+
     case 45:
       printf("JDK 1.1");
       break;
@@ -36,12 +47,24 @@ void print_major_version(u2 major_version) {
   printf("\n");
 }
 
+/**
+ * @brief Checa se é a flag correta e imprime no terminal
+ * @param access_flags bytes que possuem a flag de acesso
+ * @param constant_access_flag número da constant que define essa flag
+ * @param flag_name string com o nome da flag
+ * @return void
+ */
 void check_flag(u2 access_flags, int constant_access_flag, std::string flag_name) {
   if(access_flags & constant_access_flag) {
     std::cout << flag_name << " ";
   }
 }
 
+/**
+ * @brief Define as strings das flags e chama a função que checa a flag para imprimir a correta
+ * @param access_flags bytes que possuem a flag de acesso
+ * @return void
+ */
 void print_access_flags(u2 access_flags) {
   printf("0x%.4x: ", access_flags);
 
@@ -185,41 +208,53 @@ void print_constant_pool(Class_File class_file) {
         std::cout << "Utf8\t\t" << current_cp_info.Utf8.bytes;
         // std::cout << "\tLength: " << current_cp_info.Utf8.length;
         break;
+
       case CONSTANT_INT:
         print_cp_info_int(current_cp_info);
         break;
+
       case CONSTANT_FLOAT:
         print_cp_info_float(current_cp_info);
         break;
+
       case CONSTANT_LONG:
         print_cp_info_long(current_cp_info);
         i++;
         break;
+
       case CONSTANT_DOUBLE:
         print_cp_info_double(current_cp_info);
         i++;
         break;
+
       case CONSTANT_CLASS :
         print_cp_info_class(class_file, current_cp_info);
         break;
+
       case CONSTANT_STRING:
         print_cp_info_string(class_file, current_cp_info);
         break;
+
       case CONSTANT_FIELD_REF:
         print_cp_info_field(class_file, current_cp_info);
         break;
+
       case CONSTANT_METHOD_REF:
         print_cp_info_method(class_file, current_cp_info);
         break;
+        
       case CONSTANT_INTERFACE_METHOD_REF:
         print_cp_info_interface_method(class_file, current_cp_info);
         break;
+
       case CONSTANT_NAME_TYPE:
         print_cp_info_name_type(class_file, current_cp_info);
         break;
+
       case CONSTANT_EMPTY:
         std::cout << "\tEmpty Constant"<< std::endl;
         break;
+
       default:
         printf("Invalid tag number: %d\nEncerrando programa.\n", current_cp_info.tag);
         exit(1);

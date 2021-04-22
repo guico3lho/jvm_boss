@@ -9,7 +9,9 @@ std::map<std::string, Class_Loader*> loaded_classes;
 std::map<std::string, Class_Loader*> static_classes;
 
 /**
- * @brief Carrega classes para a memória.
+ * @brief Lê e armazena classes no class_loader
+ * @param class_file
+ * @return Class_Loader*
  */
 
 Class_Loader* load_class_memory(Class_File class_file) {
@@ -35,7 +37,7 @@ Class_Loader* load_class_memory(Class_File class_file) {
 
 /**
  * @brief Carrega variáveis com informações do .class
- * @param *Class_Loader ponteiro para classes carregadas em memoria
+ * @param class_loader ponteiro para classes carregadas em memoria
  * @return void
  */
 void load_class_variables(Class_Loader *class_loader) {
@@ -67,7 +69,7 @@ void load_class_variables(Class_Loader *class_loader) {
 
 /**
  * @brief Carrega outro .class se o arquivo estiver no mesmo diretório.
- * @param c_path nome do próximo arquivo .class a ser carregado
+ * @param class_path nome do próximo arquivo .class a ser carregado
  * @return JavaClass estrutura de dados do arquivo .class a ser carregado
  */
 Class_File get_class_and_load_not_exists(std::string class_path) {
@@ -89,9 +91,9 @@ Class_File get_class_and_load_not_exists(std::string class_path) {
 }
 
 /**
- * @brief Retorna a classe estática
- * @param std::string nome da classe a ser retornada a referencia
- * @return ClassInstance* ponteiro da referencia da classe
+ * @brief Encontra a classe estática
+ * @param class_name da classe a ser retornada a referencia
+ * @return Class_Loader* ponteiro da referencia da classe
  */
 Class_Loader* get_static_class(std::string class_name){
   return static_classes[class_name];
@@ -123,49 +125,59 @@ Operand* check_string_create_type(std::string type_string) {
       new_type->tag = CONSTANT_INT;
       new_type->type_int = 0;
       break;
+
     case 'F':
       new_type->tag = CONSTANT_FLOAT;
       new_type->type_float = 0;
       break;
+
     case 'J':
       new_type->tag = CONSTANT_LONG;
       new_type->type_long = 0;
       break;
+
     case 'D':
       new_type->tag = CONSTANT_DOUBLE;
       new_type->type_double = 0;
       break;
+
     case 'Z':
       new_type->tag = CONSTANT_BOOL;
       new_type->type_bool = 0;
       break;
+
     case 'B':
       new_type->tag = CONSTANT_BYTE;
       new_type->type_byte = 0;
       break;
+
     case 'C':
       new_type->tag = CONSTANT_CHAR;
       new_type->type_char = 0;
       break;
+
     case 'S':
       new_type->tag = CONSTANT_SHORT;
       new_type->type_short = 0;
       break;
+
     case '[':
     // if (DEBUG) printf("Entered [ case\n");
       new_type->tag = CONSTANT_ARRAY;
       new_type->array_type = (Array_Type*) malloc(sizeof(Array_Type));
       new_type->array_type->array = new std::vector<Operand*>();
       break;
+
     case 'P':
       new_type->tag = CONSTANT_EMPTY;
       break;
+
     case CONSTANT_STRING:
       new_type->tag = CONSTANT_STRING;
       new_type->type_string = new std::string("");
       break;
-    case 'L':
 
+    case 'L':
       if (type_string == "Ljava/lang/Integer;") {
         new_type->tag = CONSTANT_INT;
         new_type->type_int = 0;

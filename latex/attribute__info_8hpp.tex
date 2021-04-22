@@ -72,39 +72,29 @@ typedef struct \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} \
 \item 
 void \mbox{\hyperlink{attribute__info_8hpp_abc7aeed386080a807df623989568d2b6}{read\+\_\+attribute\+\_\+info}} (FILE $\ast$file, \mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} $\ast$class\+\_\+file)
 \begin{DoxyCompactList}\small\item\em Lê e armazena as informações dos atributos no class file. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{attribute__info_8hpp_a1716d08c74d75fd1aed15d2ae582a092}\label{attribute__info_8hpp_a1716d08c74d75fd1aed15d2ae582a092}} 
-\mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} {\bfseries get\+\_\+attribute\+\_\+info} (FILE $\ast$file, \mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} $\ast$class\+\_\+file)
-\item 
-\mbox{\Hypertarget{attribute__info_8hpp_a8c89708ac2871ae677475544a8425ebe}\label{attribute__info_8hpp_a8c89708ac2871ae677475544a8425ebe}} 
-\mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} {\bfseries read\+\_\+const\+\_\+value\+\_\+attribute} (FILE $\ast$file, \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} attribute\+\_\+info)
-\item 
+\mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} \mbox{\hyperlink{attribute__info_8hpp_a1716d08c74d75fd1aed15d2ae582a092}{get\+\_\+attribute\+\_\+info}} (FILE $\ast$file, \mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} $\ast$class\+\_\+file)
+\begin{DoxyCompactList}\small\item\em Lê todas as informações do Attribute e armazena no attribute\+\_\+info. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} \mbox{\hyperlink{attribute__info_8hpp_a8c89708ac2871ae677475544a8425ebe}{read\+\_\+const\+\_\+value\+\_\+attribute}} (FILE $\ast$file, \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} attribute\+\_\+info)
+\begin{DoxyCompactList}\small\item\em Lê o value index e armazena em attribute\+\_\+info. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{attribute__info_8hpp_a133352cff94a694bbbd889868d1dafaf}\label{attribute__info_8hpp_a133352cff94a694bbbd889868d1dafaf}} 
 \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} {\bfseries read\+\_\+code\+\_\+attribute} (FILE $\ast$file, \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} attribute\+\_\+info)
 \item 
-\mbox{\Hypertarget{attribute__info_8hpp_a996f62abd47dfcdc831ea5c87f97c29c}\label{attribute__info_8hpp_a996f62abd47dfcdc831ea5c87f97c29c}} 
-\mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} {\bfseries read\+\_\+exception\+\_\+attribute} (FILE $\ast$file, \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} attribute\+\_\+info)
-\item 
-\mbox{\Hypertarget{attribute__info_8hpp_a64e4ff6ccb248d57c756d8853a8e7cfc}\label{attribute__info_8hpp_a64e4ff6ccb248d57c756d8853a8e7cfc}} 
-\mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} {\bfseries read\+\_\+source\+\_\+file\+\_\+attribute} (FILE $\ast$file, \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} attribute\+\_\+info)
-\item 
-\mbox{\Hypertarget{attribute__info_8hpp_abc5766d288b5676cd17785b00fac7e8c}\label{attribute__info_8hpp_abc5766d288b5676cd17785b00fac7e8c}} 
-\mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} {\bfseries read\+\_\+inner\+\_\+class\+\_\+attribute} (FILE $\ast$file, \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} attribute\+\_\+info)
-\item 
-\mbox{\Hypertarget{attribute__info_8hpp_a01d1974b0e3df2942a8c3b256331b36c}\label{attribute__info_8hpp_a01d1974b0e3df2942a8c3b256331b36c}} 
-\mbox{\hyperlink{structInner__Class__Attribute}{Inner\+\_\+\+Class\+\_\+\+Attribute}} {\bfseries read\+\_\+inner\+\_\+class\+\_\+attributes} (FILE $\ast$file)
-\item 
-\mbox{\Hypertarget{attribute__info_8hpp_a052a2d0d89425881f6f90d3c36303ea5}\label{attribute__info_8hpp_a052a2d0d89425881f6f90d3c36303ea5}} 
-\mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} {\bfseries read\+\_\+line\+\_\+number\+\_\+table\+\_\+attribute} (FILE $\ast$file, \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} attribute\+\_\+info)
-\item 
-\mbox{\Hypertarget{attribute__info_8hpp_a5a4048e1c2078c43b7ee54bdcb0636ad}\label{attribute__info_8hpp_a5a4048e1c2078c43b7ee54bdcb0636ad}} 
-\mbox{\hyperlink{structLine__Number__Table__Data}{Line\+\_\+\+Number\+\_\+\+Table\+\_\+\+Data}} {\bfseries read\+\_\+line\+\_\+number\+\_\+table\+\_\+data} (FILE $\ast$file)
-\item 
-\mbox{\Hypertarget{attribute__info_8hpp_a5d0d8fd2992fd120c8c7f69d7cfc4a1e}\label{attribute__info_8hpp_a5d0d8fd2992fd120c8c7f69d7cfc4a1e}} 
-void {\bfseries read\+\_\+local\+\_\+variable\+\_\+table\+\_\+attribute} (FILE $\ast$file, \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} $\ast$attribute\+\_\+info)
-\item 
-\mbox{\Hypertarget{attribute__info_8hpp_a857a66ff6a56aa7541ded7d6d1a9ebcc}\label{attribute__info_8hpp_a857a66ff6a56aa7541ded7d6d1a9ebcc}} 
-\mbox{\hyperlink{structLocal__Variable__Table__Data}{Local\+\_\+\+Variable\+\_\+\+Table\+\_\+\+Data}} {\bfseries read\+\_\+local\+\_\+variable\+\_\+table\+\_\+data} (FILE $\ast$file)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} \mbox{\hyperlink{attribute__info_8hpp_a996f62abd47dfcdc831ea5c87f97c29c}{read\+\_\+exception\+\_\+attribute}} (FILE $\ast$file, \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} attribute\+\_\+info)
+\begin{DoxyCompactList}\small\item\em Lê o número de exceções e armazena cada uma delas no attribute\+\_\+info. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} \mbox{\hyperlink{attribute__info_8hpp_a64e4ff6ccb248d57c756d8853a8e7cfc}{read\+\_\+source\+\_\+file\+\_\+attribute}} (FILE $\ast$file, \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} attribute\+\_\+info)
+\begin{DoxyCompactList}\small\item\em Lê e armazena o index do source\+\_\+file em attribute\+\_\+info. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} \mbox{\hyperlink{attribute__info_8hpp_abc5766d288b5676cd17785b00fac7e8c}{read\+\_\+inner\+\_\+class\+\_\+attribute}} (FILE $\ast$file, \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} attribute\+\_\+info)
+\begin{DoxyCompactList}\small\item\em Lê e armazena todos os inner\+\_\+class no attribute\+\_\+info. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structInner__Class__Attribute}{Inner\+\_\+\+Class\+\_\+\+Attribute}} \mbox{\hyperlink{attribute__info_8hpp_a01d1974b0e3df2942a8c3b256331b36c}{read\+\_\+inner\+\_\+class\+\_\+attributes}} (FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Lê as informações do inner\+\_\+class de acordo com o número de classes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} \mbox{\hyperlink{attribute__info_8hpp_a052a2d0d89425881f6f90d3c36303ea5}{read\+\_\+line\+\_\+number\+\_\+table\+\_\+attribute}} (FILE $\ast$file, \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} attribute\+\_\+info)
+\begin{DoxyCompactList}\small\item\em Lê e armazena todas as linhas na tabela do attribute\+\_\+info. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structLine__Number__Table__Data}{Line\+\_\+\+Number\+\_\+\+Table\+\_\+\+Data}} \mbox{\hyperlink{attribute__info_8hpp_a5a4048e1c2078c43b7ee54bdcb0636ad}{read\+\_\+line\+\_\+number\+\_\+table\+\_\+data}} (FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Lê uma linha da tabela. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{attribute__info_8hpp_a5d0d8fd2992fd120c8c7f69d7cfc4a1e}{read\+\_\+local\+\_\+variable\+\_\+table\+\_\+attribute}} (FILE $\ast$file, \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} $\ast$attribute\+\_\+info)
+\begin{DoxyCompactList}\small\item\em Lê e armazena as variáveis locais na tabela do attribute\+\_\+info. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structLocal__Variable__Table__Data}{Local\+\_\+\+Variable\+\_\+\+Table\+\_\+\+Data}} \mbox{\hyperlink{attribute__info_8hpp_a857a66ff6a56aa7541ded7d6d1a9ebcc}{read\+\_\+local\+\_\+variable\+\_\+table\+\_\+data}} (FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Lê uma variável local da tabela. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Descrição detalhada}
@@ -113,6 +103,26 @@ Estruturas e declarações de funções relacionadas a Atributos.
 
 
 \doxysubsection{Documentação das funções}
+\mbox{\Hypertarget{attribute__info_8hpp_a1716d08c74d75fd1aed15d2ae582a092}\label{attribute__info_8hpp_a1716d08c74d75fd1aed15d2ae582a092}} 
+\index{attribute\_info.hpp@{attribute\_info.hpp}!get\_attribute\_info@{get\_attribute\_info}}
+\index{get\_attribute\_info@{get\_attribute\_info}!attribute\_info.hpp@{attribute\_info.hpp}}
+\doxysubsubsection{\texorpdfstring{get\_attribute\_info()}{get\_attribute\_info()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} get\+\_\+attribute\+\_\+info (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{file,  }\item[{\mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} $\ast$}]{class\+\_\+file }\end{DoxyParamCaption})}
+
+
+
+Lê todas as informações do Attribute e armazena no attribute\+\_\+info. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em file} & \\
+\hline
+{\em class\+\_\+file} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+\mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} 
+\end{DoxyReturn}
 \mbox{\Hypertarget{attribute__info_8hpp_abc7aeed386080a807df623989568d2b6}\label{attribute__info_8hpp_abc7aeed386080a807df623989568d2b6}} 
 \index{attribute\_info.hpp@{attribute\_info.hpp}!read\_attribute\_info@{read\_attribute\_info}}
 \index{read\_attribute\_info@{read\_attribute\_info}!attribute\_info.hpp@{attribute\_info.hpp}}
@@ -125,11 +135,187 @@ Lê e armazena as informações dos atributos no class file.
 
 
 \begin{DoxyParams}{Parâmetros}
-{\em FILE} & $\ast$file \\
+{\em file} & \\
 \hline
-{\em \mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}}} & $\ast$class\+\_\+file \\
+{\em class\+\_\+file} & \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Retorna}
 void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{attribute__info_8hpp_a8c89708ac2871ae677475544a8425ebe}\label{attribute__info_8hpp_a8c89708ac2871ae677475544a8425ebe}} 
+\index{attribute\_info.hpp@{attribute\_info.hpp}!read\_const\_value\_attribute@{read\_const\_value\_attribute}}
+\index{read\_const\_value\_attribute@{read\_const\_value\_attribute}!attribute\_info.hpp@{attribute\_info.hpp}}
+\doxysubsubsection{\texorpdfstring{read\_const\_value\_attribute()}{read\_const\_value\_attribute()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} read\+\_\+const\+\_\+value\+\_\+attribute (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{file,  }\item[{\mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}}}]{attribute\+\_\+info }\end{DoxyParamCaption})}
+
+
+
+Lê o value index e armazena em attribute\+\_\+info. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em file} & \\
+\hline
+{\em attribute\+\_\+info} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+\mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{attribute__info_8hpp_a996f62abd47dfcdc831ea5c87f97c29c}\label{attribute__info_8hpp_a996f62abd47dfcdc831ea5c87f97c29c}} 
+\index{attribute\_info.hpp@{attribute\_info.hpp}!read\_exception\_attribute@{read\_exception\_attribute}}
+\index{read\_exception\_attribute@{read\_exception\_attribute}!attribute\_info.hpp@{attribute\_info.hpp}}
+\doxysubsubsection{\texorpdfstring{read\_exception\_attribute()}{read\_exception\_attribute()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} read\+\_\+exception\+\_\+attribute (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{file,  }\item[{\mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}}}]{attribute\+\_\+info }\end{DoxyParamCaption})}
+
+
+
+Lê o número de exceções e armazena cada uma delas no attribute\+\_\+info. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em file} & \\
+\hline
+{\em attribute\+\_\+info} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+\mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{attribute__info_8hpp_abc5766d288b5676cd17785b00fac7e8c}\label{attribute__info_8hpp_abc5766d288b5676cd17785b00fac7e8c}} 
+\index{attribute\_info.hpp@{attribute\_info.hpp}!read\_inner\_class\_attribute@{read\_inner\_class\_attribute}}
+\index{read\_inner\_class\_attribute@{read\_inner\_class\_attribute}!attribute\_info.hpp@{attribute\_info.hpp}}
+\doxysubsubsection{\texorpdfstring{read\_inner\_class\_attribute()}{read\_inner\_class\_attribute()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} read\+\_\+inner\+\_\+class\+\_\+attribute (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{file,  }\item[{\mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}}}]{attribute\+\_\+info }\end{DoxyParamCaption})}
+
+
+
+Lê e armazena todos os inner\+\_\+class no attribute\+\_\+info. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em file} & \\
+\hline
+{\em attribute\+\_\+info} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+\mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{attribute__info_8hpp_a01d1974b0e3df2942a8c3b256331b36c}\label{attribute__info_8hpp_a01d1974b0e3df2942a8c3b256331b36c}} 
+\index{attribute\_info.hpp@{attribute\_info.hpp}!read\_inner\_class\_attributes@{read\_inner\_class\_attributes}}
+\index{read\_inner\_class\_attributes@{read\_inner\_class\_attributes}!attribute\_info.hpp@{attribute\_info.hpp}}
+\doxysubsubsection{\texorpdfstring{read\_inner\_class\_attributes()}{read\_inner\_class\_attributes()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structInner__Class__Attribute}{Inner\+\_\+\+Class\+\_\+\+Attribute}} read\+\_\+inner\+\_\+class\+\_\+attributes (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+Lê as informações do inner\+\_\+class de acordo com o número de classes. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em file} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+\mbox{\hyperlink{structInner__Class__Attribute}{Inner\+\_\+\+Class\+\_\+\+Attribute}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{attribute__info_8hpp_a052a2d0d89425881f6f90d3c36303ea5}\label{attribute__info_8hpp_a052a2d0d89425881f6f90d3c36303ea5}} 
+\index{attribute\_info.hpp@{attribute\_info.hpp}!read\_line\_number\_table\_attribute@{read\_line\_number\_table\_attribute}}
+\index{read\_line\_number\_table\_attribute@{read\_line\_number\_table\_attribute}!attribute\_info.hpp@{attribute\_info.hpp}}
+\doxysubsubsection{\texorpdfstring{read\_line\_number\_table\_attribute()}{read\_line\_number\_table\_attribute()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} read\+\_\+line\+\_\+number\+\_\+table\+\_\+attribute (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{file,  }\item[{\mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}}}]{attribute\+\_\+info }\end{DoxyParamCaption})}
+
+
+
+Lê e armazena todas as linhas na tabela do attribute\+\_\+info. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em file} & \\
+\hline
+{\em attribute\+\_\+info} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+\mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{attribute__info_8hpp_a5a4048e1c2078c43b7ee54bdcb0636ad}\label{attribute__info_8hpp_a5a4048e1c2078c43b7ee54bdcb0636ad}} 
+\index{attribute\_info.hpp@{attribute\_info.hpp}!read\_line\_number\_table\_data@{read\_line\_number\_table\_data}}
+\index{read\_line\_number\_table\_data@{read\_line\_number\_table\_data}!attribute\_info.hpp@{attribute\_info.hpp}}
+\doxysubsubsection{\texorpdfstring{read\_line\_number\_table\_data()}{read\_line\_number\_table\_data()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structLine__Number__Table__Data}{Line\+\_\+\+Number\+\_\+\+Table\+\_\+\+Data}} read\+\_\+line\+\_\+number\+\_\+table\+\_\+data (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+Lê uma linha da tabela. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em file} & \\
+\hline
+{\em attribute\+\_\+info} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+\mbox{\hyperlink{structLine__Number__Table__Data}{Line\+\_\+\+Number\+\_\+\+Table\+\_\+\+Data}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{attribute__info_8hpp_a5d0d8fd2992fd120c8c7f69d7cfc4a1e}\label{attribute__info_8hpp_a5d0d8fd2992fd120c8c7f69d7cfc4a1e}} 
+\index{attribute\_info.hpp@{attribute\_info.hpp}!read\_local\_variable\_table\_attribute@{read\_local\_variable\_table\_attribute}}
+\index{read\_local\_variable\_table\_attribute@{read\_local\_variable\_table\_attribute}!attribute\_info.hpp@{attribute\_info.hpp}}
+\doxysubsubsection{\texorpdfstring{read\_local\_variable\_table\_attribute()}{read\_local\_variable\_table\_attribute()}}
+{\footnotesize\ttfamily void read\+\_\+local\+\_\+variable\+\_\+table\+\_\+attribute (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{file,  }\item[{\mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} $\ast$}]{attribute\+\_\+info }\end{DoxyParamCaption})}
+
+
+
+Lê e armazena as variáveis locais na tabela do attribute\+\_\+info. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em file} & \\
+\hline
+{\em attribute\+\_\+info} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{attribute__info_8hpp_a857a66ff6a56aa7541ded7d6d1a9ebcc}\label{attribute__info_8hpp_a857a66ff6a56aa7541ded7d6d1a9ebcc}} 
+\index{attribute\_info.hpp@{attribute\_info.hpp}!read\_local\_variable\_table\_data@{read\_local\_variable\_table\_data}}
+\index{read\_local\_variable\_table\_data@{read\_local\_variable\_table\_data}!attribute\_info.hpp@{attribute\_info.hpp}}
+\doxysubsubsection{\texorpdfstring{read\_local\_variable\_table\_data()}{read\_local\_variable\_table\_data()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structLocal__Variable__Table__Data}{Local\+\_\+\+Variable\+\_\+\+Table\+\_\+\+Data}} read\+\_\+local\+\_\+variable\+\_\+table\+\_\+data (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+Lê uma variável local da tabela. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em file} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+\mbox{\hyperlink{structLocal__Variable__Table__Data}{Local\+\_\+\+Variable\+\_\+\+Table\+\_\+\+Data}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{attribute__info_8hpp_a64e4ff6ccb248d57c756d8853a8e7cfc}\label{attribute__info_8hpp_a64e4ff6ccb248d57c756d8853a8e7cfc}} 
+\index{attribute\_info.hpp@{attribute\_info.hpp}!read\_source\_file\_attribute@{read\_source\_file\_attribute}}
+\index{read\_source\_file\_attribute@{read\_source\_file\_attribute}!attribute\_info.hpp@{attribute\_info.hpp}}
+\doxysubsubsection{\texorpdfstring{read\_source\_file\_attribute()}{read\_source\_file\_attribute()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} read\+\_\+source\+\_\+file\+\_\+attribute (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{file,  }\item[{\mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}}}]{attribute\+\_\+info }\end{DoxyParamCaption})}
+
+
+
+Lê e armazena o index do source\+\_\+file em attribute\+\_\+info. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em file} & \\
+\hline
+{\em attribute\+\_\+info} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+\mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} 
 \end{DoxyReturn}

@@ -9,6 +9,8 @@ std::stack<Frame*> frame_stack;
 
 /**
 * @brief Função que executa a interpretação do arquivo .class.
+* @param class_file estrutura class_file de onde os frames serão criados
+* @return void
 */
 void execute(Class_File class_file) {
 
@@ -28,14 +30,29 @@ void execute(Class_File class_file) {
   }
 }
 
+/** 
+ * @brief Coloca um frame da pilha de frames.
+ * @param frame ponteiro para o frame que será colocado na pilha.
+ * @return void
+ */
 void push_frame(Frame *frame) {
   frame_stack.push(frame);
 }
 
+/** 
+ * @brief Retira um frame da pilha de frames.
+ * @param void
+ * @return void
+ */
 void pop_frame() {
   frame_stack.pop();
 }
 
+/** 
+ * @brief Returna o frame no inicio da pilha.
+ * @param void.
+ * @return um ponteiro para o frame
+ */
 Frame* top_frame() {
   return frame_stack.top();
 }

@@ -28,7 +28,7 @@ u2 read_2_bytes(FILE* fp) {
 
 /** 
  * @brief Lê 4 byte de um arquivo
- * @param *fp ponteiro para o arquivo que vai ser lido.
+ * @param fp ponteiro para o arquivo que vai ser lido
  * @return u4 os bytes lidos
  */
 u4 read_4_bytes(FILE* fp) {

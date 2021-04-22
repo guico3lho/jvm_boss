@@ -320,20 +320,22 @@ void ldc_w(Frame *curr_frame) {
       operands->tag = CONSTANT_INT;
       operands->type_int = cp_info->Integer.bytes;
       break;
+
     case CONSTANT_FLOAT:
       operands = (Operand*)malloc(sizeof(Operand));
       operands->tag = CONSTANT_FLOAT;
       operands->type_float = cp_info->Float.bytes;
       break;
+
     case CONSTANT_CLASS:
       //TODO
       printf("TODO");
       break;
+
     case CONSTANT_STRING:{
       operands = (Operand*)malloc(sizeof(Operand));
       operands->tag = CONSTANT_STRING;
       string utf8_cp = get_utf8_constant_pool(curr_frame->cp_reference, cp_info->String.string_index);
-
       operands->type_string = new string(utf8_cp);
       break;
     }
@@ -342,7 +344,6 @@ void ldc_w(Frame *curr_frame) {
       printf("TODO");
       break; //methodRef e methodHandle não implementados
   }
-
   curr_frame->push_operand(operands);
 }
 
@@ -357,6 +358,7 @@ void ldc2_w(Frame *curr_frame) {
   u2 index = get_method_code_index(curr_frame);
 
   if (DEBUG) cout << "ldc2_w index : " << (int)index << "\n";
+
   Cp_Info *cp_info = curr_frame->cp_reference + (int)index;
   Operand* operands;
 
@@ -371,15 +373,18 @@ void ldc2_w(Frame *curr_frame) {
       memcpy(&double_v, &operands->type_double, sizeof(double));
       printf("double value: %.15lf\n", double_v);
     }
+
   } else { // long
     operands = (Operand*) malloc(sizeof(Operand));
     operands->tag = CONSTANT_LONG;
 
     long read_long_value;
+
     memcpy(&read_long_value, &(cp_info->Long.high_bytes),sizeof(long));
     memcpy(&read_long_value, &(cp_info->Long.low_bytes),sizeof(long));
 
     operands->type_long = read_long_value;
+
     if (DEBUG) cout << "long value: " << operands->type_double << "\n";
   }
   curr_frame->push_operand(operands);

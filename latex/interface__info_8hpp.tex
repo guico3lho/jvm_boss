@@ -20,9 +20,8 @@ typedef struct \mbox{\hyperlink{structInterface__Info}{Interface\+\_\+\+Info}} \
 \doxysubsection*{Funções}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{interface__info_8hpp_a89260667f3c038f055ffc1ce35821bba}\label{interface__info_8hpp_a89260667f3c038f055ffc1ce35821bba}} 
-void {\bfseries read\+\_\+interface\+\_\+info} (FILE $\ast$file, \mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} $\ast$class\+\_\+file)
-\item 
+void \mbox{\hyperlink{interface__info_8hpp_a89260667f3c038f055ffc1ce35821bba}{read\+\_\+interface\+\_\+info}} (FILE $\ast$file, \mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} $\ast$class\+\_\+file)
+\begin{DoxyCompactList}\small\item\em Função que lê as informações de interface e armazena em uma estrutura Class File. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{interface__info_8hpp_a597c5925034dfc8dcf287b5ea96c3214}\label{interface__info_8hpp_a597c5925034dfc8dcf287b5ea96c3214}} 
 \mbox{\hyperlink{structInterface__Info}{Interface\+\_\+\+Info}} {\bfseries get\+\_\+interface\+\_\+info} (FILE $\ast$file, \mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} $\ast$class\+\_\+file, \mbox{\hyperlink{structInterface__Info}{Interface\+\_\+\+Info}} interface\+\_\+info)
 \end{DoxyCompactItemize}
@@ -31,3 +30,26 @@ void {\bfseries read\+\_\+interface\+\_\+info} (FILE $\ast$file, \mbox{\hyperlin
 \doxysubsection{Descrição detalhada}
 Estruturas e declarações de funções que leem as interfaces do arquivo e as armazenam no class\+\_\+file. 
 
+
+
+\doxysubsection{Documentação das funções}
+\mbox{\Hypertarget{interface__info_8hpp_a89260667f3c038f055ffc1ce35821bba}\label{interface__info_8hpp_a89260667f3c038f055ffc1ce35821bba}} 
+\index{interface\_info.hpp@{interface\_info.hpp}!read\_interface\_info@{read\_interface\_info}}
+\index{read\_interface\_info@{read\_interface\_info}!interface\_info.hpp@{interface\_info.hpp}}
+\doxysubsubsection{\texorpdfstring{read\_interface\_info()}{read\_interface\_info()}}
+{\footnotesize\ttfamily void read\+\_\+interface\+\_\+info (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{file,  }\item[{\mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} $\ast$}]{class\+\_\+file }\end{DoxyParamCaption})}
+
+
+
+Função que lê as informações de interface e armazena em uma estrutura Class File. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em file} & ponteiro para o arquivo de onde as informações vão ser retiradas \\
+\hline
+{\em class\+\_\+file} & estrutura \mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} onde vai ser armazenado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}

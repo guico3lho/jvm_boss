@@ -26,7 +26,6 @@
 #include "interpreter.hpp"
 #include "file_printer.hpp"
 
-
 int main(int argc, char* argv[]) {
 
   std::string option = argv[1], file = argv[2];

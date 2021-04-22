@@ -9,15 +9,12 @@ Arquivo com funções que imprimem informações para o usuário.
 \doxysubsection*{Funções}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{file__printer_8cpp_aa378292c834be735e3e22c931763414a}\label{file__printer_8cpp_aa378292c834be735e3e22c931763414a}} 
-void {\bfseries print\+\_\+major\+\_\+version} (u2 major\+\_\+version)
-\item 
-\mbox{\Hypertarget{file__printer_8cpp_a3a2c35e1751326cf167c2a912204ddd3}\label{file__printer_8cpp_a3a2c35e1751326cf167c2a912204ddd3}} 
-void {\bfseries check\+\_\+flag} (u2 access\+\_\+flags, int constant\+\_\+access\+\_\+flag, std\+::string flag\+\_\+name)
-\item 
-\mbox{\Hypertarget{file__printer_8cpp_ae1c733e638bc6664aba511e5fb7fe892}\label{file__printer_8cpp_ae1c733e638bc6664aba511e5fb7fe892}} 
-void {\bfseries print\+\_\+access\+\_\+flags} (u2 access\+\_\+flags)
-\item 
+void \mbox{\hyperlink{file__printer_8cpp_aa378292c834be735e3e22c931763414a}{print\+\_\+major\+\_\+version}} (u2 major\+\_\+version)
+\begin{DoxyCompactList}\small\item\em Imprime no terminal a versão do Java. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{file__printer_8cpp_a3a2c35e1751326cf167c2a912204ddd3}{check\+\_\+flag}} (u2 access\+\_\+flags, int constant\+\_\+access\+\_\+flag, std\+::string flag\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Checa se é a flag correta e imprime no terminal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{file__printer_8cpp_ae1c733e638bc6664aba511e5fb7fe892}{print\+\_\+access\+\_\+flags}} (u2 access\+\_\+flags)
+\begin{DoxyCompactList}\small\item\em Define as strings das flags e chama a função que checa a flag para imprimir a correta. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{file__printer_8cpp_aa16b11b5dc7662e25c0b614328393f7e}\label{file__printer_8cpp_aa16b11b5dc7662e25c0b614328393f7e}} 
 void {\bfseries print\+\_\+basic\+\_\+info} (std\+::string filename, \mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} class\+\_\+file)
 \item 
@@ -92,3 +89,64 @@ void {\bfseries print\+\_\+instructions} (\mbox{\hyperlink{structClass__File}{Cl
 \doxysubsection{Descrição detalhada}
 Arquivo com funções que imprimem informações para o usuário. 
 
+
+
+\doxysubsection{Documentação das funções}
+\mbox{\Hypertarget{file__printer_8cpp_a3a2c35e1751326cf167c2a912204ddd3}\label{file__printer_8cpp_a3a2c35e1751326cf167c2a912204ddd3}} 
+\index{file\_printer.cpp@{file\_printer.cpp}!check\_flag@{check\_flag}}
+\index{check\_flag@{check\_flag}!file\_printer.cpp@{file\_printer.cpp}}
+\doxysubsubsection{\texorpdfstring{check\_flag()}{check\_flag()}}
+{\footnotesize\ttfamily void check\+\_\+flag (\begin{DoxyParamCaption}\item[{u2}]{access\+\_\+flags,  }\item[{int}]{constant\+\_\+access\+\_\+flag,  }\item[{std\+::string}]{flag\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Checa se é a flag correta e imprime no terminal. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em access\+\_\+flags} & bytes que possuem a flag de acesso \\
+\hline
+{\em constant\+\_\+access\+\_\+flag} & número da constant que define essa flag \\
+\hline
+{\em flag\+\_\+name} & string com o nome da flag \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{file__printer_8cpp_ae1c733e638bc6664aba511e5fb7fe892}\label{file__printer_8cpp_ae1c733e638bc6664aba511e5fb7fe892}} 
+\index{file\_printer.cpp@{file\_printer.cpp}!print\_access\_flags@{print\_access\_flags}}
+\index{print\_access\_flags@{print\_access\_flags}!file\_printer.cpp@{file\_printer.cpp}}
+\doxysubsubsection{\texorpdfstring{print\_access\_flags()}{print\_access\_flags()}}
+{\footnotesize\ttfamily void print\+\_\+access\+\_\+flags (\begin{DoxyParamCaption}\item[{u2}]{access\+\_\+flags }\end{DoxyParamCaption})}
+
+
+
+Define as strings das flags e chama a função que checa a flag para imprimir a correta. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em access\+\_\+flags} & bytes que possuem a flag de acesso \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{file__printer_8cpp_aa378292c834be735e3e22c931763414a}\label{file__printer_8cpp_aa378292c834be735e3e22c931763414a}} 
+\index{file\_printer.cpp@{file\_printer.cpp}!print\_major\_version@{print\_major\_version}}
+\index{print\_major\_version@{print\_major\_version}!file\_printer.cpp@{file\_printer.cpp}}
+\doxysubsubsection{\texorpdfstring{print\_major\_version()}{print\_major\_version()}}
+{\footnotesize\ttfamily void print\+\_\+major\+\_\+version (\begin{DoxyParamCaption}\item[{u2}]{major\+\_\+version }\end{DoxyParamCaption})}
+
+
+
+Imprime no terminal a versão do Java. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em major\+\_\+version} & bytes com a constante que indica a versão \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}

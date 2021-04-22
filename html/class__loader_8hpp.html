@@ -97,9 +97,8 @@ typedef struct <a class="el" href="structClass__Loader.html">Class_Loader</a>&#1
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funções</h2></td></tr>
-<tr class="memitem:a87c7e79848a9f6a564fea3692f0e817a"><td class="memItemLeft" align="right" valign="top"><a id="a87c7e79848a9f6a564fea3692f0e817a"></a>
-<a class="el" href="structClass__Loader.html">Class_Loader</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__loader_8hpp.html#a87c7e79848a9f6a564fea3692f0e817a">load_class_memory</a> (<a class="el" href="structClass__File.html">Class_File</a> class_file)</td></tr>
-<tr class="memdesc:a87c7e79848a9f6a564fea3692f0e817a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carrega classes para a memória. <br /></td></tr>
+<tr class="memitem:a87c7e79848a9f6a564fea3692f0e817a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structClass__Loader.html">Class_Loader</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__loader_8hpp.html#a87c7e79848a9f6a564fea3692f0e817a">load_class_memory</a> (<a class="el" href="structClass__File.html">Class_File</a> class_file)</td></tr>
+<tr class="memdesc:a87c7e79848a9f6a564fea3692f0e817a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lê e armazena classes no class_loader.  <a href="class__loader_8hpp.html#a87c7e79848a9f6a564fea3692f0e817a">Mais...</a><br /></td></tr>
 <tr class="separator:a87c7e79848a9f6a564fea3692f0e817a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af98cf4c15ad14999ac7c9da6739e0b47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__loader_8hpp.html#af98cf4c15ad14999ac7c9da6739e0b47">load_class_var</a> (<a class="el" href="structClass__Loader.html">Class_Loader</a> *class_loader)</td></tr>
 <tr class="memdesc:af98cf4c15ad14999ac7c9da6739e0b47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carrega variáveis com informações do .class.  <a href="class__loader_8hpp.html#af98cf4c15ad14999ac7c9da6739e0b47">Mais...</a><br /></td></tr>
@@ -108,13 +107,13 @@ Funções</h2></td></tr>
 <tr class="memdesc:aa66441f987dddc0eeed8efc18f2d4c42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carrega outro .class se o arquivo estiver no mesmo diretório.  <a href="class__loader_8hpp.html#aa66441f987dddc0eeed8efc18f2d4c42">Mais...</a><br /></td></tr>
 <tr class="separator:aa66441f987dddc0eeed8efc18f2d4c42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f44bb23df638c0fdbb316c3f473a37d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structClass__Loader.html">Class_Loader</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__loader_8hpp.html#a3f44bb23df638c0fdbb316c3f473a37d">get_static_class</a> (std::string class_name)</td></tr>
-<tr class="memdesc:a3f44bb23df638c0fdbb316c3f473a37d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna a classe estática.  <a href="class__loader_8hpp.html#a3f44bb23df638c0fdbb316c3f473a37d">Mais...</a><br /></td></tr>
+<tr class="memdesc:a3f44bb23df638c0fdbb316c3f473a37d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encontra a classe estática.  <a href="class__loader_8hpp.html#a3f44bb23df638c0fdbb316c3f473a37d">Mais...</a><br /></td></tr>
 <tr class="separator:a3f44bb23df638c0fdbb316c3f473a37d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08ce18411266b1bd10a057129730d615"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOperand.html">Operand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__loader_8hpp.html#a08ce18411266b1bd10a057129730d615">get_static_field_of_class</a> (std::string class_name, std::string field_name)</td></tr>
-<tr class="memdesc:a08ce18411266b1bd10a057129730d615"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the static field of class object.  <a href="class__loader_8hpp.html#a08ce18411266b1bd10a057129730d615">Mais...</a><br /></td></tr>
+<tr class="memdesc:a08ce18411266b1bd10a057129730d615"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encontra o Field estático de uma classe.  <a href="class__loader_8hpp.html#a08ce18411266b1bd10a057129730d615">Mais...</a><br /></td></tr>
 <tr class="separator:a08ce18411266b1bd10a057129730d615"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb23dc87cd7ed3251dbf1f3f071e6f93"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structOperand.html">Operand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class__loader_8hpp.html#acb23dc87cd7ed3251dbf1f3f071e6f93">check_string_create_type</a> (std::string string_tipo)</td></tr>
-<tr class="memdesc:acb23dc87cd7ed3251dbf1f3f071e6f93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria um ponteiro de <a class="el" href="structOperand.html" title="Estrutura de dados que armazena um operando.">Operand</a> e o tipo é decidido pela string recebida.  <a href="class__loader_8hpp.html#acb23dc87cd7ed3251dbf1f3f071e6f93">Mais...</a><br /></td></tr>
+<tr class="memdesc:acb23dc87cd7ed3251dbf1f3f071e6f93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria um ponteiro <a class="el" href="structOperand.html" title="Estrutura de dados que armazena um operando.">Operand</a> e define o seu tipo.  <a href="class__loader_8hpp.html#acb23dc87cd7ed3251dbf1f3f071e6f93">Mais...</a><br /></td></tr>
 <tr class="separator:acb23dc87cd7ed3251dbf1f3f071e6f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
@@ -136,14 +135,14 @@ Funções</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Cria um ponteiro de <a class="el" href="structOperand.html" title="Estrutura de dados que armazena um operando.">Operand</a> e o tipo é decidido pela string recebida. </p>
+<p>Cria um ponteiro <a class="el" href="structOperand.html" title="Estrutura de dados que armazena um operando.">Operand</a> e define o seu tipo. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">type_string</td><td>string que varia de acordo com o tipo </td></tr>
+    <tr><td class="paramname">std::string</td><td>type_string </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>Operand* novo ponteiro para <a class="el" href="structOperand.html" title="Estrutura de dados que armazena um operando.">Operand</a> </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>Operand* </dd></dl>
 
 </div>
 </div>
@@ -190,14 +189,14 @@ Funções</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Retorna a classe estática. </p>
+<p>Encontra a classe estática. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">std::string</td><td>nome da classe a ser retornada a referencia </td></tr>
+    <tr><td class="paramname">std::string</td><td>class_name </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>ClassInstance* ponteiro da referencia da classe </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>ClassInstance* </dd></dl>
 
 </div>
 </div>
@@ -227,15 +226,42 @@ Funções</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Get the static field of class object. </p>
+<p>Encontra o Field estático de uma classe. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">class_name</td><td></td></tr>
-    <tr><td class="paramname">field_name</td><td></td></tr>
+    <tr><td class="paramname">std::string</td><td>class_name </td></tr>
+    <tr><td class="paramname">std::string</td><td>field_name </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>Operand* </dd></dl>
+
+</div>
+</div>
+<a id="a87c7e79848a9f6a564fea3692f0e817a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87c7e79848a9f6a564fea3692f0e817a">&#9670;&nbsp;</a></span>load_class_memory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structClass__Loader.html">Class_Loader</a>* load_class_memory </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structClass__File.html">Class_File</a>&#160;</td>
+          <td class="paramname"><em>class_file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lê e armazena classes no class_loader. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">class_file</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Class_Loader* </dd></dl>
 
 </div>
 </div>
@@ -258,7 +284,7 @@ Funções</h2></td></tr>
 <p>Carrega variáveis com informações do .class. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*Class_Loader</td><td>ponteiro para classes carregadas em memoria </td></tr>
+    <tr><td class="paramname">class_loader</td><td></td></tr>
   </table>
   </dd>
 </dl>
