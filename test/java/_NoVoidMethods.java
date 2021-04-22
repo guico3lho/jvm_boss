@@ -1,4 +1,4 @@
-public class NoVoidMethods {
+public class _NoVoidMethods {
     public static void main(String[] paramArrayOfString) {
       System.out.println(Soma(2, 3));
       System.out.println(Soma(35.35D, 30.35D));

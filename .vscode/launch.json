@@ -16,7 +16,7 @@
       "type": "cppdbg", 
       "request": "launch",
       "program": "${workspaceFolder}/jvm_boss",
-      "args": ["-i", "test//class/NoVoidMethods.class"],
+      "args": ["-i", "test//class/_NoVoidMethods.class"],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [],
