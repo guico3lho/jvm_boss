@@ -426,7 +426,7 @@ void invokespecial(Frame *curr_frame) {
 			curr_frame->pop_operand();
 		}
 		
-    if (method_name == method_init) {
+    else if (method_name == method_init) {
 			Operand *variable_class = curr_frame->local_variables_array.at(0);
 			load_class_variables(variable_class->class_loader);
 		}
