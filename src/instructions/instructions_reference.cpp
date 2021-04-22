@@ -610,28 +610,28 @@ void anewarray(Frame *curr_frame) {
   u2 array_type = get_method_code_index(curr_frame);
   if (DEBUG) cout << "array_type: " << (int) array_type << "\n";
 
-  Operand *operand_2 = check_string_create_type("[");
+  Operand *operand = check_string_create_type("[");
   switch ((int) array_type) {
     case 0:
-      if (DEBUG) cout << "array type bool\n";
-      set_newarray_type(operand_2, array_size, "Z");
+      // if (DEBUG) cout << "array type bool\n";
+      // set_newarray_type(operand, array_size, "Z");
       break;
     case 1:
-      if (DEBUG) cout << "array type char\n";
-      set_newarray_type(operand_2, array_size, "C");
+      // if (DEBUG) cout << "array type char\n";
+      // set_newarray_type(operand, array_size, "C");
       break;
-    case 2:
+    case 2: // Caso tipo Classe
       if (DEBUG) cout << "array type Class\n";
-      set_newarray_type(operand_2, array_size, "L");
+      set_newarray_type(operand, array_size, "L");
       break;
     case 3:
-      if (DEBUG) cout << "array type float\n";
-      set_newarray_type(operand_2, array_size, "F");
+      // if (DEBUG) cout << "array type float\n";
+      // set_newarray_type(operand, array_size, "F");
       break;
   }
 
-  if (DEBUG) cout << "array size " << operand_2->array_type->array->size() << "\n";
-  curr_frame->push_operand(operand_2);
+  if (DEBUG) cout << "array size " << operand->array_type->array->size() << "\n";
+  curr_frame->push_operand(operand);
 }
 
 void arraylength(Frame* curr_frame) {
