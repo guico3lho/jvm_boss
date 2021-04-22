@@ -144,16 +144,21 @@ void invokevirtual(Frame *curr_frame) {
   string class_name = get_utf8_constant_pool(curr_frame->cp_reference, method_ref.Methodref.class_index);
   string method_name = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.name_index);
   string method_desc = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.descriptor_index);
+  if (DEBUG) cout << "Nome da classe: " << class_name << "\n";
+  if (DEBUG) cout << "Nome do metodo: " << method_name << "\n";
+  if (DEBUG) cout << "Descricao do metodo: " << method_desc << "\n";
 
   // Caso classe default Java
   if (strstr(class_name.c_str(), "java/")) {
 
     // metodos de Print
-    if (class_name == "java/io/PrintStream" && (method_name == "println" || method_name == "print") &&
-      (method_desc != "()V")
-    ) {
-      invokevirtual_print(curr_frame);
+    if (class_name == "java/io/PrintStream" && (method_name == "println" || method_name == "print") ) {
+
+      if (method_desc != "()V") {
+        invokevirtual_print(curr_frame);
+      } 
       if (method_name == "println") printf("\n");
+      
     } 
 
     // metodo String length
@@ -188,6 +193,8 @@ void invokevirtual(Frame *curr_frame) {
 void invokevirtual_print(Frame *curr_frame) {
   if (DEBUG) cout << "Metodo Print: java/io/PrintStream\n";
   Operand *op = curr_frame->pop_operand();
+
+  if (DEBUG) cout << "op->tag: " << op->tag << "\n";
 
   switch(op->tag) {
     case CONSTANT_BYTE:
@@ -239,7 +246,10 @@ void invokevirtual_print(Frame *curr_frame) {
       string this_class_name = get_cp_info_utf8(class_file, class_file.this_class);
       cout << this_class_name << "@" << class_loader;
     }
-    break;
+      break;
+    default:
+      printf("\n");
+      break;
   }
 }
 

@@ -244,6 +244,8 @@ void bipush(Frame *curr_frame) {
  */
 void sipush(Frame *curr_frame) {
   if (DEBUG) cout << "----------sipush----------\n";
+  if (DEBUG) printf("Current PC: %d\n", (int) curr_frame->pc);
+  curr_frame->pc++;
 
   Operand *op = (Operand*) malloc(sizeof(Operand));
   u1 byte = curr_frame->method_code->code[curr_frame->pc++];

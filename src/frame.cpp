@@ -296,7 +296,7 @@ void Frame::setup_instructions_func() {
   func[142] = d2i;
   func[143] = d2l;
   func[144] = d2f;
-  // func[145] = i2b;
+  func[145] = i2b;
   // func[146] = i2c;
   func[147] = i2s;
 
@@ -356,7 +356,7 @@ void Frame::setup_instructions_func() {
 
   /* EXTENDED */
   // func[196] = wide;
-  // func[197] = multianewarray;
+  // func[197] = multianewarray; // TODO
   func[198] = ifnull;
   func[199] = ifnonnull;
   // func[200] = goto_w;

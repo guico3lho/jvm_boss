@@ -331,11 +331,11 @@ void lstore(Frame* curr_frame) {
 void lstore_0(Frame* curr_frame) {
   if (DEBUG) cout << "----------lstore_0----------\n";
 
- Operand *op = curr_frame->operand_stack.top();
- curr_frame->operand_stack.pop();
+  Operand *op = curr_frame->operand_stack.top();
+  curr_frame->operand_stack.pop();
 
- curr_frame->local_variables_array[0] = op;
- curr_frame->pc++;
+  curr_frame->local_variables_array[0] = op;
+  curr_frame->pc++;
 }
 
 /**
@@ -363,11 +363,11 @@ void lstore_1(Frame* curr_frame) {
 void lstore_2(Frame* curr_frame) {
   if (DEBUG) cout << "----------lstore_2----------\n";
 
- Operand *op = curr_frame->operand_stack.top();
- curr_frame->operand_stack.pop();
+  Operand *op = curr_frame->operand_stack.top();
+  curr_frame->operand_stack.pop();
 
- curr_frame->local_variables_array[2] = op;
- curr_frame->pc++;
+  curr_frame->local_variables_array[2] = op;
+  curr_frame->pc++;
 }
 
 /**
