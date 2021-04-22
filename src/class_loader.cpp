@@ -25,6 +25,7 @@ Class_Loader* load_class_memory(Class_File class_file) {
   static_classes.insert((std::pair<std::string, Class_Loader*>(class_name, class_loader)));
 
   class_loader->class_fields = new std::map<std::string, Operand*>();
+  // NOTE: Quando tiver chegado aqui, armazena o .class atual e o seu nome. 
   load_class_variables(class_loader);
 
   if (DEBUG) std::cout << "Classes carregadas na memoria!\n";
@@ -38,7 +39,7 @@ Class_Loader* load_class_memory(Class_File class_file) {
  * @return void
  */
 void load_class_variables(Class_Loader *class_loader) {
-  Class_File current_class = class_loader->class_file;
+  Class_File current_class = class_loader->class_file; 
   Cp_Info super_class = current_class.constant_pool[current_class.super_class];
 
   std::string super_class_name = get_cp_info_utf8(current_class, super_class.Class.class_name);

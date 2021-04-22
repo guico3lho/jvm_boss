@@ -19,21 +19,23 @@ struct Cp_Info {
   u2 tag;
 
   union {
+
+    /* Class: represents id of class_name on constant_pool*/
     struct {
       u2 class_name; 
-    } Class;    
+    } Class;    // tag = 7
 
     /* Field: represents a class or an interface */
     struct {
       u2 class_index;
       u2 name_and_type_index;
-    } Fieldref; 
+    } Fieldref; // tag = 9
 
     /* Method: represents a class or an interface */
     struct {
       u2 class_index; 
       u2 name_and_type_index;
-    } Methodref; 
+    } Methodref; // tag = 10
 
     /* 
       NameAndType: represents a field or method, without indicating which class or interface type it belongs to
@@ -42,28 +44,28 @@ struct Cp_Info {
     struct {
       u2 name_index;
       u2 descriptor_index;
-    } NameAndType; 
+    } NameAndType; // tag = 12
 
     /* InterfaceMethod: represents constant objects of the type String) */
     struct {
       u2 class_index;
       u2 name_and_type_index;
-    } InterfaceMethodref; 
+    } InterfaceMethodref; // tag = 11
 
     /* String: represents constant objects of the type String */
     struct {
       u2 string_index;
-    } String; 
+    } String; // tag = 8
 
     /* Int: represents 4-byte numeric int constants */
     struct {
       u4 bytes;
-    } Integer; 
+    } Integer; // tag = 3
 
     /* Float: represents 4-byte numeric float constants */
     struct {
       u4 bytes;
-    } Float; 
+    } Float; // tag = 4
 
     /* 
       Long: represents 8-byte numeric long constants
@@ -73,7 +75,7 @@ struct Cp_Info {
     struct {
       u4 high_bytes;
       u4 low_bytes;
-    } Long; 
+    } Long; // tag = 5
 
     /* 
       Double: represents 8-byte numeric double constants
@@ -83,7 +85,7 @@ struct Cp_Info {
     struct {
       u4 high_bytes;
       u4 low_bytes;
-    } Double; 
+    } Double; // tag = 6
 
     /** 
      * @brief struct Utf8: represents a field or method Length tem gives the number of bytes 
@@ -94,21 +96,21 @@ struct Cp_Info {
     struct {
       u2 length;
       u1 *bytes;
-    } Utf8; 
+    } Utf8; // tag = 1
 
     struct {
       u1 reference_kind;
       u2 reference_index;
-    } MethodHandle; 
+    } MethodHandle; // tag = 15
 
     struct {
       u2 descriptor_index;
-    } MethodType; 
+    } MethodType; // tag = 16
 
     struct {
       u2 bootstrap_method_attr_index;
       u2 name_and_type_index;
-    } InvokeDynamic; 
+    } InvokeDynamic; // tag = 18
   };
 };
 
