@@ -40,7 +40,7 @@ Class_Loader* load_class_memory(Class_File class_file) {
  */
 void load_class_variables(Class_Loader *class_loader) {
   Class_File current_class = class_loader->class_file; 
-  Cp_Info super_class = current_class.constant_pool[current_class.super_class];
+  Cp_Info super_class = current_class.constant_pool[current_class.super_class]; 
 
   std::string super_class_name = get_cp_info_utf8(current_class, super_class.Class.class_name);
   if (DEBUG) std::cout << "Super Classe " << super_class_name << " carregada na memoria!\n";
@@ -58,6 +58,7 @@ void load_class_variables(Class_Loader *class_loader) {
     }
 
     if (super_class_name != "java/lang/Object" && super_class_name != "") {
+      // Entra aqui se a super classe não é Object e não é vazia
       current_class = get_class_and_load_not_exists(super_class_name);
     }
 

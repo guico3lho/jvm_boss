@@ -14,7 +14,8 @@ void execute(Class_File class_file) {
 
   load_class_memory(class_file);
   // std::vector<Instruction> instructions = set_instructions();
-  Frame::setup_instructions_func();
+  //NOTE: Revisado até aqui
+  Frame::setup_instructions_func();// preenche vetor de instruções func
 
   if (DEBUG) std::cout << "INICIA FRAME\n";
   Frame *frame = new Frame(find_main(class_file), class_file);
