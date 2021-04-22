@@ -56,8 +56,8 @@ class Frame {
 public:
   Frame(Method_Info*, Class_File);
 
-  std::vector<Operand*> local_variables_array;
   std::stack<Operand*> operand_stack;
+  std::vector<Operand*> local_variables_array;
 
   Class_File* class_file_ref = nullptr;
   Cp_Info* cp_reference = nullptr;
@@ -75,6 +75,7 @@ Frame* top_frame();
 void push_frame(Frame *frame);
 void pop_frame();
 
+u2 get_method_code_index(Frame*);
 Operand* copy_operand(Operand* original_operand);
 
 #endif

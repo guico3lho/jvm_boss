@@ -66,14 +66,17 @@ $ ./jvm.sh HelloJava
 - [ ] multi
 - [ ] vetor_8
 - [ ] vetor2
-- [ ] vetor
+- [x] vetor
 - [x] Prints
 - [x] Sum
+- [x] Loop_for
 - [x] Switch
 - [x] Vector_1
+- [x] Vector_2
 - [x] Comparison
 - [x] Conversions
 - [x] StaticMethod
+- [x] OurJava
 
 <!-- 1- Fazer vetor e multi funcionar -->
 <!-- Fazer os .java de multi e vetor-->

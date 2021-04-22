@@ -12,9 +12,10 @@
  * @return void
  */
 void ins_goto(Frame *curr_frame) {
-  int16_t offset = curr_frame->method_code->code[curr_frame->pc+1];
-  offset = (offset << 8) + curr_frame->method_code->code[curr_frame->pc+2];
-  curr_frame->pc +=offset;
+  if (DEBUG) cout << "----------goto----------\n";
+  int16_t offset = curr_frame->method_code->code[curr_frame->pc + 1];
+  offset = (offset << 8) + curr_frame->method_code->code[curr_frame->pc + 2];
+  curr_frame->pc += offset;
 }
 
 void ret(Frame *curr_frame) {
@@ -23,58 +24,54 @@ void ret(Frame *curr_frame) {
 }
 
 /**
- * @brief Acessa tabela de salto por chave e realizar salto.
+ * @brief Acessa tabela de jumps por chave e realizar jump.
  * @param Frame *curr_frame ponteiro que aponta para o frame atual
  * @return void
  */
 void tableswitch(Frame *curr_frame){
   if (DEBUG) cout << "----------tableswitch----------\n";
-  u4 dftByte = 0;
-  u4 byteL = 0;
-  u4 byteH = 0;
-  u4 *jpOffset;
+  u4 default_byte = 0;
+  u4 low_byte = 0;
+  u4 hight_byte = 0;
+  u4 *jump_table;
   u4 index;
-  Operand *value1 = curr_frame->pop_operand();
-  index = value1->type_int;
-  u4 strt = curr_frame->pc;
+
+  u4 start_pc = curr_frame->pc;
   curr_frame->pc++;
 
-  while (curr_frame->pc % 4 != 0) {
-    curr_frame->pc++;
+  while (curr_frame->pc % 4 != 0) curr_frame->pc++;
+  
+  default_byte = curr_frame->method_code->code[curr_frame->pc++];
+  for (int i = 0; i < 3; i++) 
+    default_byte = (default_byte << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  
+  low_byte = curr_frame->method_code->code[curr_frame->pc++];
+  for (int i = 0; i < 3; i++) 
+    low_byte = (low_byte << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  
+  hight_byte = curr_frame->method_code->code[curr_frame->pc++];
+  for (int i = 0; i < 3; i++) 
+    hight_byte = (hight_byte << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  
+  jump_table = (u4*) malloc((hight_byte - low_byte + 1) * sizeof(u4));
+
+  for (int i = 0; i < (int) (hight_byte - low_byte + 1); i++) {
+
+    jump_table[i] = curr_frame->method_code->code[curr_frame->pc++];
+    for (int j = 0; j < 3; j++) 
+      jump_table[i] = (jump_table[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
   }
 
-  dftByte = curr_frame->method_code->code[curr_frame->pc++];
-  dftByte = (dftByte << 8) + curr_frame->method_code->code[curr_frame->pc++];
-  dftByte = (dftByte << 8) + curr_frame->method_code->code[curr_frame->pc++];
-  dftByte = (dftByte << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  Operand *op1 = curr_frame->pop_operand();
+  index = op1->type_int;
 
-  byteL = curr_frame->method_code->code[curr_frame->pc++];
-  byteL = (byteL << 8) + curr_frame->method_code->code[curr_frame->pc++];
-  byteL = (byteL << 8) + curr_frame->method_code->code[curr_frame->pc++];
-  byteL = (byteL << 8) + curr_frame->method_code->code[curr_frame->pc++];
-
-  byteH = curr_frame->method_code->code[curr_frame->pc++];
-  byteH = (byteH << 8) + curr_frame->method_code->code[curr_frame->pc++];
-  byteH = (byteH << 8) + curr_frame->method_code->code[curr_frame->pc++];
-  byteH = (byteH << 8) + curr_frame->method_code->code[curr_frame->pc++];
-
-  jpOffset = (u4*)malloc((byteH - byteL + 1) * sizeof(u4));
-
-  for (int i = 0; i < (int)(byteH - byteL + 1); i++) {
-    jpOffset[i] = curr_frame->method_code->code[curr_frame->pc++];
-    jpOffset[i] = (jpOffset[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
-    jpOffset[i] = (jpOffset[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
-    jpOffset[i] = (jpOffset[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  if ((int32_t) index < (int32_t) low_byte || (int32_t) index > (int32_t) hight_byte) {
+    curr_frame->pc = start_pc + (int32_t) default_byte;
+  } else {
+    curr_frame->pc = start_pc + (int32_t) jump_table[index - low_byte];
   }
 
-  if ((int32_t)index < (int32_t)byteL || (int32_t)index >(int32_t)byteH) {
-    curr_frame->pc = strt + (int32_t)dftByte;
-  }
-  else {
-    curr_frame->pc = strt + (int32_t)jpOffset[index - byteL];
-  }
-
-  free(jpOffset);
+  free(jump_table);
 }
 
 /**
@@ -83,57 +80,58 @@ void tableswitch(Frame *curr_frame){
  * @return void
  */
 void lookupswitch(Frame *curr_frame) {
-  u4 dftByte = 0;
-  u4 nPares = 0;
-  u4 *jpKeys;
-  u4 *jpOffset;
+  u4 default_byte = 0;
+  u4 nPairs = 0;
+  u4 *jump_keys;
+  u4 *jump_table;
   u4 key;
-  u4 start = curr_frame->pc;
 
-  Operand *value_1 = curr_frame->pop_operand();
-  key = value_1->type_int;
+  u4 start_pc = curr_frame->pc;
   curr_frame->pc++;
 
   while (curr_frame->pc % 4 != 0) {
     curr_frame->pc++;
   }
 
-  dftByte = curr_frame->method_code->code[curr_frame->pc++];
-  dftByte = (dftByte << 8) + curr_frame->method_code->code[curr_frame->pc++];
-  dftByte = (dftByte << 8) + curr_frame->method_code->code[curr_frame->pc++];
-  dftByte = (dftByte << 8) + curr_frame->method_code->code[curr_frame->pc++];
-
-  nPares = curr_frame->method_code->code[curr_frame->pc++];
-  nPares = (nPares << 8) + curr_frame->method_code->code[curr_frame->pc++];
-  nPares = (nPares << 8) + curr_frame->method_code->code[curr_frame->pc++];
-  nPares = (nPares << 8) + curr_frame->method_code->code[curr_frame->pc++];
-
-  jpKeys = (u4*)malloc(nPares * sizeof(u4));
-  jpOffset = (u4*)malloc(nPares * sizeof(u4));
-  for (int i = 0; i < (int)nPares; i++) {
-    jpKeys[i] = curr_frame->method_code->code[curr_frame->pc++];
-    jpKeys[i] = (jpKeys[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
-    jpKeys[i] = (jpKeys[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
-    jpKeys[i] = (jpKeys[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
-
-    jpOffset[i] = curr_frame->method_code->code[curr_frame->pc++];
-    jpOffset[i] = (jpOffset[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
-    jpOffset[i] = (jpOffset[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
-    jpOffset[i] = (jpOffset[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  default_byte = curr_frame->method_code->code[curr_frame->pc++];
+  for (int i = 0; i < 3; i++) {
+    default_byte = (default_byte << 8) + curr_frame->method_code->code[curr_frame->pc++];
   }
 
-  int i;
-  for (i = 0; i < (int)nPares; ++i) {
-    if (jpKeys[i] == key) {
-      curr_frame->pc = start + jpOffset[i];
+  nPairs = curr_frame->method_code->code[curr_frame->pc++];
+  for (int i = 0; i < 3; i++) 
+    nPairs = (nPairs << 8) + curr_frame->method_code->code[curr_frame->pc++];
+
+  jump_keys = (u4*) malloc(nPairs * sizeof(u4));
+  jump_table = (u4*) malloc(nPairs * sizeof(u4));
+
+  for (int i = 0; i < (int) nPairs; i++) {
+
+    jump_keys[i] = curr_frame->method_code->code[curr_frame->pc++];
+    for (int j = 0; j < 3; j++) 
+      jump_keys[i] = (jump_keys[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
+    
+    jump_table[i] = curr_frame->method_code->code[curr_frame->pc++];
+    for (int j = 0; j < 3; j++) 
+      jump_table[i] = (jump_table[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  }
+
+  Operand *op1 = curr_frame->pop_operand();
+  key = op1->type_int;
+
+  int match;
+  for (match = 0; match < (int) nPairs; ++match) {
+    if (jump_keys[match] == key) {
+      curr_frame->pc = start_pc + jump_table[match];
       break;
     }
   }
-  if ((unsigned)i == nPares)
-    curr_frame->pc = start + dftByte;
 
-  free(jpKeys);
-  free(jpOffset);
+  if ((unsigned) match == nPairs)
+    curr_frame->pc = start_pc + default_byte;
+
+  free(jump_keys);
+  free(jump_table);
 }
 
 /**

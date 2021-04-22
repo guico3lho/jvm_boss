@@ -13,6 +13,8 @@
  * @return void
  */
 void i2l(Frame *curr_frame) {
+  if (DEBUG) cout << "----------i2l----------\n";
+
     int value_op;
     Operand *op_int = curr_frame->pop_operand();
     memcpy(&value_op, &op_int->type_int, sizeof(u4));
@@ -32,6 +34,8 @@ void i2l(Frame *curr_frame) {
 * @return void
 */
 void i2f(Frame *curr_frame) {
+  if (DEBUG) cout << "----------i2f----------\n";
+
   int stack_value;
   Operand *operand = curr_frame->pop_operand();
   memcpy(&stack_value, &operand->type_int, sizeof(u4));
@@ -50,6 +54,8 @@ void i2f(Frame *curr_frame) {
  * @return void
  */
 void i2d(Frame *curr_frame) {
+  if (DEBUG) cout << "----------i2d----------\n";
+
   int stack_value;
   Operand *int_type = curr_frame->pop_operand();
   stack_value = int_type->type_int;
@@ -67,11 +73,56 @@ void i2d(Frame *curr_frame) {
 }
 
 /**
+ * @brief Converte int para byte.
+ * @param *curr_frame ponteiro que aponta para o frame atual
+ * @return void
+ */
+void i2b(Frame *curr_frame) {
+  if (DEBUG) cout << "----------i2b----------\n";
+  curr_frame->pc++;
+
+  int stack_value;
+  Operand *int_type = curr_frame->pop_operand();
+  memcpy(&stack_value, &int_type->type_int, sizeof(u4));
+
+  u4 conv_value = (u4) stack_value;
+  Operand *op_from_type = check_string_create_type("B");
+  memcpy(&op_from_type->type_byte, &conv_value, sizeof(u4));
+
+  curr_frame->push_operand(op_from_type);
+}
+
+/**
+ * @brief Converte int para short int.
+ * @param *curr_frame ponteiro que aponta para o frame atual
+ * @return void
+ */
+void i2s(Frame *curr_frame) {
+  if (DEBUG) cout << "----------i2s----------\n";
+
+  curr_frame->pc++;
+
+  int stack_value;
+  Operand *int_type = curr_frame->pop_operand();
+  memcpy(&stack_value, &int_type->type_int, sizeof(u4));
+
+  short conv_value = (short)stack_value;
+  Operand *op_from_type = check_string_create_type("S");
+  memcpy(&op_from_type->type_byte, &conv_value, sizeof(u4));
+
+  curr_frame->push_operand(op_from_type);
+
+  if (DEBUG) cout << "i2s\n";
+}
+
+/**
  * @brief Converte um long para int
  * @param *curr_frame ponteiro para o frame atual
  * @return void
  */
 void l2i(Frame *curr_frame) {
+  if (DEBUG) cout << "----------l2i----------\n";
+
     long stack_value;
     Operand *long_type = curr_frame->pop_operand();
     memcpy(&stack_value, &long_type->type_long, sizeof(u8));
@@ -90,6 +141,8 @@ void l2i(Frame *curr_frame) {
 * @return void
 */
 void l2f(Frame *curr_frame) {
+  if (DEBUG) cout << "----------l2f----------\n";
+
   long stack_value;
   Operand *operand = curr_frame->pop_operand();
   memcpy(&stack_value, &operand->type_long, sizeof(u8));
@@ -108,6 +161,8 @@ void l2f(Frame *curr_frame) {
  * @return void
  */
 void l2d(Frame *curr_frame) {
+  if (DEBUG) cout << "----------l2d----------\n";
+
     long stack_value;
     Operand *long_type = curr_frame->pop_operand();
     memcpy(&stack_value, &long_type->type_long, sizeof(u8));
@@ -128,6 +183,8 @@ void l2d(Frame *curr_frame) {
  * @return void
  */
 void f2i(Frame *curr_frame) {
+  if (DEBUG) cout << "----------f2i----------\n";
+
   float float_value;
   Operand *float_type = curr_frame->pop_operand();
   float_value = float_type->type_float;
@@ -145,6 +202,8 @@ void f2i(Frame *curr_frame) {
 }
 
 void f2l(Frame *curr_frame) {
+  if (DEBUG) cout << "----------f2l----------\n";
+
   float stack_value;
   Operand *floatType = curr_frame->pop_operand();
   stack_value = floatType->type_float;
@@ -167,6 +226,8 @@ void f2l(Frame *curr_frame) {
  * @return void
  */
 void f2d(Frame *curr_frame) {
+  if (DEBUG) cout << "----------f2d----------\n";
+
   float float_value;
   Operand *float_type = curr_frame->pop_operand();
   float_value = float_type->type_float;
@@ -189,6 +250,8 @@ void f2d(Frame *curr_frame) {
  * @return void
  */
 void d2i(Frame *curr_frame) {
+  if (DEBUG) cout << "----------d2i----------\n";
+
   double stack_value;
   Operand *double_type = curr_frame->pop_operand();
   memcpy(&stack_value, &double_type->type_double, sizeof(int64_t));
@@ -213,6 +276,8 @@ void d2i(Frame *curr_frame) {
  * @return void
  */
 void d2l(Frame *curr_frame) {
+  if (DEBUG) cout << "----------d2l----------\n";
+
   double stack_value;
   Operand *double_type = curr_frame->pop_operand();
   memcpy(&stack_value, &double_type->type_double, sizeof(int64_t));
@@ -231,6 +296,8 @@ void d2l(Frame *curr_frame) {
  * @return void
  */
 void d2f(Frame *curr_frame) {
+  if (DEBUG) cout << "----------d2f----------\n";
+
   u8 stack_value;
   Operand *double_type = curr_frame->pop_operand();
   memcpy(&stack_value, &double_type->type_double, sizeof(u8));
@@ -247,23 +314,4 @@ void d2f(Frame *curr_frame) {
   if (DEBUG) cout << "d2f\n";
 }
 
-/**
- * @brief Converte int para short int.
- * @param *curr_frame ponteiro que aponta para o frame atual
- * @return void
- */
-void i2s(Frame *curr_frame) {
-  curr_frame->pc++;
 
-  int stack_value;
-  Operand *int_type = curr_frame->pop_operand();
-  memcpy(&stack_value, &int_type->type_int, sizeof(uint32_t));
-
-  short conv_value = (short)stack_value;
-  Operand *op_from_type = check_string_create_type("S");
-  memcpy(&op_from_type->type_byte, &conv_value, sizeof(uint32_t));
-
-  curr_frame->push_operand(op_from_type);
-
-  if (DEBUG) cout << "i2s\n";
-}

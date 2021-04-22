@@ -11,6 +11,7 @@
  * @return void
  */
 void nop(Frame *curr_frame) {
+  if (DEBUG) cout << "----------nop----------\n";
   curr_frame->pc++;
 }
 
@@ -19,10 +20,11 @@ void nop(Frame *curr_frame) {
  * @return void
  */
 void aconst_null(Frame* curr_frame) {
-    Operand *op = (Operand*)malloc(sizeof(Operand));
-    op->tag = CONSTANT_EMPTY;
-    curr_frame->push_operand(op);
-    curr_frame->pc++;
+  if (DEBUG) cout << "----------aconst_null----------\n";
+  Operand *op = (Operand*) malloc(sizeof(Operand));
+  op->tag = CONSTANT_EMPTY;
+  curr_frame->push_operand(op);
+  curr_frame->pc++;
 }
 
 /** @brief Empurra int na pilha de operandos
@@ -30,11 +32,12 @@ void aconst_null(Frame* curr_frame) {
  * @return void
  */
 void iconst_m1(Frame* curr_frame) {
-    Operand *op = (Operand*)malloc(sizeof(Operand));
-    op->tag = CONSTANT_INT;
-    op->type_int = -1;
-    curr_frame->push_operand(op);
-    curr_frame->pc++;
+  if (DEBUG) cout << "----------iconst_m1----------\n";
+  Operand *op = (Operand*) malloc(sizeof(Operand));
+  op->tag = CONSTANT_INT;
+  op->type_int = -1;
+  curr_frame->push_operand(op);
+  curr_frame->pc++;
 }
 
 /** @brief Empurra int na pilha de operandos
@@ -42,13 +45,12 @@ void iconst_m1(Frame* curr_frame) {
  * @return void
  */
 void iconst_0(Frame* curr_frame) {
-  Operand *op = (Operand*)malloc(sizeof(Operand));
+  if (DEBUG) cout << "----------iconst_0----------\n";
+  Operand *op = (Operand*) malloc(sizeof(Operand));
   op->tag = CONSTANT_INT;
   op->type_int = 0;
   curr_frame->push_operand(op);
   curr_frame->pc++;
-
-  if (DEBUG) cout << "iconst_0\n";
 }
 
 /** @brief ...
@@ -56,14 +58,13 @@ void iconst_0(Frame* curr_frame) {
  * @return void
  */
 void iconst_1(Frame* curr_frame) {
-  if (DEBUG) cout << "\n----------iconst_1----------\n";
+  if (DEBUG) cout << "----------iconst_1----------\n";
+  Operand *op = (Operand*) malloc(sizeof(Operand));
+  op->tag = CONSTANT_INT;
+  op->type_int = 1;
+  curr_frame->push_operand(op);
 
-    Operand *op = (Operand*)malloc(sizeof(Operand));
-    op->tag = CONSTANT_INT;
-    op->type_int = 1;
-    curr_frame->push_operand(op);
-
-    curr_frame->pc++;
+  curr_frame->pc++;
 }
 
 /** @brief Empurra int na pilha de operandos
@@ -71,13 +72,12 @@ void iconst_1(Frame* curr_frame) {
  * @return void
  */
 void iconst_2(Frame* curr_frame) {
-    Operand *op = (Operand*)malloc(sizeof(Operand));
-    op->tag = CONSTANT_INT;
-    op->type_int = 2;
-    curr_frame->push_operand(op);
-    curr_frame->pc++;
-
-    if (DEBUG) cout << "iconst_2\n";
+  if (DEBUG) cout << "----------iconst_2----------\n";
+  Operand *op = (Operand*) malloc(sizeof(Operand));
+  op->tag = CONSTANT_INT;
+  op->type_int = 2;
+  curr_frame->push_operand(op);
+  curr_frame->pc++;
 }
 
 /** @brief Empurra int na pilha de operandos
@@ -85,13 +85,12 @@ void iconst_2(Frame* curr_frame) {
  * @return void
  */
 void iconst_3(Frame* curr_frame) {
-    Operand *op = (Operand*)malloc(sizeof(Operand));
-    op->tag = CONSTANT_INT;
-    op->type_int = 3;
-    curr_frame->push_operand(op);
-    curr_frame->pc++;
-
-    if (DEBUG) cout << "iconst_3\n";
+  if (DEBUG) cout << "----------iconst_3----------\n";
+  Operand *op = (Operand*) malloc(sizeof(Operand));
+  op->tag = CONSTANT_INT;
+  op->type_int = 3;
+  curr_frame->push_operand(op);
+  curr_frame->pc++;
 }
 
 /** @brief Empurra int na pilha de operandos
@@ -99,13 +98,12 @@ void iconst_3(Frame* curr_frame) {
  * @return void
  */
 void iconst_4(Frame* curr_frame) {
-  Operand *op = (Operand*)malloc(sizeof(Operand));
+  if (DEBUG) cout << "----------iconst_4----------\n";
+  Operand *op = (Operand*) malloc(sizeof(Operand));
   op->tag = CONSTANT_INT;
   op->type_int = 4;
   curr_frame->push_operand(op);
   curr_frame->pc++;
-
-  if (DEBUG) cout << "iconst_4\n";
 }
 
 /** @brief Empurra int na pilha de operandos
@@ -113,13 +111,12 @@ void iconst_4(Frame* curr_frame) {
  * @return void
  */
 void iconst_5(Frame* curr_frame) {
-  Operand *op = (Operand*)malloc(sizeof(Operand));
+  if (DEBUG) cout << "----------iconst_5----------\n";
+  Operand *op = (Operand*) malloc(sizeof(Operand));
   op->tag = CONSTANT_INT;
   op->type_int = 5;
   curr_frame->push_operand(op);
   curr_frame->pc++;
-
-  if (DEBUG) cout << "iconst_5\n";
 }
 
 /**
@@ -128,11 +125,12 @@ void iconst_5(Frame* curr_frame) {
  * @return void
  */
 void lconst_0(Frame *curr_frame) {
-    Operand *op = (Operand*)malloc(sizeof(Operand));
-    op->tag = CONSTANT_LONG;
-    op->type_long = 0;
-    curr_frame->operand_stack.push(op);
-    curr_frame->pc++;
+  if (DEBUG) cout << "----------lconst_0----------\n";
+  Operand *op = (Operand*) malloc(sizeof(Operand));
+  op->tag = CONSTANT_LONG;
+  op->type_long = 0;
+  curr_frame->operand_stack.push(op);
+  curr_frame->pc++;
 }
 
 /**
@@ -141,13 +139,12 @@ void lconst_0(Frame *curr_frame) {
  * @return void
  */
 void lconst_1(Frame *curr_frame) {
-  Operand *op = (Operand*)malloc(sizeof(Operand));
+  if (DEBUG) cout << "----------lconst_1----------\n";
+  Operand *op = (Operand*) malloc(sizeof(Operand));
   op->tag = CONSTANT_LONG;
   op->type_long = 1;
   curr_frame->push_operand(op);
   curr_frame->pc++;
-
-  if (DEBUG) cout << "lconst_1\n";
 }
 
 /**
@@ -156,11 +153,12 @@ void lconst_1(Frame *curr_frame) {
  * @return void
  */
 void fconst_0(Frame *curr_frame) {
-    Operand *op = (Operand*)malloc(sizeof(Operand));
-    op->tag = CONSTANT_FLOAT;
-    op->type_long = 0.0;
-    curr_frame->operand_stack.push(op);
-    curr_frame->pc++;
+  if (DEBUG) cout << "----------fconst_0----------\n";
+  Operand *op = (Operand*) malloc(sizeof(Operand));
+  op->tag = CONSTANT_FLOAT;
+  op->type_long = 0.0;
+  curr_frame->operand_stack.push(op);
+  curr_frame->pc++;
 }
 
 /**
@@ -169,13 +167,12 @@ void fconst_0(Frame *curr_frame) {
  * @return void
  */
 void fconst_1(Frame *curr_frame) {
-    Operand *op = (Operand*)malloc(sizeof(Operand));
-    op->tag = CONSTANT_FLOAT;
-    op->type_long = 1.0;
-    curr_frame->operand_stack.push(op);
-    curr_frame->pc++;
-
-    if (DEBUG) cout << "fconst_1\n";
+  if (DEBUG) cout << "----------fconst_1----------\n";
+  Operand *op = (Operand*) malloc(sizeof(Operand));
+  op->tag = CONSTANT_FLOAT;
+  op->type_long = 1.0;
+  curr_frame->operand_stack.push(op);
+  curr_frame->pc++;
 }
 
 /**
@@ -184,11 +181,12 @@ void fconst_1(Frame *curr_frame) {
  * @return void
  */
 void fconst_2(Frame *curr_frame) {
-    Operand *op = (Operand*)malloc(sizeof(Operand));
-    op->tag = CONSTANT_FLOAT;
-    op->type_long = 2.0;
-    curr_frame->operand_stack.push(op);
-    curr_frame->pc++;
+  if (DEBUG) cout << "----------fconst_2----------\n";
+  Operand *op = (Operand*) malloc(sizeof(Operand));
+  op->tag = CONSTANT_FLOAT;
+  op->type_long = 2.0;
+  curr_frame->operand_stack.push(op);
+  curr_frame->pc++;
 }
 
 /**
@@ -197,12 +195,13 @@ void fconst_2(Frame *curr_frame) {
  * @return void
  */
 void dconst_0(Frame *curr_frame) {
-    Operand *op = (Operand*)malloc(sizeof(Operand));
-    op->tag = CONSTANT_DOUBLE;
+  if (DEBUG) cout << "----------dconst_0----------\n";
+  Operand *op = (Operand*) malloc(sizeof(Operand));
+  op->tag = CONSTANT_DOUBLE;
 
-    op->type_double = 0.0;
-    curr_frame->operand_stack.push(op);
-    curr_frame->pc++;
+  op->type_double = 0.0;
+  curr_frame->operand_stack.push(op);
+  curr_frame->pc++;
 }
 
 /**
@@ -211,14 +210,13 @@ void dconst_0(Frame *curr_frame) {
  * @return void
  */
 void dconst_1(Frame *curr_frame) {
-  Operand *op = (Operand*)malloc(sizeof(Operand));
+  if (DEBUG) cout << "----------dconst_1----------\n";
+  Operand *op = (Operand*) malloc(sizeof(Operand));
   op->tag = CONSTANT_DOUBLE;
 
   op->type_double = 1.0;
   curr_frame->operand_stack.push(op);
   curr_frame->pc++;
-
-  if (DEBUG) cout << "dconst_1\n";
 }
 
 /**
@@ -227,18 +225,16 @@ void dconst_1(Frame *curr_frame) {
  * @return void
  */
 void bipush(Frame *curr_frame) {
-  if (DEBUG) cout << "\n----------bipush----------\n";
-
+  if (DEBUG) cout << "----------bipush----------\n";
   curr_frame->pc++;
 
-  Operand *op = (Operand*)malloc(sizeof(Operand));
   u1 byte = curr_frame->method_code->code[curr_frame->pc++];
-  if (DEBUG) cout << "bipush byte " << byte << "\n";
+  if (DEBUG) printf("bipush byte: %d (0x%0X)\n", (int) byte, byte);
 
+  Operand *op = (Operand*) malloc(sizeof(Operand));
   op->tag = CONSTANT_INT;
   op->type_int = (int8_t) byte;
   curr_frame->operand_stack.push(op);
-
 }
 
 /**
@@ -247,13 +243,16 @@ void bipush(Frame *curr_frame) {
  * @return void
  */
 void sipush(Frame *curr_frame) {
-    Operand *op = (Operand*)malloc(sizeof(Operand));
-    u1 byte = curr_frame->method_code->code[curr_frame->pc++];
-    u1 byte2 = curr_frame->method_code->code[curr_frame->pc++];
-    op->tag = CONSTANT_INT;
-    op->type_int = (byte<<8)|byte2;
-    curr_frame->operand_stack.push(op);
+  if (DEBUG) cout << "----------sipush----------\n";
+  if (DEBUG) printf("Current PC: %d\n", (int) curr_frame->pc);
+  curr_frame->pc++;
 
+  Operand *op = (Operand*) malloc(sizeof(Operand));
+  u1 byte = curr_frame->method_code->code[curr_frame->pc++];
+  u1 byte2 = curr_frame->method_code->code[curr_frame->pc++];
+  op->tag = CONSTANT_INT;
+  op->type_int = (byte << 8) | byte2;
+  curr_frame->operand_stack.push(op);
 }
 
 /** @brief Coloca na pilha de operandos uma constante do tamanho de uma word.
@@ -261,7 +260,7 @@ void sipush(Frame *curr_frame) {
  * @return void
  */
 void ldc(Frame *curr_frame) {
-  if (DEBUG) cout << "\n----------ldc----------\n";
+  if (DEBUG) cout << "----------ldc----------\n";
 
   curr_frame->pc++;
   Operand *op = (Operand*) malloc(sizeof(Operand));
@@ -269,7 +268,7 @@ void ldc(Frame *curr_frame) {
   u1 index = curr_frame->method_code->code[curr_frame->pc++];
   if (DEBUG) cout << "ldc index: " << (int) index << "\n";
 
-  Cp_Info &cp_info = curr_frame->cp_reference[((int)index)];
+  Cp_Info cp_info = curr_frame->cp_reference[((int)index)];
   op->tag = cp_info.tag;
   if (DEBUG) cout << "op->tag: " << (int) op->tag << "\n";
 
@@ -307,51 +306,45 @@ void ldc(Frame *curr_frame) {
 @return void
 */
 void ldc_w(Frame *curr_frame) {
-    curr_frame->pc++;
+  if (DEBUG) cout << "----------ldc_w----------\n";
+  curr_frame->pc++;
 
-    u1 index_1 = curr_frame->method_code->code[curr_frame->pc++];
-    u1 index_2 = curr_frame->method_code->code[curr_frame->pc++];
+  u2 index = get_method_code_index(curr_frame);
 
-    u2 index = (index_1 << 8) + index_2;
+  Cp_Info *cp_info = curr_frame->cp_reference + (int)index;
+  Operand* operands = nullptr;
 
-    Cp_Info *cp_info = curr_frame->cp_reference + (int)index;
-    Operand* operands = nullptr;
+  switch(cp_info->tag) {
+    case CONSTANT_INT:
+      operands = (Operand*)malloc(sizeof(Operand));
+      operands->tag = CONSTANT_INT;
+      operands->type_int = cp_info->Integer.bytes;
+      break;
 
-    switch(cp_info->tag) {
-        case CONSTANT_INT:
-            operands = (Operand*)malloc(sizeof(Operand));
-            operands->tag = CONSTANT_INT;
-            operands->type_int = cp_info->Integer.bytes;
-            break;
+    case CONSTANT_FLOAT:
+      operands = (Operand*)malloc(sizeof(Operand));
+      operands->tag = CONSTANT_FLOAT;
+      operands->type_float = cp_info->Float.bytes;
+      break;
 
-        case CONSTANT_FLOAT:
-            operands = (Operand*)malloc(sizeof(Operand));
-            operands->tag = CONSTANT_FLOAT;
-            operands->type_float = cp_info->Float.bytes;
-            break;
+    case CONSTANT_CLASS:
+      //TODO
+      printf("TODO");
+      break;
 
-        case CONSTANT_CLASS:
-            //TODO
-            printf("TODO");
-            break;
-
-        case CONSTANT_STRING:{
-            operands = (Operand*)malloc(sizeof(Operand));
-            operands->tag = CONSTANT_STRING;
-            string utf8_cp = get_utf8_constant_pool(curr_frame->cp_reference, cp_info->String.string_index);
-
-            operands->type_string = new string(utf8_cp);
-            break;
-        }
-
-        default:
-            //TODO
-            printf("TODO");
-            break; //methodRef e methodHandle não implementados
+    case CONSTANT_STRING:{
+      operands = (Operand*)malloc(sizeof(Operand));
+      operands->tag = CONSTANT_STRING;
+      string utf8_cp = get_utf8_constant_pool(curr_frame->cp_reference, cp_info->String.string_index);
+      operands->type_string = new string(utf8_cp);
+      break;
     }
-
-    curr_frame->push_operand(operands);
-
+    default:
+      //TODO
+      printf("TODO");
+      break; //methodRef e methodHandle não implementados
+  }
+  curr_frame->push_operand(operands);
 }
 
 /** @brief Dá push em duas words na pilha de operandos.
@@ -359,13 +352,10 @@ void ldc_w(Frame *curr_frame) {
  * @return void
  */
 void ldc2_w(Frame *curr_frame) {
-  if (DEBUG) cout << "\n----------ldc2_w----------\n";
+  if (DEBUG) cout << "----------ldc2_w----------\n";
   curr_frame->pc++;
 
-  u1 index_1 = curr_frame->method_code->code[curr_frame->pc++];
-  u1 index_2 = curr_frame->method_code->code[curr_frame->pc++];
-
-  u2 index = (index_1 << 8) + index_2;
+  u2 index = get_method_code_index(curr_frame);
 
   if (DEBUG) cout << "ldc2_w index : " << (int)index << "\n";
 
@@ -389,7 +379,7 @@ void ldc2_w(Frame *curr_frame) {
     operands->tag = CONSTANT_LONG;
 
     long read_long_value;
-    
+
     memcpy(&read_long_value, &(cp_info->Long.high_bytes),sizeof(long));
     memcpy(&read_long_value, &(cp_info->Long.low_bytes),sizeof(long));
 

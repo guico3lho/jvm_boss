@@ -20,20 +20,21 @@ void (*func[256])(Frame *curr_frame);
 
 /** @brief Construtor do Frame.
 *   Constrói o Frame com as informações gerais da classe
-*   (cp_reference), informações de método (method_info),
-*   código do método (method_code), inica PC com 0 e dimensiona o vetor de
-*   variáveis locais.
+*   (cp_reference), (class_file_ref), informações de método (method_info),
+*   código do método (method_code), inica PC com 0 e redimensiona o vetor de variáveis locais.
+
 *  @param method ponteiro para informações do método
 *  @param cp_info ponteiro para a pool de constantes
 */
 Frame::Frame(Method_Info *method, Class_File class_file) {
   cp_reference = class_file.constant_pool;
   class_file_ref = &class_file;
-  if (DEBUG) printf("Frame::Frame - Magic Number: 0x%0X\n", class_file_ref->magic_number);
   method_info = method;
   pc = 0;
 
-  // Faz referencia para o codigo do metodo
+  // if (DEBUG) printf("Frame::Frame - Magic Number: 0x%0X\n", class_file_ref->magic_number);
+
+  // Pega referencia do atributo de codigo do metodo
   for (int i = 0; i < method_info->attributes_count; ++i) {
     Attribute_Info attribute_info = method_info->attributes[i];
     std::string class_string = get_cp_info_utf8(*class_file_ref, attribute_info.attribute_name_index);
@@ -53,7 +54,7 @@ Frame::Frame(Method_Info *method, Class_File class_file) {
 void Frame::execute_frame() {
   u1 op_code = method_code->code[pc]; 
   if (DEBUG) printf("\n[%d]", op_code);
-  func[op_code](this); // chama a funcao do respectivo indice opcode
+  func[op_code](this); // chama a funcao do respectivo indice opcode // seg fault aqui
 }
 
 /**
@@ -305,7 +306,7 @@ void Frame::setup_instructions_func() {
   func[142] = d2i;
   func[143] = d2l;
   func[144] = d2f;
-  // func[145] = i2b;
+  func[145] = i2b;
   // func[146] = i2c;
   func[147] = i2s;
 
@@ -355,7 +356,7 @@ void Frame::setup_instructions_func() {
   //func[186] = invokedynamic;
   func[187] = new_obj;  //* new
   func[188] = newarray;
-  // func[189] = anewarray; // TODO
+  func[189] = anewarray; // TODO
   func[190] = arraylength;
   //func[191] = athrow;
   // func[192] = checkcast;
@@ -365,7 +366,7 @@ void Frame::setup_instructions_func() {
 
   /* EXTENDED */
   // func[196] = wide;
-  // func[197] = multianewarray;
+  // func[197] = multianewarray; // TODO
   func[198] = ifnull;
   func[199] = ifnonnull;
   // func[200] = goto_w;

@@ -791,7 +791,6 @@ void lxor(Frame *curr_frame) {
   u8 i_result = i_value_1 ^ i_value_2;
 
   Operand *result = check_string_create_type("I");
-
   result->type_long = (u8) i_result;
 
   curr_frame->push_operand(result);
@@ -803,8 +802,15 @@ void lxor(Frame *curr_frame) {
  * @return void
  */
 void iinc(Frame *curr_frame) {
-    u1 index = curr_frame->method_code->code[curr_frame->pc++];
-    u1 constant_value = curr_frame->method_code->code[curr_frame->pc++];
-    curr_frame->local_variables_array.at(index) += constant_value;
-    curr_frame->pc++;
+  if (DEBUG) cout << "----------iinc----------\n";
+  curr_frame->pc++;
+
+  u1 index = curr_frame->method_code->code[curr_frame->pc++];
+  if (DEBUG) cout << "iinc index: " << (int) index  << "\n";
+
+  u1 constant_value = curr_frame->method_code->code[curr_frame->pc++];
+  if (DEBUG) cout << "iinc constant_value: " << (int) constant_value  << "\n";
+
+  if (DEBUG) printf("local_variables_array.at(%d): %d \n", index, curr_frame->local_variables_array.at(index)->type_int);
+  curr_frame->local_variables_array.at(index)->type_int += (int) constant_value;
 }

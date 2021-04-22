@@ -14,13 +14,20 @@ void getfield(Frame*);
 void putfield(Frame*);
 
 void invokevirtual(Frame*);
+void invokevirtual_print(Frame*);
+void invokevirtual_string_builder_append(Frame*);
+
 void invokespecial(Frame*);
 void invokestatic(Frame*);
 void invokeinterface(Frame*);
 
 void new_obj(Frame*);
 void newarray(Frame*);
-void set_newarray_type(Operand *operand, u4 index, string array_type);
+void set_newarray_type(Operand*, u4, string);
+void anewarray(Frame*);
 void arraylength(Frame*);
+
+void class_not_default_java(Frame*, string, string, string, string);
+int count_method_arguments(string);
 
 #endif

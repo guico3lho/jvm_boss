@@ -14,7 +14,7 @@
 * @return void
 */
 void istore(Frame *curr_frame) {
-  if (DEBUG) cout << "\n----------istore----------\n";  
+  if (DEBUG) cout << "----------istore----------\n";  
   curr_frame->pc++;
 
   u1 index = curr_frame->method_code->code[curr_frame->pc++];
@@ -23,7 +23,7 @@ void istore(Frame *curr_frame) {
   Operand *value = curr_frame->pop_operand();
   curr_frame->local_variables_array.at((int)index) = value;
 
- }
+}
 
 /**
  * @brief Armazena um inteiro no array de variaveis locais no indice 0
@@ -31,11 +31,10 @@ void istore(Frame *curr_frame) {
  * @return void
  */
 void istore_0(Frame *curr_frame) {
-  if (DEBUG) cout << "\n----------istore_0----------\n";  
+  if (DEBUG) cout << "----------istore_0----------\n";  
 
   Operand *value = curr_frame->pop_operand();
   curr_frame->local_variables_array.at(0) = value;
-
   curr_frame->pc++;
 }
 
@@ -45,11 +44,10 @@ void istore_0(Frame *curr_frame) {
  * @return void
  */
 void istore_1(Frame *curr_frame) {
-  if (DEBUG) cout << "\n----------istore_1----------\n";  
+  if (DEBUG) cout << "----------istore_1----------\n";  
 
   Operand *value = curr_frame->pop_operand();
   curr_frame->local_variables_array.at(1) = value;
-
   curr_frame->pc++;
 }
 
@@ -59,11 +57,10 @@ void istore_1(Frame *curr_frame) {
  * @return void
  */
 void istore_2(Frame *curr_frame) {
-  if (DEBUG) cout << "\n----------istore_2----------\n";  
+  if (DEBUG) cout << "----------istore_2----------\n";  
 
   Operand *value = curr_frame->pop_operand();
   curr_frame->local_variables_array.at(2) = value;
-
   curr_frame->pc++;
 }
 
@@ -73,13 +70,11 @@ void istore_2(Frame *curr_frame) {
  * @return void
  */
 void istore_3(Frame *curr_frame) {
-  if (DEBUG) cout << "\n----------istore_3----------\n";  
+  if (DEBUG) cout << "----------istore_3----------\n";  
 
   Operand *value = curr_frame->pop_operand();
   curr_frame->local_variables_array.at(3) = value;
-
   curr_frame->pc++;
-
 }
 
 /**
@@ -88,10 +83,10 @@ void istore_3(Frame *curr_frame) {
 * @return void
 */
 void astore(Frame *curr_frame) {
+  if (DEBUG) cout << "----------astore----------\n";
   curr_frame->pc++;
 
   u1 index = curr_frame->method_code->code[curr_frame->pc++];
-
   Operand *operand = curr_frame->pop_operand();
   curr_frame->local_variables_array.at(index) = operand;
 }
@@ -101,7 +96,9 @@ void astore(Frame *curr_frame) {
  * @return void
  */
 void astore_0(Frame *curr_frame) {
+  if (DEBUG) cout << "----------astore_0----------\n";
   curr_frame->pc++;
+
   Operand *op = curr_frame->pop_operand();
   curr_frame->local_variables_array.at(0) = op;
 }
@@ -111,7 +108,9 @@ void astore_0(Frame *curr_frame) {
  * @return void
  */
 void astore_1(Frame *curr_frame) {
+  if (DEBUG) cout << "----------astore_1----------\n";
   curr_frame->pc++;
+
   Operand *op = curr_frame->pop_operand();
   curr_frame->local_variables_array.at(1) = op;
 }
@@ -121,7 +120,9 @@ void astore_1(Frame *curr_frame) {
  * @return void
  */
 void astore_2(Frame *curr_frame) {
+  if (DEBUG) cout << "----------astore_2----------\n";
   curr_frame->pc++;
+
   Operand *op = curr_frame->pop_operand();
   curr_frame->local_variables_array.at(2) = op;
   if (DEBUG) cout << "astore_2\n";
@@ -132,7 +133,9 @@ void astore_2(Frame *curr_frame) {
 @return void
 */
 void astore_3(Frame *curr_frame) {
+  if (DEBUG) cout << "----------astore_3----------\n";
     curr_frame->pc++;
+
     Operand *op = curr_frame->pop_operand();
     curr_frame->local_variables_array.at(3) = op;
 }
@@ -144,15 +147,14 @@ void astore_3(Frame *curr_frame) {
  * @return void
  */
 void dstore(Frame* curr_frame) {
+  if (DEBUG) cout << "----------dstore----------\n";
   curr_frame->pc++;
 
   u1 index = curr_frame->method_code->code[curr_frame->pc++];
-  if (DEBUG) cout << "dstore index " << (int)index << "\n";
+  if (DEBUG) cout << "dstore index " << (int) index << "\n";
   Operand *op = curr_frame->pop_operand();
 
-  curr_frame->local_variables_array.at((int)index) = op;
-
-  if (DEBUG) cout << "dstore\n";
+  curr_frame->local_variables_array.at((int) index) = op;
 }
 
 /**
@@ -161,6 +163,8 @@ void dstore(Frame* curr_frame) {
  * @return void
  */
 void dstore_0(Frame* curr_frame) {
+  if (DEBUG) cout << "----------dstore_0----------\n";
+
   Operand *op = curr_frame->operand_stack.top();
   curr_frame->operand_stack.pop();
 
@@ -174,6 +178,8 @@ void dstore_0(Frame* curr_frame) {
  * @return void
  */
 void dstore_1(Frame* curr_frame) {
+  if (DEBUG) cout << "----------dstore_1----------\n";
+
   Operand *op = curr_frame->pop_operand();
 
   curr_frame->local_variables_array[1] = op;
@@ -188,6 +194,8 @@ void dstore_1(Frame* curr_frame) {
  * @return void
  */
 void dstore_2(Frame* curr_frame) {
+  if (DEBUG) cout << "----------dstore_2----------\n";
+
   Operand *op = curr_frame->operand_stack.top();
   curr_frame->operand_stack.pop();
 
@@ -201,6 +209,8 @@ void dstore_2(Frame* curr_frame) {
  * @return void
  */
 void dstore_3(Frame* curr_frame) {
+  if (DEBUG) cout << "----------dstore_3----------\n";
+
 
   Operand *op = curr_frame->operand_stack.top();
   curr_frame->operand_stack.pop();
@@ -216,6 +226,8 @@ void dstore_3(Frame* curr_frame) {
  * @return void
  */
 void fstore(Frame* curr_frame) {
+  if (DEBUG) cout << "----------fstore----------\n";
+
   curr_frame->pc++;
 
   u1 index = curr_frame->method_code->code[curr_frame->pc++];
@@ -233,6 +245,8 @@ void fstore(Frame* curr_frame) {
  * @return void
  */
 void fstore_0(Frame* curr_frame) {
+  if (DEBUG) cout << "----------fstore_0----------\n";
+
   Operand *op = curr_frame->operand_stack.top();
   curr_frame->operand_stack.pop();
 
@@ -246,6 +260,8 @@ void fstore_0(Frame* curr_frame) {
 * @return void
 */
 void fstore_1(Frame* curr_frame) {
+  if (DEBUG) cout << "----------fstore_1----------\n";
+
   Operand *op = curr_frame->operand_stack.top();
   curr_frame->operand_stack.pop();
 
@@ -261,6 +277,8 @@ void fstore_1(Frame* curr_frame) {
 * @return void
 */
 void fstore_2(Frame* curr_frame) {
+  if (DEBUG) cout << "----------fstore_2----------\n";
+
   Operand *op = curr_frame->operand_stack.top();
   curr_frame->operand_stack.pop();
 
@@ -275,13 +293,15 @@ void fstore_2(Frame* curr_frame) {
 * @return void
 */
 void fstore_3(Frame* curr_frame) {
+  if (DEBUG) cout << "----------fstore_3----------\n";
+
    Operand *op = curr_frame->pop_operand();
 
-   curr_frame->local_variables_array[3] = op;
-   curr_frame->pc++;
+  curr_frame->local_variables_array[3] = op;
+  curr_frame->pc++;
 
-   if (DEBUG) cout << "fstore_3\n";
- }
+  if (DEBUG) cout << "fstore_3\n";
+}
 
 /*
 * @brief Armazena long do topo da pilha de operandos no array de variaveis
@@ -290,6 +310,8 @@ void fstore_3(Frame* curr_frame) {
 * @return void
 */
 void lstore(Frame* curr_frame) {
+  if (DEBUG) cout << "----------lstore----------\n";
+
   curr_frame->pc++;
 
   u1 index = curr_frame->method_code->code[curr_frame->pc++];
@@ -307,11 +329,13 @@ void lstore(Frame* curr_frame) {
 * @return void
 */
 void lstore_0(Frame* curr_frame) {
- Operand *op = curr_frame->operand_stack.top();
- curr_frame->operand_stack.pop();
+  if (DEBUG) cout << "----------lstore_0----------\n";
 
- curr_frame->local_variables_array[0] = op;
- curr_frame->pc++;
+  Operand *op = curr_frame->operand_stack.top();
+  curr_frame->operand_stack.pop();
+
+  curr_frame->local_variables_array[0] = op;
+  curr_frame->pc++;
 }
 
 /**
@@ -320,6 +344,8 @@ void lstore_0(Frame* curr_frame) {
 * @return void
 */
 void lstore_1(Frame* curr_frame) {
+  if (DEBUG) cout << "----------lstore_1----------\n";
+
   Operand *op = curr_frame->operand_stack.top();
   curr_frame->operand_stack.pop();
 
@@ -335,11 +361,13 @@ void lstore_1(Frame* curr_frame) {
 * @return void
 */
 void lstore_2(Frame* curr_frame) {
- Operand *op = curr_frame->operand_stack.top();
- curr_frame->operand_stack.pop();
+  if (DEBUG) cout << "----------lstore_2----------\n";
 
- curr_frame->local_variables_array[2] = op;
- curr_frame->pc++;
+  Operand *op = curr_frame->operand_stack.top();
+  curr_frame->operand_stack.pop();
+
+  curr_frame->local_variables_array[2] = op;
+  curr_frame->pc++;
 }
 
 /**
@@ -348,6 +376,8 @@ void lstore_2(Frame* curr_frame) {
 * @return void
 */
 void lstore_3(Frame* curr_frame) {
+  if (DEBUG) cout << "----------lstore_3----------\n";
+
   Operand *op = curr_frame->operand_stack.top();
   curr_frame->operand_stack.pop();
 
@@ -362,6 +392,8 @@ void lstore_3(Frame* curr_frame) {
  * @return void
  */
 void iastore(Frame* curr_frame) {
+  if (DEBUG) cout << "----------iastore----------\n";
+
   Operand* value = curr_frame->pop_operand();
   Operand* index = curr_frame->pop_operand();
   Operand *array = curr_frame->pop_operand();
@@ -387,6 +419,8 @@ void iastore(Frame* curr_frame) {
  * @return void
  */
 void lastore(Frame* curr_frame) {
+  if (DEBUG) cout << "----------lastore----------\n";
+
   Operand* value = curr_frame->pop_operand();
   Operand* index = curr_frame->pop_operand();
   Operand *array = curr_frame->pop_operand();
@@ -412,6 +446,8 @@ void lastore(Frame* curr_frame) {
  * @return void
  */
 void fastore(Frame* curr_frame) {
+  if (DEBUG) cout << "----------fastore----------\n";
+
   Operand* value = curr_frame->pop_operand();
   Operand* index = curr_frame->pop_operand();
   Operand *array = curr_frame->pop_operand();
@@ -427,8 +463,6 @@ void fastore(Frame* curr_frame) {
 
   curr_frame->push_operand(array);
   curr_frame->pc++;
-
-  if (DEBUG) cout << "fastore\n";
 }
 
 /**
@@ -437,6 +471,8 @@ void fastore(Frame* curr_frame) {
  * @return void
  */
 void dastore(Frame* curr_frame) {
+  if (DEBUG) cout << "----------dastore----------\n";
+
   Operand* value = curr_frame->pop_operand();
   Operand* index = curr_frame->pop_operand();
   Operand *array = curr_frame->pop_operand();
@@ -462,23 +498,30 @@ void dastore(Frame* curr_frame) {
  * @return void
  */
 void aastore(Frame* curr_frame) {
+  if (DEBUG) cout << "----------aastore----------\n";
+
   Operand* value = curr_frame->pop_operand();
-  Operand* index = curr_frame->pop_operand();
+
+  Operand* op1 = curr_frame->pop_operand();
+  int index = (int) op1->type_int;
+
   Operand *array = curr_frame->pop_operand();
+  std::vector<Operand*> *array_ref = array->array_type->array;
 
-  ((*array->array_type->array)[(int)index->type_int])->array_type = value->array_type;
+  // if (DEBUG) cout << "aastore value: " << (int) value->array_type << "\n";
+  if (DEBUG) cout << "aastore index: " << (int) index << "\n";
 
-  if (DEBUG) cout << "aastore value : " << value->array_type << "\n";
+  ((*array_ref)[index])->array_type = value->array_type;
+  // if (DEBUG) cout << "aastore array_type: " << (int) value->array_type << "\n";
+
   if (DEBUG)
-    for (int j=0; (unsigned)j < array->array_type->array->size(); ++j) {
-      int value = (array->array_type->array->at(j))->array_type->array->size();
-      if (DEBUG) cout << "sub array size : " << value << "\n";
+    for (int j = 0; (unsigned)j < array_ref->size(); ++j) {
+      int sub_array_size = (array_ref->at(j))->array_type->array->size();
+      if (DEBUG) cout << "sub array size: " << sub_array_size << "\n";
     }
 
   curr_frame->push_operand(array);
   curr_frame->pc++;
-
-  if (DEBUG) cout << "aastore\n";
 }
 
 /**
@@ -487,6 +530,8 @@ void aastore(Frame* curr_frame) {
  * @return void
  */
 void bastore(Frame* curr_frame) {
+  if (DEBUG) cout << "----------bastore----------\n";
+
   Operand* value = curr_frame->pop_operand();
   Operand* index = curr_frame->pop_operand();
   Operand *array = curr_frame->pop_operand();
@@ -513,6 +558,8 @@ void bastore(Frame* curr_frame) {
  * @return void
  */
 void castore(Frame* curr_frame) {
+  if (DEBUG) cout << "----------castore----------\n";
+
   Operand* value = curr_frame->pop_operand();
   Operand* index = curr_frame->pop_operand();
   Operand *array = curr_frame->pop_operand();
@@ -538,6 +585,8 @@ void castore(Frame* curr_frame) {
  * @return void
  */
 void sastore(Frame* curr_frame) {
+  if (DEBUG) cout << "----------sastore----------\n";
+
   Operand* value = curr_frame->pop_operand();
   Operand* index = curr_frame->pop_operand();
   Operand *array = curr_frame->pop_operand();

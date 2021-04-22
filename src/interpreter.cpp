@@ -55,3 +55,9 @@ void pop_frame() {
 Frame* top_frame() {
   return frame_stack.top();
 }
+
+u2 get_method_code_index(Frame* curr_frame) {
+  u2 index = curr_frame->method_code->code[curr_frame->pc++];
+  index = (index << 8) + curr_frame->method_code->code[curr_frame->pc++];
+  return index;
+}
