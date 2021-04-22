@@ -66,7 +66,7 @@ $ ./jvm.sh HelloJava
 - [ ] multi
 - [ ] vetor_8
 - [ ] vetor2
-- [ ] vetor
+- [x] vetor
 - [x] Prints
 - [x] Sum
 - [x] Loop_for

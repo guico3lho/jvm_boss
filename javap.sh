@@ -1,1 +1,1 @@
-javap -verbose test/$1.class
+javap -verbose test/class/$1.class

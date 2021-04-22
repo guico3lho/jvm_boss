@@ -1,1 +1,1 @@
-java -classpath test $1
+java -classpath test/class $1

@@ -297,11 +297,11 @@ void fstore_3(Frame* curr_frame) {
 
    Operand *op = curr_frame->pop_operand();
 
-   curr_frame->local_variables_array[3] = op;
-   curr_frame->pc++;
+  curr_frame->local_variables_array[3] = op;
+  curr_frame->pc++;
 
-   if (DEBUG) cout << "fstore_3\n";
- }
+  if (DEBUG) cout << "fstore_3\n";
+}
 
 /*
 * @brief Armazena long do topo da pilha de operandos no array de variaveis
@@ -463,8 +463,6 @@ void fastore(Frame* curr_frame) {
 
   curr_frame->push_operand(array);
   curr_frame->pc++;
-
-  if (DEBUG) cout << "fastore\n";
 }
 
 /**

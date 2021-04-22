@@ -1,1 +1,1 @@
-javap -c test/$1.class
+javap -c test/class/$1.class

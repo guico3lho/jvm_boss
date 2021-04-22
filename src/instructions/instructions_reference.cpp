@@ -193,7 +193,6 @@ void invokevirtual(Frame *curr_frame) {
 void invokevirtual_print(Frame *curr_frame) {
   if (DEBUG) cout << "Metodo Print: java/io/PrintStream\n";
   Operand *op = curr_frame->pop_operand();
-
   if (DEBUG) cout << "op->tag: " << op->tag << "\n";
 
   switch(op->tag) {

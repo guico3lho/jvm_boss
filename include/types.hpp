@@ -8,7 +8,7 @@
 
 #include <stdint.h>
 
-#define DEBUG false
+#define DEBUG true
 
 /* CONSTANT POOL */
 #define CONSTANT_EMPTY                 0
