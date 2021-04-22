@@ -1,6 +1,6 @@
 public class Vector_1 {
   public static void main(String[] args) {
-    int[] nums = new int[3];
+    int[] nums = new int[10];
 
     System.out.print("Tamanho do Vetor_1: ");
     System.out.println(nums.length);

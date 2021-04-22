@@ -534,8 +534,8 @@ void newarray(Frame *curr_frame) {
   curr_frame->pc++;
 
   Operand *operand_1 = curr_frame->pop_operand();
-  u4 count = operand_1->type_int;
-  if (DEBUG) cout << "array count: " << (int) count << "\n";
+  int count = operand_1->type_int;
+  if (DEBUG) printf("array count: %d (0x%0X)\n", (int) count, count);
 
   u1 array_type = curr_frame->method_code->code[curr_frame->pc++];
   if (DEBUG) cout << "array_type: " << (int) array_type << "\n";

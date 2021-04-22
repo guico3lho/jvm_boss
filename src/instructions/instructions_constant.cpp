@@ -226,6 +226,7 @@ void dconst_1(Frame *curr_frame) {
  */
 void bipush(Frame *curr_frame) {
   if (DEBUG) cout << "----------bipush----------\n";
+  curr_frame->pc++;
 
   u1 byte = curr_frame->method_code->code[curr_frame->pc++];
   if (DEBUG) printf("bipush byte: %d (0x%0X)\n", (int) byte, byte);
@@ -234,8 +235,6 @@ void bipush(Frame *curr_frame) {
   op->tag = CONSTANT_INT;
   op->type_int = (int8_t) byte;
   curr_frame->operand_stack.push(op);
-  curr_frame->pc++;
-
 }
 
 /**
