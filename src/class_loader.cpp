@@ -9,10 +9,11 @@ std::map<std::string, Class_Loader*> loaded_classes;
 std::map<std::string, Class_Loader*> static_classes;
 
 /**
- * @brief Carrega classes para a memória.
+ * @brief Lê e armazena classes no class_loader
  * @param class_file
  * @return Class_Loader*
  */
+
 Class_Loader* load_class_memory(Class_File class_file) {
   Class_Loader *class_loader = (Class_Loader*) malloc(sizeof(Class_Loader));
   class_loader->class_file = class_file;
@@ -27,7 +28,7 @@ Class_Loader* load_class_memory(Class_File class_file) {
 
   class_loader->class_fields = new std::map<std::string, Operand*>();
   // NOTE: Quando tiver chegado aqui, armazena o .class atual e o seu nome. 
-  iablesiables(class_loader);
+  load_class_variables(class_loader);
 
   if (DEBUG) std::cout << "Classes carregadas na memoria!\n";
 
@@ -36,10 +37,10 @@ Class_Loader* load_class_memory(Class_File class_file) {
 
 /**
  * @brief Carrega variáveis com informações do .class
- * @param class_loader
+ * @param class_loader ponteiro para classes carregadas em memoria
  * @return void
  */
-void iablesiables(Class_Loader *class_loader) {
+void load_class_variables(Class_Loader *class_loader) {
   Class_File current_class = class_loader->class_file; 
   Cp_Info super_class = current_class.constant_pool[current_class.super_class];
 
@@ -66,32 +67,8 @@ void iablesiables(Class_Loader *class_loader) {
 }
 
 /**
- * @brief Lê e armazena classes no class_loader
- * @param class_file
- * @return Class_Loader*
- */
-Class_Loader* load_class_memory(Class_File class_file) {
-  Class_Loader *class_loader = (Class_Loader*) malloc(sizeof(Class_Loader));
-  class_loader->class_file = class_file;
-
-  std::string class_name = get_cp_info_utf8(class_file, class_file.this_class);
-  class_loader->class_name = &class_name;
-  if (DEBUG) std::cout << "Classe estatica " << class_name << " carregada na memoria!\n";
-
-  loaded_classes.insert((std::pair<std::string, Class_Loader*>(class_name, class_loader)));
-  static_classes.insert((std::pair<std::string, Class_Loader*>(class_name, class_loader)));
-
-  class_loader->class_fields = new std::map<std::string, Operand*>();
-  load_class_variables(class_loader);
-
-  if (DEBUG) std::cout << "Classes carregadas na memoria!\n";
-
-  return class_loader;
-}
-
-/**
  * @brief Carrega outro .class se o arquivo estiver no mesmo diretório.
- * @param c_path nome do próximo arquivo .class a ser carregado
+ * @param class_path nome do próximo arquivo .class a ser carregado
  * @return JavaClass estrutura de dados do arquivo .class a ser carregado
  */
 Class_File get_class_and_load_not_exists(std::string class_path) {
@@ -114,17 +91,18 @@ Class_File get_class_and_load_not_exists(std::string class_path) {
 
 /**
  * @brief Encontra a classe estática
- * @param std::string class_name
- * @return ClassInstance*
+ * @param class_name da classe a ser retornada a referencia
+ * @return Class_Loader* ponteiro da referencia da classe
  */
 Class_Loader* get_static_class(std::string class_name){
   return static_classes[class_name];
 }
 
 /**
- * @brief Encontra o Field estático de uma classe
- * @param std::string class_name 
- * @param std::string field_name 
+ * @brief Get the static field of class object
+ * 
+ * @param class_name 
+ * @param field_name 
  * @return Operand* 
  */
 Operand* get_static_field_of_class(std::string class_name, std::string field_name) {
@@ -134,9 +112,9 @@ Operand* get_static_field_of_class(std::string class_name, std::string field_nam
 }
 
 /**
- * @brief Cria um ponteiro Operand e define o seu tipo
- * @param std::string type_string
- * @return Operand*
+ * @brief Cria um ponteiro de Operand e o tipo é decidido pela string recebida
+ * @param type_string string que varia de acordo com o tipo
+ * @return Operand* novo ponteiro para Operand
  */
 Operand* check_string_create_type(std::string type_string) {
   Operand *new_type = (Operand*)malloc(sizeof(Operand));
@@ -197,9 +175,8 @@ Operand* check_string_create_type(std::string type_string) {
       new_type->tag = CONSTANT_STRING;
       new_type->type_string = new std::string("");
       break;
-      
-    case 'L':
 
+    case 'L':
       if (type_string == "Ljava/lang/Integer;") {
         new_type->tag = CONSTANT_INT;
         new_type->type_int = 0;
@@ -221,7 +198,7 @@ Operand* check_string_create_type(std::string type_string) {
         new_type->class_loader->class_file = class_info;
         new_type->class_loader->class_name = &class_realname;
 
-        iablesiables(new_type->class_loader);
+        load_class_variables(new_type->class_loader);
       }
       break;
   }
