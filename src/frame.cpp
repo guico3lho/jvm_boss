@@ -52,8 +52,8 @@ Frame::Frame(Method_Info *method, Class_File class_file) {
  * @return void
  */
 void Frame::execute_frame() {
-  u1 op_code = method_code->code[pc]; 
-  if (DEBUG) printf("\n[%d]", op_code);
+  u1 op_code = method_code->code[pc];   // NOTE: method_code armazena os opcode
+  if (DEBUG) printf("\n[%d]", op_code); //NOTE: max_locals = 4? 4 variaveis?
   func[op_code](this); // chama a funcao do respectivo indice opcode // seg fault aqui
 }
 
