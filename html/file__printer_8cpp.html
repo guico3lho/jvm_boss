@@ -78,14 +78,14 @@ $(function() {
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funções</h2></td></tr>
-<tr class="memitem:aa378292c834be735e3e22c931763414a"><td class="memItemLeft" align="right" valign="top"><a id="aa378292c834be735e3e22c931763414a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>print_major_version</b> (u2 major_version)</td></tr>
+<tr class="memitem:aa378292c834be735e3e22c931763414a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file__printer_8cpp.html#aa378292c834be735e3e22c931763414a">print_major_version</a> (u2 major_version)</td></tr>
+<tr class="memdesc:aa378292c834be735e3e22c931763414a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime no terminal a versão do Java.  <a href="file__printer_8cpp.html#aa378292c834be735e3e22c931763414a">Mais...</a><br /></td></tr>
 <tr class="separator:aa378292c834be735e3e22c931763414a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a2c35e1751326cf167c2a912204ddd3"><td class="memItemLeft" align="right" valign="top"><a id="a3a2c35e1751326cf167c2a912204ddd3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>check_flag</b> (u2 access_flags, int constant_access_flag, std::string flag_name)</td></tr>
+<tr class="memitem:a3a2c35e1751326cf167c2a912204ddd3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file__printer_8cpp.html#a3a2c35e1751326cf167c2a912204ddd3">check_flag</a> (u2 access_flags, int constant_access_flag, std::string flag_name)</td></tr>
+<tr class="memdesc:a3a2c35e1751326cf167c2a912204ddd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checa se é a flag correta e imprime no terminal.  <a href="file__printer_8cpp.html#a3a2c35e1751326cf167c2a912204ddd3">Mais...</a><br /></td></tr>
 <tr class="separator:a3a2c35e1751326cf167c2a912204ddd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1c733e638bc6664aba511e5fb7fe892"><td class="memItemLeft" align="right" valign="top"><a id="ae1c733e638bc6664aba511e5fb7fe892"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>print_access_flags</b> (u2 access_flags)</td></tr>
+<tr class="memitem:ae1c733e638bc6664aba511e5fb7fe892"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file__printer_8cpp.html#ae1c733e638bc6664aba511e5fb7fe892">print_access_flags</a> (u2 access_flags)</td></tr>
+<tr class="memdesc:ae1c733e638bc6664aba511e5fb7fe892"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define as strings das flags e chama a função que checa a flag para imprimir a correta.  <a href="file__printer_8cpp.html#ae1c733e638bc6664aba511e5fb7fe892">Mais...</a><br /></td></tr>
 <tr class="separator:ae1c733e638bc6664aba511e5fb7fe892"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa16b11b5dc7662e25c0b614328393f7e"><td class="memItemLeft" align="right" valign="top"><a id="aa16b11b5dc7662e25c0b614328393f7e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>print_basic_info</b> (std::string filename, <a class="el" href="structClass__File.html">Class_File</a> class_file)</td></tr>
@@ -159,7 +159,107 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print_instructions</b
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
 <div class="textblock"><p>Arquivo com funções que imprimem informações para o usuário. </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Documentação das funções</h2>
+<a id="a3a2c35e1751326cf167c2a912204ddd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a2c35e1751326cf167c2a912204ddd3">&#9670;&nbsp;</a></span>check_flag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void check_flag </td>
+          <td>(</td>
+          <td class="paramtype">u2&#160;</td>
+          <td class="paramname"><em>access_flags</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>constant_access_flag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>flag_name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checa se é a flag correta e imprime no terminal. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">access_flags</td><td>bytes que possuem a flag de acesso </td></tr>
+    <tr><td class="paramname">constant_access_flag</td><td>número da constant que define essa flag </td></tr>
+    <tr><td class="paramname">flag_name</td><td>string com o nome da flag </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="ae1c733e638bc6664aba511e5fb7fe892"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1c733e638bc6664aba511e5fb7fe892">&#9670;&nbsp;</a></span>print_access_flags()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_access_flags </td>
+          <td>(</td>
+          <td class="paramtype">u2&#160;</td>
+          <td class="paramname"><em>access_flags</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define as strings das flags e chama a função que checa a flag para imprimir a correta. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">access_flags</td><td>bytes que possuem a flag de acesso </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="aa378292c834be735e3e22c931763414a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa378292c834be735e3e22c931763414a">&#9670;&nbsp;</a></span>print_major_version()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_major_version </td>
+          <td>(</td>
+          <td class="paramtype">u2&#160;</td>
+          <td class="paramname"><em>major_version</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imprime no terminal a versão do Java. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">major_version</td><td>bytes com a constante que indica a versão </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

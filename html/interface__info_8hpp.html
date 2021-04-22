@@ -95,8 +95,8 @@ typedef struct <a class="el" href="structInterface__Info.html">Interface_Info</a
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funções</h2></td></tr>
-<tr class="memitem:a89260667f3c038f055ffc1ce35821bba"><td class="memItemLeft" align="right" valign="top"><a id="a89260667f3c038f055ffc1ce35821bba"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>read_interface_info</b> (FILE *file, <a class="el" href="structClass__File.html">Class_File</a> *class_file)</td></tr>
+<tr class="memitem:a89260667f3c038f055ffc1ce35821bba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface__info_8hpp.html#a89260667f3c038f055ffc1ce35821bba">read_interface_info</a> (FILE *file, <a class="el" href="structClass__File.html">Class_File</a> *class_file)</td></tr>
+<tr class="memdesc:a89260667f3c038f055ffc1ce35821bba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que lê as informações de interface e armazena em uma estrutura Class File.  <a href="interface__info_8hpp.html#a89260667f3c038f055ffc1ce35821bba">Mais...</a><br /></td></tr>
 <tr class="separator:a89260667f3c038f055ffc1ce35821bba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a597c5925034dfc8dcf287b5ea96c3214"><td class="memItemLeft" align="right" valign="top"><a id="a597c5925034dfc8dcf287b5ea96c3214"></a>
 <a class="el" href="structInterface__Info.html">Interface_Info</a>&#160;</td><td class="memItemRight" valign="bottom"><b>get_interface_info</b> (FILE *file, <a class="el" href="structClass__File.html">Class_File</a> *class_file, <a class="el" href="structInterface__Info.html">Interface_Info</a> interface_info)</td></tr>
@@ -104,7 +104,46 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>read_interface_info</
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
 <div class="textblock"><p>Estruturas e declarações de funções que leem as interfaces do arquivo e as armazenam no class_file. </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Documentação das funções</h2>
+<a id="a89260667f3c038f055ffc1ce35821bba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89260667f3c038f055ffc1ce35821bba">&#9670;&nbsp;</a></span>read_interface_info()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void read_interface_info </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structClass__File.html">Class_File</a> *&#160;</td>
+          <td class="paramname"><em>class_file</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função que lê as informações de interface e armazena em uma estrutura Class File. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>ponteiro para o arquivo de onde as informações vão ser retiradas </td></tr>
+    <tr><td class="paramname">class_file</td><td>estrutura <a class="el" href="structClass__File.html" title="Estrutura de dados que armazena as principais informações do bytecode (.class)">Class_File</a> onde vai ser armazenado </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

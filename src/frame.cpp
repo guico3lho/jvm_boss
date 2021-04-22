@@ -23,8 +23,8 @@ void (*func[256])(Frame *curr_frame);
 *   (cp_reference), informações de método (method_info),
 *   código do método (method_code), inica PC com 0 e dimensiona o vetor de
 *   variáveis locais.
-*  @param *method ponteiro para informações do método
-*  @param *cp_info ponteiro para a pool de constantes
+*  @param method ponteiro para informações do método
+*  @param cp_info ponteiro para a pool de constantes
 */
 Frame::Frame(Method_Info *method, Class_File class_file) {
   cp_reference = class_file.constant_pool;
@@ -48,6 +48,7 @@ Frame::Frame(Method_Info *method, Class_File class_file) {
 /**
  * @brief Executa Frame atual a partir do opcode armazanado no atributo de código na posição do pc do Frame
  * @param void
+ * @return void
  */
 void Frame::execute_frame() {
   u1 op_code = method_code->code[pc]; 
@@ -92,27 +93,35 @@ Operand* copy_operand(Operand* original_type) {
     case CONSTANT_BYTE:
       copy_type->type_byte = original_type->type_byte;
       break;
+       
     case CONSTANT_CHAR:
       copy_type->type_char = original_type->type_char;
       break;
+
     case CONSTANT_SHORT:
       copy_type->type_short = original_type->type_short;
       break;
+
     case CONSTANT_INT:
       copy_type->type_int = original_type->type_int;
       break;
+
     case CONSTANT_FLOAT:
       copy_type->type_float = original_type->type_float;
       break;
+
     case CONSTANT_LONG:
       copy_type->type_long = original_type->type_long;
       break;
+
     case CONSTANT_DOUBLE:
       copy_type->type_double = original_type->type_double;
       break;
+
     case CONSTANT_STRING:
       copy_type->type_string = new std::string(*original_type->type_string);
       break;
+
   case CONSTANT_CLASS:
     copy_type->class_loader = (Class_Loader*) malloc(sizeof(Class_Loader));
     copy_type->class_loader->class_name = original_type->class_loader->class_name;
@@ -120,6 +129,7 @@ Operand* copy_operand(Operand* original_type) {
     copy_type->class_loader->class_fields = new std::map<std::string, Operand*>();
     copy_type->class_loader->class_fields = original_type->class_loader->class_fields;
     break;
+
   case CONSTANT_ARRAY:
     copy_type->array_type = (Array_Type*)malloc(sizeof(Array_Type));
     copy_type->array_type->array = new std::vector<Operand*>();

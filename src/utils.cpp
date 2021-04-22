@@ -21,7 +21,7 @@ void print_command_error() {
 
 /** 
  * @brief Libera a memória alocada para o Class File.
- * @param class_file a estrutura Class_File que precisa ser liberada
+ * @param class_file estrutura Class_File que precisa ser liberada
  * @return void
  */
 void freeClass(Class_File class_file){
@@ -62,8 +62,8 @@ void freeClass(Class_File class_file){
 
 /** 
  * @brief Libera a memória alocada para um atributo.
- * @param attr a estrutura Attribute que precisa ser liberada
- * @param size o tamanho do array de atributos
+ * @param attr estrutura Attribute que precisa ser liberada
+ * @param size tamanho do array de atributos
  * @return void
  */
 void freeAttribute(Attribute_Info* attr, u4 size){
@@ -71,27 +71,34 @@ void freeAttribute(Attribute_Info* attr, u4 size){
     if(attr[i].source_file){
       free(attr[i].source_file);
     }
+
     if(attr[i].local_variable_table){
       free(attr[i].local_variable_table->table);
       free(attr[i].local_variable_table);
     }
+
     if(attr[i].line_number_table){
       free(attr[i].line_number_table->table);
       free(attr[i].line_number_table);
     }
+
     if(attr[i].info){
       free(attr[i].info);
     }
+
     if(attr[i].inner_class){
       freeInnerClass(attr[i].inner_class, 1);
     }
+
     if(attr[i].exception){
       free(attr[i].exception->exception_index_table);
       free(attr[i].exception);
     }
+
     if(attr[i].const_value){
       free(attr[i].const_value);
     }
+
     if (attr[i].code){
       free(attr[i].code->code);
       free(attr[i].code->exception_table);
@@ -104,8 +111,8 @@ void freeAttribute(Attribute_Info* attr, u4 size){
 
 /** 
  * @brief Libera a memória de atributos do tipo Inner Class.
- * @param inner a estrutura Inner_Class_Attribute que precisa ser liberada.
- * @param size o tamanho do array de classes internas.
+ * @param inner estrutura Inner_Class_Attribute que precisa ser liberada.
+ * @param size tamanho do array de classes internas.
  * @return void
  */
 void freeInnerClass(Inner_Class_Attribute* inner, u4 size){

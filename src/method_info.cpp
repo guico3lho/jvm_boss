@@ -7,8 +7,8 @@
 
 /** 
  * @brief Lê as informações de method e armazena no Class_File.
- * @param *file ponteiro para o arquivo que vai ser lido.
- * @param *class_file ponteiro para a estrutura Class_File em que as informações vão ser armazenadas.
+ * @param file ponteiro para o arquivo que vai ser lido.
+ * @param class_file ponteiro para a estrutura Class_File em que as informações vão ser armazenadas.
  * @return void
  */
 void read_method_info(FILE *file, Class_File *class_file) {

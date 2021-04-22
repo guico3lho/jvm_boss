@@ -7,7 +7,6 @@
 
 /**
  * @brief Função de leitura dos dados do arquivo .class 
- * 
  * @param filename 
  * @return Class_File 
  */

@@ -26,7 +26,6 @@
 #include "interpreter.hpp"
 #include "file_printer.hpp"
 
-
 int main(int argc, char* argv[]) {
 
   if (argc != 3) {
