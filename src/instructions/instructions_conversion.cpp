@@ -15,13 +15,13 @@
 void i2l(Frame *curr_frame) {
   if (DEBUG) cout << "----------i2l----------\n";
 
-  int value_op;
+  int int_value;
   Operand *op_int = curr_frame->pop_operand();
-  memcpy(&value_op, &op_int->type_int, sizeof(u4));
+  memcpy(&int_value, &op_int->type_int, sizeof(u4));
 
-  long value_long = (long)value_op;
+  long value_long = (long) int_value;
   Operand *value_converted = check_string_create_type("J");
-  memcpy(&value_converted->type_long, &value_long, sizeof(u8));
+  memcpy(&value_converted->type_long, &value_long, sizeof(long));
 
   curr_frame->pc++;
   curr_frame->push_operand(value_converted);
@@ -36,13 +36,13 @@ void i2l(Frame *curr_frame) {
 void i2f(Frame *curr_frame) {
   if (DEBUG) cout << "----------i2f----------\n";
 
-  int stack_value;
+  int int_value;
   Operand *operand = curr_frame->pop_operand();
-  memcpy(&stack_value, &operand->type_int, sizeof(u4));
+  memcpy(&int_value, &operand->type_int, sizeof(u4));
 
-  float converted_value = (float) stack_value;
+  float converted_value = (float) int_value;
   Operand *float_converted_type = check_string_create_type("F");
-  memcpy(&float_converted_type->type_float, &converted_value, sizeof(u4));
+  memcpy(&float_converted_type->type_float, &converted_value, sizeof(float));
 
   curr_frame->pc++;
   curr_frame->push_operand(float_converted_type);
@@ -56,15 +56,15 @@ void i2f(Frame *curr_frame) {
 void i2d(Frame *curr_frame) {
   if (DEBUG) cout << "----------i2d----------\n";
 
-  int stack_value;
+  int int_value;
   Operand *int_type = curr_frame->pop_operand();
-  stack_value = int_type->type_int;
-  if (DEBUG) cout << "i2d int value " << stack_value << "\n";
+  int_value = int_type->type_int;
+  if (DEBUG) cout << "i2d int value " << int_value << "\n";
 
-  double d_value_cast = (double)stack_value;
+  double d_value_cast = (double) int_value;
   if (DEBUG) cout << "i2d double value " << d_value_cast << "\n";
   Operand *d_value_cast_type = check_string_create_type("D");
-  memcpy(&d_value_cast_type->type_double, &d_value_cast, sizeof(u8));
+  memcpy(&d_value_cast_type->type_double, &d_value_cast, sizeof(double));
 
   curr_frame->pc++;
   curr_frame->push_operand(d_value_cast_type);
@@ -79,11 +79,11 @@ void i2b(Frame *curr_frame) {
   if (DEBUG) cout << "----------i2b----------\n";
   curr_frame->pc++;
 
-  int stack_value;
+  int int_value;
   Operand *int_type = curr_frame->pop_operand();
-  memcpy(&stack_value, &int_type->type_int, sizeof(u4));
+  memcpy(&int_value, &int_type->type_int, sizeof(u4));
 
-  u4 conv_value = (u4) stack_value;
+  u4 conv_value = (u4) int_value;
   Operand *op_from_type = check_string_create_type("B");
   memcpy(&op_from_type->type_byte, &conv_value, sizeof(u4));
 
@@ -100,13 +100,13 @@ void i2s(Frame *curr_frame) {
 
   curr_frame->pc++;
 
-  int stack_value;
+  int int_value;
   Operand *int_type = curr_frame->pop_operand();
-  memcpy(&stack_value, &int_type->type_int, sizeof(u4));
+  memcpy(&int_value, &int_type->type_int, sizeof(u4));
 
-  short conv_value = (short)stack_value;
+  short conv_value = (short) int_value;
   Operand *op_from_type = check_string_create_type("S");
-  memcpy(&op_from_type->type_byte, &conv_value, sizeof(u4));
+  memcpy(&op_from_type->type_byte, &conv_value, sizeof(short));
 
   curr_frame->push_operand(op_from_type);
 }
@@ -188,7 +188,7 @@ void f2i(Frame *curr_frame) {
 
   int int_value = (int) float_value;
   Operand *new_int = check_string_create_type("I");
-  memcpy(&new_int->type_int, &int_value, sizeof(u4));
+  memcpy(&new_int->type_int, &int_value, sizeof(int));
   if (DEBUG) cout << "f2i int " << int_value << "\n";
 
   curr_frame->push_operand(new_int);
@@ -213,7 +213,7 @@ void f2l(Frame *curr_frame) {
 
   long conv_value = (long) float_value;
   Operand *longConvertidoType = check_string_create_type("J");
-  memcpy(&longConvertidoType->type_long, &conv_value, sizeof(u8));
+  memcpy(&longConvertidoType->type_long, &conv_value, sizeof(long));
   if (DEBUG) cout << "f2l long value " << longConvertidoType->type_long << "\n";
 
   curr_frame->pc++;
@@ -260,7 +260,7 @@ void d2i(Frame *curr_frame) {
 
   int int_value = (int)stack_value;
   Operand *new_int = check_string_create_type("I");
-  memcpy(&new_int->type_int, &int_value, sizeof(u4));
+  memcpy(&new_int->type_int, &int_value, sizeof(int));
 
   if (DEBUG) cout << "d2i int value : " << new_int->type_int << "\n";
 
@@ -276,13 +276,13 @@ void d2i(Frame *curr_frame) {
 void d2l(Frame *curr_frame) {
   if (DEBUG) cout << "----------d2l----------\n";
 
-  double stack_value;
+  double double_value;
   Operand *double_type = curr_frame->pop_operand();
-  memcpy(&stack_value, &double_type->type_double, sizeof(int64_t));
+  memcpy(&double_value, &double_type->type_double, sizeof(u8));
 
-  long long_value = (long)stack_value;
+  long long_value = (long) double_value;
   Operand *new_long = check_string_create_type("J");
-  memcpy(&new_long->type_long, &long_value, sizeof(u8));
+  memcpy(&new_long->type_long, &long_value, sizeof(long));
 
   curr_frame->push_operand(new_long);
   curr_frame->pc++;
@@ -305,7 +305,7 @@ void d2f(Frame *curr_frame) {
 
   float float_value = (float) double_value;
   Operand *new_float = check_string_create_type("F");
-  memcpy(&new_float->type_float, &float_value, sizeof(u4));
+  memcpy(&new_float->type_float, &float_value, sizeof(float));
   if (DEBUG) cout << "d2f float value : " << new_float->type_float << "\n";
 
   curr_frame->push_operand(new_float);
