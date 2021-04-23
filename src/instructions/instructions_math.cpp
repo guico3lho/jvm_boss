@@ -14,6 +14,8 @@
  * @return void
  */
 void iadd(Frame *curr_frame) {
+  if (DEBUG) cout << "----------iadd----------\n";
+
   curr_frame->pc++;
 
   Operand *operand_1 = curr_frame->pop_operand();
@@ -36,6 +38,8 @@ void iadd(Frame *curr_frame) {
  * @return void
  */
 void ladd(Frame *curr_frame) {
+  if (DEBUG) cout << "----------ladd----------\n";
+
   curr_frame->pc++;
   Operand *operand_1 = curr_frame->pop_operand();
   Operand *operand_2 = curr_frame->pop_operand();
@@ -56,6 +60,8 @@ void ladd(Frame *curr_frame) {
  * @return void
  */
 void fadd(Frame *curr_frame) {
+  if (DEBUG) cout << "----------fadd----------\n";
+
   curr_frame->pc++;
 
   Operand *operand_1 = curr_frame->pop_operand();
@@ -82,25 +88,27 @@ void fadd(Frame *curr_frame) {
  * @return void
  */
  void dadd(Frame *curr_frame) {
-   curr_frame->pc++;
+  if (DEBUG) cout << "----------dadd----------\n";
 
-   Operand *operand_1 = curr_frame->pop_operand();
-   Operand *operand_2 = curr_frame->pop_operand();
+  curr_frame->pc++;
 
-   double value_1, value_2;
-   memcpy(&value_1, &operand_1->type_double, sizeof(double));
-   memcpy(&value_2, &operand_2->type_double, sizeof(double));
-   value_1 += value_2;
-   if (DEBUG) cout << "dadd value " << value_1 << "\n";
+  Operand *operand_1 = curr_frame->pop_operand();
+  Operand *operand_2 = curr_frame->pop_operand();
 
-   Operand *result = (Operand *) malloc(sizeof(Operand));
-   result->tag = CONSTANT_DOUBLE;
-   memcpy(&result->type_double, &value_1, sizeof(u8));
+  double value_1, value_2;
+  memcpy(&value_1, &operand_1->type_double, sizeof(double));
+  memcpy(&value_2, &operand_2->type_double, sizeof(double));
+  value_1 += value_2;
+  if (DEBUG) cout << "dadd value " << value_1 << "\n";
 
-   curr_frame->push_operand(result);
+  Operand *result = (Operand *) malloc(sizeof(Operand));
+  result->tag = CONSTANT_DOUBLE;
+  memcpy(&result->type_double, &value_1, sizeof(u8));
 
-   if (DEBUG) cout << "dadd\n";
- }
+  curr_frame->push_operand(result);
+
+  if (DEBUG) cout << "dadd\n";
+}
 
 /**
  * @brief Subtração do tipo inteiro. Retira os dois operando do topo da pilha,
@@ -109,6 +117,8 @@ void fadd(Frame *curr_frame) {
  * @return void
  */
 void isub(Frame *curr_frame) {
+  if (DEBUG) cout << "----------isub----------\n";
+
   curr_frame->pc++;
   Operand *operand_1 = curr_frame->pop_operand();
   Operand *operand_2 = curr_frame->pop_operand();
@@ -129,6 +139,8 @@ void isub(Frame *curr_frame) {
  * @return void
  */
 void lsub(Frame *curr_frame) {
+  if (DEBUG) cout << "----------lsub----------\n";
+
   curr_frame->pc++;
   Operand *operand_1 = curr_frame->pop_operand();
   Operand *operand_2 = curr_frame->pop_operand();
@@ -149,6 +161,8 @@ void lsub(Frame *curr_frame) {
  * @return void
  */
 void fsub(Frame *curr_frame) {
+  if (DEBUG) cout << "----------fsub----------\n";
+
   curr_frame->pc++;
 
   Operand *operand_1 = curr_frame->pop_operand();
@@ -175,6 +189,8 @@ void fsub(Frame *curr_frame) {
  * @return void
  */
 void dsub(Frame *curr_frame) {
+  if (DEBUG) cout << "----------dsub----------\n";
+
   curr_frame->pc++;
 
   Operand *operand_1 = curr_frame->pop_operand();
@@ -201,6 +217,8 @@ void dsub(Frame *curr_frame) {
  * @return void
  */
 void imul(Frame *curr_frame) {
+  if (DEBUG) cout << "----------imul----------\n";
+
   curr_frame->pc++;
 
   Operand *operand_1 = curr_frame->pop_operand();
@@ -222,6 +240,8 @@ void imul(Frame *curr_frame) {
  * @return void
  */
 void lmul(Frame *curr_frame) {
+  if (DEBUG) cout << "----------lmul----------\n";
+
   curr_frame->pc++;
 
   Operand *operand_1 = curr_frame->pop_operand();
@@ -243,6 +263,8 @@ void lmul(Frame *curr_frame) {
  * @return void
  */
 void fmul(Frame *curr_frame) {
+  if (DEBUG) cout << "----------fmul----------\n";
+
   curr_frame->pc++;
 
   Operand *operand_1 = curr_frame->pop_operand();
@@ -269,6 +291,8 @@ void fmul(Frame *curr_frame) {
  * @return void
  */
 void dmul(Frame *curr_frame) {
+  if (DEBUG) cout << "----------dmul----------\n";
+
   curr_frame->pc++;
 
   Operand *operand_1 = curr_frame->pop_operand();
@@ -295,6 +319,8 @@ void dmul(Frame *curr_frame) {
  * @return void
  */
 void idiv(Frame *curr_frame) {
+  if (DEBUG) cout << "----------idiv----------\n";
+
   curr_frame->pc++;
 
   Operand *operand_1 = curr_frame->pop_operand();
@@ -316,6 +342,8 @@ void idiv(Frame *curr_frame) {
  * @return void
  */
 void ldiv(Frame *curr_frame) {
+  if (DEBUG) cout << "----------ldiv----------\n";
+
   curr_frame->pc++;
 
   Operand *operand_1 = curr_frame->pop_operand();
@@ -336,6 +364,8 @@ void ldiv(Frame *curr_frame) {
  * @return void
  */
 void fdiv(Frame *curr_frame) {
+  if (DEBUG) cout << "----------fdiv----------\n";
+
   curr_frame->pc++;
 
   Operand *operand_1 = curr_frame->pop_operand();
@@ -360,6 +390,8 @@ void fdiv(Frame *curr_frame) {
  * @return void
  */
 void ddiv(Frame *curr_frame) {
+  if (DEBUG) cout << "----------ddiv----------\n";
+
   curr_frame->pc++;
 
   Operand *operand_1 = curr_frame->pop_operand();
@@ -388,6 +420,8 @@ void ddiv(Frame *curr_frame) {
  * @return void
  */
 void irem(Frame *curr_frame) {
+  if (DEBUG) cout << "----------irem----------\n";
+
   curr_frame->pc++;
 
   Operand *operand_1 = curr_frame->pop_operand();
@@ -414,6 +448,8 @@ void irem(Frame *curr_frame) {
  * @return void
  */
 void lrem(Frame *curr_frame) {
+  if (DEBUG) cout << "----------lrem----------\n";
+
   curr_frame->pc++;
 
   Operand *operand_1 = curr_frame->pop_operand();
@@ -437,6 +473,8 @@ void lrem(Frame *curr_frame) {
  * @return void
  */
 void frem(Frame *curr_frame) {
+  if (DEBUG) cout << "----------frem----------\n";
+
     float dividend, divisor, f_remainder;
 
     curr_frame->pc++;
@@ -461,6 +499,8 @@ void frem(Frame *curr_frame) {
  * @return void
  */
 void drem(Frame *curr_frame) {
+  if (DEBUG) cout << "----------drem----------\n";
+
   double dividend, divisor, f_remainder;
 
   curr_frame->pc++;
@@ -484,6 +524,8 @@ void drem(Frame *curr_frame) {
  * @return void
  */
 void ineg(Frame *curr_frame) {
+  if (DEBUG) cout << "----------ineg----------\n";
+
   curr_frame->pc++;
 
   Operand *operand = curr_frame->pop_operand();
@@ -500,6 +542,8 @@ void ineg(Frame *curr_frame) {
  * @return void
  */
 void lneg(Frame *curr_frame) {
+  if (DEBUG) cout << "----------lneg----------\n";
+
   curr_frame->pc++;
 
   Operand *operand = curr_frame->pop_operand();
@@ -519,6 +563,8 @@ void lneg(Frame *curr_frame) {
  * @return void
  */
 void fneg(Frame *curr_frame) {
+  if (DEBUG) cout << "----------fneg----------\n";
+
   float f_value;
 
   curr_frame->pc++;
@@ -540,6 +586,8 @@ void fneg(Frame *curr_frame) {
  * @return void
  */
 void dneg(Frame *curr_frame) {
+  if (DEBUG) cout << "----------dneg----------\n";
+
   double d_value;
   curr_frame->pc++;
 
@@ -561,20 +609,25 @@ void dneg(Frame *curr_frame) {
  * @return void
  */
 void ishl(Frame *curr_frame) {
+  if (DEBUG) cout << "----------ishl----------\n";
   curr_frame->pc++;
 
   Operand *operand_1 = curr_frame->pop_operand();
   Operand *operand_2 = curr_frame->pop_operand();
 
-  u4 i_value_1 = operand_1->type_int;
-  u4 i_value_2 = operand_2->type_int;
+  int int_value_1 = operand_1->type_int;
+  int int_value_2 = operand_2->type_int;
+  if (DEBUG) cout << "int_value_1: " << int_value_1 << "\n";
+  if (DEBUG) cout << "int_value_2: " << int_value_2 << "\n";
 
-  i_value_2 &= 0x0000001f;
+  int_value_1 &= 0x1f;
+  if (DEBUG) cout << "int_value_1: " << int_value_1 << "\n";
 
-  u4 i_result = i_value_1 << i_value_2;
+  u4 int_result = int_value_2 << int_value_1;
+  if (DEBUG) cout << "int_result: " << int_result << "\n";
+
   Operand *result = check_string_create_type("I");
-
-  result->type_int = i_result;
+  result->type_int = int_result;
 
   curr_frame->push_operand(result);
 }
@@ -587,6 +640,8 @@ void ishl(Frame *curr_frame) {
  * @return void
  */
 void lshl(Frame *curr_frame) {
+  if (DEBUG) cout << "----------lshl----------\n";
+
   curr_frame->pc++;
 
   Operand *operand_1 = curr_frame->pop_operand();
@@ -614,18 +669,23 @@ void lshl(Frame *curr_frame) {
  * @return void
  */
 void ishr(Frame *curr_frame) {
+  if (DEBUG) cout << "----------ishr----------\n";
   curr_frame->pc++;
 
   Operand *operand_1 = curr_frame->pop_operand();
   Operand *operand_2 = curr_frame->pop_operand();
 
-  u4 l_value_1 = operand_1->type_int;
-  u4 l_value_2 = operand_2->type_int;
+  int int_value_1 = operand_1->type_int;
+  int int_value_2 = operand_2->type_int;
 
-  u4 l_result = (u4) (l_value_1 / pow(2, l_value_2));
+  if (DEBUG) cout << "int_value_1: " << int_value_1 << "\n";
+  if (DEBUG) cout << "int_value_2: " << int_value_2 << "\n";
+
+  u4 int_result = (u4) (int_value_2 / pow(2, int_value_1));
+  if (DEBUG) cout << "int_result: " << int_result << "\n";
 
   Operand *result = check_string_create_type("I");
-  result->type_int = l_result;
+  result->type_int = int_result;
 
   curr_frame->push_operand(result);
 }
@@ -638,6 +698,8 @@ void ishr(Frame *curr_frame) {
  * @return void
  */
 void lshr(Frame *curr_frame) {
+  if (DEBUG) cout << "----------lshr----------\n";
+
   curr_frame->pc++;
 
   Operand *operand_1 = curr_frame->pop_operand();
@@ -654,6 +716,8 @@ void lshr(Frame *curr_frame) {
 }
 
 void iushr(Frame *curr_frame) {
+  if (DEBUG) cout << "----------iushr----------\n";
+
   curr_frame->pc++;
 
   Operand *operand_1 = curr_frame->pop_operand();
@@ -673,6 +737,8 @@ void iushr(Frame *curr_frame) {
 }
 
 void lushr(Frame *curr_frame) {
+  if (DEBUG) cout << "----------lushr----------\n";
+
   curr_frame->pc++;
 
   Operand *operand_1 = curr_frame->pop_operand();
@@ -692,6 +758,8 @@ void lushr(Frame *curr_frame) {
 }
 
 void iand(Frame *curr_frame) {
+  if (DEBUG) cout << "----------iand----------\n";
+
     u4 ivalue1, ivalue2, iresult;
     curr_frame->pc++;
 
@@ -709,6 +777,8 @@ void iand(Frame *curr_frame) {
 }
 
 void land(Frame *curr_frame) {
+  if (DEBUG) cout << "----------land----------\n";
+
   curr_frame->pc++;
 
   Operand *operand_1 = curr_frame->pop_operand();
@@ -731,26 +801,30 @@ void land(Frame *curr_frame) {
  * @return void
  */
 void ior(Frame *curr_frame) {
-    u4 ivalue1, ivalue2, iresult;
+  if (DEBUG) cout << "----------ior----------\n";
 
-    curr_frame->pc++;
+  u4 ivalue1, ivalue2, iresult;
 
-    Operand *value1 = curr_frame->pop_operand();
-    Operand *value2 = curr_frame->pop_operand();
+  curr_frame->pc++;
 
-    ivalue1 = value1->type_int;
-    ivalue2 = value2->type_int;
+  Operand *value1 = curr_frame->pop_operand();
+  Operand *value2 = curr_frame->pop_operand();
 
-    iresult = ivalue1 | ivalue2;
+  ivalue1 = value1->type_int;
+  ivalue2 = value2->type_int;
 
-    Operand* result = check_string_create_type("I");
+  iresult = ivalue1 | ivalue2;
 
-    result->type_int = (u4)iresult;
+  Operand* result = check_string_create_type("I");
 
-    curr_frame->push_operand(result);
+  result->type_int = (u4)iresult;
+
+  curr_frame->push_operand(result);
 }
 
 void lor(Frame *curr_frame) {
+  if (DEBUG) cout << "----------lor----------\n";
+
   curr_frame->pc++;
   Operand *operand_1 = curr_frame->pop_operand();
   Operand *operand_2 = curr_frame->pop_operand();
@@ -764,6 +838,8 @@ void lor(Frame *curr_frame) {
 }
 
 void ixor(Frame *curr_frame) {
+  if (DEBUG) cout << "----------ixor----------\n";
+
   curr_frame->pc++;
 
   Operand *operand_1 = curr_frame->pop_operand();
@@ -781,6 +857,8 @@ void ixor(Frame *curr_frame) {
 }
 
 void lxor(Frame *curr_frame) {
+  if (DEBUG) cout << "----------lxor----------\n";
+
   curr_frame->pc++;
 
   Operand *operand_1 = curr_frame->pop_operand();
