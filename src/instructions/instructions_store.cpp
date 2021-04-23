@@ -494,18 +494,16 @@ void aastore(Frame* curr_frame) {
   if (DEBUG) cout << "----------aastore----------\n";
 
   Operand* value = curr_frame->pop_operand();
+  if (DEBUG) cout << "aastore value: " << (int) value->array_type << "\n";
 
   Operand* op1 = curr_frame->pop_operand();
   int index = (int) op1->type_int;
+  if (DEBUG) cout << "aastore index: " << (int) index << "\n";
 
   Operand *array = curr_frame->pop_operand();
   std::vector<Operand*> *array_ref = array->array_type->array;
 
-  // if (DEBUG) cout << "aastore value: " << (int) value->array_type << "\n";
-  if (DEBUG) cout << "aastore index: " << (int) index << "\n";
-
   ((*array_ref)[index])->array_type = value->array_type;
-  // if (DEBUG) cout << "aastore array_type: " << (int) value->array_type << "\n";
 
   if (DEBUG)
     for (int j = 0; (unsigned)j < array_ref->size(); ++j) {

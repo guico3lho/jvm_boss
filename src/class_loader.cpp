@@ -184,6 +184,7 @@ Operand* check_string_create_type(std::string type_string) {
       } 
 
       if (type_string == "Ljava/lang/String;") {
+        if (DEBUG) cout << "Class: Ljava/lang/String;\n";
         new_type->tag = CONSTANT_STRING;
         new_type->type_string = new std::string("");
       } 

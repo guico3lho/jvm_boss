@@ -612,9 +612,9 @@ void anewarray(Frame *curr_frame) {
   if (DEBUG) cout << "----------anewarray----------\n";
   curr_frame->pc++;
 
-  Operand *op = curr_frame->pop_operand();
-  u4 array_size = op->type_int;
-  if (DEBUG) cout << "array size: " << array_size << "\n";
+  Operand *operand_1 = curr_frame->pop_operand();
+  int count = operand_1->type_int;
+  if (DEBUG) printf("array count: %d (0x%0X)\n", (int) count, count);
 
   u2 array_type = get_method_code_index(curr_frame);
   if (DEBUG) cout << "array_type: " << (int) array_type << "\n";
@@ -623,19 +623,19 @@ void anewarray(Frame *curr_frame) {
   switch ((int) array_type) {
     case 0:
       // if (DEBUG) cout << "array type bool\n";
-      // set_newarray_type(operand, array_size, "Z");
+      // set_newarray_type(operand, count, "Z");
       break;
     case 1:
       // if (DEBUG) cout << "array type char\n";
-      // set_newarray_type(operand, array_size, "C");
+      // set_newarray_type(operand, count, "C");
       break;
     case 2: // Caso tipo Classe
       if (DEBUG) cout << "array type Class\n";
-      set_newarray_type(operand, array_size, "L");
+      set_newarray_type(operand, count, "Ljava/lang/String;");
       break;
     case 3:
       // if (DEBUG) cout << "array type float\n";
-      // set_newarray_type(operand, array_size, "F");
+      // set_newarray_type(operand, count, "F");
       break;
   }
 
