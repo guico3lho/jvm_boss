@@ -296,12 +296,14 @@ void d2l(Frame *curr_frame) {
 void d2f(Frame *curr_frame) {
   if (DEBUG) cout << "----------d2f----------\n";
 
-  u8 stack_value;
-  Operand *double_type = curr_frame->pop_operand();
-  memcpy(&stack_value, &double_type->type_double, sizeof(u8));
-  if (DEBUG) cout << "d2f double value : " << stack_value << "\n";
+  Operand *op = curr_frame->pop_operand();
+  u8 double_bits = op->type_double;
+  if (DEBUG) cout << "d2f double_bits: " << double_bits << "\n";
 
-  float float_value = (float) stack_value;
+  double double_value = double_bits_to_value(double_bits);
+  if (DEBUG) cout << "d2f double_value: " << double_value << "\n";
+
+  float float_value = (float) double_value;
   Operand *new_float = check_string_create_type("F");
   memcpy(&new_float->type_float, &float_value, sizeof(u4));
   if (DEBUG) cout << "d2f float value : " << new_float->type_float << "\n";

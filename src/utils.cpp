@@ -44,6 +44,19 @@ u4 float_value_to_bits(float float_value) {
   return float_bits;
 }
 
+/**
+ * @brief Converte double no formato IEEE de bits para valor double
+ * 
+ * @param double_bits 
+ * @return double 
+ */
+double double_bits_to_value(u8 double_bits) {
+  static_assert(sizeof(double) == sizeof (double_bits));
+  double double_value;
+  std::memcpy(&double_value, &double_bits, sizeof(double));
+  return double_value;
+}
+
 /** 
  * @brief Libera a memória alocada para o Class File.
  * @param class_file estrutura Class_File que precisa ser liberada
