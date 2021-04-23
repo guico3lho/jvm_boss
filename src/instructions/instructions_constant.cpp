@@ -157,9 +157,9 @@ void fconst_0(Frame *curr_frame) {
   Operand *op = (Operand*) malloc(sizeof(Operand));
   op->tag = CONSTANT_FLOAT;
 
-  float f1 = 0.0;
+  float f0 = 0.0;
   u4 fbits = 0;
-  memcpy(&fbits, &f1, sizeof fbits);
+  memcpy(&fbits, &f0, sizeof (fbits));
   op->type_float = fbits;
   curr_frame->operand_stack.push(op);
   curr_frame->pc++;
@@ -177,8 +177,9 @@ void fconst_1(Frame *curr_frame) {
 
   float f1 = 1.0;
   u4 fbits = 0;
-  memcpy(&fbits, &f1, sizeof fbits);
+  memcpy(&fbits, &f1, sizeof (fbits));
   op->type_float = fbits;
+  if (DEBUG) cout << "op->type_float: " << op->type_float << "\n";
   curr_frame->operand_stack.push(op);
   curr_frame->pc++;
 }
@@ -195,7 +196,7 @@ void fconst_2(Frame *curr_frame) {
 
   float f2 = 2.0;
   u4 fbits = 0;
-  memcpy(&fbits, &f2, sizeof fbits);
+  memcpy(&fbits, &f2, sizeof (fbits));
   op->type_float = fbits;
   curr_frame->operand_stack.push(op);
   curr_frame->pc++;

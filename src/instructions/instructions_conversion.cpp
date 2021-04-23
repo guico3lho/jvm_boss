@@ -173,8 +173,6 @@ void l2d(Frame *curr_frame) {
 
     curr_frame->push_operand(new_double);
     curr_frame->pc++;
-
-    if (DEBUG) cout << "l2d\n";
 }
 
 /**
@@ -197,8 +195,6 @@ void f2i(Frame *curr_frame) {
 
   curr_frame->push_operand(new_int);
   curr_frame->pc++;
-
-  if (DEBUG) cout << "f2i\n";
 }
 
 void f2l(Frame *curr_frame) {
@@ -216,8 +212,6 @@ void f2l(Frame *curr_frame) {
 
   curr_frame->pc++;
   curr_frame->push_operand(longConvertidoType);
-
-  if (DEBUG) cout << "f2l\n";
 }
 
 /**
@@ -227,21 +221,18 @@ void f2l(Frame *curr_frame) {
  */
 void f2d(Frame *curr_frame) {
   if (DEBUG) cout << "----------f2d----------\n";
+  curr_frame->pc++;
 
-  float float_value;
   Operand *float_type = curr_frame->pop_operand();
-  float_value = float_type->type_float;
+  u4 float_value = float_type->type_float;
   if (DEBUG) cout << "f2d float value " << float_value << "\n";
 
-  double double_value = (double)float_value;
+  double double_value = (double) float_value;
   if (DEBUG) cout << "f2d double value " << double_value << "\n";
   Operand *new_double = check_string_create_type("D");
   memcpy(&new_double->type_double, &double_value, sizeof(u8));
 
   curr_frame->push_operand(new_double);
-  curr_frame->pc++;
-
-  if (DEBUG) cout << "f2d\n";
 }
 
 /**
@@ -266,8 +257,6 @@ void d2i(Frame *curr_frame) {
 
   curr_frame->push_operand(new_int);
   curr_frame->pc++;
-
-  if (DEBUG) cout << "d2i\n";
 }
 
 /**
@@ -310,8 +299,6 @@ void d2f(Frame *curr_frame) {
 
   curr_frame->push_operand(new_float);
   curr_frame->pc++;
-
-  if (DEBUG) cout << "d2f\n";
 }
 
 

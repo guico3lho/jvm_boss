@@ -7,22 +7,21 @@
 
 /*************************** STORES ***************************/
 
-/*
-* @brief Armazena um inteiro no array de variaveis locais no valor indicado
-*   pelo indice.
-* @param *curr_frame Ponteiro para o frame atual
-* @return void
+/**
+ * @brief Armazena um inteiro no array de variaveis locais no valor indicado
+ *   pelo indice.
+ * @param *curr_frame Ponteiro para o frame atual
+ * @return void
 */
 void istore(Frame *curr_frame) {
   if (DEBUG) cout << "----------istore----------\n";  
   curr_frame->pc++;
 
   u1 index = curr_frame->method_code->code[curr_frame->pc++];
-  if (DEBUG) cout << "istore index " << (int)index << "\n";
+  if (DEBUG) cout << "istore index " << (int) index << "\n";
 
   Operand *value = curr_frame->pop_operand();
-  curr_frame->local_variables_array.at((int)index) = value;
-
+  curr_frame->local_variables_array.at((int) index) = value;
 }
 
 /**
@@ -211,7 +210,6 @@ void dstore_2(Frame* curr_frame) {
 void dstore_3(Frame* curr_frame) {
   if (DEBUG) cout << "----------dstore_3----------\n";
 
-
   Operand *op = curr_frame->operand_stack.top();
   curr_frame->operand_stack.pop();
 
@@ -227,7 +225,6 @@ void dstore_3(Frame* curr_frame) {
  */
 void fstore(Frame* curr_frame) {
   if (DEBUG) cout << "----------fstore----------\n";
-
   curr_frame->pc++;
 
   u1 index = curr_frame->method_code->code[curr_frame->pc++];
@@ -235,8 +232,6 @@ void fstore(Frame* curr_frame) {
   Operand *op = curr_frame->pop_operand();
 
   curr_frame->local_variables_array[(int)index] = op;
-
-  if (DEBUG) cout << "fstore\n";
 }
 
 /**
@@ -267,8 +262,6 @@ void fstore_1(Frame* curr_frame) {
 
   curr_frame->local_variables_array[1] = op;
   curr_frame->pc++;
-
-  if (DEBUG) cout << "fstore_1\n" << "\n";
 }
 
 /**

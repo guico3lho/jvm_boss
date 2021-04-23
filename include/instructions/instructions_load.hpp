@@ -15,12 +15,6 @@ void iload_1(Frame*);
 void iload_2(Frame*);
 void iload_3(Frame*);
 
-void aload(Frame*);
-void aload_0(Frame*);
-void aload_1(Frame*);
-void aload_2(Frame*);
-void aload_3(Frame*);
-
 void lload(Frame*);
 void lload_0(Frame*);
 void lload_1(Frame*);
@@ -38,6 +32,12 @@ void dload_0(Frame*);
 void dload_1(Frame*);
 void dload_2(Frame*);
 void dload_3(Frame*);
+
+void aload(Frame*);
+void aload_0(Frame*);
+void aload_1(Frame*);
+void aload_2(Frame*);
+void aload_3(Frame*);
 
 void iaload(Frame*);
 void laload(Frame*);

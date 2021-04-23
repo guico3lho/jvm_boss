@@ -207,7 +207,7 @@ void invokevirtual_print(Frame *curr_frame) {
       float float_v;
       memcpy(&float_v, &op->type_float, sizeof(float));
       if (DEBUG) cout << "CONSTANT_FLOAT: ";
-      printf("%f", float_v); 
+      printf("%.15f", float_v); 
     }
       break;
     case CONSTANT_LONG: // 5

@@ -16,63 +16,8 @@ void iload(Frame *curr_frame) {
   curr_frame->pc++;
 
   u1 index = curr_frame->method_code->code[curr_frame->pc++];
-  if (DEBUG) cout << "iload index " << (int)index << "\n";
+  if (DEBUG) cout << "iload index " << (int) index << "\n";
   curr_frame->push_operand(curr_frame->local_variables_array.at((int)index));
-}
-
-/**
- * @brief Empilha float indicado no indice index do array de variáveis locais
- *  na pilha de operandos
- * @param *curr_frame Ponteiro para o frame atual
- * @return void
- */
-void lload(Frame *curr_frame) {
-  if (DEBUG) cout << "----------lload----------\n";
-  curr_frame->pc++;
-
-  int index = curr_frame->method_code->code[curr_frame->pc++];
-  curr_frame->push_operand(curr_frame->local_variables_array[(int)index]);
-}
-
-/**
- * @brief Empilha float indicado no indice 0 do array de variáveis locais na
- *  pilha de operandos
- * @param *curr_frame Ponteiro para o frame atual
- * @return void
- */
-void fload(Frame *curr_frame) {
-  if (DEBUG) cout << "----------fload----------\n";
-  curr_frame->pc++;
-
-  u1 index = curr_frame->method_code->code[curr_frame->pc++];
-  if (DEBUG) cout << "fload index " << (int)index << "\n";
-  curr_frame->push_operand(curr_frame->local_variables_array[(int)index]);
-}
-
-/** @brief Dá push em um valor de preciso dupla de uma variável local para a
- *  pilha de operandos.
- * @param *curr_frame ponteiro que aponta para o frame atual
- * @return void
- */
-void dload(Frame *curr_frame) {
-  if (DEBUG) cout << "----------dload----------\n";
-  curr_frame->pc++;
-
-  u1 index = curr_frame->method_code->code[curr_frame->pc++];
-  if (DEBUG) cout << "dload index " << (int)index << "\n";
-  curr_frame->push_operand(curr_frame->local_variables_array.at((int)index));
-}
-
-/** @brief Coloca na pilha de operandos a variável da posição do pc no vetor de variáveis locais.
- * @param *curr_frame ponteiro que aponta para o frame atual
- * @return void
- */
-void aload(Frame *curr_frame) {
-  if (DEBUG) cout << "----------aload----------\n";
-  curr_frame->pc++;
-
-  u1 index = curr_frame->method_code->code[curr_frame->pc++];
-  curr_frame->push_operand(curr_frame->local_variables_array.at(index));
 }
 
 /**
@@ -120,6 +65,20 @@ void iload_3(Frame *curr_frame) {
 }
 
 /**
+ * @brief Empilha float indicado no indice index do array de variáveis locais
+ *  na pilha de operandos
+ * @param *curr_frame Ponteiro para o frame atual
+ * @return void
+ */
+void lload(Frame *curr_frame) {
+  if (DEBUG) cout << "----------lload----------\n";
+  curr_frame->pc++;
+
+  int index = curr_frame->method_code->code[curr_frame->pc++];
+  curr_frame->push_operand(curr_frame->local_variables_array[(int)index]);
+}
+
+/**
  * @brief Empilha long indicado no indice 0 do array de variáveis locais na pilha de operandos
  * @param *curr_frame Ponteiro para o frame atual
  * @return void
@@ -164,6 +123,21 @@ void lload_3(Frame *curr_frame) {
 }
 
 /**
+ * @brief Empilha float indicado no indice 0 do array de variáveis locais na
+ *  pilha de operandos
+ * @param *curr_frame Ponteiro para o frame atual
+ * @return void
+ */
+void fload(Frame *curr_frame) {
+  if (DEBUG) cout << "----------fload----------\n";
+  curr_frame->pc++;
+
+  u1 index = curr_frame->method_code->code[curr_frame->pc++];
+  if (DEBUG) cout << "fload index " << (int)index << "\n";
+  curr_frame->push_operand(curr_frame->local_variables_array[(int)index]);
+}
+
+/**
  * @brief Empilha float indicado no indice 0 do array de variáveis locais na pilha de operandos
  * @param *curr_frame Ponteiro para o frame atual
  * @return void
@@ -179,12 +153,10 @@ void fload_0(Frame *curr_frame) {
  * @param *curr_frame Ponteiro para o frame atual
  * @return void
  */
-void fload_1  (Frame *curr_frame) {
+void fload_1 (Frame *curr_frame) {
   if (DEBUG) cout << "----------fload_1----------\n";
   curr_frame->operand_stack.push(curr_frame->local_variables_array[1]);
   curr_frame->pc++;
-
-  if (DEBUG) cout << "float_1\n";
 }
 
 /**
@@ -196,8 +168,6 @@ void fload_2 (Frame *curr_frame) {
   if (DEBUG) cout << "----------fload_2----------\n";
   curr_frame->operand_stack.push(curr_frame->local_variables_array[2]);
   curr_frame->pc++;
-
-  if (DEBUG) cout << "float_2\n";
 }
 
 /**
@@ -209,6 +179,20 @@ void fload_3  (Frame *curr_frame) {
   if (DEBUG) cout << "----------fload_3----------\n";
   curr_frame->operand_stack.push(curr_frame->local_variables_array[3]);
   curr_frame->pc++;
+}
+
+/** @brief Dá push em um valor de preciso dupla de uma variável local para a
+ *  pilha de operandos.
+ * @param *curr_frame ponteiro que aponta para o frame atual
+ * @return void
+ */
+void dload(Frame *curr_frame) {
+  if (DEBUG) cout << "----------dload----------\n";
+  curr_frame->pc++;
+
+  u1 index = curr_frame->method_code->code[curr_frame->pc++];
+  if (DEBUG) cout << "dload index " << (int)index << "\n";
+  curr_frame->push_operand(curr_frame->local_variables_array.at((int)index));
 }
 
 /**
@@ -253,8 +237,18 @@ void dload_3(Frame *curr_frame) {
   if (DEBUG) cout << "----------dload_3----------\n";
   curr_frame->operand_stack.push(curr_frame->local_variables_array[3]);
   curr_frame->pc++;
+}
 
-  if (DEBUG) cout << "dload_3\n";
+/** @brief Coloca na pilha de operandos a variável da posição do pc no vetor de variáveis locais.
+ * @param *curr_frame ponteiro que aponta para o frame atual
+ * @return void
+ */
+void aload(Frame *curr_frame) {
+  if (DEBUG) cout << "----------aload----------\n";
+  curr_frame->pc++;
+
+  u1 index = curr_frame->method_code->code[curr_frame->pc++];
+  curr_frame->push_operand(curr_frame->local_variables_array.at(index));
 }
 
 /** @brief Coloca na pilha de operandos a variável da posição 0 do vetor de
