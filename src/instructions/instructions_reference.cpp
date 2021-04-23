@@ -224,7 +224,8 @@ void invokevirtual_print(Frame *curr_frame) {
       float float_v;
       memcpy(&float_v, &op->type_float, sizeof(float));
       if (DEBUG) cout << "CONSTANT_FLOAT: ";
-      printf("%f", float_v); }
+      printf("%f", float_v); 
+    }
       break;
     case CONSTANT_LONG:
       if (DEBUG) cout << "CONSTANT_LONG: ";
@@ -234,7 +235,8 @@ void invokevirtual_print(Frame *curr_frame) {
       double double_v;
       memcpy(&double_v, &op->type_double, sizeof(double));
       if (DEBUG) cout << "CONSTANT_DOUBLE: ";
-      printf("%.15lf", double_v); }
+      printf("%.15lf", double_v); 
+    }
       break;
     case CONSTANT_EMPTY:
       printf("null");
@@ -424,9 +426,7 @@ void invokespecial(Frame *curr_frame) {
   ) {
 		if (class_name == class_string || class_name == class_string_builder) {
 			curr_frame->pop_operand();
-		}
-		
-    else if (method_name == method_init) {
+		} else if (method_name == method_init) {
 			Operand *variable_class = curr_frame->local_variables_array.at(0);
 			load_class_variables(variable_class->class_loader);
 		}

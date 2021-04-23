@@ -156,7 +156,11 @@ void fconst_0(Frame *curr_frame) {
   if (DEBUG) cout << "----------fconst_0----------\n";
   Operand *op = (Operand*) malloc(sizeof(Operand));
   op->tag = CONSTANT_FLOAT;
-  op->type_long = 0.0;
+
+  float f1 = 0.0;
+  u4 fbits = 0;
+  memcpy(&fbits, &f1, sizeof fbits);
+  op->type_float = fbits;
   curr_frame->operand_stack.push(op);
   curr_frame->pc++;
 }
@@ -170,7 +174,11 @@ void fconst_1(Frame *curr_frame) {
   if (DEBUG) cout << "----------fconst_1----------\n";
   Operand *op = (Operand*) malloc(sizeof(Operand));
   op->tag = CONSTANT_FLOAT;
-  op->type_long = 1.0;
+
+  float f1 = 1.0;
+  u4 fbits = 0;
+  memcpy(&fbits, &f1, sizeof fbits);
+  op->type_float = fbits;
   curr_frame->operand_stack.push(op);
   curr_frame->pc++;
 }
@@ -184,7 +192,11 @@ void fconst_2(Frame *curr_frame) {
   if (DEBUG) cout << "----------fconst_2----------\n";
   Operand *op = (Operand*) malloc(sizeof(Operand));
   op->tag = CONSTANT_FLOAT;
-  op->type_long = 2.0;
+
+  float f2 = 2.0;
+  u4 fbits = 0;
+  memcpy(&fbits, &f2, sizeof fbits);
+  op->type_float = fbits;
   curr_frame->operand_stack.push(op);
   curr_frame->pc++;
 }
@@ -278,7 +290,7 @@ void ldc(Frame *curr_frame) {
       break;
     case CONSTANT_FLOAT:
       op->type_float = (float) cp_info.Float.bytes;
-      if (DEBUG) cout << "ldc value: " << (float) op->type_float << "\n";
+      if (DEBUG) cout << "ldc value: " << op->type_float << "\n";
       break;
     case CONSTANT_STRING: {
       if (DEBUG) printf("Magic Number: 0x%0X\n", curr_frame->class_file_ref->magic_number);

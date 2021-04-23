@@ -46,7 +46,6 @@ void dup(Frame *curr_frame) {
   if (DEBUG) cout << "top array size " << copy_1->array_type->array->size() << "\n";
 
   curr_frame->push_operand(copy_1);
-
 }
 
 /**

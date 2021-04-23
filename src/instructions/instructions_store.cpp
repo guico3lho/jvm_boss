@@ -450,13 +450,13 @@ void fastore(Frame* curr_frame) {
 
   Operand* value = curr_frame->pop_operand();
   Operand* index = curr_frame->pop_operand();
-  Operand *array = curr_frame->pop_operand();
+  Operand* array = curr_frame->pop_operand();
 
+  if (DEBUG) cout << "fastore value: " << value->type_float << "\n";
   ((*array->array_type->array)[(int)index->type_int])->type_float = value->type_float;
 
-  if (DEBUG) cout << "fastore value : " << value->type_float << "\n";
   if (DEBUG)
-    for (int j=0; (unsigned)j < array->array_type->array->size(); ++j) {
+    for (int j=0; (unsigned) j < array->array_type->array->size(); ++j) {
       int value = (array->array_type->array->at(j))->type_float;
       if (DEBUG) cout << "array item : " << value << "\n";
     }
