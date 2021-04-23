@@ -19,6 +19,31 @@ void print_command_error() {
   exit(1);
 }
 
+/**
+ * @brief Converte float no formato IEEE de bits para valor float
+ * 
+ * @param float_bits 
+ * @return float 
+ */
+float float_bits_to_value(u4 float_bits){
+  static_assert(sizeof(float) == sizeof (float_bits));
+  float float_value;
+  std::memcpy(&float_value, &float_bits, sizeof(float));
+  return float_value;
+}
+
+/**
+ * @brief Converte valor float para o formato IEEE de bits 
+ * 
+ * @param float_value 
+ * @return uint32_t 
+ */
+u4 float_value_to_bits(float float_value) {
+  u4 float_bits = 0;
+  memcpy(&float_bits, &float_value, sizeof (float_bits));
+  return float_bits;
+}
+
 /** 
  * @brief Libera a memória alocada para o Class File.
  * @param class_file estrutura Class_File que precisa ser liberada

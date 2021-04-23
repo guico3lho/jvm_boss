@@ -74,10 +74,12 @@ $ ./jvm.sh HelloJava
 - [x] Vector_1
 - [x] Vector_2
 - [x] Comparison
-- [x] Conversions
+- [x] Convert_int
+- [x] Convert_float
 - [x] StaticMethod
 - [x] _int_aritmetica
 - [x] _float_aritmetica
+- [x] _double_aritmetica
 - [x] _recursao
 - [x] _lookupswitch
 - [x] _NoVoidMethods

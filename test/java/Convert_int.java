@@ -1,4 +1,4 @@
-public class Conversions {
+public class Convert_int {
   public static void main(String[] args) {
 
     int i = 1;

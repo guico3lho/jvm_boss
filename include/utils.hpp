@@ -14,6 +14,9 @@ struct Inner_Class_Attribute;
 
 void print_command_error();
 
+float float_bits_to_value(u4 float_bits);
+u4 float_value_to_bits(float float_value);
+
 void freeClass(Class_File class_file);
 void freeAttribute(Attribute_Info* attr, u4 size);
 void freeInnerClass(Inner_Class_Attribute* inner, u4 size);
