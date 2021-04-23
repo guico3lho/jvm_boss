@@ -7,8 +7,7 @@
 /*************************** CONVERSIONS ***************************/
 
 /**
- * @brief Resgata o valor do topo da pilha (que deve ser int), covnerte para
- *  long e salva na pilha de operandos
+ * @brief Converte de int para long
  * @param *curr_frame ponteiro para o frame atual
  * @return void
  */
@@ -28,7 +27,7 @@ void i2l(Frame *curr_frame) {
 }
 
 /**
-* @brief Converte de inteiro para float
+* @brief Converte de int para float
 * @param *curr_frame ponteiro para o frame atual
 * @return void
 */
@@ -90,7 +89,7 @@ void i2b(Frame *curr_frame) {
 }
 
 /**
- * @brief Converte int para short int.
+ * @brief Converte int para char.
  * @param *curr_frame ponteiro que aponta para o frame atual
  * @return void
  */
@@ -130,7 +129,7 @@ void i2s(Frame *curr_frame) {
 }
 
 /**
- * @brief Converte um long para int
+ * @brief Converte de long para int
  * @param *curr_frame ponteiro para o frame atual
  * @return void
  */
@@ -170,7 +169,7 @@ void l2f(Frame *curr_frame) {
 }
 
 /**
- * @brief Converte um long para double
+ * @brief Converte de long para double
  * @param *curr_frame ponteiro para o frame atual
  * @return void
  */
@@ -305,7 +304,7 @@ void d2l(Frame *curr_frame) {
 }
 
 /**
- * @brief Converte double para float
+ * @brief Converte de double para float
  * @param *curr_frame ponteiro para o frame atual
  * @return void
  */
