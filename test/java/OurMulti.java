@@ -27,11 +27,11 @@ public class OurMulti {
 
 //NOTE: Esse caso passa
 
-    int[] arrayOfString = new int[10];
-    arrayOfString[0] = 1;
-    arrayOfString[9] = 2;
-    System.out.println(arrayOfString[0]);
-    System.out.println(arrayOfString[9]);
+  String[] arrayOfString = new String[10];
+  arrayOfString[0] = "String 1";
+  arrayOfString[9] = "String 2";
+  System.out.println(arrayOfString[0]);
+  System.out.println(arrayOfString[9]);
 
 //NOTE: Esse caso NAO passa
 
