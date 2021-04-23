@@ -76,6 +76,8 @@ $ ./jvm.sh HelloJava
 - [x] Comparison
 - [x] Convert_int
 - [x] Convert_float
+- [x] Convert_double
+- [x] Convert_long
 - [x] StaticMethod
 - [x] _int_aritmetica
 - [x] _float_aritmetica
