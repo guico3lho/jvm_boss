@@ -193,60 +193,60 @@ void invokevirtual(Frame *curr_frame) {
 void invokevirtual_print(Frame *curr_frame) {
   if (DEBUG) cout << "Metodo Print: java/io/PrintStream\n";
   Operand *op = curr_frame->pop_operand();
-  if (DEBUG) cout << "op->tag: " << op->tag << "\n";
+  if (DEBUG) cout << "op->tag: " << (int) op->tag << "\n";
 
   switch(op->tag) {
-    case CONSTANT_BYTE:
-      if (DEBUG) cout << "CONSTANT_BYTE: ";
-      cout << (int) op->type_byte;
+    case CONSTANT_EMPTY: // 0
+      printf("null");
       break;
-    case CONSTANT_CHAR:
-      if (DEBUG) cout << "CONSTANT_CHAR: ";
-      cout << (char) op->type_char;
-      break;
-    case CONSTANT_SHORT:
-      if (DEBUG) cout << "CONSTANT_SHORT: ";
-      cout << (short) op->type_short;
-      break;
-    case CONSTANT_BOOL:
-      if (DEBUG) cout << "CONSTANT_BOOL: ";
-      cout << (bool) op->type_bool;
-      break;
-    case CONSTANT_STRING:
-      if (DEBUG) cout << "CONSTANT_STRING: ";
-      cout << *op->type_string;
-      break;
-    case CONSTANT_INT:
+    case CONSTANT_INT: // 3
       if (DEBUG) cout << "CONSTANT_INT: ";
-      cout << (u4) op->type_int;
+      printf("%d", op->type_int);
       break;
-    case CONSTANT_FLOAT: {
+    case CONSTANT_FLOAT: { // 4
       float float_v;
       memcpy(&float_v, &op->type_float, sizeof(float));
       if (DEBUG) cout << "CONSTANT_FLOAT: ";
       printf("%f", float_v); 
     }
       break;
-    case CONSTANT_LONG:
+    case CONSTANT_LONG: // 5
       if (DEBUG) cout << "CONSTANT_LONG: ";
       cout << (long) op->type_long;
       break;
-    case CONSTANT_DOUBLE: {
+    case CONSTANT_DOUBLE: { // 6
       double double_v;
       memcpy(&double_v, &op->type_double, sizeof(double));
       if (DEBUG) cout << "CONSTANT_DOUBLE: ";
       printf("%.15lf", double_v); 
     }
       break;
-    case CONSTANT_EMPTY:
-      printf("null");
-      break;
-    case CONSTANT_CLASS: {
+    case CONSTANT_CLASS: { // 7
       Class_Loader *class_loader = op->class_loader;
       Class_File class_file = class_loader->class_file;
       string this_class_name = get_cp_info_utf8(class_file, class_file.this_class);
       cout << this_class_name << "@" << class_loader;
     }
+      break;
+    case CONSTANT_STRING: //8
+      if (DEBUG) cout << "CONSTANT_STRING: ";
+      cout << *op->type_string;
+      break;
+    case CONSTANT_BOOL: // 90
+      if (DEBUG) cout << "CONSTANT_BOOL: ";
+      cout << (bool) op->type_bool;
+      break;
+    case CONSTANT_BYTE: // 91
+      if (DEBUG) cout << "CONSTANT_BYTE: ";
+      cout << (int) op->type_byte;
+      break;
+    case CONSTANT_CHAR: // 92
+      if (DEBUG) cout << "CONSTANT_CHAR: ";
+      cout << (char) op->type_char;
+      break;
+    case CONSTANT_SHORT: //93
+      if (DEBUG) cout << "CONSTANT_SHORT: ";
+      cout << (short) op->type_short;
       break;
     default:
       printf("\n");
