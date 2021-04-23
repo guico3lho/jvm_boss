@@ -15,17 +15,17 @@
 void i2l(Frame *curr_frame) {
   if (DEBUG) cout << "----------i2l----------\n";
 
-    int value_op;
-    Operand *op_int = curr_frame->pop_operand();
-    memcpy(&value_op, &op_int->type_int, sizeof(u4));
+  int value_op;
+  Operand *op_int = curr_frame->pop_operand();
+  memcpy(&value_op, &op_int->type_int, sizeof(u4));
 
-    long value_long = (long)value_op;
-    Operand *value_converted = check_string_create_type("J");
-    memcpy(&value_converted->type_long, &value_long, sizeof(u8));
+  long value_long = (long)value_op;
+  Operand *value_converted = check_string_create_type("J");
+  memcpy(&value_converted->type_long, &value_long, sizeof(u8));
 
-    curr_frame->pc++;
-    curr_frame->push_operand(value_converted);
-    if (DEBUG) cout << "i2l\n";
+  curr_frame->pc++;
+  curr_frame->push_operand(value_converted);
+  if (DEBUG) cout << "i2l\n";
 }
 
 /**
@@ -68,8 +68,6 @@ void i2d(Frame *curr_frame) {
 
   curr_frame->pc++;
   curr_frame->push_operand(d_value_cast_type);
-
-  if (DEBUG) cout << "i2d\n";
 }
 
 /**
@@ -111,8 +109,6 @@ void i2s(Frame *curr_frame) {
   memcpy(&op_from_type->type_byte, &conv_value, sizeof(u4));
 
   curr_frame->push_operand(op_from_type);
-
-  if (DEBUG) cout << "i2s\n";
 }
 
 /**
@@ -199,6 +195,12 @@ void f2i(Frame *curr_frame) {
   curr_frame->pc++;
 }
 
+/**
+ * @brief Converte de float para long
+ * 
+ * @param *curr_frame ponteiro para o frame atual
+ * @return void
+ */
 void f2l(Frame *curr_frame) {
   if (DEBUG) cout << "----------f2l----------\n";
 
@@ -211,7 +213,7 @@ void f2l(Frame *curr_frame) {
 
   long conv_value = (long) float_value;
   Operand *longConvertidoType = check_string_create_type("J");
-  memcpy(&longConvertidoType->type_long, &conv_value, sizeof(uint64_t));
+  memcpy(&longConvertidoType->type_long, &conv_value, sizeof(u8));
   if (DEBUG) cout << "f2l long value " << longConvertidoType->type_long << "\n";
 
   curr_frame->pc++;
