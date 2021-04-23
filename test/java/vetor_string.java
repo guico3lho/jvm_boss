@@ -1,9 +1,13 @@
 public class vetor_string {
   public static void main(String[] args) {
     String[] arrayOfString = new String[10];
-    arrayOfString[0] = "String 1";
-    arrayOfString[9] = "String 2";
-    System.out.println(arrayOfString[0]);
-    System.out.println(arrayOfString[9]);
+
+    for(int i = 0; i < arrayOfString.length; i++) {
+      arrayOfString[i] = "String " + i;
+    }
+    
+    for(int i = 0; i < arrayOfString.length; i++) {
+      System.out.println(arrayOfString[i]);
+    }
   }
 }
