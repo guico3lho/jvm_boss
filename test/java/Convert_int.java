@@ -1,7 +1,7 @@
 public class Convert_int {
   public static void main(String[] args) {
 
-    int i = 1;
+    int i = 65;
 
     // int to float
     float f = (float) i;
@@ -22,5 +22,10 @@ public class Convert_int {
     short s = (short) i;
     System.out.print("short: ");
     System.out.println(s);
+    
+    char c = (char) i;
+    System.out.print("char: ");
+    System.out.println(c);
+
   }
 }

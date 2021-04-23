@@ -307,7 +307,7 @@ void Frame::setup_instructions_func() {
   func[143] = d2l;
   func[144] = d2f;
   func[145] = i2b;
-  // func[146] = i2c;
+  func[146] = i2c;
   func[147] = i2s;
 
   /* COMPARISONS */

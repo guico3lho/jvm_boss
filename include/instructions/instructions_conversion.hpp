@@ -13,6 +13,7 @@ void i2l(Frame*);
 void i2f(Frame*);
 void i2d(Frame*);
 void i2b(Frame*);
+void i2c(Frame*);
 void i2s(Frame*);
 
 void l2i(Frame*);

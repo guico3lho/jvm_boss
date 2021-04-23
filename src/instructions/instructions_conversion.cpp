@@ -94,6 +94,26 @@ void i2b(Frame *curr_frame) {
  * @param *curr_frame ponteiro que aponta para o frame atual
  * @return void
  */
+void i2c(Frame *curr_frame) {
+  if (DEBUG) cout << "----------i2c----------\n";
+  curr_frame->pc++;
+
+  int int_value;
+  Operand *op_int = curr_frame->pop_operand();
+  memcpy(&int_value, &op_int->type_int, sizeof (int));
+
+  char new_value = (char) int_value;
+  Operand *new_char = check_string_create_type("C");
+  memcpy(&new_char->type_byte, &new_value, sizeof (char));
+
+  curr_frame->push_operand(new_char);
+}
+
+/**
+ * @brief Converte int para short int.
+ * @param *curr_frame ponteiro que aponta para o frame atual
+ * @return void
+ */
 void i2s(Frame *curr_frame) {
   if (DEBUG) cout << "----------i2s----------\n";
   curr_frame->pc++;
