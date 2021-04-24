@@ -94,7 +94,7 @@ Operand* copy_operand(Operand* original_type) {
     case CONSTANT_BYTE:
       copy_type->type_byte = original_type->type_byte;
       break;
-       
+
     case CONSTANT_CHAR:
       copy_type->type_char = original_type->type_char;
       break;
@@ -366,7 +366,7 @@ void Frame::setup_instructions_func() {
 
   /* EXTENDED */
   // func[196] = wide;
-  // func[197] = multianewarray; // TODO
+  func[197] = multianewarray; // TODO
   func[198] = ifnull;
   func[199] = ifnonnull;
   // func[200] = goto_w;

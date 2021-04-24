@@ -162,7 +162,7 @@ Operand* check_string_create_type(std::string type_string) {
       break;
 
     case '[':
-    // if (DEBUG) printf("Entered [ case\n");
+      if (DEBUG) printf("Criando operando tipo Array\n");
       new_type->tag = CONSTANT_ARRAY;
       new_type->array_type = (Array_Type*) malloc(sizeof(Array_Type));
       new_type->array_type->array = new std::vector<Operand*>();
@@ -177,7 +177,7 @@ Operand* check_string_create_type(std::string type_string) {
       new_type->type_string = new std::string("");
       break;
 
-    case 'L':
+    case 'L': // Tipo Classe
       if (type_string == "Ljava/lang/Integer;") {
         new_type->tag = CONSTANT_INT;
         new_type->type_int = 0;

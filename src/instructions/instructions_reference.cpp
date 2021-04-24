@@ -498,7 +498,6 @@ void invokeinterface(Frame *curr_frame) {
 
   Cp_Info method_info = curr_frame->cp_reference[index];
   Cp_Info class_info = curr_frame->cp_reference[method_info.Methodref.class_index];
-
   string class_name = get_utf8_constant_pool(curr_frame->cp_reference, class_info.Class.class_name);
 
   Cp_Info name_and_type = curr_frame->cp_reference[method_info.Methodref.name_and_type_index];
@@ -587,7 +586,6 @@ void newarray(Frame *curr_frame) {
   }
 
   if (DEBUG) cout << "array size " << operand_2->array_type->array->size() << "\n";
-
   curr_frame->push_operand(operand_2);
 }
 

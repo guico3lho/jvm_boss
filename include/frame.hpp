@@ -22,14 +22,15 @@ struct Array_Type;
 typedef struct Operand {
   u1 tag; 
   union{
-    u4 type_bool;
-    u4 type_byte;
-    u4 type_char;
-    u4 type_short;
     u4 type_int;
     u4 type_float;
     u8 type_long;
     u8 type_double;
+    
+    u4 type_bool;
+    u4 type_byte;
+    u4 type_char;
+    u4 type_short;
     
     string       *type_string;
     Array_Type   *array_type;

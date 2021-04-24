@@ -9,6 +9,7 @@
 #include "frame.hpp"
 
 /* EXTENDED */
+void multianewarray(Frame*);
 void ifnull(Frame*);
 void ifnonnull(Frame*);
 

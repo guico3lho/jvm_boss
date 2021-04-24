@@ -858,7 +858,6 @@ void ixor(Frame *curr_frame) {
 
 void lxor(Frame *curr_frame) {
   if (DEBUG) cout << "----------lxor----------\n";
-
   curr_frame->pc++;
 
   Operand *operand_1 = curr_frame->pop_operand();

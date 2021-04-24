@@ -1,5 +1,5 @@
 class _double_aritmetica {
-  static double TESTEDOCARALHO(double paramDouble) {
+  static double PrintDouble(double paramDouble) {
     return paramDouble;
   }
   
@@ -30,7 +30,7 @@ class _double_aritmetica {
     byte b = 5;
     double d11 = b;
     System.out.println(d11);  // 5.0
-    System.out.println(TESTEDOCARALHO(d1));
+    System.out.println(PrintDouble(d1)); // 5.4
   }
 }
 
