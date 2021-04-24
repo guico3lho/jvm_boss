@@ -494,7 +494,7 @@ void aastore(Frame* curr_frame) {
   if (DEBUG) cout << "----------aastore----------\n";
 
   Operand* value = curr_frame->pop_operand();
-  if (DEBUG) cout << "aastore value: " << (int) value->array_type << "\n";
+  // if (DEBUG) cout << "aastore value: " << (int) value->array_type << "\n";
 
   Operand* op1 = curr_frame->pop_operand();
   int index = (int) op1->type_int;
