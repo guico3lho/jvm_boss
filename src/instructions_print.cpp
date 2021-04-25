@@ -23,23 +23,35 @@ std::vector<Instruction> set_instructions_print() {
   instructions[2].name = "iconst_m1";
   instructions[2].bytes = 0;
 
-  instructions[3].name = "iconst_0";
-  instructions[3].bytes = 0;
+  // instructions[3].name = "iconst_n";
+  // instructions[3].bytes = 0;
+  // instructions[3].value = 0;
 
-  instructions[4].name = "iconst_1";
-  instructions[4].bytes = 0;
+  // instructions[4].name = "iconst_n";
+  // instructions[4].bytes = 0;
+  // instructions[4].value = 1;
 
-  instructions[5].name = "iconst_2";
-  instructions[5].bytes = 0;
+  // instructions[5].name = "iconst_n";
+  // instructions[5].bytes = 0;
+  // instructions[5].value = 2;
 
-  instructions[6].name = "iconst_3";
-  instructions[6].bytes = 0;
+  // instructions[6].name = "iconst_n";
+  // instructions[6].bytes = 0;
+  // instructions[6].value = 3;
 
-  instructions[7].name = "iconst_4";
-  instructions[7].bytes = 0;
+  // instructions[7].name = "iconst_n";
+  // instructions[7].bytes = 0;
+  // instructions[7].value = 4;
 
-  instructions[8].name = "iconst_5";
-  instructions[8].bytes = 0;
+  // instructions[8].name = "iconst_n";
+  // instructions[8].bytes = 0;
+  // instructions[8].value = 5;
+
+  for(int i=0; i<=5; i++) {
+    int j = i+3;
+    instructions[j].name = "iconst_" + (char) i;
+    instructions[j].bytes = 0;
+  }
 
   instructions[9].name = "lconst_0";
   instructions[9].bytes = 0;

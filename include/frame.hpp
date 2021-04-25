@@ -7,7 +7,6 @@
 
 #include <stack>
 #include <vector>
-// #include "class_loader.hpp"
 #include "method_area.hpp"
 #include "interpreter.hpp"
 
