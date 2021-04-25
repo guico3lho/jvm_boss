@@ -52,8 +52,7 @@ Frame::Frame(Method_Info *method, Class_File class_file) {
  * @param void
  * @return void
  */
-void Frame::execute_frame()
-{
+void Frame::execute_frame() {
   u1 op_code = method_code->code[pc]; // NOTE: method_code armazena os opcode
   if (DEBUG)
     printf("\n[%d]", op_code); //NOTE: max_locals = 4? 4 variaveis?
@@ -64,8 +63,7 @@ void Frame::execute_frame()
 * @brief Retira um elemento do topo da pilha
 * @return Operand* ponteiro para operando retirado
 */
-Operand *Frame::pop_operand()
-{
+Operand *Frame::pop_operand() {
   Operand *op = operand_stack.top();
   // printf("[operand popped]: %d\n", curr_frame->operand_stack.top()->type_int);
   operand_stack.pop();
@@ -77,8 +75,7 @@ Operand *Frame::pop_operand()
 * @return Operand* ponteiro para elemento a ser inserido
 * @return void
 */
-void Frame::push_operand(Operand *op)
-{
+void Frame::push_operand(Operand *op) {
   operand_stack.push(op);
   // printf("[operand pushed]: %d\n", curr_frame->operand_stack.top()->type_int);
 }
@@ -153,7 +150,7 @@ Operand *copy_operand(Operand *original_type) {
 /** @brief Inicia vetor de funções das instruções assembly.
 *  @return void
 */
-void Frame::setup_instructions_func() {
+void Frame::set_instructions_functions() {
 
   /* CONSTANTS */
   func[0] = nop;

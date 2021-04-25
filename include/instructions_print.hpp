@@ -1,10 +1,11 @@
 /** 
  *  @file instruction.hpp
- *  @brief Estruturas, declaração de funções e definições de constanstes relacionadas a instruções
+ *  @brief Estrutura e declaração de funções relacionadas à informaçoes 
+ *  de instruções para impressão do leitor/exibidor
  */
 
-#ifndef __INSTRUCTION_H__
-#define __INSTRUCTION_H__
+#ifndef __INSTRUCTIONS_PRINT_H__
+#define __INSTRUCTIONS_PRINT_H__
 
 #include <string>
 #include <vector>
@@ -76,6 +77,6 @@ typedef struct Instruction {
   u4 bytes;
 } Instruction;
 
-std::vector<Instruction> set_instructions();
+std::vector<Instruction> set_instructions_print();
 
 #endif

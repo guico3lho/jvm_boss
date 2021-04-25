@@ -70,7 +70,7 @@ public:
   void execute_frame();
   Operand* pop_operand();
   void push_operand(Operand* op);
-  static void setup_instructions_func();
+  static void set_instructions_functions();
 };
 
 Frame* top_frame();

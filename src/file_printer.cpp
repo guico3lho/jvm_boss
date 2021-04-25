@@ -438,7 +438,7 @@ void print_newarray(u1 code) {
 }
 
 void print_instructions(Class_File class_file, Code_Attribute *code_attribute) {
-  std::vector<Instruction> instructions = set_instructions();
+  std::vector<Instruction> instructions = set_instructions_print();
   std::string str;
 
   for (int i = 0; i < (int) code_attribute->code_length; i++) {
@@ -464,13 +464,13 @@ void print_instructions(Class_File class_file, Code_Attribute *code_attribute) {
           {
             u1 byte1 = code_attribute->code[i];
             u1 byte2 = code_attribute->code[i+1];
-            u1 dim = code_attribute->code[i + 2];
             u2 index = (byte1 << 8) | byte2;
+            u1 dimensions = code_attribute->code[i + 2];
             str = get_cp_info_utf8(class_file, index);
 
             if (!str.empty()) {
               std::cout << "\t#" << std::dec << index << " " << str;
-              std::cout << " dim " << (int) dim;
+              std::cout << " dimensions " << (int) dimensions;
             }
             j++;
           }

@@ -1,1 +1,1 @@
-./jvm_boss -e test/$1.class
+./jvm_boss -e test/class/$1.class

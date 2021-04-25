@@ -1,17 +1,17 @@
 /**
  * @file instruction.cpp
- * @brief Arquivo com o nome e os bytes de todas as instruções
+ * @brief Arquivo com os nomes e bytes de todas as instruções para impressão do leitor/exibidor
 */
 
-#include "instruction.hpp"
+#include "instructions_print.hpp"
 
 /**
-* @brief Função que define o vetor de instruções.
+* @brief Função que define o vetor de estruturas de instruções.
 * @param void
-* @return um vetor de instruções
+* @return um vetor de 256 instruções contendo dados de nomes e bytes 
 */
 // each instruction has 8-bit = 1 byte
-std::vector<Instruction> set_instructions() {
+std::vector<Instruction> set_instructions_print() {
   std::vector<Instruction> instructions = std::vector<Instruction>(256);
 
   instructions[0].name = "nop";

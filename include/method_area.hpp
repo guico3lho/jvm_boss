@@ -14,8 +14,7 @@ struct Operand;
 /** 
  * @brief Estrutura para guardar informações sobre o class_file que fará parte do method_area
  */
-typedef struct Class_Container
-{
+typedef struct Class_Container {
     std::string *class_name = nullptr;
 
     Class_File class_file;
@@ -24,19 +23,23 @@ typedef struct Class_Container
     std::map<std::string, Operand *> *class_fields;
 } Class_Container;
 
-typedef struct Method_Area
-{
+/**
+ * @brief Estrutura utilizada para guardar informações sobre classes carregadas na memória, 
+ * através de estruturas de maps, contendo chave e valor de cada classe estática ou não
+ * 
+ */
+typedef struct Method_Area {
     std::map<std::string, Class_Container *> loaded_classes;
     std::map<std::string, Class_Container *> static_classes;
-
 } Method_Area;
 
 /** 
  *  @brief Funções do class_loader
 */
 Method_Area *load_class_memory(Class_File class_file);
-void load_class_variables(Class_Container *class_container);
+void load_class_variables(Class_Container* class_container);
 Class_File load_parent_classes(std::string c_path);
+
 /** 
  *  @brief Funções auxiliares
 */
@@ -47,6 +50,6 @@ Operand *check_string_create_type(std::string string_tipo);
 /** 
  *  @brief Função para encontrar a main
 */
-Method_Info* find_main(Method_Area * method_area);
+Method_Info* find_main(Method_Area* method_area);
 
 #endif

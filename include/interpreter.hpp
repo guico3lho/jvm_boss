@@ -11,7 +11,6 @@
 
 #include "class_file.hpp"
 #include "method_area.hpp"
-#include "instruction.hpp"
 
 
 void execute(Class_File class_file);

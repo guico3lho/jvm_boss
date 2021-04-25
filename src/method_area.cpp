@@ -7,15 +7,14 @@ Method_Area *method_area = new Method_Area();
  * @return Class_Loader*
  */
 
-Method_Area *load_class_memory(Class_File class_file)
-{
+Method_Area *load_class_memory(Class_File class_file) {
   Class_Container *class_container = new Class_Container();
   class_container->class_file = class_file;
 
   std::string class_name = get_cp_info_utf8(class_file, class_file.this_class); 
-  class_container->class_name = &class_name;                                    //TODO: = class_name without refs?
-  if (DEBUG)
-    std::cout << "Classe " << class_name << " carregada na memoria!\n";
+  class_container->class_name = &class_name; //TODO: = class_name without refs?
+
+  if (DEBUG) std::cout << "Classe " << class_name << " carregada na memoria!\n";
 
   method_area->loaded_classes.insert((std::pair<std::string, Class_Container *>(class_name, class_container))); 
   method_area->static_classes.insert((std::pair<std::string, Class_Container *>(class_name, class_container))); 
@@ -24,31 +23,27 @@ Method_Area *load_class_memory(Class_File class_file)
   // NOTE: Quando tiver chegado aqui, armazena o .class atual e o seu nome no class_container;
   load_class_variables(class_container); 
 
-  if (DEBUG)
-    std::cout << "Classes carregadas na memoria!\n";
+  if (DEBUG) std::cout << "Classes carregadas na memoria!\n";
 
   return method_area;
 }
+
 /**
  * @brief Carrega variáveis com informações do .class
  * @param class_container ponteiro para classes carregadas em memoria
  * @return void
  */
-void load_class_variables(Class_Container *class_container)
-{
+void load_class_variables(Class_Container *class_container) {
   Class_File current_class = class_container->class_file; //Multiply
   Cp_Info super_class = current_class.constant_pool[current_class.super_class];
 
   std::string super_class_name = get_cp_info_utf8(current_class, super_class.Class.class_name);
-  if (DEBUG)
-    std::cout << "Super Classe " << super_class_name << " carregada na memoria!\n";
+  if (DEBUG) std::cout << "Super Classe " << super_class_name << " carregada na memoria!\n";
 
-  do
-  {
+  do {
     super_class_name = get_cp_info_utf8(current_class, current_class.super_class);
 
-    for (int i = 0; i < current_class.fields_count; i++)
-    {
+    for (int i = 0; i < current_class.fields_count; i++) {
       Field_Info field_info = current_class.fields[i];
 
       std::string field_name = get_cp_info_utf8(current_class, field_info.name_index);
@@ -57,8 +52,7 @@ void load_class_variables(Class_Container *class_container)
       (*class_container->class_fields)[field_name] = check_string_create_type(var_type);
     }
 
-    if (super_class_name != "java/lang/Object" && super_class_name != "")
-    {
+    if (super_class_name != "java/lang/Object" && super_class_name != "") {
       // Entra aqui se a super classe não é Object e não é vazia
       current_class = load_parent_classes(super_class_name);
     }
@@ -70,11 +64,9 @@ void load_class_variables(Class_Container *class_container)
  * @param class_path nome do próximo arquivo .class a ser carregado
  * @return Class_File estrutura de dados do arquivo .class a ser carregado
  */
-Class_File load_parent_classes(std::string class_path)
-{
+Class_File load_parent_classes(std::string class_path) {
+  if (DEBUG) std::cout << "Class Path: " << class_path << "\n";
 
-  if (DEBUG)
-    std::cout << "Class Path: " << class_path << "\n";
   Class_Container *class_container = new Class_Container();
   // Class_Container *class_container = method_area->static_classes[class_path];
   std::cout << "Procurando .class de nome: " << class_path << std::endl;
@@ -98,10 +90,10 @@ Class_File load_parent_classes(std::string class_path)
  * @param class_name da classe a ser retornada a referencia
  * @return Class_Loader* ponteiro da referencia da classe
  */
-Class_Container *get_static_class(std::string class_name)
-{
+Class_Container *get_static_class(std::string class_name) {
   return method_area->static_classes[class_name];
 }
+
 /**
  * @brief Get the static field of class object
  * 
@@ -109,20 +101,19 @@ Class_Container *get_static_class(std::string class_name)
  * @param field_name 
  * @return Operand* 
  */
-Operand *get_static_field_of_class(std::string class_name, std::string field_name)
-{
+Operand *get_static_field_of_class(std::string class_name, std::string field_name) {
   Class_Container *class_container = method_area->static_classes.at(class_name);
   if (class_container != NULL)
     return class_container->class_fields->at(field_name);
   return NULL;
 }
+
 /**
  * @brief Cria um ponteiro de Operand e o tipo é decidido pela string recebida
  * @param type_string string que varia de acordo com o tipo
  * @return Operand* novo ponteiro para Operand
  */
-Operand *check_string_create_type(std::string type_string)
-{
+Operand *check_string_create_type(std::string type_string) {
   Operand *new_type = (Operand *)malloc(sizeof(Operand));
 
   switch (type_string.c_str()[0])
@@ -185,22 +176,19 @@ Operand *check_string_create_type(std::string type_string)
     break;
 
   case 'L': // Tipo Classe
-    if (type_string == "Ljava/lang/Integer;")
-    {
+    if (type_string == "Ljava/lang/Integer;") {
       new_type->tag = CONSTANT_INT;
       new_type->type_int = 0;
     }
 
-    if (type_string == "Ljava/lang/String;")
-    {
+    if (type_string == "Ljava/lang/String;") {
       if (DEBUG)
         cout << "Class: Ljava/lang/String;\n";
       new_type->tag = CONSTANT_STRING;
       new_type->type_string = new std::string("");
     }
 
-    if (type_string == "Ljava/lang/Object;")
-    {
+    if (type_string == "Ljava/lang/Object;") {
       new_type->tag = CONSTANT_CLASS;
       new_type->class_container = (Class_Container *)malloc(sizeof(Class_Container));
 
@@ -223,24 +211,20 @@ Operand *check_string_create_type(std::string type_string)
  *  @param method_area
  *  @return MethodInfo*
  */
-Method_Info *find_main(Method_Area *method_area)
-{ 
+Method_Info *find_main(Method_Area *method_area) { 
   Class_File class_file = method_area->loaded_classes.begin()->second->class_file;
-  for (int i = 0; i < class_file.methods_count; i++)
-  {
+  for (int i = 0; i < class_file.methods_count; i++) {
     Method_Info *method = class_file.methods + i;
     std::string method_name = get_cp_info_utf8(class_file, method->name_index);
     if (DEBUG)
       std::cout << "Nome do metodo: " << method_name << " carregado na memoria\n";
 
-    if (method_name == "main")
-    {
+    if (method_name == "main") {
       std::string method_descriptor = get_cp_info_utf8(class_file, method->descriptor_index); // (method_area, method)
       if (DEBUG)
         std::cout << "Descricao do metodo main econtrado: " << method_descriptor << std::endl;
 
-      if (method_descriptor == "([Ljava/lang/String;)V")
-      {
+      if (method_descriptor == "([Ljava/lang/String;)V") {
         if (DEBUG)
           std::cout << "METHOD MAIN ENCONTRADO!\n";
         return method;
