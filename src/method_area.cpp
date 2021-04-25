@@ -2,9 +2,9 @@
 
 Method_Area *method_area = new Method_Area();
 /**
- * @brief Lê e armazena classes no class_loader
+ * @brief Lê e armazena classes no method_area
  * @param class_file
- * @return Class_Loader*
+ * @return Method_Area*
  */
 
 Method_Area *load_class_memory(Class_File class_file) {
@@ -85,7 +85,7 @@ Class_File load_parent_classes(std::string class_path) {
 /**
  * @brief Encontra a classe estática
  * @param class_name da classe a ser retornada a referencia
- * @return Class_Loader* ponteiro da referencia da classe
+ * @return Class_Container* ponteiro da referencia da classe
  */
 Class_Container *get_static_class(std::string class_name) {
   return method_area->static_classes[class_name];
