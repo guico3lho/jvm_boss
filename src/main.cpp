@@ -34,8 +34,7 @@ int main(int argc, char* argv[]) {
     print_command_error();
   }
 
-  Class_File class_file;
-  class_file = read_class_file(file);
+  Class_File class_file = read_class_file(file);
 
   // leitor/exibidor
   if(option == "-e") {

@@ -76,9 +76,12 @@ Integrantes do Grupo</h2>
 <li>Gustavo A. S. de Barros - 18/0064487</li>
 <li>Mayara Chew - 18/0025210</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md2"></a>
-Compilação e informações com javac/javap</h2>
+<h3><a class="anchor" id="autotoc_md2"></a>
+Repositório Remoto</h3>
+<p><a href="https://github.com/GuiCoelhoDev/jvm_boss">GitHub</a></p>
 <p><img src="../diagrama.png" alt="" width="90%" class="inline"/></p>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Compilação e informações com javac/javap</h2>
 <p>Compila arquivo <code>.java</code> para <code>.class</code></p>
 <div class="fragment"><div class="line">$ javac <a class="code" href="classHelloJava.html">HelloJava</a>.java</div>
 <div class="ttc" id="aclassHelloJava_html"><div class="ttname"><a href="classHelloJava.html">HelloJava</a></div><div class="ttdef"><b>Definition:</b> HelloJava.java:1</div></div>
@@ -87,7 +90,7 @@ Compilação e informações com javac/javap</h2>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor"># para mais info, flags: -c, -verbose ou -v</span></div>
 <div class="line"><span class="preprocessor">$ javap -v HelloJava.class</span></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md3"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md4"></a>
 Compilando</h1>
 <div class="fragment"><div class="line"><span class="preprocessor"># Linux</span></div>
 <div class="line">$ ./compile.sh -l</div>
@@ -96,9 +99,9 @@ Compilando</h1>
 <div class="line"><span class="preprocessor">$ ./compile.sh -w</span></div>
 </div><!-- fragment --><p>Caso apresente erro de formatação de arquivos bash <code>.sh</code> no Linux, usar o comando</p>
 <div class="fragment"><div class="line">$ sed -i &#39;s/\r$//&#39; scriptname.sh</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md4"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md5"></a>
 Executando</h1>
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 Leitor e Exibidor</h2>
 <p>Exibe o bytecode do arquivo .class</p>
 <div class="fragment"><div class="line"><span class="preprocessor"># Linux e Windows</span></div>
@@ -106,7 +109,7 @@ Leitor e Exibidor</h2>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor"># Bash script</span></div>
 <div class="line"><span class="preprocessor">$ ./read.sh HelloJava</span></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md6"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md7"></a>
 Interpretador JVM</h2>
 <p>Interpreta e executa o arquivo .class</p>
 <div class="fragment"><div class="line"><span class="preprocessor"># Linux e Windows</span></div>
@@ -114,14 +117,14 @@ Interpretador JVM</h2>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor"># Bash script</span></div>
 <div class="line"><span class="preprocessor">$ ./jvm.sh HelloJava</span></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md7"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md8"></a>
 Classes Java (.class) de Teste</h2>
 <ul>
 <li>[x] cafebabe</li>
 <li>[x] <a class="el" href="classHelloJava.html">HelloJava</a></li>
 <li>[x] Prints</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md8"></a>
+<h2><a class="anchor" id="autotoc_md9"></a>
 Aritmeticos</h2>
 <ul>
 <li>[x] Sum</li>
@@ -131,7 +134,7 @@ Aritmeticos</h2>
 <li>[x] <a class="el" href="class__float__aritmetica.html">_float_aritmetica</a></li>
 <li>[x] _double_aritmetica</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md9"></a>
+<h2><a class="anchor" id="autotoc_md10"></a>
 Vetores</h2>
 <ul>
 <li>[x] vetor</li>
@@ -140,7 +143,7 @@ Vetores</h2>
 <li>[x] <a class="el" href="classVector__2.html">Vector_2</a></li>
 <li>[ ] multi </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md10"></a>
+<h2><a class="anchor" id="autotoc_md11"></a>
 Controle</h2>
 <ul>
 <li>[x] Loop_for</li>
@@ -148,12 +151,12 @@ Controle</h2>
 <li>[x] tableswitch</li>
 <li>[x] <a class="el" href="class__lookupswitch.html">_lookupswitch</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md11"></a>
+<h2><a class="anchor" id="autotoc_md12"></a>
 Comparação</h2>
 <ul>
 <li>[x] <a class="el" href="classComparison.html">Comparison</a> </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md12"></a>
+<h2><a class="anchor" id="autotoc_md13"></a>
 Conversão</h2>
 <ul>
 <li>[x] <a class="el" href="classConvert__int.html">Convert_int</a></li>
@@ -161,7 +164,7 @@ Conversão</h2>
 <li>[x] <a class="el" href="classConvert__double.html">Convert_double</a></li>
 <li>[x] <a class="el" href="classConvert__long.html">Convert_long</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md13"></a>
+<h2><a class="anchor" id="autotoc_md14"></a>
 Metodos</h2>
 <ul>
 <li>[x] MethodStatic</li>
@@ -169,14 +172,14 @@ Metodos</h2>
 <li>[x] <a class="el" href="class__recursao.html">_recursao</a></li>
 <li>[x] <a class="el" href="class__NoVoidMethods.html">_NoVoidMethods</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md14"></a>
+<h1><a class="anchor" id="autotoc_md15"></a>
 Configurações</h1>
-<h3><a class="anchor" id="autotoc_md15"></a>
+<h3><a class="anchor" id="autotoc_md16"></a>
 Até a versão</h3>
 <p><a href="https://docs.oracle.com/javase/specs/jvms/se8/html/index.html">Java SE 8</a></p>
-<h2><a class="anchor" id="autotoc_md16"></a>
+<h2><a class="anchor" id="autotoc_md17"></a>
 Analisadores</h2>
-<h3><a class="anchor" id="autotoc_md17"></a>
+<h3><a class="anchor" id="autotoc_md18"></a>
 Analisador estático:</h3>
 <p><a href="http://cppcheck.sourceforge.net">Cppcheck 1.83</a></p>
 <p>Instalação no Linux</p>
@@ -193,7 +196,7 @@ Analisador estático:</h3>
 <div class="line"><span class="comment">$ ./check.sh -v main</span></div>
 <div class="line"><span class="comment">$ ./check.sh -w main</span></div>
 <div class="line"><span class="comment">$ ./check.sh -all</span></div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md18"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md19"></a>
 Analisador dinâmico:</h3>
 <p><a href="https://www.valgrind.org/">Valgrind</a></p>
 <p>Instalação no Linux</p>
@@ -204,7 +207,7 @@ Analisador dinâmico:</h3>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor"># bash script</span></div>
 <div class="line"><span class="preprocessor">$ ./valgrind.sh HelloJava</span></div>
-</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md19"></a>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md20"></a>
 Documentação</h2>
 <p><a href="https://www.doxygen.nl/index.html">Doxygen</a></p>
 <p>Instalação no Linux</p>
@@ -228,10 +231,7 @@ Documentação</h2>
 <p>Executando</p>
 <div class="fragment"><div class="line"><span class="preprocessor"># Gera ou atualiza a pasta &quot;html&quot;</span> do projeto. Deve-se rodar este comando sempre que o código for atualizado</div>
 <div class="line">$ doxygen doxygen_config</div>
-</div><!-- fragment --><p>Para visualizar a documentação gerada, basta abrir a pasta "html" do projeto e abrir o arquivo "index.html" com o navegador.</p>
-<h3><a class="anchor" id="autotoc_md20"></a>
-Repositório Remoto</h3>
-<p><a href="https://github.com/GuiCoelhoDev/jvm_boss">GitHub</a> </p>
+</div><!-- fragment --><p>Para visualizar a documentação gerada, basta abrir a pasta "html" do projeto e abrir o arquivo "index.html" com o navegador. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->

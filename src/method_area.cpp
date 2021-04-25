@@ -11,7 +11,7 @@ Method_Area *load_class_memory(Class_File class_file) {
   Class_Container *class_container = new Class_Container();
   class_container->class_file = class_file;
 
-  std::string class_name = get_cp_info_utf8(class_file, class_file.this_class); 
+  string class_name = get_cp_info_utf8(class_file, class_file.this_class); 
   if (DEBUG) std::cout << "Classe " << class_name << " carregada na memoria!\n";
 
   method_area->loaded_classes.insert((std::pair<std::string, Class_Container *>(class_name, class_container))); 
@@ -35,8 +35,8 @@ void load_class_variables(Class_Container *class_container) {
   Class_File current_class = class_container->class_file; //Multiply
   Cp_Info super_class = current_class.constant_pool[current_class.super_class];
 
-  std::string super_class_name = get_cp_info_utf8(current_class, super_class.Class.class_name);
-  if (DEBUG) std::cout << "Super Classe " << super_class_name << " carregada na memoria!\n";
+  string super_class_name = get_cp_info_utf8(current_class, super_class.Class.class_name);
+  if (DEBUG) cout << "Super Classe " << super_class_name << " carregada na memoria!\n";
 
   do {
     super_class_name = get_cp_info_utf8(current_class, current_class.super_class);
@@ -44,8 +44,8 @@ void load_class_variables(Class_Container *class_container) {
     for (int i = 0; i < current_class.fields_count; i++) {
       Field_Info field_info = current_class.fields[i];
 
-      std::string field_name = get_cp_info_utf8(current_class, field_info.name_index);
-      std::string var_type = get_cp_info_utf8(current_class, field_info.descriptor_index);
+      string field_name = get_cp_info_utf8(current_class, field_info.name_index);
+      string var_type = get_cp_info_utf8(current_class, field_info.descriptor_index);
 
       (*class_container->class_fields)[field_name] = check_string_create_type(var_type);
     }
@@ -158,7 +158,7 @@ Operand *check_string_create_type(std::string type_string) {
   case '[':
     if (DEBUG) printf("Criando operando tipo Array\n");
     new_type->tag = CONSTANT_ARRAY;
-    new_type->array_type = (Array_Type*) malloc(sizeof(Array_Type));
+    new_type->array_type = new Array_Type();
     new_type->array_type->array = new std::vector<Operand *>();
     break;
 
@@ -168,7 +168,7 @@ Operand *check_string_create_type(std::string type_string) {
 
   case CONSTANT_STRING:
     new_type->tag = CONSTANT_STRING;
-    new_type->type_string = new std::string("");
+    new_type->type_string = new string("");
     break;
 
   case 'L': // Tipo Classe
@@ -181,7 +181,7 @@ Operand *check_string_create_type(std::string type_string) {
       if (DEBUG)
         cout << "Class: Ljava/lang/String;\n";
       new_type->tag = CONSTANT_STRING;
-      new_type->type_string = new std::string("");
+      new_type->type_string = new string("");
     }
 
     if (type_string == "Ljava/lang/Object;") {
@@ -210,23 +210,23 @@ Method_Info *find_main(Method_Area *method_area) {
   Class_File class_file = method_area->loaded_classes.begin()->second->class_file;
   for (int i = 0; i < class_file.methods_count; i++) {
     Method_Info *method = class_file.methods + i;
-    std::string method_name = get_cp_info_utf8(class_file, method->name_index);
+    string method_name = get_cp_info_utf8(class_file, method->name_index);
     if (DEBUG)
-      std::cout << "Nome do metodo: " << method_name << " carregado na memoria\n";
+      cout << "Nome do metodo: " << method_name << " carregado na memoria\n";
 
     if (method_name == "main") {
-      std::string method_descriptor = get_cp_info_utf8(class_file, method->descriptor_index); // (method_area, method)
+      string method_descriptor = get_cp_info_utf8(class_file, method->descriptor_index); // (method_area, method)
       if (DEBUG)
-        std::cout << "Descricao do metodo main econtrado: " << method_descriptor << std::endl;
+        cout << "Descricao do metodo main econtrado: " << method_descriptor << "\n";
 
       if (method_descriptor == "([Ljava/lang/String;)V") {
         if (DEBUG)
-          std::cout << "METHOD MAIN ENCONTRADO!\n";
+          cout << "METHOD MAIN ENCONTRADO!\n";
         return method;
       }
     }
   }
 
-  std::cout << "Erro: Class File inserido nao possui metodo main." << std::endl;
+  cout << "Erro: Class File inserido nao possui metodo main." << std::endl;
   exit(1);
 }

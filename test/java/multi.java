@@ -1,4 +1,4 @@
-class multi {
+class multiclass {
   public static void main(String[] paramArrayOfString) {
 
     int[][][] arrayOfInt = new int[2][3][4];
