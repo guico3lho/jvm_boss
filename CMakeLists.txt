@@ -26,8 +26,9 @@ set(HEADER_FILES
     ${INCLUDE_DIR}/instruction.hpp
     ${INCLUDE_DIR}/utils.hpp
     ${INCLUDE_DIR}/interpreter.hpp
-    ${INCLUDE_DIR}/class_loader.hpp
     ${INCLUDE_DIR}/frame.hpp
+    ${INCLUDE_DIR}/method_area.hpp
+
     ${INCLUDE_DIR}/${INSTRUCTIONS_DIR}/instructions_constant.hpp
     ${INCLUDE_DIR}/${INSTRUCTIONS_DIR}/instructions_load.hpp
     ${INCLUDE_DIR}/${INSTRUCTIONS_DIR}/instructions_store.hpp
@@ -54,8 +55,8 @@ set(SOURCE_FILES
     ${SOURCE_DIR}/instruction.cpp
     ${SOURCE_DIR}/utils.cpp
     ${SOURCE_DIR}/interpreter.cpp
-    ${SOURCE_DIR}/class_loader.cpp
     ${SOURCE_DIR}/frame.cpp
+    ${SOURCE_DIR}/method_area.cpp
     ${SOURCE_DIR}/${INSTRUCTIONS_DIR}/instructions_constant.cpp
     ${SOURCE_DIR}/${INSTRUCTIONS_DIR}/instructions_load.cpp
     ${SOURCE_DIR}/${INSTRUCTIONS_DIR}/instructions_store.cpp

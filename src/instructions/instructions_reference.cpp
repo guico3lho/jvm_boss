@@ -5,6 +5,7 @@
 #include "interpreter.hpp"
 #include "instructions/instructions_reference.hpp"
 
+
 /**
  * @brief 
  */
@@ -41,7 +42,7 @@ void getstatic(Frame *curr_frame) {
     return;
   }
 
-  Class_File class_file = get_class_and_load_not_exists(class_name);
+  Class_File class_file = load_parent_classes(class_name);
   string var_name = get_cp_info_utf8(class_file, name_and_type.NameAndType.name_index);
   Operand *static_field = get_static_field_of_class(class_name, var_name);
 
@@ -86,7 +87,7 @@ void putfield(Frame *curr_frame) {
   Operand *operand = curr_frame->pop_operand();
   Operand *class_instance = curr_frame->pop_operand();
 
-  Operand *class_variable = class_instance->class_loader->class_fields->at(var_name);
+  Operand *class_variable = class_instance->class_container->class_fields->at(var_name);
 
   switch (operand->tag) {
     case CONSTANT_INT:
@@ -117,7 +118,7 @@ void putfield(Frame *curr_frame) {
       class_variable->type_string = operand->type_string;
       break;
     case CONSTANT_CLASS:
-      class_variable->class_loader = operand->class_loader;
+      class_variable->class_container = operand->class_container;
       break;
     case CONSTANT_ARRAY:
       class_variable->array_type = operand->array_type;
@@ -222,10 +223,10 @@ void invokevirtual_print(Frame *curr_frame) {
     }
       break;
     case CONSTANT_CLASS: { // 7
-      Class_Loader *class_loader = op->class_loader;
-      Class_File class_file = class_loader->class_file;
+      Class_Container *class_container = op->class_container;
+      Class_File class_file = class_container->class_file;
       string this_class_name = get_cp_info_utf8(class_file, class_file.this_class);
-      cout << this_class_name << "@" << class_loader;
+      cout << this_class_name << "@" << class_container;
     }
       break;
     case CONSTANT_STRING: //8
@@ -299,7 +300,7 @@ void invokevirtual_string_builder_append(Frame *curr_frame) {
       break;
     case CONSTANT_CLASS:
       // TODO colocar endereco
-      *str_append->type_string += *t_append->class_loader->class_name+"@";
+      *str_append->type_string += *t_append->class_container->class_name+"@";
       break;
     case CONSTANT_ARRAY:
       *str_append->type_string += "Array[]";
@@ -343,21 +344,21 @@ void class_not_default_java(
       args.insert(args.begin() + 1, check_string_create_type("P"));
   }
 
-  Class_Loader *class_loader;
+  Class_Container *class_container;
 
   if(invoke_type == "virtual" || invoke_type == "special") {
     Operand *current_class = curr_frame->pop_operand();
     args.insert(args.begin(), current_class);
-    class_loader = current_class->class_loader;
+    class_container = current_class->class_container;
   }
 
   if(invoke_type == "static") {
-    class_loader = get_static_class(class_name);
+    class_container = get_static_class(class_name);
   }
 
   // Pega informacoes do metodo
-  Method_Info *method_info = find_method(class_loader->class_file, method_name, method_desc);
-  Frame *new_frame = new Frame(method_info, class_loader->class_file);
+  Method_Info *method_info = find_method(class_container->class_file, method_name, method_desc);
+  Frame *new_frame = new Frame(method_info, class_container->class_file);
 
   for (int j = 0; (unsigned)j < args.size(); ++j)
     new_frame->local_variables_array.at(j) = args.at(j);
@@ -428,7 +429,7 @@ void invokespecial(Frame *curr_frame) {
 			curr_frame->pop_operand();
 		} else if (method_name == method_init) {
 			Operand *variable_class = curr_frame->local_variables_array.at(0);
-			load_class_variables(variable_class->class_loader);
+			load_class_variables(variable_class->class_container);
 		}
 		return;
   } else {

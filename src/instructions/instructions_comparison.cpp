@@ -226,7 +226,7 @@ void if_acmpeq(Frame *curr_frame) {
   Operand *op = curr_frame->pop_operand();
   Operand *op2 = curr_frame->pop_operand();
 
-  if (op->class_loader == op2->class_loader) {
+  if (op->class_container == op2->class_container) {
       curr_frame->pc += branch;
   }
   else{
@@ -241,7 +241,7 @@ void if_acmpne(Frame *curr_frame) {
   Operand *op = curr_frame->pop_operand();
   Operand *op2 = curr_frame->pop_operand();
 
-  if (op->class_loader != op2->class_loader) {
+  if (op->class_container != op2->class_container) {
       curr_frame->pc += branch;
   }
   else{
