@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['field_5finfo_290',['Field_Info',['../structField__Info.html',1,'']]],
-  ['frame_291',['Frame',['../classFrame.html',1,'']]]
+  ['double_5faritmetica_327',['double_aritmetica',['../classdouble__aritmetica.html',1,'']]]
 ];

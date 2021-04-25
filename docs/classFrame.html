@@ -79,7 +79,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Membros públicos</h2></td></tr>
 <tr class="memitem:a43d79ebd88b68d8aa6d088addfbe857b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrame.html#a43d79ebd88b68d8aa6d088addfbe857b">Frame</a> (<a class="el" href="structMethod__Info.html">Method_Info</a> *, <a class="el" href="structClass__File.html">Class_File</a>)</td></tr>
-<tr class="memdesc:a43d79ebd88b68d8aa6d088addfbe857b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor do <a class="el" href="classFrame.html" title="Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,...">Frame</a>. Constrói o <a class="el" href="classFrame.html" title="Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,...">Frame</a> com as informações gerais da classe (cp_reference), informações de método (method_info), código do método (method_code), inica PC com 0 e dimensiona o vetor de variáveis locais.  <a href="classFrame.html#a43d79ebd88b68d8aa6d088addfbe857b">Mais...</a><br /></td></tr>
+<tr class="memdesc:a43d79ebd88b68d8aa6d088addfbe857b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor do <a class="el" href="classFrame.html" title="Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,...">Frame</a>. Constrói o <a class="el" href="classFrame.html" title="Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,...">Frame</a> com as informações gerais da classe (cp_reference), (class_file_ref), informações de método (method_info), código do método (method_code), inica PC com 0 e redimensiona o vetor de variáveis locais.  <a href="classFrame.html#a43d79ebd88b68d8aa6d088addfbe857b">Mais...</a><br /></td></tr>
 <tr class="separator:a43d79ebd88b68d8aa6d088addfbe857b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6d58ab5a9c0ed4082a0875b3d90e3fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrame.html#af6d58ab5a9c0ed4082a0875b3d90e3fa">execute_frame</a> ()</td></tr>
 <tr class="memdesc:af6d58ab5a9c0ed4082a0875b3d90e3fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executa <a class="el" href="classFrame.html" title="Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,...">Frame</a> atual a partir do opcode armazanado no atributo de código na posição do pc do <a class="el" href="classFrame.html" title="Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,...">Frame</a>.  <a href="classFrame.html#af6d58ab5a9c0ed4082a0875b3d90e3fa">Mais...</a><br /></td></tr>
@@ -93,18 +93,18 @@ Membros públicos</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Membros públicos estáticos</h2></td></tr>
-<tr class="memitem:a30bcba97f9655ef8f6f2de934df089c7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrame.html#a30bcba97f9655ef8f6f2de934df089c7">setup_instructions_func</a> ()</td></tr>
-<tr class="memdesc:a30bcba97f9655ef8f6f2de934df089c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicia vetor de funções das instruções assembly.  <a href="classFrame.html#a30bcba97f9655ef8f6f2de934df089c7">Mais...</a><br /></td></tr>
-<tr class="separator:a30bcba97f9655ef8f6f2de934df089c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa002b44799da28a352168280452517db"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFrame.html#aa002b44799da28a352168280452517db">set_instructions_functions</a> ()</td></tr>
+<tr class="memdesc:aa002b44799da28a352168280452517db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicia vetor de funções das instruções assembly.  <a href="classFrame.html#aa002b44799da28a352168280452517db">Mais...</a><br /></td></tr>
+<tr class="separator:aa002b44799da28a352168280452517db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Atributos Públicos</h2></td></tr>
-<tr class="memitem:a27197ea368062b546dcf995ac98ff7e8"><td class="memItemLeft" align="right" valign="top"><a id="a27197ea368062b546dcf995ac98ff7e8"></a>
-std::vector&lt; <a class="el" href="structOperand.html">Operand</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>local_variables_array</b></td></tr>
-<tr class="separator:a27197ea368062b546dcf995ac98ff7e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a192c6bb92d389c99a60dea618f0b71"><td class="memItemLeft" align="right" valign="top"><a id="a8a192c6bb92d389c99a60dea618f0b71"></a>
 std::stack&lt; <a class="el" href="structOperand.html">Operand</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operand_stack</b></td></tr>
 <tr class="separator:a8a192c6bb92d389c99a60dea618f0b71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27197ea368062b546dcf995ac98ff7e8"><td class="memItemLeft" align="right" valign="top"><a id="a27197ea368062b546dcf995ac98ff7e8"></a>
+std::vector&lt; <a class="el" href="structOperand.html">Operand</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>local_variables_array</b></td></tr>
+<tr class="separator:a27197ea368062b546dcf995ac98ff7e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1a0e72da6de79d413084d7b89946161"><td class="memItemLeft" align="right" valign="top"><a id="ac1a0e72da6de79d413084d7b89946161"></a>
 <a class="el" href="structClass__File.html">Class_File</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>class_file_ref</b> = nullptr</td></tr>
 <tr class="separator:ac1a0e72da6de79d413084d7b89946161"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,7 +123,7 @@ u4&#160;</td><td class="memItemRight" valign="bottom"><b>pc</b></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
 <div class="textblock"><p>Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,retornar valores para métodos e disparar exceções. </p>
-<p>Cada frame possui seu próprio array de variáveis locais, sua pilha de operandos e uma referência para o pool de constantes da classe do método corrente. </p>
+<p>Cada frame possui sua pilha de operandos, seu próprio vetor de variáveis locais e uma referência para o pool de constantes da classe do método corrente. </p>
 </div><h2 class="groupheader">Documentação dos Construtores &amp; Destrutor</h2>
 <a id="a43d79ebd88b68d8aa6d088addfbe857b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a43d79ebd88b68d8aa6d088addfbe857b">&#9670;&nbsp;</a></span>Frame()</h2>
@@ -151,7 +151,7 @@ u4&#160;</td><td class="memItemRight" valign="bottom"><b>pc</b></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Construtor do <a class="el" href="classFrame.html" title="Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,...">Frame</a>. Constrói o <a class="el" href="classFrame.html" title="Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,...">Frame</a> com as informações gerais da classe (cp_reference), informações de método (method_info), código do método (method_code), inica PC com 0 e dimensiona o vetor de variáveis locais. </p>
+<p>Construtor do <a class="el" href="classFrame.html" title="Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,...">Frame</a>. Constrói o <a class="el" href="classFrame.html" title="Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,...">Frame</a> com as informações gerais da classe (cp_reference), (class_file_ref), informações de método (method_info), código do método (method_code), inica PC com 0 e redimensiona o vetor de variáveis locais. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">method</td><td>ponteiro para informações do método </td></tr>
@@ -232,8 +232,8 @@ void </dd></dl>
 
 </div>
 </div>
-<a id="a30bcba97f9655ef8f6f2de934df089c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30bcba97f9655ef8f6f2de934df089c7">&#9670;&nbsp;</a></span>setup_instructions_func()</h2>
+<a id="aa002b44799da28a352168280452517db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa002b44799da28a352168280452517db">&#9670;&nbsp;</a></span>set_instructions_functions()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -242,7 +242,7 @@ void </dd></dl>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Frame::setup_instructions_func </td>
+          <td class="memname">void Frame::set_instructions_functions </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>

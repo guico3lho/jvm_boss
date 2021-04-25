@@ -78,11 +78,10 @@ $(function() {
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funções</h2></td></tr>
-<tr class="memitem:aa0326488d0a7f4dbee2029854dcfc586"><td class="memItemLeft" align="right" valign="top"><a id="aa0326488d0a7f4dbee2029854dcfc586"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pop</b> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memitem:aa0326488d0a7f4dbee2029854dcfc586"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__stack_8cpp.html#aa0326488d0a7f4dbee2029854dcfc586">pop</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:aa0326488d0a7f4dbee2029854dcfc586"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retira operando do frame do topo da pilha de Frames.  <a href="instructions__stack_8cpp.html#aa0326488d0a7f4dbee2029854dcfc586">Mais...</a><br /></td></tr>
 <tr class="separator:aa0326488d0a7f4dbee2029854dcfc586"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2a30aceaa14770b4639eb2345625500"><td class="memItemLeft" align="right" valign="top"><a id="aa2a30aceaa14770b4639eb2345625500"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pop2</b> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memitem:aa2a30aceaa14770b4639eb2345625500"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__stack_8cpp.html#aa2a30aceaa14770b4639eb2345625500">pop2</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
 <tr class="separator:aa2a30aceaa14770b4639eb2345625500"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae70269ec3cef99169f6c15ebc48154e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__stack_8cpp.html#ae70269ec3cef99169f6c15ebc48154e4">dup</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
 <tr class="memdesc:ae70269ec3cef99169f6c15ebc48154e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faz uma cópia do item que está no topo da pilha e o adiciona ao topo da pilha.  <a href="instructions__stack_8cpp.html#ae70269ec3cef99169f6c15ebc48154e4">Mais...</a><br /></td></tr>
@@ -102,8 +101,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>pop2</b> (<a class="e
 <tr class="memitem:ab37f50b61574a6e3fb4c82c40612fe36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__stack_8cpp.html#ab37f50b61574a6e3fb4c82c40612fe36">dup2_x2</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
 <tr class="memdesc:ab37f50b61574a6e3fb4c82c40612fe36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duplica um ou dois operandos da pilha e insere os valores duplicados na ordem original.  <a href="instructions__stack_8cpp.html#ab37f50b61574a6e3fb4c82c40612fe36">Mais...</a><br /></td></tr>
 <tr class="separator:ab37f50b61574a6e3fb4c82c40612fe36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad588bfd5842f0d8db2ee604c8301d4b"><td class="memItemLeft" align="right" valign="top"><a id="aad588bfd5842f0d8db2ee604c8301d4b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memitem:aad588bfd5842f0d8db2ee604c8301d4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__stack_8cpp.html#aad588bfd5842f0d8db2ee604c8301d4b">swap</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:aad588bfd5842f0d8db2ee604c8301d4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Troca dois operandos do topo da pilha de posição.  <a href="instructions__stack_8cpp.html#aad588bfd5842f0d8db2ee604c8301d4b">Mais...</a><br /></td></tr>
 <tr class="separator:aad588bfd5842f0d8db2ee604c8301d4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
@@ -261,6 +260,84 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> (<a class="e
 </div><div class="memdoc">
 
 <p>Duplica o item no topo da pilha e pusha depois do terceiro elemento da pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="aa0326488d0a7f4dbee2029854dcfc586"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0326488d0a7f4dbee2029854dcfc586">&#9670;&nbsp;</a></span>pop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pop </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retira operando do frame do topo da pilha de Frames. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="aa2a30aceaa14770b4639eb2345625500"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2a30aceaa14770b4639eb2345625500">&#9670;&nbsp;</a></span>pop2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pop2 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">curr_frame</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aad588bfd5842f0d8db2ee604c8301d4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad588bfd5842f0d8db2ee604c8301d4b">&#9670;&nbsp;</a></span>swap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void swap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Troca dois operandos do topo da pilha de posição. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Projeto JVM: Página principal</title>
+<title>Projeto JVM: JVM Boss</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -60,11 +60,176 @@ $(function() {
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Projeto JVM Documentação</div>  </div>
+<div class="title">JVM Boss </div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><h1><a class="anchor" id="autotoc_md0"></a>
+Projeto JVM - Software Basico</h1>
+<h2><a class="anchor" id="autotoc_md1"></a>
+Integrantes do Grupo</h2>
+<ul>
+<li>Ariel Batista da Silva - 17/0099776</li>
+<li>Luís V. Capelletto - 16/0134544</li>
+<li>Guilherme Coelho - 16/0123046</li>
+<li>Gustavo A. S. de Barros - 18/0064487</li>
+<li>Mayara Chew - 18/0025210</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md2"></a>
+Compilação e informações com javac/javap</h2>
+<p>Compila arquivo <code>.java</code> para <code>.class</code></p>
+<div class="fragment"><div class="line">$ javac <a class="code" href="classHelloJava.html">HelloJava</a>.java</div>
+<div class="ttc" id="aclassHelloJava_html"><div class="ttname"><a href="classHelloJava.html">HelloJava</a></div><div class="ttdef"><b>Definition:</b> HelloJava.java:1</div></div>
+</div><!-- fragment --><p>Mostra informações do bytecode do arquivo <code>.class</code></p>
+<div class="fragment"><div class="line">$ javap <a class="code" href="classHelloJava.html">HelloJava</a>.class</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor"># para mais info, flags: -c, -verbose ou -v</span></div>
+<div class="line"><span class="preprocessor">$ javap -v HelloJava.class</span></div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md3"></a>
+Compilando</h1>
+<div class="fragment"><div class="line"><span class="preprocessor"># Linux</span></div>
+<div class="line">$ ./compile.sh -l</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor"># Windows</span></div>
+<div class="line"><span class="preprocessor">$ ./compile.sh -w</span></div>
+</div><!-- fragment --><p>Caso apresente erro de formatação de arquivos bash <code>.sh</code> no Linux, usar o comando</p>
+<div class="fragment"><div class="line">$ sed -i &#39;s/\r$//&#39; scriptname.sh</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md4"></a>
+Executando</h1>
+<h2><a class="anchor" id="autotoc_md5"></a>
+Leitor e Exibidor</h2>
+<p>Exibe o bytecode do arquivo .class</p>
+<div class="fragment"><div class="line"><span class="preprocessor"># Linux e Windows</span></div>
+<div class="line">$ ./jvm_boss -e test/<a class="code" href="classHelloJava.html">HelloJava</a>.class</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor"># Bash script</span></div>
+<div class="line"><span class="preprocessor">$ ./read.sh HelloJava</span></div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md6"></a>
+Interpretador JVM</h2>
+<p>Interpreta e executa o arquivo .class</p>
+<div class="fragment"><div class="line"><span class="preprocessor"># Linux e Windows</span></div>
+<div class="line">$ ./jvm_boss -i test/<a class="code" href="classHelloJava.html">HelloJava</a>.class</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor"># Bash script</span></div>
+<div class="line"><span class="preprocessor">$ ./jvm.sh HelloJava</span></div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md7"></a>
+Classes Java (&lt;tt&gt;.class&lt;/tt&gt;) de Teste</h2>
+<ul>
+<li>[x] cafebabe</li>
+<li>[x] <a class="el" href="classHelloJava.html">HelloJava</a></li>
+<li>[x] Prints</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md8"></a>
+Aritmeticos</h2>
+<ul>
+<li>[x] Sum</li>
+<li>[x] <a class="el" href="classMultiply.html">Multiply</a></li>
+<li>[x] <a class="el" href="classdouble__aritmetica.html">double_aritmetica</a></li>
+<li>[x] <a class="el" href="class__int__aritmetica.html">_int_aritmetica</a></li>
+<li>[x] <a class="el" href="class__float__aritmetica.html">_float_aritmetica</a></li>
+<li>[x] _double_aritmetica</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md9"></a>
+Vetores</h2>
+<ul>
+<li>[x] vetor</li>
+<li>[x] vetor2</li>
+<li>[x] <a class="el" href="classVector__1.html">Vector_1</a></li>
+<li>[x] <a class="el" href="classVector__2.html">Vector_2</a></li>
+<li>[ ] multi </li>
+</ul>
+<h2><a class="anchor" id="autotoc_md10"></a>
+Controle</h2>
+<ul>
+<li>[x] Loop_for</li>
+<li>[x] <a class="el" href="classSwitch.html">Switch</a></li>
+<li>[x] tableswitch</li>
+<li>[x] <a class="el" href="class__lookupswitch.html">_lookupswitch</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md11"></a>
+Comparação</h2>
+<ul>
+<li>[x] <a class="el" href="classComparison.html">Comparison</a> </li>
+</ul>
+<h2><a class="anchor" id="autotoc_md12"></a>
+Conversão</h2>
+<ul>
+<li>[x] <a class="el" href="classConvert__int.html">Convert_int</a></li>
+<li>[x] <a class="el" href="classConvert__float.html">Convert_float</a></li>
+<li>[x] <a class="el" href="classConvert__double.html">Convert_double</a></li>
+<li>[x] <a class="el" href="classConvert__long.html">Convert_long</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md13"></a>
+Metodos</h2>
+<ul>
+<li>[x] MethodStatic</li>
+<li>[x] <a class="el" href="classMethodParams.html">MethodParams</a></li>
+<li>[x] <a class="el" href="class__recursao.html">_recursao</a></li>
+<li>[x] <a class="el" href="class__NoVoidMethods.html">_NoVoidMethods</a></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md14"></a>
+Configurações</h1>
+<h3><a class="anchor" id="autotoc_md15"></a>
+Até a versão &lt;a href="https://docs.oracle.com/javase/specs/jvms/se8/html/index.html"&gt;Java SE 8&lt;/a&gt;</h3>
+<h2><a class="anchor" id="autotoc_md16"></a>
+Analisadores</h2>
+<h3><a class="anchor" id="autotoc_md17"></a>
+Analisador estático: &lt;a href="http://cppcheck.sourceforge.net"&gt;Cppcheck 1.83&lt;/a&gt;</h3>
+<p>Instalação no Linux</p>
+<div class="fragment"><div class="line">$ sudo apt-get install cppcheck</div>
+</div><!-- fragment --><p>Executando CppCheck</p>
+<div class="fragment"><div class="line"><span class="preprocessor"># arquivos especificos</span></div>
+<div class="line">$ cppcheck --verbose ./src/main.cpp</div>
+<div class="line">$ cppcheck --enable=warning ./src/main.cpp</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor"># todos arquivos .cpp dentro de src</span></div>
+<div class="line">$ cppcheck --verbose --enable=warning ./src<span class="comment">/*.cpp</span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment"># ou com bash script</span></div>
+<div class="line"><span class="comment">$ ./check.sh -v main</span></div>
+<div class="line"><span class="comment">$ ./check.sh -w main</span></div>
+<div class="line"><span class="comment">$ ./check.sh -all</span></div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md18"></a>
+Analisador dinâmico: &lt;a href="https://www.valgrind.org/"&gt;Valgrind&lt;/a&gt;</h3>
+<p>Instalação no Linux</p>
+<div class="fragment"><div class="line">$ sudo apt-get install valgrind</div>
+</div><!-- fragment --><p>Executando</p>
+<div class="fragment"><div class="line"><span class="preprocessor"># com mais detalhes sobre vazamento de memória</span></div>
+<div class="line">$ valgrind –leak-check=full ./jvm_boss -e test/<a class="code" href="classHelloJava.html">HelloJava</a>.class</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor"># bash script</span></div>
+<div class="line"><span class="preprocessor">$ ./valgrind.sh HelloJava</span></div>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md19"></a>
+Documentação</h2>
+<h3><a class="anchor" id="autotoc_md20"></a>
+&lt;a href="https://www.doxygen.nl/index.html"&gt;Doxygen&lt;/a&gt;</h3>
+<p>Instalação no Linux</p>
+<div class="fragment"><div class="line">$ git clone https:<span class="comment">//github.com/doxygen/doxygen.git</span></div>
+<div class="line"> </div>
+<div class="line">$ cd doxygen</div>
+<div class="line"> </div>
+<div class="line">$ mkdir build</div>
+<div class="line"> </div>
+<div class="line">$ cd build</div>
+<div class="line"> </div>
+<div class="line">$ cmake -G <span class="stringliteral">&quot;Unix Makefiles&quot;</span> ..</div>
+<div class="line"> </div>
+<div class="line">$ make</div>
+<div class="line"> </div>
+<div class="line">$ make install</div>
+</div><!-- fragment --><p>Criando arquivo de configuração do Doxygen</p>
+<div class="fragment"><div class="line"><span class="preprocessor"># Cria um arquivo de configuração do doxygen com o nome &quot;doxygen_config&quot;</span></div>
+<div class="line">$ doxygen -g doxygen_config</div>
+</div><!-- fragment --><p>No arquivo "doxygen_config", foi necessário modificar a configuração "RECURSIVE = YES" para gerar a documentação.</p>
+<p>Executando</p>
+<div class="fragment"><div class="line"><span class="preprocessor"># Gera ou atualiza a pasta &quot;html&quot;</span> do projeto. Deve-se rodar este comando sempre que o código for atualizado</div>
+<div class="line">$ doxygen doxygen_config</div>
+</div><!-- fragment --><p>Para visualizar a documentação gerada, basta abrir a pasta "html" do projeto e abrir o arquivo "index.html" com o navegador.</p>
+<h2><a class="anchor" id="step1"></a>
+Step 1: Opening the box</h2>
+<p>etc... </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

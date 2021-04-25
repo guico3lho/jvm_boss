@@ -95,6 +95,18 @@ template&lt;typename T &gt; </td></tr>
 <tr class="memitem:afcb1573f6b40405df568c0cb20e43201"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__reference_8cpp.html#afcb1573f6b40405df568c0cb20e43201">invokevirtual</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
 <tr class="memdesc:afcb1573f6b40405df568c0cb20e43201"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invoca instância de método baseado na classe.  <a href="instructions__reference_8cpp.html#afcb1573f6b40405df568c0cb20e43201">Mais...</a><br /></td></tr>
 <tr class="separator:afcb1573f6b40405df568c0cb20e43201"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8a6f4db3a14607942c0bc9c2737807c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__reference_8cpp.html#aa8a6f4db3a14607942c0bc9c2737807c">invokevirtual_print</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:aa8a6f4db3a14607942c0bc9c2737807c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função dos metodos do tipo print da instrução invokevirtual (opcode 182)  <a href="instructions__reference_8cpp.html#aa8a6f4db3a14607942c0bc9c2737807c">Mais...</a><br /></td></tr>
+<tr class="separator:aa8a6f4db3a14607942c0bc9c2737807c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bc32c852b556577af15bda84f825dbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__reference_8cpp.html#a4bc32c852b556577af15bda84f825dbd">invokevirtual_string_builder_append</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:a4bc32c852b556577af15bda84f825dbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função do metodo StringBuilder append da instrução invokevirtual (opcode 182)  <a href="instructions__reference_8cpp.html#a4bc32c852b556577af15bda84f825dbd">Mais...</a><br /></td></tr>
+<tr class="separator:a4bc32c852b556577af15bda84f825dbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f05d006cbcbc7d52164b7d308ac1317"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__reference_8cpp.html#a0f05d006cbcbc7d52164b7d308ac1317">class_not_default_java</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame, string class_name, string method_name, string method_desc, string invoke_type)</td></tr>
+<tr class="memdesc:a0f05d006cbcbc7d52164b7d308ac1317"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função de método não default do Java das instruções de invoke.  <a href="instructions__reference_8cpp.html#a0f05d006cbcbc7d52164b7d308ac1317">Mais...</a><br /></td></tr>
+<tr class="separator:a0f05d006cbcbc7d52164b7d308ac1317"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affa8c9e601ac89e035302d49e132a207"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__reference_8cpp.html#affa8c9e601ac89e035302d49e132a207">count_method_arguments</a> (string method_descriptor)</td></tr>
+<tr class="memdesc:affa8c9e601ac89e035302d49e132a207"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conta quantidade de argumentos do metodo chamado.  <a href="instructions__reference_8cpp.html#affa8c9e601ac89e035302d49e132a207">Mais...</a><br /></td></tr>
+<tr class="separator:affa8c9e601ac89e035302d49e132a207"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedc7803290d135625ee1ce9ca86732be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__reference_8cpp.html#aedc7803290d135625ee1ce9ca86732be">invokespecial</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
 <tr class="memdesc:aedc7803290d135625ee1ce9ca86732be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invoca o método de instância, e trata da inicialiação da superclasse.  <a href="instructions__reference_8cpp.html#aedc7803290d135625ee1ce9ca86732be">Mais...</a><br /></td></tr>
 <tr class="separator:aedc7803290d135625ee1ce9ca86732be"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -110,9 +122,9 @@ template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a5d970c958facca808d3ac238a6f7c73c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__reference_8cpp.html#a5d970c958facca808d3ac238a6f7c73c">newarray</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
 <tr class="memdesc:a5d970c958facca808d3ac238a6f7c73c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria novo array do tipo definido.  <a href="instructions__reference_8cpp.html#a5d970c958facca808d3ac238a6f7c73c">Mais...</a><br /></td></tr>
 <tr class="separator:a5d970c958facca808d3ac238a6f7c73c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a436858366f50732cb9882c50c093f7b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__reference_8cpp.html#a436858366f50732cb9882c50c093f7b3">set_newarray_type</a> (<a class="el" href="structOperand.html">Operand</a> *operand, u4 index, string array_type)</td></tr>
-<tr class="memdesc:a436858366f50732cb9882c50c093f7b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define o tipo de dado dos operandos do newarray.  <a href="instructions__reference_8cpp.html#a436858366f50732cb9882c50c093f7b3">Mais...</a><br /></td></tr>
-<tr class="separator:a436858366f50732cb9882c50c093f7b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17e25080d4f2576ff4ef2694b53623ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__reference_8cpp.html#a17e25080d4f2576ff4ef2694b53623ab">set_newarray_type</a> (<a class="el" href="structOperand.html">Operand</a> *operand, u4 count, string array_type)</td></tr>
+<tr class="memdesc:a17e25080d4f2576ff4ef2694b53623ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define o tipo de dado dos operandos do newarray.  <a href="instructions__reference_8cpp.html#a17e25080d4f2576ff4ef2694b53623ab">Mais...</a><br /></td></tr>
+<tr class="separator:a17e25080d4f2576ff4ef2694b53623ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4076bfb4986969ba71c583cc8217725f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__reference_8cpp.html#a4076bfb4986969ba71c583cc8217725f">anewarray</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
 <tr class="memdesc:a4076bfb4986969ba71c583cc8217725f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria novo objeto array.  <a href="instructions__reference_8cpp.html#a4076bfb4986969ba71c583cc8217725f">Mais...</a><br /></td></tr>
 <tr class="separator:a4076bfb4986969ba71c583cc8217725f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -147,6 +159,92 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>arraylength</b> (<a c
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a0f05d006cbcbc7d52164b7d308ac1317"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f05d006cbcbc7d52164b7d308ac1317">&#9670;&nbsp;</a></span>class_not_default_java()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void class_not_default_java </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>class_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>method_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>method_desc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>invoke_type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função de método não default do Java das instruções de invoke. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td></td></tr>
+    <tr><td class="paramname">class_name</td><td></td></tr>
+    <tr><td class="paramname">method_name</td><td></td></tr>
+    <tr><td class="paramname">method_desc</td><td></td></tr>
+    <tr><td class="paramname">invoke_type</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="affa8c9e601ac89e035302d49e132a207"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affa8c9e601ac89e035302d49e132a207">&#9670;&nbsp;</a></span>count_method_arguments()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int count_method_arguments </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>method_descriptor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Conta quantidade de argumentos do metodo chamado. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>method_descriptor </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>int </dd></dl>
 
 </div>
 </div>
@@ -312,6 +410,59 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>arraylength</b> (<a c
 
 </div>
 </div>
+<a id="aa8a6f4db3a14607942c0bc9c2737807c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8a6f4db3a14607942c0bc9c2737807c">&#9670;&nbsp;</a></span>invokevirtual_print()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void invokevirtual_print </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função dos metodos do tipo print da instrução invokevirtual (opcode 182) </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*curr_frame</td><td></td></tr>
+    <tr><td class="paramname">method_name</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4bc32c852b556577af15bda84f825dbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bc32c852b556577af15bda84f825dbd">&#9670;&nbsp;</a></span>invokevirtual_string_builder_append()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void invokevirtual_string_builder_append </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFrame.html">Frame</a> *&#160;</td>
+          <td class="paramname"><em>curr_frame</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função do metodo StringBuilder append da instrução invokevirtual (opcode 182) </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">curr_frame</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ada51e3c14c3da651de7077f5b981ab11"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ada51e3c14c3da651de7077f5b981ab11">&#9670;&nbsp;</a></span>new_obj()</h2>
 
@@ -393,8 +544,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>arraylength</b> (<a c
 
 </div>
 </div>
-<a id="a436858366f50732cb9882c50c093f7b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a436858366f50732cb9882c50c093f7b3">&#9670;&nbsp;</a></span>set_newarray_type()</h2>
+<a id="a17e25080d4f2576ff4ef2694b53623ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17e25080d4f2576ff4ef2694b53623ab">&#9670;&nbsp;</a></span>set_newarray_type()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -409,7 +560,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>arraylength</b> (<a c
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">u4&#160;</td>
-          <td class="paramname"><em>index</em>, </td>
+          <td class="paramname"><em>count</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

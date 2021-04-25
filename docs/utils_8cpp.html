@@ -81,6 +81,15 @@ Funções</h2></td></tr>
 <tr class="memitem:a3d1da22fdd0500f36b985c34e220cc69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8cpp.html#a3d1da22fdd0500f36b985c34e220cc69">print_command_error</a> ()</td></tr>
 <tr class="memdesc:a3d1da22fdd0500f36b985c34e220cc69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime mensagem de comando incorreto.  <a href="utils_8cpp.html#a3d1da22fdd0500f36b985c34e220cc69">Mais...</a><br /></td></tr>
 <tr class="separator:a3d1da22fdd0500f36b985c34e220cc69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32e3a2cb0297e6cbbf601148195e9ee9"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8cpp.html#a32e3a2cb0297e6cbbf601148195e9ee9">float_bits_to_value</a> (u4 float_bits)</td></tr>
+<tr class="memdesc:a32e3a2cb0297e6cbbf601148195e9ee9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converte float no formato IEEE de bits para valor float.  <a href="utils_8cpp.html#a32e3a2cb0297e6cbbf601148195e9ee9">Mais...</a><br /></td></tr>
+<tr class="separator:a32e3a2cb0297e6cbbf601148195e9ee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3605ab1dfdcec20a93aa35855634b17b"><td class="memItemLeft" align="right" valign="top">u4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8cpp.html#a3605ab1dfdcec20a93aa35855634b17b">float_value_to_bits</a> (float float_value)</td></tr>
+<tr class="memdesc:a3605ab1dfdcec20a93aa35855634b17b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converte valor float para o formato IEEE de bits.  <a href="utils_8cpp.html#a3605ab1dfdcec20a93aa35855634b17b">Mais...</a><br /></td></tr>
+<tr class="separator:a3605ab1dfdcec20a93aa35855634b17b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f1777e93eb85d7ee5aeccd205fa947e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8cpp.html#a3f1777e93eb85d7ee5aeccd205fa947e">double_bits_to_value</a> (u8 double_bits)</td></tr>
+<tr class="memdesc:a3f1777e93eb85d7ee5aeccd205fa947e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converte double no formato IEEE de bits para valor double.  <a href="utils_8cpp.html#a3f1777e93eb85d7ee5aeccd205fa947e">Mais...</a><br /></td></tr>
+<tr class="separator:a3f1777e93eb85d7ee5aeccd205fa947e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fcad2a3bf15856e5d7f6ae0373800fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8cpp.html#a6fcad2a3bf15856e5d7f6ae0373800fc">freeClass</a> (<a class="el" href="structClass__File.html">Class_File</a> class_file)</td></tr>
 <tr class="memdesc:a6fcad2a3bf15856e5d7f6ae0373800fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libera a memória alocada para o Class File.  <a href="utils_8cpp.html#a6fcad2a3bf15856e5d7f6ae0373800fc">Mais...</a><br /></td></tr>
 <tr class="separator:a6fcad2a3bf15856e5d7f6ae0373800fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -94,6 +103,87 @@ Funções</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
 <div class="textblock"><p>Arquivo com funções de impressão de erros no terminal e liberação de memória. </p>
 </div><h2 class="groupheader">Documentação das funções</h2>
+<a id="a3f1777e93eb85d7ee5aeccd205fa947e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f1777e93eb85d7ee5aeccd205fa947e">&#9670;&nbsp;</a></span>double_bits_to_value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double double_bits_to_value </td>
+          <td>(</td>
+          <td class="paramtype">u8&#160;</td>
+          <td class="paramname"><em>double_bits</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converte double no formato IEEE de bits para valor double. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">double_bits</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>double </dd></dl>
+
+</div>
+</div>
+<a id="a32e3a2cb0297e6cbbf601148195e9ee9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32e3a2cb0297e6cbbf601148195e9ee9">&#9670;&nbsp;</a></span>float_bits_to_value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float float_bits_to_value </td>
+          <td>(</td>
+          <td class="paramtype">u4&#160;</td>
+          <td class="paramname"><em>float_bits</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converte float no formato IEEE de bits para valor float. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">float_bits</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>float </dd></dl>
+
+</div>
+</div>
+<a id="a3605ab1dfdcec20a93aa35855634b17b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3605ab1dfdcec20a93aa35855634b17b">&#9670;&nbsp;</a></span>float_value_to_bits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">u4 float_value_to_bits </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>float_value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converte valor float para o formato IEEE de bits. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">float_value</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>uint32_t </dd></dl>
+
+</div>
+</div>
 <a id="aeee5b372ed28dcf4a92a061a2981b97c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeee5b372ed28dcf4a92a061a2981b97c">&#9670;&nbsp;</a></span>freeAttribute()</h2>
 
