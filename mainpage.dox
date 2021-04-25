@@ -9,8 +9,9 @@
  * - Gustavo A. S. de Barros - 18/0064487 
  * - Mayara Chew - 18/0025210
  *
- *
  * ## Compilação e informações com javac/javap
+ *
+ * <img src="../diagrama.png" width="90%" />
  *
  * Compila arquivo ``.java`` para ``.class``
  *
