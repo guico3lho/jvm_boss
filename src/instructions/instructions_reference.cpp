@@ -590,10 +590,11 @@ void newarray(Frame *curr_frame) {
 }
 
 /**
- * @brief Define o tipo de dado dos operandos do newarray 
+ * @brief Define um array de operandos de um tipo de dado 
  * 
- * @param operand_2 
- * @param index 
+ * @param Operand *operand
+ * @param u4 count
+ * @param string array_type 
  */
 void set_newarray_type(Operand *operand, u4 count, string array_type) {
   for (int i = 0; i < (int) count; i++) {

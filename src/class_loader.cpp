@@ -118,91 +118,91 @@ Operand* get_static_field_of_class(std::string class_name, std::string field_nam
  * @return Operand* novo ponteiro para Operand
  */
 Operand* check_string_create_type(std::string type_string) {
-  Operand *new_type = (Operand*)malloc(sizeof(Operand));
+  Operand *new_operand = (Operand*) malloc(sizeof(Operand));
 
   switch (type_string.c_str()[0]) {
     case 'I':
-      new_type->tag = CONSTANT_INT;
-      new_type->type_int = 0;
+      new_operand->tag = CONSTANT_INT;
+      new_operand->type_int = 0;
       break;
 
     case 'F':
-      new_type->tag = CONSTANT_FLOAT;
-      new_type->type_float = 0;
+      new_operand->tag = CONSTANT_FLOAT;
+      new_operand->type_float = 0;
       break;
 
     case 'J':
-      new_type->tag = CONSTANT_LONG;
-      new_type->type_long = 0;
+      new_operand->tag = CONSTANT_LONG;
+      new_operand->type_long = 0;
       break;
 
     case 'D':
-      new_type->tag = CONSTANT_DOUBLE;
-      new_type->type_double = 0;
+      new_operand->tag = CONSTANT_DOUBLE;
+      new_operand->type_double = 0;
       break;
 
     case 'Z':
-      new_type->tag = CONSTANT_BOOL;
-      new_type->type_bool = 0;
+      new_operand->tag = CONSTANT_BOOL;
+      new_operand->type_bool = 0;
       break;
 
     case 'B':
-      new_type->tag = CONSTANT_BYTE;
-      new_type->type_byte = 0;
+      new_operand->tag = CONSTANT_BYTE;
+      new_operand->type_byte = 0;
       break;
 
     case 'C':
-      new_type->tag = CONSTANT_CHAR;
-      new_type->type_char = 0;
+      new_operand->tag = CONSTANT_CHAR;
+      new_operand->type_char = 0;
       break;
 
     case 'S':
-      new_type->tag = CONSTANT_SHORT;
-      new_type->type_short = 0;
+      new_operand->tag = CONSTANT_SHORT;
+      new_operand->type_short = 0;
       break;
 
     case '[':
       if (DEBUG) printf("Criando operando tipo Array\n");
-      new_type->tag = CONSTANT_ARRAY;
-      new_type->array_type = (Array_Type*) malloc(sizeof(Array_Type));
-      new_type->array_type->array = new std::vector<Operand*>();
+      new_operand->tag = CONSTANT_ARRAY;
+      new_operand->array_type = (Array_Type*) malloc(sizeof(Array_Type));
+      new_operand->array_type->array = new std::vector<Operand*>();
       break;
 
     case 'P':
-      new_type->tag = CONSTANT_EMPTY;
+      new_operand->tag = CONSTANT_EMPTY;
       break;
 
     case CONSTANT_STRING:
-      new_type->tag = CONSTANT_STRING;
-      new_type->type_string = new std::string("");
+      new_operand->tag = CONSTANT_STRING;
+      new_operand->type_string = new std::string("");
       break;
 
     case 'L': // Tipo Classe
       if (type_string == "Ljava/lang/Integer;") {
-        new_type->tag = CONSTANT_INT;
-        new_type->type_int = 0;
+        new_operand->tag = CONSTANT_INT;
+        new_operand->type_int = 0;
       } 
 
       if (type_string == "Ljava/lang/String;") {
         if (DEBUG) cout << "Class: Ljava/lang/String;\n";
-        new_type->tag = CONSTANT_STRING;
-        new_type->type_string = new std::string("");
+        new_operand->tag = CONSTANT_STRING;
+        new_operand->type_string = new std::string("");
       } 
       
       if (type_string == "Ljava/lang/Object;") {
-        new_type->tag = CONSTANT_CLASS;
-        new_type->class_loader = (Class_Loader*) malloc(sizeof(Class_Loader));
+        new_operand->tag = CONSTANT_CLASS;
+        new_operand->class_loader = (Class_Loader*) malloc(sizeof(Class_Loader));
 
         std::string class_realname = type_string.substr(1, type_string.size());
         if (DEBUG) std::cout << "Classe java/lang/Object" << class_realname << "\n";
 
         Class_File class_info = get_class_and_load_not_exists(class_realname);
-        new_type->class_loader->class_file = class_info;
-        new_type->class_loader->class_name = &class_realname;
+        new_operand->class_loader->class_file = class_info;
+        new_operand->class_loader->class_name = &class_realname;
 
-        load_class_variables(new_type->class_loader);
+        load_class_variables(new_operand->class_loader);
       }
       break;
   }
-  return new_type;
+  return new_operand;
 }
