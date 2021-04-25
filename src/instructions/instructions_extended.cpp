@@ -94,8 +94,8 @@ void multianewarray(Frame* curr_frame) {
 
       for (int k = 0; k < counts[2]; k++) {
         if (DEBUG) printf("Array [%d][%d][%d] - ", i, j, k);
-        array_value[i][j][k]->array_type->array->emplace_back(check_string_create_type("I"));
-        array_value[i][j][k].emplace_back(check_string_create_type("I"));
+        array_value[i][j].array_type->array->emplace_back(check_string_create_type("I"));
+        // array_value[i][j][k].emplace_back(check_string_create_type("I"));
       }
     }
   }

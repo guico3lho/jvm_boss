@@ -34,8 +34,7 @@ Frame::Frame(Method_Info *method, Class_File class_file) {
   // if (DEBUG) printf("Frame::Frame - Magic Number: 0x%0X\n", class_file_ref->magic_number);
 
   // Pega referencia do atributo de codigo do metodo
-  for (int i = 0; i < method_info->attributes_count; ++i)
-  {
+  for (int i = 0; i < method_info->attributes_count; ++i) {
     Attribute_Info attribute_info = method_info->attributes[i];
     std::string class_string = get_cp_info_utf8(*class_file_ref, attribute_info.attribute_name_index);
 
