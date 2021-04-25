@@ -62,32 +62,48 @@ $ ./jvm.sh HelloJava
 - [x] cafebabe
 - [x] HelloJava
 - [x] Prints
+  
+## Aritmeticos
+
 - [x] Sum
-- [x] double_aritmetica
 - [x] Multiply
-- [x] Switch
-- [x] tableswitch
-- [ ] multi
-- [x] Loop_for
+- [x] double_aritmetica
+- [x] _int_aritmetica
+- [x] _float_aritmetica
+- [x] _double_aritmetica
+
+## Vetores
+
 - [x] vetor
 - [x] vetor2
 - [x] Vector_1
 - [x] Vector_2
+- [ ] multi
+## Controle
+
+- [x] Loop_for
+- [x] Switch
+- [x] tableswitch
+- [x] _lookupswitch
+
+## Comparação
+
 - [x] Comparison
+## Conversão
+
 - [x] Convert_int
 - [x] Convert_float
 - [x] Convert_double
 - [x] Convert_long
-- [x] StaticMethod
-- [x] _int_aritmetica
-- [x] _float_aritmetica
-- [x] _double_aritmetica
+
+## Metodos
+
+- [x] MethodStatic
+- [x] MethodParams
 - [x] _recursao
-- [x] _lookupswitch
 - [x] _NoVoidMethods
 
 <!-- 1- Fazer vetor e multi funcionar -->
-<!-- Fazer os .java de multi e vetor-->
 <!-- 1- Refatorar o class_loader -->
 <!-- Frame teria que pegar dentro do Method area.  -->
 <!-- 1- Ver as funções de Cp_Info. Existem 2 funções -->
@@ -96,8 +112,6 @@ $ ./jvm.sh HelloJava
 <!-- Class Loader -->
 <!-- Cp_Info  -->
 <!-- Arquivos que usam super class -->
-<!-- Testar vetor -->
-<!--  -->
 # Configurações
 
 ### Até a versão [Java SE 8](https://docs.oracle.com/javase/specs/jvms/se8/html/index.html)

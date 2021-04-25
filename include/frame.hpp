@@ -26,7 +26,7 @@ typedef struct Operand {
     u4 type_float;
     u8 type_long;
     u8 type_double;
-    
+
     u4 type_bool;
     u4 type_byte;
     u4 type_char;
@@ -49,9 +49,9 @@ typedef struct Array_Type{
   * @brief Estrutura de dados que armazena informações e resultados parciais, para executar
   *  ligação dinâmica,retornar valores para métodos e disparar exceções.
   * 
-  *  Cada frame possui seu próprio array de variáveis locais, sua pilha de
-  *  operandos e uma referência para o pool de constantes da classe do método
-  *  corrente.
+  *  Cada frame possui sua pilha de operandos, seu próprio vetor de variáveis locais e 
+  *  uma referência para o pool de constantes da classe do método corrente.
+  * 
   **/
 class Frame {
 public:

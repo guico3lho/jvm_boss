@@ -29,11 +29,16 @@ void multianewarray(Frame* curr_frame) {
   u1 dimensions = curr_frame->method_code->code[curr_frame->pc++];
   if (DEBUG) cout << "Dimensions: " << (int) dimensions << "\n";
 
+  Operand *op_aux;
+
   //* Cria vetor de tamanhos dos arrays
-  // std::vector<int> counts = std::vector<int>(dimensions);
-  // for (int i = dimensions; i < 0; i--){
-  //   counts[i] = count;
-  // }
+  std::vector<int> counts = std::vector<int>(dimensions);
+  for (int i = 0; i < dimensions; i++){
+    op_aux = curr_frame->pop_operand();
+    int count = op_aux->type_int;
+    if (DEBUG) printf("array count %d: %d\n", i, count);
+    counts[i] = count;
+  }
 
   // for (int i = 0; i < dimensions; i++){
   //   if (DEBUG) printf("counts[%d]: %d\n", i, (int) counts[i]);
@@ -43,37 +48,34 @@ void multianewarray(Frame* curr_frame) {
   // std::vector<Operand*> op_vector;
     // operands[i] = (Operand*) malloc( ((int) count) * sizeof(Operand));
 
-  Operand *array_ref = check_string_create_type("[");
-  Operand *operand;
-  Operand *op_aux;
+  Operand *multiarray_ref = check_string_create_type("[");
+
+  // ptr para um vetor de ptrs de operandos
+  std::vector<Operand*> *op_vectors;
+  std::vector<Operand*> op_vectors_2;
+  op_vectors = multiarray_ref->array_type->array; 
 
   //* Começa pela ultima dimensao mais externa
   for (int i = 0; i < dimensions; i++){
 
-    op_aux = curr_frame->pop_operand();
-    int count = op_aux->type_int;
-    if (DEBUG) printf("array count %d: %d\n", i, (int) count);
+    for (int j = 0; j < counts[i]; j++) {
+      // Tipo ptr de operando do tipo op->array_type->array
+      op_vectors->emplace_back(check_string_create_type("["));
 
-    for (int j = 0; j < (int) count; j++) {
-      array_ref->array_type->array->emplace_back(check_string_create_type("["));
+      for(int k = 0; k < op_vectors->size(); k++) {
+        op_vectors[k].emplace_back(check_string_create_type("["));
+      }
     }
 
-    if (DEBUG) cout << "array size " << array_ref->array_type->array->size() << "\n";
+    if (DEBUG) cout << "array size " << op_vectors->size() << "\n";
 
-    // operand = array_ref->array_type->array[0];
-
-    // array_ref->array_type->array->emplace_back(operand);
+    // multiarray_ref->array_type->array->emplace_back(operand);
     
     if (DEBUG) cout << "--------------------\n";
   }
   
-  // for (int i = dimensions; i > 0; i--) {
-  //   curr_frame->push_operand(operands[i]);
-  // }
-  
 
-
-  curr_frame->push_operand(array_ref);
+  curr_frame->push_operand(multiarray_ref);
   // curr_frame->pc++;
 }
 
