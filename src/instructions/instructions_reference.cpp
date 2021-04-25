@@ -263,44 +263,48 @@ void invokevirtual_print(Frame *curr_frame) {
 void invokevirtual_string_builder_append(Frame *curr_frame) {
   if (DEBUG) cout << "Metodo StringBuilder: java/lang/StringBuilder\n";
 
-  Operand *t_append = curr_frame->pop_operand();
+  Operand *op_append = curr_frame->pop_operand();
   Operand *str_append = copy_operand(curr_frame->pop_operand());
 
   // converte tipo qualquer para tipo string - toString
-  switch (t_append->tag) {
+  switch (op_append->tag) {
     case CONSTANT_STRING:
-      *str_append->type_string += (*t_append->type_string);
+      *str_append->type_string += (*op_append->type_string);
       break;
     case CONSTANT_INT:
-      *str_append->type_string += (patch::to_string(t_append->type_int));
+      *str_append->type_string += (patch::to_string(op_append->type_int));
       break;
     case CONSTANT_LONG:
-      *str_append->type_string += (patch::to_string(t_append->type_long));
+      *str_append->type_string += (patch::to_string(op_append->type_long));
       break;
     case CONSTANT_FLOAT:
-      *str_append->type_string += (patch::to_string(t_append->type_float));
+      *str_append->type_string += (patch::to_string(op_append->type_float));
       break;
     case CONSTANT_DOUBLE:
-      *str_append->type_string += (patch::to_string(t_append->type_double));
+      *str_append->type_string += (patch::to_string(op_append->type_double));
       break;
     case CONSTANT_SHORT:
-      *str_append->type_string += (patch::to_string(t_append->type_short));
+      *str_append->type_string += (patch::to_string(op_append->type_short));
       break;
     case CONSTANT_CHAR:
-      *str_append->type_string += (patch::to_string(t_append->type_char));
+      *str_append->type_string += (patch::to_string(op_append->type_char));
       break;
     case CONSTANT_BYTE:
-      *str_append->type_string += (patch::to_string(t_append->type_byte));
+      *str_append->type_string += (patch::to_string(op_append->type_byte));
       break;
     case CONSTANT_BOOL:
-      if (t_append->type_bool == 0)
+      if (op_append->type_bool == 0)
         *str_append->type_string += "false";
       else
         *str_append->type_string += "true";
       break;
-    case CONSTANT_CLASS:
-      // TODO colocar endereco
-      *str_append->type_string += *t_append->class_container->class_name+"@";
+    case CONSTANT_CLASS: { 
+      Class_Container *class_container = op_append->class_container;
+      Class_File class_file = class_container->class_file;
+      string this_class_name = get_cp_info_utf8(class_file, class_file.this_class);
+      cout << this_class_name << "@" << class_container;
+      *str_append->type_string += this_class_name + "@";
+    }
       break;
     case CONSTANT_ARRAY:
       *str_append->type_string += "Array[]";

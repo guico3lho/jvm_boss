@@ -12,8 +12,6 @@ Method_Area *load_class_memory(Class_File class_file) {
   class_container->class_file = class_file;
 
   std::string class_name = get_cp_info_utf8(class_file, class_file.this_class); 
-  class_container->class_name = &class_name; //TODO: = class_name without refs?
-
   if (DEBUG) std::cout << "Classe " << class_name << " carregada na memoria!\n";
 
   method_area->loaded_classes.insert((std::pair<std::string, Class_Container *>(class_name, class_container))); 
@@ -77,7 +75,6 @@ Class_File load_parent_classes(std::string class_path) {
   std::string filepath = current_path_folder_inter + class_path + ".class";
   class_container->class_file = read_class_file(filepath);
   std::string class_name = get_cp_info_utf8(class_container->class_file, class_container->class_file.this_class);
-  class_container->class_name = &class_name;                                                                      
 
   method_area = load_class_memory(class_container->class_file);
 
@@ -198,7 +195,6 @@ Operand *check_string_create_type(std::string type_string) {
 
       Class_File class_info = load_parent_classes(class_realname);
       new_type->class_container->class_file = class_info;
-      new_type->class_container->class_name = &class_realname;
 
       load_class_variables(new_type->class_container);
     }

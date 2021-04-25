@@ -15,8 +15,6 @@ struct Operand;
  * @brief Estrutura para guardar informações sobre o class_file que fará parte do method_area
  */
 typedef struct Class_Container {
-    std::string *class_name = nullptr;
-
     Class_File class_file;
 
     // vetor com as referencias dos campos da classe

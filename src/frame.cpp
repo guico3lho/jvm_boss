@@ -125,8 +125,7 @@ Operand *copy_operand(Operand *original_type) {
     break;
 
   case CONSTANT_CLASS:
-    copy_type->class_container = (Class_Container *)malloc(sizeof(Class_Container));
-    copy_type->class_container->class_name = original_type->class_container->class_name;
+    copy_type->class_container = (Class_Container*) malloc(sizeof(Class_Container));
     copy_type->class_container->class_file = original_type->class_container->class_file;
     copy_type->class_container->class_fields = new std::map<std::string, Operand *>();
     copy_type->class_container->class_fields = original_type->class_container->class_fields;
