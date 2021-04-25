@@ -1,5 +1,6 @@
 # Projeto JVM - Software Basico
 
+![Diagrama](/diagrama.png)
 ## Compilação e informações com javac/javap
 
 Compila arquivo ``.java`` para ``.class``
