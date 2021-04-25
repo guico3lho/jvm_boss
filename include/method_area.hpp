@@ -34,7 +34,7 @@ typedef struct Method_Area
 /** 
  *  @brief Funções do class_loader
 */
-Method_Area *load_class_memory( Class_File class_file);
+Method_Area *load_class_memory(Class_File class_file);
 void load_class_variables(Class_Container *class_container);
 Class_File load_parent_classes(std::string c_path);
 /** 

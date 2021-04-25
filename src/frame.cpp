@@ -26,8 +26,7 @@ void (*func[256])(Frame *curr_frame);
 *  @param method ponteiro para informações do método
 *  @param cp_info ponteiro para a pool de constantes
 */
-Frame::Frame(Method_Info *method, Class_File class_file)
-{
+Frame::Frame(Method_Info *method, Class_File class_file) {
   cp_reference = class_file.constant_pool;
   class_file_ref = &class_file;
   method_info = method;
@@ -90,10 +89,7 @@ void Frame::push_operand(Operand *op)
 * @param original_type ponteiro para tipo de entrada
 * @return Operand* ponteiro para cópia do tipo de entrada
 */
-Operand *copy_operand(Operand *original_type)
-{
-  // TODO - Entender essa função
-
+Operand *copy_operand(Operand *original_type) {
   Operand *copy_type = (Operand *)malloc(sizeof(Operand));
   copy_type->tag = original_type->tag;
 
@@ -157,8 +153,7 @@ Operand *copy_operand(Operand *original_type)
 /** @brief Inicia vetor de funções das instruções assembly.
 *  @return void
 */
-void Frame::setup_instructions_func()
-{
+void Frame::setup_instructions_func() {
 
   /* CONSTANTS */
   func[0] = nop;
