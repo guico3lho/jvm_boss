@@ -22,7 +22,6 @@ void (*func[256])(Frame *curr_frame);
 *   Constrói o Frame com as informações gerais da classe
 *   (cp_reference), (class_file_ref), informações de método (method_info),
 *   código do método (method_code), inica PC com 0 e redimensiona o vetor de variáveis locais.
-
 *  @param method ponteiro para informações do método
 *  @param cp_info ponteiro para a pool de constantes
 */
