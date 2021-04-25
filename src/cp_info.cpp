@@ -91,31 +91,79 @@ std::string get_cp_info_utf8(Class_File class_file, u2 index){
       break;
 
     case CONSTANT_FIELD_REF:
-      index = class_file.constant_pool[index].Fieldref_Info.field_ref_class_ref; 
-      utf8_text = get_cp_info_utf8(class_file, index);                                   
       utf8_text = get_cp_info_utf8(class_file, class_file.constant_pool[index].Fieldref.class_index);                                   
       utf8_text += "." + get_cp_info_utf8(class_file, class_file.constant_pool[index].Fieldref.name_and_type_index);                                   
       break;
 
     case CONSTANT_METHOD_REF:
       utf8_text = get_cp_info_utf8(class_file, class_file.constant_pool[index].Methodref.class_index);                                   
-    case CONSTANT_DOUBLE:
+      utf8_text += "." + get_cp_info_utf8(class_file, class_file.constant_pool[index].Methodref.name_and_type_index);                                   
+      break;
+
+    case CONSTANT_INTERFACE_METHOD_REF:
+      utf8_text = get_cp_info_utf8(class_file, class_file.constant_pool[index].InterfaceMethodref.class_index);                                   
+      utf8_text += "." + get_cp_info_utf8(class_file, class_file.constant_pool[index].InterfaceMethodref.name_and_type_index);                                   
+      break;
+
+    case CONSTANT_STRING:
+      utf8_text += get_cp_info_utf8(class_file, class_file.constant_pool[index].String.string_index);   
+      break;
+
     case CONSTANT_NAME_TYPE:
-      index_aux = class_file.constant_pool[index].NameAndType_Info.name_type_index;            
-      utf8_text = get_cp_info_utf8(class_file, index_aux);                                             
-      index_aux = class_file.constant_pool[index].NameAndType_Info.name_type_descriptor_index; 
+      utf8_text = get_cp_info_utf8(class_file, class_file.constant_pool[index].NameAndType.name_index);                                             
+      utf8_text += ":" + get_cp_info_utf8(class_file, class_file.constant_pool[index].NameAndType.descriptor_index);
       break;
+
     case CONSTANT_UTF8:
-      utf8_text = (char *)class_file.constant_pool[index].Utf8_Info.UTF8_bytes; 
+      utf8_text = (char*) class_file.constant_pool[index].Utf8.bytes; 
       break;
+
+    default: 
+      return "";
+  }
+  return utf8_text;
+}
+
+/**
+ * @brief Lê o texto utf8 da constant pool
+ * @param cp_info
+ * @param index
+ * @return std::string
+ */
+std::string get_utf8_constant_pool(Cp_Info* cp_info, u2 index) {
+  std::string utf8_text;
+
+  switch (cp_info[index].tag) {
+    case CONSTANT_CLASS:
+      utf8_text = get_utf8_constant_pool(cp_info, cp_info[index].Class.class_name);                       
+      break;
+
+    case CONSTANT_FIELD_REF:
+      utf8_text = get_utf8_constant_pool(cp_info, cp_info[index].Fieldref.class_index);                                   
+      utf8_text += get_utf8_constant_pool(cp_info, cp_info[index].Fieldref.name_and_type_index);                                   
+      break;
+
+    case CONSTANT_METHOD_REF:
+      utf8_text = get_utf8_constant_pool(cp_info, cp_info[index].Methodref.class_index);                                   
+      utf8_text += get_utf8_constant_pool(cp_info, cp_info[index].Methodref.name_and_type_index);                                   
+      break;
+
+    case CONSTANT_INTERFACE_METHOD_REF:
+      utf8_text = get_utf8_constant_pool(cp_info, cp_info[index].InterfaceMethodref.class_index);                                   
+      utf8_text += get_utf8_constant_pool(cp_info, cp_info[index].InterfaceMethodref.name_and_type_index);                                   
+      break;
+
+    case CONSTANT_STRING:
       utf8_text += get_utf8_constant_pool(cp_info, cp_info[index].String.string_index);   
       break;
 
     case CONSTANT_NAME_TYPE:
+      utf8_text = get_utf8_constant_pool(cp_info, cp_info[index].NameAndType.name_index);                                             
       utf8_text += get_utf8_constant_pool(cp_info, cp_info[index].NameAndType.descriptor_index);
       break;
 
     case CONSTANT_UTF8:
+      utf8_text = (char*) cp_info[index].Utf8.bytes; 
       break;
 
     default: 
@@ -138,6 +186,7 @@ void get_cp_info_class_name(std::string filename, Class_File class_file) {
 
   std::size_t backslash_index = filename.find_last_of("/\\");
   std::string class_filename = filename.substr(backslash_index + 1);
+
   if (DEBUG)
     std::cout << "Source File Name:     " << class_filename << std::endl;
 

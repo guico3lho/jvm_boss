@@ -15,11 +15,12 @@ void print_major_version(u2 major_version) {
     case 52:
       printf("Java SE 8");
       break;
+
     case 51:
       printf("Java SE 7");
       break;
+
     case 50:
-      printf("Java SE 6.0");
       printf("Java SE 6.0");
       break;
 
@@ -44,6 +45,7 @@ void print_major_version(u2 major_version) {
       break;
   }
   printf("\n");
+}
 
 /**
  * @brief Checa se é a flag correta e imprime no terminal
@@ -124,12 +126,15 @@ void print_cp_info_int(Cp_Info cp_info) {
 
 void print_cp_info_float(Cp_Info cp_info) {
   float float_value;
+  memcpy(&float_value, &(cp_info.Float.bytes), sizeof(float));
+  printf("Float\t\t%f", float_value);
 }
 
 void print_cp_info_long(Cp_Info cp_info) {
-  u8 long_info;
+  u8 aux;
   long long_value;
-  long_info = ((u8) cp_info.Long_Info.long_high_bytes << 32) | cp_info.Long_Info.long_low_bytes;
+
+  aux = ((u8) cp_info.Long.high_bytes << 32) | cp_info.Long.low_bytes;
   memcpy(&long_value, &aux, sizeof(long));
 
   printf("Long\t\t%ld\t\t", long_value);
@@ -137,27 +142,27 @@ void print_cp_info_long(Cp_Info cp_info) {
 }
 
 void print_cp_info_double(Cp_Info cp_info) {
+  double read_double_value;
   u8 aux;
-  aux = ((u8)cp_info.Double_Info.double_high_bytes << 32) | cp_info.Double_Info.double_low_bytes;
-  memcpy(&double_value, &aux, sizeof(double));
 
-  printf("Double\t\t%f\t", double_value);
-  printf("High: 0x%x | Low: 0x%x", cp_info.Double_Info.double_high_bytes, cp_info.Double_Info.double_low_bytes);
+  printf("Double\n");
+  std::cout << "\tHigh:\t0x"<< std::hex << cp_info.Double.high_bytes << std::endl;
+  std::cout << "\tLow:\t0x"<< std::hex << cp_info.Double.low_bytes << std::endl;
+
+  // Constante double de 8 bytes em big-endian no formato IEEE-754
+  aux = ((u8)cp_info.Double.high_bytes << 32) | cp_info.Double.low_bytes;
+  memcpy(&read_double_value, &aux, sizeof(double));
+  std::cout << "\tDouble Value:\t"<< read_double_value << std::endl;
 }
 
 void print_cp_info_class(Class_File class_file, Cp_Info cp_info) {
-  std::cout << "Class" << "\t\t#" << std::dec << cp_info.Class_Info.class_name;
-  std::cout << "\t\t" << get_cp_info_utf8(class_file, cp_info.Class_Info.class_name);
+  std::cout << "Class" << "\t\t#" << std::dec << cp_info.Class.class_name;
+  std::cout << "\t\t\t" << get_cp_info_utf8(class_file, cp_info.Class.class_name);
 }
 
 void print_cp_info_string(Class_File class_file, Cp_Info cp_info) {
-  printf("String\t\t#%d\t\t", cp_info.String_Info.string_index);
-  std::cout << get_cp_info_utf8(class_file, cp_info.String_Info.string_index);
-}
-
-void print_cp_info_field(Class_File class_file, Cp_Info cp_info) {
-  printf("Fieldref\t\t#%d.#%d\t\t", cp_info.Fieldref_Info.field_ref_class_ref, cp_info.Fieldref_Info.field_ref_name_type_descriptor);
-  std::cout << get_cp_info_utf8(class_file, cp_info.Fieldref_Info.field_ref_class_ref);
+  printf("String\t\t#%d\t\t\t", cp_info.String.string_index);
+  std::cout << get_cp_info_utf8(class_file, cp_info.String.string_index);
 }
 
 void print_cp_info_field(Class_File class_file, Cp_Info cp_info) {
@@ -177,6 +182,7 @@ void print_cp_info_interface_method(Class_File class_file, Cp_Info cp_info) {
 
   // Nome da interface que contem a declaração do metodo
   std::cout << "\tIndex:\t#" << std::endl;
+  std::cout << get_cp_info_utf8(class_file, cp_info.InterfaceMethodref.class_index) << std::endl;
 
   // Nome e tipo do método
   std::cout << "Name and Type:"<< std::endl;
@@ -187,6 +193,7 @@ void print_cp_info_name_type(Class_File class_file, Cp_Info cp_info) {
   printf("NameAndType\t#%d:#%d\t\t\t", cp_info.NameAndType.name_index, cp_info.NameAndType.descriptor_index);
   std::cout << get_cp_info_utf8(class_file, cp_info.NameAndType.name_index);
   std::cout << ":" << get_cp_info_utf8(class_file, cp_info.NameAndType.descriptor_index);
+}
 
 void print_constant_pool(Class_File class_file) {
   std::cout << "\n------------ Constant Pool ------------\n";
@@ -209,8 +216,13 @@ void print_constant_pool(Class_File class_file) {
       case CONSTANT_FLOAT:
         print_cp_info_float(current_cp_info);
         break;
+
+      case CONSTANT_LONG:
+        print_cp_info_long(current_cp_info);
+        i++;
         break;
 
+      case CONSTANT_DOUBLE:
         print_cp_info_double(current_cp_info);
         i++;
         break;
@@ -434,83 +446,87 @@ void print_instructions(Class_File class_file, Code_Attribute *code_attribute) {
     std::cout << i << ": " << instructions[op_code].name;
 
     for (int j = 0; j < (int) instructions[op_code].bytes; j++) {
-        ++i;
-        switch(op_code) {
-          case CONSTANT_ldc:
-            {
-              u1 index = code_attribute->code[i];
-              u2 index_utf8 = 0x00 | index;
-              std::cout << "\t#" << (int)index << " " << get_cp_info_utf8(class_file, index_utf8);
-              j++;
-            }
-            break;
-          case CONSTANT_newarray:
-            print_newarray(code_attribute->code[j]);
+      ++i;
+      switch(op_code) {
+        case CONSTANT_ldc:
+          {
+            u1 index = code_attribute->code[i];
+            u2 index_utf8 = 0x00 | index;
+            std::cout << "\t#" << (int)index << " " << get_cp_info_utf8(class_file, index_utf8);
             j++;
-            break;
-          case CONSTANT_multianewarray:
-            {
-              u1 byte1 = code_attribute->code[i];
-              u1 byte2 = code_attribute->code[i+1];
-              u1 dim = code_attribute->code[i + 2];
-              u2 index = (byte1 << 8) | byte2;
-              str = get_cp_info_utf8(class_file, index);
+          }
+          break;
+        case CONSTANT_newarray:
+          print_newarray(code_attribute->code[j]);
+          j++;
+          break;
+        case CONSTANT_multianewarray:
+          {
+            u1 byte1 = code_attribute->code[i];
+            u1 byte2 = code_attribute->code[i+1];
+            u1 dim = code_attribute->code[i + 2];
+            u2 index = (byte1 << 8) | byte2;
+            str = get_cp_info_utf8(class_file, index);
 
-              if (!str.empty()) {
-                std::cout << "\t#" << std::dec << index << " " << str;
-                std::cout << " dim " << (int) dim;
-              }
-              j++;
+            if (!str.empty()) {
+              std::cout << "\t#" << std::dec << index << " " << str;
+              std::cout << " dim " << (int) dim;
             }
-            break;
-          case anewarray:
-          case checkcast: 
-          case getfield: 
-          case getstatic:
-          case instanceof: 
-          case invokespecial: 
-          case invokestatic:
-          case CONSTANT_ldc_w: 
-          case CONSTANT_ldc2_w: 
-          case CONSTANT_putfield:
-          case CONSTANT_putstatic:
-            {
-              u1 byte1 = code_attribute->code[i];
-              u1 byte2 = code_attribute->code[i + 1];
-              u2 index = (byte1 << 8) | byte2;
-              i++;
-              j++;
-            }
-            break;
-          case GOTO: case if_acmpeq:  case if_acmpne:  case if_icmpeq: case if_icmpne: 
-          case if_icmplt: case if_icmpge: case if_icmpgt: case if_icmple: case iifeq: case ifne:
-          case iflt: case ifge: case ifgt: case ifle: case ifnonull: case ifnull: case jsr:
-          case CONSTANT_if_icmpne: 
-          case CONSTANT_if_icmplt: 
-          case CONSTANT_if_icmpge: 
-          case CONSTANT_if_icmpgt: 
-          case CONSTANT_if_icmple: 
-          case CONSTANT_iifeq: 
-          case CONSTANT_ifne:
-          case CONSTANT_iflt: 
-          case CONSTANT_ifge: 
-          case CONSTANT_ifgt: 
-          case CONSTANT_ifle: 
-          case CONSTANT_ifnonull: 
-          case CONSTANT_ifnull: 
-          case CONSTANT_jsr:
-            {
-              u1 branchbyte1 = code_attribute->code[i];
-              u1 branchbyte2 = code_attribute->code[i + 1];
-              printf("\t%d", address);
-              i++;
-              j++;
-            }
-            break;
-          default:
-            printf(" 0x%x", code_attribute->code[j]);
-            break;
-        }
+            j++;
+          }
+          break;
+        case CONSTANT_anewarray:
+        case CONSTANT_checkcast: 
+        case CONSTANT_getfield: 
+        case CONSTANT_getstatic:
+        case CONSTANT_instanceof: 
+        case CONSTANT_invokespecial: 
+        case CONSTANT_invokestatic:
+        case CONSTANT_invokevirtual:
+        case CONSTANT_ldc_w: 
+        case CONSTANT_ldc2_w: 
+        case CONSTANT_putfield:
+        case CONSTANT_putstatic:
+          {
+            u1 byte1 = code_attribute->code[i];
+            u1 byte2 = code_attribute->code[i + 1];
+            u2 index = (byte1 << 8) | byte2;
+            std::cout << "\t#" << std::dec << index << " " << get_cp_info_utf8(class_file, index);
+            i++;
+            j++;
+          }
+          break;
+        case CONSTANT_GOTO: 
+        case CONSTANT_if_acmpeq:  
+        case CONSTANT_if_acmpne:  
+        case CONSTANT_if_icmpeq: 
+        case CONSTANT_if_icmpne: 
+        case CONSTANT_if_icmplt: 
+        case CONSTANT_if_icmpge: 
+        case CONSTANT_if_icmpgt: 
+        case CONSTANT_if_icmple: 
+        case CONSTANT_iifeq: 
+        case CONSTANT_ifne:
+        case CONSTANT_iflt: 
+        case CONSTANT_ifge: 
+        case CONSTANT_ifgt: 
+        case CONSTANT_ifle: 
+        case CONSTANT_ifnonull: 
+        case CONSTANT_ifnull: 
+        case CONSTANT_jsr:
+          {
+            u1 branchbyte1 = code_attribute->code[i];
+            u1 branchbyte2 = code_attribute->code[i + 1];
+            u2 address = (branchbyte1 << 8) | branchbyte2;
+            printf("\t%d", address);
+            i++;
+            j++;
+          }
+          break;
+        default:
+          printf(" 0x%x", code_attribute->code[j]);
+          break;
+      }
     }
     printf("\n");
   }

@@ -10,6 +10,8 @@
 
 /* EXTENDED */
 void multianewarray(Frame*);
+Operand* set_newarray(Operand* operand, u4 count, string array_type);
+
 void ifnull(Frame*);
 void ifnonnull(Frame*);
 

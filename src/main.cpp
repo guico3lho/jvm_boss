@@ -26,11 +26,13 @@
 #include "interpreter.hpp"
 #include "file_printer.hpp"
 
-
 int main(int argc, char* argv[]) {
 
-  if (argc != 3) {
+  std::string option = argv[1], file = argv[2];
+
+  if(option != "-e" && option != "-i") {
     print_command_error();
+  }
 
   Class_File class_file;
   class_file = read_class_file(file);
@@ -48,6 +50,7 @@ int main(int argc, char* argv[]) {
 
   // interpretador
   if(option == "-i") {
+    std::cout << "\n----------Modo Interpretador----------\n\n";
     execute(class_file);
   }
 

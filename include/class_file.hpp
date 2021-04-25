@@ -3,6 +3,11 @@
  *  @brief Estruturas e declarações de funções relacionados com a leitura de dados do arquivo bytecode (.class)
 */
 
+/** 
+ *  @file class_file.hpp
+ *  @brief Estruturas e declarações de funções relacionados com a leitura de dados do arquivo bytecode (.class)
+*/
+
 #ifndef __CLASS_FILE_H__
 #define __CLASS_FILE_H__
 
@@ -18,8 +23,6 @@ struct Interface_Info;
 struct Field_Info;
 struct Attribute_Info;
 struct Method_Info;
-struct Inner_Class_Attribute;
-
 
 /** 
  *  @brief Estrutura de dados que armazena as principais informações do bytecode (.class)

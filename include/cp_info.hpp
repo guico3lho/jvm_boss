@@ -15,8 +15,6 @@ struct Class_File;
 
 struct Cp_Info {
   u2 tag;
-struct Cp_Info {
-  u2 tag;
 
   union {
 
