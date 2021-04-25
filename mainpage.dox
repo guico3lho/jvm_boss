@@ -69,7 +69,7 @@
  * $ ./jvm.sh HelloJava
  * ```
  *
- * ## Classes Java (``.class``) de Teste
+ * ## Classes Java (.class) de Teste
  *
  * - [x] cafebabe
  * - [x] HelloJava
@@ -126,11 +126,13 @@
  * <!-- Arquivos que usam super class -->
  * # Configurações
  *
- * ### Até a versão [Java SE 8](https://docs.oracle.com/javase/specs/jvms/se8/html/index.html)
+ * ### Até a versão 
+ * [Java SE 8](https://docs.oracle.com/javase/specs/jvms/se8/html/index.html)
  *
  * ## Analisadores 
  *
- * ### Analisador estático: [Cppcheck 1.83](http://cppcheck.sourceforge.net) 
+ * ### Analisador estático:
+ * [Cppcheck 1.83](http://cppcheck.sourceforge.net) 
  *
  * Instalação no Linux
  *
@@ -155,7 +157,8 @@
  *
  * ```
  *
- * ### Analisador dinâmico: [Valgrind](https://www.valgrind.org/) 
+ * ### Analisador dinâmico: 
+ * [Valgrind](https://www.valgrind.org/) 
  *
  * Instalação no Linux
  *
@@ -174,7 +177,7 @@
  * ```
  * ## Documentação
  *
- * ### [Doxygen](https://www.doxygen.nl/index.html) 
+ * [Doxygen](https://www.doxygen.nl/index.html) 
  *
  * Instalação no Linux
  *
@@ -211,8 +214,7 @@
  * ```
  *
  * Para visualizar a documentação gerada, basta abrir a pasta "html" do projeto e abrir o arquivo "index.html" com o navegador.
- *
- * \subsection step1 Step 1: Opening the box
- *
- * etc...
+ * 
+ * ### Repositório Remoto
+ * [GitHub](https://github.com/GuiCoelhoDev/jvm_boss)
  */
