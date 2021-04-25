@@ -1,0 +1,218 @@
+/*! \mainpage JVM Boss
+ * # Projeto JVM - Software Basico
+ *
+ * ## Integrantes do Grupo
+ *
+ * - Ariel Batista da Silva - 17/0099776
+ * - Luís V. Capelletto - 16/0134544 
+ * - Guilherme Coelho - 16/0123046
+ * - Gustavo A. S. de Barros - 18/0064487 
+ * - Mayara Chew - 18/0025210
+ *
+ *
+ * ## Compilação e informações com javac/javap
+ *
+ * Compila arquivo ``.java`` para ``.class``
+ *
+ * ``` bash
+ * $ javac HelloJava.java
+ * ```
+ *
+ * Mostra informações do bytecode do arquivo ``.class``
+ *
+ * ``` bash
+ * $ javap HelloJava.class
+ *
+ * # para mais info, flags: -c, -verbose ou -v
+ * $ javap -v HelloJava.class
+ * ```
+ *
+ * # Compilando
+ *
+ * ``` bash
+ * # Linux
+ * $ ./compile.sh -l
+ * 
+ * # Windows
+ * $ ./compile.sh -w
+ * ```
+ *
+ * Caso apresente erro de formatação de arquivos bash ``.sh`` no Linux, usar o comando 
+ *
+ * ```bash
+ * $ sed -i 's/\r$//' scriptname.sh
+ * ```
+ * 
+ * # Executando
+ *
+ * ## Leitor e Exibidor
+ *
+ * Exibe o bytecode do arquivo .class
+ *
+ * ``` bash
+ * # Linux e Windows
+ * $ ./jvm_boss -e test/HelloJava.class
+ *
+ * # Bash script
+ * $ ./read.sh HelloJava
+ * ```
+ *
+ * ## Interpretador JVM
+ *
+ * Interpreta e executa o arquivo .class
+ *
+ * ``` bash
+ * # Linux e Windows
+ * $ ./jvm_boss -i test/HelloJava.class
+ *
+ * # Bash script
+ * $ ./jvm.sh HelloJava
+ * ```
+ *
+ * ## Classes Java (``.class``) de Teste
+ *
+ * - [x] cafebabe
+ * - [x] HelloJava
+ * - [x] Prints
+ *  
+ * ## Aritmeticos
+ *
+ * - [x] Sum
+ * - [x] Multiply
+ * - [x] double_aritmetica
+ * - [x] _int_aritmetica
+ * - [x] _float_aritmetica
+ * - [x] _double_aritmetica
+ *
+ * ## Vetores
+ *
+ * - [x] vetor
+ * - [x] vetor2
+ * - [x] Vector_1
+ * - [x] Vector_2
+ * - [ ] multi
+ * ## Controle
+ *
+ * - [x] Loop_for
+ * - [x] Switch
+ * - [x] tableswitch
+ * - [x] _lookupswitch
+ *
+ * ## Comparação
+ *
+ * - [x] Comparison
+ * ## Conversão
+ *
+ * - [x] Convert_int
+ * - [x] Convert_float
+ * - [x] Convert_double
+ * - [x] Convert_long
+ *
+ * ## Metodos
+ *
+ * - [x] MethodStatic
+ * - [x] MethodParams
+ * - [x] _recursao
+ * - [x] _NoVoidMethods
+ *
+ * <!-- 1- Fazer vetor e multi funcionar -->
+ * <!-- 1- Refatorar o class_loader -->
+ * <!-- Frame teria que pegar dentro do Method area.  -->
+ * <!-- 1- Ver as funções de Cp_Info. Existem 2 funções -->
+ *
+ * <!-- Frame -->
+ * <!-- Class Loader -->
+ * <!-- Cp_Info  -->
+ * <!-- Arquivos que usam super class -->
+ * # Configurações
+ *
+ * ### Até a versão [Java SE 8](https://docs.oracle.com/javase/specs/jvms/se8/html/index.html)
+ *
+ * ## Analisadores 
+ *
+ * ### Analisador estático: [Cppcheck 1.83](http://cppcheck.sourceforge.net) 
+ *
+ * Instalação no Linux
+ *
+ * ``` bash
+ * $ sudo apt-get install cppcheck
+ * ```
+ *
+ * Executando CppCheck
+ *
+ * ``` bash
+ * # arquivos especificos
+ * $ cppcheck --verbose ./src/main.cpp
+ * $ cppcheck --enable=warning ./src/main.cpp
+ *
+ * # todos arquivos .cpp dentro de src
+ * $ cppcheck --verbose --enable=warning ./src/*.cpp
+ *
+ * # ou com bash script
+ * $ ./check.sh -v main
+ * $ ./check.sh -w main
+ * $ ./check.sh -all
+ *
+ * ```
+ *
+ * ### Analisador dinâmico: [Valgrind](https://www.valgrind.org/) 
+ *
+ * Instalação no Linux
+ *
+ * ``` bash
+ * $ sudo apt-get install valgrind
+ * ```
+ *
+ * Executando
+ *
+ * ``` bash
+ * # com mais detalhes sobre vazamento de memória
+ * $ valgrind –leak-check=full ./jvm_boss -e test/HelloJava.class
+ *
+ * # bash script
+ * $ ./valgrind.sh HelloJava
+ * ```
+ * ## Documentação
+ *
+ * ### [Doxygen](https://www.doxygen.nl/index.html) 
+ *
+ * Instalação no Linux
+ *
+ * ``` bash
+ * $ git clone https://github.com/doxygen/doxygen.git
+ *
+ * $ cd doxygen
+ *
+ * $ mkdir build
+ *
+ * $ cd build
+ *
+ * $ cmake -G "Unix Makefiles" ..
+ *
+ * $ make
+ *
+ * $ make install
+ * ```
+ *
+ * Criando arquivo de configuração do Doxygen
+ *
+ * ``` bash
+ * # Cria um arquivo de configuração do doxygen com o nome "doxygen_config"
+ * $ doxygen -g doxygen_config
+ * ```
+ *
+ * No arquivo "doxygen_config", foi necessário modificar a configuração "RECURSIVE = YES" para gerar a documentação.
+ *
+ * Executando
+ *
+ * ``` bash
+ * # Gera ou atualiza a pasta "html" do projeto. Deve-se rodar este comando sempre que o código for atualizado
+ * $ doxygen doxygen_config
+ * ```
+ *
+ * Para visualizar a documentação gerada, basta abrir a pasta "html" do projeto e abrir o arquivo "index.html" com o navegador.
+ *
+ * \subsection step1 Step 1: Opening the box
+ *
+ * etc...
+ */

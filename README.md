@@ -2,13 +2,13 @@
 
 ## Compilação e informações com javac/javap
 
-Converter arquivo ``.java`` para ``.class``
+Compila arquivo ``.java`` para ``.class``
 
 ``` bash
 $ javac HelloJava.java
 ```
 
-Mostra informações do arquivo ``.class``
+Mostra informações do bytecode do arquivo ``.class``
 
 ``` bash
 $ javap HelloJava.class
@@ -36,6 +36,8 @@ $ sed -i 's/\r$//' scriptname.sh
 # Executando
 
 ## Leitor e Exibidor
+
+Exibe o bytecode do arquivo .class
 
 ``` bash
 # Linux e Windows

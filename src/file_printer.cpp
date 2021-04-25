@@ -438,7 +438,7 @@ void print_newarray(u1 code) {
 }
 
 void print_instructions(Class_File class_file, Code_Attribute *code_attribute) {
-  std::vector<Instruction> instructions = set_instructions();
+  std::vector<Instruction> instructions = set_instructions_print();
   std::string str;
 
   for (int i = 0; i < (int) code_attribute->code_length; i++) {
@@ -446,87 +446,87 @@ void print_instructions(Class_File class_file, Code_Attribute *code_attribute) {
     std::cout << i << ": " << instructions[op_code].name;
 
     for (int j = 0; j < (int) instructions[op_code].bytes; j++) {
-        ++i;
-        switch(op_code) {
-          case CONSTANT_ldc:
-            {
-              u1 index = code_attribute->code[i];
-              u2 index_utf8 = 0x00 | index;
-              std::cout << "\t#" << (int)index << " " << get_cp_info_utf8(class_file, index_utf8);
-              j++;
-            }
-            break;
-          case CONSTANT_newarray:
-            print_newarray(code_attribute->code[j]);
+      ++i;
+      switch(op_code) {
+        case CONSTANT_ldc:
+          {
+            u1 index = code_attribute->code[i];
+            u2 index_utf8 = 0x00 | index;
+            std::cout << "\t#" << (int)index << " " << get_cp_info_utf8(class_file, index_utf8);
             j++;
-            break;
-          case CONSTANT_multianewarray:
-            {
-              u1 byte1 = code_attribute->code[i];
-              u1 byte2 = code_attribute->code[i+1];
-              u1 dim = code_attribute->code[i + 2];
-              u2 index = (byte1 << 8) | byte2;
-              str = get_cp_info_utf8(class_file, index);
+          }
+          break;
+        case CONSTANT_newarray:
+          print_newarray(code_attribute->code[j]);
+          j++;
+          break;
+        case CONSTANT_multianewarray:
+          {
+            u1 byte1 = code_attribute->code[i];
+            u1 byte2 = code_attribute->code[i+1];
+            u2 index = (byte1 << 8) | byte2;
+            u1 dimensions = code_attribute->code[i + 2];
+            str = get_cp_info_utf8(class_file, index);
 
-              if (!str.empty()) {
-                std::cout << "\t#" << std::dec << index << " " << str;
-                std::cout << " dim " << (int) dim;
-              }
-              j++;
+            if (!str.empty()) {
+              std::cout << "\t#" << std::dec << index << " " << str;
+              std::cout << " dimensions " << (int) dimensions;
             }
-            break;
-          case CONSTANT_anewarray:
-          case CONSTANT_checkcast: 
-          case CONSTANT_getfield: 
-          case CONSTANT_getstatic:
-          case CONSTANT_instanceof: 
-          case CONSTANT_invokespecial: 
-          case CONSTANT_invokestatic:
-          case CONSTANT_invokevirtual:
-          case CONSTANT_ldc_w: 
-          case CONSTANT_ldc2_w: 
-          case CONSTANT_putfield:
-          case CONSTANT_putstatic:
-            {
-              u1 byte1 = code_attribute->code[i];
-              u1 byte2 = code_attribute->code[i + 1];
-              u2 index = (byte1 << 8) | byte2;
-              std::cout << "\t#" << std::dec << index << " " << get_cp_info_utf8(class_file, index);
-              i++;
-              j++;
-            }
-            break;
-          case CONSTANT_GOTO: 
-          case CONSTANT_if_acmpeq:  
-          case CONSTANT_if_acmpne:  
-          case CONSTANT_if_icmpeq: 
-          case CONSTANT_if_icmpne: 
-          case CONSTANT_if_icmplt: 
-          case CONSTANT_if_icmpge: 
-          case CONSTANT_if_icmpgt: 
-          case CONSTANT_if_icmple: 
-          case CONSTANT_iifeq: 
-          case CONSTANT_ifne:
-          case CONSTANT_iflt: 
-          case CONSTANT_ifge: 
-          case CONSTANT_ifgt: 
-          case CONSTANT_ifle: 
-          case CONSTANT_ifnonull: 
-          case CONSTANT_ifnull: 
-          case CONSTANT_jsr:
-            {
-              u1 branchbyte1 = code_attribute->code[i];
-              u1 branchbyte2 = code_attribute->code[i + 1];
-              u2 address = (branchbyte1 << 8) | branchbyte2;
-              printf("\t%d", address);
-              i++;
-              j++;
-            }
-            break;
-          default:
-            printf(" 0x%x", code_attribute->code[j]);
-            break;
-        }
+            j++;
+          }
+          break;
+        case CONSTANT_anewarray:
+        case CONSTANT_checkcast: 
+        case CONSTANT_getfield: 
+        case CONSTANT_getstatic:
+        case CONSTANT_instanceof: 
+        case CONSTANT_invokespecial: 
+        case CONSTANT_invokestatic:
+        case CONSTANT_invokevirtual:
+        case CONSTANT_ldc_w: 
+        case CONSTANT_ldc2_w: 
+        case CONSTANT_putfield:
+        case CONSTANT_putstatic:
+          {
+            u1 byte1 = code_attribute->code[i];
+            u1 byte2 = code_attribute->code[i + 1];
+            u2 index = (byte1 << 8) | byte2;
+            std::cout << "\t#" << std::dec << index << " " << get_cp_info_utf8(class_file, index);
+            i++;
+            j++;
+          }
+          break;
+        case CONSTANT_GOTO: 
+        case CONSTANT_if_acmpeq:  
+        case CONSTANT_if_acmpne:  
+        case CONSTANT_if_icmpeq: 
+        case CONSTANT_if_icmpne: 
+        case CONSTANT_if_icmplt: 
+        case CONSTANT_if_icmpge: 
+        case CONSTANT_if_icmpgt: 
+        case CONSTANT_if_icmple: 
+        case CONSTANT_iifeq: 
+        case CONSTANT_ifne:
+        case CONSTANT_iflt: 
+        case CONSTANT_ifge: 
+        case CONSTANT_ifgt: 
+        case CONSTANT_ifle: 
+        case CONSTANT_ifnonull: 
+        case CONSTANT_ifnull: 
+        case CONSTANT_jsr:
+          {
+            u1 branchbyte1 = code_attribute->code[i];
+            u1 branchbyte2 = code_attribute->code[i + 1];
+            u2 address = (branchbyte1 << 8) | branchbyte2;
+            printf("\t%d", address);
+            i++;
+            j++;
+          }
+          break;
+        default:
+          printf(" 0x%x", code_attribute->code[j]);
+          break;
+      }
     }
     printf("\n");
   }

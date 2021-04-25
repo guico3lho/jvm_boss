@@ -7,7 +7,7 @@
 #define __FILE_PRINTER_H__
 
 #include "class_file.hpp"
-#include "instruction.hpp"
+#include "instructions_print.hpp"
 #include <cstring>
 
 void print_major_version(u2 major_version);

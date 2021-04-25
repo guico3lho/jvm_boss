@@ -23,7 +23,7 @@ Class_File read_class_file(std::string filename) {
   class_file.magic_number = read_4_bytes(file); 
 
   if(class_file.magic_number != 0xCAFEBABE){
-    printf("Arquivo com magic numebr invalido. \n");
+    printf("Arquivo com magic_number number invalido. \n");
     printf("Encerrando programa.\n");
     exit(1);
   }
@@ -55,16 +55,14 @@ Class_File read_class_file(std::string filename) {
   class_file.this_class = read_2_bytes(file);
   if (DEBUG) std::cout << "This Class:           " << class_file.this_class << std::endl;
   
-  get_cp_info_class_name(filename, class_file); 
+  get_cp_info_class_name(filename, class_file);
 
   class_file.super_class = read_2_bytes(file);
-  if (DEBUG) std::cout << "Super Class:          " << get_cp_info_utf8(class_file, class_file.super_class) << std::endl;
-
+  if (DEBUG) std::cout << "Super Class:          " << class_file.super_class << std::endl;
   //* Interfaces
   class_file.interfaces_count = read_2_bytes(file);
   if (DEBUG) std::cout << "Interfaces Count:     " << class_file.interfaces_count << std::endl;
   class_file.interfaces = (Interface_Info*) malloc(class_file.interfaces_count * sizeof(Interface_Info));
-  read_interface_info(file, &class_file);
 
   //* Fields
   class_file.fields_count = read_2_bytes(file);

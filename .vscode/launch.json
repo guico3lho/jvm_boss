@@ -16,13 +16,13 @@
       "type": "cppdbg", 
       "request": "launch",
       "program": "${workspaceFolder}/jvm_boss",
-      "args": ["-i", "test//class/multi.class"],
+      "args": ["-i", "test/class/HelloJava.class"],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [],
       "externalConsole": false,
       "MIMode": "gdb",
-      "preLaunchTask": "make project",
+      // "preLaunchTask": "make project",
 
       "setupCommands": [
         {

@@ -7,13 +7,13 @@
 
 #include <stack>
 #include <vector>
-#include "class_loader.hpp"
+#include "method_area.hpp"
 #include "interpreter.hpp"
 
 using std::cout;
 using std::string;
 
-struct Class_Loader;
+struct Class_Container;
 struct Array_Type;
 
 /** 
@@ -34,7 +34,7 @@ typedef struct Operand {
     
     string       *type_string;
     Array_Type   *array_type;
-    Class_Loader *class_loader;
+    Class_Container *class_container;
   };
 } Operand;
 
@@ -69,7 +69,7 @@ public:
   void execute_frame();
   Operand* pop_operand();
   void push_operand(Operand* op);
-  static void setup_instructions_func();
+  static void set_instructions_functions();
 };
 
 Frame* top_frame();

@@ -22,7 +22,6 @@ void (*func[256])(Frame *curr_frame);
 *   Constrói o Frame com as informações gerais da classe
 *   (cp_reference), (class_file_ref), informações de método (method_info),
 *   código do método (method_code), inica PC com 0 e redimensiona o vetor de variáveis locais.
-
 *  @param method ponteiro para informações do método
 *  @param cp_info ponteiro para a pool de constantes
 */
@@ -35,11 +34,12 @@ Frame::Frame(Method_Info *method, Class_File class_file) {
   // if (DEBUG) printf("Frame::Frame - Magic Number: 0x%0X\n", class_file_ref->magic_number);
 
   // Pega referencia do atributo de codigo do metodo
-  for (int i = 0; i < method_info->attributes_count; ++i) {
+  for (int i = 0; i < method_info->attributes_count; ++i)
+  {
     Attribute_Info attribute_info = method_info->attributes[i];
     std::string class_string = get_cp_info_utf8(*class_file_ref, attribute_info.attribute_name_index);
 
-    if (class_string == "Code") 
+    if (class_string == "Code")
       method_code = attribute_info.code;
   }
 
@@ -52,20 +52,21 @@ Frame::Frame(Method_Info *method, Class_File class_file) {
  * @return void
  */
 void Frame::execute_frame() {
-  u1 op_code = method_code->code[pc];   // NOTE: method_code armazena os opcode
-  if (DEBUG) printf("\n[%d]", op_code); //NOTE: max_locals = 4? 4 variaveis?
-  func[op_code](this); // chama a funcao do respectivo indice opcode // seg fault aqui
+  u1 op_code = method_code->code[pc]; // NOTE: method_code armazena os opcode
+  if (DEBUG)
+    printf("\n[%d]", op_code); //NOTE: max_locals = 4? 4 variaveis?
+  func[op_code](this);         // chama a funcao do respectivo indice opcode // seg fault aqui
 }
 
 /**
 * @brief Retira um elemento do topo da pilha
 * @return Operand* ponteiro para operando retirado
 */
-Operand* Frame::pop_operand() {
-    Operand *op = operand_stack.top();
-    // printf("[operand popped]: %d\n", curr_frame->operand_stack.top()->type_int);
-    operand_stack.pop();
-    return op;
+Operand *Frame::pop_operand() {
+  Operand *op = operand_stack.top();
+  // printf("[operand popped]: %d\n", curr_frame->operand_stack.top()->type_int);
+  operand_stack.pop();
+  return op;
 }
 
 /**
@@ -73,9 +74,9 @@ Operand* Frame::pop_operand() {
 * @return Operand* ponteiro para elemento a ser inserido
 * @return void
 */
-void Frame::push_operand(Operand* op) {
-    operand_stack.push(op);
-    // printf("[operand pushed]: %d\n", curr_frame->operand_stack.top()->type_int);
+void Frame::push_operand(Operand *op) {
+  operand_stack.push(op);
+  // printf("[operand pushed]: %d\n", curr_frame->operand_stack.top()->type_int);
 }
 
 /**
@@ -84,62 +85,61 @@ void Frame::push_operand(Operand* op) {
 * @param original_type ponteiro para tipo de entrada
 * @return Operand* ponteiro para cópia do tipo de entrada
 */
-Operand* copy_operand(Operand* original_type) {
-  // TODO - Entender essa função
-
-  Operand* copy_type = (Operand*) malloc(sizeof(Operand));
+Operand *copy_operand(Operand *original_type) {
+  Operand *copy_type = (Operand *)malloc(sizeof(Operand));
   copy_type->tag = original_type->tag;
 
-  switch (original_type->tag) {
-    case CONSTANT_BYTE:
-      copy_type->type_byte = original_type->type_byte;
-      break;
+  switch (original_type->tag)
+  {
+  case CONSTANT_BYTE:
+    copy_type->type_byte = original_type->type_byte;
+    break;
 
-    case CONSTANT_CHAR:
-      copy_type->type_char = original_type->type_char;
-      break;
+  case CONSTANT_CHAR:
+    copy_type->type_char = original_type->type_char;
+    break;
 
-    case CONSTANT_SHORT:
-      copy_type->type_short = original_type->type_short;
-      break;
+  case CONSTANT_SHORT:
+    copy_type->type_short = original_type->type_short;
+    break;
 
-    case CONSTANT_INT:
-      copy_type->type_int = original_type->type_int;
-      break;
+  case CONSTANT_INT:
+    copy_type->type_int = original_type->type_int;
+    break;
 
-    case CONSTANT_FLOAT:
-      copy_type->type_float = original_type->type_float;
-      break;
+  case CONSTANT_FLOAT:
+    copy_type->type_float = original_type->type_float;
+    break;
 
-    case CONSTANT_LONG:
-      copy_type->type_long = original_type->type_long;
-      break;
+  case CONSTANT_LONG:
+    copy_type->type_long = original_type->type_long;
+    break;
 
-    case CONSTANT_DOUBLE:
-      copy_type->type_double = original_type->type_double;
-      break;
+  case CONSTANT_DOUBLE:
+    copy_type->type_double = original_type->type_double;
+    break;
 
-    case CONSTANT_STRING:
-      copy_type->type_string = new std::string(*original_type->type_string);
-      break;
+  case CONSTANT_STRING:
+    copy_type->type_string = new std::string(*original_type->type_string);
+    break;
 
   case CONSTANT_CLASS:
-    copy_type->class_loader = (Class_Loader*) malloc(sizeof(Class_Loader));
-    copy_type->class_loader->class_name = original_type->class_loader->class_name;
-    copy_type->class_loader->class_file = original_type->class_loader->class_file;
-    copy_type->class_loader->class_fields = new std::map<std::string, Operand*>();
-    copy_type->class_loader->class_fields = original_type->class_loader->class_fields;
+    copy_type->class_container = (Class_Container*) malloc(sizeof(Class_Container));
+    copy_type->class_container->class_file = original_type->class_container->class_file;
+    copy_type->class_container->class_fields = new std::map<std::string, Operand *>();
+    copy_type->class_container->class_fields = original_type->class_container->class_fields;
     break;
 
   case CONSTANT_ARRAY:
-    copy_type->array_type = (Array_Type*)malloc(sizeof(Array_Type));
-    copy_type->array_type->array = new std::vector<Operand*>();
+    copy_type->array_type = (Array_Type *)malloc(sizeof(Array_Type));
+    copy_type->array_type->array = new std::vector<Operand *>();
 
-      for (int i=0; (unsigned)i < original_type->array_type->array->size(); i++) {
-        Operand* aux = original_type->array_type->array->at(i);
-        Operand *value = copy_operand(aux);
-        copy_type->array_type->array->emplace_back(value);
-      }
+    for (int i = 0; (unsigned)i < original_type->array_type->array->size(); i++)
+    {
+      Operand *aux = original_type->array_type->array->at(i);
+      Operand *value = copy_operand(aux);
+      copy_type->array_type->array->emplace_back(value);
+    }
     break;
   }
   return copy_type;
@@ -148,7 +148,7 @@ Operand* copy_operand(Operand* original_type) {
 /** @brief Inicia vetor de funções das instruções assembly.
 *  @return void
 */
-void Frame::setup_instructions_func() {
+void Frame::set_instructions_functions() {
 
   /* CONSTANTS */
   func[0] = nop;
@@ -156,7 +156,7 @@ void Frame::setup_instructions_func() {
   func[2] = iconst_m1;
   func[3] = iconst_0;
   func[4] = iconst_1;
-  func[5] = iconst_2; 
+  func[5] = iconst_2;
   func[6] = iconst_3;
   func[7] = iconst_4;
   func[8] = iconst_5;
@@ -354,7 +354,7 @@ void Frame::setup_instructions_func() {
   func[184] = invokestatic;
   func[185] = invokeinterface;
   //func[186] = invokedynamic;
-  func[187] = new_obj;  //* new
+  func[187] = new_obj; //* new
   func[188] = newarray;
   func[189] = anewarray; // TODO
   func[190] = arraylength;

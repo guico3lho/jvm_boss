@@ -5,6 +5,7 @@
 #include "interpreter.hpp"
 #include "instructions/instructions_reference.hpp"
 
+
 /**
  * @brief 
  */
@@ -41,7 +42,7 @@ void getstatic(Frame *curr_frame) {
     return;
   }
 
-  Class_File class_file = get_class_and_load_not_exists(class_name);
+  Class_File class_file = load_parent_classes(class_name);
   string var_name = get_cp_info_utf8(class_file, name_and_type.NameAndType.name_index);
   Operand *static_field = get_static_field_of_class(class_name, var_name);
 
@@ -86,7 +87,7 @@ void putfield(Frame *curr_frame) {
   Operand *operand = curr_frame->pop_operand();
   Operand *class_instance = curr_frame->pop_operand();
 
-  Operand *class_variable = class_instance->class_loader->class_fields->at(var_name);
+  Operand *class_variable = class_instance->class_container->class_fields->at(var_name);
 
   switch (operand->tag) {
     case CONSTANT_INT:
@@ -117,7 +118,7 @@ void putfield(Frame *curr_frame) {
       class_variable->type_string = operand->type_string;
       break;
     case CONSTANT_CLASS:
-      class_variable->class_loader = operand->class_loader;
+      class_variable->class_container = operand->class_container;
       break;
     case CONSTANT_ARRAY:
       class_variable->array_type = operand->array_type;
@@ -222,10 +223,10 @@ void invokevirtual_print(Frame *curr_frame) {
     }
       break;
     case CONSTANT_CLASS: { // 7
-      Class_Loader *class_loader = op->class_loader;
-      Class_File class_file = class_loader->class_file;
+      Class_Container *class_container = op->class_container;
+      Class_File class_file = class_container->class_file;
       string this_class_name = get_cp_info_utf8(class_file, class_file.this_class);
-      cout << this_class_name << "@" << class_loader;
+      cout << this_class_name << "@" << class_container;
     }
       break;
     case CONSTANT_STRING: //8
@@ -262,44 +263,48 @@ void invokevirtual_print(Frame *curr_frame) {
 void invokevirtual_string_builder_append(Frame *curr_frame) {
   if (DEBUG) cout << "Metodo StringBuilder: java/lang/StringBuilder\n";
 
-  Operand *t_append = curr_frame->pop_operand();
+  Operand *op_append = curr_frame->pop_operand();
   Operand *str_append = copy_operand(curr_frame->pop_operand());
 
   // converte tipo qualquer para tipo string - toString
-  switch (t_append->tag) {
+  switch (op_append->tag) {
     case CONSTANT_STRING:
-      *str_append->type_string += (*t_append->type_string);
+      *str_append->type_string += (*op_append->type_string);
       break;
     case CONSTANT_INT:
-      *str_append->type_string += (patch::to_string(t_append->type_int));
+      *str_append->type_string += (patch::to_string(op_append->type_int));
       break;
     case CONSTANT_LONG:
-      *str_append->type_string += (patch::to_string(t_append->type_long));
+      *str_append->type_string += (patch::to_string(op_append->type_long));
       break;
     case CONSTANT_FLOAT:
-      *str_append->type_string += (patch::to_string(t_append->type_float));
+      *str_append->type_string += (patch::to_string(op_append->type_float));
       break;
     case CONSTANT_DOUBLE:
-      *str_append->type_string += (patch::to_string(t_append->type_double));
+      *str_append->type_string += (patch::to_string(op_append->type_double));
       break;
     case CONSTANT_SHORT:
-      *str_append->type_string += (patch::to_string(t_append->type_short));
+      *str_append->type_string += (patch::to_string(op_append->type_short));
       break;
     case CONSTANT_CHAR:
-      *str_append->type_string += (patch::to_string(t_append->type_char));
+      *str_append->type_string += (patch::to_string(op_append->type_char));
       break;
     case CONSTANT_BYTE:
-      *str_append->type_string += (patch::to_string(t_append->type_byte));
+      *str_append->type_string += (patch::to_string(op_append->type_byte));
       break;
     case CONSTANT_BOOL:
-      if (t_append->type_bool == 0)
+      if (op_append->type_bool == 0)
         *str_append->type_string += "false";
       else
         *str_append->type_string += "true";
       break;
-    case CONSTANT_CLASS:
-      // TODO colocar endereco
-      *str_append->type_string += *t_append->class_loader->class_name+"@";
+    case CONSTANT_CLASS: { 
+      Class_Container *class_container = op_append->class_container;
+      Class_File class_file = class_container->class_file;
+      string this_class_name = get_cp_info_utf8(class_file, class_file.this_class);
+      cout << this_class_name << "@" << class_container;
+      *str_append->type_string += this_class_name + "@";
+    }
       break;
     case CONSTANT_ARRAY:
       *str_append->type_string += "Array[]";
@@ -343,21 +348,21 @@ void class_not_default_java(
       args.insert(args.begin() + 1, check_string_create_type("P"));
   }
 
-  Class_Loader *class_loader;
+  Class_Container *class_container;
 
   if(invoke_type == "virtual" || invoke_type == "special") {
     Operand *current_class = curr_frame->pop_operand();
     args.insert(args.begin(), current_class);
-    class_loader = current_class->class_loader;
+    class_container = current_class->class_container;
   }
 
   if(invoke_type == "static") {
-    class_loader = get_static_class(class_name);
+    class_container = get_static_class(class_name);
   }
 
   // Pega informacoes do metodo
-  Method_Info *method_info = find_method(class_loader->class_file, method_name, method_desc);
-  Frame *new_frame = new Frame(method_info, class_loader->class_file);
+  Method_Info *method_info = find_method(class_container->class_file, method_name, method_desc);
+  Frame *new_frame = new Frame(method_info, class_container->class_file);
 
   for (int j = 0; (unsigned)j < args.size(); ++j)
     new_frame->local_variables_array.at(j) = args.at(j);
@@ -428,7 +433,7 @@ void invokespecial(Frame *curr_frame) {
 			curr_frame->pop_operand();
 		} else if (method_name == method_init) {
 			Operand *variable_class = curr_frame->local_variables_array.at(0);
-			load_class_variables(variable_class->class_loader);
+			load_class_variables(variable_class->class_container);
 		}
 		return;
   } else {
@@ -590,11 +595,10 @@ void newarray(Frame *curr_frame) {
 }
 
 /**
- * @brief Define um array de operandos de um tipo de dado 
+ * @brief Define o tipo de dado dos operandos do newarray 
  * 
- * @param Operand *operand
- * @param u4 count
- * @param string array_type 
+ * @param operand_2 
+ * @param index 
  */
 void set_newarray_type(Operand *operand, u4 count, string array_type) {
   for (int i = 0; i < (int) count; i++) {

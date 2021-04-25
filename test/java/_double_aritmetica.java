@@ -26,7 +26,7 @@ class _double_aritmetica {
     System.out.println(d9);   // 1.0
     float f = 5.0F;
     double d10 = f;
-    System.out.println(d10);  // 1.0
+    System.out.println(d10);  // 5.0
     byte b = 5;
     double d11 = b;
     System.out.println(d11);  // 5.0

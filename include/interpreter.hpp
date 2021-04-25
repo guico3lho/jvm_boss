@@ -10,8 +10,7 @@
 #include <cmath>
 
 #include "class_file.hpp"
-#include "class_loader.hpp"
-#include "instruction.hpp"
+#include "method_area.hpp"
 
 
 void execute(Class_File class_file);

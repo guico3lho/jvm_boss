@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projeto JVM: Código-Fonte de include/instructions/instructions_constant.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Projeto JVM
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_2843b2c750ff6b39dcfe98bf2554dba0.html">instructions</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">instructions_constant.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="instructions__constant_8hpp.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef __INSTRUCTIONS_CONSTANT_H__</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define __INSTRUCTIONS_CONSTANT_H__</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="frame_8hpp.html">frame.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/* CONSTANT */</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__constant_8hpp.html#a08b94c482bf5daeb5628b8ee6ddb5990">nop</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__constant_8hpp.html#aebc52739336ae74d4c23f8b57fb22a34">aconst_null</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__constant_8hpp.html#a1731927aa9e2d3ea195bd6193e3b5509">iconst_m1</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__constant_8hpp.html#a317b0006eeea725dcb019200e41044d7">iconst_0</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__constant_8hpp.html#af2cd8e722af4e9fa9ddb0b991c647832">iconst_1</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__constant_8hpp.html#a3f77e62fa2b32c072187f5b94221ec0d">iconst_2</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__constant_8hpp.html#a76713945e1efd025d882f06229bbb433">iconst_3</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__constant_8hpp.html#abd34d9892be52b289b1f1928bf3e8001">iconst_4</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__constant_8hpp.html#a9c3483d6c65e778846cbb454d5d8567b">iconst_5</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__constant_8hpp.html#a60099c4dc90ef5a5473f6ec1737e17c7">lconst_0</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__constant_8hpp.html#a37dc80c88f54d643fd21d7a8f441efe6">lconst_1</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__constant_8hpp.html#ac60fae01a9a7ba738e6f44de41d774b3">fconst_0</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__constant_8hpp.html#a35751607085a1154dab4767abebf93b9">fconst_1</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__constant_8hpp.html#a070b04fcf3b9e59960c1e204d9416644">fconst_2</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__constant_8hpp.html#ad48b6b8a2649190616bdfc2cf96d9eac">dconst_0</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__constant_8hpp.html#ae150b0d94a30d0d95c6b133548f5e584">dconst_1</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__constant_8hpp.html#adbe4859d321d987e41d95941f3268e46">bipush</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__constant_8hpp.html#aec9b273b55d01f093d62cfb7e8a1d703">sipush</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__constant_8hpp.html#a85f58930960d3cf3f84d6648108fb8d0">ldc_w</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__constant_8hpp.html#afc59387e7744b77b7662ca530abaa9b6">ldc2_w</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__constant_8hpp.html#a8ad36bf4ba015c4d1afdf4477a55e08a">ldc</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassFrame_html"><div class="ttname"><a href="classFrame.html">Frame</a></div><div class="ttdoc">Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,...</div><div class="ttdef"><b>Definition:</b> frame.hpp:57</div></div>
+<div class="ttc" id="aframe_8hpp_html"><div class="ttname"><a href="frame_8hpp.html">frame.hpp</a></div><div class="ttdoc">Estruturas e classes de Frames e Operandos.</div></div>
+<div class="ttc" id="ainstructions__constant_8hpp_html_a070b04fcf3b9e59960c1e204d9416644"><div class="ttname"><a href="instructions__constant_8hpp.html#a070b04fcf3b9e59960c1e204d9416644">fconst_2</a></div><div class="ttdeci">void fconst_2(Frame *)</div><div class="ttdoc">Empilha a constante float 0 na pilha de operandos.</div><div class="ttdef"><b>Definition:</b> instructions_constant.cpp:188</div></div>
+<div class="ttc" id="ainstructions__constant_8hpp_html_a08b94c482bf5daeb5628b8ee6ddb5990"><div class="ttname"><a href="instructions__constant_8hpp.html#a08b94c482bf5daeb5628b8ee6ddb5990">nop</a></div><div class="ttdeci">void nop(Frame *)</div><div class="ttdoc">Não faz nada, só incrementa pc.</div><div class="ttdef"><b>Definition:</b> instructions_constant.cpp:13</div></div>
+<div class="ttc" id="ainstructions__constant_8hpp_html_a1731927aa9e2d3ea195bd6193e3b5509"><div class="ttname"><a href="instructions__constant_8hpp.html#a1731927aa9e2d3ea195bd6193e3b5509">iconst_m1</a></div><div class="ttdeci">void iconst_m1(Frame *)</div><div class="ttdoc">Empurra int na pilha de operandos.</div><div class="ttdef"><b>Definition:</b> instructions_constant.cpp:34</div></div>
+<div class="ttc" id="ainstructions__constant_8hpp_html_a317b0006eeea725dcb019200e41044d7"><div class="ttname"><a href="instructions__constant_8hpp.html#a317b0006eeea725dcb019200e41044d7">iconst_0</a></div><div class="ttdeci">void iconst_0(Frame *)</div><div class="ttdoc">Empurra int na pilha de operandos.</div><div class="ttdef"><b>Definition:</b> instructions_constant.cpp:47</div></div>
+<div class="ttc" id="ainstructions__constant_8hpp_html_a35751607085a1154dab4767abebf93b9"><div class="ttname"><a href="instructions__constant_8hpp.html#a35751607085a1154dab4767abebf93b9">fconst_1</a></div><div class="ttdeci">void fconst_1(Frame *)</div><div class="ttdoc">Empilha a constante float 1 na pilha de operandos.</div><div class="ttdef"><b>Definition:</b> instructions_constant.cpp:171</div></div>
+<div class="ttc" id="ainstructions__constant_8hpp_html_a37dc80c88f54d643fd21d7a8f441efe6"><div class="ttname"><a href="instructions__constant_8hpp.html#a37dc80c88f54d643fd21d7a8f441efe6">lconst_1</a></div><div class="ttdeci">void lconst_1(Frame *)</div><div class="ttdoc">Empilha a constante long 1 na pilha de operandos.</div><div class="ttdef"><b>Definition:</b> instructions_constant.cpp:141</div></div>
+<div class="ttc" id="ainstructions__constant_8hpp_html_a3f77e62fa2b32c072187f5b94221ec0d"><div class="ttname"><a href="instructions__constant_8hpp.html#a3f77e62fa2b32c072187f5b94221ec0d">iconst_2</a></div><div class="ttdeci">void iconst_2(Frame *)</div><div class="ttdoc">Empurra int na pilha de operandos.</div><div class="ttdef"><b>Definition:</b> instructions_constant.cpp:74</div></div>
+<div class="ttc" id="ainstructions__constant_8hpp_html_a60099c4dc90ef5a5473f6ec1737e17c7"><div class="ttname"><a href="instructions__constant_8hpp.html#a60099c4dc90ef5a5473f6ec1737e17c7">lconst_0</a></div><div class="ttdeci">void lconst_0(Frame *)</div><div class="ttdoc">Empilha a constante long 0 na pilha de opreandos.</div><div class="ttdef"><b>Definition:</b> instructions_constant.cpp:127</div></div>
+<div class="ttc" id="ainstructions__constant_8hpp_html_a76713945e1efd025d882f06229bbb433"><div class="ttname"><a href="instructions__constant_8hpp.html#a76713945e1efd025d882f06229bbb433">iconst_3</a></div><div class="ttdeci">void iconst_3(Frame *)</div><div class="ttdoc">Empurra int na pilha de operandos.</div><div class="ttdef"><b>Definition:</b> instructions_constant.cpp:87</div></div>
+<div class="ttc" id="ainstructions__constant_8hpp_html_a85f58930960d3cf3f84d6648108fb8d0"><div class="ttname"><a href="instructions__constant_8hpp.html#a85f58930960d3cf3f84d6648108fb8d0">ldc_w</a></div><div class="ttdeci">void ldc_w(Frame *)</div><div class="ttdoc">Dá push de uma word na pilha de operandos.</div><div class="ttdef"><b>Definition:</b> instructions_constant.cpp:315</div></div>
+<div class="ttc" id="ainstructions__constant_8hpp_html_a8ad36bf4ba015c4d1afdf4477a55e08a"><div class="ttname"><a href="instructions__constant_8hpp.html#a8ad36bf4ba015c4d1afdf4477a55e08a">ldc</a></div><div class="ttdeci">void ldc(Frame *)</div><div class="ttdoc">Coloca na pilha de operandos uma constante do tamanho de uma word.</div><div class="ttdef"><b>Definition:</b> instructions_constant.cpp:269</div></div>
+<div class="ttc" id="ainstructions__constant_8hpp_html_a9c3483d6c65e778846cbb454d5d8567b"><div class="ttname"><a href="instructions__constant_8hpp.html#a9c3483d6c65e778846cbb454d5d8567b">iconst_5</a></div><div class="ttdeci">void iconst_5(Frame *)</div><div class="ttdoc">Empurra int na pilha de operandos.</div><div class="ttdef"><b>Definition:</b> instructions_constant.cpp:113</div></div>
+<div class="ttc" id="ainstructions__constant_8hpp_html_abd34d9892be52b289b1f1928bf3e8001"><div class="ttname"><a href="instructions__constant_8hpp.html#abd34d9892be52b289b1f1928bf3e8001">iconst_4</a></div><div class="ttdeci">void iconst_4(Frame *)</div><div class="ttdoc">Empurra int na pilha de operandos.</div><div class="ttdef"><b>Definition:</b> instructions_constant.cpp:100</div></div>
+<div class="ttc" id="ainstructions__constant_8hpp_html_ac60fae01a9a7ba738e6f44de41d774b3"><div class="ttname"><a href="instructions__constant_8hpp.html#ac60fae01a9a7ba738e6f44de41d774b3">fconst_0</a></div><div class="ttdeci">void fconst_0(Frame *)</div><div class="ttdoc">Empilha a constante float 0 na pilha de operandos.</div><div class="ttdef"><b>Definition:</b> instructions_constant.cpp:155</div></div>
+<div class="ttc" id="ainstructions__constant_8hpp_html_ad48b6b8a2649190616bdfc2cf96d9eac"><div class="ttname"><a href="instructions__constant_8hpp.html#ad48b6b8a2649190616bdfc2cf96d9eac">dconst_0</a></div><div class="ttdeci">void dconst_0(Frame *)</div><div class="ttdoc">Empilha a constante double 0 na pilha de operandos.</div><div class="ttdef"><b>Definition:</b> instructions_constant.cpp:204</div></div>
+<div class="ttc" id="ainstructions__constant_8hpp_html_adbe4859d321d987e41d95941f3268e46"><div class="ttname"><a href="instructions__constant_8hpp.html#adbe4859d321d987e41d95941f3268e46">bipush</a></div><div class="ttdeci">void bipush(Frame *)</div><div class="ttdoc">Empilha int composto por byte de argumento na pilha de operandos.</div><div class="ttdef"><b>Definition:</b> instructions_constant.cpp:234</div></div>
+<div class="ttc" id="ainstructions__constant_8hpp_html_ae150b0d94a30d0d95c6b133548f5e584"><div class="ttname"><a href="instructions__constant_8hpp.html#ae150b0d94a30d0d95c6b133548f5e584">dconst_1</a></div><div class="ttdeci">void dconst_1(Frame *)</div><div class="ttdoc">Empilha a constante double 1 na pilha de operandos.</div><div class="ttdef"><b>Definition:</b> instructions_constant.cpp:219</div></div>
+<div class="ttc" id="ainstructions__constant_8hpp_html_aebc52739336ae74d4c23f8b57fb22a34"><div class="ttname"><a href="instructions__constant_8hpp.html#aebc52739336ae74d4c23f8b57fb22a34">aconst_null</a></div><div class="ttdeci">void aconst_null(Frame *)</div><div class="ttdoc">Empurra o valor NULL na pilha de operandos.</div><div class="ttdef"><b>Definition:</b> instructions_constant.cpp:22</div></div>
+<div class="ttc" id="ainstructions__constant_8hpp_html_aec9b273b55d01f093d62cfb7e8a1d703"><div class="ttname"><a href="instructions__constant_8hpp.html#aec9b273b55d01f093d62cfb7e8a1d703">sipush</a></div><div class="ttdeci">void sipush(Frame *)</div><div class="ttdoc">Empilha int composto por byte de argumento na pilha de operandos.</div><div class="ttdef"><b>Definition:</b> instructions_constant.cpp:252</div></div>
+<div class="ttc" id="ainstructions__constant_8hpp_html_af2cd8e722af4e9fa9ddb0b991c647832"><div class="ttname"><a href="instructions__constant_8hpp.html#af2cd8e722af4e9fa9ddb0b991c647832">iconst_1</a></div><div class="ttdeci">void iconst_1(Frame *)</div><div class="ttdoc">...</div><div class="ttdef"><b>Definition:</b> instructions_constant.cpp:60</div></div>
+<div class="ttc" id="ainstructions__constant_8hpp_html_afc59387e7744b77b7662ca530abaa9b6"><div class="ttname"><a href="instructions__constant_8hpp.html#afc59387e7744b77b7662ca530abaa9b6">ldc2_w</a></div><div class="ttdeci">void ldc2_w(Frame *)</div><div class="ttdoc">Dá push em duas words na pilha de operandos.</div><div class="ttdef"><b>Definition:</b> instructions_constant.cpp:361</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

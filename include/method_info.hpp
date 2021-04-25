@@ -26,7 +26,7 @@ typedef struct Method_Info{
 
 void read_method_info(FILE *file, Class_File *class_file);
 
-Method_Info* find_main(Class_File class_file);
+// Method_Info* find_main(Class_File class_file);
 Method_Info *find_method(Class_File, std::string, std::string);
 
 #endif

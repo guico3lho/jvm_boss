@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projeto JVM: Código-Fonte de include/interface_info.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Projeto JVM
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">interface_info.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="interface__info_8hpp.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef __INTERFACE_INFO_H__</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define __INTERFACE_INFO_H__</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="class__file_8hpp.html">class_file.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">struct </span><a class="code" href="structClass__File.html">Class_File</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structInterface__Info.html">   16</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structInterface__Info.html">Interface_Info</a>{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    u2 interface_table;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="interface__info_8hpp.html#ad68af501934e945d193776a0504a4438">   18</a></span>&#160;} <a class="code" href="interface__info_8hpp.html#ad68af501934e945d193776a0504a4438">Interface_Info</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/* INTERFACE_INFO */</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">void</span> <a class="code" href="interface__info_8hpp.html#a89260667f3c038f055ffc1ce35821bba">read_interface_info</a>(FILE *file, <a class="code" href="structClass__File.html">Class_File</a> *class_file);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<a class="code" href="structInterface__Info.html">Interface_Info</a> get_interface_info(FILE *file, <a class="code" href="structClass__File.html">Class_File</a> *class_file, <a class="code" href="structInterface__Info.html">Interface_Info</a> interface_info);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass__file_8hpp_html"><div class="ttname"><a href="class__file_8hpp.html">class_file.hpp</a></div><div class="ttdoc">Estruturas e declarações de funções relacionados com a leitura de dados do arquivo bytecode (....</div></div>
+<div class="ttc" id="ainterface__info_8hpp_html_a89260667f3c038f055ffc1ce35821bba"><div class="ttname"><a href="interface__info_8hpp.html#a89260667f3c038f055ffc1ce35821bba">read_interface_info</a></div><div class="ttdeci">void read_interface_info(FILE *file, Class_File *class_file)</div><div class="ttdoc">Função que lê as informações de interface e armazena em uma estrutura Class File.</div><div class="ttdef"><b>Definition:</b> interface_info.cpp:14</div></div>
+<div class="ttc" id="ainterface__info_8hpp_html_ad68af501934e945d193776a0504a4438"><div class="ttname"><a href="interface__info_8hpp.html#ad68af501934e945d193776a0504a4438">Interface_Info</a></div><div class="ttdeci">struct Interface_Info Interface_Info</div><div class="ttdoc">Estrutura de dados que armazena a tabela de Interfaces.</div></div>
+<div class="ttc" id="astructClass__File_html"><div class="ttname"><a href="structClass__File.html">Class_File</a></div><div class="ttdoc">Estrutura de dados que armazena as principais informações do bytecode (.class)</div><div class="ttdef"><b>Definition:</b> class_file.hpp:30</div></div>
+<div class="ttc" id="astructInterface__Info_html"><div class="ttname"><a href="structInterface__Info.html">Interface_Info</a></div><div class="ttdoc">Estrutura de dados que armazena a tabela de Interfaces.</div><div class="ttdef"><b>Definition:</b> interface_info.hpp:16</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

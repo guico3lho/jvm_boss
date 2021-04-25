@@ -21,12 +21,10 @@ void print_command_error() {
 
 /**
  * @brief Converte float no formato IEEE de bits para valor float
- * 
  * @param float_bits 
  * @return float 
  */
 float float_bits_to_value(u4 float_bits){
-  static_assert(sizeof(float) == sizeof (float_bits));
   float float_value;
   std::memcpy(&float_value, &float_bits, sizeof(float));
   return float_value;
@@ -34,7 +32,6 @@ float float_bits_to_value(u4 float_bits){
 
 /**
  * @brief Converte valor float para o formato IEEE de bits 
- * 
  * @param float_value 
  * @return uint32_t 
  */
@@ -46,12 +43,10 @@ u4 float_value_to_bits(float float_value) {
 
 /**
  * @brief Converte double no formato IEEE de bits para valor double
- * 
  * @param double_bits 
  * @return double 
  */
 double double_bits_to_value(u8 double_bits) {
-  static_assert(sizeof(double) == sizeof (double_bits));
   double double_value;
   std::memcpy(&double_value, &double_bits, sizeof(double));
   return double_value;

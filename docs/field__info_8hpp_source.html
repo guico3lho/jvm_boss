@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projeto JVM: Código-Fonte de include/field_info.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Projeto JVM
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">field_info.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="field__info_8hpp.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef __FIELD_INFO_H__</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define __FIELD_INFO_H__</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="attribute__info_8hpp.html">attribute_info.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="class__file_8hpp.html">class_file.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">struct </span><a class="code" href="structClass__File.html">Class_File</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">struct </span><a class="code" href="structAttribute__Info.html">Attribute_Info</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structField__Info.html">   18</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structField__Info.html">Field_Info</a>{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    u2  access_flags;     <span class="comment">//  mask of flags to denote access permission</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  u2  name_index;       <span class="comment">// CONSTANT_UTF8, field name</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  u2  descriptor_index; <span class="comment">// CONSTANT_UTF8, field valid descriptor</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  u2  atributes_count;  <span class="comment">// number of field attributes</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <a class="code" href="structAttribute__Info.html">Attribute_Info</a>  *attributes;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="field__info_8hpp.html#adcb5800196a8484cc01a20241b54ea9d">   25</a></span>&#160;} <a class="code" href="field__info_8hpp.html#adcb5800196a8484cc01a20241b54ea9d">Field_Info</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">void</span> <a class="code" href="field__info_8hpp.html#ad85684b86929a408e5c524c19c705ebe">read_field_info</a>(FILE *file, <a class="code" href="structClass__File.html">Class_File</a> *class_file);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aattribute__info_8hpp_html"><div class="ttname"><a href="attribute__info_8hpp.html">attribute_info.hpp</a></div><div class="ttdoc">Estruturas e declarações de funções relacionadas a Atributos.</div></div>
+<div class="ttc" id="aclass__file_8hpp_html"><div class="ttname"><a href="class__file_8hpp.html">class_file.hpp</a></div><div class="ttdoc">Estruturas e declarações de funções relacionados com a leitura de dados do arquivo bytecode (....</div></div>
+<div class="ttc" id="afield__info_8hpp_html_ad85684b86929a408e5c524c19c705ebe"><div class="ttname"><a href="field__info_8hpp.html#ad85684b86929a408e5c524c19c705ebe">read_field_info</a></div><div class="ttdeci">void read_field_info(FILE *file, Class_File *class_file)</div><div class="ttdoc">Lê as informações do Field.</div><div class="ttdef"><b>Definition:</b> field_info.cpp:14</div></div>
+<div class="ttc" id="afield__info_8hpp_html_adcb5800196a8484cc01a20241b54ea9d"><div class="ttname"><a href="field__info_8hpp.html#adcb5800196a8484cc01a20241b54ea9d">Field_Info</a></div><div class="ttdeci">struct Field_Info Field_Info</div><div class="ttdoc">Estrutura de dados que armazena os Fields.</div></div>
+<div class="ttc" id="astructAttribute__Info_html"><div class="ttname"><a href="structAttribute__Info.html">Attribute_Info</a></div><div class="ttdoc">Estrutura de dados de um Attribute.</div><div class="ttdef"><b>Definition:</b> attribute_info.hpp:116</div></div>
+<div class="ttc" id="astructClass__File_html"><div class="ttname"><a href="structClass__File.html">Class_File</a></div><div class="ttdoc">Estrutura de dados que armazena as principais informações do bytecode (.class)</div><div class="ttdef"><b>Definition:</b> class_file.hpp:30</div></div>
+<div class="ttc" id="astructField__Info_html"><div class="ttname"><a href="structField__Info.html">Field_Info</a></div><div class="ttdoc">Estrutura de dados que armazena os Fields.</div><div class="ttdef"><b>Definition:</b> field_info.hpp:18</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

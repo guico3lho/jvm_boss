@@ -13,7 +13,6 @@ set(INSTRUCTIONS_DIR instructions)
 
 set(HEADER_FILES
     ${INCLUDE_DIR}/types.hpp
-    ${INCLUDE_DIR}/utils.hpp
     ${INCLUDE_DIR}/read_bytes.hpp
     ${INCLUDE_DIR}/class_file.hpp
     ${INCLUDE_DIR}/file_printer.hpp
@@ -23,11 +22,12 @@ set(HEADER_FILES
     ${INCLUDE_DIR}/method_info.hpp
     ${INCLUDE_DIR}/attribute_info.hpp
     ${INCLUDE_DIR}/stack_map_table.hpp
-    ${INCLUDE_DIR}/instruction.hpp
+    ${INCLUDE_DIR}/instructions_print.hpp
     ${INCLUDE_DIR}/utils.hpp
     ${INCLUDE_DIR}/interpreter.hpp
-    ${INCLUDE_DIR}/class_loader.hpp
     ${INCLUDE_DIR}/frame.hpp
+    ${INCLUDE_DIR}/method_area.hpp
+
     ${INCLUDE_DIR}/${INSTRUCTIONS_DIR}/instructions_constant.hpp
     ${INCLUDE_DIR}/${INSTRUCTIONS_DIR}/instructions_load.hpp
     ${INCLUDE_DIR}/${INSTRUCTIONS_DIR}/instructions_store.hpp
@@ -42,7 +42,6 @@ set(HEADER_FILES
 
 set(SOURCE_FILES
     ${SOURCE_DIR}/main.cpp
-    ${SOURCE_DIR}/utils.cpp
     ${SOURCE_DIR}/read_bytes.cpp
     ${SOURCE_DIR}/class_file.cpp
     ${SOURCE_DIR}/file_printer.cpp
@@ -51,11 +50,11 @@ set(SOURCE_FILES
     ${SOURCE_DIR}/field_info.cpp
     ${SOURCE_DIR}/method_info.cpp
     ${SOURCE_DIR}/attribute_info.cpp
-    ${SOURCE_DIR}/instruction.cpp
+    ${SOURCE_DIR}/instructions_print.cpp
     ${SOURCE_DIR}/utils.cpp
     ${SOURCE_DIR}/interpreter.cpp
-    ${SOURCE_DIR}/class_loader.cpp
     ${SOURCE_DIR}/frame.cpp
+    ${SOURCE_DIR}/method_area.cpp
     ${SOURCE_DIR}/${INSTRUCTIONS_DIR}/instructions_constant.cpp
     ${SOURCE_DIR}/${INSTRUCTIONS_DIR}/instructions_load.cpp
     ${SOURCE_DIR}/${INSTRUCTIONS_DIR}/instructions_store.cpp
