@@ -1,20 +1,45 @@
+/**
+ * @file attribute_info.cpp
+ * @brief Arquivo com as funções relacionadas a Atributos
+*/
+
 #include "attribute_info.hpp"
 
+/** 
+ * @brief Lê e armazena as informações dos atributos no class file
+ * @param file
+ * @param class_file
+ * @return void
+ */
 void read_attribute_info(FILE *file, Class_File *class_file) {
   for (int i = 0; i < class_file->attributes_count ; i++)
     class_file->attributes[i] = get_attribute_info(file, class_file);
 }
 
+/** 
+ * @brief Lê o value index e armazena em attribute_info
+ * @param file
+ * @param attribute_info
+ * @return Attribute_Info
+ */
 Attribute_Info read_const_value_attribute(FILE *file, Attribute_Info attribute_info) {
   attribute_info.const_value = (Const_Value_Attribute*) malloc(sizeof(Const_Value_Attribute));
   attribute_info.const_value->const_value_index = read_2_bytes(file);
   return attribute_info;
 }
 
+/** 
+ * @brief Lê o code_attribute de um method_info e o armazena na tabela de Attributes
+ * @param file
+ * @param class_file
+ * @param attribute_info
+ * @return Attribute_Info
+ */
 Attribute_Info read_code_attribute(FILE *file, Class_File *class_file, Attribute_Info attribute_info) {
   attribute_info.code = (Code_Attribute*) malloc(sizeof(Code_Attribute));
 
   attribute_info.code->max_stack = read_2_bytes(file);
+
   attribute_info.code->max_locals = read_2_bytes(file);
 
   attribute_info.code->code_length = read_4_bytes(file);
@@ -42,6 +67,12 @@ Attribute_Info read_code_attribute(FILE *file, Class_File *class_file, Attribute
   return attribute_info;
 }
 
+/** 
+ * @brief Lê o número de exceções e armazena cada uma delas no attribute_info
+ * @param file
+ * @param attribute_info
+ * @return Attribute_Info
+ */
 Attribute_Info read_exception_attribute(FILE *file, Attribute_Info attribute_info) {
   attribute_info.exception = (Exception*) malloc(sizeof(Exception));
   attribute_info.exception->number_exceptions = read_2_bytes(file);
@@ -52,17 +83,11 @@ Attribute_Info read_exception_attribute(FILE *file, Attribute_Info attribute_inf
   return attribute_info;
 }
 
-Attribute_Info read_inner_class_attribute(FILE *file, Attribute_Info attribute_info) {
-  attribute_info.inner_class = (Inner_Class_Attribute*) malloc(sizeof(Inner_Class_Attribute));
-  attribute_info.inner_class->number_of_classes = read_2_bytes(file);
-  attribute_info.inner_class->inner_class_data = (Inner_Class_Attribute*) malloc(attribute_info.inner_class->number_of_classes * sizeof(Inner_Class_Attribute));
-
-  for (int i = 0; i < attribute_info.inner_class->number_of_classes; i++)
-    attribute_info.inner_class->inner_class_data[i] = read_inner_class_attributes(file);
-
-  return attribute_info;
-}
-
+/** 
+ * @brief Lê as informações do inner_class de acordo com o número de classes
+ * @param file
+ * @return Inner_Class_Attribute
+ */
 Inner_Class_Attribute read_inner_class_attributes(FILE *file) {
   Inner_Class_Attribute inner_class;
 
@@ -75,12 +100,56 @@ Inner_Class_Attribute read_inner_class_attributes(FILE *file) {
   return inner_class;
 }
 
+/** 
+ * @brief Lê e armazena todos os inner_class no attribute_info
+ * @param file
+ * @param attribute_info
+ * @return Attribute_Info
+ */
+Attribute_Info read_inner_class_attribute(FILE *file, Attribute_Info attribute_info) {
+  attribute_info.inner_class = (Inner_Class_Attribute*) malloc(sizeof(Inner_Class_Attribute));
+  attribute_info.inner_class->number_of_classes = read_2_bytes(file);
+  
+  attribute_info.inner_class->inner_class_data = (Inner_Class_Attribute*) malloc(attribute_info.inner_class->number_of_classes * sizeof(Inner_Class_Attribute));
+  for (int i = 0; i < attribute_info.inner_class->number_of_classes; i++)
+    attribute_info.inner_class->inner_class_data[i] = read_inner_class_attributes(file);
+
+  return attribute_info;
+}
+
+/** 
+ * @brief Lê e armazena o index do source_file em attribute_info
+ * @param file
+ * @param attribute_info
+ * @return Attribute_Info
+ */
 Attribute_Info read_source_file_attribute(FILE *file, Attribute_Info attribute_info) {
   attribute_info.source_file = (Source_File_Attribute*) malloc(sizeof(Source_File_Attribute));
   attribute_info.source_file->source_file_index = read_2_bytes(file);
   return attribute_info;
 }
 
+/** 
+ * @brief Lê uma linha da tabela
+ * @param file
+ * @param attribute_info
+ * @return Line_Number_Table_Data
+ */
+Line_Number_Table_Data read_line_number_table_data(FILE *file) {
+  Line_Number_Table_Data line_number_table_data;
+
+  line_number_table_data.start_pc = read_2_bytes(file);
+  line_number_table_data.line_number = read_2_bytes(file);
+
+  return line_number_table_data;
+}
+
+/** 
+ * @brief Lê e armazena todas as linhas na tabela do attribute_info
+ * @param file
+ * @param attribute_info
+ * @return Attribute_Info
+ */
 Attribute_Info read_line_number_table_attribute(FILE *file, Attribute_Info attribute_info) {
   attribute_info.line_number_table = (Line_Number_Table_Attribute*) malloc(sizeof(Line_Number_Table_Attribute));
   attribute_info.line_number_table->line_number_table_length = read_2_bytes(file);
@@ -92,26 +161,11 @@ Attribute_Info read_line_number_table_attribute(FILE *file, Attribute_Info attri
   return attribute_info;
 }
 
-Line_Number_Table_Data read_line_number_table_data(FILE *file) {
-  Line_Number_Table_Data line_number_table_data;
-
-  line_number_table_data.start_pc = read_2_bytes(file);
-  line_number_table_data.line_number = read_2_bytes(file);
-
-  return line_number_table_data;
-}
-
-void read_local_variable_table_attribute(FILE *file, Attribute_Info *attribute_info) {
-
-  attribute_info->local_variable_table->local_variable_table_length = read_2_bytes(file);
-
-  attribute_info->local_variable_table->table = (Local_Variable_Table_Data*) 
-    malloc(attribute_info->local_variable_table->local_variable_table_length * sizeof(Local_Variable_Table_Data));
-
-  for (int i = 0;i < attribute_info->local_variable_table->local_variable_table_length; i++)
-    attribute_info->local_variable_table->table[i] = read_local_variable_table_data(file);
-}
-
+/** 
+ * @brief Lê uma variável local da tabela
+ * @param file
+ * @return Local_Variable_Table_Data
+ */
 Local_Variable_Table_Data read_local_variable_table_data(FILE *file) {
     Local_Variable_Table_Data local_variable_table_data;
 
@@ -124,12 +178,36 @@ Local_Variable_Table_Data read_local_variable_table_data(FILE *file) {
     return local_variable_table_data;
 }
 
+/** 
+ * @brief Lê e armazena as variáveis locais na tabela do attribute_info
+ * @param file
+ * @param attribute_info
+ * @return void
+ */
+void read_local_variable_table_attribute(FILE *file, Attribute_Info *attribute_info) {
+
+  attribute_info->local_variable_table->local_variable_table_length = read_2_bytes(file);
+
+  attribute_info->local_variable_table->table = (Local_Variable_Table_Data*) 
+    malloc(attribute_info->local_variable_table->local_variable_table_length * sizeof(Local_Variable_Table_Data));
+
+  for (int i = 0;i < attribute_info->local_variable_table->local_variable_table_length; i++)
+    attribute_info->local_variable_table->table[i] = read_local_variable_table_data(file);
+}
+
+/** 
+ * @brief Lê todas as informações do Attribute e armazena no attribute_info
+ * @param file
+ * @param class_file
+ * @return Attribute_Info
+ */
 Attribute_Info get_attribute_info(FILE *file, Class_File *class_file) {
   Attribute_Info attribute_info;
+  
   attribute_info.attribute_name_index = read_2_bytes(file);
   attribute_info.attribute_length = read_4_bytes(file);
 
-  std::string attribute_name = get_cp_info_utf8(*class_file, attribute_info.attribute_name_index );
+  std::string attribute_name = get_cp_info_utf8(*class_file, attribute_info.attribute_name_index);
   if (DEBUG) std::cout << "Attribute_name: " << attribute_name << std::endl;
 
   if (attribute_name == "Code") {
@@ -167,7 +245,7 @@ Attribute_Info get_attribute_info(FILE *file, Class_File *class_file) {
     if (DEBUG) std::cout << "Attributo Desconhecido...\n";
     if (DEBUG) std::cout << "Attribute Lenght: " << attribute_info.attribute_length << "\n" ;
 
-    // ignora atributos desconhecidos silenciosamente
+    // ignora atributos desconhecidos
     attribute_info.info = (u1*) malloc(attribute_info.attribute_length * sizeof(u1));
 
     for (int j = 0; (unsigned)j < attribute_info.attribute_length; j++) {

@@ -1,5 +1,16 @@
+/**
+ * @file method_info.cpp
+ * @brief Arquivo com funções relacionadas a Method.
+ */
+
 #include "method_info.hpp"
 
+/** 
+ * @brief Lê as informações de method e armazena no Class_File.
+ * @param file ponteiro para o arquivo que vai ser lido.
+ * @param class_file ponteiro para a estrutura Class_File em que as informações vão ser armazenadas.
+ * @return void
+ */
 void read_method_info(FILE *file, Class_File *class_file) {
 
   for (int i = 0; i < class_file->methods_count; i++) {
@@ -18,4 +29,28 @@ void read_method_info(FILE *file, Class_File *class_file) {
       class_file->methods[i].attributes[j] = get_attribute_info(file, class_file);
     }
   }
+}
+
+
+/**
+* @brief Encontra um método pelo nome e descrição.
+* @param class_file ponteiro para o classfile atual
+* @param method_name string do nome do método a ser buscado
+* @param method_descriptor string da descrição do método
+* @return MethodInfo* ponteiro para as informações relacionadas ao método
+*/
+Method_Info *find_method(Class_File class_file, std::string method_name, std::string method_descriptor) {
+  for (int i = 0; i < class_file.methods_count; i++) {
+    Method_Info *method_info = class_file.methods + i;
+
+    std::string check_method_name = get_cp_info_utf8(class_file, method_info->name_index);
+    if (check_method_name == method_name) {
+      std::string check_method_descriptor = get_cp_info_utf8(class_file, method_info->descriptor_index);
+      if (check_method_descriptor == method_descriptor) return method_info;
+    }
+  }
+
+  printf("Método não encontrado\n");
+  getchar();
+  exit(5);
 }

@@ -1,0 +1,120 @@
+\hypertarget{frame_8hpp}{}\doxysection{Referência ao ficheiro include/frame.hpp}
+\label{frame_8hpp}\index{include/frame.hpp@{include/frame.hpp}}
+
+
+Estruturas e classes de Frames e Operandos.  
+
+
+{\ttfamily \#include $<$stack$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}class\+\_\+loader.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}interpreter.\+hpp\char`\"{}}\newline
+\doxysubsection*{Componentes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structOperand}{Operand}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados que armazena um operando. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structArray__Type}{Array\+\_\+\+Type}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados que armazena o tipo do operando. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classFrame}{Frame}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,retornar valores para métodos e disparar exceções. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Definições de tipos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{frame_8hpp_a4fb9f7773235006151182b29febd8be7}\label{frame_8hpp_a4fb9f7773235006151182b29febd8be7}} 
+typedef struct \mbox{\hyperlink{structOperand}{Operand}} \mbox{\hyperlink{frame_8hpp_a4fb9f7773235006151182b29febd8be7}{Operand}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados que armazena um operando. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{frame_8hpp_a49625761a16c51cce597d9c716d44b7d}\label{frame_8hpp_a49625761a16c51cce597d9c716d44b7d}} 
+typedef struct \mbox{\hyperlink{structArray__Type}{Array\+\_\+\+Type}} \mbox{\hyperlink{frame_8hpp_a49625761a16c51cce597d9c716d44b7d}{Array\+\_\+\+Type}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados que armazena o tipo do operando. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFrame}{Frame}} $\ast$ \mbox{\hyperlink{frame_8hpp_a52b75c00c4f3a08388f17f270530c194}{top\+\_\+frame}} ()
+\begin{DoxyCompactList}\small\item\em Returna o frame no inicio da pilha. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{frame_8hpp_a67f3a7b1f09da300bc98006887d7b996}{push\+\_\+frame}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$frame)
+\begin{DoxyCompactList}\small\item\em Coloca um frame da pilha de frames. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{frame_8hpp_a77768fa6433dfd297d4bdab12c9fb90b}{pop\+\_\+frame}} ()
+\begin{DoxyCompactList}\small\item\em Retira um frame da pilha de frames. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structOperand}{Operand}} $\ast$ \mbox{\hyperlink{frame_8hpp_ae91e72720ce477c772e82c05e2055f92}{copy\+\_\+operand}} (\mbox{\hyperlink{structOperand}{Operand}} $\ast$original\+\_\+operand)
+\begin{DoxyCompactList}\small\item\em Cria um ponteiro de cópia do mesmo tipo que ele está recebendo para não utilizar a mesma instância. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Estruturas e classes de Frames e Operandos. 
+
+
+
+\doxysubsection{Documentação das funções}
+\mbox{\Hypertarget{frame_8hpp_ae91e72720ce477c772e82c05e2055f92}\label{frame_8hpp_ae91e72720ce477c772e82c05e2055f92}} 
+\index{frame.hpp@{frame.hpp}!copy\_operand@{copy\_operand}}
+\index{copy\_operand@{copy\_operand}!frame.hpp@{frame.hpp}}
+\doxysubsubsection{\texorpdfstring{copy\_operand()}{copy\_operand()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structOperand}{Operand}}$\ast$ copy\+\_\+operand (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOperand}{Operand}} $\ast$}]{original\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+Cria um ponteiro de cópia do mesmo tipo que ele está recebendo para não utilizar a mesma instância. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em original\+\_\+type} & ponteiro para tipo de entrada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Operand$\ast$ ponteiro para cópia do tipo de entrada 
+\end{DoxyReturn}
+\mbox{\Hypertarget{frame_8hpp_a77768fa6433dfd297d4bdab12c9fb90b}\label{frame_8hpp_a77768fa6433dfd297d4bdab12c9fb90b}} 
+\index{frame.hpp@{frame.hpp}!pop\_frame@{pop\_frame}}
+\index{pop\_frame@{pop\_frame}!frame.hpp@{frame.hpp}}
+\doxysubsubsection{\texorpdfstring{pop\_frame()}{pop\_frame()}}
+{\footnotesize\ttfamily void pop\+\_\+frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retira um frame da pilha de frames. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{frame_8hpp_a67f3a7b1f09da300bc98006887d7b996}\label{frame_8hpp_a67f3a7b1f09da300bc98006887d7b996}} 
+\index{frame.hpp@{frame.hpp}!push\_frame@{push\_frame}}
+\index{push\_frame@{push\_frame}!frame.hpp@{frame.hpp}}
+\doxysubsubsection{\texorpdfstring{push\_frame()}{push\_frame()}}
+{\footnotesize\ttfamily void push\+\_\+frame (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{frame }\end{DoxyParamCaption})}
+
+
+
+Coloca um frame da pilha de frames. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em frame} & ponteiro para o frame que será colocado na pilha. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{frame_8hpp_a52b75c00c4f3a08388f17f270530c194}\label{frame_8hpp_a52b75c00c4f3a08388f17f270530c194}} 
+\index{frame.hpp@{frame.hpp}!top\_frame@{top\_frame}}
+\index{top\_frame@{top\_frame}!frame.hpp@{frame.hpp}}
+\doxysubsubsection{\texorpdfstring{top\_frame()}{top\_frame()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFrame}{Frame}}$\ast$ top\+\_\+frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returna o frame no inicio da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em void.} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+um ponteiro para o frame 
+\end{DoxyReturn}

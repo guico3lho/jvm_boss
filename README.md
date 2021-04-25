@@ -27,6 +27,12 @@ $ ./compile.sh -l
 $ ./compile.sh -w
 ```
 
+Caso apresente erro de formatação de arquivos bash ``.sh`` no Linux, usar o comando 
+
+```bash
+$ sed -i 's/\r$//' scriptname.sh
+```
+
 # Executando
 
 ## Leitor e Exibidor
@@ -53,13 +59,68 @@ $ ./jvm_boss -i test/HelloJava.class
 $ ./jvm.sh HelloJava
 ```
 
+## Classes Java (``.class``) de Teste
+
+- [x] cafebabe
+- [x] HelloJava
+- [x] Prints
+  
+## Aritmeticos
+
+- [x] Sum
+- [x] Multiply
+- [x] double_aritmetica
+- [x] _int_aritmetica
+- [x] _float_aritmetica
+- [x] _double_aritmetica
+
+## Vetores
+
+- [x] vetor
+- [x] vetor2
+- [x] Vector_1
+- [x] Vector_2
+- [ ] multi
+## Controle
+
+- [x] Loop_for
+- [x] Switch
+- [x] tableswitch
+- [x] _lookupswitch
+
+## Comparação
+
+- [x] Comparison
+## Conversão
+
+- [x] Convert_int
+- [x] Convert_float
+- [x] Convert_double
+- [x] Convert_long
+
+## Metodos
+
+- [x] MethodStatic
+- [x] MethodParams
+- [x] _recursao
+- [x] _NoVoidMethods
+
+<!-- 1- Fazer vetor e multi funcionar -->
+<!-- 1- Refatorar o class_loader -->
+<!-- Frame teria que pegar dentro do Method area.  -->
+<!-- 1- Ver as funções de Cp_Info. Existem 2 funções -->
+ 
+<!-- Frame -->
+<!-- Class Loader -->
+<!-- Cp_Info  -->
+<!-- Arquivos que usam super class -->
 # Configurações
 
-## Versão [Java SE 8](https://docs.oracle.com/javase/specs/jvms/se8/html/index.html)
+### Até a versão [Java SE 8](https://docs.oracle.com/javase/specs/jvms/se8/html/index.html)
 
 ## Analisadores 
 
-## [Cppcheck 1.83](http://cppcheck.sourceforge.net) como analisador estático
+### Analisador estático: [Cppcheck 1.83](http://cppcheck.sourceforge.net) 
 
 Instalação no Linux
 
@@ -84,7 +145,7 @@ $ ./check.sh -all
 
 ```
 
-## [Valgrind](https://www.valgrind.org/) como analisador dinâmico
+### Analisador dinâmico: [Valgrind](https://www.valgrind.org/) 
 
 Instalação no Linux
 
@@ -101,3 +162,42 @@ $ valgrind –leak-check=full ./jvm_boss -e test/HelloJava.class
 # bash script
 $ ./valgrind.sh HelloJava
 ```
+## Documentação
+
+### [Doxygen](https://www.doxygen.nl/index.html) 
+
+Instalação no Linux
+
+``` bash
+$ git clone https://github.com/doxygen/doxygen.git
+
+$ cd doxygen
+
+$ mkdir build
+
+$ cd build
+
+$ cmake -G "Unix Makefiles" ..
+
+$ make
+
+$ make install
+```
+
+Criando arquivo de configuração do Doxygen
+
+``` bash
+# Cria um arquivo de configuração do doxygen com o nome "doxygen_config"
+$ doxygen -g doxygen_config
+```
+
+No arquivo "doxygen_config", foi necessário modificar a configuração "RECURSIVE = YES" para gerar a documentação.
+
+Executando
+
+``` bash
+# Gera ou atualiza a pasta "html" do projeto. Deve-se rodar este comando sempre que o código for atualizado
+$ doxygen doxygen_config
+```
+
+Para visualizar a documentação gerada, basta abrir a pasta "html" do projeto e abrir o arquivo "index.html" com o navegador.

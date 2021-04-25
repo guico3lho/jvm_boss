@@ -1,8 +1,16 @@
+/**
+ * @file file_printer.cpp
+ * @brief Arquivo com funções que imprimem informações para o usuário
+*/
+
 #include "file_printer.hpp"
 
-
+/**
+ * @brief Imprime no terminal a versão do Java
+ * @param major_version bytes com a constante que indica a versão
+ * @return void
+ */
 void print_major_version(u2 major_version) {
-
   switch(major_version) {
     case 52:
       printf("Java SE 8");
@@ -12,38 +20,53 @@ void print_major_version(u2 major_version) {
       break;
     case 50:
       printf("Java SE 6.0");
+      printf("Java SE 6.0");
       break;
+
     case 49:
       printf("Java SE 5.0");
       break;
+
     case 48:
       printf("JDK 1.4");
       break;
+
     case 47:
       printf("JDK 1.3");
       break;
+
     case 46:
       printf("JDK 1.2");
       break;
+
     case 45:
       printf("JDK 1.1");
       break;
   }
   printf("\n");
-}
 
-void check_flag(u2 access_flags, int constant_access_flag, std::string flag) {
-  int set_flag = access_flags & constant_access_flag;
-  // printf("SET FLAG: %d\n", set_flag);
-  if(set_flag == constant_access_flag) {
-    std::cout << flag << " ";
+/**
+ * @brief Checa se é a flag correta e imprime no terminal
+ * @param access_flags bytes que possuem a flag de acesso
+ * @param constant_access_flag número da constant que define essa flag
+ * @param flag_name string com o nome da flag
+ * @return void
+ */
+void check_flag(u2 access_flags, int constant_access_flag, std::string flag_name) {
+  if(access_flags & constant_access_flag) {
+    std::cout << flag_name << " ";
   }
 }
 
+/**
+ * @brief Define as strings das flags e chama a função que checa a flag para imprimir a correta
+ * @param access_flags bytes que possuem a flag de acesso
+ * @return void
+ */
 void print_access_flags(u2 access_flags) {
   printf("0x%.4x: ", access_flags);
 
-  std::string flags[16] = {
+  std::string flags[15] = {
     "ACC_PUBLIC", "ACC_SUPER", "ACC_PROTECTED", "ACC_STATIC", "ACC_FINAL",
     "ACC_VOLATILE", "ACC_TRANSIENT", "ACC_SYNTHETIC", "ACC_ENUM", "ACC_SUPER", "ACC_INTERFACE"
     "ACC_ABSTRACT", "ACC_ANNOTATION", "ACC_NATIVE", "ACC_STRICT"
@@ -70,7 +93,7 @@ void print_access_flags(u2 access_flags) {
 
 void print_basic_info(std::string filename, Class_File class_file) {
   std::cout << "------------ Basic Info ------------" << std::endl;
-  std::cout << "Filename:             " << filename << std::endl;
+  std::cout << "File:             " << filename << std::endl;
   printf("Magic Number:         0x%0X\n", class_file.magic_number);
   printf("Minor Version:        %d\n", class_file.minor_version);
   printf("Major version:        %d: ", class_file.major_version);
@@ -80,13 +103,11 @@ void print_basic_info(std::string filename, Class_File class_file) {
   print_access_flags(class_file.access_flags);
   printf("This class:           #%d <", class_file.this_class);
 
-  std::cout << get_cp_info_utf8(class_file,
-  class_file.constant_pool[class_file.this_class].Class_Info.class_name)
+  std::cout << get_cp_info_utf8(class_file,class_file.constant_pool[class_file.this_class].Class.class_name)
   << ">";
 
   printf("\nSuper class:          #%d <", class_file.super_class);
-  std::cout << get_cp_info_utf8(class_file, 
-  class_file.constant_pool[class_file.super_class].Class_Info.class_name)
+  std::cout << get_cp_info_utf8(class_file, class_file.constant_pool[class_file.super_class].Class.class_name)
   << ">";
 
   printf("\nInterface count:      %d\n", class_file.interfaces_count);
@@ -98,27 +119,24 @@ void print_basic_info(std::string filename, Class_File class_file) {
 /* CONSTANT POOL */
 
 void print_cp_info_int(Cp_Info cp_info) {
-  printf("Integer\t\t%d\t\tHex: 0x%x",  cp_info.Integer_Info.int_bytes, cp_info.Integer_Info.int_bytes);
+  printf("Integer\t\t%d\t\tHex: 0x%x",  cp_info.Integer.bytes, cp_info.Integer.bytes);
 }
 
 void print_cp_info_float(Cp_Info cp_info) {
   float float_value;
-  memcpy(&float_value, &(cp_info.Float_Info.float_bytes), sizeof(float));
-  printf("Float\t\t%f", float_value);
 }
 
 void print_cp_info_long(Cp_Info cp_info) {
   u8 long_info;
   long long_value;
   long_info = ((u8) cp_info.Long_Info.long_high_bytes << 32) | cp_info.Long_Info.long_low_bytes;
-  memcpy(&long_value, &long_info, sizeof(long));
+  memcpy(&long_value, &aux, sizeof(long));
 
   printf("Long\t\t%ld\t\t", long_value);
-  printf("High: 0x%x | Low: 0x%x", cp_info.Long_Info.long_high_bytes, cp_info.Long_Info.long_low_bytes);
+  printf("High: 0x%x | Low: 0x%x", cp_info.Long.high_bytes, cp_info.Long.low_bytes);
 }
 
 void print_cp_info_double(Cp_Info cp_info) {
-  double double_value;
   u8 aux;
   aux = ((u8)cp_info.Double_Info.double_high_bytes << 32) | cp_info.Double_Info.double_low_bytes;
   memcpy(&double_value, &aux, sizeof(double));
@@ -140,13 +158,18 @@ void print_cp_info_string(Class_File class_file, Cp_Info cp_info) {
 void print_cp_info_field(Class_File class_file, Cp_Info cp_info) {
   printf("Fieldref\t\t#%d.#%d\t\t", cp_info.Fieldref_Info.field_ref_class_ref, cp_info.Fieldref_Info.field_ref_name_type_descriptor);
   std::cout << get_cp_info_utf8(class_file, cp_info.Fieldref_Info.field_ref_class_ref);
-  std::cout << "." << get_cp_info_utf8(class_file, cp_info.Fieldref_Info.field_ref_name_type_descriptor);
+}
+
+void print_cp_info_field(Class_File class_file, Cp_Info cp_info) {
+  printf("Fieldref\t\t#%d.#%d\t\t\t", cp_info.Fieldref.class_index, cp_info.Fieldref.name_and_type_index);
+  std::cout << get_cp_info_utf8(class_file, cp_info.Fieldref.class_index);
+  std::cout << "." << get_cp_info_utf8(class_file, cp_info.Fieldref.name_and_type_index);
 }
 
 void print_cp_info_method(Class_File class_file, Cp_Info cp_info) {
-  printf("Methodref\t\t#%d.#%d\t\t", cp_info.Methodref_Info.method_ref_index, cp_info.Methodref_Info.method_ref_name_and_type);
-  std::cout << get_cp_info_utf8(class_file, cp_info.Methodref_Info.method_ref_index);
-  std::cout << "." << get_cp_info_utf8(class_file, cp_info.Methodref_Info.method_ref_name_and_type);
+  printf("Methodref\t\t#%d.#%d\t\t\t", cp_info.Methodref.class_index, cp_info.Methodref.name_and_type_index);
+  std::cout << get_cp_info_utf8(class_file, cp_info.Methodref.class_index);
+  std::cout << "." << get_cp_info_utf8(class_file, cp_info.Methodref.name_and_type_index);
 }
 
 void print_cp_info_interface_method(Class_File class_file, Cp_Info cp_info) {
@@ -154,18 +177,16 @@ void print_cp_info_interface_method(Class_File class_file, Cp_Info cp_info) {
 
   // Nome da interface que contem a declaração do metodo
   std::cout << "\tIndex:\t#" << std::endl;
-  std::cout << get_cp_info_utf8(class_file, cp_info.InterfaceMethodref_Info.interface_method_ref_index) << std::endl;
 
   // Nome e tipo do método
   std::cout << "Name and Type:"<< std::endl;
-  std::cout << get_cp_info_utf8(class_file, cp_info.InterfaceMethodref_Info.interface_method_ref_name_type);
+  std::cout << get_cp_info_utf8(class_file, cp_info.InterfaceMethodref.name_and_type_index);
 }
 
 void print_cp_info_name_type(Class_File class_file, Cp_Info cp_info) {
-  printf("NameAndType\t#%d:#%d\t\t", cp_info.NameAndType_Info.name_type_index, cp_info.NameAndType_Info.name_type_descriptor_index);
-  std::cout << get_cp_info_utf8(class_file, cp_info.NameAndType_Info.name_type_index);
-  std::cout << ":" << get_cp_info_utf8(class_file, cp_info.NameAndType_Info.name_type_descriptor_index);
-}
+  printf("NameAndType\t#%d:#%d\t\t\t", cp_info.NameAndType.name_index, cp_info.NameAndType.descriptor_index);
+  std::cout << get_cp_info_utf8(class_file, cp_info.NameAndType.name_index);
+  std::cout << ":" << get_cp_info_utf8(class_file, cp_info.NameAndType.descriptor_index);
 
 void print_constant_pool(Class_File class_file) {
   std::cout << "\n------------ Constant Pool ------------\n";
@@ -177,44 +198,51 @@ void print_constant_pool(Class_File class_file) {
 
     switch (current_cp_info.tag) {
       case CONSTANT_UTF8:
-        std::cout << "Utf8\t\t" << current_cp_info.Utf8_Info.UTF8_bytes;
-        // std::cout << "\tLength: " << current_cp_info.Utf8_Info.UTF8_size;
+        std::cout << "Utf8\t\t" << current_cp_info.Utf8.bytes;
+        // std::cout << "\tLength: " << current_cp_info.Utf8.length;
         break;
+
       case CONSTANT_INT:
         print_cp_info_int(current_cp_info);
         break;
+
       case CONSTANT_FLOAT:
         print_cp_info_float(current_cp_info);
         break;
-      case CONSTANT_LONG:
-        print_cp_info_long(current_cp_info);
-        i++;
         break;
-      case CONSTANT_DOUBLE:
+
         print_cp_info_double(current_cp_info);
         i++;
         break;
+
       case CONSTANT_CLASS :
         print_cp_info_class(class_file, current_cp_info);
         break;
+
       case CONSTANT_STRING:
         print_cp_info_string(class_file, current_cp_info);
         break;
+
       case CONSTANT_FIELD_REF:
         print_cp_info_field(class_file, current_cp_info);
         break;
+
       case CONSTANT_METHOD_REF:
         print_cp_info_method(class_file, current_cp_info);
         break;
+        
       case CONSTANT_INTERFACE_METHOD_REF:
         print_cp_info_interface_method(class_file, current_cp_info);
         break;
+
       case CONSTANT_NAME_TYPE:
         print_cp_info_name_type(class_file, current_cp_info);
         break;
+
       case CONSTANT_EMPTY:
         std::cout << "\tEmpty Constant"<< std::endl;
         break;
+
       default:
         printf("Invalid tag number: %d\nEncerrando programa.\n", current_cp_info.tag);
         exit(1);
@@ -236,6 +264,8 @@ void print_interfaces(Class_File class_file){
   }
 }
 
+/* ATTRIBUTES */
+
 void print_code_attribute(Class_File class_file, Code_Attribute *code_attribute) {
   printf("Code length: %d\n", code_attribute->code_length);
   printf("Code Attributes count: %d\n", code_attribute->attributes_count);
@@ -250,8 +280,6 @@ void print_code_attribute(Class_File class_file, Code_Attribute *code_attribute)
     print_methods_attributes(class_file, code_attribute->attributes[i]);
   }
 }
-
-/* ATTRIBUTES */
 
 void print_constant_value_attribute(Class_File class_file, Const_Value_Attribute *const_value) {
   printf("Constant value index: %d\n", const_value->const_value_index);
@@ -304,8 +332,8 @@ void print_fields(Class_File class_file) {
       printf("\tDescriptor:       cp_info_#%d ", class_file.fields[i].descriptor_index);
       std::cout << get_cp_info_utf8(class_file, class_file.fields[i].descriptor_index) << std::endl;
 
-      printf("\tAccess Flag:      0x%04x ", class_file.fields[i].access_flag);
-      printf("%d\n", class_file.fields[i].access_flag);
+      printf("\tAccess Flag:      0x%04x ", class_file.fields[i].access_flags);
+      printf("%d\n", class_file.fields[i].access_flags);
 
       printf("\tAttributes count: %d        \n\n",class_file.fields[i].atributes_count);
 
@@ -329,7 +357,7 @@ void print_methods(Class_File class_file) {
     printf("Name Index: #%d ",method_info->name_index);
     std::cout << get_cp_info_utf8(class_file, method_info->name_index) << std::endl;
 
-    printf("Descriptor Index: #%d ",method_info->descriptor_index);
+    printf("Descriptor Index: #%d ", method_info->descriptor_index);
     std::cout << get_cp_info_utf8(class_file, method_info->descriptor_index) << std::endl;
 
     printf("Access flags: ");
@@ -408,19 +436,19 @@ void print_instructions(Class_File class_file, Code_Attribute *code_attribute) {
     for (int j = 0; j < (int) instructions[op_code].bytes; j++) {
         ++i;
         switch(op_code) {
-          case ldc:
+          case CONSTANT_ldc:
             {
               u1 index = code_attribute->code[i];
               u2 index_utf8 = 0x00 | index;
-              std::cout << " #" << (int)index << " " << get_cp_info_utf8(class_file, index_utf8);
+              std::cout << "\t#" << (int)index << " " << get_cp_info_utf8(class_file, index_utf8);
               j++;
             }
             break;
-          case newarray:
+          case CONSTANT_newarray:
             print_newarray(code_attribute->code[j]);
             j++;
             break;
-          case multianewarray:
+          case CONSTANT_multianewarray:
             {
               u1 byte1 = code_attribute->code[i];
               u1 byte2 = code_attribute->code[i+1];
@@ -429,7 +457,7 @@ void print_instructions(Class_File class_file, Code_Attribute *code_attribute) {
               str = get_cp_info_utf8(class_file, index);
 
               if (!str.empty()) {
-                std::cout << " #" << std::dec << index << " " << str;
+                std::cout << "\t#" << std::dec << index << " " << str;
                 std::cout << " dim " << (int) dim;
               }
               j++;
@@ -442,16 +470,14 @@ void print_instructions(Class_File class_file, Code_Attribute *code_attribute) {
           case instanceof: 
           case invokespecial: 
           case invokestatic:
-          case invokevirtual:
-          case ldc_w: 
-          case ldc2_w: 
-          case putfield:
-          case putstatic:
+          case CONSTANT_ldc_w: 
+          case CONSTANT_ldc2_w: 
+          case CONSTANT_putfield:
+          case CONSTANT_putstatic:
             {
               u1 byte1 = code_attribute->code[i];
               u1 byte2 = code_attribute->code[i + 1];
               u2 index = (byte1 << 8) | byte2;
-              std::cout << " #" << std::dec << index << " " << get_cp_info_utf8(class_file, index);
               i++;
               j++;
             }
@@ -459,10 +485,23 @@ void print_instructions(Class_File class_file, Code_Attribute *code_attribute) {
           case GOTO: case if_acmpeq:  case if_acmpne:  case if_icmpeq: case if_icmpne: 
           case if_icmplt: case if_icmpge: case if_icmpgt: case if_icmple: case iifeq: case ifne:
           case iflt: case ifge: case ifgt: case ifle: case ifnonull: case ifnull: case jsr:
+          case CONSTANT_if_icmpne: 
+          case CONSTANT_if_icmplt: 
+          case CONSTANT_if_icmpge: 
+          case CONSTANT_if_icmpgt: 
+          case CONSTANT_if_icmple: 
+          case CONSTANT_iifeq: 
+          case CONSTANT_ifne:
+          case CONSTANT_iflt: 
+          case CONSTANT_ifge: 
+          case CONSTANT_ifgt: 
+          case CONSTANT_ifle: 
+          case CONSTANT_ifnonull: 
+          case CONSTANT_ifnull: 
+          case CONSTANT_jsr:
             {
               u1 branchbyte1 = code_attribute->code[i];
               u1 branchbyte2 = code_attribute->code[i + 1];
-              u2 address = (branchbyte1 << 8) | branchbyte2;
               printf("\t%d", address);
               i++;
               j++;

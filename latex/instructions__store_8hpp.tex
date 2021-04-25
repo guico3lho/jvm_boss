@@ -1,0 +1,645 @@
+\hypertarget{instructions__store_8hpp}{}\doxysection{Referência ao ficheiro include/instructions/instructions\+\_\+store.hpp}
+\label{instructions__store_8hpp}\index{include/instructions/instructions\_store.hpp@{include/instructions/instructions\_store.hpp}}
+
+
+Declaração das funções de instruções de opcode do tipo store da JVM.  
+
+
+{\ttfamily \#include \char`\"{}frame.\+hpp\char`\"{}}\newline
+\doxysubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{instructions__store_8hpp_a8afa4b240cf8b9a8ff1b7d21865868bb}\label{instructions__store_8hpp_a8afa4b240cf8b9a8ff1b7d21865868bb}} 
+void {\bfseries istore} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\item 
+void \mbox{\hyperlink{instructions__store_8hpp_ab44d7793e84605474a27f863422447e7}{istore\+\_\+0}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Armazena um inteiro no array de variaveis locais no indice 0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_a26a03eb8b355f345274b9f4de905c8a1}{istore\+\_\+1}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Armazena um inteiro no array de variaveis locais no indice 1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_a09c64640c3e7ed8c10519c3cfb1c028e}{istore\+\_\+2}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Armazena um inteiro no array de variaveis locais no indice 2. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_a188d38d17233ef9b22d66f8bfc0fd2a7}{istore\+\_\+3}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Armazena um inteiro no array de variaveis locais no indice 0. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{instructions__store_8hpp_aa2966ed9116e9a9f8542ea66dd77aa83}\label{instructions__store_8hpp_aa2966ed9116e9a9f8542ea66dd77aa83}} 
+void {\bfseries lstore} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\item 
+void \mbox{\hyperlink{instructions__store_8hpp_a09e203c2c0ee238c001c45698f3fd558}{lstore\+\_\+0}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Armazena long do topo da pilha de operandos no array de variaveis locais no indice 0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_a24bec06fa7a2f0daa81e65f6986d3b92}{lstore\+\_\+1}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Armazena long do topo da pilha de operandos no array de variaveis locais no indice 1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_a40a511fec634021346da596026204c75}{lstore\+\_\+2}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Armazena long do topo da pilha de operandos no array de variaveis locais no indice 2. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_a69501be91d9af07afc615c14ad2e164a}{lstore\+\_\+3}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Armazena long do topo da pilha de operandos no array de variaveis locais no indice 3. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_a5acbd1764f4a1e99a73bfcf2107a23c7}{fstore}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Armazena float do topo da pilha de operandos no array de variaveis locais. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_aaa3514d26d089fb330614fc8cafc40d9}{fstore\+\_\+0}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Armazena float do topo da pilha de operandos no array de variaveis locais no indice 0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_aae5c93d718d6ab49f0fc136769073674}{fstore\+\_\+1}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Armazena float do topo da pilha de operandos no array de variaveis locais no indice 1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_a8414f31c894115440ef3a09b73b5a591}{fstore\+\_\+2}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Armazena float do topo da pilha de operandos no array de variaveis locais no indice 2. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_a7f1a3739f871adaad7fcb1049e45bab2}{fstore\+\_\+3}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Armazena float do topo da pilha de operandos no array de variaveis locais no indice 3. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_a24ff34a44f52cf75d6d50a4b732e6c9b}{dstore}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Armazena valor double da pilha de operandos no array de variaveis locais no indice index. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_aecae5d8afce7a09c5a08e53a7bc24f44}{dstore\+\_\+0}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Armazena valor double da pilha de operandos no array de variaveis locais no indice 0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_a8e59ef4012cfa2cc6b3560d72db677e9}{dstore\+\_\+1}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Armazena valor double da pilha de operandos no array de variaveis locais no indice 1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_aa6b5a01ab19bb30406789eda5e1ee225}{dstore\+\_\+2}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Armazena valor double da pilha de operandos no array de variaveis locais no indice 2. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_a22b63306ef725bb1caae8a041d4e7fa7}{dstore\+\_\+3}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Armazena valor double da pilha de operandos no array de variaveis locais no indice 3. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_a2bfe2f254d286b858340b6b6ff44d3f3}{astore}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em ... \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_a1199f00ae6a514cb8b4d0fc707338e89}{astore\+\_\+0}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Guarda referência do object ou array do operando na variável local -\/0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_a9da21bfccaaa610b9bb8100ab22fdf98}{astore\+\_\+1}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Guarda referência do object ou array do operando na variável local 1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_aecb24b5df92992f052b152f741615d88}{astore\+\_\+2}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Retira o topo da pilha e armazena na variavel local de posição 2. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_a5042dfc7e7e7aa144ac250a21eef2687}{astore\+\_\+3}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Retira o topo da pilha e armazena na variavel local de posição 3. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_a9747e2c7b6f0e224c577d3faa7457163}{iastore}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Coleta um int da pilha de operandos e armazena em um vetor de ints. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_a648ef4a6b19632249cb74830fb485ede}{lastore}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Coleta um long da pilha de operandos e armazena em um vetor de longs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_a2f97b7fede2b6411df9e8dda41dd6402}{fastore}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Coleta um float da pilha de operandos e armazena em um vetor de floats. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_a6eb05448374c58f9a51b7ee3e96f80b8}{dastore}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Coleta um double da pilha de operandos e armazena em um vetor de doubles. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_a1c5128ed5500d11bddfd8af919236583}{aastore}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Coleta um objeto da pilha de operandos e armazena em um vetor de objetos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_abdf79e8afa7b3dace299c54610d8ce27}{bastore}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Coleta um booleano da pilha de operandos e armazena em um vetor de booleanos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_a4895b07f5dd8a1e6226d4554bd52c5f4}{castore}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Coleta um 32-\/bit integer da pilha de operandos e armazena em um vetor 16-\/bit unsigned (char). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__store_8hpp_a75d462442bef3462ff9f7ba8508f5e79}{sastore}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Coleta um short da pilha de operandos e armazena em um vetor shorts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Declaração das funções de instruções de opcode do tipo store da JVM. 
+
+
+
+\doxysubsection{Documentação das funções}
+\mbox{\Hypertarget{instructions__store_8hpp_a1c5128ed5500d11bddfd8af919236583}\label{instructions__store_8hpp_a1c5128ed5500d11bddfd8af919236583}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!aastore@{aastore}}
+\index{aastore@{aastore}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{aastore()}{aastore()}}
+{\footnotesize\ttfamily void aastore (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Coleta um objeto da pilha de operandos e armazena em um vetor de objetos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_a2bfe2f254d286b858340b6b6ff44d3f3}\label{instructions__store_8hpp_a2bfe2f254d286b858340b6b6ff44d3f3}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!astore@{astore}}
+\index{astore@{astore}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{astore()}{astore()}}
+{\footnotesize\ttfamily void astore (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+... 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_a1199f00ae6a514cb8b4d0fc707338e89}\label{instructions__store_8hpp_a1199f00ae6a514cb8b4d0fc707338e89}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!astore\_0@{astore\_0}}
+\index{astore\_0@{astore\_0}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{astore\_0()}{astore\_0()}}
+{\footnotesize\ttfamily void astore\+\_\+0 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Guarda referência do object ou array do operando na variável local -\/0. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_a9da21bfccaaa610b9bb8100ab22fdf98}\label{instructions__store_8hpp_a9da21bfccaaa610b9bb8100ab22fdf98}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!astore\_1@{astore\_1}}
+\index{astore\_1@{astore\_1}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{astore\_1()}{astore\_1()}}
+{\footnotesize\ttfamily void astore\+\_\+1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Guarda referência do object ou array do operando na variável local 1. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_aecb24b5df92992f052b152f741615d88}\label{instructions__store_8hpp_aecb24b5df92992f052b152f741615d88}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!astore\_2@{astore\_2}}
+\index{astore\_2@{astore\_2}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{astore\_2()}{astore\_2()}}
+{\footnotesize\ttfamily void astore\+\_\+2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Retira o topo da pilha e armazena na variavel local de posição 2. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_a5042dfc7e7e7aa144ac250a21eef2687}\label{instructions__store_8hpp_a5042dfc7e7e7aa144ac250a21eef2687}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!astore\_3@{astore\_3}}
+\index{astore\_3@{astore\_3}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{astore\_3()}{astore\_3()}}
+{\footnotesize\ttfamily void astore\+\_\+3 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Retira o topo da pilha e armazena na variavel local de posição 3. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \mbox{\hyperlink{classFrame}{Frame}}} & $\ast$curr\+\_\+frame ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_abdf79e8afa7b3dace299c54610d8ce27}\label{instructions__store_8hpp_abdf79e8afa7b3dace299c54610d8ce27}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!bastore@{bastore}}
+\index{bastore@{bastore}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{bastore()}{bastore()}}
+{\footnotesize\ttfamily void bastore (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Coleta um booleano da pilha de operandos e armazena em um vetor de booleanos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_a4895b07f5dd8a1e6226d4554bd52c5f4}\label{instructions__store_8hpp_a4895b07f5dd8a1e6226d4554bd52c5f4}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!castore@{castore}}
+\index{castore@{castore}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{castore()}{castore()}}
+{\footnotesize\ttfamily void castore (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Coleta um 32-\/bit integer da pilha de operandos e armazena em um vetor 16-\/bit unsigned (char). 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_a6eb05448374c58f9a51b7ee3e96f80b8}\label{instructions__store_8hpp_a6eb05448374c58f9a51b7ee3e96f80b8}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!dastore@{dastore}}
+\index{dastore@{dastore}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{dastore()}{dastore()}}
+{\footnotesize\ttfamily void dastore (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Coleta um double da pilha de operandos e armazena em um vetor de doubles. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_a24ff34a44f52cf75d6d50a4b732e6c9b}\label{instructions__store_8hpp_a24ff34a44f52cf75d6d50a4b732e6c9b}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!dstore@{dstore}}
+\index{dstore@{dstore}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{dstore()}{dstore()}}
+{\footnotesize\ttfamily void dstore (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Armazena valor double da pilha de operandos no array de variaveis locais no indice index. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_aecae5d8afce7a09c5a08e53a7bc24f44}\label{instructions__store_8hpp_aecae5d8afce7a09c5a08e53a7bc24f44}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!dstore\_0@{dstore\_0}}
+\index{dstore\_0@{dstore\_0}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{dstore\_0()}{dstore\_0()}}
+{\footnotesize\ttfamily void dstore\+\_\+0 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Armazena valor double da pilha de operandos no array de variaveis locais no indice 0. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_a8e59ef4012cfa2cc6b3560d72db677e9}\label{instructions__store_8hpp_a8e59ef4012cfa2cc6b3560d72db677e9}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!dstore\_1@{dstore\_1}}
+\index{dstore\_1@{dstore\_1}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{dstore\_1()}{dstore\_1()}}
+{\footnotesize\ttfamily void dstore\+\_\+1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Armazena valor double da pilha de operandos no array de variaveis locais no indice 1. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_aa6b5a01ab19bb30406789eda5e1ee225}\label{instructions__store_8hpp_aa6b5a01ab19bb30406789eda5e1ee225}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!dstore\_2@{dstore\_2}}
+\index{dstore\_2@{dstore\_2}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{dstore\_2()}{dstore\_2()}}
+{\footnotesize\ttfamily void dstore\+\_\+2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Armazena valor double da pilha de operandos no array de variaveis locais no indice 2. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_a22b63306ef725bb1caae8a041d4e7fa7}\label{instructions__store_8hpp_a22b63306ef725bb1caae8a041d4e7fa7}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!dstore\_3@{dstore\_3}}
+\index{dstore\_3@{dstore\_3}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{dstore\_3()}{dstore\_3()}}
+{\footnotesize\ttfamily void dstore\+\_\+3 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Armazena valor double da pilha de operandos no array de variaveis locais no indice 3. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_a2f97b7fede2b6411df9e8dda41dd6402}\label{instructions__store_8hpp_a2f97b7fede2b6411df9e8dda41dd6402}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!fastore@{fastore}}
+\index{fastore@{fastore}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{fastore()}{fastore()}}
+{\footnotesize\ttfamily void fastore (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Coleta um float da pilha de operandos e armazena em um vetor de floats. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_a5acbd1764f4a1e99a73bfcf2107a23c7}\label{instructions__store_8hpp_a5acbd1764f4a1e99a73bfcf2107a23c7}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!fstore@{fstore}}
+\index{fstore@{fstore}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{fstore()}{fstore()}}
+{\footnotesize\ttfamily void fstore (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Armazena float do topo da pilha de operandos no array de variaveis locais. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_aaa3514d26d089fb330614fc8cafc40d9}\label{instructions__store_8hpp_aaa3514d26d089fb330614fc8cafc40d9}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!fstore\_0@{fstore\_0}}
+\index{fstore\_0@{fstore\_0}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{fstore\_0()}{fstore\_0()}}
+{\footnotesize\ttfamily void fstore\+\_\+0 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Armazena float do topo da pilha de operandos no array de variaveis locais no indice 0. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_aae5c93d718d6ab49f0fc136769073674}\label{instructions__store_8hpp_aae5c93d718d6ab49f0fc136769073674}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!fstore\_1@{fstore\_1}}
+\index{fstore\_1@{fstore\_1}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{fstore\_1()}{fstore\_1()}}
+{\footnotesize\ttfamily void fstore\+\_\+1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Armazena float do topo da pilha de operandos no array de variaveis locais no indice 1. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_a8414f31c894115440ef3a09b73b5a591}\label{instructions__store_8hpp_a8414f31c894115440ef3a09b73b5a591}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!fstore\_2@{fstore\_2}}
+\index{fstore\_2@{fstore\_2}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{fstore\_2()}{fstore\_2()}}
+{\footnotesize\ttfamily void fstore\+\_\+2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Armazena float do topo da pilha de operandos no array de variaveis locais no indice 2. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_a7f1a3739f871adaad7fcb1049e45bab2}\label{instructions__store_8hpp_a7f1a3739f871adaad7fcb1049e45bab2}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!fstore\_3@{fstore\_3}}
+\index{fstore\_3@{fstore\_3}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{fstore\_3()}{fstore\_3()}}
+{\footnotesize\ttfamily void fstore\+\_\+3 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Armazena float do topo da pilha de operandos no array de variaveis locais no indice 3. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_a9747e2c7b6f0e224c577d3faa7457163}\label{instructions__store_8hpp_a9747e2c7b6f0e224c577d3faa7457163}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!iastore@{iastore}}
+\index{iastore@{iastore}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{iastore()}{iastore()}}
+{\footnotesize\ttfamily void iastore (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Coleta um int da pilha de operandos e armazena em um vetor de ints. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_ab44d7793e84605474a27f863422447e7}\label{instructions__store_8hpp_ab44d7793e84605474a27f863422447e7}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!istore\_0@{istore\_0}}
+\index{istore\_0@{istore\_0}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{istore\_0()}{istore\_0()}}
+{\footnotesize\ttfamily void istore\+\_\+0 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Armazena um inteiro no array de variaveis locais no indice 0. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_a26a03eb8b355f345274b9f4de905c8a1}\label{instructions__store_8hpp_a26a03eb8b355f345274b9f4de905c8a1}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!istore\_1@{istore\_1}}
+\index{istore\_1@{istore\_1}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{istore\_1()}{istore\_1()}}
+{\footnotesize\ttfamily void istore\+\_\+1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Armazena um inteiro no array de variaveis locais no indice 1. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_a09c64640c3e7ed8c10519c3cfb1c028e}\label{instructions__store_8hpp_a09c64640c3e7ed8c10519c3cfb1c028e}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!istore\_2@{istore\_2}}
+\index{istore\_2@{istore\_2}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{istore\_2()}{istore\_2()}}
+{\footnotesize\ttfamily void istore\+\_\+2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Armazena um inteiro no array de variaveis locais no indice 2. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_a188d38d17233ef9b22d66f8bfc0fd2a7}\label{instructions__store_8hpp_a188d38d17233ef9b22d66f8bfc0fd2a7}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!istore\_3@{istore\_3}}
+\index{istore\_3@{istore\_3}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{istore\_3()}{istore\_3()}}
+{\footnotesize\ttfamily void istore\+\_\+3 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Armazena um inteiro no array de variaveis locais no indice 0. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_a648ef4a6b19632249cb74830fb485ede}\label{instructions__store_8hpp_a648ef4a6b19632249cb74830fb485ede}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!lastore@{lastore}}
+\index{lastore@{lastore}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{lastore()}{lastore()}}
+{\footnotesize\ttfamily void lastore (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Coleta um long da pilha de operandos e armazena em um vetor de longs. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_a09e203c2c0ee238c001c45698f3fd558}\label{instructions__store_8hpp_a09e203c2c0ee238c001c45698f3fd558}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!lstore\_0@{lstore\_0}}
+\index{lstore\_0@{lstore\_0}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{lstore\_0()}{lstore\_0()}}
+{\footnotesize\ttfamily void lstore\+\_\+0 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Armazena long do topo da pilha de operandos no array de variaveis locais no indice 0. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \mbox{\hyperlink{classFrame}{Frame}}} & $\ast$curr\+\_\+frame Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_a24bec06fa7a2f0daa81e65f6986d3b92}\label{instructions__store_8hpp_a24bec06fa7a2f0daa81e65f6986d3b92}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!lstore\_1@{lstore\_1}}
+\index{lstore\_1@{lstore\_1}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{lstore\_1()}{lstore\_1()}}
+{\footnotesize\ttfamily void lstore\+\_\+1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Armazena long do topo da pilha de operandos no array de variaveis locais no indice 1. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \mbox{\hyperlink{classFrame}{Frame}}} & $\ast$curr\+\_\+frame Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_a40a511fec634021346da596026204c75}\label{instructions__store_8hpp_a40a511fec634021346da596026204c75}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!lstore\_2@{lstore\_2}}
+\index{lstore\_2@{lstore\_2}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{lstore\_2()}{lstore\_2()}}
+{\footnotesize\ttfamily void lstore\+\_\+2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Armazena long do topo da pilha de operandos no array de variaveis locais no indice 2. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \mbox{\hyperlink{classFrame}{Frame}}} & $\ast$curr\+\_\+frame Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_a69501be91d9af07afc615c14ad2e164a}\label{instructions__store_8hpp_a69501be91d9af07afc615c14ad2e164a}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!lstore\_3@{lstore\_3}}
+\index{lstore\_3@{lstore\_3}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{lstore\_3()}{lstore\_3()}}
+{\footnotesize\ttfamily void lstore\+\_\+3 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Armazena long do topo da pilha de operandos no array de variaveis locais no indice 3. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \mbox{\hyperlink{classFrame}{Frame}}} & $\ast$curr\+\_\+frame Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__store_8hpp_a75d462442bef3462ff9f7ba8508f5e79}\label{instructions__store_8hpp_a75d462442bef3462ff9f7ba8508f5e79}} 
+\index{instructions\_store.hpp@{instructions\_store.hpp}!sastore@{sastore}}
+\index{sastore@{sastore}!instructions\_store.hpp@{instructions\_store.hpp}}
+\doxysubsubsection{\texorpdfstring{sastore()}{sastore()}}
+{\footnotesize\ttfamily void sastore (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Coleta um short da pilha de operandos e armazena em um vetor shorts. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}

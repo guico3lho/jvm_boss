@@ -1,0 +1,43 @@
+\hypertarget{structOperand}{}\doxysection{Referência à estrutura Operand}
+\label{structOperand}\index{Operand@{Operand}}
+
+
+Estrutura de dados que armazena um operando.  
+
+
+
+
+{\ttfamily \#include $<$frame.\+hpp$>$}
+
+\doxysubsection*{Atributos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structOperand_a8437579be8905992459f19398c9ec80f}\label{structOperand_a8437579be8905992459f19398c9ec80f}} 
+u1 {\bfseries tag}
+\item 
+\mbox{\Hypertarget{structOperand_a2c5076f592c13f0b869ec4a4397aa599}\label{structOperand_a2c5076f592c13f0b869ec4a4397aa599}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>u4 {\bfseries type\_bool}\\
+\>u4 {\bfseries type\_byte}\\
+\>u4 {\bfseries type\_char}\\
+\>u4 {\bfseries type\_short}\\
+\>u4 {\bfseries type\_int}\\
+\>u4 {\bfseries type\_float}\\
+\>u8 {\bfseries type\_long}\\
+\>u8 {\bfseries type\_double}\\
+\>string $\ast$ {\bfseries type\_string}\\
+\>\mbox{\hyperlink{structArray__Type}{Array\_Type}} $\ast$ {\bfseries array\_type}\\
+\>\mbox{\hyperlink{structClass__Loader}{Class\_Loader}} $\ast$ {\bfseries class\_loader}\\
+\}; \\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Estrutura de dados que armazena um operando. 
+
+A documentação para esta estrutura foi gerada a partir do seguinte ficheiro\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{frame_8hpp}{frame.\+hpp}}\end{DoxyCompactItemize}

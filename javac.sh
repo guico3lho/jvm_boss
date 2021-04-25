@@ -1,1 +1,1 @@
-javac test/java/$1.java
+javac test/java/$1.java -d test/class

@@ -1,0 +1,103 @@
+\hypertarget{utils_8hpp}{}\doxysection{Referência ao ficheiro include/utils.hpp}
+\label{utils_8hpp}\index{include/utils.hpp@{include/utils.hpp}}
+
+
+Declaração de funções auxiliares.  
+
+
+{\ttfamily \#include \char`\"{}class\+\_\+file.\+hpp\char`\"{}}\newline
+\doxysubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{utils_8hpp_a3d1da22fdd0500f36b985c34e220cc69}{print\+\_\+command\+\_\+error}} ()
+\begin{DoxyCompactList}\small\item\em Imprime mensagem de comando incorreto. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8hpp_a6fcad2a3bf15856e5d7f6ae0373800fc}{free\+Class}} (\mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} class\+\_\+file)
+\begin{DoxyCompactList}\small\item\em Libera a memória alocada para o Class File. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8hpp_aeee5b372ed28dcf4a92a061a2981b97c}{free\+Attribute}} (\mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} $\ast$attr, u4 size)
+\begin{DoxyCompactList}\small\item\em Libera a memória alocada para um atributo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8hpp_a0cb968f81d7081a339d25aa1bba9e6b8}{free\+Inner\+Class}} (\mbox{\hyperlink{structInner__Class__Attribute}{Inner\+\_\+\+Class\+\_\+\+Attribute}} $\ast$inner, u4 size)
+\begin{DoxyCompactList}\small\item\em Libera a memória de atributos do tipo Inner Class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Declaração de funções auxiliares. 
+
+
+
+\doxysubsection{Documentação das funções}
+\mbox{\Hypertarget{utils_8hpp_aeee5b372ed28dcf4a92a061a2981b97c}\label{utils_8hpp_aeee5b372ed28dcf4a92a061a2981b97c}} 
+\index{utils.hpp@{utils.hpp}!freeAttribute@{freeAttribute}}
+\index{freeAttribute@{freeAttribute}!utils.hpp@{utils.hpp}}
+\doxysubsubsection{\texorpdfstring{freeAttribute()}{freeAttribute()}}
+{\footnotesize\ttfamily void free\+Attribute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAttribute__Info}{Attribute\+\_\+\+Info}} $\ast$}]{attr,  }\item[{u4}]{size }\end{DoxyParamCaption})}
+
+
+
+Libera a memória alocada para um atributo. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em attr} & estrutura Attribute que precisa ser liberada \\
+\hline
+{\em size} & tamanho do array de atributos \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utils_8hpp_a6fcad2a3bf15856e5d7f6ae0373800fc}\label{utils_8hpp_a6fcad2a3bf15856e5d7f6ae0373800fc}} 
+\index{utils.hpp@{utils.hpp}!freeClass@{freeClass}}
+\index{freeClass@{freeClass}!utils.hpp@{utils.hpp}}
+\doxysubsubsection{\texorpdfstring{freeClass()}{freeClass()}}
+{\footnotesize\ttfamily void free\+Class (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}}}]{class\+\_\+file }\end{DoxyParamCaption})}
+
+
+
+Libera a memória alocada para o Class File. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em class\+\_\+file} & estrutura \mbox{\hyperlink{structClass__File}{Class\+\_\+\+File}} que precisa ser liberada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utils_8hpp_a0cb968f81d7081a339d25aa1bba9e6b8}\label{utils_8hpp_a0cb968f81d7081a339d25aa1bba9e6b8}} 
+\index{utils.hpp@{utils.hpp}!freeInnerClass@{freeInnerClass}}
+\index{freeInnerClass@{freeInnerClass}!utils.hpp@{utils.hpp}}
+\doxysubsubsection{\texorpdfstring{freeInnerClass()}{freeInnerClass()}}
+{\footnotesize\ttfamily void free\+Inner\+Class (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structInner__Class__Attribute}{Inner\+\_\+\+Class\+\_\+\+Attribute}} $\ast$}]{inner,  }\item[{u4}]{size }\end{DoxyParamCaption})}
+
+
+
+Libera a memória de atributos do tipo Inner Class. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em inner} & estrutura \mbox{\hyperlink{structInner__Class__Attribute}{Inner\+\_\+\+Class\+\_\+\+Attribute}} que precisa ser liberada. \\
+\hline
+{\em size} & tamanho do array de classes internas. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utils_8hpp_a3d1da22fdd0500f36b985c34e220cc69}\label{utils_8hpp_a3d1da22fdd0500f36b985c34e220cc69}} 
+\index{utils.hpp@{utils.hpp}!print\_command\_error@{print\_command\_error}}
+\index{print\_command\_error@{print\_command\_error}!utils.hpp@{utils.hpp}}
+\doxysubsubsection{\texorpdfstring{print\_command\_error()}{print\_command\_error()}}
+{\footnotesize\ttfamily void print\+\_\+command\+\_\+error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Imprime mensagem de comando incorreto. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}

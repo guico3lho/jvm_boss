@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projeto JVM: Código-Fonte de include/instructions/instructions_stack.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Projeto JVM
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_2843b2c750ff6b39dcfe98bf2554dba0.html">instructions</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">instructions_stack.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="instructions__stack_8hpp.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef __INSTRUCTIONS_STACK_H__</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define __INSTRUCTIONS_STACK_H__</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="frame_8hpp.html">frame.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/* STACK */</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keywordtype">void</span> pop(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keywordtype">void</span> pop2(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__stack_8hpp.html#a87c904fccd5941d4d201b81468334401">dup</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__stack_8hpp.html#a7f5493ce1f053bc10e7f38e353d164be">dup_x1</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__stack_8hpp.html#a3b0955bf499b779003d01f4b93092544">dup_x2</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__stack_8hpp.html#a49e15e99513c12d3e358948cfbe42f71">dup2</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__stack_8hpp.html#ad24e8e58b74571bffc23bc2793d09864">dup2_x1</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__stack_8hpp.html#a85549ee07d80229221b36f5056f5d858">dup2_x2</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">void</span> swap(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassFrame_html"><div class="ttname"><a href="classFrame.html">Frame</a></div><div class="ttdoc">Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,...</div><div class="ttdef"><b>Definition:</b> frame.hpp:55</div></div>
+<div class="ttc" id="aframe_8hpp_html"><div class="ttname"><a href="frame_8hpp.html">frame.hpp</a></div><div class="ttdoc">Estruturas e classes de Frames e Operandos.</div></div>
+<div class="ttc" id="ainstructions__stack_8hpp_html_a3b0955bf499b779003d01f4b93092544"><div class="ttname"><a href="instructions__stack_8hpp.html#a3b0955bf499b779003d01f4b93092544">dup_x2</a></div><div class="ttdeci">void dup_x2(Frame *)</div><div class="ttdoc">Duplica o item no topo da pilha e pusha depois do terceiro elemento da pilha.</div><div class="ttdef"><b>Definition:</b> instructions_stack.cpp:71</div></div>
+<div class="ttc" id="ainstructions__stack_8hpp_html_a49e15e99513c12d3e358948cfbe42f71"><div class="ttname"><a href="instructions__stack_8hpp.html#a49e15e99513c12d3e358948cfbe42f71">dup2</a></div><div class="ttdeci">void dup2(Frame *)</div><div class="ttdoc">Faz uma cópia de dois itens que estao no topo da pilha e o(s) adiciona ao topo da pilha.</div><div class="ttdef"><b>Definition:</b> instructions_stack.cpp:102</div></div>
+<div class="ttc" id="ainstructions__stack_8hpp_html_a7f5493ce1f053bc10e7f38e353d164be"><div class="ttname"><a href="instructions__stack_8hpp.html#a7f5493ce1f053bc10e7f38e353d164be">dup_x1</a></div><div class="ttdeci">void dup_x1(Frame *)</div><div class="ttdoc">Duplica o item no topo da pilha e pusha depois do segundo elemento da pilha.</div><div class="ttdef"><b>Definition:</b> instructions_stack.cpp:48</div></div>
+<div class="ttc" id="ainstructions__stack_8hpp_html_a85549ee07d80229221b36f5056f5d858"><div class="ttname"><a href="instructions__stack_8hpp.html#a85549ee07d80229221b36f5056f5d858">dup2_x2</a></div><div class="ttdeci">void dup2_x2(Frame *)</div><div class="ttdoc">Duplica um ou dois operandos da pilha e insere os valores duplicados na ordem original.</div><div class="ttdef"><b>Definition:</b> instructions_stack.cpp:161</div></div>
+<div class="ttc" id="ainstructions__stack_8hpp_html_a87c904fccd5941d4d201b81468334401"><div class="ttname"><a href="instructions__stack_8hpp.html#a87c904fccd5941d4d201b81468334401">dup</a></div><div class="ttdeci">void dup(Frame *)</div><div class="ttdoc">Faz uma cópia do item que está no topo da pilha e o adiciona ao topo da pilha.</div><div class="ttdef"><b>Definition:</b> instructions_stack.cpp:29</div></div>
+<div class="ttc" id="ainstructions__stack_8hpp_html_ad24e8e58b74571bffc23bc2793d09864"><div class="ttname"><a href="instructions__stack_8hpp.html#ad24e8e58b74571bffc23bc2793d09864">dup2_x1</a></div><div class="ttdeci">void dup2_x1(Frame *)</div><div class="ttdoc">Duplica um ou dois valores da pilha de operandos e insere os valores duplicados na ordem original.</div><div class="ttdef"><b>Definition:</b> instructions_stack.cpp:129</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

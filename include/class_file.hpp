@@ -1,3 +1,8 @@
+/** 
+ *  @file class_file.hpp
+ *  @brief Estruturas e declarações de funções relacionados com a leitura de dados do arquivo bytecode (.class)
+*/
+
 #ifndef __CLASS_FILE_H__
 #define __CLASS_FILE_H__
 
@@ -16,6 +21,9 @@ struct Method_Info;
 struct Inner_Class_Attribute;
 
 
+/** 
+ *  @brief Estrutura de dados que armazena as principais informações do bytecode (.class)
+ */
 typedef struct Class_File{
   u4 magic_number;
 

@@ -1,5 +1,15 @@
+/**
+ * @file instruction.cpp
+ * @brief Arquivo com o nome e os bytes de todas as instruções
+*/
+
 #include "instruction.hpp"
 
+/**
+* @brief Função que define o vetor de instruções.
+* @param void
+* @return um vetor de instruções
+*/
 // each instruction has 8-bit = 1 byte
 std::vector<Instruction> set_instructions() {
   std::vector<Instruction> instructions = std::vector<Instruction>(256);
@@ -622,3 +632,4 @@ std::vector<Instruction> set_instructions() {
 
   return instructions;
 }
+

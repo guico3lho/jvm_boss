@@ -1,0 +1,187 @@
+\hypertarget{instruction_8hpp}{}\doxysection{Referência ao ficheiro include/instruction.hpp}
+\label{instruction_8hpp}\index{include/instruction.hpp@{include/instruction.hpp}}
+
+
+Estruturas, declaração de funções e definições de constanstes relacionadas a instruções.  
+
+
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}read\+\_\+bytes.\+hpp\char`\"{}}\newline
+\doxysubsection*{Componentes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structInstruction}{Instruction}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados que armazena uma \mbox{\hyperlink{structInstruction}{Instruction}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a1a91c8a7573178e15f5cd81373d78ce7}\label{instruction_8hpp_a1a91c8a7573178e15f5cd81373d78ce7}} 
+\#define {\bfseries CONSTANT\+\_\+ldc}~18
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a373383a682f25228b63f1fdf2662adb7}\label{instruction_8hpp_a373383a682f25228b63f1fdf2662adb7}} 
+\#define {\bfseries CONSTANT\+\_\+ldc\+\_\+w}~19
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a6d814e3e26a211b9ca0737fe43a8ddbf}\label{instruction_8hpp_a6d814e3e26a211b9ca0737fe43a8ddbf}} 
+\#define {\bfseries CONSTANT\+\_\+ldc2\+\_\+w}~20
+\item 
+\mbox{\Hypertarget{instruction_8hpp_aab2193a460f733e9ba76a97f49771952}\label{instruction_8hpp_aab2193a460f733e9ba76a97f49771952}} 
+\#define {\bfseries CONSTANT\+\_\+iifeq}~153
+\item 
+\mbox{\Hypertarget{instruction_8hpp_ad0c961114b82672c139f79bbe5382bcf}\label{instruction_8hpp_ad0c961114b82672c139f79bbe5382bcf}} 
+\#define {\bfseries CONSTANT\+\_\+ifne}~154
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a4d235187a1882fea8cb9f398303e3897}\label{instruction_8hpp_a4d235187a1882fea8cb9f398303e3897}} 
+\#define {\bfseries CONSTANT\+\_\+iflt}~155
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a6432e9d01617c865fcc14228da9737f9}\label{instruction_8hpp_a6432e9d01617c865fcc14228da9737f9}} 
+\#define {\bfseries CONSTANT\+\_\+ifge}~156
+\item 
+\mbox{\Hypertarget{instruction_8hpp_abef04d68f10e3f9a357850bf38d31546}\label{instruction_8hpp_abef04d68f10e3f9a357850bf38d31546}} 
+\#define {\bfseries CONSTANT\+\_\+ifgt}~157
+\item 
+\mbox{\Hypertarget{instruction_8hpp_ae9327fcdf0abc3bf828e26d40696086a}\label{instruction_8hpp_ae9327fcdf0abc3bf828e26d40696086a}} 
+\#define {\bfseries CONSTANT\+\_\+ifle}~158
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a31cb1b5e2dec4619c4d12861105ac240}\label{instruction_8hpp_a31cb1b5e2dec4619c4d12861105ac240}} 
+\#define {\bfseries CONSTANT\+\_\+if\+\_\+icmpeq}~159
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a5ad01c951737aa5084fc1423a04c1cea}\label{instruction_8hpp_a5ad01c951737aa5084fc1423a04c1cea}} 
+\#define {\bfseries CONSTANT\+\_\+if\+\_\+icmpne}~160
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a430b3a367879f2cbc3d382d77fc14e36}\label{instruction_8hpp_a430b3a367879f2cbc3d382d77fc14e36}} 
+\#define {\bfseries CONSTANT\+\_\+if\+\_\+icmplt}~161
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a7d9041d9d347d68860632d38830016a0}\label{instruction_8hpp_a7d9041d9d347d68860632d38830016a0}} 
+\#define {\bfseries CONSTANT\+\_\+if\+\_\+icmpge}~162
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a3c1a2a0f8f714190f49d81f7f9f2e737}\label{instruction_8hpp_a3c1a2a0f8f714190f49d81f7f9f2e737}} 
+\#define {\bfseries CONSTANT\+\_\+if\+\_\+icmpgt}~163
+\item 
+\mbox{\Hypertarget{instruction_8hpp_aa210b65adb2b05ea55d0f99c4323fc2c}\label{instruction_8hpp_aa210b65adb2b05ea55d0f99c4323fc2c}} 
+\#define {\bfseries CONSTANT\+\_\+if\+\_\+icmple}~164
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a1e43231081936a074b3a2ff33e6fe308}\label{instruction_8hpp_a1e43231081936a074b3a2ff33e6fe308}} 
+\#define {\bfseries CONSTANT\+\_\+if\+\_\+acmpeq}~165
+\item 
+\mbox{\Hypertarget{instruction_8hpp_aa6c0867c47ecbb6ad1ad9cf4df165e1f}\label{instruction_8hpp_aa6c0867c47ecbb6ad1ad9cf4df165e1f}} 
+\#define {\bfseries CONSTANT\+\_\+if\+\_\+acmpne}~166
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a71c9d9e854e119ff2e0c57d5ba448b2d}\label{instruction_8hpp_a71c9d9e854e119ff2e0c57d5ba448b2d}} 
+\#define {\bfseries CONSTANT\+\_\+\+GOTO}~167
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a4d25183999a6250347729dc24e5871d4}\label{instruction_8hpp_a4d25183999a6250347729dc24e5871d4}} 
+\#define {\bfseries CONSTANT\+\_\+jsr}~168
+\item 
+\mbox{\Hypertarget{instruction_8hpp_aae87ede60cd26d8a863a1b2b6b840316}\label{instruction_8hpp_aae87ede60cd26d8a863a1b2b6b840316}} 
+\#define {\bfseries CONSTANT\+\_\+getstatic}~178
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a4b061bcf1f502ac98b1776644e547d7d}\label{instruction_8hpp_a4b061bcf1f502ac98b1776644e547d7d}} 
+\#define {\bfseries CONSTANT\+\_\+putstatic}~179
+\item 
+\mbox{\Hypertarget{instruction_8hpp_ac9be22862f5d13149b7b90a57c776698}\label{instruction_8hpp_ac9be22862f5d13149b7b90a57c776698}} 
+\#define {\bfseries CONSTANT\+\_\+getfield}~180
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a32e47810bbec18c9dbe602029273ecd2}\label{instruction_8hpp_a32e47810bbec18c9dbe602029273ecd2}} 
+\#define {\bfseries CONSTANT\+\_\+putfield}~181
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a3dfef3286f697113178e976cd9e1e0e4}\label{instruction_8hpp_a3dfef3286f697113178e976cd9e1e0e4}} 
+\#define {\bfseries CONSTANT\+\_\+invokevirtual}~182
+\item 
+\mbox{\Hypertarget{instruction_8hpp_aedb71740d38d54f24ed0b67f8d41fa65}\label{instruction_8hpp_aedb71740d38d54f24ed0b67f8d41fa65}} 
+\#define {\bfseries CONSTANT\+\_\+invokespecial}~183
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a53759230e89a246144dbd3a14350b7c7}\label{instruction_8hpp_a53759230e89a246144dbd3a14350b7c7}} 
+\#define {\bfseries CONSTANT\+\_\+invokestatic}~184
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a7050e3b2523b8777b55b1bf9e89dda18}\label{instruction_8hpp_a7050e3b2523b8777b55b1bf9e89dda18}} 
+\#define {\bfseries CONSTANT\+\_\+invokeinterface}~185
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a6f1f244b2abde27725a2825a915934c1}\label{instruction_8hpp_a6f1f244b2abde27725a2825a915934c1}} 
+\#define {\bfseries CONSTANT\+\_\+invokedynamic}~186
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a4fa3481bd61ed9fcbbccbb949d520ccd}\label{instruction_8hpp_a4fa3481bd61ed9fcbbccbb949d520ccd}} 
+\#define {\bfseries CONSTANT\+\_\+\+NEW}~187
+\item 
+\mbox{\Hypertarget{instruction_8hpp_ad76956cb5697e7497dd583da0795da2e}\label{instruction_8hpp_ad76956cb5697e7497dd583da0795da2e}} 
+\#define {\bfseries CONSTANT\+\_\+newarray}~188
+\item 
+\mbox{\Hypertarget{instruction_8hpp_ae015bfde9704dcd7ef182f928fc072ae}\label{instruction_8hpp_ae015bfde9704dcd7ef182f928fc072ae}} 
+\#define {\bfseries CONSTANT\+\_\+anewarray}~189
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a0536a68407bfef6b702669824010393c}\label{instruction_8hpp_a0536a68407bfef6b702669824010393c}} 
+\#define {\bfseries CONSTANT\+\_\+checkcast}~192
+\item 
+\mbox{\Hypertarget{instruction_8hpp_af5b552fbee1a9874d9539157ea522426}\label{instruction_8hpp_af5b552fbee1a9874d9539157ea522426}} 
+\#define {\bfseries CONSTANT\+\_\+instanceof}~193
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a30eb92ca9723ae26a03ef11072aea27b}\label{instruction_8hpp_a30eb92ca9723ae26a03ef11072aea27b}} 
+\#define {\bfseries CONSTANT\+\_\+multianewarray}~197
+\item 
+\mbox{\Hypertarget{instruction_8hpp_aaf54ecf14d48d4e3cc46746f461d503b}\label{instruction_8hpp_aaf54ecf14d48d4e3cc46746f461d503b}} 
+\#define {\bfseries CONSTANT\+\_\+ifnull}~198
+\item 
+\mbox{\Hypertarget{instruction_8hpp_aecf33ec10c7b43eaaa70cc73ba8633ae}\label{instruction_8hpp_aecf33ec10c7b43eaaa70cc73ba8633ae}} 
+\#define {\bfseries CONSTANT\+\_\+ifnonull}~199
+\item 
+\mbox{\Hypertarget{instruction_8hpp_ac2198ff35934b3dd78e881464159ae26}\label{instruction_8hpp_ac2198ff35934b3dd78e881464159ae26}} 
+\#define {\bfseries T\+\_\+\+BOOLEAN}~0x4
+\item 
+\mbox{\Hypertarget{instruction_8hpp_ae2381f297a8fbb736886d7d1b6b99b42}\label{instruction_8hpp_ae2381f297a8fbb736886d7d1b6b99b42}} 
+\#define {\bfseries T\+\_\+\+CHAR}~0x5
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a3d072e0c25cf678e9b8601b957b92eae}\label{instruction_8hpp_a3d072e0c25cf678e9b8601b957b92eae}} 
+\#define {\bfseries T\+\_\+\+FLOAT}~0x6
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a6e80924a839d0f80571bcd1d2b6ec084}\label{instruction_8hpp_a6e80924a839d0f80571bcd1d2b6ec084}} 
+\#define {\bfseries T\+\_\+\+DOUBLE}~0x7
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a6f64c98fe49fdcf1d2939db817918696}\label{instruction_8hpp_a6f64c98fe49fdcf1d2939db817918696}} 
+\#define {\bfseries T\+\_\+\+BYTE}~0x8
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a23ab0d39813d2d5a59ccb7b9b68c3e6d}\label{instruction_8hpp_a23ab0d39813d2d5a59ccb7b9b68c3e6d}} 
+\#define {\bfseries T\+\_\+\+SHORT}~0x9
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a4fa28a492427bc4af75248e22537e9b4}\label{instruction_8hpp_a4fa28a492427bc4af75248e22537e9b4}} 
+\#define {\bfseries T\+\_\+\+INT}~0x10
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a2d9ac9f51c75bdb21cf9dfd1412fa194}\label{instruction_8hpp_a2d9ac9f51c75bdb21cf9dfd1412fa194}} 
+\#define {\bfseries T\+\_\+\+LONG}~0x11
+\end{DoxyCompactItemize}
+\doxysubsection*{Definições de tipos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{instruction_8hpp_a36bbd4522e8a1929f0a16b626c4d9161}\label{instruction_8hpp_a36bbd4522e8a1929f0a16b626c4d9161}} 
+typedef struct \mbox{\hyperlink{structInstruction}{Instruction}} \mbox{\hyperlink{instruction_8hpp_a36bbd4522e8a1929f0a16b626c4d9161}{Instruction}}
+\begin{DoxyCompactList}\small\item\em Estrutura de dados que armazena uma \mbox{\hyperlink{structInstruction}{Instruction}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structInstruction}{Instruction}} $>$ \mbox{\hyperlink{instruction_8hpp_a8aa29cb90ba1b9e72fd46c5dd61caee6}{set\+\_\+instructions}} ()
+\begin{DoxyCompactList}\small\item\em Função que define o vetor de instruções. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Estruturas, declaração de funções e definições de constanstes relacionadas a instruções. 
+
+
+
+\doxysubsection{Documentação das funções}
+\mbox{\Hypertarget{instruction_8hpp_a8aa29cb90ba1b9e72fd46c5dd61caee6}\label{instruction_8hpp_a8aa29cb90ba1b9e72fd46c5dd61caee6}} 
+\index{instruction.hpp@{instruction.hpp}!set\_instructions@{set\_instructions}}
+\index{set\_instructions@{set\_instructions}!instruction.hpp@{instruction.hpp}}
+\doxysubsubsection{\texorpdfstring{set\_instructions()}{set\_instructions()}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structInstruction}{Instruction}}$>$ set\+\_\+instructions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Função que define o vetor de instruções. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+um vetor de instruções 
+\end{DoxyReturn}

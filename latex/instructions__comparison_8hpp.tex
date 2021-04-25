@@ -1,0 +1,112 @@
+\hypertarget{instructions__comparison_8hpp}{}\doxysection{Referência ao ficheiro include/instructions/instructions\+\_\+comparison.hpp}
+\label{instructions__comparison_8hpp}\index{include/instructions/instructions\_comparison.hpp@{include/instructions/instructions\_comparison.hpp}}
+
+
+Declaração das funções de instruções de opcode do tipo comparação da JVM.  
+
+
+{\ttfamily \#include \char`\"{}frame.\+hpp\char`\"{}}\newline
+\doxysubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{instructions__comparison_8hpp_a3defd74933c136e83a889259ff6e9dea}\label{instructions__comparison_8hpp_a3defd74933c136e83a889259ff6e9dea}} 
+void {\bfseries ifeq} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\item 
+\mbox{\Hypertarget{instructions__comparison_8hpp_aafd24419f8b4076ac8f7beac7063f7da}\label{instructions__comparison_8hpp_aafd24419f8b4076ac8f7beac7063f7da}} 
+void {\bfseries ifne} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\item 
+\mbox{\Hypertarget{instructions__comparison_8hpp_a9349bd424b447b95879e5d2790437c54}\label{instructions__comparison_8hpp_a9349bd424b447b95879e5d2790437c54}} 
+void {\bfseries iflt} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\item 
+\mbox{\Hypertarget{instructions__comparison_8hpp_a30b9afe9b770abecaa33777e70e1171a}\label{instructions__comparison_8hpp_a30b9afe9b770abecaa33777e70e1171a}} 
+void {\bfseries ifge} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\item 
+\mbox{\Hypertarget{instructions__comparison_8hpp_a09ae439a890e710dc8faee461c236580}\label{instructions__comparison_8hpp_a09ae439a890e710dc8faee461c236580}} 
+void {\bfseries ifgt} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\item 
+\mbox{\Hypertarget{instructions__comparison_8hpp_a2cf0bd6fef8d4f3f12abc880eae702ae}\label{instructions__comparison_8hpp_a2cf0bd6fef8d4f3f12abc880eae702ae}} 
+void {\bfseries ifle} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\item 
+void \mbox{\hyperlink{instructions__comparison_8hpp_a68f70649a5ca9dfd34b932d37cbcfe70}{if\+\_\+icmpeq}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Compara valor1 = valor2. Se verdeiro, realiza salto. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__comparison_8hpp_a341753ce466fef97a1a45b7043031abe}{if\+\_\+icmpne}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Verifica se valor1 é diferente de valor2. Se for, realiza salto. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{instructions__comparison_8hpp_af40f1e7c8028253616645658d5601a7b}\label{instructions__comparison_8hpp_af40f1e7c8028253616645658d5601a7b}} 
+void {\bfseries if\+\_\+icmplt} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\item 
+void \mbox{\hyperlink{instructions__comparison_8hpp_a7d29f2e1043d3847480687ab670e7938}{if\+\_\+icmpge}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Salta para outro endereço caso parametro 1 for maior ou igual ao parametro 2. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{instructions__comparison_8hpp_af7c233052306c97b893ff99bb1bfffff}\label{instructions__comparison_8hpp_af7c233052306c97b893ff99bb1bfffff}} 
+void {\bfseries if\+\_\+icmpgt} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\item 
+\mbox{\Hypertarget{instructions__comparison_8hpp_a7717d57c49252b8cc2c8e0e6dcef8346}\label{instructions__comparison_8hpp_a7717d57c49252b8cc2c8e0e6dcef8346}} 
+void {\bfseries if\+\_\+icmple} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\item 
+\mbox{\Hypertarget{instructions__comparison_8hpp_a3a0046a4f5f9b8e4d4a16587bf2c9745}\label{instructions__comparison_8hpp_a3a0046a4f5f9b8e4d4a16587bf2c9745}} 
+void {\bfseries if\+\_\+acmpeq} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\item 
+\mbox{\Hypertarget{instructions__comparison_8hpp_a89d5424a0dced8b17d7f67fd94dc16dd}\label{instructions__comparison_8hpp_a89d5424a0dced8b17d7f67fd94dc16dd}} 
+void {\bfseries if\+\_\+acmpne} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Declaração das funções de instruções de opcode do tipo comparação da JVM. 
+
+
+
+\doxysubsection{Documentação das funções}
+\mbox{\Hypertarget{instructions__comparison_8hpp_a68f70649a5ca9dfd34b932d37cbcfe70}\label{instructions__comparison_8hpp_a68f70649a5ca9dfd34b932d37cbcfe70}} 
+\index{instructions\_comparison.hpp@{instructions\_comparison.hpp}!if\_icmpeq@{if\_icmpeq}}
+\index{if\_icmpeq@{if\_icmpeq}!instructions\_comparison.hpp@{instructions\_comparison.hpp}}
+\doxysubsubsection{\texorpdfstring{if\_icmpeq()}{if\_icmpeq()}}
+{\footnotesize\ttfamily void if\+\_\+icmpeq (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Compara valor1 = valor2. Se verdeiro, realiza salto. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__comparison_8hpp_a7d29f2e1043d3847480687ab670e7938}\label{instructions__comparison_8hpp_a7d29f2e1043d3847480687ab670e7938}} 
+\index{instructions\_comparison.hpp@{instructions\_comparison.hpp}!if\_icmpge@{if\_icmpge}}
+\index{if\_icmpge@{if\_icmpge}!instructions\_comparison.hpp@{instructions\_comparison.hpp}}
+\doxysubsubsection{\texorpdfstring{if\_icmpge()}{if\_icmpge()}}
+{\footnotesize\ttfamily void if\+\_\+icmpge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Salta para outro endereço caso parametro 1 for maior ou igual ao parametro 2. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \mbox{\hyperlink{classFrame}{Frame}}} & $\ast$curr\+\_\+frame ponteiro que aponta para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__comparison_8hpp_a341753ce466fef97a1a45b7043031abe}\label{instructions__comparison_8hpp_a341753ce466fef97a1a45b7043031abe}} 
+\index{instructions\_comparison.hpp@{instructions\_comparison.hpp}!if\_icmpne@{if\_icmpne}}
+\index{if\_icmpne@{if\_icmpne}!instructions\_comparison.hpp@{instructions\_comparison.hpp}}
+\doxysubsubsection{\texorpdfstring{if\_icmpne()}{if\_icmpne()}}
+{\footnotesize\ttfamily void if\+\_\+icmpne (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Verifica se valor1 é diferente de valor2. Se for, realiza salto. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}

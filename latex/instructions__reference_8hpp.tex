@@ -1,0 +1,221 @@
+\hypertarget{instructions__reference_8hpp}{}\doxysection{Referência ao ficheiro include/instructions/instructions\+\_\+reference.hpp}
+\label{instructions__reference_8hpp}\index{include/instructions/instructions\_reference.hpp@{include/instructions/instructions\_reference.hpp}}
+
+
+Declaração das funções de instruções de opcode do tipo referência da JVM.  
+
+
+{\ttfamily \#include \char`\"{}frame.\+hpp\char`\"{}}\newline
+\doxysubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{instructions__reference_8hpp_a5a3a5815ec1240b91726b5253d37ed43}{getstatic}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Recebe um campo estático a partir de uma classe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__reference_8hpp_a05b0e565f4c9ab251f4a1b44c8908521}{getfield}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em ... \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__reference_8hpp_a9335c5cf6a952a1f0fd283eb080799be}{putfield}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em ... \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__reference_8hpp_aa1fd77085b9b0d8cbcc7987ed6b1a774}{invokevirtual}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Invoca instância de método baseado na classe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__reference_8hpp_a6f8f7fad8df53c97e3afdb0c5389e0b5}{invokespecial}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Invoca o método de instância, e trata da inicialiação da superclasse. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__reference_8hpp_a215e7c93d9485b67033b6fc079805996}{invokestatic}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Invoca um método estático de uma classe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__reference_8hpp_a825fadcebc43d2e98ab5054696b9f06f}{invokeinterface}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Invoca a interface do método. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__reference_8hpp_acf5a3e7d690f25c65a13348cacfe2f43}{new\+\_\+obj}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Cria novo array podendo ser de qualquer tipo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__reference_8hpp_a3d71c08cd39a6519279333487832cd7e}{newarray}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Cria novo array do tipo definido. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__reference_8hpp_a436858366f50732cb9882c50c093f7b3}{set\+\_\+newarray\+\_\+type}} (\mbox{\hyperlink{structOperand}{Operand}} $\ast$operand, u4 index, string array\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Define o tipo de dado dos operandos do newarray. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{instructions__reference_8hpp_a53301f8a5667582cd3ec1a42e52d4824}\label{instructions__reference_8hpp_a53301f8a5667582cd3ec1a42e52d4824}} 
+void {\bfseries arraylength} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Declaração das funções de instruções de opcode do tipo referência da JVM. 
+
+
+
+\doxysubsection{Documentação das funções}
+\mbox{\Hypertarget{instructions__reference_8hpp_a05b0e565f4c9ab251f4a1b44c8908521}\label{instructions__reference_8hpp_a05b0e565f4c9ab251f4a1b44c8908521}} 
+\index{instructions\_reference.hpp@{instructions\_reference.hpp}!getfield@{getfield}}
+\index{getfield@{getfield}!instructions\_reference.hpp@{instructions\_reference.hpp}}
+\doxysubsubsection{\texorpdfstring{getfield()}{getfield()}}
+{\footnotesize\ttfamily void getfield (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+... 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__reference_8hpp_a5a3a5815ec1240b91726b5253d37ed43}\label{instructions__reference_8hpp_a5a3a5815ec1240b91726b5253d37ed43}} 
+\index{instructions\_reference.hpp@{instructions\_reference.hpp}!getstatic@{getstatic}}
+\index{getstatic@{getstatic}!instructions\_reference.hpp@{instructions\_reference.hpp}}
+\doxysubsubsection{\texorpdfstring{getstatic()}{getstatic()}}
+{\footnotesize\ttfamily void getstatic (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Recebe um campo estático a partir de uma classe. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__reference_8hpp_a825fadcebc43d2e98ab5054696b9f06f}\label{instructions__reference_8hpp_a825fadcebc43d2e98ab5054696b9f06f}} 
+\index{instructions\_reference.hpp@{instructions\_reference.hpp}!invokeinterface@{invokeinterface}}
+\index{invokeinterface@{invokeinterface}!instructions\_reference.hpp@{instructions\_reference.hpp}}
+\doxysubsubsection{\texorpdfstring{invokeinterface()}{invokeinterface()}}
+{\footnotesize\ttfamily void invokeinterface (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Invoca a interface do método. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \mbox{\hyperlink{classFrame}{Frame}}} & $\ast$curr\+\_\+frame ponteiro que aponta para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__reference_8hpp_a6f8f7fad8df53c97e3afdb0c5389e0b5}\label{instructions__reference_8hpp_a6f8f7fad8df53c97e3afdb0c5389e0b5}} 
+\index{instructions\_reference.hpp@{instructions\_reference.hpp}!invokespecial@{invokespecial}}
+\index{invokespecial@{invokespecial}!instructions\_reference.hpp@{instructions\_reference.hpp}}
+\doxysubsubsection{\texorpdfstring{invokespecial()}{invokespecial()}}
+{\footnotesize\ttfamily void invokespecial (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Invoca o método de instância, e trata da inicialiação da superclasse. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__reference_8hpp_a215e7c93d9485b67033b6fc079805996}\label{instructions__reference_8hpp_a215e7c93d9485b67033b6fc079805996}} 
+\index{instructions\_reference.hpp@{instructions\_reference.hpp}!invokestatic@{invokestatic}}
+\index{invokestatic@{invokestatic}!instructions\_reference.hpp@{instructions\_reference.hpp}}
+\doxysubsubsection{\texorpdfstring{invokestatic()}{invokestatic()}}
+{\footnotesize\ttfamily void invokestatic (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Invoca um método estático de uma classe. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__reference_8hpp_aa1fd77085b9b0d8cbcc7987ed6b1a774}\label{instructions__reference_8hpp_aa1fd77085b9b0d8cbcc7987ed6b1a774}} 
+\index{instructions\_reference.hpp@{instructions\_reference.hpp}!invokevirtual@{invokevirtual}}
+\index{invokevirtual@{invokevirtual}!instructions\_reference.hpp@{instructions\_reference.hpp}}
+\doxysubsubsection{\texorpdfstring{invokevirtual()}{invokevirtual()}}
+{\footnotesize\ttfamily void invokevirtual (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Invoca instância de método baseado na classe. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro que aponta para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__reference_8hpp_acf5a3e7d690f25c65a13348cacfe2f43}\label{instructions__reference_8hpp_acf5a3e7d690f25c65a13348cacfe2f43}} 
+\index{instructions\_reference.hpp@{instructions\_reference.hpp}!new\_obj@{new\_obj}}
+\index{new\_obj@{new\_obj}!instructions\_reference.hpp@{instructions\_reference.hpp}}
+\doxysubsubsection{\texorpdfstring{new\_obj()}{new\_obj()}}
+{\footnotesize\ttfamily void new\+\_\+obj (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Cria novo array podendo ser de qualquer tipo. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \mbox{\hyperlink{classFrame}{Frame}}} & $\ast$curr\+\_\+frame ponteiro que aponta para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__reference_8hpp_a3d71c08cd39a6519279333487832cd7e}\label{instructions__reference_8hpp_a3d71c08cd39a6519279333487832cd7e}} 
+\index{instructions\_reference.hpp@{instructions\_reference.hpp}!newarray@{newarray}}
+\index{newarray@{newarray}!instructions\_reference.hpp@{instructions\_reference.hpp}}
+\doxysubsubsection{\texorpdfstring{newarray()}{newarray()}}
+{\footnotesize\ttfamily void newarray (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Cria novo array do tipo definido. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & Ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__reference_8hpp_a9335c5cf6a952a1f0fd283eb080799be}\label{instructions__reference_8hpp_a9335c5cf6a952a1f0fd283eb080799be}} 
+\index{instructions\_reference.hpp@{instructions\_reference.hpp}!putfield@{putfield}}
+\index{putfield@{putfield}!instructions\_reference.hpp@{instructions\_reference.hpp}}
+\doxysubsubsection{\texorpdfstring{putfield()}{putfield()}}
+{\footnotesize\ttfamily void putfield (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+... 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__reference_8hpp_a436858366f50732cb9882c50c093f7b3}\label{instructions__reference_8hpp_a436858366f50732cb9882c50c093f7b3}} 
+\index{instructions\_reference.hpp@{instructions\_reference.hpp}!set\_newarray\_type@{set\_newarray\_type}}
+\index{set\_newarray\_type@{set\_newarray\_type}!instructions\_reference.hpp@{instructions\_reference.hpp}}
+\doxysubsubsection{\texorpdfstring{set\_newarray\_type()}{set\_newarray\_type()}}
+{\footnotesize\ttfamily void set\+\_\+newarray\+\_\+type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structOperand}{Operand}} $\ast$}]{operand,  }\item[{u4}]{index,  }\item[{string}]{array\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+Define o tipo de dado dos operandos do newarray. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em operand\+\_\+2} & \\
+\hline
+{\em index} & \\
+\hline
+\end{DoxyParams}

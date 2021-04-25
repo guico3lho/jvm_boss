@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "*.js": "javascript",
         "array": "cpp",
         "atomic": "cpp",
         "bit": "cpp",
@@ -46,5 +47,6 @@
         "typeinfo": "cpp",
         "cstring": "cpp",
         "map": "cpp"
-    }
+    },
+    "cmake.configureOnOpen": false
 }

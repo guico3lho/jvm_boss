@@ -1,0 +1,202 @@
+\hypertarget{instructions__control_8hpp}{}\doxysection{Referência ao ficheiro include/instructions/instructions\+\_\+control.hpp}
+\label{instructions__control_8hpp}\index{include/instructions/instructions\_control.hpp@{include/instructions/instructions\_control.hpp}}
+
+
+Declaração das funções de instruções de opcode do tipo controle da JVM.  
+
+
+{\ttfamily \#include \char`\"{}frame.\+hpp\char`\"{}}\newline
+\doxysubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{instructions__control_8hpp_a0d4ce65f6254bfe546688a25bbd73d82}{ins\+\_\+goto}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Função para saltar para um certo offset. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{instructions__control_8hpp_ae078861c5ec2aed459458522b15baa42}\label{instructions__control_8hpp_ae078861c5ec2aed459458522b15baa42}} 
+void {\bfseries ret} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\item 
+void \mbox{\hyperlink{instructions__control_8hpp_a5871d07a5646436192e8ddf1a90b59ed}{tableswitch}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Acessa tabela de salto por chave e realizar salto. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__control_8hpp_ada5671d31fe73baec3de7307bf1161c3}{lookupswitch}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Acessa tabela de salto por chave e realiza salto. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__control_8hpp_a61f498c069a5982dfbc50dd57361c3d1}{ireturn}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Retorna int de um método. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__control_8hpp_abd0ef1b098797f0d140b934a728ecb5c}{lreturn}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Retorna long int de um método. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__control_8hpp_a98a73c7d6593e93ca34e8e3655f4975d}{freturn}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Retorna float de um método. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__control_8hpp_a32a85892259ee426af0ca79d31151e12}{dreturn}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Retorna double de um método. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__control_8hpp_ae7a726573bd410f3bebc568a3d3a406a}{areturn}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Retorna objeto de um método. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{instructions__control_8hpp_aefed62d813eee22013188d242cd084b6}{void\+\_\+return}} (\mbox{\hyperlink{classFrame}{Frame}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Retorna void de uma instrução. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Declaração das funções de instruções de opcode do tipo controle da JVM. 
+
+
+
+\doxysubsection{Documentação das funções}
+\mbox{\Hypertarget{instructions__control_8hpp_ae7a726573bd410f3bebc568a3d3a406a}\label{instructions__control_8hpp_ae7a726573bd410f3bebc568a3d3a406a}} 
+\index{instructions\_control.hpp@{instructions\_control.hpp}!areturn@{areturn}}
+\index{areturn@{areturn}!instructions\_control.hpp@{instructions\_control.hpp}}
+\doxysubsubsection{\texorpdfstring{areturn()}{areturn()}}
+{\footnotesize\ttfamily void areturn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Retorna objeto de um método. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__control_8hpp_a32a85892259ee426af0ca79d31151e12}\label{instructions__control_8hpp_a32a85892259ee426af0ca79d31151e12}} 
+\index{instructions\_control.hpp@{instructions\_control.hpp}!dreturn@{dreturn}}
+\index{dreturn@{dreturn}!instructions\_control.hpp@{instructions\_control.hpp}}
+\doxysubsubsection{\texorpdfstring{dreturn()}{dreturn()}}
+{\footnotesize\ttfamily void dreturn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Retorna double de um método. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__control_8hpp_a98a73c7d6593e93ca34e8e3655f4975d}\label{instructions__control_8hpp_a98a73c7d6593e93ca34e8e3655f4975d}} 
+\index{instructions\_control.hpp@{instructions\_control.hpp}!freturn@{freturn}}
+\index{freturn@{freturn}!instructions\_control.hpp@{instructions\_control.hpp}}
+\doxysubsubsection{\texorpdfstring{freturn()}{freturn()}}
+{\footnotesize\ttfamily void freturn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Retorna float de um método. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \mbox{\hyperlink{classFrame}{Frame}}} & $\ast$curr\+\_\+frame ponteiro o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__control_8hpp_a0d4ce65f6254bfe546688a25bbd73d82}\label{instructions__control_8hpp_a0d4ce65f6254bfe546688a25bbd73d82}} 
+\index{instructions\_control.hpp@{instructions\_control.hpp}!ins\_goto@{ins\_goto}}
+\index{ins\_goto@{ins\_goto}!instructions\_control.hpp@{instructions\_control.hpp}}
+\doxysubsubsection{\texorpdfstring{ins\_goto()}{ins\_goto()}}
+{\footnotesize\ttfamily void ins\+\_\+goto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Função para saltar para um certo offset. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__control_8hpp_a61f498c069a5982dfbc50dd57361c3d1}\label{instructions__control_8hpp_a61f498c069a5982dfbc50dd57361c3d1}} 
+\index{instructions\_control.hpp@{instructions\_control.hpp}!ireturn@{ireturn}}
+\index{ireturn@{ireturn}!instructions\_control.hpp@{instructions\_control.hpp}}
+\doxysubsubsection{\texorpdfstring{ireturn()}{ireturn()}}
+{\footnotesize\ttfamily void ireturn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Retorna int de um método. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__control_8hpp_ada5671d31fe73baec3de7307bf1161c3}\label{instructions__control_8hpp_ada5671d31fe73baec3de7307bf1161c3}} 
+\index{instructions\_control.hpp@{instructions\_control.hpp}!lookupswitch@{lookupswitch}}
+\index{lookupswitch@{lookupswitch}!instructions\_control.hpp@{instructions\_control.hpp}}
+\doxysubsubsection{\texorpdfstring{lookupswitch()}{lookupswitch()}}
+{\footnotesize\ttfamily void lookupswitch (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Acessa tabela de salto por chave e realiza salto. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \mbox{\hyperlink{classFrame}{Frame}}} & $\ast$curr\+\_\+frame ponteiro que aponta para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__control_8hpp_abd0ef1b098797f0d140b934a728ecb5c}\label{instructions__control_8hpp_abd0ef1b098797f0d140b934a728ecb5c}} 
+\index{instructions\_control.hpp@{instructions\_control.hpp}!lreturn@{lreturn}}
+\index{lreturn@{lreturn}!instructions\_control.hpp@{instructions\_control.hpp}}
+\doxysubsubsection{\texorpdfstring{lreturn()}{lreturn()}}
+{\footnotesize\ttfamily void lreturn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Retorna long int de um método. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \mbox{\hyperlink{classFrame}{Frame}}} & $\ast$curr\+\_\+frame ponteiro que aponta para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__control_8hpp_a5871d07a5646436192e8ddf1a90b59ed}\label{instructions__control_8hpp_a5871d07a5646436192e8ddf1a90b59ed}} 
+\index{instructions\_control.hpp@{instructions\_control.hpp}!tableswitch@{tableswitch}}
+\index{tableswitch@{tableswitch}!instructions\_control.hpp@{instructions\_control.hpp}}
+\doxysubsubsection{\texorpdfstring{tableswitch()}{tableswitch()}}
+{\footnotesize\ttfamily void tableswitch (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Acessa tabela de salto por chave e realizar salto. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \mbox{\hyperlink{classFrame}{Frame}}} & $\ast$curr\+\_\+frame ponteiro que aponta para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{instructions__control_8hpp_aefed62d813eee22013188d242cd084b6}\label{instructions__control_8hpp_aefed62d813eee22013188d242cd084b6}} 
+\index{instructions\_control.hpp@{instructions\_control.hpp}!void\_return@{void\_return}}
+\index{void\_return@{void\_return}!instructions\_control.hpp@{instructions\_control.hpp}}
+\doxysubsubsection{\texorpdfstring{void\_return()}{void\_return()}}
+{\footnotesize\ttfamily void void\+\_\+return (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFrame}{Frame}} $\ast$}]{curr\+\_\+frame }\end{DoxyParamCaption})}
+
+
+
+Retorna void de uma instrução. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$curr\+\_\+frame} & ponteiro para o frame atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+void 
+\end{DoxyReturn}

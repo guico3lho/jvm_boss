@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projeto JVM: Código-Fonte de include/file_printer.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Projeto JVM
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">file_printer.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="file__printer_8hpp.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef __FILE_PRINTER_H__</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define __FILE_PRINTER_H__</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="class__file_8hpp.html">class_file.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="instruction_8hpp.html">instruction.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;cstring&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keywordtype">void</span> <a class="code" href="file__printer_8hpp.html#aa378292c834be735e3e22c931763414a">print_major_version</a>(u2 major_version);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keywordtype">void</span> <a class="code" href="file__printer_8hpp.html#a3a2c35e1751326cf167c2a912204ddd3">check_flag</a>(u2 access_flags, <span class="keywordtype">int</span> constant_access_flag, std::string flag_name);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordtype">void</span> <a class="code" href="file__printer_8hpp.html#ae1c733e638bc6664aba511e5fb7fe892">print_access_flags</a>(u2 access_flags);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keywordtype">void</span> print_basic_info(std::string filename, <a class="code" href="structClass__File.html">Class_File</a> class_file);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/* CONSTANT POOL */</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">void</span> print_cp_info_int(<a class="code" href="structCp__Info.html">Cp_Info</a> cp_info);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">void</span> print_cp_info_float(<a class="code" href="structCp__Info.html">Cp_Info</a> cp_info);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">void</span> print_cp_info_long(<a class="code" href="structCp__Info.html">Cp_Info</a> cp_info);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">void</span> print_cp_info_double(<a class="code" href="structCp__Info.html">Cp_Info</a> cp_info);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">void</span> print_cp_info_class(<a class="code" href="structClass__File.html">Class_File</a> class_file, <a class="code" href="structCp__Info.html">Cp_Info</a> cp_info);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> print_cp_info_string(<a class="code" href="structClass__File.html">Class_File</a> class_file, <a class="code" href="structCp__Info.html">Cp_Info</a> cp_info);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">void</span> print_cp_info_field(<a class="code" href="structClass__File.html">Class_File</a> class_file, <a class="code" href="structCp__Info.html">Cp_Info</a> cp_info);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">void</span> print_cp_info_method(<a class="code" href="structClass__File.html">Class_File</a> class_file, <a class="code" href="structCp__Info.html">Cp_Info</a> cp_info);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">void</span> print_cp_info_interface_method(<a class="code" href="structClass__File.html">Class_File</a> class_file, <a class="code" href="structCp__Info.html">Cp_Info</a> cp_info);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">void</span> print_cp_info_name_type(<a class="code" href="structClass__File.html">Class_File</a> class_file, <a class="code" href="structCp__Info.html">Cp_Info</a> cp_info);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">void</span> print_constant_pool(<a class="code" href="structClass__File.html">Class_File</a> class_file);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">/* INTERFACES */</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">void</span> print_interfaces(<a class="code" href="structClass__File.html">Class_File</a> class_file);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">/* ATTRIBUTES */</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">void</span> print_code_attribute(<a class="code" href="structClass__File.html">Class_File</a> class_file, <a class="code" href="structCode__Attribute.html">Code_Attribute</a> *code_attribute);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">void</span> print_constant_value_attribute(<a class="code" href="structClass__File.html">Class_File</a> class_file, <a class="code" href="structConst__Value__Attribute.html">Const_Value_Attribute</a> *const_value);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">void</span> print_number_table_attribute(<a class="code" href="structClass__File.html">Class_File</a> class_file, <a class="code" href="structLine__Number__Table__Attribute.html">Line_Number_Table_Attribute</a> *line_number_table);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">void</span> print_source_file_attribute(<a class="code" href="structClass__File.html">Class_File</a> class_file, <a class="code" href="structSource__File__Attribute.html">Source_File_Attribute</a> *source_file);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordtype">void</span> print_methods_attributes(<a class="code" href="structClass__File.html">Class_File</a> class_file, <a class="code" href="structAttribute__Info.html">Attribute_Info</a> attribute_info);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">void</span> print_fields(<a class="code" href="structClass__File.html">Class_File</a> class_file);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keywordtype">void</span> print_methods(<a class="code" href="structClass__File.html">Class_File</a> class_file);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">void</span> print_attributes(<a class="code" href="structClass__File.html">Class_File</a> class_file);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">/* INSTRUCTIONS */</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">void</span> print_newarray(u1 code);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">void</span> print_instructions(<a class="code" href="structClass__File.html">Class_File</a> class_file, <a class="code" href="structCode__Attribute.html">Code_Attribute</a> *code_attribute);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass__file_8hpp_html"><div class="ttname"><a href="class__file_8hpp.html">class_file.hpp</a></div><div class="ttdoc">Estruturas e declarações de funções relacionados com a leitura de dados do arquivo bytecode (....</div></div>
+<div class="ttc" id="afile__printer_8hpp_html_a3a2c35e1751326cf167c2a912204ddd3"><div class="ttname"><a href="file__printer_8hpp.html#a3a2c35e1751326cf167c2a912204ddd3">check_flag</a></div><div class="ttdeci">void check_flag(u2 access_flags, int constant_access_flag, std::string flag_name)</div><div class="ttdoc">Checa se é a flag correta e imprime no terminal.</div><div class="ttdef"><b>Definition:</b> file_printer.cpp:57</div></div>
+<div class="ttc" id="afile__printer_8hpp_html_aa378292c834be735e3e22c931763414a"><div class="ttname"><a href="file__printer_8hpp.html#aa378292c834be735e3e22c931763414a">print_major_version</a></div><div class="ttdeci">void print_major_version(u2 major_version)</div><div class="ttdoc">Imprime no terminal a versão do Java.</div><div class="ttdef"><b>Definition:</b> file_printer.cpp:13</div></div>
+<div class="ttc" id="afile__printer_8hpp_html_ae1c733e638bc6664aba511e5fb7fe892"><div class="ttname"><a href="file__printer_8hpp.html#ae1c733e638bc6664aba511e5fb7fe892">print_access_flags</a></div><div class="ttdeci">void print_access_flags(u2 access_flags)</div><div class="ttdoc">Define as strings das flags e chama a função que checa a flag para imprimir a correta.</div><div class="ttdef"><b>Definition:</b> file_printer.cpp:68</div></div>
+<div class="ttc" id="ainstruction_8hpp_html"><div class="ttname"><a href="instruction_8hpp.html">instruction.hpp</a></div><div class="ttdoc">Estruturas, declaração de funções e definições de constanstes relacionadas a instruções.</div></div>
+<div class="ttc" id="astructAttribute__Info_html"><div class="ttname"><a href="structAttribute__Info.html">Attribute_Info</a></div><div class="ttdoc">Estrutura de dados de um Attribute.</div><div class="ttdef"><b>Definition:</b> attribute_info.hpp:116</div></div>
+<div class="ttc" id="astructClass__File_html"><div class="ttname"><a href="structClass__File.html">Class_File</a></div><div class="ttdoc">Estrutura de dados que armazena as principais informações do bytecode (.class)</div><div class="ttdef"><b>Definition:</b> class_file.hpp:25</div></div>
+<div class="ttc" id="astructCode__Attribute_html"><div class="ttname"><a href="structCode__Attribute.html">Code_Attribute</a></div><div class="ttdoc">Estrutura de dados que armazena o código do Attribute.</div><div class="ttdef"><b>Definition:</b> attribute_info.hpp:36</div></div>
+<div class="ttc" id="astructConst__Value__Attribute_html"><div class="ttname"><a href="structConst__Value__Attribute.html">Const_Value_Attribute</a></div><div class="ttdoc">Estrutura de dados que armazena valores principais do Attribute.</div><div class="ttdef"><b>Definition:</b> attribute_info.hpp:17</div></div>
+<div class="ttc" id="astructCp__Info_html"><div class="ttname"><a href="structCp__Info.html">Cp_Info</a></div><div class="ttdoc">Estrutura de dados que armazena a Constant Pool.</div><div class="ttdef"><b>Definition:</b> cp_info.hpp:18</div></div>
+<div class="ttc" id="astructLine__Number__Table__Attribute_html"><div class="ttname"><a href="structLine__Number__Table__Attribute.html">Line_Number_Table_Attribute</a></div><div class="ttdoc">Estrutura de dados que armazena a quantidade de linhas da tabela de um Attribute e contém um ponteiro...</div><div class="ttdef"><b>Definition:</b> attribute_info.hpp:89</div></div>
+<div class="ttc" id="astructSource__File__Attribute_html"><div class="ttname"><a href="structSource__File__Attribute.html">Source_File_Attribute</a></div><div class="ttdoc">Estrutura de dados que armazena o código de um Attribute.</div><div class="ttdef"><b>Definition:</b> attribute_info.hpp:72</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

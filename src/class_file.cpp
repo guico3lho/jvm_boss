@@ -1,5 +1,15 @@
+/**
+ * @file class_file.cpp
+ * @brief Arquivo de funções relacionados com a leitura de dados do arquivo bytecode (.class)
+*/
+
 #include "class_file.hpp"
 
+/**
+ * @brief Função de leitura dos dados do arquivo .class 
+ * @param filename 
+ * @return Class_File 
+ */
 Class_File read_class_file(std::string filename) {
   FILE *file = fopen(filename.c_str(), "rb");
 
@@ -36,9 +46,9 @@ Class_File read_class_file(std::string filename) {
   //* Constant Pool Count = max_index + 1
   class_file.constant_pool_count = read_2_bytes(file);
   if (DEBUG) std::cout << "\nConstant Pool Count:  " << class_file.constant_pool_count << std::endl;
-  class_file.constant_pool = (Cp_Info*) malloc ((class_file.constant_pool_count) * sizeof(Cp_Info));
-  read_cp_info(class_file,file);  
-  
+  class_file.constant_pool = (Cp_Info*) malloc ((class_file.constant_pool_count ) * sizeof(Cp_Info));
+  read_cp_info(file, class_file);
+
   class_file.access_flags = read_2_bytes(file);
   if (DEBUG) printf("Access Flags:         0x%0X\n", class_file.access_flags);
 
@@ -49,12 +59,10 @@ Class_File read_class_file(std::string filename) {
 
   class_file.super_class = read_2_bytes(file);
   if (DEBUG) std::cout << "Super Class:          " << class_file.super_class << std::endl;
-
   //* Interfaces
   class_file.interfaces_count = read_2_bytes(file);
   if (DEBUG) std::cout << "Interfaces Count:     " << class_file.interfaces_count << std::endl;
   class_file.interfaces = (Interface_Info*) malloc(class_file.interfaces_count * sizeof(Interface_Info));
-  read_interface_info(file, &class_file);
 
   //* Fields
   class_file.fields_count = read_2_bytes(file);
@@ -78,4 +86,3 @@ Class_File read_class_file(std::string filename) {
 
   return class_file;
 }
-
