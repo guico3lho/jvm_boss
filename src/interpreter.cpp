@@ -30,6 +30,7 @@ void execute(Class_File class_file) {
   while (!(frame_stack.empty())) {
     frame_stack.top()->execute_frame(); // executa stack frame do topo para baixo
   }
+  delete(method_area);
 }
 
 /** 
