@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hellojava_292',['HelloJava',['../classHelloJava.html',1,'']]]
+  ['exception_328',['Exception',['../structException.html',1,'']]]
 ];

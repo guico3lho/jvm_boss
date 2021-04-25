@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projeto JVM: Código-Fonte de include/method_area.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Projeto JVM
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">method_area.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="method__area_8hpp.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef __METHOD_AREA_H__</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define __METHOD_AREA_H__</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="class__file_8hpp.html">class_file.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="frame_8hpp.html">frame.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">struct </span><a class="code" href="structOperand.html">Operand</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structClass__Container.html">   17</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structClass__Container.html">Class_Container</a> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="structClass__File.html">Class_File</a> class_file;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="comment">// vetor com as referencias dos campos da classe</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    std::map&lt;std::string, Operand *&gt; *class_fields;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="method__area_8hpp.html#a0aaf1bfdd0ff83974566432c0a864c5e">   22</a></span>&#160;} <a class="code" href="method__area_8hpp.html#a0aaf1bfdd0ff83974566432c0a864c5e">Class_Container</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structMethod__Area.html">   29</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structMethod__Area.html">Method_Area</a> {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    std::map&lt;std::string, Class_Container *&gt; loaded_classes;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    std::map&lt;std::string, Class_Container *&gt; static_classes;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="method__area_8hpp.html#a44416f2b55312721c0967eb9b682cfc7">   32</a></span>&#160;} <a class="code" href="method__area_8hpp.html#a44416f2b55312721c0967eb9b682cfc7">Method_Area</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<a class="code" href="structMethod__Area.html">Method_Area</a> *<a class="code" href="method__area_8hpp.html#a91178f7155d5a96259d1cbd7190d35d8">load_class_memory</a>(<a class="code" href="structClass__File.html">Class_File</a> class_file);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">void</span> <a class="code" href="method__area_8hpp.html#a3c52f5541c47f980897684f200eab921">load_class_variables</a>(<a class="code" href="structClass__Container.html">Class_Container</a>* class_container);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<a class="code" href="structClass__File.html">Class_File</a> <a class="code" href="method__area_8hpp.html#a316073061f48534ffb96315877400e1d">load_parent_classes</a>(std::string c_path);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<a class="code" href="structClass__Container.html">Class_Container</a> *<a class="code" href="method__area_8hpp.html#a4c0c7cea239ebf19d384e9334aa54ba9">get_static_class</a>(std::string class_name);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<a class="code" href="structOperand.html">Operand</a> *<a class="code" href="method__area_8hpp.html#a08ce18411266b1bd10a057129730d615">get_static_field_of_class</a>(std::string class_name, std::string field_name);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<a class="code" href="structOperand.html">Operand</a> *<a class="code" href="method__area_8hpp.html#acb23dc87cd7ed3251dbf1f3f071e6f93">check_string_create_type</a>(std::string string_tipo);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<a class="code" href="structMethod__Info.html">Method_Info</a>* <a class="code" href="method__area_8hpp.html#ad7db77f3096ba10942954d335c4b3ba3">find_main</a>(<a class="code" href="structMethod__Area.html">Method_Area</a>* method_area);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass__file_8hpp_html"><div class="ttname"><a href="class__file_8hpp.html">class_file.hpp</a></div><div class="ttdoc">Estruturas e declarações de funções relacionados com a leitura de dados do arquivo bytecode (....</div></div>
+<div class="ttc" id="aframe_8hpp_html"><div class="ttname"><a href="frame_8hpp.html">frame.hpp</a></div><div class="ttdoc">Estruturas e classes de Frames e Operandos.</div></div>
+<div class="ttc" id="amethod__area_8hpp_html_a08ce18411266b1bd10a057129730d615"><div class="ttname"><a href="method__area_8hpp.html#a08ce18411266b1bd10a057129730d615">get_static_field_of_class</a></div><div class="ttdeci">Operand * get_static_field_of_class(std::string class_name, std::string field_name)</div><div class="ttdoc">Get the static field of class object.</div><div class="ttdef"><b>Definition:</b> method_area.cpp:101</div></div>
+<div class="ttc" id="amethod__area_8hpp_html_a0aaf1bfdd0ff83974566432c0a864c5e"><div class="ttname"><a href="method__area_8hpp.html#a0aaf1bfdd0ff83974566432c0a864c5e">Class_Container</a></div><div class="ttdeci">struct Class_Container Class_Container</div><div class="ttdoc">Estrutura para guardar informações sobre o class_file que fará parte do method_area.</div></div>
+<div class="ttc" id="amethod__area_8hpp_html_a316073061f48534ffb96315877400e1d"><div class="ttname"><a href="method__area_8hpp.html#a316073061f48534ffb96315877400e1d">load_parent_classes</a></div><div class="ttdeci">Class_File load_parent_classes(std::string c_path)</div><div class="ttdoc">Carrega outro .class se o arquivo estiver no mesmo diretório.</div><div class="ttdef"><b>Definition:</b> method_area.cpp:65</div></div>
+<div class="ttc" id="amethod__area_8hpp_html_a3c52f5541c47f980897684f200eab921"><div class="ttname"><a href="method__area_8hpp.html#a3c52f5541c47f980897684f200eab921">load_class_variables</a></div><div class="ttdeci">void load_class_variables(Class_Container *class_container)</div><div class="ttdoc">Carrega variáveis com informações do .class.</div><div class="ttdef"><b>Definition:</b> method_area.cpp:34</div></div>
+<div class="ttc" id="amethod__area_8hpp_html_a44416f2b55312721c0967eb9b682cfc7"><div class="ttname"><a href="method__area_8hpp.html#a44416f2b55312721c0967eb9b682cfc7">Method_Area</a></div><div class="ttdeci">struct Method_Area Method_Area</div><div class="ttdoc">Estrutura utilizada para guardar informações sobre classes carregadas na memória, através de estrutur...</div></div>
+<div class="ttc" id="amethod__area_8hpp_html_a4c0c7cea239ebf19d384e9334aa54ba9"><div class="ttname"><a href="method__area_8hpp.html#a4c0c7cea239ebf19d384e9334aa54ba9">get_static_class</a></div><div class="ttdeci">Class_Container * get_static_class(std::string class_name)</div><div class="ttdoc">Funções auxiliares.</div><div class="ttdef"><b>Definition:</b> method_area.cpp:90</div></div>
+<div class="ttc" id="amethod__area_8hpp_html_a91178f7155d5a96259d1cbd7190d35d8"><div class="ttname"><a href="method__area_8hpp.html#a91178f7155d5a96259d1cbd7190d35d8">load_class_memory</a></div><div class="ttdeci">Method_Area * load_class_memory(Class_File class_file)</div><div class="ttdoc">Funções do class_loader.</div><div class="ttdef"><b>Definition:</b> method_area.cpp:10</div></div>
+<div class="ttc" id="amethod__area_8hpp_html_acb23dc87cd7ed3251dbf1f3f071e6f93"><div class="ttname"><a href="method__area_8hpp.html#acb23dc87cd7ed3251dbf1f3f071e6f93">check_string_create_type</a></div><div class="ttdeci">Operand * check_string_create_type(std::string string_tipo)</div><div class="ttdoc">Cria um ponteiro de Operand e o tipo é decidido pela string recebida.</div><div class="ttdef"><b>Definition:</b> method_area.cpp:113</div></div>
+<div class="ttc" id="amethod__area_8hpp_html_ad7db77f3096ba10942954d335c4b3ba3"><div class="ttname"><a href="method__area_8hpp.html#ad7db77f3096ba10942954d335c4b3ba3">find_main</a></div><div class="ttdeci">Method_Info * find_main(Method_Area *method_area)</div><div class="ttdoc">Função para encontrar a main.</div><div class="ttdef"><b>Definition:</b> method_area.cpp:210</div></div>
+<div class="ttc" id="astructClass__Container_html"><div class="ttname"><a href="structClass__Container.html">Class_Container</a></div><div class="ttdoc">Estrutura para guardar informações sobre o class_file que fará parte do method_area.</div><div class="ttdef"><b>Definition:</b> method_area.hpp:17</div></div>
+<div class="ttc" id="astructClass__File_html"><div class="ttname"><a href="structClass__File.html">Class_File</a></div><div class="ttdoc">Estrutura de dados que armazena as principais informações do bytecode (.class)</div><div class="ttdef"><b>Definition:</b> class_file.hpp:30</div></div>
+<div class="ttc" id="astructMethod__Area_html"><div class="ttname"><a href="structMethod__Area.html">Method_Area</a></div><div class="ttdoc">Estrutura utilizada para guardar informações sobre classes carregadas na memória, através de estrutur...</div><div class="ttdef"><b>Definition:</b> method_area.hpp:29</div></div>
+<div class="ttc" id="astructMethod__Info_html"><div class="ttname"><a href="structMethod__Info.html">Method_Info</a></div><div class="ttdoc">Estrutura que armazena o Method.</div><div class="ttdef"><b>Definition:</b> method_info.hpp:18</div></div>
+<div class="ttc" id="astructOperand_html"><div class="ttname"><a href="structOperand.html">Operand</a></div><div class="ttdoc">Estrutura de dados que armazena um operando.</div><div class="ttdef"><b>Definition:</b> frame.hpp:23</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

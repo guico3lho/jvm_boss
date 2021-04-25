@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['source_5ffile_5fattribute_302',['Source_File_Attribute',['../structSource__File__Attribute.html',1,'']]],
-  ['switch_303',['Switch',['../classSwitch.html',1,'']]]
+  ['method_5farea_339',['Method_Area',['../structMethod__Area.html',1,'']]],
+  ['method_5finfo_340',['Method_Info',['../structMethod__Info.html',1,'']]],
+  ['methodparams_341',['MethodParams',['../classMethodParams.html',1,'']]],
+  ['multiply_342',['Multiply',['../classMultiply.html',1,'']]]
 ];
