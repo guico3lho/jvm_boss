@@ -357,7 +357,7 @@ void Frame::set_instructions_functions() {
   //func[186] = invokedynamic;
   func[187] = new_obj; //* new
   func[188] = newarray;
-  func[189] = anewarray; // TODO
+  func[189] = anewarray; 
   func[190] = arraylength;
   //func[191] = athrow;
   // func[192] = checkcast;

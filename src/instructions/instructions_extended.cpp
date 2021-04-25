@@ -60,7 +60,7 @@ void multianewarray(Frame* curr_frame) {
 
   //* ptr de vetor de ptrs de operandos..
   std::vector<Operand*> *array_ref = multiarray_ref->array_type->array;
-  std::vector<Operand*> array_value;
+  std::vector<Operand*> array_value, array_value_2;
   std::vector<Operand*> array_ref_aux_2;
   string string_array_type = "]";
 
@@ -74,29 +74,28 @@ void multianewarray(Frame* curr_frame) {
 
   if (DEBUG) cout << "array_ref size " << array_ref->size() << "\n";
   if (DEBUG) cout << "--------------------\n";
-  // array_value = array_ref[0];
+  array_value = array_ref[0];
   
   for (int i = 0; i < counts[0]; i++) {
-    cout << (array_ref + i) << "\n";
-    array_value = *(array_ref + i);
-
     for (int j = 0; j < counts[1]; j++) {
       if (DEBUG) printf("Array [%d][%d] - ", i, j);
-      array_value[j]->array_type->array->emplace_back(check_string_create_type("["));
+      array_value[i]->array_type->array->emplace_back(check_string_create_type("["));
     }
+
+    if (DEBUG) cout << "array_value size " << array_value[i]->array_type->array->size() << "\n";
+    if (DEBUG) cout << "array_ref size " << array_ref->size() << "\n";
 
     if (DEBUG) cout << "--------------------\n";
   }
 
-  // array_ref_aux_2 = array_ref_aux[0];
-
   for (int i = 0; i < counts[0]; i++) {
     for (int j = 0; j < counts[1]; j++) {
-      array_ref[i][j]->array_type->array->emplace_back(check_string_create_type("I"));
+      // array_ref[i][j]->array_type->array->emplace_back(check_string_create_type("I"));
 
       for (int k = 0; k < counts[2]; k++) {
         if (DEBUG) printf("Array [%d][%d][%d] - ", i, j, k);
-        array_ref[i][j][k].array_type->array->emplace_back(check_string_create_type("I"));
+        array_value[i][j][k]->array_type->array->emplace_back(check_string_create_type("I"));
+        array_value[i][j][k].emplace_back(check_string_create_type("I"));
       }
     }
   }

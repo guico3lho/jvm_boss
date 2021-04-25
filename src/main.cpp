@@ -13,7 +13,7 @@
  * Comando Leitor/Exibidor: -e nomedoarquivo.class
  * Comando Interpretador: -i nomedoarquivo.class
  *
- * @author Ariel
+ * @author Ariel                             17/0099776
  * @author Guilherme Coelho Minervino        16/0123046
  * @author Gustavo Antonio Souza de Barros   18/0064487
  * @author Luís Vinicius Capelletto          16/0134544

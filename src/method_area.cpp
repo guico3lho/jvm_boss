@@ -156,10 +156,9 @@ Operand *check_string_create_type(std::string type_string) {
     break;
 
   case '[':
-    if (DEBUG)
-      printf("Criando operando tipo Array\n");
+    if (DEBUG) printf("Criando operando tipo Array\n");
     new_type->tag = CONSTANT_ARRAY;
-    new_type->array_type = (Array_Type *)malloc(sizeof(Array_Type));
+    new_type->array_type = (Array_Type*) malloc(sizeof(Array_Type));
     new_type->array_type->array = new std::vector<Operand *>();
     break;
 
