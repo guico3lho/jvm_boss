@@ -11,6 +11,8 @@
 /* COMPARISONS */
 void lcmp(Frame*);
 void fcmpl(Frame*);
+void fcmpg(Frame*);
+
 void ifeq(Frame*);
 void ifne(Frame*);
 void iflt(Frame*);
