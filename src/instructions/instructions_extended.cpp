@@ -64,10 +64,9 @@ void multianewarray(Frame* curr_frame) {
 
   Operand* multiarray_ref = check_string_create_type("[");
   if (DEBUG) cout << "--------------------\n";
-  
+
   std::vector<Operand*>* array_ref = multiarray_ref->array_type->array;
   std::vector<Operand*>* array_ref_2;
-  std::vector<std::vector<Operand*>*> *array_refs;
 
   for (i = 0; i < dimensions; i++) {
 

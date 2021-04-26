@@ -1,7 +1,76 @@
 # Projeto JVM - Software Basico
 
-![Diagrama](/diagrama.png)
 ## [Wiki do Projeto](https://guicoelhodev.github.io/jvm_boss/)
+
+![Diagrama](/diagrama.png)
+
+# Compilando
+
+Compilando usando CMake de forma manual
+
+``` bash
+# cria pasta build
+mkdir -p build 
+cd build
+
+# executa o cmake dentro da pasta build
+cmake .. -G "Unix Makefiles"
+
+# executa o make dentro de build
+make
+
+# volta para diretório raiz do projeto
+cd ..
+
+```
+
+Utilizando script shell
+
+``` bash
+# Linux
+$ ./compile.sh -l
+
+# Windows
+$ ./compile.sh -w
+```
+
+Caso apresente erro de formatação de arquivos shell ``.sh`` no Linux, usar o comando 
+
+```bash
+$ sed -i 's/\r$//' scriptname.sh
+```
+
+Caso prefira, no ambiente Windows, pode utilizar apenas o ``Makefile``
+
+``` bash
+make
+``` 
+
+# Executando
+
+## Leitor e Exibidor
+
+Exibe o bytecode do arquivo .class (flag `` -e``)
+
+``` bash
+# Linux e Windows
+$ ./jvm_boss -e test/HelloJava.class
+
+# shell script
+$ ./read.sh HelloJava
+```
+
+## Interpretador JVM
+
+Interpreta e executa o arquivo .class (flag `` -i``)
+
+``` bash
+# Linux e Windows
+$ ./jvm_boss -i test/HelloJava.class
+
+# shell script
+$ ./jvm.sh HelloJava
+```
 
 ## Compilação e informações com javac/javap
 
@@ -20,48 +89,6 @@ $ javap HelloJava.class
 $ javap -v HelloJava.class
 ```
 
-# Compilando
-
-``` bash
-# Linux
-$ ./compile.sh -l
-
-# Windows
-$ ./compile.sh -w
-```
-
-Caso apresente erro de formatação de arquivos bash ``.sh`` no Linux, usar o comando 
-
-```bash
-$ sed -i 's/\r$//' scriptname.sh
-```
-
-# Executando
-
-## Leitor e Exibidor
-
-Exibe o bytecode do arquivo .class (flag `` -e``)
-
-``` bash
-# Linux e Windows
-$ ./jvm_boss -e test/HelloJava.class
-
-# Bash script
-$ ./read.sh HelloJava
-```
-
-## Interpretador JVM
-
-Interpreta e executa o arquivo .class (flag `` -i``)
-
-``` bash
-# Linux e Windows
-$ ./jvm_boss -i test/HelloJava.class
-
-# Bash script
-$ ./jvm.sh HelloJava
-```
-
 ## Arquivos Teste
 
 Arquivos java (``.java``) encontram-se na pasta ``test/java`` e arquivos de classe (``.class``) encontram-se na pasta ``test/class``.
@@ -72,7 +99,7 @@ Para adicionar mais arquivos classe de teste, basta inserir o ``arquivo.java`` n
 # Linux e Windows
 $ java test/java/arquivo.java -d test/class
 
-# Bash script
+# shell script
 $  javac.sh arquivo
 ```
 
@@ -145,7 +172,7 @@ $ cppcheck --enable=warning ./src/main.cpp
 # todos arquivos .cpp dentro de src
 $ cppcheck --verbose --enable=warning ./src/*.cpp
 
-# ou com bash script
+# ou com shell script
 $ ./check.sh -v main
 $ ./check.sh -w main
 $ ./check.sh -all
@@ -166,7 +193,7 @@ Executando
 # com mais detalhes sobre vazamento de memória
 $ valgrind –leak-check=full ./jvm_boss -e test/HelloJava.class
 
-# bash script
+# shell script
 $ ./valgrind.sh HelloJava
 ```
 ## Documentação
