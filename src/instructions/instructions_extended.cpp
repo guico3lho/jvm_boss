@@ -8,10 +8,10 @@
 
 /**
  * @brief Define o tipo de dado dos operandos do newarray 
- * 
- * @param Operand *operand
- * @param u4 count
- * @param string array_type 
+ * @param *operand
+ * @param count
+ * @param array_type 
+ * @return std::vector<Operand*>*
  */
 std::vector<Operand*>* set_newarray(Operand* operand, u4 count, string array_type) {
   for (int i = 0; i < (int) count; i++) {
@@ -23,8 +23,8 @@ std::vector<Operand*>* set_newarray(Operand* operand, u4 count, string array_typ
 
 /**
  * @brief Função para instrução multianewarray de array multidimensionais
- * 
  * @param curr_frame 
+ * @return void
  */
 void multianewarray(Frame* curr_frame) {
   if (DEBUG) cout << "----------multianewarray----------\n";
@@ -87,7 +87,6 @@ void multianewarray(Frame* curr_frame) {
 
     if (DEBUG) cout << "--------------------\n";
   }
-
   // array_ref_aux_2 = array_ref_aux[0];
 
   for (int i = 0; i < counts[0]; i++) {
@@ -100,16 +99,14 @@ void multianewarray(Frame* curr_frame) {
       }
     }
   }
-  
-
   curr_frame->push_operand(multiarray_ref); 
   // curr_frame->pc++;
 }
 
 /**
  * @brief 
- * 
  * @param *curr_frame 
+ * @return void
  */
 void ifnull(Frame *curr_frame) {
   if (DEBUG) cout << "----------ifnull----------\n";
@@ -127,15 +124,15 @@ void ifnull(Frame *curr_frame) {
 
 /**
  * @brief 
- * 
- * @param *curr_frame 
+ * @param curr_frame 
+ * @return void
  */
-void ifnonnull(Frame *curr_frame) {
+void ifnonnull(Frame* curr_frame) {
   if (DEBUG) cout << "----------ifnonnull----------\n";
 
-  Operand *operand = curr_frame->pop_operand();
+  Operand* op = curr_frame->pop_operand();
 
-  if (operand->type_int) {
+  if (op->type_int) {
     int shift;
     shift = curr_frame->method_code->code[curr_frame->pc + 1];
     shift = (shift << 8 ) | curr_frame->method_code->code[curr_frame->pc + 2];

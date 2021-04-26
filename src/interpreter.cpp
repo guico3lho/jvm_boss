@@ -58,6 +58,11 @@ Frame* top_frame() {
   return frame_stack.top();
 }
 
+/** 
+ * @brief Returna as partes mais e menos significativas do index
+ * @param curr_frame
+ * @return u2
+ */
 u2 get_method_code_index(Frame* curr_frame) {
   u2 index = curr_frame->method_code->code[curr_frame->pc++];
   index = (index << 8) + curr_frame->method_code->code[curr_frame->pc++];
