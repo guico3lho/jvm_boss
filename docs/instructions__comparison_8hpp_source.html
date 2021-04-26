@@ -76,28 +76,34 @@ $(function() {
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="frame_8hpp.html">frame.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/* COMPARISONS */</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keywordtype">void</span> ifeq(<a class="code" href="classFrame.html">Frame</a>*);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keywordtype">void</span> ifne(<a class="code" href="classFrame.html">Frame</a>*);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keywordtype">void</span> iflt(<a class="code" href="classFrame.html">Frame</a>*);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordtype">void</span> ifge(<a class="code" href="classFrame.html">Frame</a>*);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordtype">void</span> ifgt(<a class="code" href="classFrame.html">Frame</a>*);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keywordtype">void</span> ifle(<a class="code" href="classFrame.html">Frame</a>*);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__comparison_8hpp.html#a68f70649a5ca9dfd34b932d37cbcfe70">if_icmpeq</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__comparison_8hpp.html#a341753ce466fef97a1a45b7043031abe">if_icmpne</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">void</span> if_icmplt(<a class="code" href="classFrame.html">Frame</a>*);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__comparison_8hpp.html#a7d29f2e1043d3847480687ab670e7938">if_icmpge</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">void</span> if_icmpgt(<a class="code" href="classFrame.html">Frame</a>*);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">void</span> if_icmple(<a class="code" href="classFrame.html">Frame</a>*);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> if_acmpeq(<a class="code" href="classFrame.html">Frame</a>*);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">void</span> if_acmpne(<a class="code" href="classFrame.html">Frame</a>*);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keywordtype">void</span> lcmp(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keywordtype">void</span> fcmpl(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keywordtype">void</span> fcmpg(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordtype">void</span> dcmpl(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordtype">void</span> dcmpg(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">void</span> ifeq(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">void</span> ifne(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">void</span> iflt(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">void</span> ifge(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">void</span> ifgt(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">void</span> ifle(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__comparison_8hpp.html#a68f70649a5ca9dfd34b932d37cbcfe70">if_icmpeq</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__comparison_8hpp.html#a341753ce466fef97a1a45b7043031abe">if_icmpne</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">void</span> if_icmplt(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">void</span> <a class="code" href="instructions__comparison_8hpp.html#a7d29f2e1043d3847480687ab670e7938">if_icmpge</a>(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">void</span> if_icmpgt(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">void</span> if_icmple(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">void</span> if_acmpeq(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordtype">void</span> if_acmpne(<a class="code" href="classFrame.html">Frame</a>*);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassFrame_html"><div class="ttname"><a href="classFrame.html">Frame</a></div><div class="ttdoc">Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,...</div><div class="ttdef"><b>Definition:</b> frame.hpp:56</div></div>
 <div class="ttc" id="aframe_8hpp_html"><div class="ttname"><a href="frame_8hpp.html">frame.hpp</a></div><div class="ttdoc">Estruturas e classes de Frames e Operandos.</div></div>
-<div class="ttc" id="ainstructions__comparison_8hpp_html_a341753ce466fef97a1a45b7043031abe"><div class="ttname"><a href="instructions__comparison_8hpp.html#a341753ce466fef97a1a45b7043031abe">if_icmpne</a></div><div class="ttdeci">void if_icmpne(Frame *)</div><div class="ttdoc">Verifica se valor1 é diferente de valor2. Se for, realiza salto.</div><div class="ttdef"><b>Definition:</b> instructions_comparison.cpp:117</div></div>
-<div class="ttc" id="ainstructions__comparison_8hpp_html_a68f70649a5ca9dfd34b932d37cbcfe70"><div class="ttname"><a href="instructions__comparison_8hpp.html#a68f70649a5ca9dfd34b932d37cbcfe70">if_icmpeq</a></div><div class="ttdeci">void if_icmpeq(Frame *)</div><div class="ttdoc">Compara valor1 = valor2. Se verdeiro, realiza salto.</div><div class="ttdef"><b>Definition:</b> instructions_comparison.cpp:93</div></div>
-<div class="ttc" id="ainstructions__comparison_8hpp_html_a7d29f2e1043d3847480687ab670e7938"><div class="ttname"><a href="instructions__comparison_8hpp.html#a7d29f2e1043d3847480687ab670e7938">if_icmpge</a></div><div class="ttdeci">void if_icmpge(Frame *)</div><div class="ttdoc">Salta para outro endereço caso parametro 1 for maior ou igual ao parametro 2.</div><div class="ttdef"><b>Definition:</b> instructions_comparison.cpp:160</div></div>
+<div class="ttc" id="ainstructions__comparison_8hpp_html_a341753ce466fef97a1a45b7043031abe"><div class="ttname"><a href="instructions__comparison_8hpp.html#a341753ce466fef97a1a45b7043031abe">if_icmpne</a></div><div class="ttdeci">void if_icmpne(Frame *)</div><div class="ttdoc">Verifica se valor1 é diferente de valor2. Se for, realiza salto.</div><div class="ttdef"><b>Definition:</b> instructions_comparison.cpp:232</div></div>
+<div class="ttc" id="ainstructions__comparison_8hpp_html_a68f70649a5ca9dfd34b932d37cbcfe70"><div class="ttname"><a href="instructions__comparison_8hpp.html#a68f70649a5ca9dfd34b932d37cbcfe70">if_icmpeq</a></div><div class="ttdeci">void if_icmpeq(Frame *)</div><div class="ttdoc">Compara valor1 = valor2. Se verdeiro, realiza salto.</div><div class="ttdef"><b>Definition:</b> instructions_comparison.cpp:208</div></div>
+<div class="ttc" id="ainstructions__comparison_8hpp_html_a7d29f2e1043d3847480687ab670e7938"><div class="ttname"><a href="instructions__comparison_8hpp.html#a7d29f2e1043d3847480687ab670e7938">if_icmpge</a></div><div class="ttdeci">void if_icmpge(Frame *)</div><div class="ttdoc">Salta para outro endereço caso parametro 1 for maior ou igual ao parametro 2.</div><div class="ttdef"><b>Definition:</b> instructions_comparison.cpp:275</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -80,51 +80,65 @@ Integrantes do Grupo</h2>
 Repositório Remoto</h3>
 <p><a href="https://github.com/GuiCoelhoDev/jvm_boss">GitHub</a></p>
 <p><img src="https://github.com/GuiCoelhoDev/jvm_boss/raw/master/diagrama.png" alt="" width="90%" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md3"></a>
-Compilação e informações com javac/javap</h2>
-<p>Compila arquivo <code>.java</code> para <code>.class</code></p>
-<div class="fragment"><div class="line">$ javac <a class="code" href="classHelloJava.html">HelloJava</a>.java</div>
-<div class="ttc" id="aclassHelloJava_html"><div class="ttname"><a href="classHelloJava.html">HelloJava</a></div><div class="ttdef"><b>Definition:</b> HelloJava.java:1</div></div>
-</div><!-- fragment --><p>Mostra informações do bytecode do arquivo <code>.class</code></p>
-<div class="fragment"><div class="line">$ javap <a class="code" href="classHelloJava.html">HelloJava</a>.class</div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor"># para mais info, flags: -c, -verbose ou -v</span></div>
-<div class="line"><span class="preprocessor">$ javap -v HelloJava.class</span></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md4"></a>
+<h1><a class="anchor" id="autotoc_md3"></a>
 Compilando</h1>
+<p>Forma manual</p>
+<div class="fragment"><div class="line"><span class="preprocessor"># cria pasta build</span></div>
+<div class="line">mkdir -p build </div>
+<div class="line">cd build</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor"># executa o cmake dentro da pasta build</span></div>
+<div class="line">cmake .. -G <span class="stringliteral">&quot;Unix Makefiles&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor"># executa o make dentro de build</span></div>
+<div class="line">make</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor"># volta para diretório raiz do projeto</span></div>
+<div class="line"><span class="preprocessor">cd ..</span></div>
+</div><!-- fragment --><p>Utilizando script shell</p>
 <div class="fragment"><div class="line"><span class="preprocessor"># Linux</span></div>
 <div class="line">$ ./compile.sh -l</div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor"># Windows</span></div>
 <div class="line"><span class="preprocessor">$ ./compile.sh -w</span></div>
-</div><!-- fragment --><p>Caso apresente erro de formatação de arquivos bash <code>.sh</code> no Linux, usar o comando</p>
+</div><!-- fragment --><p>Caso apresente erro de formatação de arquivos de shell script <code>.sh</code> no Linux, usar o comando</p>
 <div class="fragment"><div class="line">$ sed -i &#39;s/\r$//&#39; scriptname.sh</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md5"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md4"></a>
 Executando</h1>
-<h2><a class="anchor" id="autotoc_md6"></a>
+<h2><a class="anchor" id="autotoc_md5"></a>
 Leitor e Exibidor</h2>
 <p>Exibe o bytecode do arquivo .class (flag -e)</p>
 <div class="fragment"><div class="line"><span class="preprocessor"># Linux e Windows</span></div>
 <div class="line">$ ./jvm_boss -e test/<a class="code" href="classHelloJava.html">HelloJava</a>.class</div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor"># Bash script</span></div>
+<div class="line"><span class="preprocessor"># shell script</span></div>
 <div class="line"><span class="preprocessor">$ ./read.sh HelloJava</span></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md7"></a>
+<div class="ttc" id="aclassHelloJava_html"><div class="ttname"><a href="classHelloJava.html">HelloJava</a></div><div class="ttdef"><b>Definition:</b> HelloJava.java:1</div></div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md6"></a>
 Interpretador JVM</h2>
 <p>Interpreta e executa o arquivo .class (flag -i)</p>
 <div class="fragment"><div class="line"><span class="preprocessor"># Linux e Windows</span></div>
 <div class="line">$ ./jvm_boss -i test/<a class="code" href="classHelloJava.html">HelloJava</a>.class</div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor"># Bash script</span></div>
+<div class="line"><span class="preprocessor"># shell script</span></div>
 <div class="line"><span class="preprocessor">$ ./jvm.sh HelloJava</span></div>
-</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md8"></a>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md7"></a>
+Compilação e informações com javac/javap</h2>
+<p>Compila arquivo <code>.java</code> para <code>.class</code></p>
+<div class="fragment"><div class="line">$ javac <a class="code" href="classHelloJava.html">HelloJava</a>.java</div>
+</div><!-- fragment --><p>Mostra informações do bytecode do arquivo <code>.class</code></p>
+<div class="fragment"><div class="line">$ javap <a class="code" href="classHelloJava.html">HelloJava</a>.class</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor"># para mais info, flags: -c, -verbose ou -v</span></div>
+<div class="line"><span class="preprocessor">$ javap -v HelloJava.class</span></div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md8"></a>
 Arquivos Teste</h2>
 <p>Arquivos java (.java) encontram-se na pasta test/java e arquivos de classe (.class) encontram-se na pasta test/class.</p>
 <p>Para adicionar mais arquivos classe de teste, basta inserir o arquivo.java no diretorio test/java e executar na pasta raiz do projeto o comando:</p>
 <div class="fragment"><div class="line"><span class="preprocessor"># Linux e Windows</span></div>
 <div class="line">$ java test/java/arquivo.java -d test/<span class="keyword">class</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor"># Bash script</span></div>
+<div class="line"><span class="preprocessor"># shell script</span></div>
 <div class="line"><span class="preprocessor">$  javac.sh arquivo</span></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md9"></a>
 Classes Java (.class) de Teste</h2>
@@ -200,7 +214,7 @@ Analisador estático:</h3>
 <div class="line"><span class="preprocessor"># todos arquivos .cpp dentro de src</span></div>
 <div class="line">$ cppcheck --verbose --enable=warning ./src<span class="comment">/*.cpp</span></div>
 <div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment"># ou com bash script</span></div>
+<div class="line"><span class="comment"># ou com shell script</span></div>
 <div class="line"><span class="comment">$ ./check.sh -v main</span></div>
 <div class="line"><span class="comment">$ ./check.sh -w main</span></div>
 <div class="line"><span class="comment">$ ./check.sh -all</span></div>
@@ -213,7 +227,7 @@ Analisador dinâmico:</h3>
 <div class="fragment"><div class="line"><span class="preprocessor"># com mais detalhes sobre vazamento de memória</span></div>
 <div class="line">$ valgrind –leak-check=full ./jvm_boss -e test/<a class="code" href="classHelloJava.html">HelloJava</a>.class</div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor"># bash script</span></div>
+<div class="line"><span class="preprocessor"># shell script</span></div>
 <div class="line"><span class="preprocessor">$ ./valgrind.sh HelloJava</span></div>
 </div><!-- fragment --> <h2><a class="anchor" id="autotoc_md21"></a>
 Documentação</h2>
