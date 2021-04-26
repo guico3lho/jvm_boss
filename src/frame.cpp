@@ -310,7 +310,7 @@ void Frame::set_instructions_functions() {
   func[147] = i2s;
 
   /* COMPARISONS */
-  // func[148] = lcmp;
+  func[148] = lcmp;
   // func[149] = fcmpl;
   // func[150] = fcmpg;
   // func[151] = dcmpl;
