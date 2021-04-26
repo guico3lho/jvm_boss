@@ -23,56 +23,29 @@ std::vector<Instruction> set_instructions_print() {
   instructions[2].name = "iconst_m1";
   instructions[2].bytes = 0;
 
-  // instructions[3].name = "iconst_n";
-  // instructions[3].bytes = 0;
-  // instructions[3].value = 0;
-
-  // instructions[4].name = "iconst_n";
-  // instructions[4].bytes = 0;
-  // instructions[4].value = 1;
-
-  // instructions[5].name = "iconst_n";
-  // instructions[5].bytes = 0;
-  // instructions[5].value = 2;
-
-  // instructions[6].name = "iconst_n";
-  // instructions[6].bytes = 0;
-  // instructions[6].value = 3;
-
-  // instructions[7].name = "iconst_n";
-  // instructions[7].bytes = 0;
-  // instructions[7].value = 4;
-
-  // instructions[8].name = "iconst_n";
-  // instructions[8].bytes = 0;
-  // instructions[8].value = 5;
-
   for(int i=0; i<=5; i++) {
     int j = i+3;
     instructions[j].name = "iconst_" + (char) i;
     instructions[j].bytes = 0;
   }
 
-  instructions[9].name = "lconst_0";
-  instructions[9].bytes = 0;
+  for(int i=0; i<=1; i++) {
+    int j = i+9;
+    instructions[j].name = "lconst_" + (char) i;
+    instructions[j].bytes = 0;
+  }
 
-  instructions[10].name = "lconst_1";
-  instructions[10].bytes = 0;
+  for(int i=0; i<=2; i++) {
+    int j = i+11;
+    instructions[j].name = "fconst_" + (char) i;
+    instructions[j].bytes = 0;
+  }
 
-  instructions[11].name = "fconst_0";
-  instructions[11].bytes = 0;
-
-  instructions[12].name = "fconst_1";
-  instructions[12].bytes = 0;
-
-  instructions[13].name = "fconst_2";
-  instructions[13].bytes = 0;
-
-  instructions[14].name = "dconst_0";
-  instructions[14].bytes = 0;
-
-  instructions[15].name = "dconst_1";
-  instructions[15].bytes = 0;
+  for(int i=0; i<=1; i++) {
+    int j = i+14;
+    instructions[j].name = "dconst_" + (char) i;
+    instructions[j].bytes = 0;
+  }
 
   instructions[16].name = "bipush";
   instructions[16].bytes = 1;
@@ -104,65 +77,35 @@ std::vector<Instruction> set_instructions_print() {
   instructions[25].name = "aload";
   instructions[25].bytes = 1;
 
-  instructions[26].name = "iload_0";
-  instructions[26].bytes = 0;
+  for(int i=0; i<=3; i++) {
+    int j = i+26;
+    instructions[j].name = "iload_" + (char) i;
+    instructions[j].bytes = 0;
+  }
 
-  instructions[27].name = "iload_1";
-  instructions[27].bytes = 0;
+  for(int i=0; i<=3; i++) {
+    int j = i+30;
+    instructions[j].name = "lload_" + (char) i;
+    instructions[j].bytes = 0;
+  }
 
-  instructions[28].name = "iload_2";
-  instructions[28].bytes = 0;
+  for(int i=0; i<=3; i++) {
+    int j = i+34;
+    instructions[j].name = "fload_" + (char) i;
+    instructions[j].bytes = 0;
+  }
 
-  instructions[29].name = "iload_3";
-  instructions[29].bytes = 0;
+  for(int i=0; i<=3; i++) {
+    int j = i+38;
+    instructions[j].name = "dload_" + (char) i;
+    instructions[j].bytes = 0;
+  }
 
-  instructions[30].name = "lload_0";
-  instructions[30].bytes = 0;
-
-  instructions[31].name = "lload_1";
-  instructions[31].bytes = 0;
-
-  instructions[32].name = "lload_2";
-  instructions[32].bytes = 0;
-
-  instructions[33].name = "lload_3";
-  instructions[33].bytes = 0;
-
-  instructions[34].name = "fload_0";
-  instructions[34].bytes = 0;
-
-  instructions[35].name = "fload_1";
-  instructions[35].bytes = 0;
-
-  instructions[36].name = "fload_2";
-  instructions[36].bytes = 0;
-
-  instructions[37].name = "fload_3";
-  instructions[37].bytes = 0;
-
-  instructions[38].name = "dload_0";
-  instructions[38].bytes = 0;
-
-  instructions[39].name = "dload_1";
-  instructions[39].bytes = 0;
-
-  instructions[40].name = "dload_2";
-  instructions[40].bytes = 0;
-
-  instructions[41].name = "dload_3";
-  instructions[41].bytes = 0;
-
-  instructions[42].name = "aload_0";
-  instructions[42].bytes = 0;
-
-  instructions[43].name = "aload_1";
-  instructions[43].bytes = 0;
-
-  instructions[44].name = "aload_2";
-  instructions[44].bytes = 0;
-
-  instructions[45].name = "aload_3";
-  instructions[45].bytes = 0;
+  for(int i=0; i<=3; i++) {
+    int j = i+42;
+    instructions[j].name = "aload_" + (char) i;
+    instructions[j].bytes = 0;
+  }
 
   instructions[46].name = "iaload";
   instructions[46].bytes = 0;
@@ -203,65 +146,35 @@ std::vector<Instruction> set_instructions_print() {
   instructions[58].name = "astore";
   instructions[58].bytes = 1;
 
-  instructions[59].name = "istore_0";
-  instructions[59].bytes = 0;
+  for(int i=0; i<=3; i++) {
+    int j = i+59;
+    instructions[j].name = "istore_" + (char) i;
+    instructions[j].bytes = 0;
+  }
 
-  instructions[60].name = "istore_1";
-  instructions[60].bytes = 0;
+  for(int i=0; i<=3; i++) {
+    int j = i+63;
+    instructions[j].name = "lstore_" + (char) i;
+    instructions[j].bytes = 0;
+  }
 
-  instructions[61].name = "istore_2";
-  instructions[61].bytes = 0;
+  for(int i=0; i<=3; i++) {
+    int j = i+67;
+    instructions[j].name = "fstore_" + (char) i;
+    instructions[j].bytes = 0;
+  }
 
-  instructions[62].name = "istore_3";
-  instructions[62].bytes = 0;
+  for(int i=0; i<=3; i++) {
+    int j = i+71;
+    instructions[j].name = "dstore_" + (char) i;
+    instructions[j].bytes = 0;
+  }
 
-  instructions[63].name = "lstore_0";
-  instructions[63].bytes = 0;
-
-  instructions[64].name = "lstore_1";
-  instructions[64].bytes = 0;
-
-  instructions[65].name = "lstore_2";
-  instructions[65].bytes = 0;
-
-  instructions[66].name = "lstore_3";
-  instructions[66].bytes = 0;
-
-  instructions[67].name = "fstore_0";
-  instructions[67].bytes = 0;
-
-  instructions[68].name = "fstore_1";
-  instructions[68].bytes = 0;
-
-  instructions[69].name = "fstore_2";
-  instructions[69].bytes = 0;
-
-  instructions[70].name = "fstore_3";
-  instructions[70].bytes = 0;
-
-  instructions[71].name = "dstore_0";
-  instructions[71].bytes = 0;
-
-  instructions[72].name = "dstore_1";
-  instructions[72].bytes = 0;
-
-  instructions[73].name = "dstore_2";
-  instructions[73].bytes = 0;
-
-  instructions[74].name = "dstore_3";
-  instructions[74].bytes = 0;
-
-  instructions[75].name = "astore_0";
-  instructions[75].bytes = 0;
-
-  instructions[76].name = "astore_1";
-  instructions[76].bytes = 0;
-
-  instructions[77].name = "astore_2";
-  instructions[77].bytes = 0;
-
-  instructions[78].name = "astore_3";
-  instructions[78].bytes = 0;
+  for(int i=0; i<=3; i++) {
+    int j = i+75;
+    instructions[j].name = "astore_" + (char) i;
+    instructions[j].bytes = 0;
+  }
 
   instructions[79].name = "iastore";
   instructions[79].bytes = 0;
@@ -537,10 +450,10 @@ std::vector<Instruction> set_instructions_print() {
   instructions[169].bytes = 1;
 
   instructions[170].name = "tableswitch";
-  instructions[170].bytes = 34; // Tamanho variável
+  instructions[170].bytes = 34; 
 
   instructions[171].name = "lookupswitch";
-  instructions[171].bytes = 26; // Tamanho variável
+  instructions[171].bytes = 26; 
 
   instructions[172].name = "ireturn";
   instructions[172].bytes = 0;

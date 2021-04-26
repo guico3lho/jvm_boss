@@ -22,10 +22,10 @@ namespace patch {
 
 /**
  * @brief Recebe um campo estático a partir de uma classe.
- * @param *curr_frame ponteiro para o frame atual
+ * @param curr_frame ponteiro para o frame atual
  * @return void
  */
-void getstatic(Frame *curr_frame) {
+void getstatic(Frame* curr_frame) {
   if (DEBUG) cout << "----------getstatic----------\n";
   curr_frame->pc++;
 
@@ -44,16 +44,16 @@ void getstatic(Frame *curr_frame) {
 
   Class_File class_file = load_parent_classes(class_name);
   string var_name = get_cp_info_utf8(class_file, name_and_type.NameAndType.name_index);
-  Operand *static_field = get_static_field_of_class(class_name, var_name);
+  Operand* static_field = get_static_field_of_class(class_name, var_name);
 
   curr_frame->push_operand(static_field);
 }
 
 /** @brief ...
- * @param *curr_frame ponteiro para o frame atual
+ * @param curr_frame ponteiro para o frame atual
  * @return void
  */
-void getfield(Frame *curr_frame) {
+void getfield(Frame* curr_frame) {
   if (DEBUG) cout << "----------getfield----------\n";
   u2 index = get_method_code_index(curr_frame);
 
@@ -69,10 +69,10 @@ void getfield(Frame *curr_frame) {
 
 /**
  * @brief ...
- * @param *curr_frame ponteiro para o frame atual
+ * @param curr_frame ponteiro para o frame atual
  * @return void
  */
-void putfield(Frame *curr_frame) {
+void putfield(Frame* curr_frame) {
   if (DEBUG) cout << "----------putfield----------\n";
   curr_frame->pc++;
 
@@ -84,10 +84,10 @@ void putfield(Frame *curr_frame) {
   string class_name = get_utf8_constant_pool(curr_frame->cp_reference, field_reference.Fieldref.class_index);
   string var_name = get_utf8_constant_pool(curr_frame->cp_reference, name_and_type.NameAndType.name_index);
 
-  Operand *operand = curr_frame->pop_operand();
-  Operand *class_instance = curr_frame->pop_operand();
+  Operand* operand = curr_frame->pop_operand();
+  Operand* class_instance = curr_frame->pop_operand();
 
-  Operand *class_variable = class_instance->class_container->class_fields->at(var_name);
+  Operand* class_variable = class_instance->class_container->class_fields->at(var_name);
 
   switch (operand->tag) {
     case CONSTANT_INT:
@@ -128,10 +128,10 @@ void putfield(Frame *curr_frame) {
 
 /**
  * @brief Invoca instância de método baseado na classe.
- * @param *curr_frame ponteiro que aponta para o frame atual
+ * @param curr_frame ponteiro que aponta para o frame atual
  * @return void
  */
-void invokevirtual(Frame *curr_frame) {
+void invokevirtual(Frame* curr_frame) {
   if (DEBUG) cout << "----------invokevirtual----------\n";
   curr_frame->pc++;
 
@@ -166,8 +166,8 @@ void invokevirtual(Frame *curr_frame) {
     if (class_name == "java/lang/String" && method_name == "length") {
       if (DEBUG) cout << "Metodo string: java/lang/String\n";
 
-      Operand *str_ref = curr_frame->pop_operand();
-      Operand *str_len = (Operand*) malloc(sizeof(Operand));
+      Operand* str_ref = curr_frame->pop_operand();
+      Operand* str_len = (Operand*) malloc(sizeof(Operand));
 
       str_len->tag = CONSTANT_INT;
       str_len->type_int = str_ref->type_string->size();
@@ -188,12 +188,12 @@ void invokevirtual(Frame *curr_frame) {
 /**
  * @brief Função dos metodos do tipo print da instrução invokevirtual (opcode 182)
  * 
- * @param *curr_frame 
+ * @param curr_frame 
  * @param method_name 
  */
-void invokevirtual_print(Frame *curr_frame) {
+void invokevirtual_print(Frame* curr_frame) {
   if (DEBUG) cout << "Metodo Print: java/io/PrintStream\n";
-  Operand *op = curr_frame->pop_operand();
+  Operand* op = curr_frame->pop_operand();
   if (DEBUG) cout << "op->tag: " << (int) op->tag << "\n";
 
   switch(op->tag) {
@@ -260,11 +260,11 @@ void invokevirtual_print(Frame *curr_frame) {
  * 
  * @param curr_frame 
  */
-void invokevirtual_string_builder_append(Frame *curr_frame) {
+void invokevirtual_string_builder_append(Frame* curr_frame) {
   if (DEBUG) cout << "Metodo StringBuilder: java/lang/StringBuilder\n";
 
-  Operand *op_append = curr_frame->pop_operand();
-  Operand *str_append = copy_operand(curr_frame->pop_operand());
+  Operand* op_append = curr_frame->pop_operand();
+  Operand* str_append = copy_operand(curr_frame->pop_operand());
 
   // converte tipo qualquer para tipo string - toString
   switch (op_append->tag) {
@@ -317,7 +317,7 @@ void invokevirtual_string_builder_append(Frame *curr_frame) {
 /**
  * @brief Função de método não default do Java das instruções de invoke 
  * 
- * @param *curr_frame 
+ * @param curr_frame 
  * @param class_name 
  * @param method_name 
  * @param method_desc 
@@ -325,7 +325,7 @@ void invokevirtual_string_builder_append(Frame *curr_frame) {
  * @return void
  */
 void class_not_default_java(
-  Frame *curr_frame, 
+  Frame* curr_frame, 
   string class_name, 
   string method_name, 
   string method_desc,
@@ -339,7 +339,7 @@ void class_not_default_java(
   if (DEBUG) cout << "passando argumentos para o metodo " << invoke_type << "\n";
 
   for (int i = 0; i < count_args; ++i) {
-    Operand *arg = curr_frame->pop_operand();
+    Operand* arg = curr_frame->pop_operand();
     if (DEBUG) cout << "operando do tipo: " <<  (int) arg->tag << "\n";
 
     args.insert(args.begin(), arg);
@@ -351,7 +351,7 @@ void class_not_default_java(
   Class_Container *class_container;
 
   if(invoke_type == "virtual" || invoke_type == "special") {
-    Operand *current_class = curr_frame->pop_operand();
+    Operand* current_class = curr_frame->pop_operand();
     args.insert(args.begin(), current_class);
     class_container = current_class->class_container;
   }
@@ -362,7 +362,7 @@ void class_not_default_java(
 
   // Pega informacoes do metodo
   Method_Info *method_info = find_method(class_container->class_file, method_name, method_desc);
-  Frame *new_frame = new Frame(method_info, class_container->class_file);
+  Frame* new_frame = new Frame(method_info, class_container->class_file);
 
   for (int j = 0; (unsigned)j < args.size(); ++j)
     new_frame->local_variables_array.at(j) = args.at(j);
@@ -403,10 +403,10 @@ int count_method_arguments(string method_descriptor) {
 
 /**
 * @brief Invoca o método de instância, e trata da inicialiação da superclasse
-* @param *curr_frame ponteiro para o frame atual
+* @param curr_frame ponteiro para o frame atual
 * @return void
 */
-void invokespecial(Frame *curr_frame) {
+void invokespecial(Frame* curr_frame) {
   if (DEBUG) cout << "----------invokespecial----------\n";
 	curr_frame->pc++;
 
@@ -432,7 +432,7 @@ void invokespecial(Frame *curr_frame) {
 		if (class_name == class_string || class_name == class_string_builder) {
 			curr_frame->pop_operand();
 		} else if (method_name == method_init) {
-			Operand *variable_class = curr_frame->local_variables_array.at(0);
+			Operand* variable_class = curr_frame->local_variables_array.at(0);
 			load_class_variables(variable_class->class_container);
 		}
 		return;
@@ -450,10 +450,10 @@ void invokespecial(Frame *curr_frame) {
 
 /**
  * @brief Invoca um método estático de uma classe.
- * @param *curr_frame ponteiro para o frame atual
+ * @param curr_frame ponteiro para o frame atual
  * @return void
  */
-void invokestatic(Frame *curr_frame) {
+void invokestatic(Frame* curr_frame) {
   if (DEBUG) cout << "----------invokestatic----------\n";
   curr_frame->pc++;
 
@@ -492,10 +492,10 @@ void invokestatic(Frame *curr_frame) {
 }
 
 /** @brief Invoca a interface do método.
-@param Frame *curr_frame ponteiro que aponta para o frame atual
+@param Frame* curr_frame ponteiro que aponta para o frame atual
 @return void
 */
-void invokeinterface(Frame *curr_frame) {
+void invokeinterface(Frame* curr_frame) {
   if (DEBUG) cout << "----------invokeinterface----------\n";
   curr_frame->pc++;
 
@@ -512,10 +512,10 @@ void invokeinterface(Frame *curr_frame) {
 
 /**
  * @brief Cria novo array podendo ser de qualquer tipo.
- * @param Frame *curr_frame ponteiro que aponta para o frame atual
+ * @param Frame* curr_frame ponteiro que aponta para o frame atual
  * @return void
  */
-void new_obj(Frame *curr_frame) {
+void new_obj(Frame* curr_frame) {
   if (DEBUG) cout << "----------new----------\n";
   curr_frame->pc++;
 
@@ -531,7 +531,7 @@ void new_obj(Frame *curr_frame) {
     string_builder->type_string = new string("");
     curr_frame->push_operand(string_builder);
   } else {
-    Operand *instance = check_string_create_type("L" + class_name);
+    Operand* instance = check_string_create_type("L" + class_name);
     curr_frame->push_operand(instance);
   }
   curr_frame->pc++;
@@ -539,21 +539,21 @@ void new_obj(Frame *curr_frame) {
 
 /**
  * @brief Cria novo array do tipo definido
- * @param *curr_frame Ponteiro para o frame atual
+ * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
-void newarray(Frame *curr_frame) {
+void newarray(Frame* curr_frame) {
   if (DEBUG) cout << "----------newarray----------\n";
   curr_frame->pc++;
 
-  Operand *operand_1 = curr_frame->pop_operand();
+  Operand* operand_1 = curr_frame->pop_operand();
   int count = operand_1->type_int;
   if (DEBUG) printf("array count: %d (0x%0X)\n", (int) count, count);
 
   u1 array_type = curr_frame->method_code->code[curr_frame->pc++];
   if (DEBUG) cout << "array_type: " << (int) array_type << "\n";
 
-  Operand *operand_2 = check_string_create_type("[");
+  Operand* operand_2 = check_string_create_type("[");
 
   switch ((int) array_type) {
     case 4:
@@ -600,7 +600,7 @@ void newarray(Frame *curr_frame) {
  * @param operand_2 
  * @param index 
  */
-void set_newarray_type(Operand *operand, u4 count, string array_type) {
+void set_newarray_type(Operand* operand, u4 count, string array_type) {
   for (int i = 0; i < (int) count; i++) {
     operand->array_type->array->emplace_back(check_string_create_type(array_type));
   }
@@ -608,21 +608,21 @@ void set_newarray_type(Operand *operand, u4 count, string array_type) {
 
 /**
  * @brief Cria novo objeto array.
- * @param *curr_frame Ponteiro para o frame atual
+ * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
-void anewarray(Frame *curr_frame) {
+void anewarray(Frame* curr_frame) {
   if (DEBUG) cout << "----------anewarray----------\n";
   curr_frame->pc++;
 
-  Operand *operand_1 = curr_frame->pop_operand();
+  Operand* operand_1 = curr_frame->pop_operand();
   int count = operand_1->type_int;
   if (DEBUG) printf("array count: %d (0x%0X)\n", (int) count, count);
 
   u2 array_type = get_method_code_index(curr_frame);
   if (DEBUG) cout << "array_type: " << (int) array_type << "\n";
 
-  Operand *operand = check_string_create_type("[");
+  Operand* operand = check_string_create_type("[");
   switch ((int) array_type) {
     case 0:
       // if (DEBUG) cout << "array type bool\n";
@@ -650,9 +650,9 @@ void arraylength(Frame* curr_frame) {
   if (DEBUG) cout << "----------arraylength----------\n";
   curr_frame->pc++;
 
-  Operand *array = curr_frame->pop_operand();
+  Operand* array = curr_frame->pop_operand();
 
-  Operand *size = check_string_create_type("I");
+  Operand* size = check_string_create_type("I");
   size->type_int = array->array_type->array->size();
   curr_frame->push_operand(size);
 }

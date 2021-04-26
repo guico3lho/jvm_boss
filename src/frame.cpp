@@ -16,7 +16,7 @@
 #include "instructions/instructions_extended.hpp"
 #include "interpreter.hpp"
 
-void (*func[256])(Frame *curr_frame);
+void (*func[256])(Frame* curr_frame);
 
 /** @brief Construtor do Frame.
 *   Constrói o Frame com as informações gerais da classe
@@ -25,7 +25,7 @@ void (*func[256])(Frame *curr_frame);
 *  @param method ponteiro para informações do método
 *  @param cp_info ponteiro para a pool de constantes
 */
-Frame::Frame(Method_Info *method, Class_File class_file) {
+Frame::Frame(Method_Info* method, Class_File class_file) {
   cp_reference = class_file.constant_pool;
   class_file_ref = &class_file;
   method_info = method;
@@ -61,8 +61,8 @@ void Frame::execute_frame() {
 * @brief Retira um elemento do topo da pilha
 * @return Operand* ponteiro para operando retirado
 */
-Operand *Frame::pop_operand() {
-  Operand *op = operand_stack.top();
+Operand* Frame::pop_operand() {
+  Operand* op = operand_stack.top();
   // printf("[operand popped]: %d\n", curr_frame->operand_stack.top()->type_int);
   operand_stack.pop();
   return op;
@@ -73,7 +73,7 @@ Operand *Frame::pop_operand() {
 * @return Operand* ponteiro para elemento a ser inserido
 * @return void
 */
-void Frame::push_operand(Operand *op) {
+void Frame::push_operand(Operand* op) {
   operand_stack.push(op);
   // printf("[operand pushed]: %d\n", curr_frame->operand_stack.top()->type_int);
 }
@@ -84,8 +84,8 @@ void Frame::push_operand(Operand *op) {
 * @param original_type ponteiro para tipo de entrada
 * @return Operand* ponteiro para cópia do tipo de entrada
 */
-Operand *copy_operand(Operand *original_type) {
-  Operand *copy_type = (Operand *)malloc(sizeof(Operand));
+Operand* copy_operand(Operand* original_type) {
+  Operand* copy_type = (Operand* )malloc(sizeof(Operand));
   copy_type->tag = original_type->tag;
 
   switch (original_type->tag)
@@ -125,18 +125,18 @@ Operand *copy_operand(Operand *original_type) {
   case CONSTANT_CLASS:
     copy_type->class_container = (Class_Container*) malloc(sizeof(Class_Container));
     copy_type->class_container->class_file = original_type->class_container->class_file;
-    copy_type->class_container->class_fields = new std::map<std::string, Operand *>();
+    copy_type->class_container->class_fields = new std::map<std::string, Operand* >();
     copy_type->class_container->class_fields = original_type->class_container->class_fields;
     break;
 
   case CONSTANT_ARRAY:
     copy_type->array_type = (Array_Type *)malloc(sizeof(Array_Type));
-    copy_type->array_type->array = new std::vector<Operand *>();
+    copy_type->array_type->array = new std::vector<Operand* >();
 
     for (int i = 0; (unsigned)i < original_type->array_type->array->size(); i++)
     {
-      Operand *aux = original_type->array_type->array->at(i);
-      Operand *value = copy_operand(aux);
+      Operand* aux = original_type->array_type->array->at(i);
+      Operand* value = copy_operand(aux);
       copy_type->array_type->array->emplace_back(value);
     }
     break;

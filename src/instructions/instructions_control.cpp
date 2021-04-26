@@ -8,27 +8,27 @@
 
 /**
  * @brief Função para saltar para um certo offset.
- * @param *curr_frame ponteiro para o frame atual
+ * @param curr_frame ponteiro para o frame atual
  * @return void
  */
-void ins_goto(Frame *curr_frame) {
+void ins_goto(Frame* curr_frame) {
   if (DEBUG) cout << "----------goto----------\n";
   int16_t offset = curr_frame->method_code->code[curr_frame->pc + 1];
   offset = (offset << 8) + curr_frame->method_code->code[curr_frame->pc + 2];
   curr_frame->pc += offset;
 }
 
-void ret(Frame *curr_frame) {
+void ret(Frame* curr_frame) {
   u1 index = curr_frame->method_code->code[curr_frame->pc + 1];
   curr_frame->pc = curr_frame->local_variables_array[index]->type_int;
 }
 
 /**
  * @brief Acessa tabela de jumps por chave e realizar jump.
- * @param Frame *curr_frame ponteiro que aponta para o frame atual
+ * @param Frame* curr_frame ponteiro que aponta para o frame atual
  * @return void
  */
-void tableswitch(Frame *curr_frame){
+void tableswitch(Frame* curr_frame){
   if (DEBUG) cout << "----------tableswitch----------\n";
   u4 default_byte = 0;
   u4 low_byte = 0;
@@ -62,7 +62,7 @@ void tableswitch(Frame *curr_frame){
       jump_table[i] = (jump_table[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
   }
 
-  Operand *op1 = curr_frame->pop_operand();
+  Operand* op1 = curr_frame->pop_operand();
   index = op1->type_int;
 
   if ((int32_t) index < (int32_t) low_byte || (int32_t) index > (int32_t) hight_byte) {
@@ -76,10 +76,10 @@ void tableswitch(Frame *curr_frame){
 
 /**
  * @brief Acessa tabela de salto por chave e realiza salto.
- * @param Frame *curr_frame ponteiro que aponta para o frame atual
+ * @param Frame* curr_frame ponteiro que aponta para o frame atual
  * @return void
  */
-void lookupswitch(Frame *curr_frame) {
+void lookupswitch(Frame* curr_frame) {
   u4 default_byte = 0;
   u4 nPairs = 0;
   u4 *jump_keys;
@@ -116,7 +116,7 @@ void lookupswitch(Frame *curr_frame) {
       jump_table[i] = (jump_table[i] << 8) + curr_frame->method_code->code[curr_frame->pc++];
   }
 
-  Operand *op1 = curr_frame->pop_operand();
+  Operand* op1 = curr_frame->pop_operand();
   key = op1->type_int;
 
   int match;
@@ -136,75 +136,75 @@ void lookupswitch(Frame *curr_frame) {
 
 /**
  * @brief Retorna int de um método.
- * @param *curr_frame ponteiro para o frame atual
+ * @param curr_frame ponteiro para o frame atual
  * @return void
  */
-void ireturn(Frame *curr_frame) {
+void ireturn(Frame* curr_frame) {
   curr_frame->pc++;
-  Operand *integer = curr_frame->pop_operand();
+  Operand* integer = curr_frame->pop_operand();
   pop_frame();
-  Frame *called_frame = top_frame();
+  Frame* called_frame = top_frame();
   called_frame->push_operand(integer);
 }
 
 /**
  * @brief Retorna long int de um método.
- * @param Frame *curr_frame ponteiro que aponta para o frame atual
+ * @param Frame* curr_frame ponteiro que aponta para o frame atual
  * @return void
  */
-void lreturn(Frame *curr_frame) {
+void lreturn(Frame* curr_frame) {
   curr_frame->pc++;
-  Operand *long_value = curr_frame->pop_operand();
+  Operand* long_value = curr_frame->pop_operand();
   pop_frame();
-  Frame *past_frame = top_frame();
+  Frame* past_frame = top_frame();
   past_frame->push_operand(long_value);
 }
 
 /**
  * @brief Retorna float de um método.
- * @param Frame *curr_frame ponteiro o frame atual
+ * @param Frame* curr_frame ponteiro o frame atual
  * @return void
  */
-void freturn(Frame *curr_frame) {
+void freturn(Frame* curr_frame) {
   curr_frame->pc++;
-  Operand *float_value = curr_frame->pop_operand();
+  Operand* float_value = curr_frame->pop_operand();
   pop_frame();
-  Frame *called_frame = top_frame();
+  Frame* called_frame = top_frame();
   called_frame->push_operand(float_value);
 }
 
 /**
  * @brief Retorna double de um método.
- * @param *curr_frame ponteiro para o frame atual
+ * @param curr_frame ponteiro para o frame atual
  * @return void
  */
-void dreturn(Frame *curr_frame) {
+void dreturn(Frame* curr_frame) {
   curr_frame->pc++;
-  Operand *double_value = curr_frame->pop_operand();
+  Operand* double_value = curr_frame->pop_operand();
   pop_frame();
-  Frame *called_frame = top_frame();
+  Frame* called_frame = top_frame();
   called_frame->push_operand(double_value);
 }
 
 /**
  * @brief Retorna objeto de um método.
- * @param *curr_frame ponteiro para o frame atual
+ * @param curr_frame ponteiro para o frame atual
  * @return void
  */
-void areturn(Frame *curr_frame) {
+void areturn(Frame* curr_frame) {
   curr_frame->pc++;
-  Operand *object = curr_frame->pop_operand();
+  Operand* object = curr_frame->pop_operand();
   pop_frame();
-  Frame *called_frame = top_frame();
+  Frame* called_frame = top_frame();
   called_frame->push_operand(object);
 }
 
 /**
 * @brief Retorna void de uma instrução.
-* @param *curr_frame ponteiro para o frame atual
+* @param curr_frame ponteiro para o frame atual
 * @return void
 */
-void void_return(Frame *curr_frame) {
+void void_return(Frame* curr_frame) {
   if (DEBUG) cout << "----------void_return----------\n";
   curr_frame->pc++;
   pop_frame();

@@ -17,7 +17,7 @@ Method_Area *load_class_memory(Class_File class_file) {
   method_area->loaded_classes.insert((std::pair<std::string, Class_Container *>(class_name, class_container))); 
   method_area->static_classes.insert((std::pair<std::string, Class_Container *>(class_name, class_container))); 
 
-  class_container->class_fields = new std::map<std::string, Operand *>();
+  class_container->class_fields = new std::map<std::string, Operand* >();
   // NOTE: Quando tiver chegado aqui, armazena o .class atual e o seu nome no class_container;
   load_class_variables(class_container); 
 
@@ -97,7 +97,7 @@ Class_Container *get_static_class(std::string class_name) {
  * @param field_name 
  * @return Operand* 
  */
-Operand *get_static_field_of_class(std::string class_name, std::string field_name) {
+Operand* get_static_field_of_class(std::string class_name, std::string field_name) {
   Class_Container *class_container = method_area->static_classes.at(class_name);
   if (class_container != NULL)
     return class_container->class_fields->at(field_name);
@@ -109,8 +109,8 @@ Operand *get_static_field_of_class(std::string class_name, std::string field_nam
  * @param type_string string que varia de acordo com o tipo
  * @return Operand* novo ponteiro para Operand
  */
-Operand *check_string_create_type(std::string type_string) {
-  Operand *new_type = (Operand *)malloc(sizeof(Operand));
+Operand* check_string_create_type(std::string type_string) {
+  Operand* new_type = (Operand* )malloc(sizeof(Operand));
 
   switch (type_string.c_str()[0])
   {
@@ -159,7 +159,7 @@ Operand *check_string_create_type(std::string type_string) {
     if (DEBUG) printf("Criando operando tipo Array\n");
     new_type->tag = CONSTANT_ARRAY;
     new_type->array_type = new Array_Type();
-    new_type->array_type->array = new std::vector<Operand *>();
+    new_type->array_type->array = new std::vector<Operand* >();
     break;
 
   case 'P':

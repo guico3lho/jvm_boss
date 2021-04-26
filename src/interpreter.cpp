@@ -20,7 +20,7 @@ void execute(Class_File class_file) {
   Frame::set_instructions_functions();
 
   if (DEBUG) std::cout << "INICIA FRAME\n";
-  Frame *frame = new Frame(find_main(method_area), class_file);
+  Frame* frame = new Frame(find_main(method_area), class_file);
   frame_stack.push(frame);
 
   printf("\n----------Iniciando Execucao----------\n");
@@ -36,7 +36,7 @@ void execute(Class_File class_file) {
  * @param frame ponteiro para o frame que será colocado na pilha.
  * @return void
  */
-void push_frame(Frame *frame) {
+void push_frame(Frame* frame) {
   frame_stack.push(frame);
 }
 

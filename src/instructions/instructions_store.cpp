@@ -10,7 +10,7 @@
 /**
  * @brief Armazena um inteiro no array de variaveis locais no valor indicado
  *   pelo indice.
- * @param *curr_frame Ponteiro para o frame atual
+ * @param curr_frame Ponteiro para o frame atual
  * @return void
 */
 void istore(Frame* curr_frame) {
@@ -26,7 +26,7 @@ void istore(Frame* curr_frame) {
 
 /**
  * @brief Armazena um inteiro no array de variaveis locais no indice 0
- * @param *curr_frame Ponteiro para o frame atual
+ * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
 void istore_0(Frame* curr_frame) {
@@ -39,7 +39,7 @@ void istore_0(Frame* curr_frame) {
 
 /**
  * @brief Armazena um inteiro no array de variaveis locais no indice 1
- * @param *curr_frame Ponteiro para o frame atual
+ * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
 void istore_1(Frame* curr_frame) {
@@ -52,7 +52,7 @@ void istore_1(Frame* curr_frame) {
 
 /**
  * @brief Armazena um inteiro no array de variaveis locais no indice 2
- * @param *curr_frame Ponteiro para o frame atual
+ * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
 void istore_2(Frame* curr_frame) {
@@ -65,7 +65,7 @@ void istore_2(Frame* curr_frame) {
 
 /**
  * @brief Armazena um inteiro no array de variaveis locais no indice 0
- * @param *curr_frame Ponteiro para o frame atual
+ * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
 void istore_3(Frame* curr_frame) {
@@ -78,7 +78,7 @@ void istore_3(Frame* curr_frame) {
 
 /**
 * @brief ...
-* @param *curr_frame ponteiro para o frame atual
+* @param curr_frame ponteiro para o frame atual
 * @return void
 */
 void astore(Frame* curr_frame) {
@@ -91,7 +91,7 @@ void astore(Frame* curr_frame) {
 }
 
 /** @brief Guarda referência do object ou array do operando na variável local -0.
- * @param *curr_frame ponteiro para o frame atual
+ * @param curr_frame ponteiro para o frame atual
  * @return void
  */
 void astore_0(Frame* curr_frame) {
@@ -103,7 +103,7 @@ void astore_0(Frame* curr_frame) {
 }
 
 /** @brief Guarda referência do object ou array do operando na variável local 1.
- * @param *curr_frame ponteiro para o frame atual
+ * @param curr_frame ponteiro para o frame atual
  * @return void
  */
 void astore_1(Frame* curr_frame) {
@@ -115,7 +115,7 @@ void astore_1(Frame* curr_frame) {
 }
 
 /** @brief Retira o topo da pilha e armazena na variavel local de posição 2.
- * @param *curr_frame ponteiro para o frame atual
+ * @param curr_frame ponteiro para o frame atual
  * @return void
  */
 void astore_2(Frame* curr_frame) {
@@ -142,7 +142,7 @@ void astore_3(Frame* curr_frame) {
 /**
  * @brief Armazena valor double da pilha de operandos no array de variaveis
  *  locais no indice index
- * @param *curr_frame Ponteiro para o frame atual
+ * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
 void dstore(Frame* curr_frame) {
@@ -158,7 +158,7 @@ void dstore(Frame* curr_frame) {
 
 /**
  * @brief Armazena valor double da pilha de operandos no array de variaveis locais no indice 0
- * @param *curr_frame Ponteiro para o frame atual
+ * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
 void dstore_0(Frame* curr_frame) {
@@ -173,7 +173,7 @@ void dstore_0(Frame* curr_frame) {
 
 /**
  * @brief Armazena valor double da pilha de operandos no array de variaveis locais no indice 1
- * @param *curr_frame Ponteiro para o frame atual
+ * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
 void dstore_1(Frame* curr_frame) {
@@ -189,7 +189,7 @@ void dstore_1(Frame* curr_frame) {
 
 /**
  * @brief Armazena valor double da pilha de operandos no array de variaveis locais no indice 2
- * @param *curr_frame Ponteiro para o frame atual
+ * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
 void dstore_2(Frame* curr_frame) {
@@ -204,7 +204,7 @@ void dstore_2(Frame* curr_frame) {
 
 /**
  * @brief Armazena valor double da pilha de operandos no array de variaveis locais no indice 3
- * @param *curr_frame Ponteiro para o frame atual
+ * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
 void dstore_3(Frame* curr_frame) {
@@ -220,7 +220,7 @@ void dstore_3(Frame* curr_frame) {
 /**
  * @brief Armazena float do topo da pilha de operandos no array de variaveis
  *  locais
- * @param *curr_frame Ponteiro para o frame atual
+ * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
 void fstore(Frame* curr_frame) {
@@ -251,7 +251,7 @@ void fstore_0(Frame* curr_frame) {
 
 /**
 * @brief Armazena float do topo da pilha de operandos no array de variaveis locais no indice 1
-* @param *curr_frame Ponteiro para o frame atual
+* @param curr_frame Ponteiro para o frame atual
 * @return void
 */
 void fstore_1(Frame* curr_frame) {
@@ -266,7 +266,7 @@ void fstore_1(Frame* curr_frame) {
 
 /**
 * @brief Armazena float do topo da pilha de operandos no array de variaveis locais no indice 2
-* @param *curr_frame Ponteiro para o frame atual
+* @param curr_frame Ponteiro para o frame atual
 * @return void
 */
 void fstore_2(Frame* curr_frame) {
@@ -282,7 +282,7 @@ void fstore_2(Frame* curr_frame) {
 /**
 * @brief Armazena float do topo da pilha de operandos no array de variaveis
 * locais no indice 3
-* @param *curr_frame Ponteiro para o frame atual
+* @param curr_frame Ponteiro para o frame atual
 * @return void
 */
 void fstore_3(Frame* curr_frame) {
@@ -299,7 +299,7 @@ void fstore_3(Frame* curr_frame) {
 /*
 * @brief Armazena long do topo da pilha de operandos no array de variaveis
 *   locais no indice index
-* @param *curr_frame Ponteiro para o frame atual
+* @param curr_frame Ponteiro para o frame atual
 * @return void
 */
 void lstore(Frame* curr_frame) {
@@ -381,7 +381,7 @@ void lstore_3(Frame* curr_frame) {
 
 /**
  * @brief Coleta um int da pilha de operandos e armazena em um vetor de ints.
- * @param *curr_frame ponteiro para o frame atual
+ * @param curr_frame ponteiro para o frame atual
  * @return void
  */
 void iastore(Frame* curr_frame) {
@@ -408,7 +408,7 @@ void iastore(Frame* curr_frame) {
 
 /**
  * @brief Coleta um long da pilha de operandos e armazena em um vetor de longs.
- * @param *curr_frame ponteiro para o frame atual
+ * @param curr_frame ponteiro para o frame atual
  * @return void
  */
 void lastore(Frame* curr_frame) {
@@ -435,7 +435,7 @@ void lastore(Frame* curr_frame) {
 
 /**
  * @brief Coleta um float da pilha de operandos e armazena em um vetor de floats.
- * @param *curr_frame ponteiro para o frame atual
+ * @param curr_frame ponteiro para o frame atual
  * @return void
  */
 void fastore(Frame* curr_frame) {
@@ -460,7 +460,7 @@ void fastore(Frame* curr_frame) {
 
 /**
  * @brief Coleta um double da pilha de operandos e armazena em um vetor de doubles.
- * @param *curr_frame ponteiro para o frame atual
+ * @param curr_frame ponteiro para o frame atual
  * @return void
  */
 void dastore(Frame* curr_frame) {
@@ -487,7 +487,7 @@ void dastore(Frame* curr_frame) {
 
 /**
  * @brief Coleta um objeto da pilha de operandos e armazena em um vetor de objetos.
- * @param *curr_frame ponteiro para o frame atual
+ * @param curr_frame ponteiro para o frame atual
  * @return void
  */
 void aastore(Frame* curr_frame) {
@@ -517,7 +517,7 @@ void aastore(Frame* curr_frame) {
 
 /**
  * @brief Coleta um booleano da pilha de operandos e armazena em um vetor de booleanos.
- * @param *curr_frame ponteiro para o frame atual
+ * @param curr_frame ponteiro para o frame atual
  * @return void
  */
 void bastore(Frame* curr_frame) {

@@ -53,7 +53,7 @@ void multianewarray(Frame* curr_frame) {
   data_type = class_name.substr(dimensions, class_name.length() - dimensions);
   if (DEBUG) cout << "Tipo de dado: " << data_type << "\n";
 
-  Operand *op_aux;
+  Operand* op_aux;
   string string_array_type = "[";
 
   std::vector<int> counts = std::vector<int>(dimensions);
@@ -65,7 +65,7 @@ void multianewarray(Frame* curr_frame) {
     counts[i] = count;
   }
 
-  Operand *multiarray_ref = check_string_create_type("[");
+  Operand* multiarray_ref = check_string_create_type("[");
   if (DEBUG) cout << "--------------------\n";
   
   //* ptr de vetor de ptrs de operandos..
