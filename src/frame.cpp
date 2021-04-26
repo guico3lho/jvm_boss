@@ -312,7 +312,7 @@ void Frame::set_instructions_functions() {
   /* COMPARISONS */
   func[148] = lcmp;
   func[149] = fcmpl;
-  // func[150] = fcmpg;
+  func[150] = fcmpg;
   // func[151] = dcmpl;
   // func[152] = dcmpg;
   func[153] = ifeq;
