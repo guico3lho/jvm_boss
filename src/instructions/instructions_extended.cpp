@@ -57,46 +57,62 @@ void multianewarray(Frame* curr_frame) {
   }
 
   Operand *multiarray_ref = check_string_create_type("[");
-
-  //* ptr de vetor de ptrs de operandos..
-  std::vector<Operand*> *array_ref = multiarray_ref->array_type->array;
-  std::vector<Operand*> array_value, array_value_2;
-  std::vector<Operand*> array_ref_aux_2;
-  string string_array_type = "]";
-
   if (DEBUG) cout << "--------------------\n";
 
+  //* ptr de vetor de ptrs de operandos..
+  std::vector<Operand*>* array_ref = multiarray_ref->array_type->array;
+
   //* Começa pela dimensao mais externa: array raiz
-  for (int i = 0; i < counts[0]; ++i) {
+  for (int i = 0; i < counts[0]; i++) {
     if (DEBUG) printf("Array [%d] - ", i);
     array_ref->emplace_back(check_string_create_type("["));
   }
 
-  if (DEBUG) cout << "array_ref size " << array_ref->size() << "\n";
+  if (DEBUG) printf("\narray_ref address: %X | size: %d\n", array_ref, array_ref->size());
   if (DEBUG) cout << "--------------------\n";
-  array_value = array_ref[0];
-  
+
+  std::vector<Operand*>* array_ref_2;
+  std::vector<Operand*>* array_ref_3;
+
+  string string_array_type = "]";
+  string string_int_type = "I";
+
+
   for (int i = 0; i < counts[0]; i++) {
+    array_ref_2 = array_ref[0][i]->array_type->array;
+
     for (int j = 0; j < counts[1]; j++) {
       if (DEBUG) printf("Array [%d][%d] - ", i, j);
-      array_value[i]->array_type->array->emplace_back(check_string_create_type("["));
+      array_ref_2->emplace_back(check_string_create_type("["));
+
+      op_aux = array_ref_2[0][j];
+      if (DEBUG) printf("op_aux[0][%d] address: %X\n\n", j, op_aux);
     }
 
-    if (DEBUG) cout << "array_value size " << array_value[i]->array_type->array->size() << "\n";
-    if (DEBUG) cout << "array_ref size " << array_ref->size() << "\n";
-
+    if (DEBUG) printf("\narray_ref_2 address: %X | size: %d\n", array_ref_2, array_ref_2->size());
     if (DEBUG) cout << "--------------------\n";
   }
 
+
   for (int i = 0; i < counts[0]; i++) {
+    array_ref_2 = array_ref[0][i]->array_type->array; 
+    if (DEBUG) printf("array_ref_2 address: %X | size: %d\n\n", array_ref_2, array_ref_2->size());
+
     for (int j = 0; j < counts[1]; j++) {
-      // array_ref[i][j]->array_type->array->emplace_back(check_string_create_type("I"));
+
+      op_aux = array_ref_2[0][j]; //! ERROR
+      if (DEBUG) printf("op_aux[0][%d] address: %X\n", j, op_aux);
+
+      array_ref_3 = op_aux->array_type->array;
 
       for (int k = 0; k < counts[2]; k++) {
         if (DEBUG) printf("Array [%d][%d][%d] - ", i, j, k);
-        array_value[i][j].array_type->array->emplace_back(check_string_create_type("I"));
-        // array_value[i][j][k].emplace_back(check_string_create_type("I"));
+        array_ref_3->emplace_back(check_string_create_type("I"));
       }
+
+      if (DEBUG) printf("\narray_ref_3 address: %X | size: %d\n", array_ref_3, array_ref_3->size());
+      if (DEBUG) cout << "--------------------\n";
+
     }
   }
   

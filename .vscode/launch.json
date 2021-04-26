@@ -16,7 +16,7 @@
       "type": "cppdbg", 
       "request": "launch",
       "program": "${workspaceFolder}/jvm_boss",
-      "args": ["-i", "test/class/HelloJava.class"],
+      "args": ["-i", "test/class/multi.class"],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [],

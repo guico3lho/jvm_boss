@@ -116,6 +116,7 @@ Operand *check_string_create_type(std::string type_string) {
   switch (type_string.c_str()[0])
   {
   case 'I':
+    if (DEBUG) printf("Criando operando tipo Inteiro\n");
     new_type->tag = CONSTANT_INT;
     new_type->type_int = 0;
     break;
