@@ -12,6 +12,8 @@
 void lcmp(Frame*);
 void fcmpl(Frame*);
 void fcmpg(Frame*);
+void dcmpl(Frame*);
+void dcmpg(Frame*);
 
 void ifeq(Frame*);
 void ifne(Frame*);
