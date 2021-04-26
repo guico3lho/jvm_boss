@@ -18,7 +18,7 @@ typedef struct Class_Container {
     Class_File class_file;
 
     // vetor com as referencias dos campos da classe
-    std::map<std::string, Operand *> *class_fields;
+    std::map<std::string, Operand* > *class_fields;
 } Class_Container;       
 
 /**
@@ -42,8 +42,8 @@ Class_File load_parent_classes(std::string c_path);
  *  @brief Funções auxiliares
 */
 Class_Container *get_static_class(std::string class_name);
-Operand *get_static_field_of_class(std::string class_name, std::string field_name);
-Operand *check_string_create_type(std::string string_tipo);
+Operand* get_static_field_of_class(std::string class_name, std::string field_name);
+Operand* check_string_create_type(std::string string_tipo);
 
 /** 
  *  @brief Função para encontrar a main
