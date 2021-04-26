@@ -1,4 +1,4 @@
-public class _int_aritmetica {
+public class int_aritmetica {
   public static void main(String[] paramArrayOfString) {
     int i = 100; // 1100100
     byte b = 30; //   11110

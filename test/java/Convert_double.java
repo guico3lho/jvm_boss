@@ -1,7 +1,7 @@
 public class Convert_double {
   public static void main(String[] args) {
 
-    double d = 5.5D;
+    double d = 1.0D;
 
     // double to int
     int i = (int) d;

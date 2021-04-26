@@ -34,8 +34,7 @@ Frame::Frame(Method_Info *method, Class_File class_file) {
   // if (DEBUG) printf("Frame::Frame - Magic Number: 0x%0X\n", class_file_ref->magic_number);
 
   // Pega referencia do atributo de codigo do metodo
-  for (int i = 0; i < method_info->attributes_count; ++i)
-  {
+  for (int i = 0; i < method_info->attributes_count; ++i) {
     Attribute_Info attribute_info = method_info->attributes[i];
     std::string class_string = get_cp_info_utf8(*class_file_ref, attribute_info.attribute_name_index);
 
@@ -311,11 +310,11 @@ void Frame::set_instructions_functions() {
   func[147] = i2s;
 
   /* COMPARISONS */
-  // func[148] = lcmp;
-  // func[149] = fcmpl;
-  // func[150] = fcmpg;
-  // func[151] = dcmpl;
-  // func[152] = dcmpg;
+  func[148] = lcmp;
+  func[149] = fcmpl;
+  func[150] = fcmpg;
+  func[151] = dcmpl;
+  func[152] = dcmpg;
   func[153] = ifeq;
   func[154] = ifne;
   func[155] = iflt;
@@ -356,7 +355,7 @@ void Frame::set_instructions_functions() {
   //func[186] = invokedynamic;
   func[187] = new_obj; //* new
   func[188] = newarray;
-  func[189] = anewarray; // TODO
+  func[189] = anewarray; 
   func[190] = arraylength;
   //func[191] = athrow;
   // func[192] = checkcast;
@@ -366,7 +365,7 @@ void Frame::set_instructions_functions() {
 
   /* EXTENDED */
   // func[196] = wide;
-  func[197] = multianewarray; // TODO
+  func[197] = multianewarray;
   func[198] = ifnull;
   func[199] = ifnonnull;
   // func[200] = goto_w;

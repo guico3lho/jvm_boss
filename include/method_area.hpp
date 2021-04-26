@@ -19,7 +19,7 @@ typedef struct Class_Container {
 
     // vetor com as referencias dos campos da classe
     std::map<std::string, Operand *> *class_fields;
-} Class_Container;
+} Class_Container;       
 
 /**
  * @brief Estrutura utilizada para guardar informações sobre classes carregadas na memória, 

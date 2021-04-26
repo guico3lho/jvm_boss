@@ -52,6 +52,17 @@ double double_bits_to_value(u8 double_bits) {
   return double_value;
 }
 
+/**
+ * @brief Converte valor double no formato IEEE de bits
+ * @param double_value 
+ * @return u8 
+ */
+u8 double_value_to_bits(double double_value) {
+  u8 double_bits;
+  std::memcpy(&double_bits, &double_value, sizeof(double_bits));
+  return double_bits;
+}
+
 /** 
  * @brief Libera a memória alocada para o Class File.
  * @param class_file estrutura Class_File que precisa ser liberada

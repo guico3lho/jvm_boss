@@ -13,7 +13,7 @@
  * Comando Leitor/Exibidor: -e nomedoarquivo.class
  * Comando Interpretador: -i nomedoarquivo.class
  *
- * @author Ariel
+ * @author Ariel                             17/0099776
  * @author Guilherme Coelho Minervino        16/0123046
  * @author Gustavo Antonio Souza de Barros   18/0064487
  * @author Luís Vinicius Capelletto          16/0134544
@@ -34,8 +34,7 @@ int main(int argc, char* argv[]) {
     print_command_error();
   }
 
-  Class_File class_file;
-  class_file = read_class_file(file);
+  Class_File class_file = read_class_file(file);
 
   // leitor/exibidor
   if(option == "-e") {

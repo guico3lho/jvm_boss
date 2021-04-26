@@ -150,7 +150,8 @@ void fconst_n(Frame *curr_frame, float n) {
   Operand *op = (Operand*) malloc(sizeof(Operand));
 
   op->tag = CONSTANT_FLOAT;
-  op->type_long = n;
+  u4 float_bits = float_value_to_bits(n);
+  op->type_float = float_bits;
 
   curr_frame->operand_stack.push(op);
   curr_frame->pc++;
@@ -194,7 +195,8 @@ void dconst_n(Frame *curr_frame, double n) {
   Operand *op = (Operand*) malloc(sizeof(Operand));
 
   op->tag = CONSTANT_DOUBLE;
-  op->type_double = n;
+  u8 double_bits = double_value_to_bits(n);
+  op->type_double = double_bits;
 
   curr_frame->operand_stack.push(op);
   curr_frame->pc++;
