@@ -103,7 +103,7 @@ Compilando</h1>
 Executando</h1>
 <h2><a class="anchor" id="autotoc_md6"></a>
 Leitor e Exibidor</h2>
-<p>Exibe o bytecode do arquivo .class</p>
+<p>Exibe o bytecode do arquivo .class (flag -e)</p>
 <div class="fragment"><div class="line"><span class="preprocessor"># Linux e Windows</span></div>
 <div class="line">$ ./jvm_boss -e test/<a class="code" href="classHelloJava.html">HelloJava</a>.class</div>
 <div class="line"> </div>
@@ -111,20 +111,29 @@ Leitor e Exibidor</h2>
 <div class="line"><span class="preprocessor">$ ./read.sh HelloJava</span></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md7"></a>
 Interpretador JVM</h2>
-<p>Interpreta e executa o arquivo .class</p>
+<p>Interpreta e executa o arquivo .class (flag -i)</p>
 <div class="fragment"><div class="line"><span class="preprocessor"># Linux e Windows</span></div>
 <div class="line">$ ./jvm_boss -i test/<a class="code" href="classHelloJava.html">HelloJava</a>.class</div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor"># Bash script</span></div>
 <div class="line"><span class="preprocessor">$ ./jvm.sh HelloJava</span></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md8"></a>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md8"></a>
+Arquivos Teste</h2>
+<p>Arquivos java (.java) encontram-se na pasta test/java e arquivos de classe (.class) encontram-se na pasta test/class.</p>
+<p>Para adicionar mais arquivos classe de teste, basta inserir o arquivo.java no diretorio test/java e executar na pasta raiz do projeto o comando:</p>
+<div class="fragment"><div class="line"><span class="preprocessor"># Linux e Windows</span></div>
+<div class="line">$ java test/java/arquivo.java -d test/<span class="keyword">class</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor"># Bash script</span></div>
+<div class="line"><span class="preprocessor">$  javac.sh arquivo</span></div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md9"></a>
 Classes Java (.class) de Teste</h2>
 <ul>
 <li>[x] cafebabe</li>
 <li>[x] <a class="el" href="classHelloJava.html">HelloJava</a></li>
 <li>[x] Prints</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md9"></a>
+<h2><a class="anchor" id="autotoc_md10"></a>
 Aritmeticos</h2>
 <ul>
 <li>[x] Sum</li>
@@ -133,7 +142,7 @@ Aritmeticos</h2>
 <li>[x] <a class="el" href="classfloat__aritmetica.html">float_aritmetica</a></li>
 <li>[x] <a class="el" href="classdouble__aritmetica.html">double_aritmetica</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md10"></a>
+<h2><a class="anchor" id="autotoc_md11"></a>
 Vetores</h2>
 <ul>
 <li>[x] vetor</li>
@@ -142,7 +151,7 @@ Vetores</h2>
 <li>[x] <a class="el" href="classVector__2.html">Vector_2</a></li>
 <li>[x] multi</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md11"></a>
+<h2><a class="anchor" id="autotoc_md12"></a>
 Controle</h2>
 <ul>
 <li>[x] Loop_for</li>
@@ -151,12 +160,12 @@ Controle</h2>
 <li>[x] tableswitch</li>
 <li>[x] lookupswitch</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md12"></a>
+<h2><a class="anchor" id="autotoc_md13"></a>
 Comparação</h2>
 <ul>
 <li>[x] <a class="el" href="classComparison.html">Comparison</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md13"></a>
+<h2><a class="anchor" id="autotoc_md14"></a>
 Conversão</h2>
 <ul>
 <li>[x] <a class="el" href="classConvert__int.html">Convert_int</a></li>
@@ -164,21 +173,21 @@ Conversão</h2>
 <li>[x] <a class="el" href="classConvert__double.html">Convert_double</a></li>
 <li>[x] <a class="el" href="classConvert__long.html">Convert_long</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md14"></a>
+<h2><a class="anchor" id="autotoc_md15"></a>
 Metodos</h2>
 <ul>
 <li>[x] MethodStatic</li>
 <li>[x] <a class="el" href="classMethodParams.html">MethodParams</a></li>
 <li>[x] recursao</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md15"></a>
+<h1><a class="anchor" id="autotoc_md16"></a>
 Configurações</h1>
-<h3><a class="anchor" id="autotoc_md16"></a>
+<h3><a class="anchor" id="autotoc_md17"></a>
 Até a versão</h3>
 <p><a href="https://docs.oracle.com/javase/specs/jvms/se8/html/index.html">Java SE 8</a></p>
-<h2><a class="anchor" id="autotoc_md17"></a>
+<h2><a class="anchor" id="autotoc_md18"></a>
 Analisadores</h2>
-<h3><a class="anchor" id="autotoc_md18"></a>
+<h3><a class="anchor" id="autotoc_md19"></a>
 Analisador estático:</h3>
 <p><a href="http://cppcheck.sourceforge.net">Cppcheck 1.83</a></p>
 <p>Instalação no Linux</p>
@@ -195,7 +204,7 @@ Analisador estático:</h3>
 <div class="line"><span class="comment">$ ./check.sh -v main</span></div>
 <div class="line"><span class="comment">$ ./check.sh -w main</span></div>
 <div class="line"><span class="comment">$ ./check.sh -all</span></div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md19"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md20"></a>
 Analisador dinâmico:</h3>
 <p><a href="https://www.valgrind.org/">Valgrind</a></p>
 <p>Instalação no Linux</p>
@@ -206,7 +215,7 @@ Analisador dinâmico:</h3>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor"># bash script</span></div>
 <div class="line"><span class="preprocessor">$ ./valgrind.sh HelloJava</span></div>
-</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md20"></a>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md21"></a>
 Documentação</h2>
 <p><a href="https://www.doxygen.nl/index.html">Doxygen</a></p>
 <p>Instalação no Linux</p>

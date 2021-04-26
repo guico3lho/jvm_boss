@@ -66,9 +66,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><img src="/diagrama.png" alt="Diagrama" class="inline"/> </p>
-<h1><a class="anchor" id="autotoc_md22"></a>
-&lt;a href="https://guicoelhodev.github.io/jvm_boss/"&gt;Wiki do Projeto&lt;/a&gt;</h1>
 <h1><a class="anchor" id="autotoc_md23"></a>
+&lt;a href="https://guicoelhodev.github.io/jvm_boss/"&gt;Wiki do Projeto&lt;/a&gt;</h1>
+<h1><a class="anchor" id="autotoc_md24"></a>
 Compilação e informações com javac/javap</h1>
 <p>Compila arquivo <code>.java</code> para <code>.class</code></p>
 <div class="fragment"><div class="line">$ javac HelloJava.java</div>
@@ -77,7 +77,7 @@ Compilação e informações com javac/javap</h1>
 <div class="line"> </div>
 <div class="line"># para mais info, flags: -c, -verbose ou -v</div>
 <div class="line">$ javap -v HelloJava.class</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md24"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md25"></a>
 Compilando</h1>
 <div class="fragment"><div class="line"># Linux</div>
 <div class="line">$ ./compile.sh -l</div>
@@ -86,32 +86,41 @@ Compilando</h1>
 <div class="line">$ ./compile.sh -w</div>
 </div><!-- fragment --><p>Caso apresente erro de formatação de arquivos bash <code>.sh</code> no Linux, usar o comando</p>
 <div class="fragment"><div class="line">$ sed -i &#39;s/\r$//&#39; scriptname.sh</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md25"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md26"></a>
 Executando</h1>
-<h2><a class="anchor" id="autotoc_md26"></a>
+<h2><a class="anchor" id="autotoc_md27"></a>
 Leitor e Exibidor</h2>
-<p>Exibe o bytecode do arquivo .class</p>
+<p>Exibe o bytecode do arquivo .class (flag <code>-e</code>)</p>
 <div class="fragment"><div class="line"># Linux e Windows</div>
 <div class="line">$ ./jvm_boss -e test/HelloJava.class</div>
 <div class="line"> </div>
 <div class="line"># Bash script</div>
 <div class="line">$ ./read.sh HelloJava</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md27"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md28"></a>
 Interpretador JVM</h2>
-<p>Interpreta e executa o arquivo .class</p>
+<p>Interpreta e executa o arquivo .class (flag <code>-i</code>)</p>
 <div class="fragment"><div class="line"># Linux e Windows</div>
 <div class="line">$ ./jvm_boss -i test/HelloJava.class</div>
 <div class="line"> </div>
 <div class="line"># Bash script</div>
 <div class="line">$ ./jvm.sh HelloJava</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md28"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md29"></a>
+Arquivos Teste</h2>
+<p>Arquivos java (<code>.java</code>) encontram-se na pasta <code>test/java</code> e arquivos de classe (<code>.class</code>) encontram-se na pasta <code>test/class</code>.</p>
+<p>Para adicionar mais arquivos classe de teste, basta inserir o <code>arquivo.java</code> no diretorio <code>test/java</code> e executar na pasta raiz do projeto o comando:</p>
+<div class="fragment"><div class="line"># Linux e Windows</div>
+<div class="line">$ java test/java/arquivo.java -d test/class</div>
+<div class="line"> </div>
+<div class="line"># Bash script</div>
+<div class="line">$  javac.sh arquivo</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md30"></a>
 Classes Java (&lt;tt&gt;.class&lt;/tt&gt;) de Teste</h2>
 <ul>
 <li>[x] cafebabe</li>
 <li>[x] <a class="el" href="classHelloJava.html">HelloJava</a></li>
 <li>[x] Prints</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md29"></a>
+<h2><a class="anchor" id="autotoc_md31"></a>
 Aritmeticos</h2>
 <ul>
 <li>[x] Sum</li>
@@ -120,7 +129,7 @@ Aritmeticos</h2>
 <li>[x] <a class="el" href="classfloat__aritmetica.html">float_aritmetica</a></li>
 <li>[x] <a class="el" href="classdouble__aritmetica.html">double_aritmetica</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md30"></a>
+<h2><a class="anchor" id="autotoc_md32"></a>
 Vetores</h2>
 <ul>
 <li>[x] vetor</li>
@@ -129,7 +138,7 @@ Vetores</h2>
 <li>[x] <a class="el" href="classVector__2.html">Vector_2</a></li>
 <li>[x] multi </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md31"></a>
+<h2><a class="anchor" id="autotoc_md33"></a>
 Controle</h2>
 <ul>
 <li>[x] Loop_for</li>
@@ -138,12 +147,12 @@ Controle</h2>
 <li>[x] tableswitch</li>
 <li>[x] lookupswitch</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md32"></a>
+<h2><a class="anchor" id="autotoc_md34"></a>
 Comparação</h2>
 <ul>
 <li>[x] <a class="el" href="classComparison.html">Comparison</a> </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md33"></a>
+<h2><a class="anchor" id="autotoc_md35"></a>
 Conversão</h2>
 <ul>
 <li>[x] <a class="el" href="classConvert__int.html">Convert_int</a></li>
@@ -151,20 +160,20 @@ Conversão</h2>
 <li>[x] <a class="el" href="classConvert__double.html">Convert_double</a></li>
 <li>[x] <a class="el" href="classConvert__long.html">Convert_long</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md34"></a>
+<h2><a class="anchor" id="autotoc_md36"></a>
 Metodos</h2>
 <ul>
 <li>[x] MethodStatic</li>
 <li>[x] <a class="el" href="classMethodParams.html">MethodParams</a></li>
 <li>[x] recursao</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md35"></a>
+<h1><a class="anchor" id="autotoc_md37"></a>
 Configurações</h1>
-<h3><a class="anchor" id="autotoc_md36"></a>
-Até a versão &lt;a href="https://docs.oracle.com/javase/specs/jvms/se8/html/index.html"&gt;Java SE 8&lt;/a&gt;</h3>
-<h2><a class="anchor" id="autotoc_md37"></a>
-Analisadores</h2>
 <h3><a class="anchor" id="autotoc_md38"></a>
+Até a versão &lt;a href="https://docs.oracle.com/javase/specs/jvms/se8/html/index.html"&gt;Java SE 8&lt;/a&gt;</h3>
+<h2><a class="anchor" id="autotoc_md39"></a>
+Analisadores</h2>
+<h3><a class="anchor" id="autotoc_md40"></a>
 Analisador estático: &lt;a href="http://cppcheck.sourceforge.net"&gt;Cppcheck 1.83&lt;/a&gt;</h3>
 <p>Instalação no Linux</p>
 <div class="fragment"><div class="line">$ sudo apt-get install cppcheck</div>
@@ -180,7 +189,7 @@ Analisador estático: &lt;a href="http://cppcheck.sourceforge.net"&gt;Cppcheck 1
 <div class="line">$ ./check.sh -v main</div>
 <div class="line">$ ./check.sh -w main</div>
 <div class="line">$ ./check.sh -all</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md39"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md41"></a>
 Analisador dinâmico: &lt;a href="https://www.valgrind.org/"&gt;Valgrind&lt;/a&gt;</h3>
 <p>Instalação no Linux</p>
 <div class="fragment"><div class="line">$ sudo apt-get install valgrind</div>
@@ -190,9 +199,9 @@ Analisador dinâmico: &lt;a href="https://www.valgrind.org/"&gt;Valgrind&lt;/a&g
 <div class="line"> </div>
 <div class="line"># bash script</div>
 <div class="line">$ ./valgrind.sh HelloJava</div>
-</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md40"></a>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md42"></a>
 Documentação</h2>
-<h3><a class="anchor" id="autotoc_md41"></a>
+<h3><a class="anchor" id="autotoc_md43"></a>
 &lt;a href="https://www.doxygen.nl/index.html"&gt;Doxygen&lt;/a&gt;</h3>
 <p>Instalação no Linux</p>
 <div class="fragment"><div class="line">$ git clone https://github.com/doxygen/doxygen.git</div>
