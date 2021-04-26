@@ -31,7 +31,7 @@ Operand* set_multianewarray(Operand* operand, int count, string array_type) {
 
 /**
  * @brief Função para instrução multianewarray de array multidimensionais
- * @param curr_frame 
+ * @param curr_frame ponteiro para o frame atual 
  * @return void
  */
 void multianewarray(Frame* curr_frame) {
@@ -127,7 +127,7 @@ void multianewarray(Frame* curr_frame) {
 
 /**
  * @brief 
- * @param curr_frame 
+ * @param curr_frame ponteiro para o frame atual 
  * @return void
  */
 void ifnull(Frame* curr_frame) {
@@ -144,7 +144,7 @@ void ifnull(Frame* curr_frame) {
 
 /**
  * @brief 
- * @param curr_frame 
+ * @param curr_frame ponteiro para o frame atual 
  * @return void
  */
 void ifnonnull(Frame* curr_frame) {

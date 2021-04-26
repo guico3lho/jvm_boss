@@ -6,8 +6,14 @@
 #include <stdlib.h>
 
 /*************************** COMPARISONS ***************************/
+/** 
+ *  @brief Compara valores do tipo long
+ *  @param curr_frame ponteiro para o frame atual
+ *  @return void
+ */
 void lcmp(Frame* curr_frame) {
   if (DEBUG) cout << "----------lcmp----------\n";
+
   Operand* op2 = curr_frame->pop_operand();
   Operand* op1 = curr_frame->pop_operand();
   Operand* result = (Operand* ) malloc(sizeof(Operand));
@@ -25,11 +31,18 @@ void lcmp(Frame* curr_frame) {
   curr_frame->pc++;
 }
 
+/** 
+ *  @brief Compara valores do tipo float
+ *  @param curr_frame ponteiro para o frame atual
+ *  @return void
+ */
 void fcmpl(Frame* curr_frame) {
   if (DEBUG) cout << "----------fcmpl----------\n";
+
   Operand* op2 = curr_frame->pop_operand();
   Operand* op1 = curr_frame->pop_operand();
   Operand* result = (Operand* ) malloc(sizeof(Operand));
+
   float op1f, op2f;
   memcpy(&op1f, &op1->type_float, sizeof(float));
   memcpy(&op2f, &op2->type_float, sizeof(float)); 
@@ -49,11 +62,18 @@ void fcmpl(Frame* curr_frame) {
   curr_frame->pc++; 
 }
 
+/** 
+ *  @brief Compara valores do tipo float
+ *  @param curr_frame ponteiro para o frame atual
+ *  @return void
+ */
 void fcmpg(Frame* curr_frame) {
   if (DEBUG) cout << "----------fcmpg----------\n";
+
   Operand* op2 = curr_frame->pop_operand();
   Operand* op1 = curr_frame->pop_operand();
   Operand* result = (Operand* ) malloc(sizeof(Operand));
+
   float op1f, op2f;
   memcpy(&op1f, &op1->type_float, sizeof(float));
   memcpy(&op2f, &op2->type_float, sizeof(float));
@@ -73,11 +93,18 @@ void fcmpg(Frame* curr_frame) {
   curr_frame->pc++;
 }
 
+/** 
+ *  @brief Compara valores do tipo float
+ *  @param curr_frame ponteiro para o frame atual
+ *  @return void
+ */
 void dcmpl(Frame* curr_frame) {
   if (DEBUG) cout << "----------dcmpl----------\n";
+
   Operand* op2 = curr_frame->pop_operand();
   Operand* op1 = curr_frame->pop_operand();
   Operand* result = (Operand* ) malloc(sizeof(Operand));
+
   double op1f, op2f;
   memcpy(&op1f, &op1->type_double, sizeof(double));
   memcpy(&op2f, &op2->type_double, sizeof(double)); 
@@ -97,11 +124,18 @@ void dcmpl(Frame* curr_frame) {
   curr_frame->pc++; 
 }
 
+/** 
+ *  @brief Compara valores do tipo float
+ *  @param curr_frame ponteiro para o frame atual
+ *  @return void
+ */
 void dcmpg(Frame* curr_frame) {
   if (DEBUG) cout << "----------dcmpg----------\n";
+
   Operand* op2 = curr_frame->pop_operand();
   Operand* op1 = curr_frame->pop_operand();
   Operand* result = (Operand* ) malloc(sizeof(Operand));
+
   double op1f, op2f;
   memcpy(&op1f, &op1->type_double, sizeof(double));
   memcpy(&op2f, &op2->type_double, sizeof(double));
@@ -124,6 +158,7 @@ void dcmpg(Frame* curr_frame) {
 void ifeq(Frame* curr_frame) {
   Operand* op = curr_frame->pop_operand();
   int val = (int)op->type_int;
+
   if (val == 0) {
     int shift;
     shift = curr_frame->method_code->code[curr_frame->pc + 1];
@@ -137,6 +172,7 @@ void ifeq(Frame* curr_frame) {
 void ifne(Frame* curr_frame) {
   Operand* op = curr_frame->pop_operand();
   int val = (int)op->type_int;
+
   if (val != 0) {
     int shift;
     shift = curr_frame->method_code->code[curr_frame->pc + 1];
@@ -150,6 +186,7 @@ void ifne(Frame* curr_frame) {
 void iflt(Frame* curr_frame) {
   Operand* op = curr_frame->pop_operand();
   int val = (int)op->type_int;
+
   if (val < 0) {
     int shift;
     shift = curr_frame->method_code->code[curr_frame->pc + 1];
@@ -163,6 +200,7 @@ void iflt(Frame* curr_frame) {
 void ifge(Frame* curr_frame) {
   Operand* op = curr_frame->pop_operand();
   int val = (int)op->type_int;
+
   if (val >= 0) {
     int shift;
     shift = curr_frame->method_code->code[curr_frame->pc + 1];
@@ -176,6 +214,7 @@ void ifge(Frame* curr_frame) {
 void ifgt(Frame* curr_frame) {
   Operand* op = curr_frame->pop_operand();
   int val = (int)op->type_int;
+
   if (val > 0) {
     int shift;
     shift = curr_frame->method_code->code[curr_frame->pc + 1];
@@ -268,8 +307,8 @@ void if_icmplt(Frame* curr_frame) {
 }
 
 /**
- * @brief Salta para outro endereço caso  parametro 1 for maior ou igual ao parametro 2
- * @param Frame* curr_frame ponteiro que aponta para o frame atual
+ * @brief Salta para outro endereço caso parametro 1 for maior ou igual ao parametro 2
+ * @param curr_frame ponteiro que aponta para o frame atual
  * @return void
  */
 void if_icmpge(Frame* curr_frame) {

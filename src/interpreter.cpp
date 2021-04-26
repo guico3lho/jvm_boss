@@ -60,7 +60,7 @@ Frame* top_frame() {
 
 /** 
  * @brief Returna as partes mais e menos significativas do index
- * @param curr_frame
+ * @param curr_frame ponteiro para o frame atual
  * @return u2
  */
 u2 get_method_code_index(Frame* curr_frame) {
