@@ -3,8 +3,26 @@
  */
 
 #include "interpreter.hpp"
+#include <stdlib.h>
 
 /*************************** COMPARISONS ***************************/
+void lcmp(Frame *curr_frame) {
+  if (DEBUG) cout << "----------lcmp----------\n";
+  Operand *op1 = curr_frame->pop_operand();
+  Operand *op2 = curr_frame->pop_operand();
+  Operand *result = (Operand *) malloc(sizeof(Operand));
+  result->tag = CONSTANT_INT;
+  
+  if(op1->type_long > op2->type_long)
+    result->type_int = (int32_t)1;
+  else if(op1->type_long == op2->type_long)
+    result->type_int = (int32_t)0;
+  else result->type_int = (int32_t)-1;
+
+  curr_frame->push_operand(result);
+  curr_frame->pc++;
+  
+}
 
 void ifeq(Frame *curr_frame) {
   Operand *op = curr_frame->pop_operand();

@@ -9,6 +9,7 @@
 #include "frame.hpp"
 
 /* COMPARISONS */
+void lcmp(Frame*);
 void ifeq(Frame*);
 void ifne(Frame*);
 void iflt(Frame*);
