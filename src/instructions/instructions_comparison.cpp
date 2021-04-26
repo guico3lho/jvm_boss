@@ -8,8 +8,8 @@
 /*************************** COMPARISONS ***************************/
 void lcmp(Frame *curr_frame) {
   if (DEBUG) cout << "----------lcmp----------\n";
-  Operand *op1 = curr_frame->pop_operand();
   Operand *op2 = curr_frame->pop_operand();
+  Operand *op1 = curr_frame->pop_operand();
   Operand *result = (Operand *) malloc(sizeof(Operand));
   result->tag = CONSTANT_INT;
   
@@ -18,6 +18,27 @@ void lcmp(Frame *curr_frame) {
   else if(op1->type_long == op2->type_long)
     result->type_int = (int32_t)0;
   else result->type_int = (int32_t)-1;
+
+  curr_frame->push_operand(result);
+  curr_frame->pc++;
+  
+}
+
+void fcmpl(Frame *curr_frame) {
+  if (DEBUG) cout << "----------fcmpl----------\n";
+  Operand *op2 = curr_frame->pop_operand();
+  Operand *op1 = curr_frame->pop_operand();
+  Operand *result = (Operand *) malloc(sizeof(Operand));
+  result->tag = CONSTANT_FLOAT;
+  float op1f, op2f;
+  memcpy(&op1f, &op1->type_float, sizeof(float));
+  memcpy(&op2f, &op2->type_float, sizeof(float)); 
+
+  if(op1f > op2f)
+    result->type_int = (int32_t) 1;
+  else if(op1f == op2f)
+    result->type_int = (int32_t) 0;
+  else result->type_int = (int32_t) -1;
 
   curr_frame->push_operand(result);
   curr_frame->pc++;
