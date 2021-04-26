@@ -83,10 +83,9 @@
  *
  * - [x] Sum
  * - [x] Multiply
+ * - [x] int_aritmetica
+ * - [x] float_aritmetica
  * - [x] double_aritmetica
- * - [x] _int_aritmetica
- * - [x] _float_aritmetica
- * - [x] _double_aritmetica
  *
  * ## Vetores
  *
@@ -99,8 +98,10 @@
  * ## Controle
  *
  * - [x] Loop_for
+ * - [x] Loop_while
  * - [x] Switch
  * - [x] tableswitch
+ * - [x] lookupswitch
  *
  * ## Comparação
  *
@@ -117,6 +118,7 @@
  *
  * - [x] MethodStatic
  * - [x] MethodParams
+ * - [x] recursao
  *
  * # Configurações
  *

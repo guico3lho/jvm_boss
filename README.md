@@ -72,10 +72,9 @@ $ ./jvm.sh HelloJava
 
 - [x] Sum
 - [x] Multiply
+- [x] int_aritmetica
+- [x] float_aritmetica
 - [x] double_aritmetica
-- [x] _int_aritmetica
-- [x] _float_aritmetica
-- [x] _double_aritmetica
 
 ## Vetores
 
@@ -87,10 +86,10 @@ $ ./jvm.sh HelloJava
 ## Controle
 
 - [x] Loop_for
+- [x] Loop_while
 - [x] Switch
 - [x] tableswitch
 - [x] lookupswitch
-- [x] recursao
 
 ## Comparação
 
@@ -106,8 +105,7 @@ $ ./jvm.sh HelloJava
 
 - [x] MethodStatic
 - [x] MethodParams
-- [x] _recursao
-- [x] _NoVoidMethods
+- [x] recursao
 
 # Configurações
 
