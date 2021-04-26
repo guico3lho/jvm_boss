@@ -2,7 +2,7 @@ class vetor {
     public static void main(String[] paramArrayOfString) {
 
       int[] arrayOfInt = new int[10];
-      double[] arrayOfDouble = { 2.0D, 3.0D, -5.0D };
+      double[] arrayOfDouble = { 1.0D, 3.0D, -5.0D };
       long[] arrayOfLong = { -5L, 3L, 6426246L, -433242L };
       float[] arrayOfFloat = { 2.0F, 3.0F, -5.0F };
       byte[] arrayOfByte = { -2, 4, 0 };

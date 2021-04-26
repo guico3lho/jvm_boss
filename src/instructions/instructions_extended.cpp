@@ -54,7 +54,6 @@ void multianewarray(Frame* curr_frame) {
 
   Operand *op_aux;
   string string_array_type = "[";
-  string string_int_type = "I";
 
   //* Cria vetor de tamanhos dos arrays
   std::vector<int> counts = std::vector<int>(dimensions);

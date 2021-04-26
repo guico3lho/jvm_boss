@@ -18,6 +18,7 @@ float float_bits_to_value(u4 float_bits);
 u4 float_value_to_bits(float float_value);
 
 double double_bits_to_value(u8 double_bits);
+u8 double_value_to_bits(double double_value);
 
 void freeClass(Class_File class_file);
 void freeAttribute(Attribute_Info* attr, u4 size);
