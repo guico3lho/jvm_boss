@@ -32,7 +32,7 @@ Method_Area *load_class_memory(Class_File class_file) {
  * @return void
  */
 void load_class_variables(Class_Container *class_container) {
-  Class_File current_class = class_container->class_file; //Multiply
+  Class_File current_class = class_container->class_file;
   Cp_Info super_class = current_class.constant_pool[current_class.super_class];
 
   string super_class_name = get_cp_info_utf8(current_class, super_class.Class.class_name);
@@ -51,7 +51,6 @@ void load_class_variables(Class_Container *class_container) {
     }
 
     if (super_class_name != "java/lang/Object" && super_class_name != "") {
-      // Entra aqui se a super classe não é Object e não é vazia
       current_class = load_parent_classes(super_class_name);
     }
 
@@ -70,7 +69,7 @@ Class_File load_parent_classes(std::string class_path) {
   std::cout << "Procurando .class de nome: " << class_path << std::endl;
 
   // verifica se a classe está no mesmo diretorio atual
-  std::string current_path_folder_inter = "test";
+  std::string current_path_folder_inter = "test/class/";
 
   std::string filepath = current_path_folder_inter + class_path + ".class";
   class_container->class_file = read_class_file(filepath);
@@ -116,6 +115,7 @@ Operand *check_string_create_type(std::string type_string) {
   switch (type_string.c_str()[0])
   {
   case 'I':
+    if (DEBUG) printf("Criando operando tipo Inteiro\n");
     new_type->tag = CONSTANT_INT;
     new_type->type_int = 0;
     break;
@@ -182,15 +182,12 @@ Operand *check_string_create_type(std::string type_string) {
         cout << "Class: Ljava/lang/String;\n";
       new_type->tag = CONSTANT_STRING;
       new_type->type_string = new string("");
-    }
-
-    if (type_string == "Ljava/lang/Object;") {
+    } else {
       new_type->tag = CONSTANT_CLASS;
-      new_type->class_container = (Class_Container *)malloc(sizeof(Class_Container));
+      new_type->class_container = (Class_Container*) malloc(sizeof(Class_Container));
 
       std::string class_realname = type_string.substr(1, type_string.size());
-      if (DEBUG)
-        std::cout << "Classe java/lang/Object" << class_realname << "\n";
+      if (DEBUG) std::cout << "Nome da Classe: " << class_realname << "\n";
 
       Class_File class_info = load_parent_classes(class_realname);
       new_type->class_container->class_file = class_info;

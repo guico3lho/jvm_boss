@@ -40,7 +40,7 @@ $ sed -i 's/\r$//' scriptname.sh
 
 ## Leitor e Exibidor
 
-Exibe o bytecode do arquivo .class
+Exibe o bytecode do arquivo .class (flag `` -e``)
 
 ``` bash
 # Linux e Windows
@@ -52,7 +52,7 @@ $ ./read.sh HelloJava
 
 ## Interpretador JVM
 
-Interpreta e executa o arquivo .class
+Interpreta e executa o arquivo .class (flag `` -i``)
 
 ``` bash
 # Linux e Windows
@@ -62,20 +62,33 @@ $ ./jvm_boss -i test/HelloJava.class
 $ ./jvm.sh HelloJava
 ```
 
+## Arquivos Teste
+
+Arquivos java (``.java``) encontram-se na pasta ``test/java`` e arquivos de classe (``.class``) encontram-se na pasta ``test/class``.
+
+Para adicionar mais arquivos classe de teste, basta inserir o ``arquivo.java`` no diretorio ``test/java`` e executar na pasta raiz do projeto o comando:
+
+``` bash
+# Linux e Windows
+$ java test/java/arquivo.java -d test/class
+
+# Bash script
+$  javac.sh arquivo
+```
+
 ## Classes Java (``.class``) de Teste
 
 - [x] cafebabe
 - [x] HelloJava
 - [x] Prints
-  
+
 ## Aritmeticos
 
 - [x] Sum
 - [x] Multiply
+- [x] int_aritmetica
+- [x] float_aritmetica
 - [x] double_aritmetica
-- [x] _int_aritmetica
-- [x] _float_aritmetica
-- [x] _double_aritmetica
 
 ## Vetores
 
@@ -83,13 +96,14 @@ $ ./jvm.sh HelloJava
 - [x] vetor2
 - [x] Vector_1
 - [x] Vector_2
-- [ ] multi
+- [x] multi
 ## Controle
 
 - [x] Loop_for
+- [x] Loop_while
 - [x] Switch
 - [x] tableswitch
-- [x] _lookupswitch
+- [x] lookupswitch
 
 ## Comparação
 
@@ -105,18 +119,8 @@ $ ./jvm.sh HelloJava
 
 - [x] MethodStatic
 - [x] MethodParams
-- [x] _recursao
-- [x] _NoVoidMethods
+- [x] recursao
 
-<!-- 1- Fazer vetor e multi funcionar -->
-<!-- 1- Refatorar o class_loader -->
-<!-- Frame teria que pegar dentro do Method area.  -->
-<!-- 1- Ver as funções de Cp_Info. Existem 2 funções -->
- 
-<!-- Frame -->
-<!-- Class Loader -->
-<!-- Cp_Info  -->
-<!-- Arquivos que usam super class -->
 # Configurações
 
 ### Até a versão [Java SE 8](https://docs.oracle.com/javase/specs/jvms/se8/html/index.html)

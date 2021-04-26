@@ -13,12 +13,20 @@
  * @param u4 count
  * @param string array_type 
  */
-std::vector<Operand*>* set_newarray(Operand* operand, u4 count, string array_type) {
-  for (int i = 0; i < (int) count; i++) {
-    operand->array_type->array->emplace_back(check_string_create_type(array_type));
+Operand* set_multianewarray(Operand* operand, int count, string array_type) {
+
+  //* ptr de vetor de ptrs de operandos..
+  std::vector<Operand*>* array_ref = operand->array_type->array;
+
+  //* Começa pela dimensao mais externa: array raiz
+  for (int i = 0; i < count; i++) {
+    array_ref->emplace_back(check_string_create_type(array_type));
   }
 
-  return operand->array_type->array;
+  if (DEBUG) printf("\narray_ref address: %p | size: %d\n", &array_ref, array_ref->size());
+  if (DEBUG) cout << "--------------------\n";
+
+  return operand;
 }
 
 /**
@@ -37,19 +45,20 @@ void multianewarray(Frame* curr_frame) {
   string class_name = get_utf8_constant_pool(curr_frame->cp_reference, class_info.Class.class_name);
   if (DEBUG) cout << "Nome da classe: " << class_name << "\n";
 
-  string data_type;
-  data_type.push_back(class_name.back());
-  if (DEBUG) cout << "Tipo de dado: " << data_type << "\n";
-
   u1 dimensions = curr_frame->method_code->code[curr_frame->pc++];
   if (DEBUG) cout << "Dimensions: " << (int) dimensions << "\n";
 
+  string data_type;
+  data_type = class_name.substr(dimensions, class_name.length() - dimensions);
+  if (DEBUG) cout << "Tipo de dado: " << data_type << "\n";
+
   Operand *op_aux;
+  string string_array_type = "[";
 
   //* Cria vetor de tamanhos dos arrays
   std::vector<int> counts = std::vector<int>(dimensions);
 
-  for (int i = 0; i < dimensions; i++){
+  for (int i = 0; i < dimensions; i++) {
     op_aux = curr_frame->pop_operand();
     int count = op_aux->type_int;
     if (DEBUG) printf("array count %d: %d\n", i, count);
@@ -57,52 +66,63 @@ void multianewarray(Frame* curr_frame) {
   }
 
   Operand *multiarray_ref = check_string_create_type("[");
-
-  //* ptr de vetor de ptrs de operandos..
-  std::vector<Operand*> *array_ref = multiarray_ref->array_type->array;
-  std::vector<Operand*> array_value, array_value_2;
-  std::vector<Operand*> array_ref_aux_2;
-  string string_array_type = "]";
-
   if (DEBUG) cout << "--------------------\n";
-
-  //* Começa pela dimensao mais externa: array raiz
-  for (int i = 0; i < counts[0]; ++i) {
-    if (DEBUG) printf("Array [%d] - ", i);
-    array_ref->emplace_back(check_string_create_type("["));
-  }
-
-  if (DEBUG) cout << "array_ref size " << array_ref->size() << "\n";
-  if (DEBUG) cout << "--------------------\n";
-  array_value = array_ref[0];
   
-  for (int i = 0; i < counts[0]; i++) {
-    for (int j = 0; j < counts[1]; j++) {
-      if (DEBUG) printf("Array [%d][%d] - ", i, j);
-      array_value[i]->array_type->array->emplace_back(check_string_create_type("["));
+  //* ptr de vetor de ptrs de operandos..
+  std::vector<Operand*>* array_ref = multiarray_ref->array_type->array;
+  std::vector<Operand*>* array_ref_2;
+  std::vector<std::vector<Operand*>*> *array_refs;
+
+  for (int i = 0; i < dimensions; i++) {
+    // multiarray_ref = set_multianewarray(multiarray_ref, counts[i], string_array_type);
+
+    if (i == (dimensions - 1)) string_array_type = data_type;
+    if (DEBUG) cout << "Tipo de dado: " << string_array_type << "\n";
+
+    if(i == 0) {
+      //* Começa pela dimensao mais externa: array raiz
+      for (int j = 0; j < counts[i]; j++) {
+        if (DEBUG) printf("Array [%d] - ", j);
+        array_ref->emplace_back(check_string_create_type(string_array_type));
+      }
+
+      if (DEBUG) printf("\narray_ref address: %p | size: %d\n", &array_ref, array_ref->size());
+      if (DEBUG) cout << "--------------------\n";
     }
 
-    if (DEBUG) cout << "array_value size " << array_value[i]->array_type->array->size() << "\n";
-    if (DEBUG) cout << "array_ref size " << array_ref->size() << "\n";
+    if(i == 1) {
+      for (int j = 0; j < counts[i - 1]; j++) {
+        array_ref_2 = array_ref[0][j]->array_type->array;
 
-    if (DEBUG) cout << "--------------------\n";
-  }
+        for (int k = 0; k < counts[i]; k++) {
+          if (DEBUG) printf("Array [%d][%d] - ", j, k);
+          array_ref_2->emplace_back(check_string_create_type(string_array_type));
+        }
+      }
+    }
 
-  for (int i = 0; i < counts[0]; i++) {
-    for (int j = 0; j < counts[1]; j++) {
-      // array_ref[i][j]->array_type->array->emplace_back(check_string_create_type("I"));
+    if(i == 2) {
+      std::vector<Operand*>* array_ref_3;
 
-      for (int k = 0; k < counts[2]; k++) {
-        if (DEBUG) printf("Array [%d][%d][%d] - ", i, j, k);
-        array_value[i][j].array_type->array->emplace_back(check_string_create_type("I"));
-        // array_value[i][j][k].emplace_back(check_string_create_type("I"));
+      for (int j = 0; j < counts[i - 2]; j++) {
+        array_ref_2 = array_ref[0][j]->array_type->array; 
+
+        for (int k = 0; k < counts[i - 1]; k++) {
+          array_ref_3 = array_ref_2[0][k]->array_type->array;
+
+          for (int l = 0; l < counts[i]; l++) {
+            if (DEBUG) printf("Array [%d][%d][%d] - ", j, k, l);
+            array_ref_3->emplace_back(check_string_create_type(string_array_type));
+          }
+
+          if (DEBUG) printf("\narray_ref_3 address: %p | size: %d\n", array_ref_3, array_ref_3->size());
+          if (DEBUG) cout << "--------------------\n";
+        }
       }
     }
   }
   
-
   curr_frame->push_operand(multiarray_ref); 
-  // curr_frame->pc++;
 }
 
 /**

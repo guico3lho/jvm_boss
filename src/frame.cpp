@@ -365,7 +365,7 @@ void Frame::set_instructions_functions() {
 
   /* EXTENDED */
   // func[196] = wide;
-  func[197] = multianewarray; // TODO
+  func[197] = multianewarray;
   func[198] = ifnull;
   func[199] = ifnonnull;
   // func[200] = goto_w;
