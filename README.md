@@ -89,7 +89,8 @@ $ ./jvm.sh HelloJava
 - [x] Loop_for
 - [x] Switch
 - [x] tableswitch
-- [x] _lookupswitch
+- [x] lookupswitch
+- [x] recursao
 
 ## Comparação
 
