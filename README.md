@@ -67,7 +67,7 @@ $ ./jvm.sh HelloJava
 - [x] cafebabe
 - [x] HelloJava
 - [x] Prints
-  
+
 ## Aritmeticos
 
 - [x] Sum
@@ -83,7 +83,7 @@ $ ./jvm.sh HelloJava
 - [x] vetor2
 - [x] Vector_1
 - [x] Vector_2
-- [ ] multi
+- [x] multi
 ## Controle
 
 - [x] Loop_for
@@ -108,15 +108,6 @@ $ ./jvm.sh HelloJava
 - [x] _recursao
 - [x] _NoVoidMethods
 
-<!-- 1- Fazer vetor e multi funcionar -->
-<!-- 1- Refatorar o class_loader -->
-<!-- Frame teria que pegar dentro do Method area.  -->
-<!-- 1- Ver as funções de Cp_Info. Existem 2 funções -->
- 
-<!-- Frame -->
-<!-- Class Loader -->
-<!-- Cp_Info  -->
-<!-- Arquivos que usam super class -->
 # Configurações
 
 ### Até a versão [Java SE 8](https://docs.oracle.com/javase/specs/jvms/se8/html/index.html)

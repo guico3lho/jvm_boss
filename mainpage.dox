@@ -95,17 +95,18 @@
  * - [x] vetor2
  * - [x] Vector_1
  * - [x] Vector_2
- * - [ ] multi
+ * - [x] multi
+
  * ## Controle
  *
  * - [x] Loop_for
  * - [x] Switch
  * - [x] tableswitch
- * - [x] _lookupswitch
  *
  * ## Comparação
  *
  * - [x] Comparison
+ *
  * ## Conversão
  *
  * - [x] Convert_int
@@ -117,8 +118,6 @@
  *
  * - [x] MethodStatic
  * - [x] MethodParams
- * - [x] _recursao
- * - [x] _NoVoidMethods
  *
  * # Configurações
  *
