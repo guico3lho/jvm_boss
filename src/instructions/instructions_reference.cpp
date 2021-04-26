@@ -271,33 +271,42 @@ void invokevirtual_string_builder_append(Frame* curr_frame) {
     case CONSTANT_STRING:
       *str_append->type_string += (*op_append->type_string);
       break;
+
     case CONSTANT_INT:
       *str_append->type_string += (patch::to_string(op_append->type_int));
       break;
+
     case CONSTANT_LONG:
       *str_append->type_string += (patch::to_string(op_append->type_long));
       break;
+
     case CONSTANT_FLOAT:
       *str_append->type_string += (patch::to_string(op_append->type_float));
       break;
+
     case CONSTANT_DOUBLE:
       *str_append->type_string += (patch::to_string(op_append->type_double));
       break;
+
     case CONSTANT_SHORT:
       *str_append->type_string += (patch::to_string(op_append->type_short));
       break;
+
     case CONSTANT_CHAR:
       *str_append->type_string += (patch::to_string(op_append->type_char));
       break;
+
     case CONSTANT_BYTE:
       *str_append->type_string += (patch::to_string(op_append->type_byte));
       break;
+
     case CONSTANT_BOOL:
       if (op_append->type_bool == 0)
         *str_append->type_string += "false";
       else
         *str_append->type_string += "true";
       break;
+
     case CONSTANT_CLASS: { 
       Class_Container *class_container = op_append->class_container;
       Class_File class_file = class_container->class_file;
@@ -306,6 +315,7 @@ void invokevirtual_string_builder_append(Frame* curr_frame) {
       *str_append->type_string += this_class_name + "@";
     }
       break;
+      
     case CONSTANT_ARRAY:
       *str_append->type_string += "Array[]";
       break;
@@ -316,7 +326,6 @@ void invokevirtual_string_builder_append(Frame* curr_frame) {
 
 /**
  * @brief Função de método não default do Java das instruções de invoke 
- * 
  * @param curr_frame 
  * @param class_name 
  * @param method_name 

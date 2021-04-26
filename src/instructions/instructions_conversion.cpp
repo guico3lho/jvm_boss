@@ -69,7 +69,7 @@ void i2d(Frame* curr_frame) {
 }
 
 /**
- * @brief Converte int para byte.
+ * @brief Converte int para byte
  * @param curr_frame ponteiro que aponta para o frame atual
  * @return void
  */
@@ -89,7 +89,7 @@ void i2b(Frame* curr_frame) {
 }
 
 /**
- * @brief Converte int para char.
+ * @brief Converte int para char
  * @param curr_frame ponteiro que aponta para o frame atual
  * @return void
  */
@@ -109,7 +109,7 @@ void i2c(Frame* curr_frame) {
 }
 
 /**
- * @brief Converte int para short int.
+ * @brief Converte int para short int
  * @param curr_frame ponteiro que aponta para o frame atual
  * @return void
  */
@@ -129,7 +129,7 @@ void i2s(Frame* curr_frame) {
 }
 
 /**
- * @brief Converte de long para int
+ * @brief Converte long para int
  * @param curr_frame ponteiro para o frame atual
  * @return void
  */
@@ -149,7 +149,7 @@ void l2i(Frame* curr_frame) {
 }
 
 /**
-* @brief Converte de long para float
+* @brief Converte long para float
 * @param curr_frame ponteiro para o frame atual
 * @return void
 */
@@ -169,7 +169,7 @@ void l2f(Frame* curr_frame) {
 }
 
 /**
- * @brief Converte de long para double
+ * @brief Converte long para double
  * @param curr_frame ponteiro para o frame atual
  * @return void
  */
@@ -189,7 +189,7 @@ void l2d(Frame* curr_frame) {
 }
 
 /**
- * @brief Converte de float para inteiro
+ * @brief Converte float para int
  * @param curr_frame ponteiro para o frame atual
  * @return void
  */
@@ -213,7 +213,7 @@ void f2i(Frame* curr_frame) {
 }
 
 /**
- * @brief Converte de float para long
+ * @brief Converte float para long
  * 
  * @param curr_frame ponteiro para o frame atual
  * @return void
@@ -238,7 +238,7 @@ void f2l(Frame* curr_frame) {
 }
 
 /**
- * @brief Converte de float para double
+ * @brief Converte float para double
  * @param curr_frame ponteiro para o frame atual
  * @return void
  */
@@ -262,7 +262,7 @@ void f2d(Frame* curr_frame) {
 }
 
 /**
- * @brief Converte de double para int
+ * @brief Converte double para int
  * @param curr_frame ponteiro para o frame atual
  * @return void
  */
@@ -284,7 +284,7 @@ void d2i(Frame* curr_frame) {
 }
 
 /**
- * @brief Converte de double para long
+ * @brief Converte double para long
  * @param curr_frame ponteiro para o frame atual
  * @return void
  */
@@ -304,7 +304,7 @@ void d2l(Frame* curr_frame) {
 }
 
 /**
- * @brief Converte de double para float
+ * @brief Converte double para float
  * @param curr_frame ponteiro para o frame atual
  * @return void
  */

@@ -33,7 +33,7 @@ void iadd(Frame* curr_frame) {
 
 /**
  * @brief Soma do tipo long. Retira os dois operando do topo da pilha, soma-os e coloca o resultado
- * no topo da pilha.
+ * no topo da pilha
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -55,7 +55,7 @@ void ladd(Frame* curr_frame) {
 
 /**
  * @brief Soma do tipo float. Retira os dois operando do topo da pilha, soma-os e coloca o resultado
- * no topo da pilha.
+ * no topo da pilha
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -83,7 +83,7 @@ void fadd(Frame* curr_frame) {
 
 /**
  * @brief Soma do tipo double. Retira os dois operando do topo da pilha, soma-os e coloca o resultado
- * no topo da pilha.
+ * no topo da pilha
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -112,7 +112,7 @@ void fadd(Frame* curr_frame) {
 
 /**
  * @brief Subtração do tipo inteiro. Retira os dois operando do topo da pilha,
- *  subtraí-os e coloca o resultado no topo da pilha.
+ *  subtraí-os e coloca o resultado no topo da pilha
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -134,7 +134,7 @@ void isub(Frame* curr_frame) {
 
 /**
  * @brief Subtração do tipo long. Retira os dois operando do topo da pilha, subtraí-os e coloca o
- * resultado no topo da pilha.
+ * resultado no topo da pilha
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -156,7 +156,7 @@ void lsub(Frame* curr_frame) {
 
 /**
  * @brief Subtração do tipo float. Retira os dois operando do topo da pilha, subtraí-os e coloca o
- * resultado no topo da pilha.
+ * resultado no topo da pilha
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -184,7 +184,7 @@ void fsub(Frame* curr_frame) {
 
 /**
  * @brief Subtração do tipo double. Retira os dois operando do topo da pilha,
- *  subtraí-os e coloca o resultado no topo da pilha.
+ *  subtraí-os e coloca o resultado no topo da pilha
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -212,7 +212,7 @@ void dsub(Frame* curr_frame) {
 
 /**
  * @brief Multiplicação de inteiros. Retira os dois operando do topo da pilha,
- *  multiplica-os e coloca o resultado no topo da pilha.
+ *  multiplica-os e coloca o resultado no topo da pilha
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -235,7 +235,7 @@ void imul(Frame* curr_frame) {
 
 /**
  * @brief Multiplicação de long. Retira os dois operando do topo da pilha, multiplica-os
- * e coloca o resultado no topo da pilha.
+ * e coloca o resultado no topo da pilha
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -258,7 +258,7 @@ void lmul(Frame* curr_frame) {
 
 /**
  * @brief Multiplicação de float. Retira os dois operando do topo da pilha, multiplica-os
- * e coloca o resultado no topo da pilha.
+ * e coloca o resultado no topo da pilha
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -286,7 +286,7 @@ void fmul(Frame* curr_frame) {
 
 /**
  * @brief Multiplicação de double. Retira os dois operando do topo da pilha,
- *  multiplica-os e coloca o resultado no topo da pilha.
+ *  multiplica-os e coloca o resultado no topo da pilha
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -314,7 +314,7 @@ void dmul(Frame* curr_frame) {
 
 /**
  * @brief Divisão de inteiro. Retira os dois operandos do topo da pilha,
- *  divide-os e coloca o resultado no topo da pilha.
+ *  divide-os e coloca o resultado no topo da pilha
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -337,7 +337,7 @@ void idiv(Frame* curr_frame) {
 
 /**
  * @brief Divisão de long. Retira os dois operandos do topo da pilha, divide-os
- * e coloca o resultado no topo da pilha.
+ * e coloca o resultado no topo da pilha
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -359,7 +359,7 @@ void ldiv(Frame* curr_frame) {
 
 /**
  * @brief Divisão de float. Retira os dois operandos do topo da pilha, divide-os
- * e coloca o resultado no topo da pilha.
+ * e coloca o resultado no topo da pilha
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -385,7 +385,7 @@ void fdiv(Frame* curr_frame) {
 
 /**
  * @brief Divisão de double. Retira os dois operandos do topo da pilha,
- *  divide-os e coloca o resultado no topo da pilha.
+ *  divide-os e coloca o resultado no topo da pilha
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -415,7 +415,7 @@ void ddiv(Frame* curr_frame) {
 /**
  * @brief Calcula o resto da divisão entre dois inteiros.
  *  Retira os dois operandos do topo da pilha, calcula o resto da divisão e
- *  coloca no topo.
+ *  coloca no topo
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -443,7 +443,7 @@ void irem(Frame* curr_frame) {
 
 /**
  * @brief Calcula o resto da divisão entre dois long. Retira os dois operandos do topo da pilha,
- * calcula o resto da divisão e coloca no topo.
+ * calcula o resto da divisão e coloca no topo
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -494,7 +494,7 @@ void frem(Frame* curr_frame) {
 
 /**
  * @brief Calcula o resto da divisão entre dois double. Retira os dois
- *  operandos do topo da pilha, calcula o resto da divisão e coloca no topo.
+ *  operandos do topo da pilha, calcula o resto da divisão e coloca no topo
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -519,7 +519,7 @@ void drem(Frame* curr_frame) {
 
 /**
  * @brief Calcula o valor negativo de int. Retira o operando do topo da pilha, nega o valor do
- * operando e o salva o resultado no topo da pilha.
+ * operando e o salva o resultado no topo da pilha
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -537,7 +537,7 @@ void ineg(Frame* curr_frame) {
 
 /**
  * @brief Calcula o valor negativo de long. Retira o operando do topo da pilha, nega o valor do
- * operando e o salva o resultado no topo da pilha.
+ * operando e o salva o resultado no topo da pilha
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -558,7 +558,7 @@ void lneg(Frame* curr_frame) {
 
 /**
  * @brief Calcula o valor negativo de float. Retira o operando do topo da pilha, nega o valor do
- * operando e o salva o resultado no topo da pilha.
+ * operando e o salva o resultado no topo da pilha
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -581,7 +581,7 @@ void fneg(Frame* curr_frame) {
 
 /**
  * @brief Calcula o valor negativo de double. Retira o operando do topo da pilha, nega o valor do
- * operando e o salva o resultado no topo da pilha.
+ * operando e o salva o resultado no topo da pilha
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -604,7 +604,7 @@ void dneg(Frame* curr_frame) {
 /**
  * @brief Calcula o valor do shift left lógico para inteiro. Retira dois operandos do topo da pilha
  * e faz o shift left do primeiro operando por s posições, onde s são os 5 bits menos significativos
- * do segundo operando. O resultado é colocado no topo da pilha.
+ * do segundo operando. O resultado é colocado no topo da pilha
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -635,7 +635,7 @@ void ishl(Frame* curr_frame) {
 /**
  * @brief Calcula o valor do shift left lógico para long. Retira dois operandos do topo da pilha
  * e faz o shift left do primeiro operando por s posições, onde s são os 5 bits menos significativos
- * do segundo operando. O resultado é colocado no topo da pilha.
+ * do segundo operando. O resultado é colocado no topo da pilha
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -664,7 +664,7 @@ void lshl(Frame* curr_frame) {
 /**
  * @brief Calcula o valor do shift right lógico para inteiro. Retira dois operandos do topo da pilha
  * e faz o shift right do primeiro operando por s posições, onde s são os 5 bits menos significativos
- * do segundo operando. O resultado é colocado no topo da pilha.
+ * do segundo operando. O resultado é colocado no topo da pilha
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -693,7 +693,7 @@ void ishr(Frame* curr_frame) {
 /**
  * @brief Calcula o valor do shift right lógico para long. Retira dois operandos do topo da pilha
  * e faz o shift right do primeiro operando por s posições, onde s são os 5 bits menos significativos
- * do segundo operando. O resultado é colocado no topo da pilha.
+ * do segundo operando. O resultado é colocado no topo da pilha
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */

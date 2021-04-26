@@ -155,6 +155,11 @@ void dcmpg(Frame* curr_frame) {
   curr_frame->pc++;
 }
 
+/** 
+ *  @brief Compara valores com a condição de serem iguais
+ *  @param curr_frame ponteiro para o frame atual
+ *  @return void
+ */
 void ifeq(Frame* curr_frame) {
   Operand* op = curr_frame->pop_operand();
   int val = (int)op->type_int;
@@ -169,6 +174,11 @@ void ifeq(Frame* curr_frame) {
   }
 }
 
+/** 
+ *  @brief Compara valores com a condição de serem diferentes
+ *  @param curr_frame ponteiro para o frame atual
+ *  @return void
+ */
 void ifne(Frame* curr_frame) {
   Operand* op = curr_frame->pop_operand();
   int val = (int)op->type_int;
@@ -183,6 +193,11 @@ void ifne(Frame* curr_frame) {
   }
 }
 
+/** 
+ *  @brief Compara valores com a condição de ser menor
+ *  @param curr_frame ponteiro para o frame atual
+ *  @return void
+ */
 void iflt(Frame* curr_frame) {
   Operand* op = curr_frame->pop_operand();
   int val = (int)op->type_int;
@@ -197,6 +212,11 @@ void iflt(Frame* curr_frame) {
   }
 }
 
+/** 
+ *  @brief Compara valores com a condição de ser maior ou igual
+ *  @param curr_frame ponteiro para o frame atual
+ *  @return void
+ */
 void ifge(Frame* curr_frame) {
   Operand* op = curr_frame->pop_operand();
   int val = (int)op->type_int;
@@ -211,6 +231,11 @@ void ifge(Frame* curr_frame) {
   }
 }
 
+/** 
+ *  @brief Compara valores com a condição de ser maior
+ *  @param curr_frame ponteiro para o frame atual
+ *  @return void
+ */
 void ifgt(Frame* curr_frame) {
   Operand* op = curr_frame->pop_operand();
   int val = (int)op->type_int;
@@ -225,6 +250,11 @@ void ifgt(Frame* curr_frame) {
   }
 }
 
+/** 
+ *  @brief Compara valores com a condição de ser menor ou igual
+ *  @param curr_frame ponteiro para o frame atual
+ *  @return void
+ */
 void ifle(Frame* curr_frame) {
   Operand* op = curr_frame->pop_operand();
   int val = (int)op->type_int;
@@ -287,6 +317,11 @@ void if_icmpne(Frame* curr_frame) {
   }
 }
 
+/** 
+ *  @brief Salta para outro endereço caso o parâmetro 1 for menor que o parâmetro 2
+ *  @param curr_frame ponteiro para o frame atual
+ *  @return void
+ */
 void if_icmplt(Frame* curr_frame) {
   Operand* op1 = curr_frame->pop_operand();
   Operand* op2 = curr_frame->pop_operand();
@@ -307,7 +342,7 @@ void if_icmplt(Frame* curr_frame) {
 }
 
 /**
- * @brief Salta para outro endereço caso parametro 1 for maior ou igual ao parametro 2
+ * @brief Salta para outro endereço caso parâmetro 1 for maior ou igual ao parâmetro 2
  * @param curr_frame ponteiro que aponta para o frame atual
  * @return void
  */
@@ -335,6 +370,11 @@ void if_icmpge(Frame* curr_frame) {
   }
 }
 
+/**
+ * @brief Salta para outro endereço caso parâmetro 1 for maior que o parâmetro 2
+ * @param curr_frame ponteiro que aponta para o frame atual
+ * @return void
+ */
 void if_icmpgt(Frame* curr_frame) {
   Operand* op1 =curr_frame->pop_operand();
   Operand* op2 =curr_frame->pop_operand();
@@ -354,6 +394,11 @@ void if_icmpgt(Frame* curr_frame) {
   }
 }
 
+/**
+ * @brief Salta para outro endereço caso parâmetro 1 for menor ou igual ao parâmetro 2
+ * @param curr_frame ponteiro que aponta para o frame atual
+ * @return void
+ */
 void if_icmple(Frame* curr_frame) {
   Operand* op1 =curr_frame->pop_operand();
   Operand* op2 =curr_frame->pop_operand();
@@ -373,6 +418,11 @@ void if_icmple(Frame* curr_frame) {
   }
 }
 
+/**
+ * @brief Salta para outro endereço caso parâmetro 1 seja igual ao parâmetro 2
+ * @param curr_frame ponteiro que aponta para o frame atual
+ * @return void
+ */
 void if_acmpeq(Frame* curr_frame) {
   u2 branch = curr_frame->method_code->code[curr_frame->pc + 1];
   branch = (branch << 8) + curr_frame->method_code->code[curr_frame->pc + 2];
@@ -388,6 +438,11 @@ void if_acmpeq(Frame* curr_frame) {
   }
 }
 
+/**
+ * @brief Salta para outro endereço caso parâmetro 1 não seja igual ao parâmetro 2
+ * @param curr_frame ponteiro que aponta para o frame atual
+ * @return void
+ */
 void if_acmpne(Frame* curr_frame) {
   u2 branch = curr_frame->method_code->code[curr_frame->pc + 1];
   branch = (branch << 8) + curr_frame->method_code->code[curr_frame->pc + 2];

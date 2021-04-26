@@ -7,7 +7,7 @@
 /*************************** LOADS ***************************/
 
 /**
- * @brief Pusha um inteiro, indicado por um indice, na pilha de operandos
+ * @brief Faz push do inteiro, indicado por um índice, na pilha de operandos
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -21,7 +21,7 @@ void iload(Frame* curr_frame) {
 }
 
 /**
- * @brief Pusha o inteiro do indice 0 na pilha de operandos
+ * @brief Faz push do inteiro do índice 0 na pilha de operandos
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -32,7 +32,7 @@ void iload_0(Frame* curr_frame) {
 }
 
 /**
- * @brief Pusha o inteiro do indice 1 na pilha de operandos
+ * @brief Faz push do inteiro do índice 1 na pilha de operandos
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -43,7 +43,7 @@ void iload_1(Frame* curr_frame) {
 }
 
 /**
- * @brief Pusha o inteiro do indice 2 na pilha de operandos
+ * @brief Faz push do inteiro do índice 2 na pilha de operandos
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -54,7 +54,7 @@ void iload_2(Frame* curr_frame) {
 }
 
 /**
- * @brief Pusha o inteiro do indice 3 na pilha de operandos
+ * @brief Faz push do inteiro do índice 3 na pilha de operandos
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -65,7 +65,7 @@ void iload_3(Frame* curr_frame) {
 }
 
 /**
- * @brief Empilha float indicado no indice index do array de variáveis locais
+ * @brief Empilha float indicado no índice index do array de variáveis locais
  *  na pilha de operandos
  * @param curr_frame Ponteiro para o frame atual
  * @return void
@@ -79,7 +79,7 @@ void lload(Frame* curr_frame) {
 }
 
 /**
- * @brief Empilha long indicado no indice 0 do array de variáveis locais na pilha de operandos
+ * @brief Empilha long indicado no índice 0 do array de variáveis locais na pilha de operandos
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -90,7 +90,7 @@ void lload_0(Frame* curr_frame) {
 }
 
 /**
- * @brief Empilha long indicado no indice 1 do array de variáveis locais na pilha de operandos
+ * @brief Empilha long indicado no índice 1 do array de variáveis locais na pilha de operandos
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -101,7 +101,7 @@ void lload_1(Frame* curr_frame) {
 }
 
 /**
- * @brief Empilha long indicado no indice 2 do array de variáveis locais na pilha de operandos
+ * @brief Empilha long indicado no índice 2 do array de variáveis locais na pilha de operandos
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -112,7 +112,7 @@ void lload_2(Frame* curr_frame) {
 }
 
 /**
- * @brief Empilha long indicado no indice 3 do array de variáveis locais na pilha de operandos
+ * @brief Empilha long indicado no índice 3 do array de variáveis locais na pilha de operandos
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -123,7 +123,7 @@ void lload_3(Frame* curr_frame) {
 }
 
 /**
- * @brief Empilha float indicado no indice 0 do array de variáveis locais na
+ * @brief Empilha float indicado no índice 0 do array de variáveis locais na
  *  pilha de operandos
  * @param curr_frame Ponteiro para o frame atual
  * @return void
@@ -138,7 +138,7 @@ void fload(Frame* curr_frame) {
 }
 
 /**
- * @brief Empilha float indicado no indice 0 do array de variáveis locais na pilha de operandos
+ * @brief Empilha float indicado no índice 0 do array de variáveis locais na pilha de operandos
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -149,7 +149,7 @@ void fload_0(Frame* curr_frame) {
 }
 
 /**
- * @brief Empilha float indicado no indice 1 do array de variáveis locais na pilha de operandos
+ * @brief Empilha float indicado no índice 1 do array de variáveis locais na pilha de operandos
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -160,7 +160,7 @@ void fload_1 (Frame* curr_frame) {
 }
 
 /**
- * @brief Empilha float indicado no indice 2 do array de variáveis locais na pilha de operandos
+ * @brief Empilha float indicado no índice 2 do array de variáveis locais na pilha de operandos
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -171,7 +171,7 @@ void fload_2 (Frame* curr_frame) {
 }
 
 /**
- * @brief Empilha float indicado no indice 3 do array de variáveis locais na pilha de operandos
+ * @brief Empilha float indicado no índice 3 do array de variáveis locais na pilha de operandos
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -196,7 +196,7 @@ void dload(Frame* curr_frame) {
 }
 
 /**
- * @brief empilha double  indicado no indice 0 do array de variaveis locais na pilha de operandos
+ * @brief Empilha double  indicado no índice 0 do array de variaveis locais na pilha de operandos
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -207,7 +207,7 @@ void dload_0(Frame* curr_frame) {
 }
 
 /**
- * @brief empilha double  indicado no indice 1 do array de variaveis locais na pilha de operandos
+ * @brief Empilha double  indicado no índice 1 do array de variaveis locais na pilha de operandos
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -218,7 +218,7 @@ void dload_1(Frame* curr_frame) {
 }
 
 /**
- * @brief empilha double  indicado no indice 2 do array de variaveis locais na pilha de operandos
+ * @brief Empilha double  indicado no índice 2 do array de variaveis locais na pilha de operandos
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -229,7 +229,7 @@ void dload_2(Frame* curr_frame) {
 }
 
 /**
- * @brief empilha double  indicado no indice 3 do array de variaveis locais na pilha de operandos
+ * @brief Empilha double  indicado no índice 3 do array de variaveis locais na pilha de operandos
  * @param curr_frame Ponteiro para o frame atual
  * @return void
  */
@@ -239,7 +239,7 @@ void dload_3(Frame* curr_frame) {
   curr_frame->pc++;
 }
 
-/** @brief Coloca na pilha de operandos a variável da posição do pc no vetor de variáveis locais.
+/** @brief Coloca na pilha de operandos a variável da posição do pc no vetor de variáveis locais
  * @param curr_frame ponteiro que aponta para o frame atual
  * @return void
  */
@@ -296,7 +296,7 @@ void aload_3(Frame* curr_frame) {
 }
 
 /**
-* @brief Coleta um inteiro do vetor de referência e coloca na pilha.
+* @brief Coleta um inteiro do vetor de referência e coloca na pilha
 * @param curr_frame ponteiro para o frame atual
 * @return void
 */
@@ -320,7 +320,7 @@ void iaload(Frame* curr_frame) {
 }
 
 /**
-* @brief Coleta um long do vetor de referência e coloca na pilha.
+* @brief Coleta um long do vetor de referência e coloca na pilha
 * @param curr_frame ponteiro para o frame atual
 * @return void
 */
@@ -390,7 +390,7 @@ void daload(Frame* curr_frame) {
 }
 
 /**
-* @brief Coleta um objeto do vetor de referência e coloca na pilha.
+* @brief Coleta um objeto do vetor de referência e coloca na pilha
 * @param curr_frame ponteiro para o frame atual
 * @return void
 */
@@ -412,7 +412,7 @@ void aaload(Frame* curr_frame) {
 }
 
 /**
-* @brief Coleta um booleano do vetor de referência e coloca na pilha.
+* @brief Coleta um booleano do vetor de referência e coloca na pilha
 * @param curr_frame ponteiro para o frame atual
 * @return void
 */
@@ -435,7 +435,7 @@ void baload(Frame* curr_frame) {
 }
 
 /**
-* @brief Coleta um char do vetor de referência e coloca na pilha.
+* @brief Coleta um char do vetor de referência e coloca na pilha
 * @param curr_frame ponteiro para o frame atual
 * @return void
 */
@@ -458,7 +458,7 @@ void caload(Frame* curr_frame) {
 }
 
 /**
-* @brief Coleta um char do vetor de referência e coloca na pilha.
+* @brief Coleta um char do vetor de referência e coloca na pilha
 * @param curr_frame ponteiro para o frame atual
 * @return void
 */

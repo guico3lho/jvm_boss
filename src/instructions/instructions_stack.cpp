@@ -9,7 +9,6 @@
 
 /**
  * @brief Retira operando do frame do topo da pilha de Frames
- * 
  * @param curr_frame 
  * @return void
  */
@@ -20,9 +19,9 @@ void pop(Frame* curr_frame) {
 }
 
 /**
- * @brief 
- * 
+ * @brief Retira operando do frame do topo da pilha de Frames
  * @param curr_frame 
+ * @return void
  */
 void pop2(Frame* curr_frame) {
   if (DEBUG) cout << "----------pop2----------\n";
@@ -34,7 +33,7 @@ void pop2(Frame* curr_frame) {
 }
 
 /**
- * @brief Faz uma cópia do item que está no topo da pilha e o adiciona ao topo da pilha.
+ * @brief Faz uma cópia do item que está no topo da pilha e o adiciona ao topo da pilha
  * @param curr_frame ponteiro para o frame atual
  * @return void
  */
@@ -49,7 +48,7 @@ void dup(Frame* curr_frame) {
 }
 
 /**
- * @brief Duplica o item no topo da pilha e pusha depois do segundo elemento da pilha.
+ * @brief Duplica o item no topo da pilha e pusha depois do segundo elemento da pilha
  * @param curr_frame ponteiro para o frame atual
  * @return void
  */
@@ -74,7 +73,7 @@ void dup_x1(Frame* curr_frame) {
 }
 
 /**
- * @brief Duplica o item no topo da pilha e pusha depois do terceiro elemento da pilha
+ * @brief Duplica o item no topo da pilha e faz push depois no terceiro elemento da pilha
  * @param curr_frame ponteiro para o frame atual
  * @return void
  */
@@ -107,7 +106,7 @@ void dup_x2(Frame* curr_frame) {
 }
 
 /**
- * @brief Faz uma cópia de dois itens que estao no topo da pilha e o(s) adiciona ao topo da pilha.
+ * @brief Copia dois itens que estao no topo da pilha e o(s) adiciona ao topo da pilha
  * @param curr_frame ponteiro para o frame atual
  * @return void
  */
@@ -136,7 +135,7 @@ void dup2(Frame* curr_frame) {
 }
 
 /**
- * @brief Duplica um ou dois valores da pilha de operandos e insere os valores duplicados na ordem original
+ * @brief Duplica um/dois operandos da pilha e adiciona os valores duplicados na ordem original
  * @param curr_frame ponteiro para o frame atual
  * @return void
  */
@@ -170,7 +169,7 @@ void dup2_x1(Frame* curr_frame) {
 }
 
 /**
- * @brief Duplica um ou dois operandos da pilha e insere os valores duplicados na ordem original
+ * @brief Duplica um/dois operandos da pilha e adiciona os valores duplicados na ordem original
  * @param curr_frame ponteiro para o frame atual
  * @return void
  */
@@ -224,8 +223,7 @@ void dup2_x2(Frame* curr_frame) {
 }
 
 /**
- * @brief Troca dois operandos do topo da pilha de posição
- * 
+ * @brief Troca dois operandos do topo da pilha
  * @param curr_frame ponteiro para o frame atual
  * @return void
  */

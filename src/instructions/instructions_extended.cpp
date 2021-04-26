@@ -14,11 +14,8 @@
  * @return std::vector<Operand*>*
  */
 Operand* set_multianewarray(Operand* operand, int count, string array_type) {
-
-  //* ptr de vetor de ptrs de operandos..
   std::vector<Operand*>* array_ref = operand->array_type->array;
 
-  //* Começa pela dimensao mais externa: array raiz
   for (int i = 0; i < count; i++) {
     array_ref->emplace_back(check_string_create_type(array_type));
   }
@@ -68,19 +65,16 @@ void multianewarray(Frame* curr_frame) {
   Operand* multiarray_ref = check_string_create_type("[");
   if (DEBUG) cout << "--------------------\n";
   
-  //* ptr de vetor de ptrs de operandos..
   std::vector<Operand*>* array_ref = multiarray_ref->array_type->array;
   std::vector<Operand*>* array_ref_2;
   std::vector<std::vector<Operand*>*> *array_refs;
 
   for (i = 0; i < dimensions; i++) {
-    // multiarray_ref = set_multianewarray(multiarray_ref, counts[i], string_array_type);
 
     if (i == (dimensions - 1)) string_array_type = data_type;
     if (DEBUG) cout << "Tipo de dado: " << string_array_type << "\n";
 
     if(i == 0) {
-      //* Começa pela dimensao mais externa: array raiz
       for (j = 0; j < counts[i]; j++) {
         if (DEBUG) printf("Array [%d] - ", j);
         array_ref->emplace_back(check_string_create_type(string_array_type));
@@ -126,7 +120,7 @@ void multianewarray(Frame* curr_frame) {
 }
 
 /**
- * @brief 
+ * @brief Condição igual a nulo
  * @param curr_frame ponteiro para o frame atual 
  * @return void
  */
@@ -143,7 +137,7 @@ void ifnull(Frame* curr_frame) {
 }
 
 /**
- * @brief 
+ * @brief Condição diferente de nulo
  * @param curr_frame ponteiro para o frame atual 
  * @return void
  */
