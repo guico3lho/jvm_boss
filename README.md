@@ -144,6 +144,7 @@ $  javac.sh arquivo
 
 ## Metodos
 
+- [x] methods
 - [x] MethodStatic
 - [x] MethodParams
 - [x] recursao
