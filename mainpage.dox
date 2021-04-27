@@ -16,7 +16,7 @@
  *
  * # Compilando
  * 
- * Forma manual
+ * Compilando usando CMake de forma manual
  * 
  * ``` bash
  * # cria pasta build
@@ -44,11 +44,17 @@
  * $ ./compile.sh -w
  * ```
  *
- * Caso apresente erro de formatação de arquivos de shell script ``.sh`` no Linux, usar o comando 
+ * Caso apresente erro de formatação de arquivos de shell script (.sh) no Linux, usar o comando 
  *
  * ```bash
  * $ sed -i 's/\r$//' scriptname.sh
  * ```
+ * 
+ * Caso prefira, no ambiente Windows, pode utilizar apenas o Makefile
+ * 
+ * ``` bash
+ * make
+ * ``` 
  * 
  * # Executando
  *

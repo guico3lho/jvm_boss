@@ -70,7 +70,7 @@ $(function() {
 <p><img src="/diagrama.png" alt="Diagrama" class="inline"/></p>
 <h1><a class="anchor" id="autotoc_md24"></a>
 Compilando</h1>
-<p>Forma manual</p>
+<p>Compilando usando CMake de forma manual</p>
 <div class="fragment"><div class="line"># cria pasta build</div>
 <div class="line">mkdir -p build </div>
 <div class="line">cd build</div>
@@ -91,6 +91,8 @@ Compilando</h1>
 <div class="line">$ ./compile.sh -w</div>
 </div><!-- fragment --><p>Caso apresente erro de formatação de arquivos shell <code>.sh</code> no Linux, usar o comando</p>
 <div class="fragment"><div class="line">$ sed -i &#39;s/\r$//&#39; scriptname.sh</div>
+</div><!-- fragment --><p>Caso prefira, no ambiente Windows, pode utilizar apenas o <code>Makefile</code></p>
+<div class="fragment"><div class="line">make</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md25"></a>
 Executando</h1>
 <h2><a class="anchor" id="autotoc_md26"></a>
