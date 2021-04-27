@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['_5fnovoidmethods_311',['_NoVoidMethods',['../class__NoVoidMethods.html',1,'']]]
+  ['array_5ftype_328',['Array_Type',['../structArray__Type.html',1,'']]],
+  ['attribute_5finfo_329',['Attribute_Info',['../structAttribute__Info.html',1,'']]]
 ];

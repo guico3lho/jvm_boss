@@ -54,7 +54,7 @@ Exibe o bytecode do arquivo .class (flag `` -e``)
 
 ``` bash
 # Linux e Windows
-$ ./jvm_boss -e test/HelloJava.class
+$ ./jvm_boss -e test/class/HelloJava.class
 
 # shell script
 $ ./read.sh HelloJava
@@ -66,7 +66,7 @@ Interpreta e executa o arquivo .class (flag `` -i``)
 
 ``` bash
 # Linux e Windows
-$ ./jvm_boss -i test/HelloJava.class
+$ ./jvm_boss -i test/class/HelloJava.class
 
 # shell script
 $ ./jvm.sh HelloJava

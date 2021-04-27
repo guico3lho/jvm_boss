@@ -1,12 +1,6 @@
 var searchData=
 [
-  ['main_2ecpp_245',['main.cpp',['../main_8cpp.html',1,'']]],
-  ['method_5farea_246',['Method_Area',['../structMethod__Area.html',1,'Method_Area'],['../method__area_8hpp.html#a44416f2b55312721c0967eb9b682cfc7',1,'Method_Area():&#160;method_area.hpp']]],
-  ['method_5farea_2ehpp_247',['method_area.hpp',['../method__area_8hpp.html',1,'']]],
-  ['method_5finfo_248',['Method_Info',['../structMethod__Info.html',1,'Method_Info'],['../method__info_8hpp.html#ab520d4c9cd668cce3af4f6c7494fa124',1,'Method_Info():&#160;method_info.hpp']]],
-  ['method_5finfo_2ecpp_249',['method_info.cpp',['../method__info_8cpp.html',1,'']]],
-  ['method_5finfo_2ehpp_250',['method_info.hpp',['../method__info_8hpp.html',1,'']]],
-  ['methodparams_251',['MethodParams',['../classMethodParams.html',1,'']]],
-  ['multianewarray_252',['multianewarray',['../instructions__extended_8hpp.html#a6fb87cc666b3d083357d03497fd2b7e2',1,'multianewarray(Frame *):&#160;instructions_extended.cpp'],['../instructions__extended_8cpp.html#a97d58f617839ade3f6415c1a5ceae8fb',1,'multianewarray(Frame *curr_frame):&#160;instructions_extended.cpp']]],
-  ['multiply_253',['Multiply',['../classMultiply.html',1,'']]]
+  ['new_5fobj_271',['new_obj',['../instructions__reference_8hpp.html#acf5a3e7d690f25c65a13348cacfe2f43',1,'new_obj(Frame *):&#160;instructions_reference.cpp'],['../instructions__reference_8cpp.html#ada51e3c14c3da651de7077f5b981ab11',1,'new_obj(Frame *curr_frame):&#160;instructions_reference.cpp']]],
+  ['newarray_272',['newarray',['../instructions__reference_8hpp.html#a3d71c08cd39a6519279333487832cd7e',1,'newarray(Frame *):&#160;instructions_reference.cpp'],['../instructions__reference_8cpp.html#a5d970c958facca808d3ac238a6f7c73c',1,'newarray(Frame *curr_frame):&#160;instructions_reference.cpp']]],
+  ['nop_273',['nop',['../instructions__constant_8hpp.html#a08b94c482bf5daeb5628b8ee6ddb5990',1,'instructions_constant.cpp']]]
 ];

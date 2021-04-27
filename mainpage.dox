@@ -64,7 +64,7 @@
  *
  * ``` bash
  * # Linux e Windows
- * $ ./jvm_boss -e test/HelloJava.class
+ * $ ./jvm_boss -e test/class/HelloJava.class
  *
  * # shell script
  * $ ./read.sh HelloJava
@@ -76,7 +76,7 @@
  *
  * ``` bash
  * # Linux e Windows
- * $ ./jvm_boss -i test/HelloJava.class
+ * $ ./jvm_boss -i test/class/HelloJava.class
  *
  * # shell script
  * $ ./jvm.sh HelloJava

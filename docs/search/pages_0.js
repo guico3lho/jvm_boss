@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jvm_20boss_641',['JVM Boss',['../index.html',1,'']]]
+  ['jvm_20boss_675',['JVM Boss',['../index.html',1,'']]]
 ];
