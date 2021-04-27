@@ -141,7 +141,7 @@ Funções</h2></td></tr>
 <tr class="memdesc:afc59387e7744b77b7662ca530abaa9b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dá push em duas words na pilha de operandos.  <a href="instructions__constant_8hpp.html#afc59387e7744b77b7662ca530abaa9b6">Mais...</a><br /></td></tr>
 <tr class="separator:afc59387e7744b77b7662ca530abaa9b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ad36bf4ba015c4d1afdf4477a55e08a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__constant_8hpp.html#a8ad36bf4ba015c4d1afdf4477a55e08a">ldc</a> (<a class="el" href="classFrame.html">Frame</a> *)</td></tr>
-<tr class="memdesc:a8ad36bf4ba015c4d1afdf4477a55e08a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coloca na pilha de operandos uma constante do tamanho de uma word.  <a href="instructions__constant_8hpp.html#a8ad36bf4ba015c4d1afdf4477a55e08a">Mais...</a><br /></td></tr>
+<tr class="memdesc:a8ad36bf4ba015c4d1afdf4477a55e08a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coloca na pilha de operandos uma constante.  <a href="instructions__constant_8hpp.html#a8ad36bf4ba015c4d1afdf4477a55e08a">Mais...</a><br /></td></tr>
 <tr class="separator:a8ad36bf4ba015c4d1afdf4477a55e08a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
@@ -166,7 +166,7 @@ Funções</h2></td></tr>
 <p>Empurra o valor NULL na pilha de operandos. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+    <tr><td class="paramname">curr_frame</td><td>ponteiro para o frame atual </td></tr>
   </table>
   </dd>
 </dl>
@@ -193,7 +193,7 @@ Funções</h2></td></tr>
 <p>Adiciona int composto por byte de argumento na pilha de operandos. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+    <tr><td class="paramname">curr_frame</td><td>Ponteiro para o frame atual </td></tr>
   </table>
   </dd>
 </dl>
@@ -220,7 +220,7 @@ Funções</h2></td></tr>
 <p>Adiciona a constante double 0 na pilha de operandos. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+    <tr><td class="paramname">curr_frame</td><td>Ponteiro para o frame atual </td></tr>
   </table>
   </dd>
 </dl>
@@ -247,7 +247,7 @@ Funções</h2></td></tr>
 <p>Adiciona a constante double 1 na pilha de operandos. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+    <tr><td class="paramname">curr_frame</td><td>Ponteiro para o frame atual </td></tr>
   </table>
   </dd>
 </dl>
@@ -274,7 +274,7 @@ Funções</h2></td></tr>
 <p>Adiciona a constante float 0 na pilha de operandos. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+    <tr><td class="paramname">curr_frame</td><td>Ponteiro para o frame atual </td></tr>
   </table>
   </dd>
 </dl>
@@ -301,7 +301,7 @@ Funções</h2></td></tr>
 <p>Adiciona a constante float 1 na pilha de operandos. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+    <tr><td class="paramname">curr_frame</td><td>Ponteiro para o frame atual </td></tr>
   </table>
   </dd>
 </dl>
@@ -328,7 +328,7 @@ Funções</h2></td></tr>
 <p>Adiciona a constante float 0 na pilha de operandos. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+    <tr><td class="paramname">curr_frame</td><td>Ponteiro para o frame atual </td></tr>
   </table>
   </dd>
 </dl>
@@ -355,7 +355,7 @@ Funções</h2></td></tr>
 <p>Adiciona 0 na pilha de operandos. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atualiconst_2 </td></tr>
+    <tr><td class="paramname">curr_frame</td><td>ponteiro para o frame atualiconst_2 </td></tr>
   </table>
   </dd>
 </dl>
@@ -382,7 +382,7 @@ Funções</h2></td></tr>
 <p>Adiciona 1 na pilha de operandos. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+    <tr><td class="paramname">curr_frame</td><td>ponteiro para o frame atual </td></tr>
   </table>
   </dd>
 </dl>
@@ -409,7 +409,7 @@ Funções</h2></td></tr>
 <p>Adiciona 2 na pilha de operandos. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+    <tr><td class="paramname">curr_frame</td><td>ponteiro para o frame atual </td></tr>
   </table>
   </dd>
 </dl>
@@ -436,7 +436,7 @@ Funções</h2></td></tr>
 <p>Adiciona 3 na pilha de operandos. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+    <tr><td class="paramname">curr_frame</td><td>ponteiro para o frame atual </td></tr>
   </table>
   </dd>
 </dl>
@@ -463,7 +463,7 @@ Funções</h2></td></tr>
 <p>Adiciona 4 na pilha de operandos. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+    <tr><td class="paramname">curr_frame</td><td>ponteiro para o frame atual </td></tr>
   </table>
   </dd>
 </dl>
@@ -490,7 +490,7 @@ Funções</h2></td></tr>
 <p>Adiciona 5 na pilha de operandos. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+    <tr><td class="paramname">curr_frame</td><td>ponteiro para o frame atual </td></tr>
   </table>
   </dd>
 </dl>
@@ -517,7 +517,7 @@ Funções</h2></td></tr>
 <p>Adiciona -1 na pilha de operandos. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+    <tr><td class="paramname">curr_frame</td><td>ponteiro para o frame atual </td></tr>
   </table>
   </dd>
 </dl>
@@ -544,7 +544,7 @@ Funções</h2></td></tr>
 <p>Adiciona a constante long 0 na pilha de opreandos. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+    <tr><td class="paramname">curr_frame</td><td>Ponteiro para o frame atual </td></tr>
   </table>
   </dd>
 </dl>
@@ -571,7 +571,7 @@ Funções</h2></td></tr>
 <p>Adiciona a constante long 1 na pilha de operandos. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+    <tr><td class="paramname">curr_frame</td><td>Ponteiro para o frame atual </td></tr>
   </table>
   </dd>
 </dl>
@@ -595,10 +595,10 @@ Funções</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Coloca na pilha de operandos uma constante do tamanho de uma word. </p>
+<p>Coloca na pilha de operandos uma constante. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+    <tr><td class="paramname">curr_frame</td><td>ponteiro para o frame atual </td></tr>
   </table>
   </dd>
 </dl>
@@ -625,7 +625,7 @@ Funções</h2></td></tr>
 <p>Dá push em duas words na pilha de operandos. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*curr_frame</td><td>ponteiro que aponta para o frame atual </td></tr>
+    <tr><td class="paramname">curr_frame</td><td>ponteiro que aponta para o frame atual </td></tr>
   </table>
   </dd>
 </dl>
@@ -652,7 +652,7 @@ Funções</h2></td></tr>
 <p>Dá push de uma word na pilha de operandos. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="classFrame.html" title="Estrutura de dados que armazena informações e resultados parciais, para executar ligação dinâmica,...">Frame</a></td><td>*curr_frame ponteiro que aponta para o frame atual </td></tr>
+    <tr><td class="paramname">curr_frame</td><td>ponteiro que aponta para o frame atual </td></tr>
   </table>
   </dd>
 </dl>
@@ -679,7 +679,7 @@ Funções</h2></td></tr>
 <p>Não faz nada, só incrementa pc. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*curr_frame</td><td>ponteiro para o frame atual </td></tr>
+    <tr><td class="paramname">curr_frame</td><td>ponteiro para o frame atual </td></tr>
   </table>
   </dd>
 </dl>
@@ -706,7 +706,7 @@ Funções</h2></td></tr>
 <p>Adiciona int composto por byte de argumento na pilha de operandos. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*curr_frame</td><td>Ponteiro para o frame atual </td></tr>
+    <tr><td class="paramname">curr_frame</td><td>Ponteiro para o frame atual </td></tr>
   </table>
   </dd>
 </dl>

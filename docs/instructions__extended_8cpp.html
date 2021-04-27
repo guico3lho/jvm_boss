@@ -85,8 +85,10 @@ Funções</h2></td></tr>
 <tr class="memdesc:a97d58f617839ade3f6415c1a5ceae8fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função para instrução multianewarray de array multidimensionais.  <a href="instructions__extended_8cpp.html#a97d58f617839ade3f6415c1a5ceae8fb">Mais...</a><br /></td></tr>
 <tr class="separator:a97d58f617839ade3f6415c1a5ceae8fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15048f59620429980fb2f5d480dd8384"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__extended_8cpp.html#a15048f59620429980fb2f5d480dd8384">ifnull</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:a15048f59620429980fb2f5d480dd8384"><td class="mdescLeft">&#160;</td><td class="mdescRight">Condição igual a nulo.  <a href="instructions__extended_8cpp.html#a15048f59620429980fb2f5d480dd8384">Mais...</a><br /></td></tr>
 <tr class="separator:a15048f59620429980fb2f5d480dd8384"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b697a843a91eac8612cf567b3e94f55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="instructions__extended_8cpp.html#a9b697a843a91eac8612cf567b3e94f55">ifnonnull</a> (<a class="el" href="classFrame.html">Frame</a> *curr_frame)</td></tr>
+<tr class="memdesc:a9b697a843a91eac8612cf567b3e94f55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Condição diferente de nulo.  <a href="instructions__extended_8cpp.html#a9b697a843a91eac8612cf567b3e94f55">Mais...</a><br /></td></tr>
 <tr class="separator:a9b697a843a91eac8612cf567b3e94f55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
@@ -107,12 +109,15 @@ Funções</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Condição diferente de nulo. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*curr_frame</td><td></td></tr>
+    <tr><td class="paramname">curr_frame</td><td>ponteiro para o frame atual </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
 
 </div>
 </div>
@@ -131,12 +136,15 @@ Funções</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Condição igual a nulo. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*curr_frame</td><td></td></tr>
+    <tr><td class="paramname">curr_frame</td><td>ponteiro para o frame atual </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
 
 </div>
 </div>
@@ -159,10 +167,11 @@ Funções</h2></td></tr>
 <p>Função para instrução multianewarray de array multidimensionais. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">curr_frame</td><td></td></tr>
+    <tr><td class="paramname">curr_frame</td><td>ponteiro para o frame atual </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Retorna</dt><dd>void </dd></dl>
 
 </div>
 </div>
@@ -201,12 +210,13 @@ Funções</h2></td></tr>
 <p>Define o tipo de dado dos operandos do newarray. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="structOperand.html" title="Estrutura de dados que armazena um operando.">Operand</a></td><td>*operand </td></tr>
-    <tr><td class="paramname">u4</td><td>count </td></tr>
-    <tr><td class="paramname">string</td><td>array_type </td></tr>
+    <tr><td class="paramname">operand</td><td></td></tr>
+    <tr><td class="paramname">count</td><td></td></tr>
+    <tr><td class="paramname">array_type</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Retorna</dt><dd>std::vector&lt;Operand*&gt;* </dd></dl>
 
 </div>
 </div>
