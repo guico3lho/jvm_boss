@@ -73,7 +73,7 @@ public:
 };
 
 Frame* top_frame();
-void push_frame(Frame *frame);
+void push_frame(Frame* frame);
 void pop_frame();
 
 u2 get_method_code_index(Frame*);
