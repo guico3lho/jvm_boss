@@ -1,6 +1,6 @@
 # Projeto JVM - Software Basico
 
-## [Wiki do Projeto](https://guicoelhodev.github.io/jvm_boss/)
+## [Wiki do Projeto](https://guico3lho.github.io/jvm_boss/)
 
 ![Diagrama](/diagrama.png)
 
